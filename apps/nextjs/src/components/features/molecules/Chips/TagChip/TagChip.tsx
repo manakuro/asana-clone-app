@@ -14,7 +14,7 @@ type Props = {
   iconProps?: Omit<IconProps, 'icon'>;
 };
 
-export const TagChip: React.FC<Props> = memo<Props>((props) => {
+export const TagChip = memo(function TagChip(props: Props) {
   const { taskTagId, variant, iconProps, onDelete } = props;
   const { taskTag } = useTaskTag(taskTagId);
   const { clickableHoverLightStyle } = useClickableHoverStyle();
@@ -70,4 +70,3 @@ export const TagChip: React.FC<Props> = memo<Props>((props) => {
     </Button>
   );
 });
-TagChip.displayName = 'TagChip';

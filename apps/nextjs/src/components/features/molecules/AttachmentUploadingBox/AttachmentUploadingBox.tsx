@@ -6,7 +6,6 @@ import {
   Text,
 } from '@/components/ui/atoms';
 import { transitions } from '@/styles';
-import type React from 'react';
 
 type Props = FlexProps & {
   size: Sizes;
@@ -29,7 +28,7 @@ const sizes = {
 } as const;
 type Sizes = keyof typeof sizes;
 
-export const AttachmentUploadingBox: React.FC<Props> = (props) => {
+export function AttachmentUploadingBox(props: Props) {
   const { size, color, ...rest } = props;
   const sizeStyle = sizes[size];
   const taskFile = props.file.name;
@@ -66,4 +65,4 @@ export const AttachmentUploadingBox: React.FC<Props> = (props) => {
       </Flex>
     </Flex>
   );
-};
+}

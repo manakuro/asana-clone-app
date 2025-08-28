@@ -1,6 +1,5 @@
 import type { IconButtonProps, TextProps } from '@/components/ui/atoms';
 import { LikeIconButton } from '@/components/ui/molecules';
-import type React from 'react';
 import { memo } from 'react';
 import { useLike } from './useLike';
 
@@ -10,7 +9,9 @@ type Props = {
   textStyle?: TextProps;
 } & Omit<IconButtonProps, 'aria-label' | 'icon' | 'textStyle'>;
 
-export const LikeTaskIconButton: React.FC<Props> = memo<Props>((props) => {
+export const LikeTaskIconButton = memo(function LikeTaskIconButton(
+  props: Props,
+) {
   const { taskId, show, ...rest } = props;
   const { hasAnyoneLiked, label, likeLength, onToggleLike } = useLike(props);
 
@@ -25,4 +26,3 @@ export const LikeTaskIconButton: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-LikeTaskIconButton.displayName = 'LikeTaskIconButton';

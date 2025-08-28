@@ -24,7 +24,7 @@ type Props = {
   badgeProps?: BadgeProps;
 };
 
-export const ProjectChip: React.FC<Props> = memo((props) => {
+export const ProjectChip = memo(function ProjectChip(props: Props) {
   const { projectId, onClick, onDelete } = props;
   const { project } = useProject(projectId);
   const { projectBaseColor } = useProjectBaseColor(project.projectBaseColorId);
@@ -90,4 +90,3 @@ export const ProjectChip: React.FC<Props> = memo((props) => {
     </Button>
   );
 });
-ProjectChip.displayName = 'ProjectChip';

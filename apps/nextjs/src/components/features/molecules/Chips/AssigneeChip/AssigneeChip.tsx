@@ -10,7 +10,7 @@ type Props = {
   onDelete?: (teammateId: string) => void;
 };
 
-export const AssigneeChip: React.FC<Props> = memo((props) => {
+export const AssigneeChip = memo(function AssigneeChip(props: Props) {
   const { teammateId, onDelete } = props;
   const { teammate } = useTeammate(teammateId);
   const { clickableHoverLightStyle } = useClickableHoverStyle();
@@ -62,4 +62,3 @@ export const AssigneeChip: React.FC<Props> = memo((props) => {
     </PopoverProfile>
   );
 });
-AssigneeChip.displayName = 'AssigneeChip';

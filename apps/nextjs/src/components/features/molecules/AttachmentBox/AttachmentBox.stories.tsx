@@ -20,9 +20,9 @@ export default {
   ],
 } as ComponentMeta<typeof Component>;
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...props()} {...args} />
-);
+const Template: ComponentStory<typeof Component> = function Template(args) {
+  return <Component {...props()} {...args} />;
+};
 
 export const PDF = Template.bind({});
 

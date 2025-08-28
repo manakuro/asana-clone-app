@@ -1,7 +1,6 @@
 import { Flex, type FlexProps, Icon, Link, Text } from '@/components/ui/atoms';
 import type { IconType } from '@/shared/icons';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { type Sizes, sizes } from './sizes';
 
 type Props = FlexProps & {
@@ -13,7 +12,7 @@ type Props = FlexProps & {
   isHovering?: boolean;
 };
 
-export const Component: React.FC<Props> = (props) => {
+export function Component(props: Props) {
   const { size, color, name, isHovering, fileName, src, icon, ...rest } = props;
   const sizeStyle = sizes[size];
 
@@ -51,4 +50,4 @@ export const Component: React.FC<Props> = (props) => {
       </Flex>
     </Flex>
   );
-};
+}

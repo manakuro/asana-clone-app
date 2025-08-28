@@ -7,14 +7,13 @@ import {
   Menu as OrganismsMenu,
 } from '@/components/ui/organisms/Menu';
 import { useTaskFile } from '@/store/entities/taskFile';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = MenuProps & {
   taskFileId: string;
 };
 
-export const Menu: React.FC<Props> = memo((props) => {
+export const Menu = memo(function Menu(props: Props) {
   const { taskFileId, ...rest } = props;
   const { setThumbnailMenuOpened, onDelete } = useThumbnailAttachmentContext();
   const { taskFile } = useTaskFile(taskFileId);
@@ -49,4 +48,3 @@ export const Menu: React.FC<Props> = memo((props) => {
     </OrganismsMenu>
   );
 });
-Menu.displayName = 'Menu';

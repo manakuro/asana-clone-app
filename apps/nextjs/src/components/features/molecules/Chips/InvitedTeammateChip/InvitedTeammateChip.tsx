@@ -15,7 +15,9 @@ type Props = {
   onClick?: () => void;
 };
 
-export const InvitedTeammateChip: React.FC<Props> = memo((props) => {
+export const InvitedTeammateChip = memo(function InvitedTeammateChip(
+  props: Props,
+) {
   const { teammate, onClick } = props;
   const { clickableHoverLightStyle } = useClickableHoverStyle();
 
@@ -73,4 +75,3 @@ export const InvitedTeammateChip: React.FC<Props> = memo((props) => {
     </Button>
   );
 });
-InvitedTeammateChip.displayName = 'InvitedTeammateChip';

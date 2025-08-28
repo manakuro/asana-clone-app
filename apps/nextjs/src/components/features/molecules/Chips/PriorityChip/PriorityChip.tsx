@@ -10,7 +10,7 @@ type Props = {
   disableStopPropagation?: boolean;
 };
 
-export const PriorityChip: React.FC<Props> = memo((props) => {
+export const PriorityChip = memo(function PriorityChip(props: Props) {
   const { taskPriorityId, onClick, disableStopPropagation } = props;
   const { taskPriority } = useTaskPriority(taskPriorityId);
 
@@ -40,4 +40,3 @@ export const PriorityChip: React.FC<Props> = memo((props) => {
     </Badge>
   );
 });
-PriorityChip.displayName = 'PriorityChip';

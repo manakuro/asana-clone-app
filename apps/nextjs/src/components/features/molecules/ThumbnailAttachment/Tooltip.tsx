@@ -5,7 +5,6 @@ import {
 } from '@/components/ui/molecules';
 import { useDisclosure } from '@/shared/chakra';
 import { useTaskFile } from '@/store/entities/taskFile';
-import type React from 'react';
 import { useEffect } from 'react';
 import { useThumbnailAttachmentContext } from './Provider';
 
@@ -13,7 +12,7 @@ type Props = Omit<TooltipProps, 'label' | 'size'> & {
   taskFileId: string;
 };
 
-export const Tooltip: React.FC<Props> = (props) => {
+export function Tooltip(props: Props) {
   const { taskFileId, children, ...rest } = props;
   const { taskFile } = useTaskFile(taskFileId);
   const tooltipDisclosure = useDisclosure();
@@ -41,4 +40,4 @@ export const Tooltip: React.FC<Props> = (props) => {
       <Flex>{children}</Flex>
     </MoleculesTooltip>
   );
-};
+}

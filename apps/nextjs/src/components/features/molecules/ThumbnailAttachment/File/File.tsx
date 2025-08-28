@@ -5,13 +5,12 @@ import { MenuButton } from '@/components/features/molecules/ThumbnailAttachment/
 import { useThumbnailAttachmentContext } from '@/components/features/molecules/ThumbnailAttachment/Provider';
 import { Tooltip } from '@/components/features/molecules/ThumbnailAttachment/Tooltip';
 import type { FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 
 type Props = FlexProps & {
   taskFileId: string;
 };
 
-export const File: React.FC<Props> = (props) => {
+export function File(props: Props) {
   const { taskFileId, ...rest } = props;
   const { isHovering } = useThumbnailAttachmentContext();
 
@@ -29,4 +28,4 @@ export const File: React.FC<Props> = (props) => {
       </Container>
     </Tooltip>
   );
-};
+}

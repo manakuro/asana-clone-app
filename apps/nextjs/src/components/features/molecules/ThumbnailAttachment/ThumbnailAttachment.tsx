@@ -1,7 +1,6 @@
 import type { FlexProps } from '@/components/ui/atoms';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { type TaskFile, useTaskFile } from '@/store/entities/taskFile';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { File } from './File';
 import { Image } from './Image';
@@ -13,7 +12,9 @@ type Props = FlexProps & {
   onDelete: (taskFile: TaskFile) => void;
 };
 
-export const ThumbnailAttachment: React.FC<Props> = memo<Props>((props) => {
+export const ThumbnailAttachment = memo(function ThumbnailAttachment(
+  props: Props,
+) {
   return (
     <Provider {...props}>
       <Component {...props} />
@@ -21,7 +22,7 @@ export const ThumbnailAttachment: React.FC<Props> = memo<Props>((props) => {
   );
 });
 
-export const Component: React.FC<Props> = memo((props) => {
+export const Component = memo(function Component(props: Props) {
   const { taskFileId, onOpenFileViewer, onDelete, ...rest } = props;
   const { taskFile } = useTaskFile(taskFileId);
 
@@ -39,5 +40,3 @@ export const Component: React.FC<Props> = memo((props) => {
     }
   }
 });
-Component.displayName = 'Component';
-ThumbnailAttachment.displayName = 'ThumbnailAttachment';

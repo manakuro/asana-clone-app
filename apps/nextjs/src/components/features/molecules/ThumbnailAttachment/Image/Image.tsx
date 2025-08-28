@@ -7,13 +7,12 @@ import { Tooltip } from '@/components/features/molecules/ThumbnailAttachment/Too
 import type { FlexProps } from '@/components/ui/atoms';
 import { Image as AtomsImage } from '@/components/ui/atoms';
 import { useTaskFile } from '@/store/entities/taskFile';
-import type React from 'react';
 
 type Props = FlexProps & {
   taskFileId: string;
 };
 
-export const Image: React.FC<Props> = (props) => {
+export function Image(props: Props) {
   const { taskFileId, ...rest } = props;
   const { taskFile } = useTaskFile(taskFileId);
   const { isHovering } = useThumbnailAttachmentContext();
@@ -36,4 +35,4 @@ export const Image: React.FC<Props> = (props) => {
       </Container>
     </Tooltip>
   );
-};
+}
