@@ -1,11 +1,10 @@
 import { useHomePageQuery } from '@/hooks/queries/app';
 import { useHomeTaskDetailPageQuery } from '@/hooks/queries/app';
 import { useMe } from '@/store/entities/me';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Component } from './Component';
 
-export const Container: React.FC = memo(() => {
+export const Container = memo(function Container() {
   const { loading } = useHomePageQuery();
   const { refetch } = useHomeTaskDetailPageQuery();
   const { me } = useMe();
@@ -21,5 +20,3 @@ export const Container: React.FC = memo(() => {
     <Component loading={loading} fetchTaskDetailQuery={fetchTaskDetailQuery} />
   );
 });
-
-Container.displayName = 'Container';

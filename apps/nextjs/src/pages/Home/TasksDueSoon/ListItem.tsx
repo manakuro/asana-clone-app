@@ -13,7 +13,7 @@ type Props = {
   taskId: string;
 };
 
-export const ListItem: React.FC<Props> = memo((props) => {
+export const ListItem = memo(function ListItem(props: Props) {
   const { taskId } = props;
   const { task, setTaskDueDate, setTask, resetTaskDueDate } = useTask(taskId);
   const { clickableHoverStyle } = useClickableHoverStyle();
@@ -103,4 +103,3 @@ export const ListItem: React.FC<Props> = memo((props) => {
     </Flex>
   );
 });
-ListItem.displayName = 'ListItem';

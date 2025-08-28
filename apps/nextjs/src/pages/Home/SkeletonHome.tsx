@@ -1,9 +1,8 @@
 import { Box, Flex, Skeleton, Stack } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 
 const TEXT_HEIGHT = '16px';
-export const SkeletonHome: React.FC = memo(() => {
+export const SkeletonHome = memo(function SkeletonHome() {
   return (
     <Box w="840px" mx="auto" py={10}>
       <Stack spacing={10}>
@@ -62,4 +61,3 @@ export const SkeletonHome: React.FC = memo(() => {
     </Box>
   );
 });
-SkeletonHome.displayName = 'SkeletonHome';

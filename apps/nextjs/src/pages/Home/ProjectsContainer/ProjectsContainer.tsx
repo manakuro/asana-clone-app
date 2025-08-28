@@ -21,7 +21,6 @@ import {
   AccordionItem,
   AccordionPanel,
 } from '@/components/ui/organisms/Accordion';
-import type React from 'react';
 import { memo, useState } from 'react';
 
 type Props = {
@@ -33,7 +32,7 @@ type Props = {
 };
 
 export const PADDING_X = 2;
-export const ProjectsContainer: React.FC<Props> = memo<Props>((props) => {
+export const ProjectsContainer = memo(function ProjectsContainer(props: Props) {
   const [listStatus, setListStatus] = useState<ProjectListStatus>(
     PROJECT_LIST_MENU_VIEW_AS_TILES,
   );
@@ -99,4 +98,3 @@ export const ProjectsContainer: React.FC<Props> = memo<Props>((props) => {
     </Accordion>
   );
 });
-ProjectsContainer.displayName = 'ProjectsContainer';

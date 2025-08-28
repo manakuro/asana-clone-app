@@ -1,12 +1,11 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { useHomeContentDom, useTasksListContentVerticalScroll } from './hooks';
 
 type Props = FlexProps;
 
 const HEADER_HEIGHT = 72;
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo(function Content(props: Props) {
   const { ref } = useHomeContentDom<HTMLDivElement>();
 
   useTasksListContentVerticalScroll({ listenOnEvent: true });
@@ -22,4 +21,3 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Content.displayName = 'Content';
