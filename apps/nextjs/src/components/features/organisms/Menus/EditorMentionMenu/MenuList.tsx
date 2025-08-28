@@ -57,4 +57,3 @@ export const MenuList: React.FC = memo(() => {
     </>
   );
 });
-MenuList.displayName = 'MenuList';

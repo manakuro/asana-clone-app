@@ -5,10 +5,10 @@ import { Column } from './Column';
 import { RemainingSpace } from './Columns';
 import { Provider, useTasksListHeaderContext } from './Provider';
 
-export const TasksListHeader = memo(function TasksListHeader(props) {
+export const TasksListHeader = memo(function TasksListHeader() {
   return (
     <Provider>
-      <Component {...props} />
+      <Component />
     </Provider>
   );
 });

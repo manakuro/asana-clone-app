@@ -8,7 +8,6 @@ import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import type { Project } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import type React from 'react';
 import { useCallback } from 'react';
 import { ArchiveProject } from './ArchiveProject';
 import { CopyProjectLink } from './CopyProjectLink';
@@ -32,7 +31,7 @@ type Props = {
   share?: boolean;
 };
 
-export const MenuList: React.FC<Props> = (props) => {
+export function MenuList(props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { ref } = useClickOutside<HTMLDivElement>(() => {
     onClose();
@@ -130,4 +129,4 @@ export const MenuList: React.FC<Props> = (props) => {
       </AtomsMenuList>
     </Portal>
   );
-};
+}

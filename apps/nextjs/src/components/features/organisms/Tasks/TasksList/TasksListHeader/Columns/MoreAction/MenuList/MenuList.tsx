@@ -2,7 +2,6 @@ import {
   MenuList as AtomsMenuList,
   MenuItem,
 } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -14,7 +13,7 @@ type Props = {
   disabledMoveRight?: boolean;
 };
 
-export const MenuList: React.FC<Props> = memo((props) => {
+export const MenuList = memo(function MenuList(props: Props) {
   const { onSort, onHideColumn, onMoveLeft, onMoveRight } = props;
   const handleSortBy = useCallback(() => {
     onSort?.();
@@ -45,4 +44,3 @@ export const MenuList: React.FC<Props> = memo((props) => {
     </AtomsMenuList>
   );
 });
-MenuList.displayName = 'MenuList';

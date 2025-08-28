@@ -12,7 +12,7 @@ type Props = {
   nextItem?: Item;
 };
 
-export const ListItemDetail: React.FC<Props> = (props) => {
+export function ListItemDetail(props: Props) {
   const { item, onToggle, nextItem, seeMoreComponent } = props;
 
   return (
@@ -33,4 +33,4 @@ export const ListItemDetail: React.FC<Props> = (props) => {
       />
     </Flex>
   );
-};
+}

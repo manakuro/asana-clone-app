@@ -1,6 +1,5 @@
 import { Flex, Icon, Text } from '@/components/ui/atoms';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { useCallback } from 'react';
 import { type Item, PADDING_X } from './GuideListItem';
 
@@ -9,7 +8,7 @@ type Props = {
   onToggle: (id: number) => void;
 };
 
-export const ListItem: React.FC<Props> = (props) => {
+export function ListItem(props: Props) {
   const { item, onToggle } = props;
   const icon = item.done ? item.iconDone : item.icon;
 
@@ -42,4 +41,4 @@ export const ListItem: React.FC<Props> = (props) => {
       <Icon icon="chevronRight" />
     </Flex>
   );
-};
+}

@@ -9,7 +9,7 @@ type Props = {
   index: number;
 };
 
-export const ProjectItem: React.FC<Props> = memo<Props>((props) => {
+export const ProjectItem = memo(function ProjectItem(props: Props) {
   const { project } = props;
 
   const handleClick = useCallback(
@@ -26,4 +26,3 @@ export const ProjectItem: React.FC<Props> = memo<Props>((props) => {
     </SearchMenuListItem>
   );
 });
-ProjectItem.displayName = 'ProjectItem';

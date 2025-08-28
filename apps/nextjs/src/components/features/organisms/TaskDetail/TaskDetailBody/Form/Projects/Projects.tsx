@@ -8,7 +8,6 @@ import {
   useProjectTaskIdsByTaskId,
 } from '@/store/entities/projectTask';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Content, Label, Row } from '../Row';
 import { Selected } from './Selected';
@@ -18,7 +17,7 @@ type Props = {
   taskId: string;
 };
 
-export const Projects: React.FC<Props> = memo<Props>((props) => {
+export const Projects = memo(function Projects(props: Props) {
   const { taskId } = props;
   const { isSubtask } = useTask(taskId);
   const { projectIds } = useProjectIdsByTaskId(taskId);
@@ -82,4 +81,3 @@ export const Projects: React.FC<Props> = memo<Props>((props) => {
     </Row>
   );
 });
-Projects.displayName = 'Projects';

@@ -3,7 +3,6 @@ import { Flex, type FlexProps, Text } from '@/components/ui/atoms';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import type { BaseEmoji } from '@/shared/emoji';
-import type React from 'react';
 import { memo, useCallback, useEffect, useMemo } from 'react';
 
 type Props = Override<
@@ -16,7 +15,7 @@ type Props = Override<
   index: number;
 };
 
-export const EmojiItem: React.FC<Props> = memo<Props>((props) => {
+export const EmojiItem = memo(function EmojiItem(props: Props) {
   const { onClick, ...rest } = props;
   const styles = useMenuStyle().item;
   const { ref, isHovering } = useHover();
@@ -54,4 +53,3 @@ export const EmojiItem: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-EmojiItem.displayName = 'EmojiItem';

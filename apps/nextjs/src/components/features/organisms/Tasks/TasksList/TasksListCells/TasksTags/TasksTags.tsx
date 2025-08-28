@@ -2,7 +2,6 @@ import { TagChip } from '@/components/features/molecules/Chips';
 import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
 import { type FlexProps, Stack } from '@/components/ui/atoms';
 import { useTaskTagIdsByTaskId } from '@/store/entities/taskTag';
-import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Input } from './Input';
 
@@ -11,7 +10,7 @@ type Props = FlexProps & {
   width: string;
 };
 
-export const TasksTags: React.FC<Props> = memo<Props>((props) => {
+export const TasksTags = memo(function TasksTags(props: Props) {
   const { taskTagIds } = useTaskTagIdsByTaskId(props.taskId);
   const [focused, setFocused] = useState<boolean>(false);
 
@@ -49,4 +48,3 @@ export const TasksTags: React.FC<Props> = memo<Props>((props) => {
     </TasksListCell>
   );
 });
-TasksTags.displayName = 'TasksProjects';

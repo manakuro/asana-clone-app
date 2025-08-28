@@ -13,7 +13,7 @@ type Props = {
   showAddButton: boolean;
   indented?: boolean;
 };
-export const TasksListSection: React.FC<Props> = memo<Props>((props) => {
+export const TasksListSection = memo(function TasksListSection(props: Props) {
   return (
     <Provider taskSectionId={props.taskSectionId} indented={props.indented}>
       <Component {...props} />
@@ -50,5 +50,3 @@ const Component: React.FC<Props> = memo<Props>((props) => {
     </>
   );
 });
-Component.displayName = 'Component';
-TasksListSection.displayName = 'TasksListSection';

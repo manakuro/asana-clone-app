@@ -13,7 +13,7 @@ type Props = {
   taskId: string;
 };
 
-export const MoreAction: React.FC<Props> = memo<Props>((props) => {
+export const MoreAction = memo(function MoreAction(props: Props) {
   const { onClose, onOpen, isOpen } = useDisclosure();
   const { isHovering } = useTasksBoardListItemContext();
   const { inputFocused } = useTasksBoardListItemInputContext();
@@ -59,4 +59,3 @@ export const MoreAction: React.FC<Props> = memo<Props>((props) => {
     </PortalManager>
   );
 });
-MoreAction.displayName = 'MoreAction';

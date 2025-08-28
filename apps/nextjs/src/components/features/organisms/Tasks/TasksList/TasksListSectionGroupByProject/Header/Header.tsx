@@ -1,6 +1,5 @@
 import { useTasksListContext } from '@/components/features/organisms/Tasks/TasksList/Provider';
 import { Flex, Icon, IconButton } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { TaskSectionName } from './TaskSectionName';
 
@@ -10,7 +9,7 @@ type Props = {
   isExpanded: boolean;
 };
 
-export const Header: React.FC<Props> = memo<Props>((props) => {
+export const Header = memo(function Header(props: Props) {
   const { onToggle, isExpanded } = props;
   const { stickyStyle } = useTasksListContext();
 
@@ -34,4 +33,3 @@ export const Header: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Header.displayName = 'Header';

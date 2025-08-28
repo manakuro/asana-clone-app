@@ -48,4 +48,3 @@ export const ListSortByProject: React.FC = memo(() => {
     </Flex>
   );
 });
-ListSortByProject.displayName = 'ListSortByProject';

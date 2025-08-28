@@ -15,4 +15,3 @@ export const Footer: React.FC = memo(() => {
     </List>
   );
 });
-Footer.displayName = 'Footer';

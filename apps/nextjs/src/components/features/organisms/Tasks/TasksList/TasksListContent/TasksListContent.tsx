@@ -1,6 +1,5 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useMainStyle } from '@/hooks';
-import type React from 'react';
 import { memo } from 'react';
 import { useTasksListContent } from './useTasksListContent';
 import { useTasksListContentHorizontalScroll } from './useTasksListContentHorizontalScroll';
@@ -10,7 +9,7 @@ import { useTasksListContentVerticalScroll } from './useTasksListContentVertical
 type Props = FlexProps;
 
 const maxH = 72 + 60;
-export const TasksListContent: React.FC<Props> = memo<Props>((props) => {
+export const TasksListContent = memo(function TasksListContent(props: Props) {
   const { maxW } = useMainStyle();
   const { ref } = useTasksListContent();
 
@@ -35,4 +34,3 @@ export const TasksListContent: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-TasksListContent.displayName = 'TasksListContent';

@@ -2,7 +2,6 @@ import { type FileUploaderParams, Flex } from '@/components/ui/atoms';
 import { Tooltip, type TooltipProps } from '@/components/ui/molecules';
 import { Menu } from '@/components/ui/organisms/Menu';
 import { useDisclosure } from '@/shared/chakra';
-import type React from 'react';
 import { type PropsWithChildren, memo } from 'react';
 import { MenuList } from './MenuList';
 
@@ -12,7 +11,7 @@ type Props = PropsWithChildren<{
   onUpload?: (files: FileUploaderParams) => void;
 }>;
 
-export const AttachmentMenu: React.FC<Props> = memo<Props>((props) => {
+export const AttachmentMenu = memo(function AttachmentMenu(props: Props) {
   const menuDisclosure = useDisclosure();
 
   return (
@@ -32,4 +31,3 @@ export const AttachmentMenu: React.FC<Props> = memo<Props>((props) => {
     </Menu>
   );
 });
-AttachmentMenu.displayName = 'AttachmentMenu';

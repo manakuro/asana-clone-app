@@ -6,7 +6,6 @@ import {
   ModalHeader,
 } from '@/components/ui/organisms/Modal';
 import { useProject, useProjectCommand } from '@/store/entities/project';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Description } from './Description';
 import { DescriptionTitle } from './DescriptionTitle';
@@ -19,7 +18,7 @@ type Props = {
   projectId: string;
 };
 
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo(function Content(props: Props) {
   const { projectId } = props;
   const { project } = useProject(projectId);
   const { setProject } = useProjectCommand();
@@ -64,4 +63,3 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
     </ModalContent>
   );
 });
-Content.displayName = 'Content';

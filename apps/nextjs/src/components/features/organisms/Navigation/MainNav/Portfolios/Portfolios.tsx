@@ -21,4 +21,3 @@ export const Portfolios: React.FC = memo(() => {
 
   return <NavListItem item={item} disabled />;
 });
-Portfolios.displayName = 'Portfolios';

@@ -9,7 +9,7 @@ type Props = {
   onMouseEnter: () => void;
 };
 
-export const Share: React.FC<Props> = (props) => {
+export function Share(props: Props) {
   const { projectId, onClose, onMouseEnter } = props;
   const { onOpen, setProjectId, setShareTab } = useShareProjectModal();
 
@@ -31,4 +31,4 @@ export const Share: React.FC<Props> = (props) => {
       Share
     </MenuItem>
   );
-};
+}

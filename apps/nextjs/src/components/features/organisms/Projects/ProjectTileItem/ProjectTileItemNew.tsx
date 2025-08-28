@@ -1,14 +1,13 @@
 import { ComingSoonTooltip } from '@/components/features/molecules/Tooltips';
 import { DashedBox, Flex, type FlexProps, Icon } from '@/components/ui/atoms';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { Container } from './Container';
 
 type Props = {
   containerStyle?: FlexProps;
 };
 
-export const ProjectTileItemNew: React.FC<Props> = (props) => {
+export function ProjectTileItemNew(props: Props) {
   const { containerStyle } = props;
   return (
     <Container name="New Project" {...containerStyle}>
@@ -30,4 +29,4 @@ export const ProjectTileItemNew: React.FC<Props> = (props) => {
       )}
     </Container>
   );
-};
+}

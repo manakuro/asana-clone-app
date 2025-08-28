@@ -16,7 +16,7 @@ type Props = {
   taskId: string;
 };
 
-export const DueDate: React.FC<Props> = memo<Props>((props) => {
+export const DueDate = memo(function DueDate(props: Props) {
   const { task, setTaskDueDate, resetTaskDueDate } = useTask(props.taskId);
   const { clickableHoverLightStyle } = useClickableHoverStyle();
   const { ref, isHovering } = useHover();
@@ -81,4 +81,3 @@ export const DueDate: React.FC<Props> = memo<Props>((props) => {
     </Row>
   );
 });
-DueDate.displayName = 'DueDate';

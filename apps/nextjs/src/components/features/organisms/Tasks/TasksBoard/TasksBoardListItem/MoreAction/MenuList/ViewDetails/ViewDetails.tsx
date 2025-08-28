@@ -2,7 +2,6 @@ import { useTaskDetailDrawer } from '@/components/features/organisms/TaskDetails
 import { useTasksRouter } from '@/components/features/organisms/Tasks/hooks';
 import { Icon } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 
 type Props = {
@@ -10,7 +9,7 @@ type Props = {
   onCloseMenu: () => void;
   taskId: string;
 };
-export const ViewDetails: React.FC<Props> = memo((props) => {
+export const ViewDetails = memo(function ViewDetails(props: Props) {
   const { onMouseEnter, onCloseMenu } = props;
   const { onClose } = useTaskDetailDrawer();
   const { navigateToTaskDetail, navigateToTaskBoard, isTaskDetailURLById } =
@@ -47,5 +46,3 @@ export const ViewDetails: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-
-ViewDetails.displayName = 'ViewDetails';

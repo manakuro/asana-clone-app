@@ -1,14 +1,13 @@
 import { PopoverProfile } from '@/components/features/organisms/Popovers';
 import { Avatar, type AvatarProps } from '@/components/ui/atoms';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 
 type Props = {
   teammateId: string;
   showProfile?: boolean;
 } & AvatarProps;
 
-export const TeammateAvatar: React.FC<Props> = (props) => {
+export function TeammateAvatar(props: Props) {
   const { teammateId, showProfile, ...rest } = props;
   const { teammate } = useTeammate(teammateId);
 
@@ -45,4 +44,4 @@ export const TeammateAvatar: React.FC<Props> = (props) => {
       />
     </PopoverProfile>
   );
-};
+}

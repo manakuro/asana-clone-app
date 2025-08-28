@@ -18,4 +18,3 @@ export const ListBasic: React.FC = memo(() => {
     </>
   );
 });
-ListBasic.displayName = 'ListBasic';

@@ -3,7 +3,6 @@ import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/T
 import { Flex, type FlexProps, Icon } from '@/components/ui/atoms';
 import { useHover } from '@/hooks/useHover';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Menu } from './Menu';
 
@@ -12,7 +11,7 @@ type Props = FlexProps & {
   width: string;
 };
 
-export const TasksPriority: React.FC<Props> = memo<Props>((props) => {
+export const TasksPriority = memo(function TasksPriority(props: Props) {
   const { taskId } = props;
   const { task } = useTask(taskId);
   const [focused, setFocused] = useState(false);
@@ -65,4 +64,3 @@ export const TasksPriority: React.FC<Props> = memo<Props>((props) => {
     </TasksListCell>
   );
 });
-TasksPriority.displayName = 'TasksPriority';

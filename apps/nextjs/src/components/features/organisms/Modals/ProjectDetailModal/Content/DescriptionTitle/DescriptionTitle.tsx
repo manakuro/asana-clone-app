@@ -1,6 +1,5 @@
 import { Flex } from '@/components/ui/atoms';
 import { useDescriptionTitle } from '@/hooks/pages/projects';
-import type React from 'react';
 import { memo } from 'react';
 import { Input } from './Input';
 
@@ -8,7 +7,7 @@ type Props = {
   projectId: string;
 };
 
-export const DescriptionTitle: React.FC<Props> = memo<Props>((props) => {
+export const DescriptionTitle = memo(function DescriptionTitle(props: Props) {
   const { descriptionTitle, onChange } = useDescriptionTitle(props);
 
   return (
@@ -17,4 +16,3 @@ export const DescriptionTitle: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-DescriptionTitle.displayName = 'DescriptionTitle';

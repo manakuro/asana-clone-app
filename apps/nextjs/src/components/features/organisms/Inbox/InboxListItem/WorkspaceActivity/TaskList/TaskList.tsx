@@ -1,6 +1,5 @@
 import { useWorkspaceActivityTaskIds } from '@/components/features/organisms/Inbox/hooks';
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { TaskListItem } from '../TaskListItem';
 
@@ -8,7 +7,7 @@ type Props = FlexProps & {
   workspaceActivityId: string;
 };
 
-export const TaskList: React.FC<Props> = memo<Props>((props) => {
+export const TaskList = memo(function TaskList(props: Props) {
   const { workspaceActivityId } = props;
   const { taskIds } = useWorkspaceActivityTaskIds(workspaceActivityId);
 
@@ -25,5 +24,3 @@ export const TaskList: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-
-TaskList.displayName = 'TaskList';

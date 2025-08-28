@@ -6,7 +6,7 @@ import { memo, useCallback } from 'react';
 type Props = {
   showExpandIcon: boolean;
 };
-export const Component: React.FC<Props> = memo<Props>((props) => {
+export const Component = memo(function Component(props: Props) {
   const { isSubtaskExpanded, onToggleExpandSubtask } = useSubtaskListContext();
 
   const handleClick = useCallback(
@@ -37,4 +37,3 @@ export const Component: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Component.displayName = 'Component';

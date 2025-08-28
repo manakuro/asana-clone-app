@@ -6,14 +6,13 @@ import {
   Text,
 } from '@/components/ui/atoms';
 import { useTaskFile } from '@/store/entities/taskFile';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = FlexProps & {
   taskFileId: string;
 };
 
-export const Image: React.FC<Props> = memo<Props>((props) => {
+export const Image = memo(function Image(props: Props) {
   const { onClick, taskFileId, ...rest } = props;
   const { taskFile } = useTaskFile(taskFileId);
 
@@ -57,4 +56,3 @@ export const Image: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Image.displayName = 'Image';

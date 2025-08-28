@@ -30,4 +30,3 @@ export const LeaveTask: React.FC = memo(() => {
     </Flex>
   );
 });
-LeaveTask.displayName = 'LeaveTask';

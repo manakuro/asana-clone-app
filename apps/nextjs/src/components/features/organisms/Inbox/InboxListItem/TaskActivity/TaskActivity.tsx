@@ -1,5 +1,4 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { Container } from '../Container';
 import { ActionButtons } from './ActionButtons';
@@ -11,7 +10,7 @@ type Props = FlexProps & {
   taskActivityId: string;
 };
 
-export const TaskActivity: React.FC<Props> = memo<Props>((props) => {
+export const TaskActivity = memo(function TaskActivity(props: Props) {
   const { taskActivityId } = props;
 
   return (
@@ -26,5 +25,3 @@ export const TaskActivity: React.FC<Props> = memo<Props>((props) => {
     </Container>
   );
 });
-
-TaskActivity.displayName = 'TaskActivityList';

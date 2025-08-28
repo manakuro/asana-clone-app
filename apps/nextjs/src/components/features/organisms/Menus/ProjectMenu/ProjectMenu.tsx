@@ -4,7 +4,6 @@ import {
   SearchMenuTrigger,
 } from '@/components/features/organisms/Menus/SearchMenu';
 import type { PopoverProps } from '@/components/ui/organisms/Popover';
-import type React from 'react';
 import { memo } from 'react';
 import { Content } from './Content';
 
@@ -16,7 +15,7 @@ type Props = PopoverProps & {
   immediate?: boolean;
 };
 
-export const ProjectMenu: React.FC<Props> = memo<Props>((props) => {
+export const ProjectMenu = memo(function ProjectMenu(props: Props) {
   const { onClosed, queryText, isOpen, onClose, immediate, ...rest } = props;
 
   return (
@@ -36,4 +35,3 @@ export const ProjectMenu: React.FC<Props> = memo<Props>((props) => {
     </SearchMenu>
   );
 });
-ProjectMenu.displayName = 'ProjectMenu';

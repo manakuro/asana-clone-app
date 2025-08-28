@@ -5,7 +5,7 @@ import { type PropsWithChildren, memo } from 'react';
 type Props = PropsWithChildren;
 
 export const ProjectTeammateMenuTrigger: React.FC<Props> = memo<Props>(
-  function ProjectTeammateMenuTrigger(props) {
+  function ProjectTeammateMenuTrigger(props: Props) {
     return <PopoverTrigger>{props.children}</PopoverTrigger>;
   },
 );

@@ -1,7 +1,6 @@
 import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useHover } from '@/hooks/useHover';
-import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Content } from './Content';
 
@@ -10,7 +9,7 @@ type Props = FlexProps & {
   width: string;
 };
 
-export const TasksAssignee: React.FC<Props> = memo<Props>((props) => {
+export const TasksAssignee = memo(function TasksAssignee(props: Props) {
   const { ref, isHovering } = useHover();
   const [focused, setFocused] = useState(false);
 
@@ -45,4 +44,3 @@ export const TasksAssignee: React.FC<Props> = memo<Props>((props) => {
     </TasksListCell>
   );
 });
-TasksAssignee.displayName = 'TasksAssignee';

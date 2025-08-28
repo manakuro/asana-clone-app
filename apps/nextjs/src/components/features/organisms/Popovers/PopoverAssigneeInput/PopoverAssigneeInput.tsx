@@ -14,7 +14,7 @@ type Props = {
   onClosed?: () => void;
 } & PopoverProps;
 
-export const PopoverAssigneeInput: React.FC<Props> = (props) => {
+export function PopoverAssigneeInput(props: Props) {
   const { taskId } = props;
   const popoverDisclosure = useDisclosure();
   const inputRef = React.useRef<HTMLInputElement | null>(null);
@@ -54,4 +54,4 @@ export const PopoverAssigneeInput: React.FC<Props> = (props) => {
       </Popover>
     </PortalManager>
   );
-};
+}

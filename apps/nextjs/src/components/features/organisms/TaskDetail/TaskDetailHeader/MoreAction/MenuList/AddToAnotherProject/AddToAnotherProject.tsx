@@ -1,7 +1,6 @@
 import { useTaskDetailProjectsInput } from '@/components/features/organisms/TaskDetail/hooks';
 import { Icon } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -10,7 +9,9 @@ type Props = {
   taskId: string;
 };
 
-export const AddToAnotherProject: React.FC<Props> = memo((props) => {
+export const AddToAnotherProject = memo(function AddToAnotherProject(
+  props: Props,
+) {
   const { onMouseEnter, onClose } = props;
   const inputDisclosure = useTaskDetailProjectsInput();
 
@@ -30,4 +31,3 @@ export const AddToAnotherProject: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-AddToAnotherProject.displayName = 'AddToAnotherProject';

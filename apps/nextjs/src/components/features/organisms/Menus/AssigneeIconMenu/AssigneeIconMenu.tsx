@@ -4,7 +4,6 @@ import { Icon } from '@/components/ui/atoms';
 import { Tooltip } from '@/components/ui/molecules';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 
 type Props = {
@@ -15,7 +14,7 @@ type Props = {
   showIcon: boolean;
 };
 
-export const AssigneeIconMenu: React.FC<Props> = memo<Props>((props) => {
+export const AssigneeIconMenu = memo(function AssigneeIconMenu(props: Props) {
   const { taskId, assigneeId, onAssigneeClosed, onAssigneeOpened, showIcon } =
     props;
   const { clickableHoverLightStyle } = useClickableHoverStyle();
@@ -65,4 +64,3 @@ export const AssigneeIconMenu: React.FC<Props> = memo<Props>((props) => {
     </PopoverAssigneeInput>
   );
 });
-AssigneeIconMenu.displayName = 'AssigneeIconMenu';

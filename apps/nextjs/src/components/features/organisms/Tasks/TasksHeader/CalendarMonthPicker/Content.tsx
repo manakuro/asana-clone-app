@@ -13,14 +13,13 @@ import {
 } from '@/components/ui/organisms/Popover';
 import { useClickOutside, useClickableHoverStyle } from '@/hooks';
 import { dateFns } from '@/shared/dateFns';
-import type React from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 type Props = {
   onClose: () => void;
 } & PopoverProps;
 
-export const Content: React.FC<Props> = (props) => {
+export function Content(props: Props) {
   const { onClose } = props;
   const { ref } = useClickOutside<HTMLDivElement>(onClose);
   const { currentDate, setMonth, scrollToDate } = useTasksCalendarContext();
@@ -122,4 +121,4 @@ export const Content: React.FC<Props> = (props) => {
       </PopoverContent>
     </Portal>
   );
-};
+}

@@ -1,7 +1,6 @@
 import { Flex, type FlexProps, Stack } from '@/components/ui/atoms';
 import { useMainStyle } from '@/hooks';
 import type { ChakraProps } from '@/shared/chakra';
-import type React from 'react';
 import { type PropsWithChildren, memo, useMemo } from 'react';
 import { AddButton } from './AddButton';
 import { MyAccountAvatar } from './MyAccountAvatar';
@@ -11,7 +10,7 @@ type Props = PropsWithChildren<{
   sticky?: boolean;
   isScrolling?: boolean;
 }>;
-export const MainHeader: React.FC<Props> = memo<Props>((props) => {
+export const MainHeader = memo(function MainHeader(props: Props) {
   const { sticky, isScrolling } = props;
   const { paddingX } = useMainStyle();
   const stickyStyle = useMemo((): FlexProps => {
@@ -58,4 +57,3 @@ export const MainHeader: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-MainHeader.displayName = 'MainHeader';

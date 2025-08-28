@@ -46,4 +46,3 @@ export const SortMenu = <T extends TaskListSortStatusCodeValue>(
     </MenuSelect>
   );
 };
-SortMenu.displayName = 'SortMenu';

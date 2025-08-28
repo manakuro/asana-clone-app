@@ -1,11 +1,12 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 
 type Props = FlexProps;
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fir', 'Sat'];
-export const TasksCalendarListHeader: React.FC<Props> = memo<Props>((props) => {
+export const TasksCalendarListHeader = memo(function TasksCalendarListHeader(
+  props: Props,
+) {
   const weekdays = useMemo(() => {
     return WEEKDAYS;
   }, []);
@@ -38,4 +39,3 @@ export const TasksCalendarListHeader: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-TasksCalendarListHeader.displayName = 'TasksCalendarListHeader';

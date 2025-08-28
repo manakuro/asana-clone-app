@@ -20,4 +20,3 @@ export const Home: React.FC = memo(() => {
 
   return <NavListItem item={item} />;
 });
-Home.displayName = 'Home';

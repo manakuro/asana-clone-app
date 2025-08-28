@@ -7,7 +7,6 @@ import {
 } from '@/components/features/organisms/Menus/SearchMenu';
 import { Divider, Icon, Text } from '@/components/ui/atoms';
 import type { Tag } from '@/store/entities/tag';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { TagItem } from './TagItem';
 import { useSearchTagsQuery } from './useSearchTagsQuery';
@@ -19,7 +18,7 @@ type Props = {
   onClosed?: () => void;
 };
 
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo(function Content(props: Props) {
   const { queryText, onSelect, onClose, onClosed } = props;
   const { refetch, tags, loading: loadingQuery } = useSearchTagsQuery();
 
@@ -68,4 +67,3 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
     </>
   );
 });
-Content.displayName = 'Content';

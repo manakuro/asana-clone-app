@@ -6,7 +6,6 @@ import {
   MenuList,
   MenuOptionGroup,
 } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -20,7 +19,7 @@ export type ProjectListStatus =
   | typeof PROJECT_LIST_MENU_VIEW_AS_TILES
   | typeof PROJECT_LIST_MENU_VIEW_AS_LIST;
 
-export const ProjectListMenu: React.FC<Props> = memo<Props>((props) => {
+export const ProjectListMenu = memo(function ProjectListMenu(props: Props) {
   const handleClickViewAsTitles = useCallback(() => {
     props.onChange(PROJECT_LIST_MENU_VIEW_AS_TILES);
   }, [props]);
@@ -58,4 +57,3 @@ export const ProjectListMenu: React.FC<Props> = memo<Props>((props) => {
     </Menu>
   );
 });
-ProjectListMenu.displayName = 'ProjectListMenu';

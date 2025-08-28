@@ -1,5 +1,4 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -9,7 +8,7 @@ type Props = {
   dateString: string;
 } & FlexProps;
 
-export const ScrollUpObserver: React.FC<Props> = memo<Props>((props) => {
+export const ScrollUpObserver = memo(function ScrollUpObserver(props: Props) {
   const { observeScrollUp, onVisible, dateString, ...rest } = props;
   const { ref, inView } = useInView({
     skip: !observeScrollUp,
@@ -29,4 +28,3 @@ export const ScrollUpObserver: React.FC<Props> = memo<Props>((props) => {
 
   return <Flex {...rest} ref={ref} flex={1} />;
 });
-ScrollUpObserver.displayName = 'ScrollUpObserver';

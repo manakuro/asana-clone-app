@@ -1,14 +1,13 @@
 import { useTasksTask } from '@/components/features/organisms/Tasks/hooks';
 import { Icon, IconButton } from '@/components/ui/atoms';
 import { Tooltip } from '@/components/ui/molecules';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
   taskSectionId: string;
 };
 
-export const AddTaskButton: React.FC<Props> = memo((props) => {
+export const AddTaskButton = memo(function AddTaskButton(props: Props) {
   const { addTask } = useTasksTask();
 
   const handleClick = useCallback(() => {
@@ -33,4 +32,3 @@ export const AddTaskButton: React.FC<Props> = memo((props) => {
     </Tooltip>
   );
 });
-AddTaskButton.displayName = 'AddTaskButton';

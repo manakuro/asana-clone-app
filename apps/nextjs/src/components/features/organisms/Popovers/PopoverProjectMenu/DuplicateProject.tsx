@@ -8,7 +8,7 @@ type Props = {
   onMouseEnter: () => void;
 };
 
-export const DuplicateProject: React.FC<Props> = (props) => {
+export function DuplicateProject(props: Props) {
   const { onClose, onMouseEnter } = props;
 
   const handleClick = useCallback(
@@ -25,4 +25,4 @@ export const DuplicateProject: React.FC<Props> = (props) => {
       Duplicate Project
     </MenuItem>
   );
-};
+}

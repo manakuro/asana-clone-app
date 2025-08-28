@@ -5,7 +5,6 @@ import {
 } from '@/components/features/organisms/Menus/SearchMenu';
 import type { PopoverProps } from '@/components/ui/organisms/Popover';
 import type { Tag } from '@/store/entities/tag';
-import type React from 'react';
 import { memo } from 'react';
 import { Content } from './Content';
 
@@ -16,7 +15,7 @@ type Props = PopoverProps & {
   onClosed?: () => void;
 };
 
-export const TagMenu: React.FC<Props> = memo<Props>((props) => {
+export const TagMenu = memo(function TagMenu(props: Props) {
   const { onClosed, queryText, isOpen, onClose, ...rest } = props;
 
   return (
@@ -35,4 +34,3 @@ export const TagMenu: React.FC<Props> = memo<Props>((props) => {
     </SearchMenu>
   );
 });
-TagMenu.displayName = 'TagMenu';

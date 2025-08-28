@@ -29,4 +29,3 @@ export const TasksListLayout: React.FC = memo(() => {
     }
   }
 });
-TasksListLayout.displayName = 'TasksListLayout';

@@ -1,6 +1,5 @@
 import { Box, Button, Flex, Icon, Stack } from '@/components/ui/atoms';
 import { useProjectTask } from '@/store/entities/projectTask';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { ProjectButton } from './ProjectButton';
 import { Section } from './Section';
@@ -16,7 +15,7 @@ type Props = {
   onClick: () => void;
 };
 
-export const Selected: React.FC<Props> = memo<Props>((props) => {
+export const Selected = memo(function Selected(props: Props) {
   const { taskId, projectTaskId, onChange, onDelete, onClick } = props;
   const { projectTask } = useProjectTask(projectTaskId);
 
@@ -62,4 +61,3 @@ export const Selected: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Selected.displayName = 'Selected';

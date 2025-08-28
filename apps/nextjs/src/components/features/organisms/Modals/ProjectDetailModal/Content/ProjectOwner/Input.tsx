@@ -12,7 +12,7 @@ type Props = {
   onClose: () => void;
 };
 
-export const Input: React.FC<Props> = memo<Props>((props) => {
+export const Input = memo(function Input(props: Props) {
   const { projectId, onClose } = props;
   const { ref } = useClickOutside<HTMLInputElement>(onClose, {
     hasClickedOutside: (e, helpers) => {
@@ -69,4 +69,3 @@ export const Input: React.FC<Props> = memo<Props>((props) => {
     </AssignProjectOwnerMenu>
   );
 });
-Input.displayName = 'Input';

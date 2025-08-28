@@ -1,13 +1,12 @@
 import { AttachmentBox } from '@/components/features/molecules/AttachmentBox';
 import type { FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = FlexProps & {
   taskFileId: string;
 };
 
-export const File: React.FC<Props> = memo<Props>((props) => {
+export const File = memo(function File(props: Props) {
   return (
     <AttachmentBox
       size="lg"
@@ -20,4 +19,3 @@ export const File: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-File.displayName = 'File';

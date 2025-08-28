@@ -1,6 +1,5 @@
 import { Icon } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useTasksBoardListItemInputContext } from '../../../Provider';
 
@@ -8,7 +7,7 @@ type Props = {
   onMouseEnter: () => void;
   onCloseMenu: () => void;
 };
-export const EditTaskName: React.FC<Props> = memo((props) => {
+export const EditTaskName = memo(function EditTaskName(props: Props) {
   const { onInputSelect } = useTasksBoardListItemInputContext();
   const { onMouseEnter, onCloseMenu } = props;
 
@@ -27,5 +26,3 @@ export const EditTaskName: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-
-EditTaskName.displayName = 'EditTaskName';

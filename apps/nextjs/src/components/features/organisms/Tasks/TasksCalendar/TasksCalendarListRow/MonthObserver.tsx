@@ -1,5 +1,4 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useTasksCalendarContext } from '../Provider';
@@ -9,7 +8,7 @@ type Props = {
   dateString: string;
 } & FlexProps;
 
-export const MonthObserver: React.FC<Props> = memo<Props>((props) => {
+export const MonthObserver = memo(function MonthObserver(props: Props) {
   const { isSecondRowOfMonth, id, dateString, ...rest } = props;
   const { ref, entry } = useInView({
     skip: !isSecondRowOfMonth,
@@ -50,4 +49,3 @@ export const MonthObserver: React.FC<Props> = memo<Props>((props) => {
 
   return <Flex {...rest} ref={ref} flex={1} />;
 });
-MonthObserver.displayName = 'MonthObserver';

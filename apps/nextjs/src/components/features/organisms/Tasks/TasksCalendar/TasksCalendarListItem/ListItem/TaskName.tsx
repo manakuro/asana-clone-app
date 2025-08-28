@@ -1,13 +1,12 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
   taskId: string;
 } & FlexProps;
 
-export const TaskName: React.FC<Props> = memo<Props>((props) => {
+export const TaskName = memo(function TaskName(props: Props) {
   const { taskId } = props;
   const { task } = useTask(taskId);
 
@@ -24,4 +23,3 @@ export const TaskName: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-TaskName.displayName = 'TaskName';

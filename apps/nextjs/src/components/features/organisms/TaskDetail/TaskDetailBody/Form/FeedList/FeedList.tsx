@@ -3,7 +3,6 @@ import {
   useTaskFeedIdsByTaskId,
   useTaskFeedsPinnedIds,
 } from '@/store/entities/taskFeed';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import { FeedListItem } from './FeedListItem';
 
@@ -13,7 +12,7 @@ type Props = {
 
 export const FEED_LIST_CONTAINER_ID = 'FEED_LIST_CONTAINER_ID';
 
-export const FeedList: React.FC<Props> = memo<Props>((props) => {
+export const FeedList = memo(function FeedList(props: Props) {
   const { taskFeedIds } = useTaskFeedIdsByTaskId(props.taskId);
   const { taskFeedPinnedIds } = useTaskFeedsPinnedIds(props.taskId);
   const anyFeedIds = useMemo(
@@ -43,4 +42,3 @@ export const FeedList: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-FeedList.displayName = 'FeedList';

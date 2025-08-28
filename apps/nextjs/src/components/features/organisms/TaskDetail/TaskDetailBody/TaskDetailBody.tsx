@@ -1,6 +1,5 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
 import { Flex } from '@/components/ui/atoms';
-import type React from 'react';
 import type { Ref } from 'react';
 import { memo, useEffect } from 'react';
 import { Form } from './Form';
@@ -13,7 +12,7 @@ type Props = {
   loading?: boolean;
 };
 
-export const TaskDetailBody: React.FC<Props> = memo<Props>((props) => {
+export const TaskDetailBody = memo(function TaskDetailBody(props: Props) {
   const { ref } = useTaskDetailBody();
   const { scrollId, taskId, resetScrollId } = useTaskDetail();
 
@@ -47,4 +46,3 @@ export const TaskDetailBody: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-TaskDetailBody.displayName = 'TaskDetailBody';

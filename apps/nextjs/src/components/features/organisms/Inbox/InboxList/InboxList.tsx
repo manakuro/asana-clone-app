@@ -3,14 +3,13 @@ import {
   useInboxListItemIds,
 } from '@/components/features/organisms/Inbox';
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import { InboxListSection } from '../InboxListSection';
 import { useInboxList } from './useInboxList';
 
 type Props = FlexProps;
 
-export const InboxList: React.FC<Props> = memo<Props>((props) => {
+export const InboxList = memo(function InboxList(props: Props) {
   const { listItemIds } = useInboxListItemIds();
   const firstListItemId = useMemo(() => {
     const key =
@@ -40,5 +39,3 @@ export const InboxList: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-
-InboxList.displayName = 'InboxList';

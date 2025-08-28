@@ -18,7 +18,7 @@ type Props = {
   onSort?: () => void;
 } & FlexProps;
 
-export const Container: React.FC<Props> = memo<Props>((props) => {
+export const Container = memo(function Container(props: Props) {
   const {
     tasksTaskColumnId,
     isFirst,
@@ -89,7 +89,6 @@ export const Container: React.FC<Props> = memo<Props>((props) => {
     </TasksListCell>
   );
 });
-Container.displayName = 'Container';
 
 const useMoreAction = ({ isHovering }: { isHovering: boolean }) => {
   const stopPropagation = useCallback((e: React.MouseEvent<HTMLDivElement>) => {

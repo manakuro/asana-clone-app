@@ -4,14 +4,13 @@ import {
   useFavoriteProjectIds,
   useFavoriteProjectIdsCommand,
 } from '@/store/entities/favoriteProjectIds';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
   projectId: string;
 };
 
-export const FavoriteButton: React.FC<Props> = memo((props) => {
+export const FavoriteButton = memo(function FavoriteButton(props: Props) {
   const { projectId } = props;
   const { clickableHoverLightStyle } = useClickableHoverStyle();
   const { setFavoriteProjectId } = useFavoriteProjectIdsCommand();
@@ -28,4 +27,3 @@ export const FavoriteButton: React.FC<Props> = memo((props) => {
     />
   );
 });
-FavoriteButton.displayName = 'FavoriteButton';

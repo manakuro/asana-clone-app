@@ -1,10 +1,11 @@
 import { Heading, type HeadingProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = HeadingProps;
 
-export const CustomNavListHeader: React.FC<Props> = memo((props) => {
+export const CustomNavListHeader = memo(function CustomNavListHeader(
+  props: Props,
+) {
   return (
     <Heading
       as="h4"
@@ -16,4 +17,3 @@ export const CustomNavListHeader: React.FC<Props> = memo((props) => {
     />
   );
 });
-CustomNavListHeader.displayName = 'CustomNavListHeader';

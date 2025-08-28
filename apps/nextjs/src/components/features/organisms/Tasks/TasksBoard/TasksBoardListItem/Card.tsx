@@ -9,7 +9,7 @@ import { useTasksBoardListItemContext } from './Provider';
 type Props = FlexProps & {
   taskId: string;
 };
-export const Card: React.FC<Props> = memo<Props>((props) => {
+export const Card = memo(function Card(props: Props) {
   const { isOpening } = useTasksBoardListItemContext();
 
   return (
@@ -64,5 +64,3 @@ const Component: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Component.displayName = 'Component';
-Card.displayName = 'Card';

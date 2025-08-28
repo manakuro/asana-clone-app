@@ -2,13 +2,12 @@ import { Box, Flex, Image, Text } from '@/components/ui/atoms';
 import { PdfViewer } from '@/components/ui/organisms/PdfViewer';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { useTaskFile } from '@/store/entities/taskFile';
-import type React from 'react';
 
 type Props = {
   taskFileId: string;
 };
 
-export const ListItem: React.FC<Props> = (props) => {
+export function ListItem(props: Props) {
   const { taskFileId } = props;
   const { taskFile } = useTaskFile(taskFileId);
 
@@ -44,4 +43,4 @@ export const ListItem: React.FC<Props> = (props) => {
     }
   }
   return null;
-};
+}

@@ -1,6 +1,5 @@
 import { Text, type TextProps } from '@/components/ui/atoms';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
   isTransitioning: boolean;
 } & TextProps;
 
-export const TaskName: React.FC<Props> = memo((props) => {
+export const TaskName = memo(function TaskName(props: Props) {
   const { taskId, isTransitioning, ...rest } = props;
   const { task } = useTask(taskId);
   const style = useMemo(
@@ -33,4 +32,3 @@ export const TaskName: React.FC<Props> = memo((props) => {
     </Text>
   );
 });
-TaskName.displayName = 'TaskName';

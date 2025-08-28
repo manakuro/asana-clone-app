@@ -6,7 +6,6 @@ import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import type { Mention } from '@/store/entities/mention';
-import type React from 'react';
 import { memo, useCallback, useEffect, useMemo } from 'react';
 
 type Props = Override<
@@ -19,7 +18,7 @@ type Props = Override<
   index: number;
 };
 
-export const MentionItemBase: React.FC<Props> = memo<Props>((props) => {
+export const MentionItemBase = memo(function MentionItemBase(props: Props) {
   const { onClick, ...rest } = props;
   const styles = useMenuStyle().item;
   const { ref, isHovering } = useHover();
@@ -53,4 +52,3 @@ export const MentionItemBase: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-MentionItemBase.displayName = 'MentionItemBase';

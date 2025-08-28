@@ -6,7 +6,6 @@ import {
 } from '@/components/ui/organisms/Menu';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
-import type React from 'react';
 import { useCallback } from 'react';
 import { AddToAnotherProject } from './AddToAnotherProject';
 import { DeleteTask } from './DeleteTask';
@@ -18,7 +17,7 @@ type Props = {
   taskId: string;
 };
 
-export const MenuList: React.FC<Props> = (props) => {
+export function MenuList(props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { ref } = useClickOutside<HTMLDivElement>(() => {
     handleCloseAll();
@@ -117,4 +116,4 @@ export const MenuList: React.FC<Props> = (props) => {
       </AtomsMenuList>
     </Portal>
   );
-};
+}

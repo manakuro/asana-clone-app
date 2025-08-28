@@ -1,10 +1,9 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useClickableHoverStyle } from '@/hooks';
-import type React from 'react';
 
 type Props = FlexProps;
 
-export const Container: React.FC<Props> = (props) => {
+export function Container(props: Props) {
   const { clickableHoverStyle } = useClickableHoverStyle();
 
   return (
@@ -18,4 +17,4 @@ export const Container: React.FC<Props> = (props) => {
       {...props}
     />
   );
-};
+}

@@ -129,4 +129,3 @@ const Component: React.FC = memo(() => {
     </InviteCollaboratorMenu>
   );
 });
-Component.displayName = 'Component';

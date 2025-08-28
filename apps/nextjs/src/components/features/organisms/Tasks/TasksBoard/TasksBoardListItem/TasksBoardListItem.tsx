@@ -10,7 +10,9 @@ type Props = FlexProps & {
   taskId: string;
 };
 
-export const TasksBoardListItem: React.FC<Props> = memo<Props>((props) => {
+export const TasksBoardListItem = memo(function TasksBoardListItem(
+  props: Props,
+) {
   return (
     <Provider {...props}>
       <Component {...props} />
@@ -25,5 +27,3 @@ const Component: React.FC<Props> = memo<Props>((props) => {
 
   return <TasksBoardListItemForProjectsPage {...props} />;
 });
-Component.displayName = 'Component';
-TasksBoardListItem.displayName = 'TasksBoardListItem';

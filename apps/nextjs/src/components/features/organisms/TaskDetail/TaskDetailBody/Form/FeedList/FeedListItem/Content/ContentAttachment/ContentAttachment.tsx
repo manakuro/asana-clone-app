@@ -1,7 +1,6 @@
 import { useFileViewerModal } from '@/components/features/organisms/Modals';
 import { FileTypeCode } from '@/graphql/enums';
 import { useTaskFile, useTaskFileIdsByTaskId } from '@/store/entities/taskFile';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useTaskFeedListItemContext } from '../../Provider';
 import { File } from './File';
@@ -11,7 +10,7 @@ type Props = {
   taskFileId: string;
 };
 
-export const ContentAttachment: React.FC<Props> = memo<Props>((props) => {
+export const ContentAttachment = memo(function ContentAttachment(props: Props) {
   const { taskId } = useTaskFeedListItemContext();
   const { taskFile } = useTaskFile(props.taskFileId);
   const { taskFileIds } = useTaskFileIdsByTaskId(taskId);
@@ -36,4 +35,3 @@ export const ContentAttachment: React.FC<Props> = memo<Props>((props) => {
       );
   }
 });
-ContentAttachment.displayName = 'ContentAttachment';

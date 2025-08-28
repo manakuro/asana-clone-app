@@ -6,7 +6,6 @@ import {
 import { MenuItemOption } from '@/components/ui/organisms/Menu';
 import { useTask } from '@/store/entities/task';
 import { useTasksPriorities } from '@/store/entities/taskPriority';
-import type React from 'react';
 import { type PropsWithChildren, memo, useCallback } from 'react';
 
 type Props = PropsWithChildren<{
@@ -15,7 +14,7 @@ type Props = PropsWithChildren<{
   onClosed?: () => void;
 }>;
 
-export const Menu: React.FC<Props> = memo<Props>((props) => {
+export const Menu = memo(function Menu(props: Props) {
   const { taskId, onOpened, onClosed } = props;
   const { task, setTask } = useTask(taskId);
   const defaultValue = task.taskPriorityId;
@@ -48,4 +47,3 @@ export const Menu: React.FC<Props> = memo<Props>((props) => {
     </MenuSelect>
   );
 });
-Menu.displayName = 'Menu';

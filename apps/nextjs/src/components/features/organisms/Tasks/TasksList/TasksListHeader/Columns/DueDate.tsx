@@ -1,7 +1,6 @@
 import { useTasksTaskListStatus } from '@/components/features/organisms/Tasks/hooks';
 import { Icon } from '@/components/ui/atoms';
 import { useTaskListSortStatus } from '@/store/entities/taskListSortStatus';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Container } from './Container';
 
@@ -9,7 +8,7 @@ type Props = {
   tasksTaskColumnId: string;
 };
 
-export const DueDate: React.FC<Props> = memo<Props>((props) => {
+export const DueDate = memo(function DueDate(props: Props) {
   const { tasksTaskColumnId } = props;
   const { sortByDueDate, sortByNone, taskListStatus } =
     useTasksTaskListStatus();
@@ -43,4 +42,3 @@ export const DueDate: React.FC<Props> = memo<Props>((props) => {
     </Container>
   );
 });
-DueDate.displayName = 'DueDate';

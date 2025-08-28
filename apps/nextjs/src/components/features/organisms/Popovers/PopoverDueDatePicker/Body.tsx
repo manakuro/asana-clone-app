@@ -22,7 +22,7 @@ type Props = {
 const MIN_DATE = dateFns.addYears(new Date(), -1);
 const MAX_DATE = dateFns.addYears(new Date(), 1);
 
-export const Body: React.FC<Props> = memo<Props>((props) => {
+export const Body = memo(function Body(props: Props) {
   const { onChange, onClear } = props;
   const includeDueTime = props.includeDueTime ?? false;
   const [value, setValue] = React.useState<Date | null>(new Date(props.date));
@@ -84,4 +84,3 @@ export const Body: React.FC<Props> = memo<Props>((props) => {
     </PopoverBody>
   );
 });
-Body.displayName = 'Body';

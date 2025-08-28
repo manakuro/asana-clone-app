@@ -14,7 +14,9 @@ type Props = {
   taskSectionId: string;
   showAddButton: boolean;
 };
-export const TasksBoardListSection: React.FC<Props> = memo<Props>((props) => {
+export const TasksBoardListSection = memo(function TasksBoardListSection(
+  props: Props,
+) {
   return (
     <Provider taskSectionId={props.taskSectionId}>
       <Component {...props} />
@@ -83,5 +85,3 @@ const Component: React.FC<Props> = memo<Props>((props) => {
     </>
   );
 });
-Component.displayName = 'Component';
-TasksBoardListSection.displayName = 'TasksBoardListSection';

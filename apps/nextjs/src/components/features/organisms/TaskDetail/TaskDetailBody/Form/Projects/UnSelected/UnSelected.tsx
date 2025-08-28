@@ -1,5 +1,4 @@
 import { Box, Button, Flex } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { Input } from '../Input';
 
@@ -10,7 +9,7 @@ type Props = {
   isOpen: boolean;
 };
 
-export const UnSelected: React.FC<Props> = memo<Props>((props) => {
+export const UnSelected = memo(function UnSelected(props: Props) {
   const { isOpen, onClose, taskId, onClick } = props;
 
   return (
@@ -34,4 +33,3 @@ export const UnSelected: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-UnSelected.displayName = 'UnSelected';

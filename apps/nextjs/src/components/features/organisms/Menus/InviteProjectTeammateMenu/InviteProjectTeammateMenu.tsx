@@ -51,4 +51,3 @@ export const InviteProjectTeammateMenu: React.FC<Props> = memo<Props>(
     );
   },
 );
-InviteProjectTeammateMenu.displayName = 'ProjectTeammateMenu';

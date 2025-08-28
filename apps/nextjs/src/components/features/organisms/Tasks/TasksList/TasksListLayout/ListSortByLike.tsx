@@ -19,4 +19,3 @@ export const ListSortByLike: React.FC = memo(() => {
     </Flex>
   );
 });
-ListSortByLike.displayName = 'ListSortByLike';

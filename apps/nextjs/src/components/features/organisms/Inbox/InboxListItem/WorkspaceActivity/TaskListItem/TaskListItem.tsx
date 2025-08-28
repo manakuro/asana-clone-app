@@ -18,7 +18,7 @@ type Props = FlexProps & {
   isLast?: boolean;
 };
 
-export const TaskListItem: React.FC<Props> = memo<Props>((props) => {
+export const TaskListItem = memo(function TaskListItem(props: Props) {
   const { taskId, isFirst, isLast } = props;
   const { task } = useTask(taskId);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -76,5 +76,3 @@ export const TaskListItem: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-
-TaskListItem.displayName = 'TaskListItem';

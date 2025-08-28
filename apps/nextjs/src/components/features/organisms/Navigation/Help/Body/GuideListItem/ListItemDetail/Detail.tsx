@@ -14,7 +14,7 @@ type Props = {
   nextItem?: Item;
 };
 
-export const Detail: React.FC<Props> = (props) => {
+export function Detail(props: Props) {
   const { item, onToggle, nextItem, seeMoreComponent } = props;
   const disclosure = useDisclosure();
 
@@ -70,4 +70,4 @@ export const Detail: React.FC<Props> = (props) => {
       )}
     </Flex>
   );
-};
+}

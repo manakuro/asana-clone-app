@@ -23,7 +23,7 @@ type Props = {
   includeDueTime?: boolean;
 } & PopoverProps;
 
-export const PopoverDueDatePicker: React.FC<Props> = (props) => {
+export function PopoverDueDatePicker(props: Props) {
   const popoverDisclosure = useDisclosure({
     defaultIsOpen: props.defaultIsOpen,
   });
@@ -94,4 +94,4 @@ export const PopoverDueDatePicker: React.FC<Props> = (props) => {
       </Popover>
     </PortalManager>
   );
-};
+}

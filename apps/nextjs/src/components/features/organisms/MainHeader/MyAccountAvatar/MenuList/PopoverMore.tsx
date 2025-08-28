@@ -6,14 +6,13 @@ import {
   type MenuProps,
 } from '@/components/ui/organisms/Menu';
 import { chakra } from '@/shared/chakra';
-import type React from 'react';
 import { useCallback } from 'react';
 
 type Props = {
   onClose: () => void;
 } & MenuProps;
 
-export const PopoverMore: React.FC<Props> = (props) => {
+export function PopoverMore(props: Props) {
   const handleCreateNewWorkspace = useCallback(() => {
     // do something
     props.onClose();
@@ -39,7 +38,7 @@ export const PopoverMore: React.FC<Props> = (props) => {
       </MenuList>
     </Menu>
   );
-};
+}
 
 // NOTE: Use custom component instead of `Box` because of styling issue with positioning menu item
 const MenuButtonAs = chakra('div', {

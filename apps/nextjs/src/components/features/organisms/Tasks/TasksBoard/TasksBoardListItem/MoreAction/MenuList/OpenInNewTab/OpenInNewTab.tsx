@@ -1,6 +1,5 @@
 import { Icon } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
   onCloseMenu: () => void;
   taskId: string;
 };
-export const OpenInNewTab: React.FC<Props> = memo((props) => {
+export const OpenInNewTab = memo(function OpenInNewTab(props: Props) {
   const { onMouseEnter, onCloseMenu } = props;
 
   const handleClick = useCallback(() => {
@@ -26,5 +25,3 @@ export const OpenInNewTab: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-
-OpenInNewTab.displayName = 'OpenInNewTab';

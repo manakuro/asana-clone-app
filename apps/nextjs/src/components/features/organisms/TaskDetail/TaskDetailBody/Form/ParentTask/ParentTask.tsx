@@ -3,14 +3,13 @@ import { Flex, Icon, Text } from '@/components/ui/atoms';
 import { Tooltip } from '@/components/ui/molecules';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
   taskId: string;
 };
 
-export const ParentTask: React.FC<Props> = memo<Props>((props) => {
+export const ParentTask = memo(function ParentTask(props: Props) {
   const { isSubtask, task } = useTask(props.taskId);
   const { task: parentTask } = useTask(task.taskParentId);
   const { clickableHoverLightStyle } = useClickableHoverStyle();
@@ -46,4 +45,3 @@ export const ParentTask: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-ParentTask.displayName = 'ParentTask';

@@ -1,6 +1,5 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useWorkspaceActivity } from '@/store/app/inbox/activity';
-import type React from 'react';
 import { memo } from 'react';
 import { Container } from '../Container';
 import { ActionButtons } from './ActionButtons';
@@ -14,7 +13,7 @@ type Props = FlexProps & {
   workspaceActivityId: string;
 };
 
-export const WorkspaceActivity: React.FC<Props> = memo<Props>((props) => {
+export const WorkspaceActivity = memo(function WorkspaceActivity(props: Props) {
   const { workspaceActivityId } = props;
   const { workspaceActivity } = useWorkspaceActivity(workspaceActivityId);
 
@@ -22,7 +21,7 @@ export const WorkspaceActivity: React.FC<Props> = memo<Props>((props) => {
     <Container>
       <ClickHandler workspaceActivityId={workspaceActivityId}>
         <Flex py={4} flex={1} flexDirection="column" maxW="inherit">
-          <Workspace workspaceId={workspaceActivity.workspaceId} />
+          <Workspace />
           <Project projectId={workspaceActivity.projectId} />
           <InfoText workspaceActivityId={workspaceActivityId} />
           <TaskList workspaceActivityId={workspaceActivityId} />
@@ -32,5 +31,3 @@ export const WorkspaceActivity: React.FC<Props> = memo<Props>((props) => {
     </Container>
   );
 });
-
-WorkspaceActivity.displayName = 'WorkspaceActivity';

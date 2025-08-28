@@ -14,14 +14,13 @@ import { ROUTE_PROJECTS_LIST, useRouter } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 
 type Props = {
   projectId: string;
 };
 
-export const ListItem: React.FC<Props> = memo((props) => {
+export const ListItem = memo(function ListItem(props: Props) {
   const { isExpanded } = useNavigation();
   const { projectId } = props;
   const { project } = useProject(projectId);
@@ -77,4 +76,3 @@ export const ListItem: React.FC<Props> = memo((props) => {
     </NextLink>
   );
 });
-ListItem.displayName = 'ListItem';

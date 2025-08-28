@@ -43,7 +43,7 @@ const items: {
   },
 ];
 
-export const FilterButton = memo(() => {
+export const FilterButton = memo(function FilterButton() {
   const { onFilter, filterStatus, isFiltered } = useInboxListStatus();
 
   const handleChange = useCallback(
@@ -95,4 +95,3 @@ export const FilterButton = memo(() => {
     </MenuSelect>
   );
 });
-FilterButton.displayName = 'FilterButton';

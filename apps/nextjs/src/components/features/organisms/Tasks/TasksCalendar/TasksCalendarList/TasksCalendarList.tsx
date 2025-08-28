@@ -1,7 +1,6 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { dateFns } from '@/shared/dateFns';
 import { isHTMLElement } from '@/shared/isHTMLElement';
-import type React from 'react';
 import { memo, useEffect } from 'react';
 import { useTasksCalendarContext } from '../Provider';
 import { TasksCalendarListItem } from '../TasksCalendarListItem';
@@ -10,7 +9,7 @@ import { useTasksCalendarId } from '../useTasksCalendarId';
 
 type Props = FlexProps;
 
-export const TasksCalendarList: React.FC<Props> = memo<Props>(() => {
+export const TasksCalendarList = memo(function TasksCalendarList(props: Props) {
   const { getCalendarListId, getCalendarListItemId } = useTasksCalendarId();
   const {
     calendarRows,
@@ -54,4 +53,3 @@ export const TasksCalendarList: React.FC<Props> = memo<Props>(() => {
     </Flex>
   );
 });
-TasksCalendarList.displayName = 'TasksCalendarList';

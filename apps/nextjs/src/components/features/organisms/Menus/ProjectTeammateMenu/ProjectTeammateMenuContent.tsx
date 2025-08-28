@@ -41,4 +41,3 @@ export const ProjectTeammateMenuContent: React.FC<Props> = memo<Props>(
     );
   },
 );
-ProjectTeammateMenuContent.displayName = 'ProjectTeammateMenuContent';

@@ -1,5 +1,4 @@
 import { useTasksContext } from '@/components/features/organisms/Tasks';
-import type React from 'react';
 import { memo } from 'react';
 import { Container } from './Container';
 import { Empty } from './Empty';
@@ -8,7 +7,7 @@ type Props = {
   taskId: string;
 };
 
-export const ExpandIcon: React.FC<Props> = memo<Props>((props) => {
+export const ExpandIcon = memo(function ExpandIcon(props: Props) {
   const { isProjectsPage } = useTasksContext();
 
   if (isProjectsPage) {
@@ -17,4 +16,3 @@ export const ExpandIcon: React.FC<Props> = memo<Props>((props) => {
 
   return <Empty />;
 });
-ExpandIcon.displayName = 'ExpandIcon';

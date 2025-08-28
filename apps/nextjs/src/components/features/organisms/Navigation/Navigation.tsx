@@ -36,4 +36,3 @@ export const Navigation: React.FC = memo(() => {
     </Flex>
   );
 });
-Navigation.displayName = 'Navigation';

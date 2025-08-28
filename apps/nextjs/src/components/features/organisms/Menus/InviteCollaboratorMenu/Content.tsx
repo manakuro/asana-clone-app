@@ -11,7 +11,6 @@ import {
 import { Divider, Icon, Text } from '@/components/ui/atoms';
 import type { PopoverProps } from '@/components/ui/organisms/Popover';
 import type { Teammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = PopoverProps & {
@@ -21,7 +20,7 @@ type Props = PopoverProps & {
   onClosed?: () => void;
 };
 
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo(function Content(props: Props) {
   const { teammates, loading, onSelectTeammate } =
     useProjectTeammateMenu(props);
 
@@ -51,4 +50,3 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
     </>
   );
 });
-Content.displayName = 'Content';

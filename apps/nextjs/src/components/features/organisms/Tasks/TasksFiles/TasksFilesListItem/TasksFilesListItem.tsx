@@ -25,7 +25,9 @@ type Props = {
   taskFileId: string;
 } & FlexProps;
 
-export const TasksFilesListItem: React.FC<Props> = memo((props) => {
+export const TasksFilesListItem = memo(function TasksFilesListItem(
+  props: Props,
+) {
   const { taskFileId, ...rest } = props;
   const { ref, isHovering } = useHover();
   const { taskFile } = useTaskFile(taskFileId);
@@ -101,4 +103,3 @@ export const TasksFilesListItem: React.FC<Props> = memo((props) => {
     </Flex>
   );
 });
-TasksFilesListItem.displayName = 'TasksFilesListItem';

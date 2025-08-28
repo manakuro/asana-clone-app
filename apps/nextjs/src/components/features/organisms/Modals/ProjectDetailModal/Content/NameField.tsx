@@ -8,7 +8,7 @@ type Props = {
   onChange: (val: string) => void;
 } & Omit<InputProps, 'onChange'>;
 
-export const NameField: React.FC<Props> = memo<Props>((props) => {
+export const NameField = memo(function NameField(props: Props) {
   const [value, setValue] = useState<string>(props.value);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,4 +30,3 @@ export const NameField: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-NameField.displayName = 'NameField';

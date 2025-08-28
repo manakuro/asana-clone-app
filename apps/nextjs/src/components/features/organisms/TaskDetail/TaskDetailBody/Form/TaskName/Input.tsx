@@ -8,7 +8,7 @@ type Props = {
   onChange: (val: string) => void;
 };
 
-export const Input: React.FC<Props> = memo<Props>((props) => {
+export const Input = memo(function Input(props: Props) {
   const [value, setValue] = useState<string>(props.value);
 
   const handleChange = useCallback(
@@ -42,4 +42,3 @@ export const Input: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Input.displayName = 'Input';

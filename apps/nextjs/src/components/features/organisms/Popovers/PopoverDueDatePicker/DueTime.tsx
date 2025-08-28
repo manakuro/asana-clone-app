@@ -10,7 +10,6 @@ import { Tooltip } from '@/components/ui/molecules';
 import { useClickableHoverStyle } from '@/hooks';
 import { formatDueTime } from '@/shared/date';
 import { times } from '@/shared/date/time';
-import type React from 'react';
 
 type Props = {
   onClick: () => void;
@@ -23,7 +22,7 @@ const selects = times().map((t) => ({
   value: t,
 }));
 
-export const DueTime: React.FC<Props> = (props) => {
+export function DueTime(props: Props) {
   const { clickableHoverStyle } = useClickableHoverStyle();
   if (!props.isEditing) {
     return (
@@ -66,4 +65,4 @@ export const DueTime: React.FC<Props> = (props) => {
       </Flex>
     </Flex>
   );
-};
+}

@@ -36,4 +36,3 @@ export const MembersAndCollaboratorsListItem: React.FC<Props> = memo<Props>(
     );
   },
 );
-MembersAndCollaboratorsListItem.displayName = 'MembersAndCollaboratorsListItem';

@@ -8,7 +8,7 @@ type Props = {
   onMouseEnter: () => void;
 };
 
-export const DeleteProject: React.FC<Props> = (props) => {
+export function DeleteProject(props: Props) {
   const { onClose, onMouseEnter } = props;
 
   const handleClick = useCallback(
@@ -25,4 +25,4 @@ export const DeleteProject: React.FC<Props> = (props) => {
       Delete Project
     </MenuItem>
   );
-};
+}

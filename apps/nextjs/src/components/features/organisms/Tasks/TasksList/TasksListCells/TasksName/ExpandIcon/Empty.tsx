@@ -5,4 +5,3 @@ import { memo } from 'react';
 export const Empty: React.FC = memo(() => {
   return <Flex h={5} minW={5} p={0} />;
 });
-Empty.displayName = 'Empty';

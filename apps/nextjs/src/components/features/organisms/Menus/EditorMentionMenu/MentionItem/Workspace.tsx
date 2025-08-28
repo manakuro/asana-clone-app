@@ -1,7 +1,6 @@
 import { Flex, type FlexProps, Icon, Text } from '@/components/ui/atoms';
 import type { Mention } from '@/store/entities/mention';
 import { useWorkspace } from '@/store/entities/workspace';
-import type React from 'react';
 import { memo } from 'react';
 import { LeftContainer } from './LeftContainer';
 import { RightContainer } from './RightContainer';
@@ -10,7 +9,7 @@ type Props = FlexProps & {
   mention: Mention;
 };
 
-export const Workspace: React.FC<Props> = memo<Props>(() => {
+export const Workspace = memo(function Workspace(props: Props) {
   const { workspace } = useWorkspace();
 
   return (
@@ -26,4 +25,3 @@ export const Workspace: React.FC<Props> = memo<Props>(() => {
     </Flex>
   );
 });
-Workspace.displayName = 'Workspace';

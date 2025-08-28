@@ -1,13 +1,12 @@
 import { DatePickerWithInput } from '@/components/ui/molecules';
 import { useProject, useProjectCommand } from '@/store/entities/project';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
   projectId: string;
 };
 
-export const ProjectDueDate: React.FC<Props> = memo<Props>((props) => {
+export const ProjectDueDate = memo(function ProjectDueDate(props: Props) {
   const { projectId } = props;
   const { project } = useProject(projectId);
   const { setProjectDueDate, resetProjectDueDate } = useProjectCommand();
@@ -31,4 +30,3 @@ export const ProjectDueDate: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-ProjectDueDate.displayName = 'ProjectDueDate';

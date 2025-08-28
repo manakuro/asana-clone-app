@@ -21,4 +21,3 @@ export const SkeletonList: React.FC = memo(() => {
     </Flex>
   );
 });
-SkeletonList.displayName = 'SkeletonList';

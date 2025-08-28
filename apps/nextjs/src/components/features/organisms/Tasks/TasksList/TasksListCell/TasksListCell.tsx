@@ -1,6 +1,6 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import { forwardRef } from '@/shared/chakra';
 import { pxToNum } from '@/shared/pxToNum';
+import { forwardRef } from 'react';
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { ColumnResizer } from './ColumnResizer';
@@ -99,4 +99,3 @@ export const TasksListCell: React.FC<Props> = memo(
     );
   }),
 );
-TasksListCell.displayName = 'TasksListCell';

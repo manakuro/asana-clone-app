@@ -1,10 +1,9 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = FlexProps;
 
-export const Actions: React.FC<Props> = memo<Props>((props) => {
+export const Actions = memo(function Actions(props: Props) {
   return (
     <Flex
       borderRadius="md"
@@ -20,5 +19,3 @@ export const Actions: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-
-Actions.displayName = 'Actions';

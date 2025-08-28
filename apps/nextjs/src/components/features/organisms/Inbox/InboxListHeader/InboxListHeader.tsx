@@ -1,12 +1,11 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { memo, useEffect, useMemo, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 type Props = FlexProps;
 
-export const InboxListHeader: React.FC<Props> = memo((props) => {
+export const InboxListHeader = memo(function InboxListHeader(props: Props) {
   const [isScrolling, setIsScrolling] = useState(false);
   const { ref, entry } = useInView({ threshold: [1] });
 
@@ -46,5 +45,3 @@ export const InboxListHeader: React.FC<Props> = memo((props) => {
     </Flex>
   );
 });
-
-InboxListHeader.displayName = 'InboxListHeader';

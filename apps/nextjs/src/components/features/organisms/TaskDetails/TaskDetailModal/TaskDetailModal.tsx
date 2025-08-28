@@ -1,6 +1,5 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
 import { Modal, ModalOverlay } from '@/components/ui/organisms/Modal';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Content } from './Content';
 import { useTaskDetailModal } from './useTaskDetailModal';
@@ -9,7 +8,7 @@ type Props = {
   backToPage: () => Promise<void>;
 };
 
-export const TaskDetailModal: React.FC<Props> = memo((props) => {
+export const TaskDetailModal = memo(function TaskDetailModal(props: Props) {
   const { isOpen, onClose } = useTaskDetailModal();
   const { loading } = useTaskDetail();
 
@@ -30,4 +29,3 @@ export const TaskDetailModal: React.FC<Props> = memo((props) => {
     </Modal>
   );
 });
-TaskDetailModal.displayName = 'TaskDetailModal';

@@ -11,7 +11,7 @@ type Props = FlexProps & {
   listItemId: string;
 };
 
-export const InboxListItem: React.FC<Props> = memo<Props>((props) => {
+export const InboxListItem = memo(function InboxListItem(props: Props) {
   return (
     <Provider>
       <Component {...props} />
@@ -32,6 +32,3 @@ const Component: React.FC<Props> = memo<Props>((props) => {
       return null;
   }
 });
-Component.displayName = 'Component';
-
-InboxListItem.displayName = 'InboxListItem';

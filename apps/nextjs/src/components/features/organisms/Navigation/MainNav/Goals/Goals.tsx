@@ -20,4 +20,3 @@ export const Goals: React.FC = memo(() => {
 
   return <NavListItem item={item} disabled />;
 });
-Goals.displayName = 'router';

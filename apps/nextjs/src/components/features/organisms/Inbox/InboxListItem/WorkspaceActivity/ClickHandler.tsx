@@ -8,7 +8,7 @@ type Props = FlexProps & {
   workspaceActivityId: string;
 };
 
-export const ClickHandler: React.FC<Props> = memo<Props>((props) => {
+export const ClickHandler = memo(function ClickHandler(props: Props) {
   const { workspaceActivityId } = props;
   const { taskIds } = useWorkspaceActivityTaskIds(workspaceActivityId);
   const taskId = useMemo(() => taskIds[0], [taskIds]);
@@ -28,5 +28,3 @@ export const ClickHandler: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-
-ClickHandler.displayName = 'ClickHandler';

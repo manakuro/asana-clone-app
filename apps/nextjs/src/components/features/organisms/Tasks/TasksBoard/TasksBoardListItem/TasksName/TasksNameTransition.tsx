@@ -1,6 +1,5 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { keyframes } from '@chakra-ui/react';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 
 type Props = FlexProps & {
@@ -13,7 +12,9 @@ const shimmer = keyframes({
   },
 });
 
-export const TasksNameTransition: React.FC<Props> = memo<Props>((props) => {
+export const TasksNameTransition = memo(function TasksNameTransition(
+  props: Props,
+) {
   const bgGradient = useMemo<FlexProps>(() => {
     if (props.isTransitioning)
       return {
@@ -57,4 +58,3 @@ export const TasksNameTransition: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-TasksNameTransition.displayName = 'TasksNameTransition';

@@ -1,6 +1,5 @@
 import { type FlexProps, Stack } from '@/components/ui/atoms';
 import { useTaskTagIdsByTaskId } from '@/store/entities/taskTag';
-import type React from 'react';
 import { memo } from 'react';
 import { Tag } from './Tag';
 
@@ -8,7 +7,7 @@ type Props = FlexProps & {
   taskId: string;
 };
 
-export const Tags: React.FC<Props> = memo<Props>((props) => {
+export const Tags = memo(function Tags(props: Props) {
   const { taskTagIds } = useTaskTagIdsByTaskId(props.taskId);
 
   return (
@@ -19,4 +18,3 @@ export const Tags: React.FC<Props> = memo<Props>((props) => {
     </Stack>
   );
 });
-Tags.displayName = 'Tags';

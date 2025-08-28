@@ -1,11 +1,12 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { useTasksNameContext } from './TasksNameProvider';
 
 type Props = FlexProps;
 
-export const TasksNameRightContainer: React.FC<Props> = memo<Props>((props) => {
+export const TasksNameRightContainer = memo(function TasksNameRightContainer(
+  props: Props,
+) {
   const { showMark } = useTasksNameContext();
 
   return (
@@ -16,4 +17,3 @@ export const TasksNameRightContainer: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-TasksNameRightContainer.displayName = 'TasksNameRightContainer';

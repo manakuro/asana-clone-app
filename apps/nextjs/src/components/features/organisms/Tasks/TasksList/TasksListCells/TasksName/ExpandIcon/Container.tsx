@@ -1,6 +1,5 @@
 import { useTask } from '@/store/entities/task';
 import { useSubtaskIds } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import { Component } from './Component';
 
@@ -8,7 +7,7 @@ type Props = {
   taskId: string;
 };
 
-export const Container: React.FC<Props> = memo<Props>((props) => {
+export const Container = memo(function Container(props: Props) {
   const { task } = useTask(props.taskId);
   const { taskIds } = useSubtaskIds(props.taskId);
   const showExpandIcon = useMemo(
@@ -18,4 +17,3 @@ export const Container: React.FC<Props> = memo<Props>((props) => {
 
   return <Component showExpandIcon={showExpandIcon} />;
 });
-Container.displayName = 'Container';

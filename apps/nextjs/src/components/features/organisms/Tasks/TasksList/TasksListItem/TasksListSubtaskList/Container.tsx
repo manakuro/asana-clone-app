@@ -1,7 +1,6 @@
 import { useFirstRender } from '@/hooks';
 import { useSubTasksQuery } from '@/hooks/queries/entities';
 import { useSubtaskIds } from '@/store/entities/task';
-import type React from 'react';
 import { memo } from 'react';
 import { SkeletonList } from './SkeletonList';
 import { TasksListSubtaskItem } from './TasksListSubtaskItem';
@@ -13,7 +12,7 @@ type Props = {
 
 // TODO: Need to fix a Recoil warning, `Warning: Cannot update a component (`Batcher`)`.
 // @see https://github.com/facebookexperimental/Recoil/issues/12
-export const Container: React.FC<Props> = memo<Props>((props) => {
+export const Container = memo(function Container(props: Props) {
   const { subTaskIds, taskId } = props;
   const { loading } = useSubTasksQuery({
     where: {
@@ -34,5 +33,3 @@ export const Container: React.FC<Props> = memo<Props>((props) => {
     </>
   );
 });
-
-Container.displayName = 'Container';

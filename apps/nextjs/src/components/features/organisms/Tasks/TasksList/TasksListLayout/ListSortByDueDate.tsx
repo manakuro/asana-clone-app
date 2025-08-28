@@ -57,4 +57,3 @@ export const ListSortByDueDate: React.FC = memo(() => {
     </Flex>
   );
 });
-ListSortByDueDate.displayName = 'ListSortByDueDate';

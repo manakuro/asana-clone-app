@@ -1,7 +1,6 @@
 import { useTasksTaskColumn } from '@/components/features/organisms/Tasks/hooks';
 import { useTaskColumn } from '@/store/entities/taskColumn';
 import { TaskColumnType } from '@/store/entities/taskColumn';
-import type React from 'react';
 import { memo } from 'react';
 import {
   Assignee,
@@ -16,7 +15,7 @@ type Props = {
   tasksTaskColumnId: string;
 };
 
-export const Column: React.FC<Props> = memo<Props>((props) => {
+export const Column = memo(function Column(props: Props) {
   const { tasksTaskColumnId } = props;
   const { tasksTaskColumn } = useTasksTaskColumn(tasksTaskColumnId);
   const { taskColumn } = useTaskColumn(tasksTaskColumn.taskColumnId);
@@ -47,4 +46,3 @@ export const Column: React.FC<Props> = memo<Props>((props) => {
 
   return null;
 });
-Column.displayName = 'Column';

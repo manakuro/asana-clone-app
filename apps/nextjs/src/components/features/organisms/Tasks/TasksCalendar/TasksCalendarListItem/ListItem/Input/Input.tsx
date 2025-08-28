@@ -1,6 +1,5 @@
 import type { FlexProps } from '@/components/ui/atoms';
 import { useTask, useTaskCommand } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { TasksNameField } from './TasksNameField';
 
@@ -8,7 +7,7 @@ type Props = FlexProps & {
   taskId: string;
 };
 
-export const Input: React.FC<Props> = memo<Props>((props) => {
+export const Input = memo(function Input(props: Props) {
   const { task, setTaskName } = useTask(props.taskId);
   const { deleteTask } = useTaskCommand();
 
@@ -34,4 +33,3 @@ export const Input: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Input.displayName = 'Input';

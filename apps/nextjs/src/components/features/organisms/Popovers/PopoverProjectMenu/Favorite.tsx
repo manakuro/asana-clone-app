@@ -12,7 +12,7 @@ type Props = {
   onMouseEnter: () => void;
 };
 
-export const Favorite: React.FC<Props> = (props) => {
+export function Favorite(props: Props) {
   const { projectId, onClose, onMouseEnter } = props;
   const { setFavoriteProjectId } = useFavoriteProjectIdsCommand();
   const { isFavorite } = useFavoriteProjectIds();
@@ -39,4 +39,4 @@ export const Favorite: React.FC<Props> = (props) => {
       {text}
     </MenuItem>
   );
-};
+}

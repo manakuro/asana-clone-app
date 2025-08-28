@@ -1,11 +1,10 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { useTaskFeedListItemContext } from '../../Provider';
 
 type Props = FlexProps;
 
-export const Container: React.FC<Props> = memo<Props>((props) => {
+export const Container = memo(function Container(props: Props) {
   const { editable } = useTaskFeedListItemContext();
 
   return (
@@ -23,4 +22,3 @@ export const Container: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Container.displayName = 'Container';

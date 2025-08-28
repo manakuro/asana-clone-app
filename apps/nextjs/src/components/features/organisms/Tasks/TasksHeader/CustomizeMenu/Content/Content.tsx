@@ -83,4 +83,3 @@ export const Content: React.FC = memo(() => {
     </DrawerContent>
   );
 });
-Content.displayName = 'Content';

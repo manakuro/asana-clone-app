@@ -33,7 +33,7 @@ const generateTitle = (
   }
 };
 
-export const Title: React.FC<Props> = memo<Props>((props) => {
+export const Title = memo(function Title(props: Props) {
   const { teammate, taskFeed, hasTaskFile } = useTaskFeedListItemContext();
   const title = generateTitle({ teammate, taskFeed }, { hasTaskFile });
 
@@ -43,4 +43,3 @@ export const Title: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Title.displayName = 'Title';

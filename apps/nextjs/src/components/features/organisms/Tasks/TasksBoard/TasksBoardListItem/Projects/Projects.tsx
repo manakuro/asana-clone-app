@@ -1,5 +1,4 @@
 import { type FlexProps, Stack } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { ProjectChip } from './ProjectChip';
 
@@ -7,7 +6,7 @@ type Props = FlexProps & {
   projectIds: string[];
 };
 
-export const Projects: React.FC<Props> = memo<Props>((props) => {
+export const Projects = memo(function Projects(props: Props) {
   const { projectIds } = props;
 
   if (!projectIds.length) return null;
@@ -20,4 +19,3 @@ export const Projects: React.FC<Props> = memo<Props>((props) => {
     </Stack>
   );
 });
-Projects.displayName = 'Projects';

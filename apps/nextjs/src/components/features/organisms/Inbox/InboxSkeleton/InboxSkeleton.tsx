@@ -6,14 +6,13 @@ import {
   InboxRight,
 } from '@/components/features/organisms/Inbox';
 import { Flex, type FlexProps, Skeleton, Stack } from '@/components/ui/atoms';
-import type React from 'react';
 
 type Props = FlexProps;
 
 const BUTTON_HEIGHT = '28px';
 const TEXT_HEIGHT = '16px';
 const maxH = 72 + 57;
-export const InboxSkeleton: React.FC<Props> = () => {
+export function InboxSkeleton() {
   return (
     <Flex flex={1} h="full">
       <InboxLeft>
@@ -105,4 +104,4 @@ export const InboxSkeleton: React.FC<Props> = () => {
       </InboxRight>
     </Flex>
   );
-};
+}

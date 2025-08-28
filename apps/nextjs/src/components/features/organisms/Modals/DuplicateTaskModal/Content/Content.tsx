@@ -15,7 +15,6 @@ import {
 } from '@/components/ui/organisms/Modal';
 import { useTask } from '@/store/entities/task';
 import { Form, Formik, type FormikConfig } from 'formik';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { Label } from './Label';
 
@@ -37,7 +36,7 @@ const INCLUDE_OPTION_PROJECTS = '6';
 const INCLUDE_OPTION_DUE_DATE = '7';
 const INCLUDE_OPTION_PARENT_TASK = '8';
 
-export const Content: React.FC<Props> = memo((props) => {
+export const Content = memo(function Content(props: Props) {
   const { task } = useTask(props.taskId);
   const initialValues = useMemo(
     () => ({
@@ -143,4 +142,3 @@ const validate: FormikConfig<Values>['validate'] = (values) => {
 
   return errors;
 };
-Content.displayName = 'Content';

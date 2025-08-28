@@ -4,7 +4,6 @@ import {
   TaskDetailHeader,
 } from '@/components/features/organisms/TaskDetail';
 import { Flex } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 
 const HEADER_HEIGHT = 72;
@@ -14,7 +13,7 @@ type Props = {
   loading: boolean;
 };
 
-export const Content: React.FC<Props> = memo((props) => {
+export const Content = memo(function Content(props: Props) {
   return (
     <Flex
       flex={1}
@@ -52,4 +51,3 @@ export const Content: React.FC<Props> = memo((props) => {
     </Flex>
   );
 });
-Content.displayName = 'Content';

@@ -10,7 +10,7 @@ type Props = {
   workspaceId: string;
 };
 
-export const WorkspaceMenu: React.FC<Props> = memo<Props>((props) => {
+export const WorkspaceMenu = memo(function WorkspaceMenu(props: Props) {
   const { workspaceId } = props;
   const { clickableHoverLightStyle } = useClickableHoverStyle();
   const { onClose, onOpen, isOpen } = useDisclosure();
@@ -36,4 +36,3 @@ export const WorkspaceMenu: React.FC<Props> = memo<Props>((props) => {
     </PortalManager>
   );
 });
-WorkspaceMenu.displayName = 'WorkspaceMenu';

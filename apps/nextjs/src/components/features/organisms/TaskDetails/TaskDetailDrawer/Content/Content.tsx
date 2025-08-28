@@ -9,7 +9,6 @@ import {
   useClickOutside,
   useDrawerStyle,
 } from '@/hooks';
-import type React from 'react';
 import { memo } from 'react';
 
 const HEADER_HEIGHT = 71;
@@ -21,7 +20,7 @@ type Props = {
   hasClickedOutside: UseClickOutsideOptionsHasClickedOutside;
 };
 
-export const Content: React.FC<Props> = memo((props) => {
+export const Content = memo(function Content(props: Props) {
   const { hasClickedOutside } = props;
   const { drawerStyle } = useDrawerStyle();
   const { ref } = useClickOutside<HTMLDivElement>(
@@ -74,4 +73,3 @@ export const Content: React.FC<Props> = memo((props) => {
     </Flex>
   );
 });
-Content.displayName = 'Content';

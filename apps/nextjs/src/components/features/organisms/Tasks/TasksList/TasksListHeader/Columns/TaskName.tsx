@@ -1,5 +1,4 @@
 import { useTasksListContext } from '@/components/features/organisms/Tasks/TasksList/Provider';
-import type React from 'react';
 import { memo } from 'react';
 import { Container } from './Container';
 
@@ -7,7 +6,7 @@ type Props = {
   tasksTaskColumnId: string;
 };
 
-export const TaskName: React.FC<Props> = memo<Props>((props) => {
+export const TaskName = memo(function TaskName(props: Props) {
   const { tasksTaskColumnId } = props;
   const { stickyStyle } = useTasksListContext();
 
@@ -20,4 +19,3 @@ export const TaskName: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-TaskName.displayName = 'TaskName';

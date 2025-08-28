@@ -1,6 +1,5 @@
 import { MenuItem } from '@/components/ui/organisms/Menu';
 import { useFavoriteWorkspaceIdsCommand } from '@/store/entities/favoriteWorkspaceIds';
-import type React from 'react';
 import { useCallback } from 'react';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
   onClose: () => void;
 };
 
-export const RemoveFromFavorites: React.FC<Props> = (props) => {
+export function RemoveFromFavorites(props: Props) {
   const { onClose, workspaceId } = props;
   const { setFavoriteWorkspaceId } = useFavoriteWorkspaceIdsCommand();
 
@@ -18,4 +17,4 @@ export const RemoveFromFavorites: React.FC<Props> = (props) => {
   }, [onClose, workspaceId, setFavoriteWorkspaceId]);
 
   return <MenuItem onClick={handleClick}>Remove from Favorites</MenuItem>;
-};
+}

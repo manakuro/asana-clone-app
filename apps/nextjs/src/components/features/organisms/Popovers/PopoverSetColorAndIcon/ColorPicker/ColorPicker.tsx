@@ -1,7 +1,6 @@
 import { Wrap } from '@/components/ui/atoms';
 import { useProjectCommand } from '@/store/entities/project';
 import { useProjectBaseColorIds } from '@/store/entities/projectBaseColor';
-import type React from 'react';
 import { useCallback } from 'react';
 import { ColorPickerItem } from './ColorPickerItem';
 
@@ -10,7 +9,7 @@ type Props = {
   projectId: string;
 };
 
-export const ColorPicker: React.FC<Props> = (props) => {
+export function ColorPicker(props: Props) {
   const { projectBaseColorIds } = useProjectBaseColorIds();
   const { setProject } = useProjectCommand();
 
@@ -36,4 +35,4 @@ export const ColorPicker: React.FC<Props> = (props) => {
       ))}
     </Wrap>
   );
-};
+}

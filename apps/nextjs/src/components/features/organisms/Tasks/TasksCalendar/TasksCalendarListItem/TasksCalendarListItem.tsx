@@ -1,5 +1,4 @@
 import { Flex, type FlexProps, Text } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { Content } from './Content';
 import { Info } from './Info';
@@ -9,7 +8,9 @@ type Props = {
   dateString: string;
 } & FlexProps;
 
-export const TasksCalendarListItem: React.FC<Props> = memo<Props>((props) => {
+export const TasksCalendarListItem = memo(function TasksCalendarListItem(
+  props: Props,
+) {
   const { dateString, ...rest } = props;
   const { dateText, borderStyle, textStyle } = useListItemStyle({
     dateString,
@@ -46,4 +47,3 @@ export const TasksCalendarListItem: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-TasksCalendarListItem.displayName = 'TasksCalendarListItem';

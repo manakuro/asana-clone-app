@@ -9,4 +9,3 @@ export const TasksModals: React.FC = memo(() => {
     </>
   );
 });
-TasksModals.displayName = 'TasksModals';

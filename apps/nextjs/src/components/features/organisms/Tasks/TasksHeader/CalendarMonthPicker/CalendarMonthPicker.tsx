@@ -11,13 +11,14 @@ import {
 import { Popover, PopoverTrigger } from '@/components/ui/organisms/Popover';
 import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import { Content } from './Content';
 
 type Props = FlexProps;
 
-export const CalendarMonthPicker: React.FC<Props> = memo<Props>((props) => {
+export const CalendarMonthPicker = memo(function CalendarMonthPicker(
+  props: Props,
+) {
   const { currentDate } = useTasksCalendarContext();
   const dateText = useMemo(() => {
     return dateFns.format(currentDate, 'MMMM y');
@@ -55,4 +56,3 @@ export const CalendarMonthPicker: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-CalendarMonthPicker.displayName = 'CalendarMonthPicker';

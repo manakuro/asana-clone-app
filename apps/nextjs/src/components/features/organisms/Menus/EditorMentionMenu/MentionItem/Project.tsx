@@ -2,7 +2,6 @@ import { ColorBox, Flex, type FlexProps, Text } from '@/components/ui/atoms';
 import type { Mention } from '@/store/entities/mention';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import type React from 'react';
 import { memo } from 'react';
 import { LeftContainer } from './LeftContainer';
 import { RightContainer } from './RightContainer';
@@ -11,7 +10,7 @@ type Props = FlexProps & {
   mention: Mention;
 };
 
-export const Project: React.FC<Props> = memo<Props>((props) => {
+export const Project = memo(function Project(props: Props) {
   const { project } = useProject(props.mention.projectId);
   const { projectBaseColor } = useProjectBaseColor(project.projectBaseColorId);
 
@@ -28,4 +27,3 @@ export const Project: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Project.displayName = 'Project';

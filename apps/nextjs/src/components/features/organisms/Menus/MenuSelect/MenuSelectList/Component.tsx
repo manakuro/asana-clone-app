@@ -15,7 +15,7 @@ type Props = MenuOptionGroupProps & {
 };
 export type ComponentProps = Props;
 
-export const Component: React.FC<Props> = (props) => {
+export function Component(props: Props) {
   const { menuListProps, ...rest } = props;
   const { onChange, onClose, listStatus } = useMenuSelectContext();
   const { ref } = useClickOutside(onClose, {
@@ -48,4 +48,4 @@ export const Component: React.FC<Props> = (props) => {
       </AtomsMenuList>
     </Portal>
   );
-};
+}

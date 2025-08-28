@@ -33,4 +33,3 @@ export const Modals: React.FC = memo(() => {
     </>
   );
 });
-Modals.displayName = 'Modals';

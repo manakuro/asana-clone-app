@@ -13,7 +13,7 @@ type Props = {
   onStartTransition: () => void;
 } & Omit<CheckIconProps, 'completed'>;
 
-export const CheckIcon: React.FC<Props> = memo((props) => {
+export const CheckIcon = memo(function CheckIcon(props: Props) {
   const { taskId, isTransitioning, onEndTransition, onStartTransition } = props;
   const { task, setTask } = useTask(taskId);
 
@@ -45,4 +45,3 @@ export const CheckIcon: React.FC<Props> = memo((props) => {
     />
   );
 });
-CheckIcon.displayName = 'CheckIcon';

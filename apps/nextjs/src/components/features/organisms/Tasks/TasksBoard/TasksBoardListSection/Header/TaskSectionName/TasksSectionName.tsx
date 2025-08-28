@@ -1,6 +1,5 @@
 import { useTasksTaskSection } from '@/components/features/organisms/Tasks/hooks';
 import { Box } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTasksBoardListSectionContext } from '../../Provider';
 import { Input } from './Input';
@@ -9,7 +8,7 @@ type Props = {
   taskSectionId: string;
 };
 
-export const TaskSectionName: React.FC<Props> = memo<Props>((props) => {
+export const TaskSectionName = memo(function TaskSectionName(props: Props) {
   const { taskSection, setSectionName } = useTasksTaskSection(
     props.taskSectionId,
   );
@@ -61,4 +60,3 @@ export const TaskSectionName: React.FC<Props> = memo<Props>((props) => {
     </Box>
   );
 });
-TaskSectionName.displayName = 'TaskSectionName';

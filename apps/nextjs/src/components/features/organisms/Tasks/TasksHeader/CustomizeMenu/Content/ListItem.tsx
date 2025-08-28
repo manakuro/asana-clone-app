@@ -4,7 +4,6 @@ import { CustomField } from '@/components/ui/molecules';
 import { useDraggableInPortal } from '@/hooks/useDraggableInPortal';
 import { useTaskColumn } from '@/store/entities/taskColumn';
 import { Draggable } from '@hello-pangea/dnd';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 
 type Props = {
@@ -12,7 +11,7 @@ type Props = {
   index: number;
 };
 
-export const ListItem: React.FC<Props> = memo<Props>((props) => {
+export const ListItem = memo(function ListItem(props: Props) {
   const { tasksTaskColumn, setTasksTaskColumn } = useTasksTaskColumn(
     props.tasksTaskColumnId,
   );
@@ -52,4 +51,3 @@ export const ListItem: React.FC<Props> = memo<Props>((props) => {
     </Draggable>
   );
 });
-ListItem.displayName = 'ListItem';

@@ -27,4 +27,3 @@ export const MyAccountAvatar: React.FC = memo(() => {
     </Menu>
   );
 });
-MyAccountAvatar.displayName = 'MyAccountAvatar';

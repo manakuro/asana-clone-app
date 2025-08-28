@@ -8,7 +8,7 @@ type Props = FlexProps & {
   projectId: string;
 };
 
-export const Project: React.FC<Props> = memo<Props>((props) => {
+export const Project = memo(function Project(props: Props) {
   const { projectId } = props;
   const { project } = useProject(projectId);
 
@@ -35,5 +35,3 @@ export const Project: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-
-Project.displayName = 'Project';

@@ -1,5 +1,4 @@
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
   taskId: string;
 };
 
-export const Print: React.FC<Props> = memo((props) => {
+export const Print = memo(function Print(props: Props) {
   const { onMouseEnter, onClose } = props;
 
   const handleClick = useCallback(async () => {
@@ -21,4 +20,3 @@ export const Print: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-Print.displayName = 'AddToAnotherProject';

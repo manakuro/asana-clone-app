@@ -22,7 +22,7 @@ type Props = {
 };
 
 const HEIGHT = '37px';
-export const Input: React.FC<Props> = memo((props) => {
+export const Input = memo(function Input(props: Props) {
   const { taskId, onClose } = props;
   const popoverDisclosure = useDisclosure();
   const { projectIds } = useProjectIdsByTaskId(taskId);
@@ -112,4 +112,3 @@ export const Input: React.FC<Props> = memo((props) => {
     </ProjectMenu>
   );
 });
-Input.displayName = 'Input';

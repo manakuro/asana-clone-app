@@ -12,7 +12,7 @@ type Props = FlexProps & {
   width: string;
 };
 
-export const TasksDueDate: React.FC<Props> = memo<Props>((props) => {
+export const TasksDueDate = memo(function TasksDueDate(props: Props) {
   const { task, setTaskDueDate, resetTaskDueDate } = useTask(props.taskId);
   const hasDueDate = useMemo(() => !!task.dueDate, [task.dueDate]);
   const { ref, isHovering } = useHover();
@@ -81,4 +81,3 @@ export const TasksDueDate: React.FC<Props> = memo<Props>((props) => {
     </TasksListCell>
   );
 });
-TasksDueDate.displayName = 'TasksDueDate';

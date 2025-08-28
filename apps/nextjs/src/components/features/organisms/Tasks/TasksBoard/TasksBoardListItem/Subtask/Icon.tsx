@@ -4,7 +4,6 @@ import {
   Text,
   type TextProps,
 } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -12,7 +11,7 @@ type Props = {
   textStyle?: TextProps;
 };
 
-export const Icon: React.FC<Props> = memo<Props>((props) => {
+export const Icon = memo(function Icon(props: Props) {
   const { size, textStyle } = props;
 
   return (
@@ -24,4 +23,3 @@ export const Icon: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Icon.displayName = 'Icon';

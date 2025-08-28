@@ -15,25 +15,25 @@ type Props = Override<
   index: number;
 };
 
-export const AssigneeItem: React.FC<Props> = memo<Props>(
-  function AssigneeItem(props) {
-    const handleClick = useCallback(() => {
-      props.onClick(props.assignee);
-    }, [props]);
-    const { teammate } = useTeammate('1');
+export const AssigneeItem: React.FC<Props> = memo<Props>(function AssigneeItem(
+  props: Props,
+) {
+  const handleClick = useCallback(() => {
+    props.onClick(props.assignee);
+  }, [props]);
+  const { teammate } = useTeammate('1');
 
-    return (
-      <ListItem index={props.index} onClick={handleClick}>
-        <LeftContainer>
-          <TeammateAvatar teammateId={teammate.id} size="xs" />
-        </LeftContainer>
-        <RightContainer>
-          <Text fontSize="sm">mana</Text>
-          <Text ml={5} fontSize="xs" color="text.muted">
-            {teammate.email}
-          </Text>
-        </RightContainer>
-      </ListItem>
-    );
-  },
-);
+  return (
+    <ListItem index={props.index} onClick={handleClick}>
+      <LeftContainer>
+        <TeammateAvatar teammateId={teammate.id} size="xs" />
+      </LeftContainer>
+      <RightContainer>
+        <Text fontSize="sm">mana</Text>
+        <Text ml={5} fontSize="xs" color="text.muted">
+          {teammate.email}
+        </Text>
+      </RightContainer>
+    </ListItem>
+  );
+});

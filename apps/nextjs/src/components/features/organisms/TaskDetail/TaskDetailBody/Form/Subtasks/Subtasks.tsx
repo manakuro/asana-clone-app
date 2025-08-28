@@ -1,5 +1,4 @@
 import { useSubtaskIds, useTaskCommand } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Label, Row } from '../Row';
 import { AddSubtaskButton } from './AddSubtaskButton';
@@ -10,7 +9,7 @@ type Props = {
 };
 export const SUBTASK_LIST_CONTAINER_ID = 'SUBTASK_LIST_CONTAINER_ID';
 
-export const Subtasks: React.FC<Props> = memo<Props>((props) => {
+export const Subtasks = memo(function Subtasks(props: Props) {
   const { taskIds } = useSubtaskIds(props.taskParentId);
   const { addSubtask } = useTaskCommand();
 
@@ -36,4 +35,3 @@ export const Subtasks: React.FC<Props> = memo<Props>((props) => {
     </Row>
   );
 });
-Subtasks.displayName = 'Subtasks';

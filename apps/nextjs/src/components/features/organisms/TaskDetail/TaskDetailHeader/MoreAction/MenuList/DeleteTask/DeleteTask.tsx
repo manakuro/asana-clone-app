@@ -1,7 +1,6 @@
 import { MenuItem } from '@/components/ui/organisms/Menu';
 import { useToast } from '@/hooks';
 import { useTask, useTaskCommand } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
   onClose: () => void;
   taskId: string;
 };
-export const DeleteTask: React.FC<Props> = memo((props) => {
+export const DeleteTask = memo(function DeleteTask(props: Props) {
   // TODO: Fix `Can't perform a React state update on an unmounted component ...` error.
   const { onMouseEnter, taskId, onClose } = props;
   const { task } = useTask(props.taskId);
@@ -41,5 +40,3 @@ export const DeleteTask: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-
-DeleteTask.displayName = 'DeleteTask';

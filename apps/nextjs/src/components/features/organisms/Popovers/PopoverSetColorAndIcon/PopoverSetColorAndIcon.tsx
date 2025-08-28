@@ -7,7 +7,6 @@ import {
   PopoverTrigger,
 } from '@/components/ui/organisms/Popover';
 import type { Project } from '@/store/entities/project';
-import type React from 'react';
 import { ColorPicker } from './ColorPicker';
 import { IconPicker } from './IconPicker';
 import { Setting } from './Setting';
@@ -25,7 +24,7 @@ const WIDTH = `${
   1 +
   24 * 2
 }px`;
-export const PopoverSetColorAndIcon: React.FC<Props> = (props) => {
+export function PopoverSetColorAndIcon(props: Props) {
   return (
     <Popover
       isOpen={props.isOpen}
@@ -55,4 +54,4 @@ export const PopoverSetColorAndIcon: React.FC<Props> = (props) => {
       </PopoverContent>
     </Popover>
   );
-};
+}

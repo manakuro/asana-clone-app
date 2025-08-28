@@ -6,7 +6,6 @@ import {
   type TaskFile,
   useTaskFileIdsByTaskId,
 } from '@/store/entities/taskFile';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { NewButton } from './NewButton';
 
@@ -14,7 +13,7 @@ type Props = {
   taskId: string;
 };
 
-export const Attachment: React.FC<Props> = memo<Props>((props) => {
+export const Attachment = memo(function Attachment(props: Props) {
   const { taskFileIds } = useTaskFileIdsByTaskId(props.taskId);
   const { onOpen, setState } = useFileViewerModal();
   const { toast } = useToast();
@@ -54,4 +53,3 @@ export const Attachment: React.FC<Props> = memo<Props>((props) => {
     </Wrap>
   );
 });
-Attachment.displayName = 'Attachment';

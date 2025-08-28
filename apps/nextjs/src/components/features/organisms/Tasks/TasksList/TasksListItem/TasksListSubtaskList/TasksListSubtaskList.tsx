@@ -1,5 +1,4 @@
 import { useSubtaskIds } from '@/store/entities/task';
-import type React from 'react';
 import { memo } from 'react';
 import { useSubtaskListContext } from '../Provider';
 import { Container } from './Container';
@@ -8,7 +7,9 @@ type Props = {
   taskId: string;
 };
 
-export const TasksListSubtaskList: React.FC<Props> = memo<Props>((props) => {
+export const TasksListSubtaskList = memo(function TasksListSubtaskList(
+  props: Props,
+) {
   const { isSubtaskExpanded } = useSubtaskListContext();
   const { taskIds } = useSubtaskIds(props.taskId);
 
@@ -17,4 +18,3 @@ export const TasksListSubtaskList: React.FC<Props> = memo<Props>((props) => {
 
   return <Container subTaskIds={taskIds} taskId={props.taskId} />;
 });
-TasksListSubtaskList.displayName = 'TasksListSubtaskList';

@@ -19,7 +19,7 @@ type Props = {
   onClose: () => void;
 } & PopoverProps;
 
-export const Input: React.FC<Props> = (props) => {
+export function Input(props: Props) {
   const { onClose, taskId } = props;
   const { task } = useTask(taskId);
   const { unassignTask, assignTask } = useTaskCommand();
@@ -91,5 +91,4 @@ export const Input: React.FC<Props> = (props) => {
       </Flex>
     </AssigneeMenu>
   );
-};
-Input.displayName = 'Input';
+}

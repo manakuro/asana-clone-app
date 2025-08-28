@@ -1,12 +1,11 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 
 type Props = FlexProps;
 
-export const Content: React.FC<Props> = (props) => {
+export function Content(props: Props) {
   return (
     <Flex alignItems="center" flex={1} {...props}>
       {props.children}
     </Flex>
   );
-};
+}

@@ -19,4 +19,3 @@ export const MainNav: React.FC = memo(() => {
     </List>
   );
 });
-MainNav.displayName = 'MainNav';

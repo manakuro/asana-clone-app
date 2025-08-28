@@ -28,7 +28,7 @@ type Props = MenuButtonProps & {
 };
 export type PopoverProjectMenuProps = Props;
 
-export const PopoverProjectMenu: React.FC<Props> = (props) => {
+export function PopoverProjectMenu(props: Props) {
   const {
     projectId,
     addFavorite,
@@ -83,4 +83,4 @@ export const PopoverProjectMenu: React.FC<Props> = (props) => {
       )}
     </Menu>
   );
-};
+}

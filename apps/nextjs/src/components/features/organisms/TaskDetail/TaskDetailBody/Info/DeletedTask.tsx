@@ -1,13 +1,12 @@
 import { Button, Flex, Icon, Text } from '@/components/ui/atoms';
 import { useTaskCommand } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
   taskId: string;
 };
 
-export const DeletedTask: React.FC<Props> = memo<Props>((props) => {
+export const DeletedTask = memo(function DeletedTask(props: Props) {
   const { taskId } = props;
   const { undeleteTask } = useTaskCommand();
 
@@ -35,4 +34,3 @@ export const DeletedTask: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-DeletedTask.displayName = 'DeletedTask';

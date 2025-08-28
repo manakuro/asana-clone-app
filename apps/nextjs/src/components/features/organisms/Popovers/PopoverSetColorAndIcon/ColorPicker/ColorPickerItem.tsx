@@ -1,6 +1,5 @@
 import { ColorBox, Icon, WrapItem } from '@/components/ui/atoms';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
   onClick: (id: string) => Promise<void>;
 };
 
-export const ColorPickerItem: React.FC<Props> = memo<Props>((props) => {
+export const ColorPickerItem = memo(function ColorPickerItem(props: Props) {
   const { projectBaseColorId, currentProjectBaseColorId, onClick } = props;
   const { projectBaseColor } = useProjectBaseColor(projectBaseColorId);
 
@@ -35,4 +34,3 @@ export const ColorPickerItem: React.FC<Props> = memo<Props>((props) => {
     </WrapItem>
   );
 });
-ColorPickerItem.displayName = 'ColorPickerItem';

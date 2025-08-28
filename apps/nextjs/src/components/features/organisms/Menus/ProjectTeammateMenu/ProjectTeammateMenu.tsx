@@ -1,11 +1,12 @@
 import { PortalManager } from '@/components/ui/atoms';
 import { Popover, type PopoverProps } from '@/components/ui/organisms/Popover';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = PopoverProps;
 
-export const ProjectTeammateMenu: React.FC<Props> = memo<Props>((props) => {
+export const ProjectTeammateMenu = memo(function ProjectTeammateMenu(
+  props: Props,
+) {
   return (
     <PortalManager zIndex={1500}>
       <Popover
@@ -19,4 +20,3 @@ export const ProjectTeammateMenu: React.FC<Props> = memo<Props>((props) => {
     </PortalManager>
   );
 });
-ProjectTeammateMenu.displayName = 'ProjectTeammateMenu';

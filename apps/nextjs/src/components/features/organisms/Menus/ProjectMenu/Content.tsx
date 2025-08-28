@@ -9,7 +9,6 @@ import {
 import { Divider, Icon, Text } from '@/components/ui/atoms';
 import { useFirstRender } from '@/hooks';
 import type { Project } from '@/store/entities/project';
-import type React from 'react';
 import { memo, useCallback, useEffect } from 'react';
 import { ProjectItem } from './ProjectItem';
 
@@ -21,7 +20,7 @@ type Props = {
   immediate?: boolean;
 };
 
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo(function Content(props: Props) {
   const { queryText, onSelect, onClose, onClosed, immediate } = props;
   const { refetch, projects, loading: loadingQuery } = useSearchProjectsQuery();
   const { firstRender } = useFirstRender();
@@ -82,4 +81,3 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
     </>
   );
 });
-Content.displayName = 'Content';

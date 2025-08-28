@@ -10,7 +10,6 @@ import {
   ModalFooter,
   ModalHeader,
 } from '@/components/ui/organisms/Modal';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -18,7 +17,7 @@ type Props = {
   onClose: () => void;
 };
 
-export const Content: React.FC<Props> = memo((props) => {
+export const Content = memo(function Content(props: Props) {
   return (
     <ModalContent minH="670px" maxH="670px">
       <ModalHeader p={0}>
@@ -38,4 +37,3 @@ export const Content: React.FC<Props> = memo((props) => {
     </ModalContent>
   );
 });
-Content.displayName = 'Content';

@@ -63,4 +63,3 @@ export const MenuList = memo(function MenuList() {
     </AtomsMenuList>
   );
 });
-MenuList.displayName = 'MenuList';

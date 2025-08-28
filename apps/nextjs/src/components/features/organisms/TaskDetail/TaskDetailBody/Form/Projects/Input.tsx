@@ -17,7 +17,7 @@ type Props = {
   taskId: string;
 } & InputProps;
 
-export const Input: React.FC<Props> = memo<Props>((props) => {
+export const Input = memo(function Input(props: Props) {
   const { onClose, menuListStyle, taskId, ...rest } = props;
   const popoverDisclosure = useDisclosure({ defaultIsOpen: true });
   const { addProjectTaskByTaskId } = useProjectTaskCommand();
@@ -84,4 +84,3 @@ export const Input: React.FC<Props> = memo<Props>((props) => {
     </ProjectMenu>
   );
 });
-Input.displayName = 'Input';

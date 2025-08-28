@@ -14,7 +14,7 @@ type Props = {
   isHovering: boolean;
 } & Omit<IconProps, 'icon'>;
 
-export const CheckIcon: React.FC<Props> = memo<Props>((props) => {
+export const CheckIcon = memo(function CheckIcon(props: Props) {
   const { taskId, isHovering, projectId } = props;
   const { task, setTask } = useTask(taskId);
   const { project } = useProject(projectId);
@@ -44,4 +44,3 @@ export const CheckIcon: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-CheckIcon.displayName = 'CheckIcon';

@@ -21,4 +21,3 @@ export const Inbox: React.FC = memo(() => {
 
   return <NavListItem item={item} />;
 });
-Inbox.displayName = 'Inbox';

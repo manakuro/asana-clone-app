@@ -1,7 +1,6 @@
 import { Avatar, Flex, type FlexProps, Text } from '@/components/ui/atoms';
 import type { Mention } from '@/store/entities/mention';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo } from 'react';
 import { LeftContainer } from './LeftContainer';
 import { RightContainer } from './RightContainer';
@@ -10,7 +9,7 @@ type Props = FlexProps & {
   mention: Mention;
 };
 
-export const Teammate: React.FC<Props> = memo<Props>((props) => {
+export const Teammate = memo(function Teammate(props: Props) {
   const { teammate } = useTeammate(props.mention.id);
 
   return (
@@ -33,4 +32,3 @@ export const Teammate: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Teammate.displayName = 'Teammate';

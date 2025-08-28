@@ -12,7 +12,6 @@ import {
   type TaskListCompletedStatusCodeValue,
   useTaskListCompletedStatus,
 } from '@/store/entities/taskListCompletedStatus';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { PopoverCompletedTasks } from './PopoverCompletedTasks';
 
@@ -21,7 +20,9 @@ type Props = {
   endLoading: () => void;
 };
 
-export const IncompleteTasksMenu: React.FC<Props> = memo<Props>((props) => {
+export const IncompleteTasksMenu = memo(function IncompleteTasksMenu(
+  props: Props,
+) {
   const { startLoading, endLoading } = props;
   const { setTaskListCompletedStatus, taskListStatus } =
     useTasksTaskListStatus();
@@ -130,4 +131,3 @@ export const IncompleteTasksMenu: React.FC<Props> = memo<Props>((props) => {
     </MenuSelect>
   );
 });
-IncompleteTasksMenu.displayName = 'IncompleteTasksButton';

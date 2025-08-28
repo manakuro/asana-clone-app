@@ -3,7 +3,6 @@ import { type FlexProps, Stack } from '@/components/ui/atoms';
 import { useHover } from '@/hooks/useHover';
 import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo } from 'react';
 import { CheckIcon } from './CheckIcon';
 import { Container } from './Container';
@@ -16,7 +15,9 @@ type Props = {
   taskId: string;
 } & FlexProps;
 
-export const ListItemForMyTasksPage: React.FC<Props> = memo<Props>((props) => {
+export const ListItemForMyTasksPage = memo(function ListItemForMyTasksPage(
+  props: Props,
+) {
   const { taskId } = props;
   const { task } = useTask(taskId);
   const { ref, isHovering } = useHover();
@@ -54,4 +55,3 @@ export const ListItemForMyTasksPage: React.FC<Props> = memo<Props>((props) => {
     </Container>
   );
 });
-ListItemForMyTasksPage.displayName = 'ListItemForMyPage';

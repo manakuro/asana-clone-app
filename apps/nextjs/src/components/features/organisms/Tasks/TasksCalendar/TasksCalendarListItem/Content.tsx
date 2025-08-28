@@ -1,6 +1,5 @@
 import { useTasksTaskIdsByDueDate } from '@/components/features/organisms/Tasks/hooks';
 import { Stack } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { ListItem } from './ListItem';
 
@@ -8,7 +7,7 @@ type Props = {
   dateString: string;
 };
 
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo(function Content(props: Props) {
   const { dateString } = props;
   const { taskIds } = useTasksTaskIdsByDueDate(dateString);
 
@@ -22,4 +21,3 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
     </Stack>
   );
 });
-Content.displayName = 'Content';

@@ -2,7 +2,6 @@ import { useTasksTaskColumn } from '@/components/features/organisms/Tasks/hooks'
 import type { FlexProps } from '@/components/ui/atoms';
 import { useTaskColumn } from '@/store/entities/taskColumn';
 import { TaskColumnType } from '@/store/entities/taskColumn/type';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import {
   TasksAssignee,
@@ -19,7 +18,7 @@ type Props = FlexProps & {
   isSubtask?: boolean;
 };
 
-export const Cell: React.FC<Props> = memo<Props>((props) => {
+export const Cell = memo(function Cell(props: Props) {
   const { tasksTaskColumn } = useTasksTaskColumn(props.tasksTaskColumnId);
   const { taskColumn } = useTaskColumn(tasksTaskColumn.taskColumnId);
 
@@ -59,4 +58,3 @@ export const Cell: React.FC<Props> = memo<Props>((props) => {
 
   return null;
 });
-Cell.displayName = 'Cell';

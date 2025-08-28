@@ -2,7 +2,6 @@ import { Button } from '@/components/ui/atoms';
 import type { PopoverProps } from '@/components/ui/organisms/Popover';
 import { useMe } from '@/store/entities/me';
 import { useTaskCommand } from '@/store/entities/task';
-import type React from 'react';
 import { useCallback } from 'react';
 
 type Props = {
@@ -10,7 +9,7 @@ type Props = {
   onClose: () => void;
 } & PopoverProps;
 
-export const AssignToMeButton: React.FC<Props> = (props) => {
+export function AssignToMeButton(props: Props) {
   const { onClose, taskId } = props;
   const { assignTask } = useTaskCommand();
   const { me } = useMe();
@@ -25,5 +24,4 @@ export const AssignToMeButton: React.FC<Props> = (props) => {
       Assign to me
     </Button>
   );
-};
-AssignToMeButton.displayName = 'AssignToMeButton';
+}

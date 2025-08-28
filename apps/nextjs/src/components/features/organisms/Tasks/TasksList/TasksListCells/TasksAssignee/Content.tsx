@@ -2,7 +2,6 @@ import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
 import { Flex, Text } from '@/components/ui/atoms';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { type Teammate, useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { DeleteButton } from './DeleteButton';
 import { Input } from './Input';
@@ -14,7 +13,7 @@ type Props = {
   onUnfocus: () => void;
 };
 
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo(function Content(props: Props) {
   const { isHovering, focused, onUnfocus, taskId } = props;
   const { task } = useTask(taskId);
   const { assignTask } = useTaskCommand();
@@ -60,4 +59,3 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
 
   return null;
 });
-Content.displayName = 'Content';

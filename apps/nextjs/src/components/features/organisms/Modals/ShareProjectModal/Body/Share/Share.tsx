@@ -1,6 +1,5 @@
 import { uniqBy } from '@/shared/utils';
 import type { Teammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useShareProjectModalInvitedTeammates } from '../../useShareProjectModalInvitedTeammates';
 import { BodyHeader } from '../BodyHeader';
@@ -14,7 +13,7 @@ type Props = {
   onSetMembersTab: () => void;
 };
 
-export const Share: React.FC<Props> = memo<Props>((props) => {
+export const Share = memo(function Share(props: Props) {
   const { projectId, onSetMembersTab } = props;
   const { invitedTeammates, setInvitedTeammates } =
     useShareProjectModalInvitedTeammates();
@@ -53,4 +52,3 @@ export const Share: React.FC<Props> = memo<Props>((props) => {
     </BodyStack>
   );
 });
-Share.displayName = 'Share';

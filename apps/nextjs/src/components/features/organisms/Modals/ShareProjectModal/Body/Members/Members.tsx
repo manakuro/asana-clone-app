@@ -1,7 +1,6 @@
 import { Flex, Text } from '@/components/ui/atoms';
 import { useLinkStyle } from '@/hooks';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import { BodyHeader } from '../BodyHeader';
 import { BodyStack } from '../BodyStack';
@@ -14,7 +13,7 @@ type Props = {
   onSetShareTab: () => void;
 };
 
-export const Members: React.FC<Props> = memo<Props>((props) => {
+export const Members = memo(function Members(props: Props) {
   const { projectId, onSetShareTab } = props;
   const { teammateIds } = useTeammateIdsByProjectId(projectId);
   const headerText = useMemo(
@@ -47,4 +46,3 @@ export const Members: React.FC<Props> = memo<Props>((props) => {
     </BodyStack>
   );
 });
-Members.displayName = 'Members';

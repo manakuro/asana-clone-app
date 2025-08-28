@@ -1,13 +1,12 @@
 import { Box, Button, Flex, Text } from '@/components/ui/atoms';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import type React from 'react';
 
 type Props = {
   projectId: string;
 };
 
-export const ProjectButton: React.FC<Props> = (props) => {
+export function ProjectButton(props: Props) {
   const { project } = useProject(props.projectId);
   const { projectBaseColor } = useProjectBaseColor(project.projectBaseColorId);
 
@@ -35,4 +34,4 @@ export const ProjectButton: React.FC<Props> = (props) => {
       </Flex>
     </Button>
   );
-};
+}

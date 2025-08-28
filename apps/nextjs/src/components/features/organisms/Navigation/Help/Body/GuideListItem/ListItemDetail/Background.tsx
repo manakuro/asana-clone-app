@@ -1,13 +1,12 @@
 import { AspectRatio, Flex, Icon } from '@/components/ui/atoms';
 import { useVideoPlayer } from '@/components/ui/organisms/VideoPlayer';
-import type React from 'react';
 import { useCallback } from 'react';
 
 type Props = {
   src?: string;
 };
 
-export const Background: React.FC<Props> = (props) => {
+export function Background(props: Props) {
   const { src } = props;
   const { setIsOpen, setSrc } = useVideoPlayer();
 
@@ -30,4 +29,4 @@ export const Background: React.FC<Props> = (props) => {
       </Flex>
     </AspectRatio>
   );
-};
+}

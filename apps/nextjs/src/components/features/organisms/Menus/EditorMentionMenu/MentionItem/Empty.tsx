@@ -1,11 +1,10 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useMenuStyle } from '@/hooks';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = FlexProps;
 
-export const Empty: React.FC<Props> = memo<Props>((props) => {
+export const Empty = memo(function Empty(props: Props) {
   const styles = useMenuStyle().item;
 
   return (
@@ -20,4 +19,3 @@ export const Empty: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Empty.displayName = 'Empty';

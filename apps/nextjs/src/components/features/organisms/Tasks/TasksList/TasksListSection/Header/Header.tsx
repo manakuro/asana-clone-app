@@ -2,7 +2,6 @@ import { useTasksListContext } from '@/components/features/organisms/Tasks/Tasks
 import { useTasksListSectionContext } from '@/components/features/organisms/Tasks/TasksList/TasksListSection/Provider';
 import { Flex, Icon, IconButton, Stack } from '@/components/ui/atoms';
 import { useHover } from '@/hooks/useHover';
-import type React from 'react';
 import { memo } from 'react';
 import { AddTaskButton } from './AddTaskButton';
 import { MoreAction } from './MoreAction';
@@ -14,7 +13,7 @@ type Props = {
   isExpanded: boolean;
 };
 
-export const Header: React.FC<Props> = memo<Props>((props) => {
+export const Header = memo(function Header(props: Props) {
   const { onToggle, isExpanded } = props;
   const { ref, isHovering } = useHover();
   const { indentedStyle } = useTasksListSectionContext();
@@ -47,4 +46,3 @@ export const Header: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Header.displayName = 'Header';

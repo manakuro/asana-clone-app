@@ -2,14 +2,13 @@ import { useWorkspaceActivityTaskIds } from '@/components/features/organisms/Inb
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useCreatedByIdsByTaskIds } from '@/store/entities/task';
 import { useTeammateNamesByTeammateIds } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 
 type Props = FlexProps & {
   workspaceActivityId: string;
 };
 
-export const InfoText: React.FC<Props> = memo<Props>((props) => {
+export const InfoText = memo(function InfoText(props: Props) {
   const { workspaceActivityId } = props;
   const { taskIds } = useWorkspaceActivityTaskIds(workspaceActivityId);
   const { createdByIds } = useCreatedByIdsByTaskIds(taskIds);
@@ -29,5 +28,3 @@ export const InfoText: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-
-InfoText.displayName = 'InfoText';

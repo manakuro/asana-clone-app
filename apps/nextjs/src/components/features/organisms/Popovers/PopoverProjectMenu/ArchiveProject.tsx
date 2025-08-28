@@ -8,7 +8,7 @@ type Props = {
   onMouseEnter: () => void;
 };
 
-export const ArchiveProject: React.FC<Props> = (props) => {
+export function ArchiveProject(props: Props) {
   const { onClose, onMouseEnter } = props;
 
   const handleClick = useCallback(
@@ -25,4 +25,4 @@ export const ArchiveProject: React.FC<Props> = (props) => {
       Archive Project
     </MenuItem>
   );
-};
+}

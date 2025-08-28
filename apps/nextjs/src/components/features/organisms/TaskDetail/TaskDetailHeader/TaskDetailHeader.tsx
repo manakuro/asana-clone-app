@@ -8,7 +8,6 @@ import {
   Stack,
 } from '@/components/ui/atoms';
 import type { IconType } from '@/shared/icons';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import { Attachment } from './Attachment';
 import { Complete } from './Complete';
@@ -29,7 +28,7 @@ const closeIcons = {
 } as const;
 type Mode = keyof typeof closeIcons;
 
-export const TaskDetailHeader: React.FC<Props> = memo<Props>((props) => {
+export const TaskDetailHeader = memo(function TaskDetailHeader(props: Props) {
   const { mode, onClose, loading, ...rest } = props;
   const { taskId } = useTaskDetail();
 
@@ -72,4 +71,3 @@ export const TaskDetailHeader: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-TaskDetailHeader.displayName = 'TaskDetailHeader';

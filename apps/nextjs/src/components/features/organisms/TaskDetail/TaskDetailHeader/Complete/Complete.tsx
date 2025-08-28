@@ -1,13 +1,12 @@
 import { Button, CheckIcon } from '@/components/ui/atoms';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
   taskId: string;
 };
 
-export const Complete: React.FC<Props> = memo<Props>((props) => {
+export const Complete = memo(function Complete(props: Props) {
   const { taskId } = props;
   const { task, setTask } = useTask(taskId);
 
@@ -41,4 +40,3 @@ export const Complete: React.FC<Props> = memo<Props>((props) => {
     </Button>
   );
 });
-Complete.displayName = 'Complete';

@@ -1,7 +1,6 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
-import type React from 'react';
 import { memo, useEffect, useMemo } from 'react';
 import { useSearchMenuIndex } from '../useSearchMenuIndex';
 
@@ -9,7 +8,9 @@ type Props = FlexProps & {
   index: number;
 };
 
-export const SearchMenuListItem: React.FC<Props> = memo<Props>((props) => {
+export const SearchMenuListItem = memo(function SearchMenuListItem(
+  props: Props,
+) {
   const styles = useMenuStyle().item;
   const { ref, isHovering } = useHover();
   const { selectedIndex, setSelectedIndex } = useSearchMenuIndex();
@@ -35,4 +36,3 @@ export const SearchMenuListItem: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-SearchMenuListItem.displayName = 'SearchMenuListItem';

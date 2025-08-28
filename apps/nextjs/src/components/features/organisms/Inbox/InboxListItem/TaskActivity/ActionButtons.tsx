@@ -1,13 +1,12 @@
 import { useInboxContext } from '@/components/features/organisms/Inbox';
 import type { FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { Actions, ArchiveButton, MoveToInboxButton } from '../Actions';
 import { useInboxListItemContext } from '../Provider';
 
 type Props = FlexProps;
 
-export const ActionButtons: React.FC<Props> = memo<Props>(() => {
+export const ActionButtons = memo<Props>(function ActionButtons() {
   const { isHovering } = useInboxListItemContext();
   const { isArchive, isActivity } = useInboxContext();
 
@@ -28,5 +27,3 @@ export const ActionButtons: React.FC<Props> = memo<Props>(() => {
     </Actions>
   );
 });
-
-ActionButtons.displayName = 'ActionButtons';

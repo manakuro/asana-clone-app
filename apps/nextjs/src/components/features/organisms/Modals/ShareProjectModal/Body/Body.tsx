@@ -7,7 +7,6 @@ import {
   TabPanels,
   Tabs,
 } from '@/components/ui/organisms/Tabs';
-import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { type Index, MEMBERS_INDEX, SHARE_INDEX } from '../types';
 import { useShareProjectModal } from '../useShareProjectModal';
@@ -18,7 +17,7 @@ type Props = {
   projectId: string;
 };
 
-export const Body: React.FC<Props> = memo<Props>((props) => {
+export const Body = memo(function Body(props: Props) {
   const { projectId } = props;
   const { tabIndex, setMembersTab, setShareTab } = useShareProjectModal();
   const [loadingTabContent, setLoadingTabContent] = useState<boolean>(true);
@@ -87,4 +86,3 @@ export const Body: React.FC<Props> = memo<Props>((props) => {
     </ModalBody>
   );
 });
-Body.displayName = 'Body';

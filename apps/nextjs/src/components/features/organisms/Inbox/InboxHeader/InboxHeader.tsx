@@ -1,11 +1,10 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useMainStyle } from '@/hooks';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = FlexProps;
 
-export const InboxHeader: React.FC<Props> = memo<Props>((props) => {
+export const InboxHeader = memo(function InboxHeader(props: Props) {
   const { paddingX } = useMainStyle();
 
   return (
@@ -22,4 +21,3 @@ export const InboxHeader: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-InboxHeader.displayName = 'InboxHeader';

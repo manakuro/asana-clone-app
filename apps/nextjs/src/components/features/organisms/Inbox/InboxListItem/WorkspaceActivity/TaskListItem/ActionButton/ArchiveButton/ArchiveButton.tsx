@@ -1,13 +1,12 @@
 import { Icon, IconButton, type IconButtonProps } from '@/components/ui/atoms';
 import { Tooltip } from '@/components/ui/molecules';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
   taskId: string;
 } & Omit<IconButtonProps, 'aria-label'>;
 
-export const ArchiveButton: React.FC<Props> = memo<Props>((props) => {
+export const ArchiveButton = memo(function ArchiveButton(props: Props) {
   const { taskId, ...rest } = props;
   const handleClick = useCallback(() => {}, []);
 
@@ -28,5 +27,3 @@ export const ArchiveButton: React.FC<Props> = memo<Props>((props) => {
     </Tooltip>
   );
 });
-
-ArchiveButton.displayName = 'ArchiveButton';

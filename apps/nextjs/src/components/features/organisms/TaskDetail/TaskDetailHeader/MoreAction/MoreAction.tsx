@@ -2,7 +2,6 @@ import { Icon, IconButton, PortalManager } from '@/components/ui/atoms';
 import { Tooltip } from '@/components/ui/molecules';
 import { Menu, MenuButton } from '@/components/ui/organisms/Menu';
 import { useDisclosure } from '@/shared/chakra';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { MenuList } from './MenuList';
 
@@ -10,7 +9,7 @@ type Props = {
   taskId: string;
 };
 
-export const MoreAction: React.FC<Props> = memo<Props>((props) => {
+export const MoreAction = memo(function MoreAction(props: Props) {
   const { onClose, onOpen, isOpen } = useDisclosure();
 
   const handleOpen = useCallback(() => {
@@ -47,4 +46,3 @@ export const MoreAction: React.FC<Props> = memo<Props>((props) => {
     </PortalManager>
   );
 });
-MoreAction.displayName = 'MoreAction';

@@ -1,7 +1,6 @@
 import { Portal } from '@/components/ui/atoms';
 import { MenuList as AtomsMenuList } from '@/components/ui/organisms/Menu';
 import { useClickOutside } from '@/hooks';
-import type React from 'react';
 import { RemoveFromFavorites } from './RemoveFromFavorites';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
   onClose: () => void;
 };
 
-export const MenuList: React.FC<Props> = (props) => {
+export function MenuList(props: Props) {
   const { onClose, workspaceId } = props;
   const { ref } = useClickOutside<HTMLDivElement>(onClose);
 
@@ -20,4 +19,4 @@ export const MenuList: React.FC<Props> = (props) => {
       </AtomsMenuList>
     </Portal>
   );
-};
+}

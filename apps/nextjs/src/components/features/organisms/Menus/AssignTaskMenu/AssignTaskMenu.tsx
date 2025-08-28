@@ -8,7 +8,6 @@ import type {
   PopoverProps,
 } from '@/components/ui/organisms/Popover';
 import type { Teammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo } from 'react';
 import { Content } from './Content';
 
@@ -20,7 +19,7 @@ type Props = PopoverProps & {
   contentStyle?: PopoverContentProps;
 };
 
-export const AssignTaskMenu: React.FC<Props> = memo<Props>((props) => {
+export const AssignTaskMenu = memo(function AssignTaskMenu(props: Props) {
   const {
     onClosed,
     queryText,
@@ -47,4 +46,3 @@ export const AssignTaskMenu: React.FC<Props> = memo<Props>((props) => {
     </ProjectTeammateMenu>
   );
 });
-AssignTaskMenu.displayName = 'AssignTaskMenu';

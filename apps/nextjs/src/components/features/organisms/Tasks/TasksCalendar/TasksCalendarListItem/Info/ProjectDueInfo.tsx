@@ -1,5 +1,4 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { useProjectDueDate } from '../hooks';
 
@@ -7,7 +6,7 @@ type Props = {
   dateString: string;
 } & FlexProps;
 
-export const ProjectDueInfo: React.FC<Props> = memo<Props>((props) => {
+export const ProjectDueInfo = memo(function ProjectDueInfo(props: Props) {
   const { dateString } = props;
   const { isProjectDueDate } = useProjectDueDate({ dateString });
 
@@ -20,4 +19,3 @@ export const ProjectDueInfo: React.FC<Props> = memo<Props>((props) => {
 
   return null;
 });
-ProjectDueInfo.displayName = 'ProjectDueInfo';

@@ -11,7 +11,6 @@ import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,
 } from '@/store/entities/taskListCompletedStatus';
-import type React from 'react';
 import { useCallback } from 'react';
 
 type Props = {
@@ -20,7 +19,7 @@ type Props = {
   onChange: (listStatus: TaskListCompletedStatusCodeValue) => void;
 } & MenuProps;
 
-export const PopoverCompletedTasks: React.FC<Props> = (props) => {
+export function PopoverCompletedTasks(props: Props) {
   const handleChange = useCallback(
     (listStatus?: string | string[]) => {
       props.onChange(listStatus as TaskListCompletedStatusCodeValue);
@@ -88,7 +87,7 @@ export const PopoverCompletedTasks: React.FC<Props> = (props) => {
       </MenuList>
     </Menu>
   );
-};
+}
 
 // NOTE: Use custom component instead of `Box` because of styling issue with positioning menu item
 const MenuButtonAs = chakra('div', {

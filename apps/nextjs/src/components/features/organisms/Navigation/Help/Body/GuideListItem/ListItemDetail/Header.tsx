@@ -3,7 +3,6 @@ import {
   PADDING_X,
 } from '@/components/features/organisms/Navigation/Help/Body/GuideListItem';
 import { Flex, Icon, Text } from '@/components/ui/atoms';
-import type React from 'react';
 import { useCallback } from 'react';
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
   onToggle: (id: number) => void;
 };
 
-export const Header: React.FC<Props> = (props) => {
+export function Header(props: Props) {
   const { item, onToggle } = props;
 
   const handleToggle = useCallback(() => {
@@ -46,4 +45,4 @@ export const Header: React.FC<Props> = (props) => {
       <Icon icon="chevronDown" />
     </Flex>
   );
-};
+}

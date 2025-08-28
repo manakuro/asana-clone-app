@@ -1,7 +1,6 @@
 import { Icon } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useTasksBoardListItemContext } from '../../../Provider';
 
@@ -10,7 +9,7 @@ type Props = {
   onCloseMenu: () => void;
   taskId: string;
 };
-export const MarkComplete: React.FC<Props> = memo((props) => {
+export const MarkComplete = memo(function MarkComplete(props: Props) {
   const { task } = useTask(props.taskId);
   const { onToggleDone } = useTasksBoardListItemContext();
   const { onMouseEnter, onCloseMenu } = props;
@@ -30,5 +29,3 @@ export const MarkComplete: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-
-MarkComplete.displayName = 'MarkComplete';

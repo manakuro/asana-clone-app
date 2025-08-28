@@ -9,7 +9,7 @@ type Props = Omit<FlexProps, 'onChange'> & {
   resizedMaxW?: number;
 };
 
-export const ColumnResizer: React.FC<Props> = (props) => {
+export function ColumnResizer(props: Props) {
   const { onChange, resizedMinW, resizedMaxW, ...rest } = props;
   const [dragging, setDragging] = useState<boolean>(false);
   const { ref, isHovering } = useHover();
@@ -117,4 +117,4 @@ export const ColumnResizer: React.FC<Props> = (props) => {
       )}
     </>
   );
-};
+}

@@ -32,4 +32,3 @@ export const TasksNameGrabIconContainer: React.FC<Props> = memo<Props>(
     );
   },
 );
-TasksNameGrabIconContainer.displayName = 'TasksNameGrabIconContainer';

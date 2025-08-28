@@ -19,4 +19,3 @@ export const TasksBoardList: React.FC = memo(() => {
     </Flex>
   );
 });
-TasksBoardList.displayName = 'TasksBoardList';

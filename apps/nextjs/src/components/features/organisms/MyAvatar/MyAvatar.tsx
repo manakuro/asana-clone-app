@@ -1,12 +1,11 @@
 import { PopoverProfile } from '@/components/features/organisms/Popovers';
 import { Avatar, type AvatarProps } from '@/components/ui/atoms';
 import { useMe } from '@/store/entities/me';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = AvatarProps;
 
-export const MyAvatar: React.FC<Props> = memo((props) => {
+export const MyAvatar = memo(function MyAvatar(props: Props) {
   const { me } = useMe();
 
   return (
@@ -27,4 +26,3 @@ export const MyAvatar: React.FC<Props> = memo((props) => {
     </PopoverProfile>
   );
 });
-MyAvatar.displayName = 'MyAvatar';

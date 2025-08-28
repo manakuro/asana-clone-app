@@ -1,14 +1,13 @@
 import { PriorityChip } from '@/components/features/molecules/Chips';
 import type { FlexProps } from '@/components/ui/atoms';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = FlexProps & {
   taskId: string;
 };
 
-export const Priority: React.FC<Props> = memo<Props>((props) => {
+export const Priority = memo(function Priority(props: Props) {
   const { taskId } = props;
   const { task } = useTask(taskId);
 
@@ -16,4 +15,3 @@ export const Priority: React.FC<Props> = memo<Props>((props) => {
     <PriorityChip taskPriorityId={task.taskPriorityId} disableStopPropagation />
   );
 });
-Priority.displayName = 'Priority';

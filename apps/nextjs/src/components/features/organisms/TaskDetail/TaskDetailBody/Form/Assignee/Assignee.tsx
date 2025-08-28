@@ -9,7 +9,6 @@ import {
 import { useHover } from '@/hooks/useHover';
 import { useTask } from '@/store/entities/task';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Content, Label, Row } from '../Row';
 import { DeleteButton } from './DeleteButton';
@@ -28,7 +27,7 @@ const focusedStyle: ButtonProps = {
   },
 };
 
-export const Assignee: React.FC<Props> = memo<Props>((props) => {
+export const Assignee = memo(function Assignee(props: Props) {
   const { taskId } = props;
   const { ref, isHovering } = useHover();
   const [focused, setFocused] = useState(false);
@@ -85,4 +84,3 @@ export const Assignee: React.FC<Props> = memo<Props>((props) => {
     </Row>
   );
 });
-Assignee.displayName = 'Assignee';

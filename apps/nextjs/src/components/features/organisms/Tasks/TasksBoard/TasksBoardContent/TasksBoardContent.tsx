@@ -5,13 +5,12 @@ import { useMainStyle, usePrevious } from '@/hooks';
 import { useBreakpointValue } from '@/shared/chakra';
 import { isHTMLElement } from '@/shared/isHTMLElement';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { memo, useEffect, useRef, useState } from 'react';
 
 type Props = FlexProps;
 
 const maxH = 72 + 40;
-export const TasksBoardContent: React.FC<Props> = memo<Props>((props) => {
+export const TasksBoardContent = memo(function TasksBoardContent(props: Props) {
   const { maxW } = useMainStyle();
   const { isOpen, taskId } = useTaskDetailDrawer();
   const { getTasksBoardListSectionElementByTaskId } =
@@ -76,4 +75,3 @@ export const TasksBoardContent: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-TasksBoardContent.displayName = 'TasksBoardContent';

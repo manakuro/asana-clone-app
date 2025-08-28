@@ -10,7 +10,6 @@ import {
   useProjectTaskSection,
   useProjectsTaskSectionsByProjectId,
 } from '@/store/entities/projectTaskSection';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -22,7 +21,7 @@ type Props = {
   }) => void;
 };
 
-export const Section: React.FC<Props> = memo<Props>((props) => {
+export const Section = memo(function Section(props: Props) {
   const { projectTaskId, onChange } = props;
   const { projectTask } = useProjectTask(projectTaskId);
   const { projectTaskSection } = useProjectTaskSection(
@@ -65,4 +64,3 @@ export const Section: React.FC<Props> = memo<Props>((props) => {
     </MenuSelect>
   );
 });
-Section.displayName = 'Section';

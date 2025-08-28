@@ -17,7 +17,7 @@ type Props = {
   taskId: string;
 };
 
-export const Description: React.FC<Props> = memo<Props>((props) => {
+export const Description = memo(function Description(props: Props) {
   return (
     <Provider>
       <DescriptionHandler {...props} />
@@ -94,6 +94,3 @@ const Component: React.FC<ComponentProps> = memo<ComponentProps>((props) => {
     </Row>
   );
 });
-DescriptionHandler.displayName = 'DescriptionHandler';
-Component.displayName = 'Component';
-Description.displayName = 'Description';

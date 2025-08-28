@@ -11,7 +11,7 @@ type Props = {
   isPinned?: boolean;
 };
 
-export const FeedListItem: React.FC<Props> = memo<Props>((props) => {
+export const FeedListItem = memo(function FeedListItem(props: Props) {
   return (
     <Provider {...props}>
       <Component />
@@ -27,5 +27,3 @@ const Component: React.FC = memo(() => {
     </Container>
   );
 });
-Component.displayName = 'Component';
-FeedListItem.displayName = 'FeedListItem';

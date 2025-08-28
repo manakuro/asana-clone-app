@@ -12,4 +12,3 @@ export const SearchInput: React.FC = memo(() => {
     />
   );
 });
-SearchInput.displayName = 'SearchInput';

@@ -1,12 +1,11 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { memo } from 'react';
 import { useInboxListItemContext } from './Provider';
 
 type Props = FlexProps;
 
-export const Container: React.FC<Props> = memo<Props>((props) => {
+export const Container = memo<Props>(function Container(props) {
   const { ref } = useInboxListItemContext();
 
   return (
@@ -29,5 +28,3 @@ export const Container: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-
-Container.displayName = 'Container';

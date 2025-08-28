@@ -4,7 +4,6 @@ import { Tooltip } from '@/components/ui/molecules';
 import { useClickableHoverStyle } from '@/hooks';
 import { getDifferenceInDays } from '@/shared/date';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useDueDate } from './useDueDate';
 
@@ -12,7 +11,7 @@ type Props = {
   taskId: string;
 };
 
-export const DueDate: React.FC<Props> = memo<Props>((props) => {
+export const DueDate = memo(function DueDate(props: Props) {
   const { clickableHoverLightStyle } = useClickableHoverStyle();
   const { onDueDateOpened, onDueDateClosed, showIcon } = useDueDate();
   const { task, setTaskDueDate, resetTaskDueDate } = useTask(props.taskId);
@@ -70,4 +69,3 @@ export const DueDate: React.FC<Props> = memo<Props>((props) => {
     </PopoverDueDatePicker>
   );
 });
-DueDate.displayName = 'DueDate';

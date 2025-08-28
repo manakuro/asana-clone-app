@@ -9,7 +9,6 @@ import {
 import { useHover } from '@/hooks/useHover';
 import { useOwnerTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 import { DeleteButton } from './DeleteButton';
 import { Input } from './Input';
@@ -27,7 +26,7 @@ const focusedStyle: ButtonProps = {
   },
 };
 
-export const ProjectOwner: React.FC<Props> = memo<Props>((props) => {
+export const ProjectOwner = memo(function ProjectOwner(props: Props) {
   const { projectId } = props;
   const { ref, isHovering } = useHover();
   const [focused, setFocused] = useState(false);
@@ -82,4 +81,3 @@ export const ProjectOwner: React.FC<Props> = memo<Props>((props) => {
     </Button>
   );
 });
-ProjectOwner.displayName = 'ProjectOwner';

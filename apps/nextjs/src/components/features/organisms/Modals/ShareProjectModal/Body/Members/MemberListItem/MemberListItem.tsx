@@ -2,7 +2,6 @@ import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
 import { Flex, Text } from '@/components/ui/atoms';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo } from 'react';
 import { PermissionMenu } from '../../PermissionMenu';
 
@@ -11,7 +10,7 @@ type Props = {
   teammateId: string;
 };
 
-export const MemberListItem: React.FC<Props> = memo<Props>((props) => {
+export const MemberListItem = memo(function MemberListItem(props: Props) {
   const { teammateId } = props;
   const { teammate } = useTeammate(teammateId);
   const { clickableHoverStyle } = useClickableHoverStyle();
@@ -39,4 +38,3 @@ export const MemberListItem: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-MemberListItem.displayName = 'MemberListItem';

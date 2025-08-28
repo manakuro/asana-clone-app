@@ -11,7 +11,7 @@ type Props = {
   taskId: string;
 };
 
-export const Subtask: React.FC<Props> = memo((props) => {
+export const Subtask = memo(function Subtask(props: Props) {
   const { taskId } = props;
   const { taskIds } = useSubtaskIds(taskId);
   const size = useMemo(() => taskIds.length, [taskIds.length]);
@@ -40,4 +40,3 @@ export const Subtask: React.FC<Props> = memo((props) => {
     />
   );
 });
-Subtask.displayName = 'Subtask';

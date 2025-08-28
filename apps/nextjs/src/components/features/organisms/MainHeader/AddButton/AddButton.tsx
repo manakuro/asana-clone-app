@@ -51,7 +51,6 @@ export const AddButton: React.FC = memo(() => {
     </Menu>
   );
 });
-AddButton.displayName = 'AddButton';
 
 type IconTextProps = {
   icon: IconType;

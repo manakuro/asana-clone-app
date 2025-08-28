@@ -20,7 +20,7 @@ type Props = {
   onClick: (id: string) => Promise<void>;
 };
 
-export const IconPickerItem: React.FC<Props> = memo<Props>((props) => {
+export const IconPickerItem = memo(function IconPickerItem(props: Props) {
   const {
     projectIconId,
     currentProjectBaseColorId,
@@ -62,7 +62,6 @@ export const IconPickerItem: React.FC<Props> = memo<Props>((props) => {
     </WrapItem>
   );
 });
-IconPickerItem.displayName = 'IconPickerItem';
 
 const IconBox: React.FC<BoxProps> = (props) => (
   <Center borderRadius="sm" w="44px" h="44px" cursor="pointer" {...props} />

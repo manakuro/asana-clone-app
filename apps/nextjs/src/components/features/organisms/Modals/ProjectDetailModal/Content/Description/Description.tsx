@@ -16,7 +16,7 @@ import { ToolBar } from './ToolBar';
 type Props = {
   projectId: string;
 };
-export const Description: React.FC<Props> = memo((props) => {
+export const Description = memo(function Description(props: Props) {
   return (
     <Provider>
       <DescriptionHandler {...props} />
@@ -75,6 +75,3 @@ const Component: React.FC<ComponentProps> = memo<ComponentProps>((props) => {
     </Container>
   );
 });
-DescriptionHandler.displayName = 'DescriptionHandler';
-Component.displayName = 'Component';
-Description.displayName = 'Description';

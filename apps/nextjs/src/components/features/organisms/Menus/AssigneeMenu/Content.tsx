@@ -10,7 +10,6 @@ import {
 } from '@/components/features/organisms/Menus/SearchMenu';
 import { Divider, Icon, Text } from '@/components/ui/atoms';
 import type { Teammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -20,7 +19,7 @@ type Props = {
   onClosed?: () => void;
 };
 
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo(function Content(props: Props) {
   const { teammates, loading, onSelectTeammate } = useProjectTeammateMenu({
     ...props,
     additionalIndexLength: 1,
@@ -63,4 +62,3 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
     </>
   );
 });
-Content.displayName = 'Content';

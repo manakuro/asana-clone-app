@@ -12,14 +12,13 @@ import {
 } from '@/components/ui/organisms/Menu';
 import { useMenuStyle } from '@/hooks';
 import { chakra } from '@/shared/chakra';
-import type React from 'react';
 
 type Props = {
   onUpload?: (files: FileUploaderParams) => void;
   onClose: () => void;
 } & MenuProps;
 
-export const PopoverAddCoverImageActions: React.FC<Props> = (props) => {
+export function PopoverAddCoverImageActions(props: Props) {
   const itemStyle = useMenuStyle().item;
 
   return (
@@ -51,7 +50,7 @@ export const PopoverAddCoverImageActions: React.FC<Props> = (props) => {
       </MenuList>
     </Menu>
   );
-};
+}
 
 // NOTE: Use custom component instead of `Box` because of styling issue with positioning menu item
 const MenuButtonAs = chakra('div', {

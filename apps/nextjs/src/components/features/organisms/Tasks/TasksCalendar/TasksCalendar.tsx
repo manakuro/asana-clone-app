@@ -1,12 +1,11 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import { forwardRef } from '@/shared/chakra';
-import type React from 'react';
+import { forwardRef } from 'react';
 import { memo } from 'react';
 import { Provider } from './Provider';
 
 type Props = FlexProps;
 
-export const TasksCalendar: React.FC<Props> = memo((props) => {
+export const TasksCalendar = memo(function TasksCalendar(props: Props) {
   return (
     <Provider>
       <Component {...props} />
@@ -14,15 +13,17 @@ export const TasksCalendar: React.FC<Props> = memo((props) => {
   );
 });
 
-const Component: React.FC<Props> = forwardRef((props, ref) => (
-  <Flex
-    flex={1}
-    h="full"
-    flexDirection="column"
-    bg="gray.50"
-    {...props}
-    ref={ref}
-  />
-));
-
-TasksCalendar.displayName = 'TasksCalendar';
+const Component = forwardRef<HTMLDivElement, Props>(
+  function Component(props, ref) {
+    return (
+      <Flex
+        flex={1}
+        h="full"
+        flexDirection="column"
+        bg="gray.50"
+        {...props}
+        ref={ref}
+      />
+    );
+  },
+);

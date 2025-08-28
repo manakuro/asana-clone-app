@@ -1,5 +1,4 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -9,7 +8,9 @@ type Props = {
   dateString: string;
 } & FlexProps;
 
-export const ScrollDownObserver: React.FC<Props> = memo<Props>((props) => {
+export const ScrollDownObserver = memo(function ScrollDownObserver(
+  props: Props,
+) {
   const { observeScrollDown, onVisible, dateString, ...rest } = props;
   const { ref, inView } = useInView({
     skip: !observeScrollDown,
@@ -29,4 +30,3 @@ export const ScrollDownObserver: React.FC<Props> = memo<Props>((props) => {
 
   return <Flex {...rest} ref={ref} flex={1} />;
 });
-ScrollDownObserver.displayName = 'ScrollDownObserver';

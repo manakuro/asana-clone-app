@@ -10,7 +10,7 @@ type Props = FlexProps & {
   taskActivityId: string;
 };
 
-export const Title: React.FC<Props> = memo<Props>((props) => {
+export const Title = memo<Props>(function Title(props) {
   const { taskActivityId } = props;
   const { taskIds } = useTaskActivityTaskIds(taskActivityId);
   const { task } = useTask(taskIds[0]);
@@ -42,5 +42,3 @@ export const Title: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-
-Title.displayName = 'Title';

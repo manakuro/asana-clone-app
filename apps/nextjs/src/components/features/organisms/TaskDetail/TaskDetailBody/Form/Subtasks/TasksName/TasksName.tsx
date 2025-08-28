@@ -2,7 +2,6 @@ import { TasksListRow } from '@/components/features/organisms/Tasks/TasksList/Ta
 import { CheckIcon, Flex, type FlexProps, Stack } from '@/components/ui/atoms';
 import { TaskDoneTransition } from '@/components/ui/molecules';
 import { useTask, useTaskCommand } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Assignee } from './Assignee';
 import { DueDate } from './DueDate';
@@ -16,7 +15,7 @@ type Props = FlexProps & {
   taskId: string;
 };
 
-export const TasksName: React.FC<Props> = memo<Props>((props) => {
+export const TasksName = memo(function TasksName(props: Props) {
   return (
     <Provider taskId={props.taskId}>
       <Component {...props} />
@@ -24,7 +23,7 @@ export const TasksName: React.FC<Props> = memo<Props>((props) => {
   );
 });
 
-export const Component: React.FC<Props> = memo<Props>((props) => {
+export const Component = memo(function Component(props: Props) {
   const { ref, isTransitioning, onStartTransition, onEndTransition } =
     useSubtasksNameContext();
   const { deleteTask } = useTaskCommand();
@@ -86,5 +85,3 @@ export const Component: React.FC<Props> = memo<Props>((props) => {
     </TasksListRow>
   );
 });
-Component.displayName = 'Component';
-TasksName.displayName = 'TasksName';

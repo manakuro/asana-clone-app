@@ -1,13 +1,12 @@
 import { useTasksTask } from '@/components/features/organisms/Tasks/hooks';
 import { Button, type ButtonProps, Icon } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
   taskSectionId: string;
 } & ButtonProps;
 
-export const AddTask: React.FC<Props> = memo<Props>((props) => {
+export const AddTask = memo(function AddTask(props: Props) {
   const { taskSectionId, ...rest } = props;
   const { addTask } = useTasksTask();
 
@@ -29,4 +28,3 @@ export const AddTask: React.FC<Props> = memo<Props>((props) => {
     </Button>
   );
 });
-AddTask.displayName = 'AddTask';

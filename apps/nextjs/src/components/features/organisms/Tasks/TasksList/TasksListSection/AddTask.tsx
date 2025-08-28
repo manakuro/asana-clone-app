@@ -2,14 +2,13 @@ import { useTasksListContext } from '@/components/features/organisms/Tasks/Tasks
 import { useTasksTask } from '@/components/features/organisms/Tasks/hooks';
 import { Flex } from '@/components/ui/atoms';
 import { useClickableHoverStyle } from '@/hooks';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
   taskSectionId: string;
 };
 
-export const AddTask: React.FC<Props> = memo<Props>((props) => {
+export const AddTask = memo(function AddTask(props: Props) {
   const { addTask } = useTasksTask();
   const { clickableHoverStyle } = useClickableHoverStyle();
   const { stickyStyle } = useTasksListContext();
@@ -35,4 +34,3 @@ export const AddTask: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-AddTask.displayName = 'AddTask';

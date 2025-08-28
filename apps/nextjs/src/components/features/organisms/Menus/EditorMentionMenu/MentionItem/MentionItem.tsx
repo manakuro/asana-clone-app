@@ -2,7 +2,6 @@ import type { SetValueParam } from '@/components/features/organisms/Menus/Editor
 import type { FlexProps } from '@/components/ui/atoms';
 import type { Mention } from '@/store/entities/mention';
 import { MentionType } from '@/store/entities/mention';
-import type React from 'react';
 import { memo } from 'react';
 import { MentionItemBase } from './MentionItemBase';
 import { Project } from './Project';
@@ -20,7 +19,7 @@ type Props = Override<
   index: number;
 };
 
-export const MentionItem: React.FC<Props> = memo<Props>((props) => {
+export const MentionItem = memo(function MentionItem(props: Props) {
   const { onClick, mention, ...rest } = props;
 
   switch (mention.type) {
@@ -50,4 +49,3 @@ export const MentionItem: React.FC<Props> = memo<Props>((props) => {
       );
   }
 });
-MentionItem.displayName = 'MentionItem';

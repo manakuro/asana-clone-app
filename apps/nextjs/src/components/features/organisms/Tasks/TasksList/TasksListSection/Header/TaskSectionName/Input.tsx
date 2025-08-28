@@ -9,7 +9,7 @@ type Props = {
   value: string;
 } & Omit<InputProps, 'onChange'>;
 
-export const Input: React.FC<Props> = memo<Props>((props) => {
+export const Input = memo(function Input(props: Props) {
   const { onClickOutside, onChange, ...rest } = props;
   const [value, setValue] = useState<string>(props.value);
 
@@ -42,4 +42,3 @@ export const Input: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Input.displayName = 'Input';

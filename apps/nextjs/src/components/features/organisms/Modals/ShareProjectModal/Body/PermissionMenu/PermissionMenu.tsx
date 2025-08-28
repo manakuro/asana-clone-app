@@ -86,4 +86,3 @@ export const PermissionMenu: React.FC = memo(() => {
     </MenuSelect>
   );
 });
-PermissionMenu.displayName = 'PermissionMenu';

@@ -1,5 +1,4 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import { forwardRef } from '@/shared/chakra';
 import { useProject } from '@/store/entities/project';
 import {
   useProjectBaseColor,
@@ -7,6 +6,7 @@ import {
 } from '@/store/entities/projectBaseColor';
 import { useTask } from '@/store/entities/task';
 import { transitions } from '@/styles';
+import { forwardRef } from 'react';
 import type React from 'react';
 import { memo, useMemo } from 'react';
 
@@ -71,4 +71,3 @@ export const Container: React.FC<Props> = memo<Props>(
     );
   }),
 );
-Container.displayName = 'Container';

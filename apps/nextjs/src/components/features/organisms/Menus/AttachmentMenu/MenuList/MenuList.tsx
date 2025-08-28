@@ -9,7 +9,6 @@ import {
   MenuList as OrganismsMenuList,
 } from '@/components/ui/organisms/Menu';
 import { useClickOutside, useMenuStyle } from '@/hooks';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -17,7 +16,7 @@ type Props = {
   onClose?: () => void;
 };
 
-export const MenuList: React.FC<Props> = memo((props) => {
+export const MenuList = memo(function MenuList(props: Props) {
   const itemStyle = useMenuStyle().item;
   const { ref } = useClickOutside<HTMLDivElement>(() => {
     props.onClose?.();
@@ -44,4 +43,3 @@ export const MenuList: React.FC<Props> = memo((props) => {
     </Portal>
   );
 });
-MenuList.displayName = 'MenuList';

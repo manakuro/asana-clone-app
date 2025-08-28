@@ -4,7 +4,6 @@ import {
 } from '@/components/features/organisms/Tasks/hooks';
 import { Box, Icon, IconButton, PortalManager } from '@/components/ui/atoms';
 import { Menu, MenuButton } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { MenuList } from './MenuList';
 
@@ -15,7 +14,7 @@ type Props = {
   tasksTaskColumnId: string;
 };
 
-export const MoreAction: React.FC<Props> = memo<Props>((props) => {
+export const MoreAction = memo(function MoreAction(props: Props) {
   const { tasksTaskColumnId } = props;
   const { tasksTaskColumnIds } = useTasksTaskColumnIds();
   const { setTaskColumnOrder, canMoveLeft, canMoveRight, setTasksTaskColumn } =
@@ -74,4 +73,3 @@ export const MoreAction: React.FC<Props> = memo<Props>((props) => {
     </PortalManager>
   );
 });
-MoreAction.displayName = 'MoreAction';

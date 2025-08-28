@@ -1,6 +1,5 @@
 import { Flex, InputText } from '@/components/ui/atoms';
 import { useDescriptionTitleInput } from '@/hooks/pages/projects';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
   onChange: (val: string) => void;
 };
 
-export const Input: React.FC<Props> = memo<Props>((props) => {
+export const Input = memo(function Input(props: Props) {
   const { value, onKeyDown, onChange } = useDescriptionTitleInput(props);
 
   return (
@@ -26,4 +25,3 @@ export const Input: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Input.displayName = 'Input';

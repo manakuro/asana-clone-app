@@ -2,14 +2,13 @@ import { useAssigneeMenu } from '@/components/features/organisms/Menus/AssigneeM
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
-import type React from 'react';
 import { memo, useEffect, useMemo } from 'react';
 
 type Props = FlexProps & {
   index: number;
 };
 
-export const ListItem: React.FC<Props> = memo<Props>((props) => {
+export const ListItem = memo(function ListItem(props: Props) {
   const styles = useMenuStyle().item;
   const { ref, isHovering } = useHover();
   const { selectedIndex, setSelectedIndex } = useAssigneeMenu();
@@ -36,4 +35,3 @@ export const ListItem: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-ListItem.displayName = 'ListItem';

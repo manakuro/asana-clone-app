@@ -1,5 +1,5 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import { forwardRef } from '@/shared/chakra';
+import { forwardRef } from 'react';
 import type React from 'react';
 import { memo } from 'react';
 import { Provider } from './Provider';
@@ -7,7 +7,7 @@ import { Provider } from './Provider';
 type Props = FlexProps;
 type ComponentProps = Omit<Props, 'taskColumnIds'>;
 
-export const TasksList: React.FC<Props> = memo((props) => {
+export const TasksList = memo(function TasksList(props: Props) {
   return (
     <Provider>
       <Component {...props} />
@@ -20,4 +20,3 @@ const Component: React.FC<ComponentProps> = memo(
     <Flex flex={1} h="full" flexDirection="column" {...props} ref={ref} />
   )),
 );
-TasksList.displayName = 'TasksList';

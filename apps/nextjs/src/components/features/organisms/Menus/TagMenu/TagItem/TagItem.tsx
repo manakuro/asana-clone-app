@@ -9,7 +9,7 @@ type Props = {
   index: number;
 };
 
-export const TagItem: React.FC<Props> = memo<Props>((props) => {
+export const TagItem = memo(function TagItem(props: Props) {
   const { tag } = props;
 
   const handleClick = useCallback(
@@ -26,4 +26,3 @@ export const TagItem: React.FC<Props> = memo<Props>((props) => {
     </SearchMenuListItem>
   );
 });
-TagItem.displayName = 'TagItem';

@@ -9,7 +9,7 @@ type Props = {
   onMouseEnter: () => void;
 };
 
-export const EditProjectDetails: React.FC<Props> = (props) => {
+export function EditProjectDetails(props: Props) {
   const { projectId, onClose, onMouseEnter } = props;
   const { onOpen, setProjectId } = useProjectDetailModal();
 
@@ -30,4 +30,4 @@ export const EditProjectDetails: React.FC<Props> = (props) => {
       Edit project details
     </MenuItem>
   );
-};
+}

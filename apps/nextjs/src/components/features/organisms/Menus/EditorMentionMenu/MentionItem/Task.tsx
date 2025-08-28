@@ -1,7 +1,6 @@
 import { CheckIcon, Flex, type FlexProps, Text } from '@/components/ui/atoms';
 import type { Mention } from '@/store/entities/mention';
 import { useProject } from '@/store/entities/project';
-import type React from 'react';
 import { memo } from 'react';
 import { LeftContainer } from './LeftContainer';
 import { RightContainer } from './RightContainer';
@@ -10,7 +9,7 @@ type Props = FlexProps & {
   mention: Mention;
 };
 
-export const Task: React.FC<Props> = memo<Props>((props) => {
+export const Task = memo(function Task(props: Props) {
   const { project } = useProject(props.mention.projectId);
 
   return (
@@ -29,4 +28,3 @@ export const Task: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Task.displayName = 'Task';

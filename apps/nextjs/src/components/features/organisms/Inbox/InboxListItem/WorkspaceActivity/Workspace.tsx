@@ -8,14 +8,13 @@ import {
 } from '@/components/ui/atoms';
 import { useWorkspace } from '@/store/entities/workspace';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 
 type Props = FlexProps & {
   workspaceId: string;
 };
 
-export const Workspace: React.FC<Props> = memo<Props>(() => {
+export const Workspace = memo(function Workspace() {
   const { workspace } = useWorkspace();
   const { isHovering } = useInboxListItemContext();
   const textStyle = useMemo(
@@ -41,5 +40,3 @@ export const Workspace: React.FC<Props> = memo<Props>(() => {
     </Flex>
   );
 });
-
-Workspace.displayName = 'Workspace';

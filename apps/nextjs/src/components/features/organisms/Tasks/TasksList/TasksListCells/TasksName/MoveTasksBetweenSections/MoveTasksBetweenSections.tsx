@@ -65,4 +65,3 @@ export const MoveTasksBetweenSections: React.FC<Props> = memo<Props>(
     );
   },
 );
-MoveTasksBetweenSections.displayName = 'Mark';

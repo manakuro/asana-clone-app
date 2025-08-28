@@ -1,5 +1,4 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { InboxListHeader } from '../InboxListHeader';
 import { InboxListItem } from '../InboxListItem';
@@ -9,7 +8,7 @@ type Props = FlexProps & {
   sectionText: string;
 };
 
-export const InboxListSection: React.FC<Props> = memo<Props>((props) => {
+export const InboxListSection = memo(function InboxListSection(props: Props) {
   const { listItemIds, sectionText, ...rest } = props;
 
   if (!listItemIds.length) return null;
@@ -23,5 +22,3 @@ export const InboxListSection: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-
-InboxListSection.displayName = 'InboxListSection';

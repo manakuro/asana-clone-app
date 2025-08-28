@@ -68,4 +68,3 @@ export const TasksListHorizontalScrollBorder: React.FC<Props> = memo<Props>(
     );
   },
 );
-TasksListHorizontalScrollBorder.displayName = 'TasksListHorizontalScrollBorder';

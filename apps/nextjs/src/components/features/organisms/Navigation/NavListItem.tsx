@@ -9,7 +9,6 @@ import {
 } from '@/components/ui/atoms';
 import { useLinkHoverStyle } from '@/hooks';
 import type { StaticRoutes } from '@/router';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import { PADDING_X } from './Navigation';
 import type { NavListItem as TNavListItem } from './type';
@@ -21,7 +20,7 @@ type Props = {
   disabled?: boolean;
 } & ListItemProps;
 
-export const NavListItem: React.FC<Props> = memo<Props>((props) => {
+export const NavListItem = memo(function NavListItem(props: Props) {
   const { item, linkStyle, light, disabled, ...rest } = props;
   const { _hover, selectedStyle } = useLinkHoverStyle();
   const listItemStyle = useMemo(
@@ -54,9 +53,8 @@ export const NavListItem: React.FC<Props> = memo<Props>((props) => {
     </ListItem>
   );
 });
-NavListItem.displayName = 'NavListItem';
 
-const WithNextLink: React.FC<Props> = (props) => {
+function WithNextLink(props: Props) {
   return props.item.isExternal ? (
     <>{props.children}</>
   ) : (
@@ -64,4 +62,4 @@ const WithNextLink: React.FC<Props> = (props) => {
       {props.children}
     </NextLink>
   );
-};
+}

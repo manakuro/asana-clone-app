@@ -1,5 +1,4 @@
 import { Flex, Stack } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { AddTaskButton } from './AddTaskButton';
 import { MoreAction } from './MoreAction';
@@ -9,7 +8,7 @@ type Props = {
   taskSectionId: string;
 };
 
-export const Header: React.FC<Props> = memo<Props>((props) => {
+export const Header = memo(function Header(props: Props) {
   return (
     <Flex h="36px" alignItems="center">
       <TaskSectionName taskSectionId={props.taskSectionId} />
@@ -20,4 +19,3 @@ export const Header: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Header.displayName = 'Header';

@@ -1,12 +1,11 @@
 import { Text, type TextProps } from '@/components/ui/atoms';
 import { formatFeedCreatedAt } from '@/shared/date';
-import type React from 'react';
 import { memo } from 'react';
 import { useTaskFeedListItemContext } from '../Provider';
 
 type Props = TextProps;
 
-export const CreateAt: React.FC<Props> = memo<Props>(() => {
+export const CreateAt = memo(function CreateAt(props: Props) {
   const { taskFeed } = useTaskFeedListItemContext();
   return (
     <Text fontSize="xs" color="text.muted" ml={2}>
@@ -15,4 +14,3 @@ export const CreateAt: React.FC<Props> = memo<Props>(() => {
     </Text>
   );
 });
-CreateAt.displayName = 'CreateAt';

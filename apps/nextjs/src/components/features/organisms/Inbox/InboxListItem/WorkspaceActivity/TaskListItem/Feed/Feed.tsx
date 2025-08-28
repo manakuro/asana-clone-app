@@ -1,13 +1,12 @@
 import { Icon as AtomsIcon, Flex, Text } from '@/components/ui/atoms';
 import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/taskFeed';
-import type React from 'react';
 import { useMemo } from 'react';
 
 type Props = {
   taskId: string;
 };
 
-export const Feed: React.FC<Props> = (props) => {
+export function Feed(props: Props) {
   const { taskId } = props;
   const { taskFeedIdsWithoutFirst } =
     useTaskFeedIdsWithoutFirstByTaskId(taskId);
@@ -26,4 +25,4 @@ export const Feed: React.FC<Props> = (props) => {
       <AtomsIcon icon="messageRounded" color="text.muted" ml={1} />
     </Flex>
   );
-};
+}

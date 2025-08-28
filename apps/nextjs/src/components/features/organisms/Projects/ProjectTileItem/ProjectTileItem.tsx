@@ -14,7 +14,6 @@ import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { useProjectIcon } from '@/store/entities/projectIcon';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { memo } from 'react';
 import { Container } from './Container';
 import { FavoriteButton } from './FavoriteButton';
@@ -24,7 +23,7 @@ type Props = {
   containerStyle?: FlexProps;
 };
 
-export const ProjectTileItem: React.FC<Props> = memo((props) => {
+export const ProjectTileItem = memo(function ProjectTileItem(props: Props) {
   const { projectId, containerStyle } = props;
   const { project } = useProject(projectId);
   const { projectBaseColor } = useProjectBaseColor(project.projectBaseColorId);
@@ -109,4 +108,3 @@ export const ProjectTileItem: React.FC<Props> = memo((props) => {
     </Container>
   );
 });
-ProjectTileItem.displayName = 'ProjectTileItem';

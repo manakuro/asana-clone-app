@@ -1,7 +1,6 @@
 import { Wrap } from '@/components/ui/atoms';
 import { useProjectCommand } from '@/store/entities/project';
 import { useProjectIconIds } from '@/store/entities/projectIcon';
-import type React from 'react';
 import { useCallback } from 'react';
 import { IconPickerItem } from './IconPickerItem';
 
@@ -12,7 +11,7 @@ type Props = {
   currentProjectBaseColorId: string;
 };
 
-export const IconPicker: React.FC<Props> = (props) => {
+export function IconPicker(props: Props) {
   const { projectIconIds } = useProjectIconIds();
   const { setProject } = useProjectCommand();
 
@@ -40,4 +39,4 @@ export const IconPicker: React.FC<Props> = (props) => {
       ))}
     </Wrap>
   );
-};
+}

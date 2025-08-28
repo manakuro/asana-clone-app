@@ -15,7 +15,9 @@ type Props = {
   index: number;
 };
 
-export const ProjectTeammateMenuItem: React.FC<Props> = memo<Props>((props) => {
+export const ProjectTeammateMenuItem = memo(function ProjectTeammateMenuItem(
+  props: Props,
+) {
   const { teammate, onClick } = props;
 
   const handleClick = useCallback(
@@ -41,4 +43,3 @@ export const ProjectTeammateMenuItem: React.FC<Props> = memo<Props>((props) => {
     </SearchMenuListItem>
   );
 });
-ProjectTeammateMenuItem.displayName = 'ProjectTeammateMenuItem';

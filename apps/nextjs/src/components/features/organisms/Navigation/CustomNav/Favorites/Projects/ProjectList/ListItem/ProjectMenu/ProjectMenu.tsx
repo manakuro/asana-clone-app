@@ -10,7 +10,7 @@ type Props = {
   projectId: string;
 };
 
-export const ProjectMenu: React.FC<Props> = memo<Props>((props) => {
+export const ProjectMenu = memo(function ProjectMenu(props: Props) {
   const { projectId } = props;
   const { clickableHoverLightStyle } = useClickableHoverStyle();
   const { onClose, onOpen, isOpen } = useDisclosure();
@@ -36,4 +36,3 @@ export const ProjectMenu: React.FC<Props> = memo<Props>((props) => {
     </PortalManager>
   );
 });
-ProjectMenu.displayName = 'ProjectMenu';

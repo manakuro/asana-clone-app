@@ -2,7 +2,6 @@ import { Icon } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
 import { useToast } from '@/hooks';
 import { taskDetailURL } from '@/router';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -10,7 +9,7 @@ type Props = {
   onCloseMenu: () => void;
   taskId: string;
 };
-export const CopyTask: React.FC<Props> = memo((props) => {
+export const CopyTask = memo(function CopyTask(props: Props) {
   const { onMouseEnter, onCloseMenu } = props;
   const { toast } = useToast();
 
@@ -33,5 +32,3 @@ export const CopyTask: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-
-CopyTask.displayName = 'CopyTask';

@@ -11,7 +11,7 @@ type Props = {
   taskId: string;
 };
 
-export const Feed: React.FC<Props> = memo((props) => {
+export const Feed = memo(function Feed(props: Props) {
   const { taskId } = props;
   const { taskFeedIdsWithoutFirst } =
     useTaskFeedIdsWithoutFirstByTaskId(taskId);
@@ -44,4 +44,3 @@ export const Feed: React.FC<Props> = memo((props) => {
     />
   );
 });
-Feed.displayName = 'Feed';

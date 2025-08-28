@@ -1,7 +1,6 @@
 import { Flex, type FlexProps, Text } from '@/components/ui/atoms';
 import { useHover } from '@/hooks/useHover';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { type ReactElement, useCallback, useState } from 'react';
 
 type Props = {
@@ -17,7 +16,7 @@ const focusedStyle: FlexProps = {
   bg: 'gray.50',
   transform: 'translate(0, -5px)',
 };
-export const Container: React.FC<Props> = (props) => {
+export function Container(props: Props) {
   const { children, name, ...rest } = props;
   const { ref, isHovering } = useHover();
   const [focused, setFocused] = useState(false);
@@ -54,4 +53,4 @@ export const Container: React.FC<Props> = (props) => {
       <Text mt={2}>{name}</Text>
     </Flex>
   );
-};
+}

@@ -1,12 +1,11 @@
 import { Flex, type FlexProps, Stack } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = FlexProps & {
   spacing?: number;
 };
 
-export const InboxHeaderRight: React.FC<Props> = memo<Props>((props) => {
+export const InboxHeaderRight = memo(function InboxHeaderRight(props: Props) {
   const { children, ...rest } = props;
 
   return (
@@ -17,4 +16,3 @@ export const InboxHeaderRight: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-InboxHeaderRight.displayName = 'InboxHeaderRight';

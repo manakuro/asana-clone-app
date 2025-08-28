@@ -1,5 +1,4 @@
 import { Flex, type FlexProps, Skeleton } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { Collaborators } from './Collaborators';
 import { Comment } from './Comment';
@@ -8,7 +7,7 @@ type Props = {
   loading?: boolean;
 } & FlexProps;
 
-export const TaskDetailFooter: React.FC<Props> = memo<Props>((props) => {
+export const TaskDetailFooter = memo(function TaskDetailFooter(props: Props) {
   const { loading, ...rest } = props;
   if (props.loading)
     return (
@@ -39,4 +38,3 @@ export const TaskDetailFooter: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-TaskDetailFooter.displayName = 'TaskDetailFooter';

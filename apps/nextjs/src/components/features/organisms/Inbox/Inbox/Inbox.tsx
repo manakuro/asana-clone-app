@@ -1,12 +1,11 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import { forwardRef } from '@/shared/chakra';
-import type React from 'react';
+import { forwardRef } from 'react';
 import { memo } from 'react';
 import { type InboxProviderProps, Provider } from './Provider';
 
 type Props = FlexProps & InboxProviderProps;
 
-export const Inbox: React.FC<Props> = memo<Props>((props) => {
+export const Inbox = memo<Props>(function Inbox(props) {
   const { isActivity, isArchive, ...rest } = props;
   return (
     <Provider isActivity={isActivity} isArchive={isArchive}>
@@ -15,8 +14,8 @@ export const Inbox: React.FC<Props> = memo<Props>((props) => {
   );
 });
 
-const Component: React.FC<Props> = forwardRef((props, ref) => (
-  <Flex flex={1} h="full" {...props} ref={ref} />
-));
-
-Inbox.displayName = 'Inbox';
+const Component = forwardRef<HTMLDivElement, Props>(
+  function Component(props, ref) {
+    return <Flex flex={1} h="full" {...props} ref={ref} />;
+  },
+);

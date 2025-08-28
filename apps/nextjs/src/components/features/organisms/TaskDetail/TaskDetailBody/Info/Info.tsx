@@ -1,5 +1,4 @@
 import { useIsTaskDeleted } from '@/store/entities/task';
-import type React from 'react';
 import { memo } from 'react';
 import { DeletedTask } from './DeletedTask';
 import { MakePublic } from './MakePublic';
@@ -8,7 +7,7 @@ type Props = {
   taskId: string;
 };
 
-export const Info: React.FC<Props> = memo<Props>((props) => {
+export const Info = memo(function Info(props: Props) {
   const { taskId } = props;
   const { isTaskDeleted } = useIsTaskDeleted(taskId);
 
@@ -18,4 +17,3 @@ export const Info: React.FC<Props> = memo<Props>((props) => {
 
   return <MakePublic />;
 });
-Info.displayName = 'Info';

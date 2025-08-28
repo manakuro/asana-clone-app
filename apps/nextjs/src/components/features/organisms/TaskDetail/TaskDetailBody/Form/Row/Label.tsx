@@ -1,9 +1,8 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 
 type Props = FlexProps;
 
-export const Label: React.FC<Props> = (props) => {
+export function Label(props: Props) {
   return (
     <Flex w="100px" {...props}>
       <Flex h={9} alignItems="center" fontSize="xs" color="text.muted">
@@ -11,4 +10,4 @@ export const Label: React.FC<Props> = (props) => {
       </Flex>
     </Flex>
   );
-};
+}

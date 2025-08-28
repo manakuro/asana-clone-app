@@ -20,4 +20,3 @@ export const ListSortByAlphabetical: React.FC = memo(() => {
     </Flex>
   );
 });
-ListSortByAlphabetical.displayName = 'ListSortByAlphabetical';

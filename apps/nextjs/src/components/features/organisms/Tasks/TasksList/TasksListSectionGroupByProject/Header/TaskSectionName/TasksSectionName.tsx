@@ -1,13 +1,12 @@
 import { Box } from '@/components/ui/atoms';
 import { useProject } from '@/store/entities/project';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
   projectId: string;
 };
 
-export const TaskSectionName: React.FC<Props> = memo<Props>((props) => {
+export const TaskSectionName = memo(function TaskSectionName(props: Props) {
   const { project } = useProject(props.projectId);
 
   return (
@@ -16,4 +15,3 @@ export const TaskSectionName: React.FC<Props> = memo<Props>((props) => {
     </Box>
   );
 });
-TaskSectionName.displayName = 'TaskSectionName';

@@ -8,7 +8,6 @@ import {
 } from '@/components/ui/atoms';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTasksBoardListItemContext } from '../Provider';
 
@@ -16,7 +15,7 @@ type Props = FlexProps & {
   taskId: string;
 };
 
-export const DueDate: React.FC<Props> = memo<Props>((props) => {
+export const DueDate = memo(function DueDate(props: Props) {
   const { task, setTaskDueDate, resetTaskDueDate } = useTask(props.taskId);
   const hasDueDate = useMemo(() => !!task.dueDate, [task.dueDate]);
   const { isHovering } = useTasksBoardListItemContext();
@@ -57,4 +56,3 @@ export const DueDate: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-DueDate.displayName = 'TasksDueDate';

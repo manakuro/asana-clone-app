@@ -7,7 +7,6 @@ import {
   type PopoverProps,
 } from '@/components/ui/organisms/Popover';
 import { useClickOutside } from '@/hooks';
-import type React from 'react';
 import { AssignToMeButton } from './AssignToMeButton';
 import { Input } from './Input';
 
@@ -16,7 +15,7 @@ type Props = {
   onClose: () => void;
 } & PopoverProps;
 
-export const Content: React.FC<Props> = (props) => {
+export function Content(props: Props) {
   const { onClose, taskId } = props;
   const { ref } = useClickOutside<HTMLDivElement>(onClose, {
     hasClickedOutside: (e, helpers) => {
@@ -51,4 +50,4 @@ export const Content: React.FC<Props> = (props) => {
       </PopoverContent>
     </Portal>
   );
-};
+}

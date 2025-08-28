@@ -1,5 +1,4 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { MonthObserver } from './MonthObserver';
 import { ScrollDownObserver } from './ScrollDownObserver';
@@ -14,7 +13,9 @@ type Props = {
   dateString: string;
 } & FlexProps;
 
-export const TasksCalendarListRow: React.FC<Props> = memo<Props>((props) => {
+export const TasksCalendarListRow = memo(function TasksCalendarListRow(
+  props: Props,
+) {
   const {
     observeScrollUp,
     observeScrollDown,
@@ -47,4 +48,3 @@ export const TasksCalendarListRow: React.FC<Props> = memo<Props>((props) => {
     </MonthObserver>
   );
 });
-TasksCalendarListRow.displayName = 'TasksCalendarListRow';

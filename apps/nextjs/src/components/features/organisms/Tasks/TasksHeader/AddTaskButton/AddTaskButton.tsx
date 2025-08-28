@@ -19,7 +19,6 @@ import {
   MenuList,
 } from '@/components/ui/organisms/Menu';
 import type { ChakraProps } from '@/shared/chakra';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 
 type Props = ButtonGroupProps & {
@@ -27,7 +26,7 @@ type Props = ButtonGroupProps & {
   outlined?: boolean;
 };
 
-export const AddTaskButton: React.FC<Props> = memo<Props>((props) => {
+export const AddTaskButton = memo(function AddTaskButton(props: Props) {
   const { solid, outlined, ...rest } = props;
   const { addTaskSection } = useTasksTaskSectionCommand();
   const { taskSectionIds } = useTasksTaskSectionIds();
@@ -77,4 +76,3 @@ export const AddTaskButton: React.FC<Props> = memo<Props>((props) => {
     </ButtonGroup>
   );
 });
-AddTaskButton.displayName = 'AddTaskButton';

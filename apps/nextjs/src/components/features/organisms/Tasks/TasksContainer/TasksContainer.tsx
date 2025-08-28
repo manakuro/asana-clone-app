@@ -1,11 +1,10 @@
-import type React from 'react';
 import { type PropsWithChildren, memo } from 'react';
 import { TasksModals } from '../TasksModals';
 import { TasksProvider, type TasksProviderProps } from '../TasksProvider';
 
 type Props = PropsWithChildren<TasksProviderProps>;
 
-export const TasksContainer: React.FC<Props> = memo<Props>((props) => {
+export const TasksContainer = memo(function TasksContainer(props: Props) {
   const { isMyTasksPage, isProjectsPage } = props;
   return (
     <TasksProvider
@@ -17,4 +16,3 @@ export const TasksContainer: React.FC<Props> = memo<Props>((props) => {
     </TasksProvider>
   );
 });
-TasksContainer.displayName = 'TasksContainer';

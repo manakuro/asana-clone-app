@@ -2,7 +2,7 @@ import {
   TasksListCell,
   type TasksListCellProps,
 } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
-import { forwardRef } from '@/shared/chakra';
+import { forwardRef } from 'react';
 import type React from 'react';
 import { memo } from 'react';
 import { useSubtasksNameContext } from './Provider';
@@ -38,4 +38,3 @@ export const TasksNameCell: React.FC<Props> = memo(
     );
   }),
 );
-TasksNameCell.displayName = 'TasksNameCell';

@@ -9,7 +9,7 @@ type Props = {
   onMouseEnter: () => void;
 };
 
-export const CopyProjectLink: React.FC<Props> = (props) => {
+export function CopyProjectLink(props: Props) {
   const { projectId, onClose, onMouseEnter } = props;
   const { copyProjectLink } = useCopyProjectLink({ projectId });
 
@@ -29,4 +29,4 @@ export const CopyProjectLink: React.FC<Props> = (props) => {
       Copy Project Link
     </MenuItem>
   );
-};
+}

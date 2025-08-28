@@ -20,7 +20,7 @@ type Props = {
   onCloseMenu: () => void;
   taskId: string;
 };
-export const MenuList: React.FC<Props> = memo((props) => {
+export const MenuList = memo(function MenuList(props: Props) {
   const { onCloseMenu } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { ref } = useClickOutside<HTMLDivElement>(() => {
@@ -79,5 +79,3 @@ export const MenuList: React.FC<Props> = memo((props) => {
     </Portal>
   );
 });
-
-MenuList.displayName = 'MenuList';

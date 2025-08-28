@@ -1,7 +1,6 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useClickableHoverStyle } from '@/hooks';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 
 type Props = FlexProps & {
@@ -10,7 +9,7 @@ type Props = FlexProps & {
   isLast?: boolean;
 };
 
-export const Row: React.FC<Props> = memo<Props>((props) => {
+export const Row = memo(function Row(props: Props) {
   const { isFirst, isLast, taskId, ...rest } = props;
   const { taskId: taskDetailTaskId } = useTaskDetail();
   const selected = useMemo(
@@ -49,5 +48,3 @@ export const Row: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-
-Row.displayName = 'Row';

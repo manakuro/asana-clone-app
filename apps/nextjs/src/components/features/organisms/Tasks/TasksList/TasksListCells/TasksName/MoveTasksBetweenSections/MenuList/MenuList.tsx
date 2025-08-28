@@ -12,7 +12,7 @@ type Props = {
   taskId: string;
 };
 
-export const MenuList: React.FC<Props> = memo<Props>((props) => {
+export const MenuList = memo(function MenuList(props: Props) {
   const { taskSections } = useTasksTaskSections();
   const { taskSection } = useTasksTaskSectionByTaskId(props.taskId);
 
@@ -37,5 +37,3 @@ const Component: React.FC<ComponentProps> = memo<ComponentProps>((props) => {
     </MenuSelectList>
   );
 });
-Component.displayName = 'Component';
-MenuList.displayName = 'MenuList';
