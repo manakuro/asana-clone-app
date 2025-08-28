@@ -1,5 +1,4 @@
 import { DashedBox, type FlexProps, Icon } from '@/components/ui/atoms';
-import type React from 'react';
 
 type Props = FlexProps & {
   size: Sizes;
@@ -22,7 +21,7 @@ const sizes = {
 } as const;
 type Sizes = keyof typeof sizes;
 
-export const NewBox: React.FC<Props> = (props) => {
+export function NewBox(props: Props) {
   const { size, color, ...rest } = props;
   const sizeStyle = sizes[size];
 
@@ -31,4 +30,4 @@ export const NewBox: React.FC<Props> = (props) => {
       <Icon size="md" icon="plus" />
     </DashedBox>
   );
-};
+}

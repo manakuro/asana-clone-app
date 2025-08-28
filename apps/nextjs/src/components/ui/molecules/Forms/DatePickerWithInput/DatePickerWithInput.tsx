@@ -9,7 +9,6 @@ import {
 } from '@/components/ui/atoms';
 import { useHover } from '@/hooks/useHover';
 import type { ChakraProps } from '@/shared/chakra';
-import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 import { DeleteButton } from './DeleteButton';
 import { Input } from './Input';
@@ -32,7 +31,9 @@ const focusedStyle: ButtonProps = {
   },
 };
 
-export const DatePickerWithInput: React.FC<Props> = memo<Props>((props) => {
+export const DatePickerWithInput = memo(function DatePickerWithInput(
+  props: Props,
+) {
   const { onSelect, dueDate, onDelete, buttonStyle, iconStyle } = props;
   const { ref, isHovering } = useHover();
   const [focused, setFocused] = useState(false);
@@ -94,4 +95,3 @@ export const DatePickerWithInput: React.FC<Props> = memo<Props>((props) => {
     </Button>
   );
 });
-DatePickerWithInput.displayName = 'ProjectDueDate';

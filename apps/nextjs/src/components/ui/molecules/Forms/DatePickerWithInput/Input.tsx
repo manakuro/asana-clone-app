@@ -13,7 +13,7 @@ type Props = {
   dueDate: string;
 };
 
-export const Input: React.FC<Props> = memo<Props>((props) => {
+export const Input = memo(function Input(props: Props) {
   const { onClose, onSelect, dueDate, onClear } = props;
   const { ref } = useClickOutside<HTMLInputElement>(onClose, {
     hasClickedOutside: (e, helpers) => {
@@ -72,4 +72,3 @@ export const Input: React.FC<Props> = memo<Props>((props) => {
     </PopoverDueDatePicker>
   );
 });
-Input.displayName = 'Input';

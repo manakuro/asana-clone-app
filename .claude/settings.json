@@ -3,7 +3,9 @@
     "allow": [
       "Bash(find:*)",
       "Bash(npm view:*)",
-      "WebFetch(domain:nextjs.org)"
+      "WebFetch(domain:nextjs.org)",
+      "Bash(pnpm tsc:*)",
+      "Bash(pnpm lint:*)"
     ],
     "deny": [
       "Bash(sudo:*)",

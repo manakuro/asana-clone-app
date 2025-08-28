@@ -18,7 +18,9 @@ type Props = {
 } & Omit<IconButtonProps, 'aria-label'>;
 export type FavoriteButtonProps = Props;
 
-export const FavoriteIconButton: React.FC<Props> = memo<Props>((props) => {
+export const FavoriteIconButton = memo(function FavoriteIconButton(
+  props: Props,
+) {
   const { favoriteId, iconStyle, isFavorite, setFavorite, ...rest } = props;
 
   const favoriteIconStyle: IconProps = isFavorite(favoriteId)
@@ -48,4 +50,3 @@ export const FavoriteIconButton: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-FavoriteIconButton.displayName = 'FavoriteIconButton';

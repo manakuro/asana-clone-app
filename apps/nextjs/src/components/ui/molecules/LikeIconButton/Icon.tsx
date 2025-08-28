@@ -1,6 +1,5 @@
 import { Icon as AtomsIcon, Flex, Text } from '@/components/ui/atoms';
 import { Tooltip } from '@/components/ui/molecules';
-import type React from 'react';
 import { memo } from 'react';
 import type { LikeButtonProps } from './LikeIconButton';
 
@@ -9,7 +8,7 @@ type Props = Pick<
   'hasAnyoneLiked' | 'label' | 'likeLength' | 'textStyle'
 >;
 
-export const Icon: React.FC<Props> = memo<Props>((props) => {
+export const Icon = memo(function Icon(props: Props) {
   const { hasAnyoneLiked, label, likeLength, textStyle } = props;
 
   if (hasAnyoneLiked) {
@@ -33,4 +32,3 @@ export const Icon: React.FC<Props> = memo<Props>((props) => {
 
   return <AtomsIcon icon="outlineLike" color="text.muted" />;
 });
-Icon.displayName = 'Icon';

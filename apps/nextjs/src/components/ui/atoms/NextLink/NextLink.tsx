@@ -5,7 +5,6 @@ import {
   routes,
 } from '@/router';
 import Link, { type LinkProps } from 'next/link';
-import type React from 'react';
 import { type PropsWithChildren, memo, useMemo } from 'react';
 
 type Props = PropsWithChildren<

@@ -1,7 +1,6 @@
 import { Text, type TextProps } from '@/components/ui/atoms';
 import { formatDueDate } from '@/shared/date';
 import { dateFns } from '@/shared/dateFns';
-import type React from 'react';
 import { useMemo } from 'react';
 
 type Props = TextProps & {

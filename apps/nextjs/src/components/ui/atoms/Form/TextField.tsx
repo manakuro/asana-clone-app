@@ -1,6 +1,5 @@
 import { FormControl, FormErrorMessage, Input } from '@/components/ui/atoms';
 import { type FieldInputProps, useField } from 'formik';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {

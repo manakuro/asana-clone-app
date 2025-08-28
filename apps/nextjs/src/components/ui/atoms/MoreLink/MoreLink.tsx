@@ -1,5 +1,4 @@
 import { Text, type TextProps } from '@/components/ui/atoms';
-import type React from 'react';
 
 type Props = TextProps;
 export type MoreLinkProps = Props;

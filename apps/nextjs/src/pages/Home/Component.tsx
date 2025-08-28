@@ -3,7 +3,6 @@ import { TasksProvider } from '@/components/features/organisms/Tasks';
 import { Flex, Stack } from '@/components/ui/atoms';
 import { Head } from '@/components/ui/atoms/Head';
 import { getHomeDetailId, isHomeDetailURL, useRouter } from '@/router';
-import type React from 'react';
 import { memo } from 'react';
 import { Content } from './Content';
 import { FavoriteProjects } from './FavoriteProjects';

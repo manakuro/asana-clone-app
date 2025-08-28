@@ -2,11 +2,10 @@ import { Button } from '@/components/ui/atoms';
 import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { Icon } from '@/components/ui/atoms/Icon';
 import { useColorMode } from '@chakra-ui/color-mode';
-import type React from 'react';
 
 type Props = FlexProps;
 
-export const ColorModeSwitch: React.FC<Props> = (props) => {
+export function ColorModeSwitch(props: Props) {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -16,4 +15,4 @@ export const ColorModeSwitch: React.FC<Props> = (props) => {
       </Button>
     </Flex>
   );
-};
+}

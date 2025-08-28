@@ -1,6 +1,5 @@
 import { Icon, type IconProps } from '@/components/ui/atoms';
 import { transitions } from '@/styles';
-import type React from 'react';
 import { useMemo } from 'react';
 
 type Props = {

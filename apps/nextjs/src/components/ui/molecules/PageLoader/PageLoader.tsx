@@ -1,9 +1,8 @@
 import { Flex, type FlexProps, Logo, Spinner } from '@/components/ui/atoms';
-import type React from 'react';
 
 type Props = FlexProps;
 
-export const PageLoader: React.FC<Props> = (props) => {
+export function PageLoader(props: Props) {
   return (
     <Flex
       position="fixed"
@@ -24,4 +23,4 @@ export const PageLoader: React.FC<Props> = (props) => {
       </Flex>
     </Flex>
   );
-};
+}

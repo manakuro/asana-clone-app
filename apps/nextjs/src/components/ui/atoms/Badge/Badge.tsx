@@ -2,7 +2,6 @@ import {
   Badge as ChakraBadge,
   type BadgeProps as ChakraBadgeProps,
 } from '@chakra-ui/react';
-import type React from 'react';
 
 type Props = ChakraBadgeProps;
 export type BadgeProps = Props;

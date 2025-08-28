@@ -7,14 +7,13 @@ import {
   type SwitchProps,
 } from '@/components/ui/atoms';
 import { useClickableHoverStyle } from '@/hooks';
-import type React from 'react';
 
 type Props = SwitchProps & {
   label: string;
 };
 export type CustomFieldProps = Props;
 
-export const CustomField: React.FC<Props> = (props) => {
+export function CustomField(props: Props) {
   const { clickableHoverInputGrabbableStyle } = useClickableHoverStyle();
 
   return (
@@ -43,4 +42,4 @@ export const CustomField: React.FC<Props> = (props) => {
       </Flex>
     </FormControl>
   );
-};
+}

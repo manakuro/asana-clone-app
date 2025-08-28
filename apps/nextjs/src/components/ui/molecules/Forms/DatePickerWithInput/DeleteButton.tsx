@@ -8,7 +8,7 @@ type Props = {
   isHovering: boolean;
 };
 
-export const DeleteButton: React.FC<Props> = memo<Props>((props) => {
+export const DeleteButton = memo(function DeleteButton(props: Props) {
   const { isHovering, onDelete } = props;
   const { clickableHoverLightStyle } = useClickableHoverStyle();
 
@@ -33,4 +33,3 @@ export const DeleteButton: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-DeleteButton.displayName = 'DeleteButton';
