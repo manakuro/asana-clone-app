@@ -7,7 +7,7 @@ type Props = FlexProps;
 
 const HEADER_HEIGHT = 72;
 export const Content: React.FC<Props> = memo<Props>((props) => {
-  const { ref } = useHomeContentDom();
+  const { ref } = useHomeContentDom<HTMLDivElement>();
 
   useTasksListContentVerticalScroll({ listenOnEvent: true });
 

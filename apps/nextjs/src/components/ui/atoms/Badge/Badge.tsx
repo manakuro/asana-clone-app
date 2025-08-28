@@ -7,7 +7,7 @@ import type React from 'react';
 type Props = ChakraBadgeProps;
 export type BadgeProps = Props;
 
-export const Badge: React.FC<Props> = (props) => {
+export function Badge(props: Props) {
   return (
     <ChakraBadge
       px={3}
@@ -19,4 +19,4 @@ export const Badge: React.FC<Props> = (props) => {
       {...props}
     />
   );
-};
+}

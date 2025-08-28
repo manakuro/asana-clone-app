@@ -1,8 +1,8 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   Skeleton as ChakraSkeleton,
   type SkeletonProps as ChakraSkeletonProps,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = ChakraSkeletonProps & {
@@ -10,13 +10,15 @@ type Props = ChakraSkeletonProps & {
 };
 export type SkeletonProps = Props;
 
-export const Skeleton: React.FC<Props> = forwardRef<Props, 'div'>(
-  (props, ref) => (
-    <ChakraSkeleton
-      startColor="gray.100"
-      endColor="gray.300"
-      {...props}
-      ref={ref}
-    />
-  ),
+export const Skeleton = forwardRef<HTMLDivElement, Props>(
+  function Skeleton(props, ref) {
+    return (
+      <ChakraSkeleton
+        startColor="gray.100"
+        endColor="gray.300"
+        {...props}
+        ref={ref}
+      />
+    );
+  },
 );

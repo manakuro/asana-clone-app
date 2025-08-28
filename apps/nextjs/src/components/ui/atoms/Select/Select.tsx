@@ -13,7 +13,7 @@ type Props = {
   size: InputProps['size'];
 } & Omit<MenuButtonProps, 'onChange'>;
 
-export const Select: React.FCWithChildren<Props> = (props) => {
+export function Select(props: React.PropsWithChildren<Props>) {
   const { value, onChange, children, size, ...rest } = props;
 
   const options = React.Children.map(children, (child) => {
@@ -39,4 +39,4 @@ export const Select: React.FCWithChildren<Props> = (props) => {
       </Portal>
     </Menu>
   );
-};
+}

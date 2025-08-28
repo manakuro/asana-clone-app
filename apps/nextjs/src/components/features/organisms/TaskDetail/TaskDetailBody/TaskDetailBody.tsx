@@ -1,6 +1,7 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
 import { Flex } from '@/components/ui/atoms';
 import type React from 'react';
+import type { Ref } from 'react';
 import { memo, useEffect } from 'react';
 import { Form } from './Form';
 import { Info } from './Info';
@@ -35,7 +36,12 @@ export const TaskDetailBody: React.FC<Props> = memo<Props>((props) => {
   if (props.loading) return <SkeletonTaskDetailBody />;
 
   return (
-    <Flex overflowY="scroll" flexDirection="column" ref={ref} flex={1}>
+    <Flex
+      overflowY="scroll"
+      flexDirection="column"
+      ref={ref as Ref<HTMLDivElement>}
+      flex={1}
+    >
       <Info taskId={taskId} />
       <Form />
     </Flex>

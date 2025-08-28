@@ -1,6 +1,6 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { transitions } from '@/styles';
-import { type PropsWithChildren, memo, useMemo } from 'react';
+import { type PropsWithChildren, type Ref, memo, useMemo } from 'react';
 import { useTaskFeedListItemContext } from './Provider';
 import { useFeedListItemContainerContext } from './Provider/ProviderContainer';
 
@@ -36,7 +36,7 @@ export const Container = memo<Props>(function Container(props) {
   return (
     <Flex
       {...style}
-      ref={containerRef}
+      ref={containerRef as Ref<HTMLDivElement>}
       px={6}
       py={2}
       flexDirection="column"

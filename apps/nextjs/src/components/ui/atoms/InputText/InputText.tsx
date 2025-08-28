@@ -23,7 +23,7 @@ type Props = {
   noBorder?: boolean;
 } & ChakraProps;
 
-export const InputText: React.FC<Props> = memo<Props>((props) => {
+export const InputText = memo(function InputText(props: Props) {
   const {
     value,
     onChange,
@@ -98,4 +98,3 @@ export const InputText: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-InputText.displayName = 'InputText';

@@ -9,6 +9,6 @@ type Props = ChakraPortalProps & {
 };
 export type PortalProps = ChakraPortalProps;
 
-export const Portal: React.FC<Props> = (props) => {
+export function Portal(props: Props) {
   return <ChakraPortal {...props} />;
-};
+}

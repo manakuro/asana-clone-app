@@ -1,5 +1,5 @@
 import { Box, type BoxProps } from '@/components/ui/atoms';
-import { forwardRef } from '@/shared/chakra';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = BoxProps & {
@@ -37,8 +37,8 @@ const sizes = {
 } as const;
 type Sizes = keyof typeof sizes;
 
-export const ColorBox: React.FC<Props> = forwardRef<Props, 'div'>(
-  (props, ref) => {
+export const ColorBox = forwardRef<HTMLDivElement, Props>(
+  function ColorBox(props, ref) {
     const { size, color, ...rest } = props;
     const sizeStyle = sizes[size ?? 'md'];
 

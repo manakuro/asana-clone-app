@@ -7,6 +7,6 @@ import type React from 'react';
 type Props = ChakraListProps;
 export type UnorderedListProps = Props;
 
-export const UnorderedList: React.FC<Props> = (props) => {
+export function UnorderedList(props: Props) {
   return <ChakraUnorderedList {...props} />;
-};
+}

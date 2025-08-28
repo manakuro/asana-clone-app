@@ -1,8 +1,8 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   Textarea as ChakraTextarea,
   type TextareaProps as ChakraTextareaProps,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = ChakraTextareaProps & {
@@ -10,6 +10,8 @@ type Props = ChakraTextareaProps & {
 };
 export type TextareaProps = Props;
 
-export const Textarea: React.FC<Props> = forwardRef((props, ref) => (
-  <ChakraTextarea {...props} focusBorderColor="none" ref={ref} />
-));
+export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
+  function Textarea(props, ref) {
+    return <ChakraTextarea {...props} focusBorderColor="none" ref={ref} />;
+  },
+);

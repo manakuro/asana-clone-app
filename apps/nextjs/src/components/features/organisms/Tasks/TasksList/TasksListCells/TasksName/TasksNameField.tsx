@@ -43,7 +43,7 @@ export const TasksNameField: React.FC<Props> = memo<Props>((props) => {
       },
       [containerRef, taskDetailListDetailRef],
     );
-  const { ref, removeEventListener } = useClickOutside(
+  const { ref, removeEventListener } = useClickOutside<HTMLDivElement>(
     async () => {
       if (!value) await props.deleteTask?.();
     },

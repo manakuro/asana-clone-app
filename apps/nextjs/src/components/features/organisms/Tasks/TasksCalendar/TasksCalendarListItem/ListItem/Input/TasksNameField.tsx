@@ -13,7 +13,7 @@ type Props = {
 
 export const TasksNameField: React.FC<Props> = memo<Props>((props) => {
   const [value, setValue] = useState<string>(props.value);
-  const { ref, removeEventListener } = useClickOutside(
+  const { ref, removeEventListener } = useClickOutside<HTMLDivElement>(
     async () => {
       if (!value) await props.deleteTask?.();
     },

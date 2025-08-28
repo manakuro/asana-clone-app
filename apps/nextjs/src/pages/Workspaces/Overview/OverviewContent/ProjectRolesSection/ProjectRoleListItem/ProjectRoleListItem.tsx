@@ -17,7 +17,7 @@ export const ProjectRoleListItem: React.FC<Props> = (props) => {
   const { projectId, projectTeammateId } = props;
   const { projectTeammate, role } = useProjectTeammate(projectTeammateId);
   const { teammate } = useTeammate(projectTeammate.teammateId);
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
 
   const roleText = useMemo(() => {
     if (!role) return '+ Add role';

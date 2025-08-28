@@ -7,7 +7,7 @@ import type React from 'react';
 type Props = ChakraCheckboxProps;
 export type CheckboxProps = Props;
 
-export const Checkbox: React.FC<Props> = (props) => {
+export function Checkbox(props: Props) {
   return (
     <ChakraCheckBox
       {...props}
@@ -19,4 +19,4 @@ export const Checkbox: React.FC<Props> = (props) => {
       }}
     />
   );
-};
+}

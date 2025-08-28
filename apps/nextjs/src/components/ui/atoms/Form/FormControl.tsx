@@ -1,13 +1,14 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   FormControl as ChakraFormControl,
   type FormControlProps as ChakraFormControlProps,
 } from '@chakra-ui/react';
-import type React from 'react';
+import { forwardRef } from 'react';
 
 type Props = ChakraFormControlProps;
 export type FormControlProps = Props;
 
-export const FormControl: React.FC<Props> = forwardRef<Props, 'div'>(
-  (props, ref) => <ChakraFormControl {...props} ref={ref} />,
+export const FormControl = forwardRef<HTMLDivElement, Props>(
+  function FormControl(props, ref) {
+    return <ChakraFormControl {...props} ref={ref} />;
+  },
 );

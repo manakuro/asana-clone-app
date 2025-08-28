@@ -1,5 +1,4 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { useInboxListContentRef } from './useInboxListContentRef';
 import { useInboxListContentVerticalScroll } from './useInboxListContentVerticalScroll';
@@ -7,8 +6,8 @@ import { useInboxListContentVerticalScroll } from './useInboxListContentVertical
 type Props = FlexProps;
 
 const maxH = 72 + 57;
-export const InboxListContent: React.FC<Props> = memo((props) => {
-  const { ref } = useInboxListContentRef();
+export const InboxListContent = memo(function InboxListContent(props: Props) {
+  const { ref } = useInboxListContentRef<HTMLDivElement>();
 
   useInboxListContentVerticalScroll({ listenOnEvent: true });
 
@@ -23,5 +22,3 @@ export const InboxListContent: React.FC<Props> = memo((props) => {
     />
   );
 });
-
-InboxListContent.displayName = 'InboxListContent';

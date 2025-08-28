@@ -1,8 +1,8 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   Slide as ChakraSlide,
   type SlideProps as ChakraSlideProps,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = ChakraSlideProps & {
@@ -10,6 +10,8 @@ type Props = ChakraSlideProps & {
 };
 export type SlideProps = Props;
 
-export const Slide: React.FC<Props> = forwardRef((props, ref) => (
-  <ChakraSlide {...props} ref={ref} />
-));
+export const Slide = forwardRef<HTMLDivElement, Props>(
+  function Slide(props, ref) {
+    return <ChakraSlide {...props} ref={ref} />;
+  },
+);

@@ -3,19 +3,13 @@ import { useTasksRouter } from '@/components/features/organisms/Tasks/hooks';
 import { isHTMLElement } from '@/shared/isHTMLElement';
 import { createProvider } from '@/shared/react/createProvider';
 import { useTaskFeed } from '@/store/entities/taskFeed';
-import type React from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-
-type ContextProps = {
-  containerRef: React.MutableRefObject<HTMLElement | null>;
-  isReferenced: boolean;
-};
 
 type Props = {
   taskFeedId: string;
   isPinned?: boolean;
 };
-const useValue = (props: Props): ContextProps => {
+const useValue = (props: Props) => {
   const { getTasksDetailFeedId } = useTasksRouter();
   const { taskFeed } = useTaskFeed(props.taskFeedId);
   const ref = useRef<HTMLElement | null>(null);

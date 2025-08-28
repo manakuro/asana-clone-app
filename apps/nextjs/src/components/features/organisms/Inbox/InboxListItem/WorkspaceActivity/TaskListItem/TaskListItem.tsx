@@ -23,7 +23,7 @@ export const TaskListItem: React.FC<Props> = memo<Props>((props) => {
   const { task } = useTask(taskId);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { navigateToInboxDetail } = useRouter();
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
 
   const startTransition = useCallback(() => {
     setIsTransitioning(true);

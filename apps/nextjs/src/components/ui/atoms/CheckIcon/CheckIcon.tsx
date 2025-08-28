@@ -9,7 +9,7 @@ type Props = {
 } & Omit<IconProps, 'icon'>;
 export type CheckIconProps = Props;
 
-export const CheckIcon: React.FC<Props> = (props) => {
+export function CheckIcon(props: Props) {
   const { completed, isTransitioning, color, ...rest } = props;
   const iconStyle = useMemo<IconProps>(() => {
     if (isTransitioning)
@@ -32,4 +32,4 @@ export const CheckIcon: React.FC<Props> = (props) => {
       {...iconStyle}
     />
   );
-};
+}

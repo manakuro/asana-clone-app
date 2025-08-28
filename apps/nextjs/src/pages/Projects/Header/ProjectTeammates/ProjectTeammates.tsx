@@ -7,7 +7,7 @@ import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { useWorkspace } from '@/store/entities/workspace';
 import { transitions } from '@/styles';
-import { memo, useCallback } from 'react';
+import { type Ref, memo, useCallback } from 'react';
 
 export const ProjectTeammates = memo(function ProjectTeammates() {
   const { projectId } = useProjectsProjectId();
@@ -32,7 +32,7 @@ export const ProjectTeammates = memo(function ProjectTeammates() {
         size="md"
       >
         <AvatarGroup
-          ref={ref}
+          ref={ref as Ref<HTMLDivElement>}
           size="xs"
           max={3}
           fontSize="xs"

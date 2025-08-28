@@ -10,7 +10,8 @@ type Props = ChakraFlexProps & {
 };
 export type FlexProps = Props;
 
-export const Flex: React.FC<Props> = forwardRef((props, ref) => (
-  <ChakraFlex {...props} ref={ref} />
-));
-Flex.displayName = 'Flex';
+export const Flex = forwardRef<HTMLDivElement, Props>(
+  function Flex(props, ref) {
+    return <ChakraFlex {...props} ref={ref} />;
+  },
+);

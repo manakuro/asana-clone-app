@@ -1,6 +1,6 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useClickableHoverStyle } from '@/hooks';
-import { forwardRef } from '@/shared/chakra';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = FlexProps & {
@@ -8,8 +8,8 @@ type Props = FlexProps & {
 };
 export type DashedBoxProps = Props;
 
-export const DashedBox: React.FC<Props> = forwardRef<Props, 'div'>(
-  (props, ref) => {
+export const DashedBox = forwardRef<HTMLDivElement, Props>(
+  function DashedBox(props, ref) {
     const { clickableHoverLightStyle } = useClickableHoverStyle();
 
     return (

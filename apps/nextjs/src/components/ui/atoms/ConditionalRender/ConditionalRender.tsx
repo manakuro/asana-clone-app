@@ -6,7 +6,7 @@ type Props = {
   server?: boolean;
 };
 
-export const ConditionalRender: React.FCWithChildren<Props> = (props) => {
+export function ConditionalRender(props: React.PropsWithChildren<Props>) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => setIsMounted(true), []);
@@ -14,4 +14,4 @@ export const ConditionalRender: React.FCWithChildren<Props> = (props) => {
   if (!isMounted && props.client) return null;
   if (isMounted && props.server) return null;
   return props.children as React.ReactElement;
-};
+}

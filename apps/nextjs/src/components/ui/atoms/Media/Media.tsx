@@ -6,7 +6,7 @@ type Props = BoxProps & {
   pc?: boolean;
 };
 
-export const Media: React.FC<Props> = ({ pc, mobile, ...rest }) => {
+export function Media({ pc, mobile, ...rest }: Props) {
   switch (true) {
     case Boolean(mobile):
       return <ChakraBox display={{ base: 'block', md: 'none' }} {...rest} />;
@@ -15,4 +15,4 @@ export const Media: React.FC<Props> = ({ pc, mobile, ...rest }) => {
     default:
       return <>{rest.children}</>;
   }
-};
+}

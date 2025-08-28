@@ -14,7 +14,7 @@ type Props = {
 
 export const Input: React.FC<Props> = memo<Props>((props) => {
   const { projectId, onClose } = props;
-  const { ref } = useClickOutside(onClose, {
+  const { ref } = useClickOutside<HTMLInputElement>(onClose, {
     hasClickedOutside: (e, helpers) => {
       if (helpers.isContainInPopoverContent(e)) return false;
       return true;

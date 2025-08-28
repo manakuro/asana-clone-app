@@ -1,8 +1,8 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   AvatarGroup as ChakraAvatarGroup,
   type AvatarGroupProps as ChakraAvatarGroupProps,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = ChakraAvatarGroupProps & {
@@ -10,6 +10,8 @@ type Props = ChakraAvatarGroupProps & {
 };
 export type AvatarGroupProps = Props;
 
-export const AvatarGroup: React.FC<Props> = forwardRef((props, ref) => (
-  <ChakraAvatarGroup {...props} ref={ref} />
-));
+export const AvatarGroup = forwardRef<HTMLDivElement, Props>(
+  function AvatarGroup(props, ref) {
+    return <ChakraAvatarGroup {...props} ref={ref} />;
+  },
+);

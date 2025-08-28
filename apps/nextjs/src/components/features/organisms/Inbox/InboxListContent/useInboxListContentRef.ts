@@ -3,8 +3,8 @@ import { useEffect, useRef } from 'react';
 
 const refAtom = atom<HTMLElement | null>(null);
 
-export const useInboxListContentRef = () => {
-  const ref = useRef<HTMLElement | null>(null);
+export const useInboxListContentRef = <R extends HTMLElement>() => {
+  const ref = useRef<R | null>(null);
   const [state, setState] = useAtom(refAtom);
 
   useEffect(() => {

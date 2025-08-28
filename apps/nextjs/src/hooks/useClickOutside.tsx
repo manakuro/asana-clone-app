@@ -17,11 +17,11 @@ export type UseClickOutsideOptions = Options;
 export type UseClickOutsideOptionsHasClickedOutside =
   Required<UseClickOutsideOptions>['hasClickedOutside'];
 
-export const useClickOutside = (
+export const useClickOutside = <T extends HTMLElement>(
   onClickOutside?: () => void,
   options: Options = {},
 ) => {
-  const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<T | null>(null);
   const [state, setState] = useState({
     hasClickedOutside: false,
   });

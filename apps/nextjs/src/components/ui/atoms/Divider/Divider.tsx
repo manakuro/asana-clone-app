@@ -3,6 +3,6 @@ import type React from 'react';
 
 type Props = DividerProps;
 
-export const Divider: React.FC<Props> = (props) => {
+export function Divider(props: Props) {
   return <ChakraDivider {...props} />;
-};
+}

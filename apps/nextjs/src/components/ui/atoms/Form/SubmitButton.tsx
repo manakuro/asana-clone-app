@@ -5,7 +5,7 @@ import { memo } from 'react';
 
 type Props = ButtonProps;
 
-export const SubmitButton: React.FC<Props> = memo((props) => {
+export const SubmitButton = memo(function SubmitButton(props: Props) {
   const { isValid } = useFormikContext();
 
   return (
@@ -18,5 +18,3 @@ export const SubmitButton: React.FC<Props> = memo((props) => {
     />
   );
 });
-
-SubmitButton.displayName = 'SubmitButton';

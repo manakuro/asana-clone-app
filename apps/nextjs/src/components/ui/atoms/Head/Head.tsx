@@ -12,7 +12,8 @@ type Props = {
   ogImage?: string;
 };
 
-export const Head: React.FC<Props> = (props) => (
+export function Head(props: Props) {
+  return (
   <NextHead>
     <title>{props.title}</title>
     <meta charSet="UTF-8" />
@@ -35,4 +36,5 @@ export const Head: React.FC<Props> = (props) => (
     <meta property="og:image:height" content="630" />
     <meta name="robots" content="noindex" />
   </NextHead>
-);
+  );
+}

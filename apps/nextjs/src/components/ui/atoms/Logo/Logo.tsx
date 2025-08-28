@@ -23,8 +23,8 @@ const LogoIcon = createIcon({
 
 type Props = IconProps;
 
-export const Logo: React.FC<Props> = (props) => {
+export function Logo(props: Props) {
   return (
     <LogoIcon color="whiteAlpha" w="auto" h="1.5em" ml="-2px" {...props} />
   );
-};
+}

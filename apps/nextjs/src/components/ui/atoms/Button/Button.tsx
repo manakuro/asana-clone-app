@@ -12,9 +12,7 @@ type Props = ChakraButtonProps & {
 };
 export type ButtonProps = Props;
 
-export const Button: React.FC<Props> & {
-  id?: string;
-} = forwardRef((props, ref) => {
+export const Button = forwardRef<Props, 'button'>(function Button(props, ref) {
   const { lightBg, ...rest } = props;
   const { selectedStyle, ...linkHoverStyle } = useLinkHoverStyle();
   const style = {

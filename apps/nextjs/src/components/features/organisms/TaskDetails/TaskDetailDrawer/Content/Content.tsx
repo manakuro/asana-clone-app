@@ -24,7 +24,7 @@ type Props = {
 export const Content: React.FC<Props> = memo((props) => {
   const { hasClickedOutside } = props;
   const { drawerStyle } = useDrawerStyle();
-  const { ref } = useClickOutside(
+  const { ref } = useClickOutside<HTMLDivElement>(
     () => {
       props.onClose();
     },

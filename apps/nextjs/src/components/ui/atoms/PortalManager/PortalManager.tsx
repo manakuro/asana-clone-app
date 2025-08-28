@@ -9,6 +9,6 @@ type Props = ChakraPortalManagerProps & {
 };
 export type PortalManagerProps = ChakraPortalManagerProps;
 
-export const PortalManager: React.FC<Props> = (props) => {
+export function PortalManager(props: Props) {
   return <ChakraPortalManager {...props} />;
-};
+}

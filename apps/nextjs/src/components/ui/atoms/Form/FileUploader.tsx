@@ -17,7 +17,7 @@ type Props = {
 } & LabelProps;
 export type FileUploaderProps = Props;
 
-export const FileUploader: React.FC<Props> = (props) => {
+export function FileUploader(props: Props) {
   const { id, onUpload, onUploaded, ...rest } = props;
 
   const handleChange = useCallback(
@@ -60,4 +60,4 @@ export const FileUploader: React.FC<Props> = (props) => {
       />
     </Label>
   );
-};
+}

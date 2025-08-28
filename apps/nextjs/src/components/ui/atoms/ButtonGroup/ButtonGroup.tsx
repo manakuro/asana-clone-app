@@ -1,8 +1,8 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   ButtonGroup as ChakraButtonGroup,
   type ButtonGroupProps as ChakraButtonGroupProps,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = ChakraButtonGroupProps & {
@@ -10,10 +10,8 @@ type Props = ChakraButtonGroupProps & {
 };
 export type ButtonGroupProps = ChakraButtonGroupProps;
 
-export const ButtonGroup: React.FC<Props> & {
-  id?: string;
-} = forwardRef((props, ref) => (
-  <ChakraButtonGroup {...props} fontWeight="normal" ref={ref} />
-));
-
-ButtonGroup.id = 'ButtonGroup';
+export const ButtonGroup = forwardRef<HTMLDivElement, Props>(
+  function ButtonGroup(props, ref) {
+    return <ChakraButtonGroup {...props} fontWeight="normal" ref={ref} />;
+  },
+);

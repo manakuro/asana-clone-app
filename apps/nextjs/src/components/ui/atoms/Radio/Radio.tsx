@@ -7,6 +7,6 @@ import type React from 'react';
 type Props = ChakraRadioProps;
 export type RadioProps = Props;
 
-export const Radio: React.FC<Props> = (props) => {
+export function Radio(props: Props) {
   return <ChakraRadio {...props} />;
-};
+}

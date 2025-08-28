@@ -7,6 +7,6 @@ import type React from 'react';
 type Props = ChakraStackProps;
 export type StackProps = Props;
 
-export const Stack: React.FC<Props> = (props) => {
+export function Stack(props: Props) {
   return <ChakraStack {...props} />;
-};
+}

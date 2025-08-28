@@ -7,6 +7,6 @@ import type React from 'react';
 type Props = ChakraProgressProps;
 export type ProgressProps = Props;
 
-export const Progress: React.FC<Props> = (props) => {
+export function Progress(props: Props) {
   return <ChakraProgress borderRadius="md" {...props} />;
-};
+}

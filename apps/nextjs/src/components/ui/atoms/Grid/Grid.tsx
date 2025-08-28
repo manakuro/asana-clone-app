@@ -7,6 +7,6 @@ import type React from 'react';
 type Props = ChakraGridProps;
 export type GridProps = Props;
 
-export const Grid: React.FC<Props> = (props) => {
+export function Grid(props: Props) {
   return <ChakraGrid {...props} />;
-};
+}

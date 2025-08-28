@@ -41,7 +41,7 @@ const Component: React.FC = memo(() => {
   const { addTaskCollaboratorByTeammate, deleteTaskCollaboratorByTeammate } =
     useTaskCollaboratorCommand();
   const { onInputUnfocus } = useCollaboratorsContext();
-  const { ref } = useClickOutside(onInputUnfocus, {
+  const { ref } = useClickOutside<HTMLDivElement>(onInputUnfocus, {
     hasClickedOutside: (e, helpers) => {
       if (helpers.isContainInPopoverContent(e)) return false;
       return true;

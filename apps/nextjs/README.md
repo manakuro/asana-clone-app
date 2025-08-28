@@ -7,7 +7,7 @@ An Asana clone application for a frontend built with Next.js.
 ## Tech Stack
 - Next.js
 - TypeScript
-- [Recoil](https://recoiljs.org/)
+- [Jotai](https://jotai.org/)
 - [Chakra UI](https://chakra-ui.com/)
 - [Apollo Client](https://www.apollographql.com/docs/react/)
 - [Chromatic](https://www.chromatic.com/)

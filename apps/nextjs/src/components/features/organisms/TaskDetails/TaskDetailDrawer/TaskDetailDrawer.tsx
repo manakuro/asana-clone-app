@@ -2,6 +2,7 @@ import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
 import { Slide } from '@/components/ui/atoms';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
 import type React from 'react';
+import type { Ref } from 'react';
 import { memo, useCallback } from 'react';
 import { Content } from './Content';
 import { useTaskDetailDrawer } from './useTaskDetailDrawer';
@@ -25,7 +26,7 @@ export const TaskDetailDrawer: React.FC<Props> = memo((props) => {
 
   return (
     <Slide
-      ref={ref}
+      ref={ref as Ref<HTMLDivElement>}
       in={isOpen}
       direction="right"
       transition={{

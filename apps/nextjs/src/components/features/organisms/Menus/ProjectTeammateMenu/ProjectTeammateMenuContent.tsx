@@ -15,7 +15,7 @@ type Props = PopoverContentProps & {
 export const ProjectTeammateMenuContent: React.FC<Props> = memo<Props>(
   (props) => {
     const { onClose, children, ...rest } = props;
-    const { ref } = useClickOutside(onClose, {
+    const { ref } = useClickOutside<HTMLDivElement>(onClose, {
       hasClickedOutside: (e, helpers) => {
         if (helpers.isContainInPopoverTrigger(e)) return false;
         return true;

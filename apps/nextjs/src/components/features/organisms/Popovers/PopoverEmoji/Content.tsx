@@ -9,7 +9,7 @@ import 'emoji-mart/css/emoji-mart.css';
 
 export const Content = memo(function Content() {
   const { onClose } = usePopoverEmojiContext();
-  const { ref } = useClickOutside(onClose);
+  const { ref } = useClickOutside<HTMLDivElement>(onClose);
 
   const handleSelect = useCallback(
     (emoji: BaseEmoji) => {

@@ -1,9 +1,9 @@
-import { forwardRef } from '@/shared/chakra';
 import { type IconType, icons } from '@/shared/icons';
 import {
   Icon as ChakraIcon,
   type IconProps as ChakraIconProps,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = ChakraIconProps & {
@@ -45,22 +45,18 @@ const sizes = {
 } as const;
 type Sizes = keyof typeof sizes;
 
-export const Icon: React.FC<Props> & { id?: string } = forwardRef<Props, 'svg'>(
-  (props, ref) => {
-    const { size, icon, ...iconProps } = props;
-    const iconComponent = icons[icon];
-    const sizeStyle = sizes[size ?? 'md'];
+export const Icon = forwardRef<SVGElement, Props>(function Icon(props, ref) {
+  const { size, icon, ...iconProps } = props;
+  const iconComponent = icons[icon];
+  const sizeStyle = sizes[size ?? 'md'];
 
-    return (
-      <ChakraIcon
-        ref={ref}
-        as={iconComponent}
-        color="whiteAlpha"
-        {...sizeStyle}
-        {...iconProps}
-      />
-    );
-  },
-);
-
-Icon.id = 'Icon';
+  return (
+    <ChakraIcon
+      ref={ref}
+      as={iconComponent}
+      color="whiteAlpha"
+      {...sizeStyle}
+      {...iconProps}
+    />
+  );
+});

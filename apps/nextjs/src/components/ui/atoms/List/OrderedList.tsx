@@ -9,6 +9,6 @@ type Props = ChakraListProps & {
 };
 export type OrderedListProps = Props;
 
-export const OrderedList: React.FC<Props> = (props) => {
+export function OrderedList(props: Props) {
   return <ChakraOrderedList {...props} />;
-};
+}

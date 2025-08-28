@@ -3,6 +3,6 @@ import type React from 'react';
 
 type Props = React.ComponentProps<typeof ChakraList>;
 
-export const List: React.FC<Props> = (props) => {
+export function List(props: Props) {
   return <ChakraList {...props} />;
-};
+}

@@ -1,9 +1,8 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   Link as ChakraLink,
   type LinkProps as ChakraLinkProps,
 } from '@chakra-ui/react';
-import type React from 'react';
+import { forwardRef } from 'react';
 import { useMemo } from 'react';
 
 type Props = ChakraLinkProps & {
@@ -11,15 +10,17 @@ type Props = ChakraLinkProps & {
 };
 export type LinkProps = ChakraLinkProps;
 
-export const Link: React.FC<Props> = forwardRef<Props, 'a'>((props, ref) => {
-  const { hover, ...rest } = props;
+export const Link = forwardRef<HTMLAnchorElement, Props>(
+  function Link(props, ref) {
+    const { hover, ...rest } = props;
 
-  const style = useMemo(
-    () => ({
-      ...(hover ? { _hover: { color: 'cyan.400' } } : {}),
-    }),
-    [hover],
-  );
+    const style = useMemo(
+      () => ({
+        ...(hover ? { _hover: { color: 'cyan.400' } } : {}),
+      }),
+      [hover],
+    );
 
-  return <ChakraLink {...style} {...rest} ref={ref} />;
-});
+    return <ChakraLink {...style} {...rest} ref={ref} />;
+  },
+);

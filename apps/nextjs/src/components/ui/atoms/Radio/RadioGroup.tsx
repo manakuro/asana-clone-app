@@ -7,6 +7,6 @@ import type React from 'react';
 type Props = ChakraRadioGroupProps;
 export type RadioGroupProps = Props;
 
-export const RadioGroup: React.FC<Props> = (props) => {
+export function RadioGroup(props: Props) {
   return <ChakraRadioGroup {...props} />;
-};
+}

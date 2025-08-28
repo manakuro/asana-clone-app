@@ -7,6 +7,6 @@ import type React from 'react';
 type Props = ChakraListItemProps;
 export type ListItemProps = ChakraListItemProps;
 
-export const ListItem: React.FC<Props> = (props) => {
+export function ListItem(props: Props) {
   return <ChakraListItem {...props} />;
-};
+}

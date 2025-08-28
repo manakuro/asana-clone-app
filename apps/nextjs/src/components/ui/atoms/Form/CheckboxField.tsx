@@ -8,7 +8,7 @@ type Props = PropsWithChildren<{
   value: string;
 }>;
 
-export const CheckboxField: React.FC<Props> = memo((props) => {
+export const CheckboxField = memo(function CheckboxField(props: Props) {
   const [field] = useField({
     name: props.name,
     type: 'checkbox',
@@ -19,8 +19,6 @@ export const CheckboxField: React.FC<Props> = memo((props) => {
 });
 
 type ComponentProps = Props & FieldInputProps<string>;
-const Component: React.FC<ComponentProps> = memo((props) => {
+const Component = memo(function Component(props: ComponentProps) {
   return <Checkbox size="sm" isChecked={props.checked} {...props} />;
 });
-Component.displayName = 'Component';
-CheckboxField.displayName = 'CheckboxField';

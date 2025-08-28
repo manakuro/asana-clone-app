@@ -28,7 +28,7 @@ export const Input: React.FC<Props> = memo((props) => {
   const { projectIds } = useProjectIdsByTaskId(taskId);
   const { addProjectTaskByTaskId, deleteProjectTaskByTaskId } =
     useProjectTaskCommand();
-  const { ref } = useClickOutside(onClose, {
+  const { ref } = useClickOutside<HTMLDivElement>(onClose, {
     hasClickedOutside: (e, helper) => {
       if (helper.isContainInPopoverContent(e)) return false;
       return true;

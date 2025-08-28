@@ -3,6 +3,7 @@ import { Icon, IconButton } from '@/components/ui/atoms';
 import { Tooltip } from '@/components/ui/molecules';
 import { useTooltip } from '@/components/ui/molecules/Tooltip/useTooltip';
 import type React from 'react';
+import type { Ref } from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
@@ -26,7 +27,7 @@ export const AddTaskButton: React.FC<Props> = memo((props) => {
       isOpen={isOpen}
     >
       <IconButton
-        ref={ref}
+        ref={ref as Ref<HTMLButtonElement>}
         aria-label="Add task button"
         icon={<Icon icon="plus" color="text.muted" />}
         variant="ghost"

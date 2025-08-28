@@ -9,7 +9,7 @@ type Props = {
 
 export const ClickOutsideWrapper: React.FCWithChildren<Props> = (props) => {
   const { onClose, children, isOpen } = props;
-  const { ref } = useClickOutside(onClose);
+  const { ref } = useClickOutside<HTMLDivElement>(onClose);
 
   if (!isOpen) return <>{children}</>;
 

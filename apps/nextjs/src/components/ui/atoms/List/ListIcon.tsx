@@ -7,8 +7,8 @@ type Props = React.ComponentProps<typeof ChakraListIcon> & {
   icon: IconType;
 };
 
-export const ListIcon: React.FC<Props> = (props) => {
+export function ListIcon(props: Props) {
   return (
     <ChakraListIcon as={() => <Icon icon={props.icon} mr={2} />} {...props} />
   );
-};
+}

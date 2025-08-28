@@ -30,7 +30,7 @@ export const Input: React.FC<Props> = memo((props) => {
   const { addTaskTag, deleteTaskTag } = useTaskTagCommand();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const { ref } = useClickOutside(onClose, {
+  const { ref } = useClickOutside<HTMLDivElement>(onClose, {
     hasClickedOutside: (e, helper) => {
       if (helper.isContainInPopoverContent(e)) return false;
       return true;

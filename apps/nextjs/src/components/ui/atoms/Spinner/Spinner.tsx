@@ -7,6 +7,6 @@ import type React from 'react';
 type Props = ChakraSpinnerProps;
 export type SpinnerProps = Props;
 
-export const Spinner: React.FC<Props> = (props) => {
+export function Spinner(props: Props) {
   return <ChakraSpinner {...props} />;
-};
+}
