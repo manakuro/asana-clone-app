@@ -18,7 +18,7 @@ type Props = {
   fetchTaskDetailQuery: (variables: { taskId: string }) => Promise<void>;
 };
 
-export const Component: React.FC<Props> = memo<Props>((props) => {
+export const Component = memo<Props>(function Component(props) {
   const { fetchTaskDetailQuery } = props;
   const { navigateToHome } = useRouter();
 
@@ -49,4 +49,3 @@ export const Component: React.FC<Props> = memo<Props>((props) => {
     </TasksProvider>
   );
 });
-Component.displayName = 'Component';
