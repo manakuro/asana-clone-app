@@ -13,7 +13,7 @@ type Props = ChakraMenuButtonProps &
   };
 export type MenuButtonProps = Props;
 
-export const MenuButton: React.FC<Props> = (props) => {
+export function MenuButton(props: Props) {
   const { spanStyle, ...rest } = props;
   const style = useMemo(
     () => ({
@@ -30,4 +30,4 @@ export const MenuButton: React.FC<Props> = (props) => {
       {...rest}
     />
   );
-};
+}

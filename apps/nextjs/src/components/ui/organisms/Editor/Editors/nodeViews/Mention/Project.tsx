@@ -28,4 +28,3 @@ export const Project: React.FC = memo(() => {
     </PopoverEditorLink>
   );
 });
-Project.displayName = 'Project';

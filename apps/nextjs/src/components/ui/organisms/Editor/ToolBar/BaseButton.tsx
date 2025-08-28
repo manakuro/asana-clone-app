@@ -15,7 +15,7 @@ type Props = {
   tooltip: Omit<TooltipProps, 'children'>;
 } & Omit<IconButtonProps, 'isActive'>;
 
-export const BaseButton: React.FC<Props> = (props) => {
+export function BaseButton(props: Props) {
   const state = useEditorStateContext();
   const view = useEditorViewContext();
   const { onClick, tooltip, action, isEnable, isActive, ...rest } = props;
@@ -47,4 +47,4 @@ export const BaseButton: React.FC<Props> = (props) => {
       />
     </Tooltip>
   );
-};
+}

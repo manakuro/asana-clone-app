@@ -13,7 +13,6 @@ import {
   ModalOverlay,
 } from '@/components/ui/organisms/Modal';
 import { DurationBar } from '@/components/ui/organisms/VideoPlayer/DurationBar';
-import type React from 'react';
 import { useCallback, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Duration } from './Duration';
@@ -32,7 +31,7 @@ const initialState = (): State => ({
   seeking: false,
 });
 
-export const VideoPlayer: React.FC = () => {
+export function VideoPlayer() {
   const { state, onClose } = useVideoPlayer();
   const [videoState, setVideoState] = useState<State>(initialState());
   const ref = useRef<ReactPlayer>(null);
@@ -128,4 +127,4 @@ export const VideoPlayer: React.FC = () => {
       </ModalContent>
     </Modal>
   );
-};
+}

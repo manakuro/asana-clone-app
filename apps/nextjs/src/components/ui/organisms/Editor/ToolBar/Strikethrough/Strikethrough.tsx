@@ -1,7 +1,6 @@
 import { Icon, type IconButtonProps } from '@/components/ui/atoms';
 import type { TooltipProps } from '@/components/ui/molecules';
 import { useStrikethrough } from '@/shared/prosemirror/hooks';
-import type React from 'react';
 import { memo } from 'react';
 import { BaseButton } from '../BaseButton';
 
@@ -9,7 +8,7 @@ type Props = Omit<IconButtonProps, 'aria-label'> & {
   tooltip?: Omit<TooltipProps, 'children'>;
 };
 
-export const Strikethrough: React.FC<Props> = memo<Props>((props) => {
+export const Strikethrough = memo(function Strikethrough(props: Props) {
   const { action, isActive } = useStrikethrough();
   return (
     <BaseButton
@@ -26,4 +25,3 @@ export const Strikethrough: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Strikethrough.displayName = 'Strikethrough';

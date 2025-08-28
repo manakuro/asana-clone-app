@@ -24,7 +24,7 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
   const { setProjectTeammateById } = useProjectTeammatesCommand();
   const { teammate } = useTeammate(projectTeammate.teammateId);
 
-  const { ref } = useClickOutside(onClose);
+  const { ref } = useClickOutside<HTMLDivElement>(onClose);
 
   const handleChangeRole = useCallback(
     async (value: string) => {

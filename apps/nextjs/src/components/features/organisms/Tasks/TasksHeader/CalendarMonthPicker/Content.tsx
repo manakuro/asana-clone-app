@@ -22,7 +22,7 @@ type Props = {
 
 export const Content: React.FC<Props> = (props) => {
   const { onClose } = props;
-  const { ref } = useClickOutside(onClose);
+  const { ref } = useClickOutside<HTMLDivElement>(onClose);
   const { currentDate, setMonth, scrollToDate } = useTasksCalendarContext();
   const [date, setDate] = useState<Date>(currentDate);
 

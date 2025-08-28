@@ -19,7 +19,7 @@ type Props = {
 
 export const MenuList: React.FC<Props> = memo((props) => {
   const itemStyle = useMenuStyle().item;
-  const { ref } = useClickOutside(() => {
+  const { ref } = useClickOutside<HTMLDivElement>(() => {
     props.onClose?.();
   });
 

@@ -1,7 +1,6 @@
 import { Icon, type IconButtonProps } from '@/components/ui/atoms';
 import type { TooltipProps } from '@/components/ui/molecules';
 import { useLink } from '@/shared/prosemirror/hooks';
-import type React from 'react';
 import { memo } from 'react';
 import { BaseButton } from '../BaseButton';
 
@@ -9,7 +8,7 @@ type Props = Omit<IconButtonProps, 'aria-label'> & {
   tooltip?: Omit<TooltipProps, 'children'>;
 };
 
-export const Link: React.FC<Props> = memo<Props>((props) => {
+export const Link = memo(function Link(props: Props) {
   const { action, isActive, isEnable } = useLink();
 
   return (
@@ -28,4 +27,3 @@ export const Link: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Link.displayName = 'Link';

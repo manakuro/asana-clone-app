@@ -1,13 +1,14 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   Tbody as ChakraTbody,
   type TableBodyProps as ChakraTbodyProps,
 } from '@chakra-ui/react';
-import type React from 'react';
+import { forwardRef } from 'react';
 
 type Props = ChakraTbodyProps;
 export type TbodyProps = Props;
 
-export const Tbody: React.FC<Props> = forwardRef<Props, 'tbody'>(
-  (props, ref) => <ChakraTbody {...props} ref={ref} />,
+export const Tbody = forwardRef<HTMLTableSectionElement, Props>(
+  function Tbody(props, ref) {
+    return <ChakraTbody {...props} ref={ref} />;
+  },
 );

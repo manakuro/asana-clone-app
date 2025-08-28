@@ -3,11 +3,10 @@ import { TextField } from '@material-ui/core';
 import StaticDatePicker, {
   type StaticDatePickerProps,
 } from '@material-ui/lab/StaticDatePicker';
-import type React from 'react';
 
 type Props = Omit<StaticDatePickerProps, 'renderInput' | 'openTo'>;
 
-export const DatePicker: React.FC<Props> = (props) => {
+export function DatePicker(props: Props) {
   return (
     <ConditionalRender client>
       <StaticDatePicker
@@ -18,4 +17,4 @@ export const DatePicker: React.FC<Props> = (props) => {
       />
     </ConditionalRender>
   );
-};
+}

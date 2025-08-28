@@ -1,6 +1,5 @@
 import { plugins, schema } from '@/shared/prosemirror/config';
 import type { EditorProps } from 'prosemirror-view';
-import type React from 'react';
 import { type PropsWithChildren, memo, useMemo } from 'react';
 import { EditorContainer } from './Editors';
 
@@ -13,7 +12,7 @@ type Props = PropsWithChildren<
   } & EditorProps
 >;
 
-export const Editor: React.FC<Props> = memo<Props>((props) => {
+export const Editor = memo(function Editor(props: Props) {
   const pluginsProp = useMemo(() => plugins(), []);
 
   return (
@@ -29,4 +28,3 @@ export const Editor: React.FC<Props> = memo<Props>((props) => {
     </EditorContainer>
   );
 });
-Editor.displayName = 'Editor';

@@ -14,7 +14,7 @@ type Props = {
 
 export const MenuList: React.FC<Props> = (props) => {
   const { onClose, projectId } = props;
-  const { ref } = useClickOutside(() => {
+  const { ref } = useClickOutside<HTMLDivElement>(() => {
     onClose();
   });
 

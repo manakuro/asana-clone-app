@@ -14,4 +14,3 @@ export const Portals: React.FC = memo(() => {
     </>
   );
 });
-Portals.displayName = 'Portals';

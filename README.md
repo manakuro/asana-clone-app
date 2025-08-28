@@ -15,6 +15,7 @@ An Asana clone application for portfolio apps, built with real-time communicatio
 npm install -g corepack@latest
 corepack enable pnpm
 pnpm install
+pnpm lefthook install
 ```
 
 ## Set up a project

@@ -18,7 +18,7 @@ type Props = {
 
 export const Content: React.FC<Props> = (props) => {
   const { onClose, taskId } = props;
-  const { ref } = useClickOutside(onClose, {
+  const { ref } = useClickOutside<HTMLDivElement>(onClose, {
     hasClickedOutside: (e, helpers) => {
       if (helpers.isContainInPopoverContent(e)) return false;
       return true;

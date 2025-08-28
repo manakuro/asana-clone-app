@@ -7,15 +7,15 @@ type Props = {
   defaultIndex?: number;
 };
 
-export const Carousel: React.FCWithChildren<Props> = (props) => {
+export function Carousel(props: React.PropsWithChildren<Props>) {
   return (
     <Provider {...props}>
       <Component {...props} />
     </Provider>
   );
-};
+}
 
-const Component: React.FCWithChildren<Props> = (props) => {
+function Component(props: React.PropsWithChildren<Props>) {
   return (
     <Flex
       flex="1"
@@ -27,4 +27,4 @@ const Component: React.FCWithChildren<Props> = (props) => {
       {props.children}
     </Flex>
   );
-};
+}

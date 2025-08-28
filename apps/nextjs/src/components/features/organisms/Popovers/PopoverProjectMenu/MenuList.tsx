@@ -34,7 +34,7 @@ type Props = {
 
 export const MenuList: React.FC<Props> = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { ref } = useClickOutside(() => {
+  const { ref } = useClickOutside<HTMLDivElement>(() => {
     onClose();
     props.onCloseMenu();
   });

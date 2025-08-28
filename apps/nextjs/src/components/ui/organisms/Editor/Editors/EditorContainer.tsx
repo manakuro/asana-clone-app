@@ -7,7 +7,6 @@ import {
 import type { Node as ProsemirrorNode, Schema } from 'prosemirror-model';
 import type { Plugin } from 'prosemirror-state';
 import type { EditorProps } from 'prosemirror-view';
-import type React from 'react';
 import { type PropsWithChildren, useMemo } from 'react';
 import { EditorProvider, useEditorStateContext } from './EdiorProvider';
 import { Portals } from './Portals';
@@ -23,7 +22,7 @@ type Props = PropsWithChildren<{
 }> &
   EditorProps;
 
-export const EditorContainer: React.FC<Props> = (props) => {
+export function EditorContainer(props: Props) {
   const transformer = useMemo<ProsemirrorTransformer>(
     () => createJSONTransformer(props.schema),
     [props.schema],
@@ -54,7 +53,7 @@ export const EditorContainer: React.FC<Props> = (props) => {
       </EditorProvider>
     </ConditionalRender>
   );
-};
+}
 
 type ContainerProps<P> = {
   onChange?: (value: P) => void;

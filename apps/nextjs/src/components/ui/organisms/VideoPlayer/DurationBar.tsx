@@ -12,7 +12,7 @@ type Props = {
 
 const MIN = 0;
 const MAX = 0.999999;
-export const DurationBar: React.FC<Props> = (props) => {
+export function DurationBar(props: Props) {
   const { setVideoState, seekTo, played } = props;
 
   const handleSeekChange = useCallback(
@@ -52,7 +52,7 @@ export const DurationBar: React.FC<Props> = (props) => {
       percent={percent}
     />
   );
-};
+}
 
 type InputRangeProps = {
   percent: number;

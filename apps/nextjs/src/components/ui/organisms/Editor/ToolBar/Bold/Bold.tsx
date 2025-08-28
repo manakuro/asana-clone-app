@@ -1,7 +1,6 @@
 import { Icon, type IconButtonProps } from '@/components/ui/atoms';
 import type { TooltipProps } from '@/components/ui/molecules';
 import { useBold } from '@/shared/prosemirror/hooks';
-import type React from 'react';
 import { memo } from 'react';
 import { BaseButton } from '../BaseButton';
 
@@ -9,7 +8,7 @@ type Props = Omit<IconButtonProps, 'aria-label'> & {
   tooltip?: Omit<TooltipProps, 'children'>;
 };
 
-export const Bold: React.FC<Props> = memo<Props>((props) => {
+export const Bold = memo(function Bold(props: Props) {
   const { action, isActive } = useBold();
 
   return (
@@ -27,4 +26,3 @@ export const Bold: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Bold.displayName = 'Bold';

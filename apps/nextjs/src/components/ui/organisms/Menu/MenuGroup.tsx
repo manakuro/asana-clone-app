@@ -2,12 +2,11 @@ import {
   MenuGroup as ChakraMenuGroup,
   type MenuGroupProps as ChakraMenuGroupProps,
 } from '@chakra-ui/react';
-import type React from 'react';
 
 type Props = ChakraMenuGroupProps;
 export type MenuGroupProps = Props;
 
-export const MenuGroup: React.FC<Props> = (props) => {
+export function MenuGroup(props: Props) {
   return (
     <ChakraMenuGroup
       fontSize="xs"
@@ -18,4 +17,4 @@ export const MenuGroup: React.FC<Props> = (props) => {
       {...props}
     />
   );
-};
+}

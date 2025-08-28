@@ -7,14 +7,13 @@ import {
 import { CheckIcon } from '@/components/ui/atoms';
 import { useProjectTask } from '@/store/entities/projectTask';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
   projectTaskId: string;
 };
 
-export const TaskLink: React.FC<Props> = memo<Props>((props) => {
+export const TaskLink = memo(function TaskLink(props: Props) {
   const { projectTask } = useProjectTask(props.projectTaskId);
   const { task } = useTask(projectTask.taskId);
 
@@ -28,4 +27,3 @@ export const TaskLink: React.FC<Props> = memo<Props>((props) => {
     </PopoverEditorLink>
   );
 });
-TaskLink.displayName = 'TaskLink';

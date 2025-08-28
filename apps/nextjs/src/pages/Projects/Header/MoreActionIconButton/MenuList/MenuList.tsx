@@ -29,7 +29,7 @@ export const MenuList: React.FC<Props> = (props) => {
   const disclosureForPopoverSetColorAndIcon = useDisclosure();
   const disclosureForPopoverImportActions = useDisclosure();
   const disclosureForPopoverExportAndPrintActions = useDisclosure();
-  const { ref } = useClickOutside(() => {
+  const { ref } = useClickOutside<HTMLDivElement>(() => {
     handleCloseAll();
   });
 

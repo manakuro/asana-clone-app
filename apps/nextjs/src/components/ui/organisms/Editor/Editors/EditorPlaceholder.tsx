@@ -33,4 +33,3 @@ export const EditorPlaceholder: React.FC<Props> = React.memo<Props>((props) => {
     </Flex>
   );
 });
-EditorPlaceholder.displayName = 'EditorPlaceholder';

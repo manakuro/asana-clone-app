@@ -27,7 +27,7 @@ export const Body: React.FC<Props> = memo<Props>((props) => {
   const includeDueTime = props.includeDueTime ?? false;
   const [value, setValue] = React.useState<Date | null>(new Date(props.date));
   const dueTimeDisclosure = useDisclosure();
-  const { ref } = useClickOutside(props.onCloseMenu);
+  const { ref } = useClickOutside<HTMLDivElement>(props.onCloseMenu);
 
   useEffect(() => {
     setValue(new Date(props.date));

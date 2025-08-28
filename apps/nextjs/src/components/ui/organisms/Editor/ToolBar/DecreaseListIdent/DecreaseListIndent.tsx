@@ -1,7 +1,6 @@
 import { Icon, type IconButtonProps } from '@/components/ui/atoms';
 import type { TooltipProps } from '@/components/ui/molecules';
 import { useDecreaseListIndent } from '@/shared/prosemirror/hooks';
-import type React from 'react';
 import { memo } from 'react';
 import { BaseButton } from '../BaseButton';
 
@@ -9,7 +8,9 @@ type Props = Omit<IconButtonProps, 'aria-label' | 'isActive'> & {
   tooltip?: Omit<TooltipProps, 'children'>;
 };
 
-export const DecreaseListIndent: React.FC<Props> = memo<Props>((props) => {
+export const DecreaseListIndent = memo(function DecreaseListIndent(
+  props: Props,
+) {
   const { action, isEnable } = useDecreaseListIndent();
 
   return (
@@ -27,4 +28,3 @@ export const DecreaseListIndent: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-DecreaseListIndent.displayName = 'DecreaseListIndent';

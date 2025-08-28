@@ -1,7 +1,6 @@
 import { Icon, type IconButtonProps } from '@/components/ui/atoms';
 import type { TooltipProps } from '@/components/ui/molecules';
 import { useItalic } from '@/shared/prosemirror/hooks';
-import type React from 'react';
 import { memo } from 'react';
 import { BaseButton } from '../BaseButton';
 
@@ -9,7 +8,7 @@ type Props = Omit<IconButtonProps, 'aria-label'> & {
   tooltip?: Omit<TooltipProps, 'children'>;
 };
 
-export const Italic: React.FC<Props> = memo<Props>((props) => {
+export const Italic = memo(function Italic(props: Props) {
   const { action, isActive } = useItalic();
 
   return (
@@ -27,4 +26,3 @@ export const Italic: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Italic.displayName = 'Italic';

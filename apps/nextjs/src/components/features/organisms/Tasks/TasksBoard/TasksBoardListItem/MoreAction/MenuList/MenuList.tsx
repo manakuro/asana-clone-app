@@ -23,7 +23,7 @@ type Props = {
 export const MenuList: React.FC<Props> = memo((props) => {
   const { onCloseMenu } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { ref } = useClickOutside(() => {
+  const { ref } = useClickOutside<HTMLDivElement>(() => {
     handleCloseAll();
   });
 

@@ -22,7 +22,7 @@ const Viewer = PDFViewer.Viewer as unknown as React.FCWithChildren<
   React.ComponentProps<typeof PDFViewer.Viewer>
 >;
 
-export const PdfViewer: React.FC<Props> = (props) => {
+export function PdfViewer(props: Props) {
   return (
     <Worker
       workerUrl={`https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${version}/pdf.worker.min.js`}
@@ -32,4 +32,4 @@ export const PdfViewer: React.FC<Props> = (props) => {
       </Box>
     </Worker>
   );
-};
+}

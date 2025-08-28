@@ -1,17 +1,16 @@
 import { type ChakraProps, chakra } from '@/shared/chakra';
 import styled from '@emotion/styled';
-import type React from 'react';
 
 type Props = {
   seconds: number;
 } & ChakraProps;
-export const Duration: React.FC<Props> = (props) => {
+export function Duration(props: Props) {
   return (
     <Time {...props} dateTime={`P${Math.round(props.seconds)}S`}>
       {format(props.seconds)}
     </Time>
   );
-};
+}
 
 const format = (seconds: number) => {
   const date = new Date(seconds * 1000);

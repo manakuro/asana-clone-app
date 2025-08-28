@@ -10,7 +10,7 @@ type Props = ChakraMenuItemProps & {
 };
 export type MenuItemProps = Props;
 
-export const MenuItem: React.FC<Props> = (props) => {
+export function MenuItem(props: Props) {
   const { link, isDisabled, ...rest } = props;
   const { disabledStyle } = useDisabledStyle();
 
@@ -39,4 +39,4 @@ export const MenuItem: React.FC<Props> = (props) => {
   }
 
   return <ChakraMenuItem fontSize="sm" {...rest} {...style} />;
-};
+}

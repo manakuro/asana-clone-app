@@ -9,6 +9,6 @@ type Props = ChakraPopoverArrowProps & {
 };
 export type PopoverArrowProps = Props;
 
-export const PopoverArrow: React.FC<Props> = (props) => {
+export function PopoverArrow(props: Props) {
   return <ChakraPopoverArrow {...props} />;
-};
+}

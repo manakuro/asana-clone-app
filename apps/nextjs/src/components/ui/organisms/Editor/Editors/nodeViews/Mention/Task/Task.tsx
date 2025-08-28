@@ -17,4 +17,3 @@ export const Task: React.FC = memo(() => {
 
   return <TaskLink projectTaskId={projectTask.id} />;
 });
-Task.displayName = 'Task';

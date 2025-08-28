@@ -7,7 +7,7 @@ type Props = {
   index?: number;
 };
 
-export const CarouselItem: React.FCWithChildren<Props> = (props) => {
+export function CarouselItem(props: React.PropsWithChildren<Props>) {
   const { currentIndex } = useCarouselContext();
   const show = useMemo(
     () => currentIndex === props.index,
@@ -38,5 +38,4 @@ export const CarouselItem: React.FCWithChildren<Props> = (props) => {
       </Flex>
     </Flex>
   );
-};
-CarouselItem.displayName = 'CarouselItem';
+}

@@ -3,7 +3,9 @@ import { Flex } from '@/components/ui/atoms';
 import type React from 'react';
 import { memo } from 'react';
 
-export const LayoutDefault: React.FCWithChildren = memo((props) => {
+export const LayoutDefault = memo(function LayoutDefault(
+  props: React.PropsWithChildren,
+) {
   return (
     <Flex
       w="full"
@@ -29,4 +31,3 @@ export const LayoutDefault: React.FCWithChildren = memo((props) => {
     </Flex>
   );
 });
-LayoutDefault.displayName = 'LayoutDefault';

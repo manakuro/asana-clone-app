@@ -1,8 +1,8 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   ModalBody as ChakraModalBody,
   type ModalBodyProps as ChakraModalBodyProps,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = ChakraModalBodyProps & {

@@ -1,6 +1,5 @@
 import { Box } from '@/components/ui/atoms';
 import { useEditorViewContext } from '@/components/ui/organisms/Editor/Editors/EdiorProvider';
-import type React from 'react';
 import {
   type CSSProperties,
   memo,
@@ -15,7 +14,7 @@ type Props = {
   onRendered?: () => void;
 };
 
-export const EditorContent: React.FC<Props> = memo<Props>((props) => {
+export const EditorContent = memo(function EditorContent(props: Props) {
   const { style, onRendered } = props;
   const view = useEditorViewContext();
   const ref = useRef<HTMLDivElement | null>(null);
@@ -52,4 +51,3 @@ export const EditorContent: React.FC<Props> = memo<Props>((props) => {
 
   return <Box ref={ref} />;
 });
-EditorContent.displayName = 'EditorContent';

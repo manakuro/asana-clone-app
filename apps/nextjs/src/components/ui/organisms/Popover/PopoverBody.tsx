@@ -1,8 +1,8 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   PopoverBody as ChakraPopoverBody,
   type PopoverBodyProps as ChakraPopoverBodyProps,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = ChakraPopoverBodyProps & {
@@ -10,6 +10,8 @@ type Props = ChakraPopoverBodyProps & {
 };
 export type PopoverBodyProps = Props;
 
-export const PopoverBody: React.FC<Props> = forwardRef((props, ref) => (
-  <ChakraPopoverBody {...props} ref={ref} />
-));
+export const PopoverBody = forwardRef<HTMLDivElement, Props>(
+  function PopoverBody(props, ref) {
+    return <ChakraPopoverBody {...props} ref={ref} />;
+  },
+);

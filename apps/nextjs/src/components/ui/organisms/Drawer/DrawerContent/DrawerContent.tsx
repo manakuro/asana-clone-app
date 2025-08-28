@@ -1,8 +1,8 @@
-import { forwardRef } from '@/shared/chakra';
 import {
   DrawerContent as ChakraDrawerContent,
   type DrawerContentProps as ChakraDrawerContentProps,
 } from '@chakra-ui/react';
+import { forwardRef } from 'react';
 import type React from 'react';
 
 type Props = ChakraDrawerContentProps & {
@@ -10,6 +10,8 @@ type Props = ChakraDrawerContentProps & {
 };
 export type DrawerContentProps = Props;
 
-export const DrawerContent: React.FC<Props> = forwardRef((props, ref) => (
-  <ChakraDrawerContent {...props} ref={ref} />
-));
+export const DrawerContent = forwardRef<HTMLDivElement, Props>(
+  function DrawerContent(props, ref) {
+    return <ChakraDrawerContent {...props} ref={ref} />;
+  },
+);

@@ -11,7 +11,7 @@ type Props = {
 
 export const MenuList: React.FC<Props> = (props) => {
   const { onClose, workspaceId } = props;
-  const { ref } = useClickOutside(onClose);
+  const { ref } = useClickOutside<HTMLDivElement>(onClose);
 
   return (
     <Portal>
