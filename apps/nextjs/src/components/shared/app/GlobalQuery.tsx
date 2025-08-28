@@ -12,9 +12,9 @@ import {
   useWorkspaceQuery,
 } from '@/hooks/queries/entities';
 import { useMe } from '@/store/entities/me';
-import type React from 'react';
+import type { PropsWithChildren, ReactElement } from 'react';
 
-export const GlobalQuery: React.FCWithChildren = (props) => {
+export function GlobalQuery(props: PropsWithChildren) {
   useTaskPrioritiesQuery();
   useProjectsQuery();
   useProjectBaseColorsQuery();
@@ -30,5 +30,5 @@ export const GlobalQuery: React.FCWithChildren = (props) => {
 
   if (!me.id) return <PageLoader />;
 
-  return props.children as React.ReactElement;
-};
+  return props.children as ReactElement;
+}

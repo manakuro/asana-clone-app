@@ -61,10 +61,12 @@ import {
   useWorkspace,
   useWorkspaceUpdatedSubscription,
 } from '@/store/entities/workspace';
-import type React from 'react';
+import type { PropsWithChildren, ReactElement } from 'react';
 import { memo } from 'react';
 
-export const Subscription: React.FCWithChildren = memo((props) => {
+export const Subscription = memo(function Subscription(
+  props: PropsWithChildren,
+) {
   const { workspace } = useWorkspace();
   const { me } = useMe();
 
@@ -210,6 +212,5 @@ export const Subscription: React.FCWithChildren = memo((props) => {
     workspaceId: workspace.id,
   });
 
-  return props.children as React.ReactElement;
+  return props.children as ReactElement;
 });
-Subscription.displayName = 'Subscription';
