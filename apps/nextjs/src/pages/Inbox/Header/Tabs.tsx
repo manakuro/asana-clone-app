@@ -1,9 +1,8 @@
 import { Flex, Heading } from '@/components/ui/atoms';
 import { Tab, TabList } from '@/components/ui/organisms/Tabs';
-import type React from 'react';
 import { memo } from 'react';
 
-export const Tabs: React.FC = memo(() => {
+export const Tabs = memo(function Tabs() {
   return (
     <Flex mt={3} flex={1}>
       <Flex alignItems="flex-start" flexDirection="column">
@@ -20,4 +19,3 @@ export const Tabs: React.FC = memo(() => {
     </Flex>
   );
 });
-Tabs.displayName = 'Tabs';

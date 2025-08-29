@@ -13,15 +13,14 @@ import { TasksProvider } from '@/components/features/organisms/Tasks';
 import { Flex } from '@/components/ui/atoms';
 import { useInboxArchivePageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import { useInboxPageContext } from '../Provider';
 
-export const Archive: React.FC = memo(() => {
+export const Archive = memo(function Archive() {
   return <Component />;
 });
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const { loadingTabContent } = useInboxPageContext();
   const { loading: loadingQuery } = useInboxArchivePageQuery();
   const loading = useMemo(
@@ -55,5 +54,3 @@ const Component: React.FC = memo(() => {
     </TasksProvider>
   );
 });
-Component.displayName = 'Component';
-Archive.displayName = 'Archive';
