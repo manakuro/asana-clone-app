@@ -10,7 +10,6 @@ import {
 } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';
 import type { NextRouter } from 'next/router';
-import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Header } from './Header';
 import { Overview } from './Overview';
@@ -29,7 +28,7 @@ type Index =
   | typeof MESSAGES_INDEX
   | typeof CALENDAR_INDEX;
 
-export const Component: React.FC<Props> = memo<Props>((props) => {
+export const Component = memo(function Component(props: Props) {
   return (
     <Provider loading={props.loading}>
       <WrappedComponent />
@@ -45,7 +44,7 @@ const mapURLtoTabIndex = ({ router }: { router: NextRouter }): Index => {
   return OVERVIEW_INDEX;
 };
 
-const WrappedComponent: React.FC = memo(() => {
+const WrappedComponent = memo(function WrappedComponent() {
   const { navigateToWorkspaceOverview, router } = useRouter();
   const { loadingQuery, setLoadingTabContent } = useWorkspacesPageContext();
   const [tabIndex, setTabIndex] = useState<Index>(mapURLtoTabIndex({ router }));
@@ -117,5 +116,3 @@ const WrappedComponent: React.FC = memo(() => {
     </Tabs>
   );
 });
-WrappedComponent.displayName = 'WrappedComponent';
-Component.displayName = 'Component';

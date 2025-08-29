@@ -5,12 +5,11 @@ import {
   useFavoriteWorkspaceIdsCommand,
 } from '@/store/entities/favoriteWorkspaceIds';
 import { useWorkspace } from '@/store/entities/workspace';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = Omit<IconButtonProps, 'aria-label' | 'icon' | 'textStyle'>;
 
-export const FavoriteButton: React.FC<Props> = memo<Props>((props) => {
+export const FavoriteButton = memo(function FavoriteButton(props: Props) {
   const { workspace } = useWorkspace();
   const { isFavorite } = useFavoriteWorkspaceIds();
   const { setFavoriteWorkspaceId } = useFavoriteWorkspaceIdsCommand();
@@ -38,4 +37,3 @@ export const FavoriteButton: React.FC<Props> = memo<Props>((props) => {
     </Tooltip>
   );
 });
-FavoriteButton.displayName = 'FavoriteButton';

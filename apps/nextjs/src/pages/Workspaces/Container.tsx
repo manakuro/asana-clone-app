@@ -1,11 +1,9 @@
 import { useWorkspacePageQuery } from '@/hooks/queries/app';
-import type React from 'react';
 import { memo } from 'react';
 import { Component } from './Component';
 
-export const Container: React.FC = memo(() => {
+export const Container = memo(function Container() {
   const { loading } = useWorkspacePageQuery();
 
   return <Component loading={loading} />;
 });
-Container.displayName = 'Container';

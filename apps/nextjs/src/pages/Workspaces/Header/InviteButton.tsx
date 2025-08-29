@@ -1,12 +1,11 @@
 import { useInviteModal } from '@/components/features/organisms/Modals';
 import { Button, Flex, type FlexProps, Icon } from '@/components/ui/atoms';
 import { Tooltip } from '@/components/ui/molecules';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = FlexProps;
 
-export const InviteButton: React.FC<Props> = memo<Props>((props) => {
+export const InviteButton = memo(function InviteButton(props: Props) {
   const { setIsOpen } = useInviteModal();
 
   const handleClick = useCallback(() => {
@@ -33,4 +32,3 @@ export const InviteButton: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-InviteButton.displayName = 'InviteButton';
