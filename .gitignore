@@ -30,3 +30,4 @@ dist/
 CLAUDE.local.md
 AI_INSTRUCTIONS.md
 !.claude/commands/ai_instructions.md
+.claude/settings.local.json
