@@ -1,5 +1,4 @@
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
   projectId: string;
 };
 
-export const DeleteProject: React.FC<Props> = memo((props) => {
+export const DeleteProject = memo(function DeleteProject(props: Props) {
   const { onMouseEnter } = props;
 
   return (
@@ -17,4 +16,3 @@ export const DeleteProject: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-DeleteProject.displayName = 'DeleteProject';

@@ -20,20 +20,19 @@ import {
 import { Flex } from '@/components/ui/atoms';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useProjectsPageContext } from '../Provider';
 import { SortMenu } from '../TasksHeader';
 import { SkeletonListContent, SkeletonListHeader } from './SkeletonList';
 
-export const List: React.FC = memo(() => {
+export const List = memo(function List() {
   return (
     <TasksContainer isProjectsPage>
       <Component />
     </TasksContainer>
   );
 });
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const {
     tabContentLoading,
     fetchTaskDetailQuery,
@@ -98,5 +97,3 @@ const Component: React.FC = memo(() => {
     </>
   );
 });
-List.displayName = 'List';
-Component.displayName = 'Component';

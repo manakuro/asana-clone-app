@@ -1,7 +1,6 @@
 import { Icon, IconButton, PortalManager } from '@/components/ui/atoms';
 import { Menu, MenuButton } from '@/components/ui/organisms/Menu';
 import { useDisclosure } from '@/shared/chakra';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { MenuList } from './MenuList';
 
@@ -9,7 +8,9 @@ type Props = {
   projectId: string;
 };
 
-export const MoreActionIconButton: React.FC<Props> = memo<Props>((props) => {
+export const MoreActionIconButton = memo(function MoreActionIconButton(
+  props: Props,
+) {
   const { projectId } = props;
   const { onClose, onOpen, isOpen } = useDisclosure();
 
@@ -41,4 +42,3 @@ export const MoreActionIconButton: React.FC<Props> = memo<Props>((props) => {
     </PortalManager>
   );
 });
-MoreActionIconButton.displayName = 'MoreActionIconButton';

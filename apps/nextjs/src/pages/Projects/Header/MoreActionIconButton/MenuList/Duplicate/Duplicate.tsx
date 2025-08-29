@@ -1,6 +1,5 @@
 import { Icon } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
   projectId: string;
 };
 
-export const Duplicate: React.FC<Props> = memo((props) => {
+export const Duplicate = memo(function Duplicate(props: Props) {
   const { onMouseEnter } = props;
 
   return (
@@ -22,4 +21,3 @@ export const Duplicate: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-Duplicate.displayName = 'Duplicate';

@@ -10,7 +10,7 @@ import { memo } from 'react';
 type Props = FlexProps;
 
 const BUTTON_HEIGHT = '28px';
-export const SkeletonCalendar = memo<Props>(function SkeletonCalendar(props) {
+export const SkeletonCalendar = memo(function SkeletonCalendar(props: Props) {
   return (
     <Flex flex={1} flexDirection="column" {...props}>
       <TasksHeader

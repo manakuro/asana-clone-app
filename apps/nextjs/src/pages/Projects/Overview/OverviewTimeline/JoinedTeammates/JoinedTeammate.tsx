@@ -6,7 +6,6 @@ import { formatCreatedAt } from '@/shared/date';
 import { useMe } from '@/store/entities/me';
 import { useProjectTeammate } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTimelineStyle } from '../useTimelineStyle';
 
@@ -15,7 +14,7 @@ type Props = {
   projectTeammateId: string;
 };
 
-export const JoinedTeammate: React.FC<Props> = memo<Props>((props) => {
+export const JoinedTeammate = memo(function JoinedTeammate(props: Props) {
   const { projectTeammateId, projectId } = props;
   const { projectTeammate } = useProjectTeammate(projectTeammateId);
   const { teammate } = useTeammate(projectTeammate.teammateId);
@@ -62,4 +61,3 @@ export const JoinedTeammate: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-JoinedTeammate.displayName = 'JoinedTeammate';

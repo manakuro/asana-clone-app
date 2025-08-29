@@ -1,5 +1,4 @@
 import { Flex } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { useTimelineStyle } from '../useTimelineStyle';
 import { ProjectDueDate } from './ProjectDueDate';
@@ -8,7 +7,7 @@ type Props = {
   projectId: string;
 };
 
-export const DueDate: React.FC<Props> = memo<Props>((props) => {
+export const DueDate = memo(function DueDate(props: Props) {
   const { projectId } = props;
   const { timelineBorderStyle } = useTimelineStyle();
 
@@ -22,4 +21,3 @@ export const DueDate: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-DueDate.displayName = 'DueDate';

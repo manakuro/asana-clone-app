@@ -3,7 +3,6 @@ import { ColorBox, Flex, Icon, Text } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -13,7 +12,7 @@ type Props = {
   projectId: string;
 };
 
-export const SetColorAndIcon: React.FC<Props> = memo((props) => {
+export const SetColorAndIcon = memo(function SetColorAndIcon(props: Props) {
   const { onMouseEnter, isOpen, projectId } = props;
   const { project } = useProject(projectId);
   const { projectBaseColor } = useProjectBaseColor(project.projectBaseColorId);
@@ -40,4 +39,3 @@ export const SetColorAndIcon: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-SetColorAndIcon.displayName = 'SetColorAndIcon';

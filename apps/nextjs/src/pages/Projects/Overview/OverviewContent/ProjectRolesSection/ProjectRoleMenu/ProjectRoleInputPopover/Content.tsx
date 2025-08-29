@@ -18,7 +18,7 @@ type Props = {
   initialFocusRef: React.MutableRefObject<HTMLInputElement | null>;
 };
 
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo(function Content(props: Props) {
   const { projectTeammateId, initialFocusRef, onClose } = props;
   const { projectTeammate, role } = useProjectTeammate(projectTeammateId);
   const { setProjectTeammateById } = useProjectTeammatesCommand();
@@ -51,4 +51,3 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
     </Portal>
   );
 });
-Content.displayName = 'Content';

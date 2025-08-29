@@ -1,7 +1,6 @@
 import { Box, PortalManager } from '@/components/ui/atoms';
 import { Menu } from '@/components/ui/organisms/Menu';
 import { useDisclosure } from '@/shared/chakra';
-import type React from 'react';
 import { type PropsWithChildren, memo } from 'react';
 import { MenuList } from './MenuList';
 import { ProjectRoleInputPopover } from './ProjectRoleInputPopover';
@@ -11,7 +10,7 @@ type Props = PropsWithChildren<{
   projectTeammateId: string;
 }>;
 
-export const ProjectRoleMenu: React.FC<Props> = memo<Props>((props) => {
+export const ProjectRoleMenu = memo(function ProjectRoleMenu(props: Props) {
   const disclosurePopover = useDisclosure();
 
   return (
@@ -36,4 +35,3 @@ export const ProjectRoleMenu: React.FC<Props> = memo<Props>((props) => {
     </ProjectRoleInputPopover>
   );
 });
-ProjectRoleMenu.displayName = 'ProjectRoleMenu';

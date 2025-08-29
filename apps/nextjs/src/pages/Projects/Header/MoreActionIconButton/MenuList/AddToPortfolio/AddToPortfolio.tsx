@@ -1,6 +1,5 @@
 import { Icon } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
   projectId: string;
 };
 
-export const AddToPortfolio: React.FC<Props> = memo((props) => {
+export const AddToPortfolio = memo(function AddToPortfolio(props: Props) {
   const { onMouseEnter } = props;
 
   return (
@@ -22,4 +21,3 @@ export const AddToPortfolio: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-AddToPortfolio.displayName = 'AddToPortfolio';

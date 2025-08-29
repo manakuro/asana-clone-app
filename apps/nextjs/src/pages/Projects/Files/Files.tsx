@@ -10,11 +10,10 @@ import { useProjectsFilesPageQuery } from '@/hooks/queries/app';
 import { useProjectsPageContext } from '@/pages/Projects/Provider';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { SkeletonFiles } from './SkeletonFiles';
 
-export const Files: React.FC = memo(() => {
+export const Files = memo(function Files() {
   return (
     <TasksContainer isProjectsPage>
       <Component />
@@ -22,7 +21,7 @@ export const Files: React.FC = memo(() => {
   );
 });
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const { tabContentLoading, fetchTaskDetailQuery } = useProjectsPageContext();
   const { projectId } = useProjectsProjectId();
   const { loading: queryLoading } = useProjectsFilesPageQuery();
@@ -55,5 +54,3 @@ const Component: React.FC = memo(() => {
     </>
   );
 });
-Component.displayName = 'Component';
-Files.displayName = 'Files';

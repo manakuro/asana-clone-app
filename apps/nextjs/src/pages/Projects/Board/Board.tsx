@@ -14,12 +14,11 @@ import { Flex } from '@/components/ui/atoms';
 import { useProjectsPageContext } from '@/pages/Projects/Provider';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { SortMenu } from '../TasksHeader';
 import { SkeletonBoardContent, SkeletonBoardHeader } from './SkeletonBoard';
 
-export const Board: React.FC = memo(() => {
+export const Board = memo(function Board() {
   return (
     <TasksContainer isProjectsPage>
       <Component />
@@ -27,7 +26,7 @@ export const Board: React.FC = memo(() => {
   );
 });
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const {
     tabContentLoading,
     fetchTaskDetailQuery,
@@ -91,5 +90,3 @@ const Component: React.FC = memo(() => {
     </>
   );
 });
-Component.displayName = 'Component';
-Board.displayName = 'Board';

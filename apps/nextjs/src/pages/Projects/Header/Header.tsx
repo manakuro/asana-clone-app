@@ -1,5 +1,4 @@
 import { Divider, Flex } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { ProjectIcon } from './ProjectIcon';
 import { ProjectTeammates } from './ProjectTeammates';
@@ -10,7 +9,7 @@ import { Tabs } from './Tabs';
 type Props = {
   loading?: boolean;
 };
-export const Header: React.FC<Props> = memo<Props>((props) => {
+export const Header = memo(function Header(props: Props) {
   if (props.loading) {
     return <SkeletonHeader />;
   }
@@ -27,4 +26,3 @@ export const Header: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Header.displayName = 'Header';

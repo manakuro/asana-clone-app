@@ -1,11 +1,12 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = FlexProps;
 
 const maxH = 72;
-export const OverviewRightContent: React.FC<Props> = memo((props) => {
+export const OverviewRightContent = memo(function OverviewRightContent(
+  props: Props,
+) {
   return (
     <Flex
       maxH={`calc(100vh - ${maxH}px)`}
@@ -18,5 +19,3 @@ export const OverviewRightContent: React.FC<Props> = memo((props) => {
     />
   );
 });
-
-OverviewRightContent.displayName = 'OverviewRightContent';

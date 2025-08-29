@@ -10,7 +10,9 @@ type Props = {
   projectId: string;
 };
 
-export const EditProjectDetails: React.FC<Props> = memo<Props>((props) => {
+export const EditProjectDetails = memo(function EditProjectDetails(
+  props: Props,
+) {
   const { onMouseEnter, projectId, onClose } = props;
   const { onOpen, setProjectId } = useProjectDetailModal();
 
@@ -36,4 +38,3 @@ export const EditProjectDetails: React.FC<Props> = memo<Props>((props) => {
     </MenuItem>
   );
 });
-EditProjectDetails.displayName = 'EditProjectDetails';

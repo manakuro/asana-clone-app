@@ -1,5 +1,4 @@
 import { MenuList as AtomsMenuList } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo } from 'react';
 import { AddRole } from './AddRole';
 import { RemoveFromProject } from './RemoveFromProject';
@@ -11,7 +10,7 @@ type Props = {
   onOpenPopover: () => void;
 };
 
-export const MenuList: React.FC<Props> = memo<Props>((props) => {
+export const MenuList = memo(function MenuList(props: Props) {
   const { projectId, projectTeammateId, onOpenPopover } = props;
 
   return (
@@ -32,4 +31,3 @@ export const MenuList: React.FC<Props> = memo<Props>((props) => {
     </AtomsMenuList>
   );
 });
-MenuList.displayName = 'MenuList';

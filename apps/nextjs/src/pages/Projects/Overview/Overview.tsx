@@ -1,7 +1,6 @@
 import { TasksContainer } from '@/components/features/organisms/Tasks';
 import { Flex } from '@/components/ui/atoms';
 import { useProjectsPageContext } from '@/pages/Projects/Provider';
-import type React from 'react';
 import { memo } from 'react';
 import { OverviewContent } from './OverviewContent';
 import { OverviewLeft } from './OverviewLeft';
@@ -11,7 +10,7 @@ import { OverviewRightContent } from './OverviewRightContent';
 import { OverviewTimeline } from './OverviewTimeline';
 import { SkeletonOverview } from './SkeletonOverview';
 
-export const Overview: React.FC = memo(() => {
+export const Overview = memo(function Overview() {
   return (
     <TasksContainer isProjectsPage>
       <Component />
@@ -19,7 +18,7 @@ export const Overview: React.FC = memo(() => {
   );
 });
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const { tabContentLoading } = useProjectsPageContext();
 
   if (tabContentLoading) return <SkeletonOverview />;
@@ -39,5 +38,3 @@ const Component: React.FC = memo(() => {
     </Flex>
   );
 });
-Component.displayName = 'Component';
-Overview.displayName = 'Overview';

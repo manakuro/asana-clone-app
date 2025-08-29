@@ -15,7 +15,6 @@ import { useMyTasksTaskListStatus } from '@/store/app/myTasks/taskListStatus';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
 import type { NextRouter } from 'next/router';
-import type React from 'react';
 import { memo, useCallback, useLayoutEffect, useMemo, useState } from 'react';
 import { Board } from './Board';
 import { Calendar } from './Calendar';
@@ -46,7 +45,7 @@ type Index =
   | typeof CALENDAR_DASHBOARD
   | typeof FILES_INDEX;
 
-export const Component: React.FC<Props> = memo<Props>((props) => {
+export const Component = memo(function Component(props: Props) {
   return (
     <Provider
       loading={props.loading}
@@ -67,7 +66,7 @@ const mapURLtoTabIndex = ({ router }: { router: NextRouter }): Index => {
   return LIST_INDEX;
 };
 
-const WrappedComponent: React.FC = memo(() => {
+const WrappedComponent = memo(function WrappedComponent() {
   const {
     navigateToProjectsList,
     navigateToProjectsBoard,
@@ -205,5 +204,3 @@ const WrappedComponent: React.FC = memo(() => {
     </Tabs>
   );
 });
-WrappedComponent.displayName = 'WrappedComponent';
-Component.displayName = 'Component';

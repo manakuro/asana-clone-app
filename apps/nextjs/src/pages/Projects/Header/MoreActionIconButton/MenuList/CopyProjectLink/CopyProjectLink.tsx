@@ -10,7 +10,7 @@ type Props = {
   projectId: string;
 };
 
-export const CopyProjectLink: React.FC<Props> = memo((props) => {
+export const CopyProjectLink = memo(function CopyProjectLink(props: Props) {
   const { onMouseEnter, projectId, onClose } = props;
   const { copyProjectLink } = useCopyProjectLink({ projectId });
 
@@ -35,4 +35,3 @@ export const CopyProjectLink: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-CopyProjectLink.displayName = 'CopyProjectLink';

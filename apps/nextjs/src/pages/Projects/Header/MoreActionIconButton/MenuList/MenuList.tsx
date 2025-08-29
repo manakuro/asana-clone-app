@@ -5,7 +5,6 @@ import {
 } from '@/components/ui/organisms/Menu';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
-import type React from 'react';
 import { useCallback } from 'react';
 import { AddToPortfolio } from './AddToPortfolio';
 import { Archive } from './Archive';
@@ -24,7 +23,7 @@ type Props = {
   projectId: string;
 };
 
-export const MenuList: React.FC<Props> = (props) => {
+export function MenuList(props: Props) {
   const { projectId } = props;
   const disclosureForPopoverSetColorAndIcon = useDisclosure();
   const disclosureForPopoverImportActions = useDisclosure();
@@ -132,4 +131,4 @@ export const MenuList: React.FC<Props> = (props) => {
       </AtomsMenuList>
     </Portal>
   );
-};
+}

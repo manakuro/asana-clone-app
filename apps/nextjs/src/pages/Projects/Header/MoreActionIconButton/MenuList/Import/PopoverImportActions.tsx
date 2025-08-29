@@ -6,13 +6,12 @@ import {
   type MenuProps,
 } from '@/components/ui/organisms/Menu';
 import { chakra } from '@/shared/chakra';
-import type React from 'react';
 
 type Props = {
   onClose: () => void;
 } & MenuProps;
 
-export const PopoverImportActions: React.FC<Props> = (props) => {
+export function PopoverImportActions(props: Props) {
   return (
     <Menu isLazy {...props}>
       <MenuButton w="full" as={MenuButtonAs}>
@@ -28,7 +27,7 @@ export const PopoverImportActions: React.FC<Props> = (props) => {
       </MenuList>
     </Menu>
   );
-};
+}
 
 // NOTE: Use custom component instead of `Box` because of styling issue with positioning menu item
 const MenuButtonAs = chakra('div', {

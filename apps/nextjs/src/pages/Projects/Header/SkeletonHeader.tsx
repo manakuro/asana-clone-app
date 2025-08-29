@@ -1,8 +1,7 @@
 import { Flex, Skeleton, Stack } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 
-export const SkeletonHeader: React.FC = memo(() => {
+export const SkeletonHeader = memo(function SkeletonHeader() {
   return (
     <Flex flex={1}>
       <Flex alignItems="center">
@@ -24,4 +23,3 @@ export const SkeletonHeader: React.FC = memo(() => {
     </Flex>
   );
 });
-SkeletonHeader.displayName = 'SkeletonHeader';

@@ -9,14 +9,15 @@ import {
 } from '@/store/entities/favoriteProjectIds';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
   projectId: string;
 } & Omit<IconButtonProps, 'aria-label' | 'icon' | 'textStyle'>;
 
-export const FavoriteIconButton: React.FC<Props> = memo<Props>((props) => {
+export const FavoriteIconButton = memo(function FavoriteIconButton(
+  props: Props,
+) {
   const { projectId } = props;
   const { project } = useProject(projectId);
   const { projectBaseColor } = useProjectBaseColor(project.projectBaseColorId);
@@ -46,4 +47,3 @@ export const FavoriteIconButton: React.FC<Props> = memo<Props>((props) => {
     </Tooltip>
   );
 });
-FavoriteIconButton.displayName = 'FavoriteIconButton';

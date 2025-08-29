@@ -2,13 +2,12 @@ import { Flex, Heading } from '@/components/ui/atoms';
 import { Tab, TabList } from '@/components/ui/organisms/Tabs';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProject } from '@/store/entities/project';
-import type React from 'react';
 import { memo } from 'react';
 import { FavoriteIconButton } from './FavoriteIconButton';
 import { MoreActionIconButton } from './MoreActionIconButton';
 import { ProjectDetailIconButton } from './ProjectDetailIconButton';
 
-export const Tabs: React.FC = memo(() => {
+export const Tabs = memo(function Tabs() {
   const { projectId } = useProjectsProjectId();
   const { project } = useProject(projectId);
 
@@ -40,4 +39,3 @@ export const Tabs: React.FC = memo(() => {
     </Flex>
   );
 });
-Tabs.displayName = 'Tabs';

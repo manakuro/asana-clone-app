@@ -8,7 +8,7 @@ type Props = {
   onChange: (value: string) => void;
 };
 
-export const Form: React.FC<Props> = memo<Props>((props) => {
+export const Form = memo(function Form(props: Props) {
   const { initialFocusRef, defaultValue, onChange } = props;
   const [value, setValue] = useState(defaultValue);
 
@@ -36,4 +36,3 @@ export const Form: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-Form.displayName = 'Form';

@@ -7,7 +7,7 @@ type Props = {
   onClose: () => void;
 };
 
-export const ClickOutsideWrapper: React.FCWithChildren<Props> = (props) => {
+export function ClickOutsideWrapper(props: React.PropsWithChildren<Props>) {
   const { onClose, children, isOpen } = props;
   const { ref } = useClickOutside<HTMLDivElement>(onClose);
 
@@ -18,5 +18,4 @@ export const ClickOutsideWrapper: React.FCWithChildren<Props> = (props) => {
       {children}
     </Flex>
   );
-};
-ClickOutsideWrapper.displayName = 'ClickOutsideWrapper';
+}

@@ -1,6 +1,5 @@
 import { Icon } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo } from 'react';
 
 type Props = {
@@ -9,7 +8,9 @@ type Props = {
   projectId: string;
 };
 
-export const SaveLayoutAsDefault: React.FC<Props> = memo((props) => {
+export const SaveLayoutAsDefault = memo(function SaveLayoutAsDefault(
+  props: Props,
+) {
   const { onMouseEnter } = props;
 
   return (
@@ -22,4 +23,3 @@ export const SaveLayoutAsDefault: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-SaveLayoutAsDefault.displayName = 'SaveLayoutAsDefault';

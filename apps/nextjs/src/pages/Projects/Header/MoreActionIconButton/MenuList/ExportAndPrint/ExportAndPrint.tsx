@@ -1,6 +1,5 @@
 import { Flex, Icon, Text } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo } from 'react';
 import { PopoverExportAndPrintActions } from './PopoverExportAndPrintActions';
 
@@ -11,7 +10,7 @@ type Props = {
   projectId: string;
 };
 
-export const ExportAndPrint: React.FC<Props> = memo((props) => {
+export const ExportAndPrint = memo(function ExportAndPrint(props: Props) {
   const { onMouseEnter, isOpen, onClose } = props;
 
   return (
@@ -31,4 +30,3 @@ export const ExportAndPrint: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-ExportAndPrint.displayName = 'ExportAndPrint';

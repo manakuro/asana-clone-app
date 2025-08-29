@@ -1,6 +1,5 @@
 import { Flex, Icon, Text } from '@/components/ui/atoms';
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo } from 'react';
 import { PopoverImportActions } from './PopoverImportActions';
 
@@ -11,7 +10,7 @@ type Props = {
   projectId: string;
 };
 
-export const Import: React.FC<Props> = memo((props) => {
+export const Import = memo(function Import(props: Props) {
   const { onMouseEnter, isOpen, onClose } = props;
 
   return (
@@ -27,4 +26,3 @@ export const Import: React.FC<Props> = memo((props) => {
     </MenuItem>
   );
 });
-Import.displayName = 'Import';

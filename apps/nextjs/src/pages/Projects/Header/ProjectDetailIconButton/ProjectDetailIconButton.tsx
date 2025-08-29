@@ -1,13 +1,14 @@
 import { useProjectDetailModal } from '@/components/features/organisms/Modals';
 import { Icon, IconButton, type IconButtonProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = {
   projectId: string;
 } & Omit<IconButtonProps, 'aria-label'>;
 
-export const ProjectDetailIconButton: React.FC<Props> = memo<Props>((props) => {
+export const ProjectDetailIconButton = memo(function ProjectDetailIconButton(
+  props: Props,
+) {
   const { projectId, ...rest } = props;
   const { onOpen, setProjectId } = useProjectDetailModal();
 
@@ -28,5 +29,3 @@ export const ProjectDetailIconButton: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-
-ProjectDetailIconButton.displayName = 'ProjectDetailIconButton';

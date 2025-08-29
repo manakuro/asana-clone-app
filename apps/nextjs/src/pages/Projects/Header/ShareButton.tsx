@@ -4,12 +4,11 @@ import { Tooltip } from '@/components/ui/molecules';
 import { useTooltip } from '@/components/ui/molecules/Tooltip/useTooltip';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useWorkspace } from '@/store/entities/workspace';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
 type Props = FlexProps;
 
-export const ShareButton: React.FC<Props> = memo<Props>((props) => {
+export const ShareButton = memo(function ShareButton(props: Props) {
   const { projectId } = useProjectsProjectId();
   const { onOpen, setProjectId, setShareTab } = useShareProjectModal();
   const { isOpen, ref } = useTooltip();
@@ -43,4 +42,3 @@ export const ShareButton: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-ShareButton.displayName = 'ShareButton';

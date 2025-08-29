@@ -5,11 +5,10 @@ import {
 import { useRouter } from '@/router';
 import { getProjectsIdFromURL } from '@/router/projects';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import type React from 'react';
 import { memo, useCallback, useEffect } from 'react';
 import { Component } from './Component';
 
-export const Container: React.FC = memo(() => {
+export const Container = memo(function Container() {
   const { router } = useRouter();
   const { projectId, setProjectId } = useProjectsProjectId();
   const { loading, startLoading } = useProjectsPageQuery({ projectId });
@@ -40,4 +39,3 @@ export const Container: React.FC = memo(() => {
     <Component loading={loading} fetchTaskDetailQuery={fetchTaskDetailQuery} />
   );
 });
-Container.displayName = 'Container';

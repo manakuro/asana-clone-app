@@ -4,10 +4,9 @@ import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { useProjectIcon } from '@/store/entities/projectIcon';
-import type React from 'react';
 import { memo } from 'react';
 
-export const ProjectIcon: React.FC = memo(() => {
+export const ProjectIcon = memo(function ProjectIcon() {
   const { projectId } = useProjectsProjectId();
   const { project } = useProject(projectId);
   const { projectBaseColor } = useProjectBaseColor(project.projectBaseColorId);
@@ -30,4 +29,3 @@ export const ProjectIcon: React.FC = memo(() => {
     </Flex>
   );
 });
-ProjectIcon.displayName = 'ProjectIcon';
