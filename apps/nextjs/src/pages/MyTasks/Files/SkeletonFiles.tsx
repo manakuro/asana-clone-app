@@ -4,11 +4,11 @@ import { memo } from 'react';
 
 type Props = FlexProps;
 
-export const SkeletonFiles = memo<Props>(function SkeletonFiles() {
+export const SkeletonFiles = memo(function SkeletonFiles(props: Props) {
   const splitNum = useBreakpointValue({ base: 2, '2xl': 3 }) as number;
 
   return (
-    <Flex flex={1} h="full" flexDirection="column" bg="gray.50">
+    <Flex flex={1} h="full" flexDirection="column" bg="gray.50" {...props}>
       <Flex flex={1} p={8} pb={0}>
         <Stack maxW="90%" mx="auto" direction="row" spacing={8}>
           {[...new Array(splitNum)]

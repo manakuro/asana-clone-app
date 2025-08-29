@@ -11,7 +11,7 @@ import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { Component } from './Component';
 
-export const Container: React.FC & GetLayout = () => {
+function ContainerComponent() {
   const { loading } = useMyTasksPageQuery();
   const { refetch } = useMyTasksDetailPageQuery();
   const { me } = useMe();
@@ -26,10 +26,12 @@ export const Container: React.FC & GetLayout = () => {
   return (
     <Component loading={loading} fetchTaskDetailQuery={fetchTaskDetailQuery} />
   );
-};
+}
 
-// Set tab status before rendering in order to prevent unnecessary tab changed
-const BeforeMountComponent: React.FCWithChildren = (props) => {
+export const Container = ContainerComponent as typeof ContainerComponent &
+  GetLayout;
+
+function BeforeMountComponent(props: React.PropsWithChildren) {
   const { loading: queryLoading } = useTeammateTaskTabStatusQuery();
   const [loading, setLoading] = useState(queryLoading);
   const [loaded, setLoaded] = useState(false);
@@ -46,7 +48,7 @@ const BeforeMountComponent: React.FCWithChildren = (props) => {
   if (loading) return <PageLoader />;
 
   return <>{props.children}</>;
-};
+}
 
 Container.getLayout = (page) => {
   return (

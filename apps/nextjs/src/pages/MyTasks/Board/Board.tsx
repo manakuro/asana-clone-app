@@ -13,12 +13,11 @@ import {
 import { Flex } from '@/components/ui/atoms';
 import { useMyTasksContext } from '@/pages/MyTasks/Provider';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
-import type React from 'react';
 import { memo } from 'react';
 import { SortMenu } from '../TasksHeader';
 import { SkeletonBoardContent, SkeletonBoardHeader } from './SkeletonBoard';
 
-export const Board: React.FC = memo(() => {
+export const Board = memo(function Board() {
   return (
     <TasksContainer isMyTasksPage>
       <Component />
@@ -26,7 +25,7 @@ export const Board: React.FC = memo(() => {
   );
 });
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const {
     tabContentLoading,
     fetchTaskDetailQuery,
@@ -85,5 +84,3 @@ const Component: React.FC = memo(() => {
     </>
   );
 });
-Board.displayName = 'Board';
-Component.displayName = 'Component';

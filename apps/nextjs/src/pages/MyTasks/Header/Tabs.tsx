@@ -6,10 +6,9 @@ import {
   MenuList,
 } from '@/components/ui/organisms/Menu';
 import { Tab, TabList } from '@/components/ui/organisms/Tabs';
-import type React from 'react';
 import { memo } from 'react';
 
-export const Tabs: React.FC = memo(() => {
+export const Tabs = memo(function Tabs() {
   return (
     <Flex ml={4} mt={3} flex={1}>
       <Flex alignItems="flex-start" flexDirection="column">
@@ -45,4 +44,3 @@ export const Tabs: React.FC = memo(() => {
     </Flex>
   );
 });
-Tabs.displayName = 'Tabs';

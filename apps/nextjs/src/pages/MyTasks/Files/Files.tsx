@@ -8,11 +8,10 @@ import { useTasksFilesDetail } from '@/components/features/organisms/Tasks/Tasks
 import { Flex } from '@/components/ui/atoms';
 import { useMyTasksContext } from '@/pages/MyTasks/Provider';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
-import type React from 'react';
 import { memo } from 'react';
 import { SkeletonFiles } from './SkeletonFiles';
 
-export const Files: React.FC = memo(() => {
+export const Files = memo(function Files() {
   return (
     <TasksContainer isMyTasksPage>
       <Component />
@@ -20,7 +19,7 @@ export const Files: React.FC = memo(() => {
   );
 });
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const { tabContentLoading, fetchTaskDetailQuery } = useMyTasksContext();
 
   const { navigateToMyTasksFiles } = useRouter();
@@ -44,5 +43,3 @@ const Component: React.FC = memo(() => {
     </>
   );
 });
-Component.displayName = 'Component';
-Files.displayName = 'Files';

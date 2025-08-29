@@ -5,7 +5,6 @@ import {
   useMyTasksTaskListStatus,
 } from '@/store/app/myTasks/taskListStatus';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 
 type Props = {
@@ -38,7 +37,7 @@ const ITEMS: {
   },
 ];
 
-export const SortMenu: React.FC<Props> = memo<Props>((props) => {
+export const SortMenu = memo(function SortMenu(props: Props) {
   const { sortBy, isSorted, taskListStatus } = useMyTasksTaskListStatus();
   const { startContentLoading, endContentLoading } = useMyTasksContext();
 
@@ -93,4 +92,3 @@ export const SortMenu: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-SortMenu.displayName = 'SortMenu';

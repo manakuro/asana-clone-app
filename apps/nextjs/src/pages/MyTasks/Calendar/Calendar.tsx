@@ -16,11 +16,10 @@ import {
 } from '@/components/features/organisms/Tasks/TasksHeader';
 import { useMyTasksContext } from '@/pages/MyTasks/Provider';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
-import type React from 'react';
 import { memo } from 'react';
 import { SkeletonCalendar } from './SkeletonCalendar';
 
-export const Calendar: React.FC = memo(() => {
+export const Calendar = memo(function Calendar() {
   return (
     <TasksContainer isMyTasksPage>
       <Component />
@@ -28,7 +27,7 @@ export const Calendar: React.FC = memo(() => {
   );
 });
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const { tabContentLoading, fetchTaskDetailQuery } = useMyTasksContext();
   const { navigateToMyTasksCalendar } = useRouter();
 
@@ -66,5 +65,3 @@ const Component: React.FC = memo(() => {
     </>
   );
 });
-Component.displayName = 'Component';
-Calendar.displayName = 'Calendar';
