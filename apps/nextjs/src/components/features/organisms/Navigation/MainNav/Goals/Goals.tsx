@@ -1,11 +1,10 @@
 import { ROUTE_GOALS } from '@/router';
 import { useRouter } from 'next/router';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 import { NavListItem } from '../../NavListItem';
 import type { NavListItem as TNavListItem } from '../../type';
 
-export const Goals: React.FC = memo(() => {
+export const Goals = memo(function Goals() {
   const router = useRouter();
 
   const item = useMemo<TNavListItem>(

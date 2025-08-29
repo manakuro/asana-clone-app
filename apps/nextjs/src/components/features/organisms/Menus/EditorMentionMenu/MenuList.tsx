@@ -1,6 +1,5 @@
 import { SearchMenuLoading } from '@/components/features/organisms/Menus/SearchMenu';
 import { useDebounce } from '@/hooks';
-import type React from 'react';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { MentionItem } from './MentionItem';
 import { Empty } from './MentionItem/Empty';
@@ -9,7 +8,7 @@ import {
   useEditorMentionMenu,
 } from './useEditorMentionMenu';
 
-export const MenuList: React.FC = memo(() => {
+export const MenuList = memo(function MenuList() {
   const { mentions, setValue, refetch, query } = useEditorMentionMenu();
   const [hasChangedQuery, setHasChangedQuery] = useState<number>(0);
   const [searching, setSearching] = useState<boolean>(true);

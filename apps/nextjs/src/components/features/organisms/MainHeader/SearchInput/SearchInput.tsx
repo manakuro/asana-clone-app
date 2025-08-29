@@ -1,8 +1,7 @@
 import { InputWithIcon } from '@/components/ui/molecules';
-import type React from 'react';
 import { memo } from 'react';
 
-export const SearchInput: React.FC = memo(() => {
+export const SearchInput = memo(function SearchInput() {
   return (
     <InputWithIcon
       icon="search"

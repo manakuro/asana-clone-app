@@ -1,7 +1,6 @@
 import { useInboxListItem } from '@/components/features/organisms/Inbox';
 import type { FlexProps } from '@/components/ui/atoms';
 import { ActivityTypeCode } from '@/store/entities/activityType';
-import type React from 'react';
 import { memo } from 'react';
 import { Provider } from './Provider';
 import { TaskActivity } from './TaskActivity';
@@ -19,7 +18,7 @@ export const InboxListItem = memo(function InboxListItem(props: Props) {
   );
 });
 
-const Component: React.FC<Props> = memo<Props>((props) => {
+const Component = memo(function Component(props: Props) {
   const { listItemId } = props;
   const { listItem } = useInboxListItem(listItemId);
 

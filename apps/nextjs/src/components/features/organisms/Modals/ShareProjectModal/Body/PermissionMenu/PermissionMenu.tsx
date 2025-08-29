@@ -6,7 +6,6 @@ import {
 import { Button, Flex, Icon } from '@/components/ui/atoms';
 import { MenuItemOption } from '@/components/ui/organisms/Menu';
 import { useClickableHoverStyle } from '@/hooks';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import {
   PROJECT_PERMISSION_CAN_COMMENT,
@@ -32,7 +31,7 @@ const items: {
   },
 ];
 
-export const PermissionMenu: React.FC = memo(() => {
+export const PermissionMenu = memo(function PermissionMenu() {
   const { status, setStatus } = useProjectPermission();
   const { clickableHoverStyle } = useClickableHoverStyle();
 

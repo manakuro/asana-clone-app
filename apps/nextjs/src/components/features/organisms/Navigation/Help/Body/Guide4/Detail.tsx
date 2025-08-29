@@ -1,7 +1,6 @@
 import { NavListItem } from '@/components/features/organisms/Navigation/NavListItem';
 import type { NavListItem as TNavListItem } from '@/components/features/organisms/Navigation/type';
 import { List } from '@/components/ui/atoms';
-import type React from 'react';
 
 const items: TNavListItem[] = [
   {
@@ -23,7 +22,7 @@ const items: TNavListItem[] = [
     isExternal: true,
   },
 ];
-export const Detail: React.FC = () => {
+export function Detail() {
   return (
     <>
       <List w="full">
@@ -40,4 +39,4 @@ export const Detail: React.FC = () => {
       </List>
     </>
   );
-};
+}

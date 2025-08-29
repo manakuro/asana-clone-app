@@ -1,6 +1,5 @@
 import { TasksContainer } from '@/components/features/organisms/Tasks';
 import { Flex } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { useWorkspacesPageContext } from '../Provider';
 import { DescriptionSection } from './DescriptionSection';
@@ -12,7 +11,7 @@ import { OverviewRightContent } from './OverviewRightContent';
 import { ProjectsSection } from './ProjectsSection';
 import { SkeletonOverview } from './SkeletonOverview';
 
-export const Overview: React.FC = memo(() => {
+export const Overview = memo(function Overview() {
   return (
     <TasksContainer isProjectsPage>
       <Component />
@@ -20,7 +19,7 @@ export const Overview: React.FC = memo(() => {
   );
 });
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const { loadingTabContent } = useWorkspacesPageContext();
 
   if (loadingTabContent) return <SkeletonOverview />;
@@ -41,5 +40,3 @@ const Component: React.FC = memo(() => {
     </Flex>
   );
 });
-Component.displayName = 'Component';
-Overview.displayName = 'Overview';

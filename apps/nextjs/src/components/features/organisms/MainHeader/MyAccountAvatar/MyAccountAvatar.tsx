@@ -1,11 +1,10 @@
 import { MyAvatar } from '@/components/features/organisms/MyAvatar';
 import { Menu, MenuButton } from '@/components/ui/organisms/Menu';
 import { useDisclosure } from '@/shared/chakra';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { MenuList } from './MenuList';
 
-export const MyAccountAvatar: React.FC = memo(() => {
+export const MyAccountAvatar = memo(function MyAccountAvatar() {
   const { onClose, onOpen, isOpen } = useDisclosure();
 
   const handleOpen = useCallback(() => {

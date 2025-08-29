@@ -14,10 +14,9 @@ import {
   MenuList,
 } from '@/components/ui/organisms/Menu';
 import type { IconType } from '@/shared/icons';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
-export const AddButton: React.FC = memo(() => {
+export const AddButton = memo(function AddButton() {
   const inviteModal = useInviteModal();
 
   const handleInvite = useCallback(() => {
@@ -56,7 +55,7 @@ type IconTextProps = {
   icon: IconType;
 } & FlexProps;
 
-const IconText: React.FC<IconTextProps> = (props) => {
+function IconText(props: IconTextProps) {
   const { icon, ...rest } = props;
   return (
     <Flex alignItems="center" {...rest}>
@@ -64,4 +63,4 @@ const IconText: React.FC<IconTextProps> = (props) => {
       <Text fontSize="sm">{props.children}</Text>
     </Flex>
   );
-};
+}

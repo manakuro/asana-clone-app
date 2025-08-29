@@ -9,10 +9,9 @@ import {
   Text,
   UnorderedList,
 } from '@/components/ui/atoms';
-import type React from 'react';
 import { guide2Item } from './item';
 
-export const SeeMore: React.FC = () => {
+export function SeeMore() {
   return (
     <>
       <Text fontSize="sm">{guide2Item.description}</Text>
@@ -148,4 +147,4 @@ export const SeeMore: React.FC = () => {
       </Section>
     </>
   );
-};
+}

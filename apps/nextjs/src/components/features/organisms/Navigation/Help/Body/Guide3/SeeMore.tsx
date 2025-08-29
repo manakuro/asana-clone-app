@@ -7,10 +7,9 @@ import {
   Text,
   UnorderedList,
 } from '@/components/ui/atoms';
-import type React from 'react';
 import { guide3Item } from './item';
 
-export const SeeMore: React.FC = () => {
+export function SeeMore() {
   return (
     <>
       <Stack spacing={3}>
@@ -58,4 +57,4 @@ export const SeeMore: React.FC = () => {
       </Section>
     </>
   );
-};
+}

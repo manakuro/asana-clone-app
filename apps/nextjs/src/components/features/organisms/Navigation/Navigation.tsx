@@ -1,5 +1,4 @@
 import { Box, Flex } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { CustomNav } from './CustomNav';
 import { Footer } from './Footer';
@@ -11,7 +10,7 @@ import { useNavigation } from './hooks';
 export const PADDING_X = 4;
 export const MAX_WIDTH = '240px';
 export const MIN_WIDTH = '53px';
-export const Navigation: React.FC = memo(() => {
+export const Navigation = memo(function Navigation() {
   const { isExpanded } = useNavigation();
 
   return (

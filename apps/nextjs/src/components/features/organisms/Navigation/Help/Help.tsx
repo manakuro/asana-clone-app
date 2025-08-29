@@ -7,13 +7,12 @@ import {
   DrawerContent,
   DrawerHeader,
 } from '@/components/ui/organisms/Drawer';
-import type React from 'react';
 import { Body } from './Body';
 import { Footer } from './Footer';
 import { useHelp } from './useHelp';
 
 export const HELP_CONTAINER_PADDING = 4;
-export const Help: React.FC = () => {
+export function Help() {
   const { isOpen, onClose } = useHelp();
 
   return (
@@ -40,4 +39,4 @@ export const Help: React.FC = () => {
       </DrawerContent>
     </Drawer>
   );
-};
+}

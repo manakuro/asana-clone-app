@@ -1,9 +1,8 @@
 import { Section } from '@/components/features/organisms/Navigation/Help/Body/GuideListItem/ListItemDetail';
 import { AspectRatio, Box, Link, Stack, Text } from '@/components/ui/atoms';
-import type React from 'react';
 import { guide1Item } from './item';
 
-export const SeeMore: React.FC = () => {
+export function SeeMore() {
   return (
     <>
       <Stack spacing={3}>
@@ -74,4 +73,4 @@ export const SeeMore: React.FC = () => {
       </Section>
     </>
   );
-};
+}

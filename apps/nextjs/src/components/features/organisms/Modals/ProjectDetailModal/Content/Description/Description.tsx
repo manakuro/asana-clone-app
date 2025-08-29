@@ -6,7 +6,6 @@ import {
 } from '@/shared/prosemirror/convertDescription';
 import { useProject, useProjectCommand } from '@/store/entities/project';
 import isEqual from 'lodash-es/isEqual';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { Container } from './Container';
 import { Placeholder } from './Placeholder';
@@ -24,7 +23,7 @@ export const Description = memo(function Description(props: Props) {
   );
 });
 
-const DescriptionHandler: React.FC<Props> = memo<Props>((props) => {
+const DescriptionHandler = memo(function DescriptionHandler(props: Props) {
   const { projectId } = props;
   const { project } = useProject(projectId);
   const { setProjectDescription } = useProjectCommand();
@@ -53,7 +52,7 @@ type ComponentProps = {
   onChange: (val: string) => void;
   initialValue: string;
 };
-const Component: React.FC<ComponentProps> = memo<ComponentProps>((props) => {
+const Component = memo(function Component(props: ComponentProps) {
   const { onChange, initialValue } = props;
 
   const handleChange = useCallback(

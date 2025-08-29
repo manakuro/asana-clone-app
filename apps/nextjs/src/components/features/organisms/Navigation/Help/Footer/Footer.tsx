@@ -1,7 +1,6 @@
 import { NavListItem } from '@/components/features/organisms/Navigation/NavListItem';
 import type { NavListItem as TNavListItem } from '@/components/features/organisms/Navigation/type';
 import { List } from '@/components/ui/atoms';
-import type React from 'react';
 
 const items: TNavListItem[] = [
   {
@@ -36,7 +35,7 @@ const items: TNavListItem[] = [
   },
 ];
 
-export const Footer: React.FC = () => {
+export function Footer() {
   return (
     <List w="full" mb={3}>
       {items.map((n) => (
@@ -44,4 +43,4 @@ export const Footer: React.FC = () => {
       ))}
     </List>
   );
-};
+}

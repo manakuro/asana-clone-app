@@ -13,10 +13,9 @@ import {
 } from '@/components/features/organisms/Modals';
 import { Help } from '@/components/features/organisms/Navigation';
 import { VideoPlayer } from '@/components/ui/organisms/VideoPlayer';
-import type React from 'react';
 import { memo } from 'react';
 
-export const Modals: React.FC = memo(() => {
+export const Modals = memo(function Modals() {
   return (
     <>
       <InviteModal />

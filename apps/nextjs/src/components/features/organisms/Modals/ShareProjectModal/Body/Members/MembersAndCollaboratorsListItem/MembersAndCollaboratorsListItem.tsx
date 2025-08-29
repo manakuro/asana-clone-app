@@ -2,7 +2,6 @@ import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
 import { Flex, Text } from '@/components/ui/atoms';
 import { useClickableHoverStyle } from '@/hooks';
 import { useWorkspace } from '@/store/entities/workspace';
-import type React from 'react';
 import { memo } from 'react';
 import { PermissionMenu } from '../../PermissionMenu';
 
@@ -10,8 +9,8 @@ type Props = {
   projectId: string;
 };
 
-export const MembersAndCollaboratorsListItem: React.FC<Props> = memo<Props>(
-  () => {
+export const MembersAndCollaboratorsListItem = memo(
+  function MembersAndCollaboratorsListItem(props: Props) {
     const { clickableHoverStyle } = useClickableHoverStyle();
     const { workspace } = useWorkspace();
 

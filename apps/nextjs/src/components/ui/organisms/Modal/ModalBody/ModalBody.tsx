@@ -10,6 +10,8 @@ type Props = ChakraModalBodyProps & {
 };
 export type ModalBodyProps = Props;
 
-export const ModalBody: React.FC<Props> = forwardRef((props, ref) => (
-  <ChakraModalBody {...props} ref={ref} />
-));
+export const ModalBody = forwardRef<HTMLDivElement, Props>(
+  function ModalBody(props, ref) {
+    return <ChakraModalBody {...props} ref={ref} />;
+  },
+);

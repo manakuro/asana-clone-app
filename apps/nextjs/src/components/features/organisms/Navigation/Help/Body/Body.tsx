@@ -1,7 +1,6 @@
 import { HELP_CONTAINER_PADDING } from '@/components/features/organisms/Navigation/Help';
 import { Stack } from '@/components/ui/atoms';
-import type React from 'react';
-import { useCallback, useState } from 'react';
+import { type PropsWithChildren, useCallback, useState } from 'react';
 import { guide1Item } from './Guide1';
 import { guide2Item } from './Guide2';
 import { guide3Item } from './Guide3';
@@ -10,7 +9,7 @@ import { GuideListItem, type Item } from './GuideListItem';
 
 const items: Item[] = [guide1Item, guide2Item, guide3Item, guide4Item];
 
-export const Body: React.FC = (props) => {
+export function Body(props: PropsWithChildren) {
   const [state, setState] = useState<{ id: number; isOpen: boolean }[]>(
     items.map((i) => ({ id: i.id, isOpen: false })),
   );
@@ -45,4 +44,4 @@ export const Body: React.FC = (props) => {
       ))}
     </Stack>
   );
-};
+}
