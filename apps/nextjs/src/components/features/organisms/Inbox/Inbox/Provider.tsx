@@ -16,6 +16,8 @@ const useValue = (props: Props): ContextProps => {
     isArchive: !!props.isArchive,
   };
 };
-useValue.__PROVIDER__ = '@/components/organisms/Inbox/Inbox/Provider.tsx';
-export const { Provider, useContext: useInboxContext } =
-  createProvider(useValue);
+
+export const { Provider, useContext: useInboxContext } = createProvider(
+  useValue,
+  '@/components/organisms/Inbox/Inbox/Provider.tsx',
+);

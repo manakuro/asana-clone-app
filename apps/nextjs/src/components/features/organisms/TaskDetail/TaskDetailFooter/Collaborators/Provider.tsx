@@ -16,10 +16,10 @@ const useValue = (): ContextProps => {
     onInputUnfocus,
   } as const;
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/TaskDetail/TaskDetailFooter/Collaborators/Provider.tsx';
-export const { Provider, useContext: useCollaboratorsContext } =
-  createProvider(useValue);
+export const { Provider, useContext: useCollaboratorsContext } = createProvider(
+  useValue,
+  '@/components/organisms/TaskDetail/TaskDetailFooter/Collaborators/Provider.tsx',
+);
 
 function useInput() {
   const [isInputFocused, setIsInputFocused] = useState<boolean>(false);

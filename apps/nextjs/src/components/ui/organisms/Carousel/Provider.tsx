@@ -35,6 +35,7 @@ const useValue = (props: Props): ContextProps => {
     setCurrentIndex: handleSetCurrentIndex,
   };
 };
-useValue.__PROVIDER__ = '@/components/organisms/Carousel/Provider.tsx';
-export const { Provider, useContext: useCarouselContext } =
-  createProvider(useValue);
+export const { Provider, useContext: useCarouselContext } = createProvider(
+  useValue,
+  '@/components/organisms/Carousel/Provider.tsx',
+);

@@ -105,7 +105,7 @@ const useValue = (): ContextProps => {
     scrollToDate,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Tasks/TasksCalendar/Provider.tsx';
-export const { Provider, useContext: useTasksCalendarContext } =
-  createProvider(useValue);
+export const { Provider, useContext: useTasksCalendarContext } = createProvider(
+  useValue,
+  '@/components/organisms/Tasks/TasksCalendar/Provider.tsx',
+);

@@ -43,7 +43,7 @@ const useValue = (): ContextProps => {
     ref,
   };
 };
-useValue.__PROVIDER__ =
-  '@/pages/Projects/Overview/OverviewContent/DescriptionSection/Description/Provider.tsx';
-export const { Provider, useContext: useDescriptionContext } =
-  createProvider(useValue);
+export const { Provider, useContext: useDescriptionContext } = createProvider(
+  useValue,
+  '@/pages/Workspaces/Overview/DescriptionSection/Description/Provider.tsx',
+);

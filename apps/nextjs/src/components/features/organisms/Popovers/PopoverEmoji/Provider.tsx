@@ -41,7 +41,7 @@ const useValue = (props: Props): ContextProps => {
     onOpen,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Popovers/PopoverEmoji/Provider.tsx';
-export const { Provider, useContext: usePopoverEmojiContext } =
-  createProvider(useValue);
+export const { Provider, useContext: usePopoverEmojiContext } = createProvider(
+  useValue,
+  '@/components/organisms/Popovers/PopoverEmoji/Provider.tsx',
+);

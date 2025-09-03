@@ -93,7 +93,8 @@ const useValue = (props: Props): ContextProps => {
     onToggleDone,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Tasks/TasksBoard/TasksBoardListItem/Provider/ListItemProvider.tsx';
 export const { Provider, useContext: useTasksBoardListItemContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/organisms/Tasks/TasksBoard/TasksBoardListItem/Provider/ListItemProvider.tsx',
+  );

@@ -42,7 +42,7 @@ const useValue = (props: Props): ContextProps => {
     onEndTransition,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/TaskDetail/TaskDetailBody/Form/Subtasks/TaskName/Provider.tsx';
-export const { Provider, useContext: useSubtasksNameContext } =
-  createProvider(useValue);
+export const { Provider, useContext: useSubtasksNameContext } = createProvider(
+  useValue,
+  '@/components/organisms/TaskDetail/TaskDetailBody/Form/Subtasks/TasksName/Provider.tsx',
+);

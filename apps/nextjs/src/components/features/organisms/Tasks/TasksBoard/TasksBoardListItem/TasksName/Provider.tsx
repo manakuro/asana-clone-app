@@ -20,7 +20,8 @@ const useValue = (props: Props): ContextProps => {
     taskId: props.taskId,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Tasks/TasksBoard/TasksBoardListItem/TasksName/Provider.tsx';
 export const { Provider: TasksNameProvider, useContext: useTasksNameContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/organisms/Tasks/TasksBoard/TasksBoardListItem/TasksName/Provider.tsx',
+  );

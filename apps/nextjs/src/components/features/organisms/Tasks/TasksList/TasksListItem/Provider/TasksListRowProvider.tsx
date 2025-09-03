@@ -30,7 +30,8 @@ const useValue = (props: Props): ContextProps => {
     selected,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Tasks/TasksList/TasksListItem/Provider/TasksListRowProvider.tsx';
 export const { Provider, useContext: useTasksListItemRowContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/organisms/Tasks/TasksList/TasksListItem/Provider/TasksListRowProvider.tsx',
+  );

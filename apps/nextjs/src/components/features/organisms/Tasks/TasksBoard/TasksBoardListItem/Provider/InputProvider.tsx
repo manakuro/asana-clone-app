@@ -54,7 +54,8 @@ const useValue = (): ContextProps => {
     onInputSelect,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Tasks/TasksBoard/TasksBoardListItem/Provider/InputProvider.tsx';
 export const { Provider, useContext: useTasksBoardListItemInputContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/organisms/Tasks/TasksBoard/TasksBoardListItem/Provider/InputProvider.tsx',
+  );

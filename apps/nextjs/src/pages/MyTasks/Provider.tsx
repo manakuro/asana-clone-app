@@ -52,6 +52,7 @@ const useValue = (props: Props): ContextProps => {
     fetchTaskDetailQuery: props.fetchTaskDetailQuery,
   } as const;
 };
-useValue.__PROVIDER__ = '@/pages/MyTasks/Provider.tsx';
-export const { Provider, useContext: useMyTasksContext } =
-  createProvider(useValue);
+export const { Provider, useContext: useMyTasksContext } = createProvider(
+  useValue,
+  '@/pages/MyTasks/Provider.tsx',
+);

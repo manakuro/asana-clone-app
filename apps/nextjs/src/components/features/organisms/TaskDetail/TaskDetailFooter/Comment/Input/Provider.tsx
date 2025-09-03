@@ -75,9 +75,10 @@ const useValue = (): ContextProps => {
     onDeleteTaskFile,
   };
 };
-useValue.__PROVIDER__ = 'CommentInputProvider';
-export const { Provider, useContext: useInputContext } =
-  createProvider(useValue);
+export const { Provider, useContext: useInputContext } = createProvider(
+  useValue,
+  '@/components/organisms/TaskDetail/TaskDetailFooter/Comment/Input/Provider.tsx',
+);
 
 const useTaskFile = () => {
   const [taskFileIds, setTaskFileIds] = useState<string[]>([]);

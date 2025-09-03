@@ -30,7 +30,8 @@ const useValue = (props: Props): ContextProps => {
     taskSectionId: props.taskSectionId,
   } as const;
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Tasks/TasksBoard/TasksBoardListSection/Provider.tsx';
 export const { Provider, useContext: useTasksBoardListSectionContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/organisms/Tasks/TasksBoard/TasksBoardListSection/Provider.tsx',
+  );

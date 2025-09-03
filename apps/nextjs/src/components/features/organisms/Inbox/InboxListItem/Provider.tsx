@@ -15,7 +15,8 @@ const useValue = (): ContextProps => {
     isHovering,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Inbox/InboxListItem/Provider.tsx';
-export const { Provider, useContext: useInboxListItemContext } =
-  createProvider(useValue);
+
+export const { Provider, useContext: useInboxListItemContext } = createProvider(
+  useValue,
+  '@/components/organisms/Inbox/InboxListItem/Provider.tsx',
+);

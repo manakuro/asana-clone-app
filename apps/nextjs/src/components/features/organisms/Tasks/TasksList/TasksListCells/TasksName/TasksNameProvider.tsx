@@ -60,7 +60,8 @@ const useValue = (props: Props): ContextProps => {
     onEndTransition,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Tasks/TasksList/TasksListCells/TasksName/TasksNameProvider.tsx';
 export const { Provider: TasksNameProvider, useContext: useTasksNameContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/organisms/Tasks/TasksList/TasksListCells/TasksName/TasksNameProvider.tsx',
+  );

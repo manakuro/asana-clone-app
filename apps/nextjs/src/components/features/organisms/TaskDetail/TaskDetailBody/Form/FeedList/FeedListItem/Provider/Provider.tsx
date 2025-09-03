@@ -71,10 +71,11 @@ const useValue = (props: Props) => {
     taskFileIds,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/TaskDetail/TaskDetailBody/Form/FeedList/FeedListItem/Provider/Provider.tsx';
 const { Provider: ProviderBase, useContext: useTaskFeedListItemContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/organisms/TaskDetail/TaskDetailBody/Form/FeedList/FeedListItem/Provider/Provider.tsx',
+  );
 
 const useFeedOptionMenu = (props: Props) => {
   const { getTasksDetailFeedURL } = useTasksRouter();

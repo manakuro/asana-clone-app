@@ -3,6 +3,7 @@ import { createProvider } from '@/shared/react/createProvider';
 const useValue = () => {
   return {};
 };
-useValue.__PROVIDER__ = '@/components/organisms/Tasks/TasksFiles/Provider.tsx';
-export const { Provider, useContext: useTasksFilesContext } =
-  createProvider(useValue);
+export const { Provider, useContext: useTasksFilesContext } = createProvider(
+  useValue,
+  '@/components/organisms/Tasks/TasksFiles/Provider.tsx',
+);

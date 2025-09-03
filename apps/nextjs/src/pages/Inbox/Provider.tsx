@@ -15,6 +15,7 @@ const useValue = (): ContextProps => {
     setLoadingTabContent,
   };
 };
-useValue.__PROVIDER__ = '@/pages/Inbox/Provider.tsx';
-export const { Provider, useContext: useInboxPageContext } =
-  createProvider(useValue);
+export const { Provider, useContext: useInboxPageContext } = createProvider(
+  useValue,
+  '@/pages/Inbox/Provider.tsx',
+);

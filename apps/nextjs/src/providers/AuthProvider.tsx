@@ -32,6 +32,5 @@ const useValue = () => {
     idToken,
   };
 };
-useValue.__PROVIDER__ = 'AuthProvider';
 export const { Provider: AuthProvider, useContext: useAuthContext } =
-  createProvider(useValue);
+  createProvider(useValue, 'AuthProvider');

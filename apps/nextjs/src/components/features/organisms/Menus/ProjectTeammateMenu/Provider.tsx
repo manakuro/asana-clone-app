@@ -33,7 +33,9 @@ const useValue = () => {
     onDebounce,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/Menus/ProjectTeammateMenu/Provider.tsx';
+
 export const { Provider, useContext: useProjectTeammateMenuContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/organisms/Menus/ProjectTeammateMenu/Provider.tsx',
+  );

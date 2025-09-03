@@ -49,7 +49,8 @@ const useValue = (props: Props) => {
     isReferenced,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/organisms/TaskDetail/TaskDetailBody/Form/FeedList/FeedListItem/Provider/ProviderContainer.tsx';
 export const { Provider, useContext: useFeedListItemContainerContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/organisms/TaskDetail/TaskDetailBody/Form/FeedList/FeedListItem/Provider/ProviderContainer.tsx',
+  );
