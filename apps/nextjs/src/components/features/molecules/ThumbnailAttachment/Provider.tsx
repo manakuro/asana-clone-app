@@ -39,7 +39,9 @@ const useValue = (props: Props): ContextProps => {
     onDelete,
   };
 };
-useValue.__PROVIDER__ =
-  '@/components/molecules/ThumbnailAttachment/Provider.tsx';
+
 export const { Provider, useContext: useThumbnailAttachmentContext } =
-  createProvider(useValue);
+  createProvider(
+    useValue,
+    '@/components/molecules/ThumbnailAttachment/Provider.tsx',
+  );
