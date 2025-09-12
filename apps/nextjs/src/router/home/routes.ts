@@ -3,5 +3,5 @@ export const ROUTE_HOME = {
   href: {
     pathname: () => '/' as const,
   },
-  query: 'index',
+  query: 'home',
 } as const;
