@@ -29,6 +29,19 @@ type Story = StoryObj<typeof meta>;
 
 export const List: Story = {};
 
+export const Detail: Story = {
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/my_tasks/0BA01GK0BWB1Z78B3A3PK795SFJW9',
+        segments: [['my_tasks', ['0BA01GK0BWB1Z78B3A3PK795SFJW9']]],
+        searchParams: {},
+      },
+    },
+  },
+};
+
 export const Board: Story = {
   parameters: {
     nextjs: {

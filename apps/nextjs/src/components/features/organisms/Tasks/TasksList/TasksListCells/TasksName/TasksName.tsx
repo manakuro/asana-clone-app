@@ -56,8 +56,8 @@ const Component: React.FC<Props> = memo<Props>((props) => {
     await deleteTask({ taskId: props.taskId });
   }, [deleteTask, props.taskId]);
 
-  const handleClick = useCallback(async () => {
-    await navigateToTaskDetail(task.id);
+  const handleClick = useCallback(() => {
+    navigateToTaskDetail(task.id);
   }, [navigateToTaskDetail, task.id]);
 
   const handleChangeName = useCallback(

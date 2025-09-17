@@ -12,6 +12,10 @@ const meta: Meta<typeof Page> = {
       appDirectory: true,
       navigation: {
         pathname: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/list',
+        segments: [
+          ['projectId', '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G'],
+          ['projects', ['list']],
+        ],
         searchParams: {},
       },
     },
@@ -37,6 +41,10 @@ export const Detail: Story = {
       navigation: {
         pathname:
           '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/0BA01GK0BWB1Z78B3A3PK795SFJW9',
+        segments: [
+          ['projectId', '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G'],
+          ['projects', ['0BA01GK0BWB1Z78B3A3PK795SFJW9']],
+        ],
         searchParams: {},
       },
     },
@@ -49,6 +57,10 @@ export const Board: Story = {
       appDirectory: true,
       navigation: {
         pathname: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/board',
+        segments: [
+          ['projectId', '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G'],
+          ['projects', ['board']],
+        ],
         searchParams: {},
       },
     },
@@ -66,6 +78,10 @@ export const Calendar: Story = {
       appDirectory: true,
       navigation: {
         pathname: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/calendar',
+        segments: [
+          ['projectId', '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G'],
+          ['projects', ['calendar']],
+        ],
         searchParams: {},
       },
     },
@@ -84,6 +100,10 @@ export const Files: Story = {
       appDirectory: true,
       navigation: {
         pathname: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/files',
+        segments: [
+          ['projectId', '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G'],
+          ['projects', ['files']],
+        ],
         searchParams: {},
       },
     },

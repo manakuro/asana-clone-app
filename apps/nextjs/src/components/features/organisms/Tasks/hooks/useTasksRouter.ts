@@ -14,7 +14,7 @@ import { useCallback } from 'react';
 import { useTasksContext } from '../TasksProvider';
 
 type Result = {
-  navigateToTaskDetail: (taskId: string, options?: Options) => Promise<void>;
+  navigateToTaskDetail: (taskId: string, options?: Options) => void;
   navigateToTaskBoard: (options?: Options) => Promise<void>;
   isTaskDetailURLById: (taskId: string) => boolean;
   getTasksDetailFeedURL: (props: {
@@ -28,7 +28,6 @@ export const useTasksRouter = (): Result => {
   const { isMyTasksPage, isHomePage, isInboxPage } = useTasksContext();
   const { projectId } = useProjectsProjectId();
   const {
-    router,
     navigateToHomeDetail,
     navigateToMyTasksTaskDetail,
     navigateToProjectsTaskDetail,
@@ -40,7 +39,7 @@ export const useTasksRouter = (): Result => {
   const pathname = usePathname();
 
   const navigateToTaskDetail = useCallback(
-    async (taskId: string, options?: Options) => {
+    (taskId: string, options?: Options) => {
       if (isHomePage) {
         navigateToHomeDetail(taskId);
         return;
