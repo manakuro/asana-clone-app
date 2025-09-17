@@ -62,3 +62,4 @@ src/stories
 build-storybook.log
 .vercel
 .env*.local
+storybook-static

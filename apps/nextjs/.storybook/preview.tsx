@@ -1,5 +1,7 @@
+import type { Preview } from '@storybook/react';
 import mockdate from 'mockdate';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
+import { createElement } from 'react';
 import { handlers as mutationHandlers } from '../src/mocks/mutations/handlers';
 import { handlers as queryHandlers } from '../src/mocks/queries/handlers';
 import { dateFns } from '../src/shared/dateFns';
@@ -7,7 +9,7 @@ import { Provider } from '../src/storybook/Provider';
 
 initialize();
 
-const preview = {
+const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -23,7 +25,6 @@ const preview = {
       handlers: [...queryHandlers, ...mutationHandlers],
     },
   },
-
   decorators: [
     mswDecorator,
     (Story, { parameters }) => {
@@ -34,13 +35,9 @@ const preview = {
       const mockedDate = dateFns.format(new Date(date), 'HH:mm:ss dd/MM/yy');
       console.log('[Mocked date]: ', mockedDate);
 
-      return <Story />;
+      return createElement(Story);
     },
-    (Story) => (
-      <Provider>
-        <Story />
-      </Provider>
-    ),
+    (Story) => createElement(Provider, null, createElement(Story)),
   ],
 };
 
