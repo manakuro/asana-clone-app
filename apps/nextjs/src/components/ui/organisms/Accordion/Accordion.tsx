@@ -1,11 +1,4 @@
-import {
-  Accordion as ChakraAccordion,
-  type AccordionProps as ChakraAccordionProps,
+export {
+  Accordion,
+  type AccordionProps,
 } from '@chakra-ui/react';
-
-type Props = ChakraAccordionProps;
-export type AccordionProps = Props;
-
-export function Accordion(props: Props) {
-  return <ChakraAccordion {...props} />;
-}

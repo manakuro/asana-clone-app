@@ -64,7 +64,11 @@ export const Content = memo(function Content(props: Props) {
       onSubmit={handleSubmit}
       validate={validate}
     >
-      <Form>
+      <Form
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+        placeholder={undefined}
+      >
         <ModalContent>
           <ModalHeader>Duplicate Task</ModalHeader>
           <ModalCloseButton />

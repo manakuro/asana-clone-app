@@ -1,11 +1,4 @@
-import {
-  Spinner as ChakraSpinner,
-  type SpinnerProps as ChakraSpinnerProps,
+export {
+  Spinner,
+  type SpinnerProps,
 } from '@chakra-ui/react';
-
-type Props = ChakraSpinnerProps;
-export type SpinnerProps = Props;
-
-export function Spinner(props: Props) {
-  return <ChakraSpinner {...props} />;
-}

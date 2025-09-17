@@ -8,7 +8,7 @@ type Props<Values> = {
 };
 export const useCheckBoxMultiple = <Values>(props: Props<Values>) => {
   const { formik, name } = props;
-  const values: { [k: string]: any } = formik.values;
+  const values = formik.values as { [k: string]: any };
 
   const handleCheckBox = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

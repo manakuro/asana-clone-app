@@ -17,10 +17,11 @@ export const metadata: Metadata = {
   robots: {
     index: false,
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

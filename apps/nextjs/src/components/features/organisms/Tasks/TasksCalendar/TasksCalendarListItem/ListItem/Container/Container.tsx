@@ -7,7 +7,6 @@ import {
 import { useTask } from '@/store/entities/task';
 import { transitions } from '@/styles';
 import { forwardRef } from 'react';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 
 type Props = {
@@ -15,8 +14,8 @@ type Props = {
   projectId: string;
 } & FlexProps;
 
-export const Container: React.FC<Props> = memo<Props>(
-  forwardRef((props, ref) => {
+export const Container = memo(
+  forwardRef<HTMLDivElement, Props>((props, ref) => {
     const { taskId, projectId, ...rest } = props;
     const { project } = useProject(projectId);
     const { projectBaseColor } = useProjectBaseColor(

@@ -6,5 +6,5 @@ import {
 type Props = AspectRatioProps;
 
 export function AspectRatio(props: Props) {
-  return <ChakraAspectRatio {...props} />;
+  return <ChakraAspectRatio {...(props as any)} />;
 }

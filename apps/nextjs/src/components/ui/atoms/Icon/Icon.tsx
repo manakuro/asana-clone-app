@@ -45,7 +45,7 @@ const sizes = {
 } as const;
 type Sizes = keyof typeof sizes;
 
-export const Icon = forwardRef<SVGElement, Props>(function Icon(props, ref) {
+export const Icon = forwardRef<SVGSVGElement, Props>(function Icon(props, ref) {
   const { size, icon, ...iconProps } = props;
   const iconComponent = icons[icon];
   const sizeStyle = sizes[size ?? 'md'];

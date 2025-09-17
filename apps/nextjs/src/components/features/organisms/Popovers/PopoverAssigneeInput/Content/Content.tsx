@@ -7,6 +7,7 @@ import {
   type PopoverProps,
 } from '@/components/ui/organisms/Popover';
 import { useClickOutside } from '@/hooks';
+import type { MouseEvent } from 'react';
 import { AssignToMeButton } from './AssignToMeButton';
 import { Input } from './Input';
 
@@ -26,7 +27,11 @@ export function Content(props: Props) {
 
   return (
     <Portal>
-      <PopoverContent w="400px" ref={ref} onClick={(e) => e.stopPropagation()}>
+      <PopoverContent
+        w="400px"
+        ref={ref}
+        onClick={(e: MouseEvent) => e.stopPropagation()}
+      >
         <PopoverHeader border="none">
           <Text fontSize="xs" color="text.muted">
             Assignee

@@ -1,11 +1,4 @@
-import {
-  type ListProps as ChakraListProps,
-  UnorderedList as ChakraUnorderedList,
+export {
+  type ListProps,
+  UnorderedList,
 } from '@chakra-ui/react';
-
-type Props = ChakraListProps;
-export type UnorderedListProps = Props;
-
-export function UnorderedList(props: Props) {
-  return <ChakraUnorderedList {...props} />;
-}

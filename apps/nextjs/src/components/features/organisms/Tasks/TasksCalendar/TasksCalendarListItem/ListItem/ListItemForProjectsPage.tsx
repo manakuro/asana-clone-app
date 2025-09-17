@@ -21,7 +21,7 @@ export const ListItemForProjectsPage = memo(function ListItemForProjectsPage(
 ) {
   const { taskId } = props;
   const { task } = useTask(taskId);
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const { onOpenTaskDetail } = useListItem({ taskId });
   const { projectId } = useProjectsProjectId();
   const { projectIds } = useProjectIdsByTaskId(props.taskId, {
