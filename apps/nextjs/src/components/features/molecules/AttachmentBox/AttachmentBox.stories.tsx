@@ -1,11 +1,11 @@
 import { Container } from '@/storybook/decorators/Container';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import type React from 'react';
 import { Component } from './Component';
 
 type Props = React.ComponentProps<typeof Component>;
 
-export default {
+const meta: Meta<typeof Component> = {
   title: 'Features/molecules/AttachmentBox',
   component: Component,
   parameters: {
@@ -18,13 +18,10 @@ export default {
       </Container>
     ),
   ],
-} as ComponentMeta<typeof Component>;
-
-const Template: ComponentStory<typeof Component> = function Template(args) {
-  return <Component {...props()} {...args} />;
 };
 
-export const PDF = Template.bind({});
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 function props(options?: Partial<Props>): Props {
   return {
@@ -36,3 +33,7 @@ function props(options?: Partial<Props>): Props {
     ...options,
   };
 }
+
+export const PDF: Story = {
+  args: props(),
+};

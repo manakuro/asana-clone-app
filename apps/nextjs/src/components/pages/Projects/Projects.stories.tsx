@@ -1,6 +1,6 @@
 import { LayoutDefault } from '@/components/ui/organisms/Layout';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
+import type { Meta, StoryObj } from '@storybook/react';
+import { userEvent, within } from '@storybook/test';
 import { Container as Page } from './Container';
 
 export default {
@@ -25,52 +25,55 @@ export default {
       </LayoutDefault>
     ),
   ],
-} as ComponentMeta<typeof Page>;
+} as Meta<typeof Page>;
 
-const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
+type Story = StoryObj<typeof Page>;
 
-export const List = Template.bind({});
+export const List: Story = {};
 
-export const Detail = Template.bind({});
-Detail.parameters = {
-  nextRouter: {
-    asPath:
-      '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/0BA01GK0BWB1Z78B3A3PK795SFJW9',
-    path: '/projects/[projectId]/[[...projects]]',
-    pathname: '/projects/[projectId]/[[...projects]]',
-    query: {
-      projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-      projects: ['0BA01GK0BWB1Z78B3A3PK795SFJW9'],
-    },
-    route: '/projects/[projectId]/[[...projects]]',
-  },
-};
-
-export const Board = Template.bind({});
-Board.parameters = {
-  nextRouter: {
-    asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/board',
-    path: '/projects/[projectId]/board',
-    query: {
-      projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-      projects: ['board'],
+export const Detail: Story = {
+  parameters: {
+    nextRouter: {
+      asPath:
+        '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/0BA01GK0BWB1Z78B3A3PK795SFJW9',
+      path: '/projects/[projectId]/[[...projects]]',
+      pathname: '/projects/[projectId]/[[...projects]]',
+      query: {
+        projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
+        projects: ['0BA01GK0BWB1Z78B3A3PK795SFJW9'],
+      },
+      route: '/projects/[projectId]/[[...projects]]',
     },
   },
 };
-Board.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
 
-  await userEvent.click(await canvas.findByRole('tab', { name: 'Board' }));
+export const Board: Story = {
+  parameters: {
+    nextRouter: {
+      asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/board',
+      path: '/projects/[projectId]/board',
+      query: {
+        projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
+        projects: ['board'],
+      },
+    },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(await canvas.findByRole('tab', { name: 'Board' }));
+  },
 };
 
-export const Calendar = Template.bind({});
-Calendar.parameters = {
-  nextRouter: {
-    asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/calendar',
-    path: '/projects/[projectId]/calendar',
-    query: {
-      projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-      projects: ['calendar'],
+export const Calendar: Story = {
+  parameters: {
+    nextRouter: {
+      asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/calendar',
+      path: '/projects/[projectId]/calendar',
+      query: {
+        projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
+        projects: ['calendar'],
+      },
     },
   },
 };
@@ -81,14 +84,15 @@ Calendar.parameters = {
 //   await userEvent.click(await canvas.findByRole('tab', { name: 'Calendar' }));
 // };
 
-export const Files = Template.bind({});
-Files.parameters = {
-  nextRouter: {
-    asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/files',
-    path: '/projects/[projectId]/files',
-    query: {
-      projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-      projects: ['files'],
+export const Files: Story = {
+  parameters: {
+    nextRouter: {
+      asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/files',
+      path: '/projects/[projectId]/files',
+      query: {
+        projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
+        projects: ['files'],
+      },
     },
   },
 };

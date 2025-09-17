@@ -1,8 +1,8 @@
 import { LayoutDefault } from '@/components/ui/organisms/Layout';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Container as Page } from './Container';
 
-export default {
+const meta: Meta<typeof Page> = {
   title: 'Pages/Inbox',
   component: Page,
   parameters: {
@@ -20,8 +20,9 @@ export default {
       </LayoutDefault>
     ),
   ],
-} as ComponentMeta<typeof Page>;
+};
 
-const Template: ComponentStory<typeof Page> = (args: any) => <Page {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default = Template.bind({});
+export const Default: Story = {};
