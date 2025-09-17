@@ -7,11 +7,12 @@ const meta: Meta<typeof Page> = {
   component: Page,
   parameters: {
     layout: 'fullscreen',
-    nextRouter: {
-      asPath: '/',
-      path: '/',
-      query: 'index',
-      pathname: '/[[...index]]',
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/',
+        searchParams: {},
+      },
     },
   },
   decorators: [

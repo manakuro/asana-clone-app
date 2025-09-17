@@ -7,10 +7,12 @@ const meta: Meta<typeof Page> = {
   component: Page,
   parameters: {
     layout: 'fullscreen',
-    nextRouter: {
-      asPath: '/inbox',
-      path: '/inbox/[[...inbox]]',
-      pathname: '/inbox/[[...inbox]]',
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/inbox',
+        searchParams: {},
+      },
     },
   },
   decorators: [

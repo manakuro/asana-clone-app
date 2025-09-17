@@ -7,14 +7,12 @@ const meta: Meta<typeof Page> = {
   component: Page,
   parameters: {
     layout: 'fullscreen',
-    nextRouter: {
-      asPath: '/workspaces/0AD01GK0BWAQZYWRN2T89M5K2620Z/overview',
-      path: '/workspaces/[workspaceId]/[[...workspaces]]',
-      query: {
-        workspaceId: '0AD01GK0BWAQZYWRN2T89M5K2620Z',
-        workspaces: ['overview'],
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/workspaces/0AD01GK0BWAQZYWRN2T89M5K2620Z/overview',
+        searchParams: {},
       },
-      pathname: '/workspaces/[workspaceId]/[[...workspaces]]',
     },
   },
   decorators: [

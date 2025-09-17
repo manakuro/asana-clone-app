@@ -3,19 +3,17 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within } from '@storybook/test';
 import { Container as Page } from './Container';
 
-export default {
+const meta: Meta<typeof Page> = {
   title: 'Pages/Projects',
   component: Page,
   parameters: {
     layout: 'fullscreen',
-    nextRouter: {
-      asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/list',
-      path: '/projects/[projectId]',
-      query: {
-        projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-        projects: ['list'],
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/list',
+        searchParams: {},
       },
-      pathname: '/projects/[projectId]/[[...projects]]',
     },
   },
   decorators: [
@@ -25,36 +23,33 @@ export default {
       </LayoutDefault>
     ),
   ],
-} as Meta<typeof Page>;
+};
 
-type Story = StoryObj<typeof Page>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const List: Story = {};
 
 export const Detail: Story = {
   parameters: {
-    nextRouter: {
-      asPath:
-        '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/0BA01GK0BWB1Z78B3A3PK795SFJW9',
-      path: '/projects/[projectId]/[[...projects]]',
-      pathname: '/projects/[projectId]/[[...projects]]',
-      query: {
-        projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-        projects: ['0BA01GK0BWB1Z78B3A3PK795SFJW9'],
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname:
+          '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/0BA01GK0BWB1Z78B3A3PK795SFJW9',
+        searchParams: {},
       },
-      route: '/projects/[projectId]/[[...projects]]',
     },
   },
 };
 
 export const Board: Story = {
   parameters: {
-    nextRouter: {
-      asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/board',
-      path: '/projects/[projectId]/board',
-      query: {
-        projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-        projects: ['board'],
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/board',
+        searchParams: {},
       },
     },
   },
@@ -67,12 +62,11 @@ export const Board: Story = {
 
 export const Calendar: Story = {
   parameters: {
-    nextRouter: {
-      asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/calendar',
-      path: '/projects/[projectId]/calendar',
-      query: {
-        projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-        projects: ['calendar'],
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/calendar',
+        searchParams: {},
       },
     },
   },
@@ -86,12 +80,11 @@ export const Calendar: Story = {
 
 export const Files: Story = {
   parameters: {
-    nextRouter: {
-      asPath: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/files',
-      path: '/projects/[projectId]/files',
-      query: {
-        projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-        projects: ['files'],
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/files',
+        searchParams: {},
       },
     },
   },

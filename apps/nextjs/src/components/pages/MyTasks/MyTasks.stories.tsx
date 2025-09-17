@@ -7,11 +7,12 @@ const meta: Meta<typeof Page> = {
   component: Page,
   parameters: {
     layout: 'fullscreen',
-    nextRouter: {
-      asPath: '/my_tasks/list',
-      path: '/my_tasks',
-      query: 'my_tasks',
-      pathname: '/my_tasks/[[...my_tasks]]',
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/my_tasks',
+        searchParams: {},
+      },
     },
   },
   decorators: [
@@ -28,28 +29,13 @@ type Story = StoryObj<typeof meta>;
 
 export const List: Story = {};
 
-export const Detail: Story = {
-  parameters: {
-    nextRouter: {
-      asPath: '/my_tasks/0BA01GK0BWB1Z78B3A3PK795SFJW9',
-      path: '/my_tasks/[[...my_tasks]]',
-      pathname: '/my_tasks/[[...my_tasks]]',
-      query: {
-        my_tasks: ['0BA01GK0BWB1Z78B3A3PK795SFJW9'],
-      },
-      route: '/my_tasks/[[...my_tasks]]',
-    },
-  },
-};
-
 export const Board: Story = {
   parameters: {
-    nextRouter: {
-      asPath: '/my_tasks/board',
-      path: '/my_tasks/[[...my_tasks]]',
-      pathname: '/my_tasks/[[...my_tasks]]',
-      query: {
-        my_tasks: ['board'],
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/my_tasks/board',
+        searchParams: {},
       },
     },
   },
@@ -57,12 +43,11 @@ export const Board: Story = {
 
 export const Calendar: Story = {
   parameters: {
-    nextRouter: {
-      asPath: '/my_tasks/calendar',
-      path: '/my_tasks/[[...my_tasks]]',
-      pathname: '/my_tasks/[[...my_tasks]]',
-      query: {
-        my_tasks: ['calendar'],
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/my_tasks/calendar',
+        searchParams: {},
       },
     },
   },
@@ -70,12 +55,11 @@ export const Calendar: Story = {
 
 export const Files: Story = {
   parameters: {
-    nextRouter: {
-      asPath: '/my_tasks/files',
-      path: '/my_tasks/[[...my_tasks]]',
-      pathname: '/my_tasks/[[...my_tasks]]',
-      query: {
-        my_tasks: ['files'],
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/my_tasks/files',
+        searchParams: {},
       },
     },
   },
