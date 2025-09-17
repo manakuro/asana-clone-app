@@ -4,7 +4,7 @@ import {
   type PopoverProps,
   PopoverTrigger,
 } from '@/components/ui/organisms/Popover';
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
 import { useRef } from 'react';
 import { Content } from './Content';
 
@@ -15,7 +15,7 @@ type Props = PopoverProps & {
   isOpen: boolean;
 };
 
-export const ProjectRoleInputPopover: React.FC<Props> = (props) => {
+export function ProjectRoleInputPopover(props: PropsWithChildren<Props>) {
   const { children, isOpen, onClose, projectId, projectTeammateId, ...rest } =
     props;
   const initialFocusRef = useRef<HTMLInputElement | null>(null);
@@ -44,4 +44,4 @@ export const ProjectRoleInputPopover: React.FC<Props> = (props) => {
       </Popover>
     </PortalManager>
   );
-};
+}

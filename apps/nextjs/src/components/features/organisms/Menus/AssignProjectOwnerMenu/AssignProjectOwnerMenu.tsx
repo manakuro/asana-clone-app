@@ -8,7 +8,7 @@ import type {
   PopoverProps,
 } from '@/components/ui/organisms/Popover';
 import type { Teammate } from '@/store/entities/teammate';
-import { memo } from 'react';
+import { type PropsWithChildren, memo } from 'react';
 import { Content } from './Content';
 
 type Props = PopoverProps & {
@@ -20,7 +20,7 @@ type Props = PopoverProps & {
 };
 
 export const AssignProjectOwnerMenu = memo(function AssignProjectOwnerMenu(
-  props: Props,
+  props: PropsWithChildren<Props>,
 ) {
   const {
     onClosed,

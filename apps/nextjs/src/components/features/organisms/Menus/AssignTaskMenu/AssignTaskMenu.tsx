@@ -8,7 +8,7 @@ import type {
   PopoverProps,
 } from '@/components/ui/organisms/Popover';
 import type { Teammate } from '@/store/entities/teammate';
-import { memo } from 'react';
+import { type PropsWithChildren, memo } from 'react';
 import { Content } from './Content';
 
 type Props = PopoverProps & {
@@ -19,7 +19,9 @@ type Props = PopoverProps & {
   contentStyle?: PopoverContentProps;
 };
 
-export const AssignTaskMenu = memo(function AssignTaskMenu(props: Props) {
+export const AssignTaskMenu = memo(function AssignTaskMenu(
+  props: PropsWithChildren<Props>,
+) {
   const {
     onClosed,
     queryText,

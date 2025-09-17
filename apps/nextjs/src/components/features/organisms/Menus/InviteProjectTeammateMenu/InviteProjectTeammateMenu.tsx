@@ -8,7 +8,7 @@ import type {
   PopoverProps,
 } from '@/components/ui/organisms/Popover';
 import type { Teammate } from '@/store/entities/teammate';
-import { memo } from 'react';
+import { type PropsWithChildren, memo } from 'react';
 import { Content } from './Content';
 
 type Props = PopoverProps & {
@@ -20,7 +20,7 @@ type Props = PopoverProps & {
 };
 
 export const InviteProjectTeammateMenu = memo(
-  function InviteProjectTeammateMenu(props: Props) {
+  function InviteProjectTeammateMenu(props: PropsWithChildren<Props>) {
     const {
       onClosed,
       queryText,

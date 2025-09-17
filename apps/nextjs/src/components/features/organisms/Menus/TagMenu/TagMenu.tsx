@@ -5,7 +5,7 @@ import {
 } from '@/components/features/organisms/Menus/SearchMenu';
 import type { PopoverProps } from '@/components/ui/organisms/Popover';
 import type { Tag } from '@/store/entities/tag';
-import { memo } from 'react';
+import { type PropsWithChildren, memo } from 'react';
 import { Content } from './Content';
 
 type Props = PopoverProps & {
@@ -15,7 +15,7 @@ type Props = PopoverProps & {
   onClosed?: () => void;
 };
 
-export const TagMenu = memo(function TagMenu(props: Props) {
+export const TagMenu = memo(function TagMenu(props: PropsWithChildren<Props>) {
   const { onClosed, queryText, isOpen, onClose, ...rest } = props;
 
   return (

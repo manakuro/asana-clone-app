@@ -6,7 +6,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/organisms/Popover';
 import { type ChakraProps, useDisclosure } from '@/shared/chakra';
-import type React from 'react';
+import type { MouseEvent, PropsWithChildren } from 'react';
 import { useCallback } from 'react';
 import { Body } from './Body';
 
@@ -23,14 +23,14 @@ type Props = {
   includeDueTime?: boolean;
 } & PopoverProps;
 
-export function PopoverDueDatePicker(props: Props) {
+export function PopoverDueDatePicker(props: PropsWithChildren<Props>) {
   const popoverDisclosure = useDisclosure({
     defaultIsOpen: props.defaultIsOpen,
   });
   const closeOnChange = props.closeOnChange ?? true;
 
   const handleOpen = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
+    (e: MouseEvent<HTMLElement>) => {
       e.stopPropagation();
       popoverDisclosure.onOpen();
       props.onOpened?.();
