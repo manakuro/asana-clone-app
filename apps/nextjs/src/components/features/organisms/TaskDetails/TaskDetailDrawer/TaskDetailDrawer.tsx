@@ -20,9 +20,10 @@ export const TaskDetailDrawer = memo(function TaskDetailDrawer(props: Props) {
 
   const handleClose = useCallback(() => {
     backToPage();
+    // Execute onClose after the pathname changes to detect URL params.
     setTimeout(() => {
       onClose();
-    });
+    }, 100);
   }, [backToPage, onClose]);
 
   return (

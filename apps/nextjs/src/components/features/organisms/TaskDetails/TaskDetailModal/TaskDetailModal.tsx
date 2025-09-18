@@ -14,9 +14,10 @@ export const TaskDetailModal = memo(function TaskDetailModal(props: Props) {
 
   const handleClose = useCallback(() => {
     props.backToPage();
+    // Execute onClose after the pathname changes to detect URL params.
     setTimeout(() => {
       onClose();
-    });
+    }, 100);
   }, [onClose, props]);
 
   return (
