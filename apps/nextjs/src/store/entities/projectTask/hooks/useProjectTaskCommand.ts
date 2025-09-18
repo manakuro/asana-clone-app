@@ -6,7 +6,11 @@ import {
 } from '@/graphql/hooks';
 import { uuid } from '@/shared/uuid';
 import { useMe } from '@/store/entities/me';
-import { taskState, useTaskCommand } from '@/store/entities/task';
+import {
+  taskOptimisticState,
+  taskState,
+  useTaskCommand,
+} from '@/store/entities/task';
 import { useWorkspace } from '@/store/entities/workspace';
 import { useAtomCallback } from 'jotai/utils';
 import { RESET } from 'jotai/utils';
@@ -158,7 +162,7 @@ export const useProjectTaskCommand = () => {
 
   const addProjectTask = useAtomCallback(
     useCallback(
-      async (_, __, input: AddProjectTaskInput) => {
+      async (get, set, input: AddProjectTaskInput) => {
         const { newTaskId, newProjectTask, newProjectTaskId } =
           addProjectTaskOptimistic(input);
 
@@ -187,8 +191,20 @@ export const useProjectTaskCommand = () => {
           const addedProjectTask = res.data?.createProjectTask;
           if (!addedProjectTask) return '';
 
+          const optimisticTask = get(taskOptimisticState(newTaskId));
           resetTask({ taskId: newTaskId, projectTaskId: newProjectTaskId });
-          setProjectTaskResponse([addedProjectTask]);
+          set(taskOptimisticState(newTaskId), RESET);
+          taskOptimisticState.remove(newTaskId);
+
+          setProjectTaskResponse([
+            {
+              ...addedProjectTask,
+              task: {
+                ...addedProjectTask.task,
+                name: optimisticTask.name,
+              },
+            },
+          ]);
 
           return addedProjectTask.id;
         } catch (e) {

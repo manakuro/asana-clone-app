@@ -12,3 +12,4 @@ export * from './useTaskUnassignedSubscription';
 export * from './useTaskAssignedSubscription';
 export * from './useResetTask';
 export * from './useSubtaskIds';
+export * from './useTaskOptimistic';

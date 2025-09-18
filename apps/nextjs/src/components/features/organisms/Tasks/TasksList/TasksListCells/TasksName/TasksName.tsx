@@ -111,6 +111,7 @@ const Component: React.FC<Props> = memo<Props>((props) => {
           isTransitioning={isTransitioning}
         />
         <TasksNameField
+          taskId={props.taskId}
           value={task.name}
           isNew={task.isNew}
           completed={task.completed}

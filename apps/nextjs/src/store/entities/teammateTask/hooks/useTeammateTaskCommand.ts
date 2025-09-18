@@ -4,7 +4,11 @@ import {
 } from '@/graphql/hooks';
 import { uuid } from '@/shared/uuid';
 import { useMe } from '@/store/entities/me';
-import { taskState, useTaskCommand } from '@/store/entities/task';
+import {
+  taskOptimisticState,
+  taskState,
+  useTaskCommand,
+} from '@/store/entities/task';
 import { useWorkspace } from '@/store/entities/workspace';
 import { useAtomCallback } from 'jotai/utils';
 import { RESET } from 'jotai/utils';
@@ -64,7 +68,7 @@ export const useTeammateTaskCommand = () => {
   const addTeammateTask = useAtomCallback(
     useCallback(
       async (
-        _,
+        get,
         set,
         input: Partial<TeammateTask> & {
           teammateTaskSectionId: string;
@@ -110,9 +114,20 @@ export const useTeammateTaskCommand = () => {
           const data = res.data?.createTeammateTask;
           if (!data) return '';
 
+          const optimisticTask = get(taskOptimisticState(newTaskId));
           set(teammateTaskState(id), RESET);
           set(taskState(newTaskId), RESET);
-          setTeammateTask([data]);
+          set(taskOptimisticState(newTaskId), RESET);
+          taskOptimisticState.remove(newTaskId);
+          setTeammateTask([
+            {
+              ...data,
+              task: {
+                ...data.task,
+                name: optimisticTask.name,
+              },
+            },
+          ]);
 
           return data.id;
         } catch (e) {

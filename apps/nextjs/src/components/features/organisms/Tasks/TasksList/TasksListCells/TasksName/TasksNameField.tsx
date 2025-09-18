@@ -6,11 +6,13 @@ import {
   useDebounce,
   useMountedRef,
 } from '@/hooks';
+import { useTaskOptimistic } from '@/store/entities/task';
 import type React from 'react';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksNameContext } from './TasksNameProvider';
 
 type Props = {
+  taskId: string;
   value: string;
   onChange: (val: string) => void;
   isNew?: boolean;
@@ -22,6 +24,7 @@ type Props = {
 export const TasksNameField = memo(function TasksNameField(props: Props) {
   const [value, setValue] = useState<string>(props.value);
   const { mountedRef } = useMountedRef();
+  const { setTaskOptimistic } = useTaskOptimistic();
   const {
     ref: containerRef,
     onInputFocus,
@@ -57,9 +60,13 @@ export const TasksNameField = memo(function TasksNameField(props: Props) {
     if (!props.isNew) removeEventListener();
   }, [props.isNew, removeEventListener]);
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  }, []);
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setValue(e.target.value);
+      setTaskOptimistic(props.taskId, e.target.value);
+    },
+    [props.taskId, setTaskOptimistic],
+  );
 
   useEffect(() => {
     if (!mountedRef.current) return;
