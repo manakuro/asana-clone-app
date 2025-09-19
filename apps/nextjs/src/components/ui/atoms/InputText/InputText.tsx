@@ -55,10 +55,10 @@ export const InputText = memo(function InputText(props: Props) {
         borderColor: noBorder ? 'transparent' : 'gray.400',
       },
       _focus: {
-        borderColor: noBorder ? 'transparent' : 'gray.500',
+        borderColor: noBorder ? 'transparent' : 'gray.600',
       },
-      wordBreak: 'break-all',
-      ...(autoFocus ? { borderColor: 'gray.500' } : {}),
+      overflowWrap: 'anywhere',
+      ...(autoFocus ? { borderColor: 'gray.600' } : {}),
     }),
     [props.minH, noBorder, autoFocus],
   );
@@ -92,6 +92,9 @@ export const InputText = memo(function InputText(props: Props) {
         focusBorderColor="transparent"
         value={value}
         placeholder={placeholder}
+        _focusVisible={{
+          boxShadow: 'none',
+        }}
       >
         {value}
       </Textarea>
