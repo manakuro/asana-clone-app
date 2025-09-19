@@ -1,6 +1,5 @@
 import { useTasksContext } from '@/components/features/organisms/Tasks';
 import type { FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { Provider } from './Provider';
 import { TasksBoardListItemForMyTasksPage } from './TasksBoardListItemForMyTasksPage';
@@ -20,7 +19,7 @@ export const TasksBoardListItem = memo(function TasksBoardListItem(
   );
 });
 
-const Component: React.FC<Props> = memo<Props>((props) => {
+const Component = memo<Props>((props) => {
   const { isMyTasksPage } = useTasksContext();
 
   if (isMyTasksPage) return <TasksBoardListItemForMyTasksPage {...props} />;

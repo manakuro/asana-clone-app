@@ -63,7 +63,7 @@ export const useTask = (taskId: string) => {
         const prev = get(taskState(taskId));
         // Skip when touching input for the first time
         if (prev.isNew && !prev.name && !input) return;
-        if (prev.name === input) return;
+        if (!prev.isNew && prev.name === input) return;
 
         const isNew = prev.isNew && !!input ? { isNew: false } : {};
         await setTask({ name: input, ...isNew });

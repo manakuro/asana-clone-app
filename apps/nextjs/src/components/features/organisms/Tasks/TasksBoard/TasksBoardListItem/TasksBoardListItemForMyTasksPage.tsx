@@ -1,6 +1,5 @@
 import { Flex, type FlexProps, Stack } from '@/components/ui/atoms';
 import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
-import type React from 'react';
 import { memo } from 'react';
 import { Card } from './Card';
 import { DueDate } from './DueDate';
@@ -16,8 +15,8 @@ type Props = FlexProps & {
   taskId: string;
 };
 
-export const TasksBoardListItemForMyTasksPage: React.FC<Props> = memo<Props>(
-  (props) => {
+export const TasksBoardListItemForMyTasksPage = memo<Props>(
+  function TasksBoardListItemForMyTasksPage(props) {
     const { className, generateId } = useTasksBoardListItemElement();
     const { projectIds } = useProjectIdsByTaskId(props.taskId);
 
@@ -45,5 +44,3 @@ export const TasksBoardListItemForMyTasksPage: React.FC<Props> = memo<Props>(
     );
   },
 );
-TasksBoardListItemForMyTasksPage.displayName =
-  'TasksBoardListItemForMyTasksPage';

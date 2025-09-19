@@ -5,6 +5,7 @@ import {
   useClickOutside,
   useDebounce,
 } from '@/hooks';
+import { useTaskOptimistic } from '@/store/entities/task';
 import type React from 'react';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksBoardListItemInputContext } from '../Provider';
@@ -22,6 +23,7 @@ type Props = {
 export const TasksNameField = memo(function TasksNameField(props: Props) {
   const [value, setValue] = useState<string>(props.value);
   const { getTasksBoardListItemElementById } = useTasksBoardListItemElement();
+  const { setTaskOptimistic } = useTaskOptimistic();
   const {
     onInputFocus,
     onInputBlur,
@@ -63,8 +65,9 @@ export const TasksNameField = memo(function TasksNameField(props: Props) {
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setValue(e.target.value);
+      setTaskOptimistic(props.taskId, e.target.value);
     },
-    [],
+    [props.taskId, setTaskOptimistic],
   );
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
