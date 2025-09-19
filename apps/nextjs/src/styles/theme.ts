@@ -5,7 +5,7 @@ import { theme as defaultTheme, extendTheme } from '@chakra-ui/react';
 
 // Disabling border for non-keyboard interactions
 // @see https://github.com/chakra-ui/chakra-ui/blob/develop/packages/css-reset/README.md
-import 'focus-visible/dist/focus-visible';
+// import 'focus-visible/dist/focus-visible';
 
 export const theme = extendTheme({
   styles: {
