@@ -1,5 +1,4 @@
 import { Flex, type FlexProps, Grid, Skeleton } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { OverviewLeft } from './OverviewLeft';
 import { OverviewLeftContent } from './OverviewLeftContent';
@@ -14,7 +13,7 @@ type Props = FlexProps;
 
 const TEXT_HEIGHT = '16px';
 const CARD_HEIGHT = '97px';
-export const SkeletonOverview: React.FC<Props> = memo<Props>((props) => {
+export const SkeletonOverview = memo<Props>(function SkeletonOverview(props) {
   return (
     <Flex flex={1} h="full" maxW="full" justifyContent="center" {...props}>
       <OverviewLeft mt={12}>
@@ -78,4 +77,3 @@ export const SkeletonOverview: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-SkeletonOverview.displayName = 'SkeletonList';
