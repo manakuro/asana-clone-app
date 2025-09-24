@@ -4,8 +4,8 @@ import {
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
 } from '@/components/features/organisms/Popovers';
+import { useReactNodeView } from '@/components/ui/Editor/Editors/ReactNodeView';
 import { ColorBox } from '@/components/ui/atoms';
-import { useReactNodeView } from '@/components/ui/organisms/Editor/Editors/ReactNodeView';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';

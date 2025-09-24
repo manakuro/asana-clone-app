@@ -1,11 +1,11 @@
-import { Divider, Link } from '@/components/ui/atoms';
 import {
   Popover,
   PopoverBody,
   PopoverContent,
   type PopoverProps,
   PopoverTrigger,
-} from '@/components/ui/organisms/Popover';
+} from '@/components/ui/Popover';
+import { Divider, Link } from '@/components/ui/atoms';
 import type { Project } from '@/store/entities/project';
 import type { PropsWithChildren } from 'react';
 import { ColorPicker } from './ColorPicker';

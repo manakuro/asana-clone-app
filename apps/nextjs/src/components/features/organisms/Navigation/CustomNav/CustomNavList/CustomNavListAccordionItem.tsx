@@ -1,4 +1,4 @@
-import { AccordionItem } from '@/components/ui/organisms/Accordion';
+import { AccordionItem } from '@/components/ui/Accordion';
 import type { PropsWithChildren } from 'react';
 
 export function CustomNavListAccordionItem(props: PropsWithChildren) {

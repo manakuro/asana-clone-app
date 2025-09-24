@@ -1,4 +1,4 @@
-import { ModalBody, ModalContent } from '@/components/ui/organisms/Modal';
+import { ModalBody, ModalContent } from '@/components/ui/Modal';
 import { useMenuStyle } from '@/hooks';
 import type { BaseEmoji } from '@/shared/emoji';
 import { useCallback } from 'react';

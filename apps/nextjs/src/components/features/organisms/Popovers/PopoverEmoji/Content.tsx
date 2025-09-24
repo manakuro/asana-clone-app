@@ -1,5 +1,5 @@
+import { PopoverContent } from '@/components/ui/Popover';
 import { Box, Portal } from '@/components/ui/atoms';
-import { PopoverContent } from '@/components/ui/organisms/Popover';
 import { useClickOutside } from '@/hooks';
 import { type BaseEmoji, EmojiPicker } from '@/shared/emoji';
 import { memo, useCallback } from 'react';

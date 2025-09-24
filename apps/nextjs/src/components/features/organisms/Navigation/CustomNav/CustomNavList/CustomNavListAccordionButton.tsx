@@ -1,7 +1,7 @@
 import {
   AccordionButton,
   type AccordionButtonProps,
-} from '@/components/ui/organisms/Accordion';
+} from '@/components/ui/Accordion';
 import type React from 'react';
 import { PADDING_X } from '../../Navigation';
 

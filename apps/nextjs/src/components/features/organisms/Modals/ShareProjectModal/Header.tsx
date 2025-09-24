@@ -1,4 +1,4 @@
-import { ModalHeader } from '@/components/ui/organisms/Modal';
+import { ModalHeader } from '@/components/ui/Modal';
 import { useProject } from '@/store/entities/project';
 import { memo } from 'react';
 

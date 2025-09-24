@@ -3,6 +3,7 @@ import {
   useTasksTaskSectionCommand,
   useTasksTaskSectionIds,
 } from '@/components/features/organisms/Tasks/hooks';
+import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
 import {
   Button,
   ButtonGroup,
@@ -12,12 +13,6 @@ import {
   IconButton,
   Portal,
 } from '@/components/ui/atoms';
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-} from '@/components/ui/organisms/Menu';
 import type { ChakraProps } from '@/shared/chakra';
 import { memo, useCallback, useMemo } from 'react';
 

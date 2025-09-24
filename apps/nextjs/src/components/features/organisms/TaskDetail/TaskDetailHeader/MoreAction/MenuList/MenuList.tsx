@@ -1,9 +1,9 @@
-import { Flex, Icon, Portal, Text } from '@/components/ui/atoms';
 import {
   MenuList as AtomsMenuList,
   MenuDivider,
   MenuItem,
-} from '@/components/ui/organisms/Menu';
+} from '@/components/ui/Menu';
+import { Flex, Icon, Portal, Text } from '@/components/ui/atoms';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import { useCallback } from 'react';

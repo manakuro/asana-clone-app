@@ -3,8 +3,8 @@ import {
   MenuSelectButton,
   MenuSelectList,
 } from '@/components/features/organisms/Menus';
+import { MenuItemOption } from '@/components/ui/Menu';
 import { Button, Flex, Icon } from '@/components/ui/atoms';
-import { MenuItemOption } from '@/components/ui/organisms/Menu';
 import { useClickableHoverStyle } from '@/hooks';
 import { memo, useCallback, useMemo } from 'react';
 import {

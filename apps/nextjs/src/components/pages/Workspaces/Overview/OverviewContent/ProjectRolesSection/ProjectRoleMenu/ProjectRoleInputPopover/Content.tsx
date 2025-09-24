@@ -1,5 +1,5 @@
+import { PopoverBody, PopoverContent } from '@/components/ui/Popover';
 import { Label, Portal } from '@/components/ui/atoms';
-import { PopoverBody, PopoverContent } from '@/components/ui/organisms/Popover';
 import { useClickOutside } from '@/hooks';
 import {
   useProjectTeammate,

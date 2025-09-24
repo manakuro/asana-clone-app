@@ -1,5 +1,5 @@
+import { MenuItem } from '@/components/ui/Menu';
 import { Icon } from '@/components/ui/atoms';
-import { MenuItem } from '@/components/ui/organisms/Menu';
 import { useCopyProjectLink } from '@/hooks/pages/projects';
 import type React from 'react';
 import { memo, useCallback } from 'react';

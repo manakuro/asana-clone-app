@@ -3,10 +3,7 @@ import {
   useHasTasksByTaskSectionId,
   useTasksTaskSectionCommand,
 } from '@/components/features/organisms/Tasks/hooks';
-import {
-  MenuList as AtomsMenuList,
-  MenuItem,
-} from '@/components/ui/organisms/Menu';
+import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
 import { memo, useCallback } from 'react';
 import { useTasksBoardListSectionContext } from '../../../Provider';
 

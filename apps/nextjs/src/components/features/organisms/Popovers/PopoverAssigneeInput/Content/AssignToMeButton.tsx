@@ -1,5 +1,5 @@
+import type { PopoverProps } from '@/components/ui/Popover';
 import { Button } from '@/components/ui/atoms';
-import type { PopoverProps } from '@/components/ui/organisms/Popover';
 import { useMe } from '@/store/entities/me';
 import { useTaskCommand } from '@/store/entities/task';
 import { useCallback } from 'react';

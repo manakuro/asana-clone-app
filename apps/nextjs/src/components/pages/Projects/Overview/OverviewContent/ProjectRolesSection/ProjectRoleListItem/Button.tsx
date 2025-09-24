@@ -1,5 +1,5 @@
+import { MenuButton } from '@/components/ui/Menu';
 import { Button as AtomsButton } from '@/components/ui/atoms';
-import { MenuButton } from '@/components/ui/organisms/Menu';
 import { forwardRef } from 'react';
 
 type Props = {

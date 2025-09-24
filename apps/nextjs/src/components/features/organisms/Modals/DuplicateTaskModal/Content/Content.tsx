@@ -1,4 +1,11 @@
 import {
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+} from '@/components/ui/Modal';
+import {
   CheckboxField,
   Divider,
   Flex,
@@ -6,13 +13,6 @@ import {
   SubmitButton,
   TextField,
 } from '@/components/ui/atoms';
-import {
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-} from '@/components/ui/organisms/Modal';
 import { useTask } from '@/store/entities/task';
 import { Form, Formik, type FormikConfig } from 'formik';
 import { memo, useCallback, useMemo } from 'react';

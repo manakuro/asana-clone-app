@@ -3,8 +3,8 @@ import {
   MenuSelectButton,
   MenuSelectList,
 } from '@/components/features/organisms/Menus';
+import { MenuItemOption } from '@/components/ui/Menu';
 import { Button, Icon } from '@/components/ui/atoms';
-import { MenuItemOption } from '@/components/ui/organisms/Menu';
 import type { ChakraProps } from '@/shared/chakra';
 import {
   INBOX_LIST_FILTER_STATUS_TYPE_ALL,

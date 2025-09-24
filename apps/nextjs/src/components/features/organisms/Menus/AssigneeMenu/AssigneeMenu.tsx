@@ -6,7 +6,7 @@ import {
 import type {
   PopoverContentProps,
   PopoverProps,
-} from '@/components/ui/organisms/Popover';
+} from '@/components/ui/Popover';
 import type { Teammate } from '@/store/entities/teammate';
 import { type PropsWithChildren, memo } from 'react';
 import { Content } from './Content';

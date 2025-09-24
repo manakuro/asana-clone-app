@@ -1,9 +1,5 @@
+import { AtMention, Emoji, Format } from '@/components/ui/Editor/ToolBar';
 import { Button, Flex, Stack } from '@/components/ui/atoms';
-import {
-  AtMention,
-  Emoji,
-  Format,
-} from '@/components/ui/organisms/Editor/ToolBar';
 import { transitions } from '@/styles';
 import { memo } from 'react';
 import { useInputContext } from '../Provider';

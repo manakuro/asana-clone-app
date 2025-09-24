@@ -1,4 +1,5 @@
 import { useTasksCalendarContext } from '@/components/features/organisms/Tasks';
+import { Popover, PopoverTrigger } from '@/components/ui/Popover';
 import {
   Flex,
   type FlexProps,
@@ -8,7 +9,6 @@ import {
   PortalManager,
   Text,
 } from '@/components/ui/atoms';
-import { Popover, PopoverTrigger } from '@/components/ui/organisms/Popover';
 import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';
 import { memo, useMemo } from 'react';

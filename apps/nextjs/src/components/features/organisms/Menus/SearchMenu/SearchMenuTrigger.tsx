@@ -1,4 +1,4 @@
-import { PopoverTrigger } from '@/components/ui/organisms/Popover';
+import { PopoverTrigger } from '@/components/ui/Popover';
 import { type PropsWithChildren, memo } from 'react';
 
 type Props = PropsWithChildren;

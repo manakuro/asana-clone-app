@@ -5,11 +5,8 @@ import {
   useTasksCanDeleteTaskSection,
   useTasksTaskSectionCommand,
 } from '@/components/features/organisms/Tasks/hooks';
+import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
 import { Tooltip } from '@/components/ui/molecules';
-import {
-  MenuList as AtomsMenuList,
-  MenuItem,
-} from '@/components/ui/organisms/Menu';
 import { memo, useCallback, useMemo } from 'react';
 
 export const MenuList = memo(function MenuList() {

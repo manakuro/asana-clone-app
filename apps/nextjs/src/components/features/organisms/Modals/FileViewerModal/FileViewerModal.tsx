@@ -1,10 +1,10 @@
-import { Divider, PortalManager } from '@/components/ui/atoms';
 import {
   Modal,
   ModalBody,
   ModalContent,
   ModalHeader,
-} from '@/components/ui/organisms/Modal';
+} from '@/components/ui/Modal';
+import { Divider, PortalManager } from '@/components/ui/atoms';
 import { Body } from './Body';
 import { Header } from './Header';
 import { useFileViewerModal } from './useFileViewerModal';

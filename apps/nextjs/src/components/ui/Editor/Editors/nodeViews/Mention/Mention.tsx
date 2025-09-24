@@ -1,4 +1,4 @@
-import { useReactNodeView } from '@/components/ui/organisms/Editor/Editors';
+import { useReactNodeView } from '@/components/ui/Editor/Editors';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { MentionType, type MentionTypeCode } from '@/store/entities/mention';
 import { Project } from './Project';

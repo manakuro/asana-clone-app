@@ -1,4 +1,4 @@
-import { ModalBody, ModalContent } from '@/components/ui/organisms/Modal';
+import { ModalBody, ModalContent } from '@/components/ui/Modal';
 import { useMenuStyle } from '@/hooks';
 import { memo } from 'react';
 import { MenuList } from './MenuList';

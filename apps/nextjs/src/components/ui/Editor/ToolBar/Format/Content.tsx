@@ -1,4 +1,3 @@
-import { Portal, Stack } from '@/components/ui/atoms';
 import {
   Bold,
   BulletList,
@@ -9,13 +8,14 @@ import {
   OrderedList,
   Strikethrough,
   Underline,
-} from '@/components/ui/organisms/Editor/ToolBar';
+} from '@/components/ui/Editor/ToolBar';
 import {
   PopoverArrow,
   PopoverBody,
   PopoverContent,
   type PopoverProps,
-} from '@/components/ui/organisms/Popover';
+} from '@/components/ui/Popover';
+import { Portal, Stack } from '@/components/ui/atoms';
 import { useClickOutside } from '@/hooks';
 
 type Props = {

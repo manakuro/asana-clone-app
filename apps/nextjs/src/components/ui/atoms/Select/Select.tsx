@@ -1,10 +1,10 @@
-import { Input, type InputProps, Portal } from '@/components/ui/atoms';
 import {
   Menu,
   MenuButton,
   type MenuButtonProps,
   MenuList,
-} from '@/components/ui/organisms/Menu';
+} from '@/components/ui/Menu';
+import { Input, type InputProps, Portal } from '@/components/ui/atoms';
 import React from 'react';
 
 type Props = {

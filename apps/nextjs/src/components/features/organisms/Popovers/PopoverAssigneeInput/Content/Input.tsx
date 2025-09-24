@@ -1,4 +1,5 @@
 import { AssigneeMenu } from '@/components/features/organisms/Menus';
+import type { PopoverProps } from '@/components/ui/Popover';
 import {
   Input as AtomsInput,
   Flex,
@@ -6,7 +7,6 @@ import {
   InputGroup,
   InputRightElement,
 } from '@/components/ui/atoms';
-import type { PopoverProps } from '@/components/ui/organisms/Popover';
 import { useClickableHoverStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useTask, useTaskCommand } from '@/store/entities/task';

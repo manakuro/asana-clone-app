@@ -1,11 +1,11 @@
-import { Portal, Stack, Text } from '@/components/ui/atoms';
 import {
   PopoverBody,
   PopoverCloseButton,
   PopoverContent,
   PopoverHeader,
   type PopoverProps,
-} from '@/components/ui/organisms/Popover';
+} from '@/components/ui/Popover';
+import { Portal, Stack, Text } from '@/components/ui/atoms';
 import { useClickOutside } from '@/hooks';
 import type { MouseEvent } from 'react';
 import { AssignToMeButton } from './AssignToMeButton';

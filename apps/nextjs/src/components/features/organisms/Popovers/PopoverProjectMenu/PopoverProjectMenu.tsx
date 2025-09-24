@@ -1,9 +1,5 @@
+import { Menu, MenuButton, type MenuButtonProps } from '@/components/ui/Menu';
 import type { IconButtonProps } from '@/components/ui/atoms';
-import {
-  Menu,
-  MenuButton,
-  type MenuButtonProps,
-} from '@/components/ui/organisms/Menu';
 import { type ChakraProps, useDisclosure } from '@/shared/chakra';
 import { useProject } from '@/store/entities/project';
 import type React from 'react';

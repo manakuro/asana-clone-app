@@ -3,13 +3,13 @@ import {
   TaskDetailFooter,
   TaskDetailHeader,
 } from '@/components/features/organisms/TaskDetail';
-import { Divider } from '@/components/ui/atoms';
 import {
   ModalBody,
   ModalContent,
   ModalFooter,
   ModalHeader,
-} from '@/components/ui/organisms/Modal';
+} from '@/components/ui/Modal';
+import { Divider } from '@/components/ui/atoms';
 import { memo } from 'react';
 
 type Props = {

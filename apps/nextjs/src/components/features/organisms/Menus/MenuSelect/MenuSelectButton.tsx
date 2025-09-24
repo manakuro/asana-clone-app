@@ -1,7 +1,4 @@
-import {
-  MenuButton,
-  type MenuButtonProps,
-} from '@/components/ui/organisms/Menu';
+import { MenuButton, type MenuButtonProps } from '@/components/ui/Menu';
 import { memo } from 'react';
 import { useMenuSelectContext } from './useMenuSelect';
 

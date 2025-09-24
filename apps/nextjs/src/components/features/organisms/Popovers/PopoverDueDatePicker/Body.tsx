@@ -1,9 +1,6 @@
+import { DatePicker } from '@/components/ui/DatePicker';
+import { PopoverBody, type PopoverProps } from '@/components/ui/Popover';
 import { Button, Divider, Flex, type FlexProps } from '@/components/ui/atoms';
-import { DatePicker } from '@/components/ui/organisms/DatePicker';
-import {
-  PopoverBody,
-  type PopoverProps,
-} from '@/components/ui/organisms/Popover';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';

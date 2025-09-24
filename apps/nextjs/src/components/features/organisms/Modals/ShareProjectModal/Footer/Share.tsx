@@ -1,5 +1,5 @@
+import { ModalFooter } from '@/components/ui/Modal';
 import { Button, Divider, Icon } from '@/components/ui/atoms';
-import { ModalFooter } from '@/components/ui/organisms/Modal';
 import { useCopyProjectLink } from '@/hooks/pages/projects';
 import { memo, useCallback } from 'react';
 import { useShareProjectModal } from '../useShareProjectModal';

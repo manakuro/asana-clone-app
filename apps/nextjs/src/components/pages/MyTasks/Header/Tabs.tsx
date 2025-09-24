@@ -1,11 +1,6 @@
+import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
+import { Tab, TabList } from '@/components/ui/Tabs';
 import { Flex, Heading, Icon, IconButton, Portal } from '@/components/ui/atoms';
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-} from '@/components/ui/organisms/Menu';
-import { Tab, TabList } from '@/components/ui/organisms/Tabs';
 import { memo } from 'react';
 
 export const Tabs = memo(function Tabs() {

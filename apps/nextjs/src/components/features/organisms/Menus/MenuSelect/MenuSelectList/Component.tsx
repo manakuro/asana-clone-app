@@ -1,10 +1,10 @@
-import { Portal } from '@/components/ui/atoms';
 import {
   MenuList as AtomsMenuList,
   type MenuListProps,
   MenuOptionGroup,
   type MenuOptionGroupProps,
-} from '@/components/ui/organisms/Menu';
+} from '@/components/ui/Menu';
+import { Portal } from '@/components/ui/atoms';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import type React from 'react';
 import { useCallback } from 'react';

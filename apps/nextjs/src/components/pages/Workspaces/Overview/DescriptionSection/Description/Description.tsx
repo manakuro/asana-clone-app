@@ -1,4 +1,4 @@
-import { Editor, EditorContent } from '@/components/ui/organisms/Editor';
+import { Editor, EditorContent } from '@/components/ui/Editor';
 import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
 import {
   parseDescription,

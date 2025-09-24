@@ -1,4 +1,10 @@
 import {
+  Popover,
+  PopoverBody,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/Popover';
+import {
   AspectRatio,
   Box,
   Button,
@@ -10,12 +16,6 @@ import {
   Text,
 } from '@/components/ui/atoms';
 import { Flex } from '@/components/ui/atoms/Flex';
-import {
-  Popover,
-  PopoverBody,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/organisms/Popover';
 import type React from 'react';
 
 type Props = {

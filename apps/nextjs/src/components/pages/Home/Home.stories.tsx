@@ -1,4 +1,4 @@
-import { LayoutDefault } from '@/components/ui/organisms/Layout';
+import { LayoutDefault } from '@/components/ui/Layout';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Container as Page } from './Container';
 

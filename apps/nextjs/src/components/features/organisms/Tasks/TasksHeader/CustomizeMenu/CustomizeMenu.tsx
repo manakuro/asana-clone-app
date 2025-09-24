@@ -1,4 +1,4 @@
-import { Drawer } from '@/components/ui/organisms/Drawer';
+import { Drawer } from '@/components/ui/Drawer';
 import type React from 'react';
 import { Content } from './Content';
 import { useCustomizeMenu } from './useCustomizeMenu';

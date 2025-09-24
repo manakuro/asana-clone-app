@@ -1,6 +1,6 @@
 import { PopoverSetColorAndIcon } from '@/components/features/organisms/Popovers';
+import { MenuItem } from '@/components/ui/Menu';
 import { ColorBox, Flex, Icon, Text } from '@/components/ui/atoms';
-import { MenuItem } from '@/components/ui/organisms/Menu';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { memo } from 'react';

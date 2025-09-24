@@ -1,5 +1,5 @@
+import { Menu, MenuButton } from '@/components/ui/Menu';
 import { Flex, Icon, IconButton, PortalManager } from '@/components/ui/atoms';
-import { Menu, MenuButton } from '@/components/ui/organisms/Menu';
 import { useDisclosure } from '@/shared/chakra';
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';

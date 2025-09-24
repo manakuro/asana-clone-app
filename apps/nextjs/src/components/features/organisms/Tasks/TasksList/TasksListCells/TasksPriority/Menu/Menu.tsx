@@ -3,7 +3,7 @@ import {
   MenuSelectButton,
   MenuSelectList,
 } from '@/components/features/organisms/Menus';
-import { MenuItemOption } from '@/components/ui/organisms/Menu';
+import { MenuItemOption } from '@/components/ui/Menu';
 import { useTask } from '@/store/entities/task';
 import { useTasksPriorities } from '@/store/entities/taskPriority';
 import { type PropsWithChildren, memo, useCallback } from 'react';

@@ -1,4 +1,4 @@
-import { useReactNodeView } from '@/components/ui/organisms/Editor/Editors';
+import { useReactNodeView } from '@/components/ui/Editor/Editors';
 import type { EmojiAttrs } from '@/shared/prosemirror/schema';
 import { memo } from 'react';
 

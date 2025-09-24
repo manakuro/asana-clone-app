@@ -1,9 +1,9 @@
 'use client';
 
 import { MainHeader } from '@/components/features/organisms/MainHeader';
+import { TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';
 import { Flex } from '@/components/ui/atoms';
 import { Head } from '@/components/ui/atoms/Head';
-import { TabPanel, TabPanels, Tabs } from '@/components/ui/organisms/Tabs';
 import { useRouter } from '@/router';
 import React, { memo, useCallback } from 'react';
 import { Activity } from './Activity';

@@ -1,4 +1,4 @@
-import { MenuList as AtomsMenuList } from '@/components/ui/organisms/Menu';
+import { MenuList as AtomsMenuList } from '@/components/ui/Menu';
 import { memo } from 'react';
 import { AddRole } from './AddRole';
 import { RemoveFromProject } from './RemoveFromProject';

@@ -1,10 +1,10 @@
-import { Divider, Flex, Stack } from '@/components/ui/atoms';
 import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalHeader,
-} from '@/components/ui/organisms/Modal';
+} from '@/components/ui/Modal';
+import { Divider, Flex, Stack } from '@/components/ui/atoms';
 import { useProject, useProjectCommand } from '@/store/entities/project';
 import { memo, useCallback } from 'react';
 import { Description } from './Description';

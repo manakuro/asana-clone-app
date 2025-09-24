@@ -1,9 +1,9 @@
-import { IconButton, type IconButtonProps } from '@/components/ui/atoms';
-import { Tooltip, type TooltipProps } from '@/components/ui/molecules';
 import {
   useEditorStateContext,
   useEditorViewContext,
-} from '@/components/ui/organisms/Editor/Editors';
+} from '@/components/ui/Editor/Editors';
+import { IconButton, type IconButtonProps } from '@/components/ui/atoms';
+import { Tooltip, type TooltipProps } from '@/components/ui/molecules';
 import type { ToolbarItem } from '@/shared/prosemirror/hooks';
 import type React from 'react';
 import { useCallback } from 'react';

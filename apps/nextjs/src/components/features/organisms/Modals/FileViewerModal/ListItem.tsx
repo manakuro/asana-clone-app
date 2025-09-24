@@ -1,5 +1,5 @@
+import { PdfViewer } from '@/components/ui/PdfViewer';
 import { Box, Flex, Image, Text } from '@/components/ui/atoms';
-import { PdfViewer } from '@/components/ui/organisms/PdfViewer';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { useTaskFile } from '@/store/entities/taskFile';
 

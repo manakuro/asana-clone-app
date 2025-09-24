@@ -1,4 +1,4 @@
-import { Editor, EditorContent } from '@/components/ui/organisms/Editor';
+import { Editor, EditorContent } from '@/components/ui/Editor';
 import { stringifyDescription } from '@/shared/prosemirror/convertDescription';
 import { memo, useEffect, useMemo, useState } from 'react';
 import { useTaskFeedListItemContext } from '../../Provider';

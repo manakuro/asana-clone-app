@@ -1,5 +1,5 @@
+import { MenuList as AtomsMenuList } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/atoms';
-import { MenuList as AtomsMenuList } from '@/components/ui/organisms/Menu';
 import { useClickOutside } from '@/hooks';
 import { RemoveFromFavorites } from './RemoveFromFavorites';
 

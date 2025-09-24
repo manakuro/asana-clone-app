@@ -1,4 +1,4 @@
-import { LayoutDefault } from '@/components/ui/organisms/Layout';
+import { LayoutDefault } from '@/components/ui/Layout';
 import { AppProvider } from '@/providers/AppProvider';
 import { AuthProvider } from '@/providers/AuthProvider';
 import { description } from '@/shared/metatag/description';

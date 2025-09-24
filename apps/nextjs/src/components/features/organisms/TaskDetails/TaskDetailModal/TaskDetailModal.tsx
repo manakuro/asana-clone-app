@@ -1,5 +1,5 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
-import { Modal, ModalOverlay } from '@/components/ui/organisms/Modal';
+import { Modal, ModalOverlay } from '@/components/ui/Modal';
 import { memo, useCallback } from 'react';
 import { Content } from './Content';
 import { useTaskDetailModal } from './useTaskDetailModal';

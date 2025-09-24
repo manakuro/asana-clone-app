@@ -2,14 +2,6 @@ import { useInviteModal } from '@/components/features/organisms/Modals/InviteMod
 import { useNavigation } from '@/components/features/organisms/Navigation';
 import { PADDING_X } from '@/components/features/organisms/Navigation/Navigation';
 import {
-  Flex,
-  Icon,
-  Link,
-  NextLink,
-  Portal,
-  Text,
-} from '@/components/ui/atoms';
-import {
   MenuItem as AtomsMenuItem,
   Menu,
   MenuButton,
@@ -17,7 +9,15 @@ import {
   MenuGroup,
   type MenuItemProps,
   MenuList,
-} from '@/components/ui/organisms/Menu';
+} from '@/components/ui/Menu';
+import {
+  Flex,
+  Icon,
+  Link,
+  NextLink,
+  Portal,
+  Text,
+} from '@/components/ui/atoms';
 import { useClickableHoverStyle, useLinkHoverStyle } from '@/hooks';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';

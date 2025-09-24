@@ -1,4 +1,4 @@
-import type { PortalHandlers } from '@/components/ui/organisms/Editor/Editors/ReactNodeViewPortals';
+import type { PortalHandlers } from '@/components/ui/Editor/Editors/ReactNodeViewPortals';
 import {
   entries,
   isDomNodeOutputSpec,

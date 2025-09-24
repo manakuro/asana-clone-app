@@ -1,4 +1,12 @@
 import {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+} from '@/components/ui/Modal';
+import {
   Button,
   Container,
   Flex,
@@ -7,14 +15,6 @@ import {
   Link,
   MoreLink,
 } from '@/components/ui/atoms';
-import {
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
-} from '@/components/ui/organisms/Modal';
 import { useShareWorkspaceModal } from './useShareWorkspaceModal';
 
 export function ShareWorkspaceModal() {

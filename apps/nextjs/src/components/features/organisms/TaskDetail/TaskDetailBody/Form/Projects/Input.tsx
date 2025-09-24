@@ -1,10 +1,10 @@
 import { ProjectMenu } from '@/components/features/organisms/Menus';
+import type { MenuListProps } from '@/components/ui/Menu';
 import {
   Input as AtomsInput,
   Flex,
   type InputProps,
 } from '@/components/ui/atoms';
-import type { MenuListProps } from '@/components/ui/organisms/Menu';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useProjectTaskCommand } from '@/store/entities/projectTask';

@@ -1,5 +1,5 @@
+import { useVideoPlayer } from '@/components/ui/VideoPlayer';
 import { AspectRatio, Flex, Icon } from '@/components/ui/atoms';
-import { useVideoPlayer } from '@/components/ui/organisms/VideoPlayer';
 import { useCallback } from 'react';
 
 type Props = {

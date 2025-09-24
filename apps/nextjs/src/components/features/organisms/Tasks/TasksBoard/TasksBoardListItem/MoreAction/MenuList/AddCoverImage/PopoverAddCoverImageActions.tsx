@@ -1,15 +1,15 @@
 import {
-  Box,
-  FileUploader,
-  type FileUploaderParams,
-} from '@/components/ui/atoms';
-import {
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
   type MenuProps,
-} from '@/components/ui/organisms/Menu';
+} from '@/components/ui/Menu';
+import {
+  Box,
+  FileUploader,
+  type FileUploaderParams,
+} from '@/components/ui/atoms';
 import { useMenuStyle } from '@/hooks';
 import { chakra } from '@/shared/chakra';
 

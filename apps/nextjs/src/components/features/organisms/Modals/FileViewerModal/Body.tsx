@@ -6,7 +6,7 @@ import {
   CarouselRightChevron,
   CarouselThumbnail,
   CarouselThumbnailItem,
-} from '@/components/ui/organisms/Carousel';
+} from '@/components/ui/Carousel';
 import { memo, useCallback, useMemo } from 'react';
 import { ListItem } from './ListItem';
 import { ThumbnailListItem } from './ThumbnailListItem/ThumbnailListItem';

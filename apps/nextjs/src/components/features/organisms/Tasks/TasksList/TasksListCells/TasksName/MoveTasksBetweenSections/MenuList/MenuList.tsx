@@ -4,7 +4,7 @@ import {
   useTasksTaskSectionByTaskId,
   useTasksTaskSections,
 } from '@/components/features/organisms/Tasks/hooks';
-import { MenuItemOption } from '@/components/ui/organisms/Menu';
+import { MenuItemOption } from '@/components/ui/Menu';
 import type React from 'react';
 import { memo } from 'react';
 

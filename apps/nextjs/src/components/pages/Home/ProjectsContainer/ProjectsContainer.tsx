@@ -8,6 +8,12 @@ import {
   ProjectTileItemNew,
 } from '@/components/features/organisms/Projects';
 import {
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
+} from '@/components/ui/Accordion';
+import {
   Box,
   Flex,
   type FlexProps,
@@ -15,12 +21,6 @@ import {
   Heading,
   Icon,
 } from '@/components/ui/atoms';
-import {
-  Accordion,
-  AccordionButton,
-  AccordionItem,
-  AccordionPanel,
-} from '@/components/ui/organisms/Accordion';
 import { memo, useState } from 'react';
 
 type Props = {

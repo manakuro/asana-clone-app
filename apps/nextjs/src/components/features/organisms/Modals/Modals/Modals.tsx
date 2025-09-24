@@ -12,7 +12,7 @@ import {
   ShareWorkspaceModal,
 } from '@/components/features/organisms/Modals';
 import { Help } from '@/components/features/organisms/Navigation';
-import { VideoPlayer } from '@/components/ui/organisms/VideoPlayer';
+import { VideoPlayer } from '@/components/ui/VideoPlayer';
 import { memo } from 'react';
 
 export const Modals = memo(function Modals() {

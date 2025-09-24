@@ -1,9 +1,6 @@
 import { PopoverSetColorAndIcon } from '@/components/features/organisms/Popovers';
+import { MenuList as AtomsMenuList, MenuDivider } from '@/components/ui/Menu';
 import { ColorBox, Flex, Icon, Portal, Text } from '@/components/ui/atoms';
-import {
-  MenuList as AtomsMenuList,
-  MenuDivider,
-} from '@/components/ui/organisms/Menu';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import type { Project } from '@/store/entities/project';

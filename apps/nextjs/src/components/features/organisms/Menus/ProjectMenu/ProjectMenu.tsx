@@ -3,7 +3,7 @@ import {
   SearchMenuContent,
   SearchMenuTrigger,
 } from '@/components/features/organisms/Menus/SearchMenu';
-import type { PopoverProps } from '@/components/ui/organisms/Popover';
+import type { PopoverProps } from '@/components/ui/Popover';
 import { type PropsWithChildren, memo } from 'react';
 import { Content } from './Content';
 

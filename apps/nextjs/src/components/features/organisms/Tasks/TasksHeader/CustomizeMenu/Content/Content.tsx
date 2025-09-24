@@ -1,11 +1,11 @@
 import { Divider } from '@/components/features/organisms/Navigation/Divider';
 import { useTasksTaskColumnCustomizable } from '@/components/features/organisms/Tasks/hooks';
-import { Box, Flex, Heading, Icon, IconButton } from '@/components/ui/atoms';
 import {
   DrawerBody,
   DrawerContent,
   DrawerHeader,
-} from '@/components/ui/organisms/Drawer';
+} from '@/components/ui/Drawer';
+import { Box, Flex, Heading, Icon, IconButton } from '@/components/ui/atoms';
 import { useDnd } from '@/hooks/dnd/useDnd';
 import { isMyTasksBoardURL } from '@/router';
 import { DragDropContext, Droppable } from '@hello-pangea/dnd';

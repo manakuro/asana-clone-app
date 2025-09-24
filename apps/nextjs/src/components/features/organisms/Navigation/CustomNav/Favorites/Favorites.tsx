@@ -1,6 +1,6 @@
 import { useNavigation } from '@/components/features/organisms/Navigation';
 import { NavListItem } from '@/components/features/organisms/Navigation/NavListItem';
-import { AccordionIcon } from '@/components/ui/organisms/Accordion';
+import { AccordionIcon } from '@/components/ui/Accordion';
 import { useDisabledStyle } from '@/hooks';
 import { memo, useMemo } from 'react';
 import { Divider } from '../../Divider';

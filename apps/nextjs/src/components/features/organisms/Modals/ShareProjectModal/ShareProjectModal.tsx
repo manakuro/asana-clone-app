@@ -3,7 +3,7 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
-} from '@/components/ui/organisms/Modal';
+} from '@/components/ui/Modal';
 import { memo } from 'react';
 import { Body } from './Body';
 import { Footer } from './Footer';

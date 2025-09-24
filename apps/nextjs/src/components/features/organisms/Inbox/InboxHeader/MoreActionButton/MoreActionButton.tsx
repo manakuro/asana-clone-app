@@ -1,5 +1,5 @@
+import { Menu, MenuButton } from '@/components/ui/Menu';
 import { Icon, IconButton, PortalManager } from '@/components/ui/atoms';
-import { Menu, MenuButton } from '@/components/ui/organisms/Menu';
 import { memo } from 'react';
 import { MenuList } from './MenuList';
 

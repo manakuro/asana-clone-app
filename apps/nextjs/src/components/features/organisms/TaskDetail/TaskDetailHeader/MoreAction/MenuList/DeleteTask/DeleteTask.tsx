@@ -1,4 +1,4 @@
-import { MenuItem } from '@/components/ui/organisms/Menu';
+import { MenuItem } from '@/components/ui/Menu';
 import { useToast } from '@/hooks';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { memo, useCallback } from 'react';

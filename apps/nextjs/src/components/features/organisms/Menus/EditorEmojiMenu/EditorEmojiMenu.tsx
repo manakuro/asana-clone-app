@@ -1,4 +1,4 @@
-import { Modal } from '@/components/ui/organisms/Modal';
+import { Modal } from '@/components/ui/Modal';
 import { MenuList } from './MenuList';
 import { useEditorEmojiMenu } from './useEditorEmojiMenu';
 

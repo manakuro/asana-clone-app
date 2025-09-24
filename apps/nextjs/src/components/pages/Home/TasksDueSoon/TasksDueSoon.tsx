@@ -1,4 +1,10 @@
 import {
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
+} from '@/components/ui/Accordion';
+import {
   Box,
   Flex,
   Heading,
@@ -8,12 +14,6 @@ import {
   Stack,
 } from '@/components/ui/atoms';
 import { Tooltip } from '@/components/ui/molecules';
-import {
-  Accordion,
-  AccordionButton,
-  AccordionItem,
-  AccordionPanel,
-} from '@/components/ui/organisms/Accordion';
 import { useLinkStyle } from '@/hooks';
 import { ROUTE_MY_TASKS_LIST } from '@/router';
 import { useTasksDueSoonIds } from '@/store/app/home/tasksDueSoon';

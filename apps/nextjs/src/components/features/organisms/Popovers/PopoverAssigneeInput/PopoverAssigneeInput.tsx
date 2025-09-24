@@ -1,9 +1,9 @@
-import { Link, PortalManager } from '@/components/ui/atoms';
 import {
   Popover,
   type PopoverProps,
   PopoverTrigger,
-} from '@/components/ui/organisms/Popover';
+} from '@/components/ui/Popover';
+import { Link, PortalManager } from '@/components/ui/atoms';
 import { useDisclosure } from '@/shared/chakra';
 import React, { type PropsWithChildren, useCallback } from 'react';
 import { Content } from './Content';

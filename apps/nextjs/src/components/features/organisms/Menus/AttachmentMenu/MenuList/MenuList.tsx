@@ -1,13 +1,13 @@
 import {
+  MenuGroup,
+  MenuItem,
+  MenuList as OrganismsMenuList,
+} from '@/components/ui/Menu';
+import {
   FileUploader,
   type FileUploaderParams,
   Portal,
 } from '@/components/ui/atoms';
-import {
-  MenuGroup,
-  MenuItem,
-  MenuList as OrganismsMenuList,
-} from '@/components/ui/organisms/Menu';
 import { useClickOutside, useMenuStyle } from '@/hooks';
 import { memo } from 'react';
 

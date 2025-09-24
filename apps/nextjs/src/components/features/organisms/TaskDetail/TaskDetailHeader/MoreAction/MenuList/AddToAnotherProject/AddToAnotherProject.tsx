@@ -1,6 +1,6 @@
 import { useTaskDetailProjectsInput } from '@/components/features/organisms/TaskDetail/hooks';
+import { MenuItem } from '@/components/ui/Menu';
 import { Icon } from '@/components/ui/atoms';
-import { MenuItem } from '@/components/ui/organisms/Menu';
 import { memo, useCallback } from 'react';
 
 type Props = {

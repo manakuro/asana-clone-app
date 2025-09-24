@@ -1,9 +1,9 @@
-import { Flex, PortalManager } from '@/components/ui/atoms';
 import {
   Popover,
   type PopoverProps,
   PopoverTrigger,
-} from '@/components/ui/organisms/Popover';
+} from '@/components/ui/Popover';
+import { Flex, PortalManager } from '@/components/ui/atoms';
 import type { PropsWithChildren } from 'react';
 import { useRef } from 'react';
 import { Content } from './Content';

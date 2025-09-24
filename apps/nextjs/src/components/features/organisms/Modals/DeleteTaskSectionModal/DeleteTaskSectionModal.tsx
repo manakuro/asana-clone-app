@@ -1,4 +1,13 @@
 import {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+} from '@/components/ui/Modal';
+import {
   Button,
   Divider,
   Flex,
@@ -7,15 +16,6 @@ import {
   Stack,
   Text,
 } from '@/components/ui/atoms';
-import {
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-} from '@/components/ui/organisms/Modal';
 import React, { useCallback } from 'react';
 import { useDeleteTaskSectionModal } from './useDeleteTaskSectionModal';
 

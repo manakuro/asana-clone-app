@@ -1,4 +1,3 @@
-import { Divider, Stack } from '@/components/ui/atoms';
 import {
   AtMention,
   Bold,
@@ -11,7 +10,8 @@ import {
   OrderedList,
   Strikethrough,
   Underline,
-} from '@/components/ui/organisms/Editor/ToolBar';
+} from '@/components/ui/Editor/ToolBar';
+import { Divider, Stack } from '@/components/ui/atoms';
 import { memo } from 'react';
 import { useDescriptionContext } from './Provider';
 

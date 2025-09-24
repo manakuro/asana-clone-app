@@ -8,8 +8,8 @@ import {
   SearchMenuLoading,
   SearchMenuRightContainer,
 } from '@/components/features/organisms/Menus/SearchMenu';
+import type { PopoverProps } from '@/components/ui/Popover';
 import { Divider, Icon, Text } from '@/components/ui/atoms';
-import type { PopoverProps } from '@/components/ui/organisms/Popover';
 import type { Teammate } from '@/store/entities/teammate';
 import { memo } from 'react';
 

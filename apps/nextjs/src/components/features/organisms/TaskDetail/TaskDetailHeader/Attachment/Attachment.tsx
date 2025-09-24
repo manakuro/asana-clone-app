@@ -1,6 +1,6 @@
 import { AttachmentMenu } from '@/components/features/organisms/Menus';
+import { MenuButton } from '@/components/ui/Menu';
 import { Icon, IconButton } from '@/components/ui/atoms';
-import { MenuButton } from '@/components/ui/organisms/Menu';
 import { memo } from 'react';
 
 export const Attachment = memo(function Attachment() {

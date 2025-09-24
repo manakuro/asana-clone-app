@@ -1,11 +1,11 @@
-import { Icon, IconButton, Portal } from '@/components/ui/atoms';
 import {
   Menu,
   MenuButton,
   MenuItemOption,
   MenuList,
   MenuOptionGroup,
-} from '@/components/ui/organisms/Menu';
+} from '@/components/ui/Menu';
+import { Icon, IconButton, Portal } from '@/components/ui/atoms';
 import { memo, useCallback } from 'react';
 
 type Props = {

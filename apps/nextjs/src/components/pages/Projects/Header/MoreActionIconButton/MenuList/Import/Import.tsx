@@ -1,5 +1,5 @@
+import { MenuItem } from '@/components/ui/Menu';
 import { Flex, Icon, Text } from '@/components/ui/atoms';
-import { MenuItem } from '@/components/ui/organisms/Menu';
 import { memo } from 'react';
 import { PopoverImportActions } from './PopoverImportActions';
 

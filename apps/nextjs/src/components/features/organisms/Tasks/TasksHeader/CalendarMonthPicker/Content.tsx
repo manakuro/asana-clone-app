@@ -1,16 +1,16 @@
 import { useTasksCalendarContext } from '@/components/features/organisms/Tasks';
 import {
+  PopoverContent,
+  PopoverHeader,
+  type PopoverProps,
+} from '@/components/ui/Popover';
+import {
   Flex,
   type FlexProps,
   Icon,
   Portal,
   Text,
 } from '@/components/ui/atoms';
-import {
-  PopoverContent,
-  PopoverHeader,
-  type PopoverProps,
-} from '@/components/ui/organisms/Popover';
 import { useClickOutside, useClickableHoverStyle } from '@/hooks';
 import { dateFns } from '@/shared/dateFns';
 import { useCallback, useEffect, useMemo, useState } from 'react';

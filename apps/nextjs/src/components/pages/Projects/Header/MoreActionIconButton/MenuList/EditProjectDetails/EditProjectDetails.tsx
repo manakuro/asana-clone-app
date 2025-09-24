@@ -1,6 +1,6 @@
 import { useProjectDetailModal } from '@/components/features/organisms/Modals';
+import { MenuItem } from '@/components/ui/Menu';
 import { Icon } from '@/components/ui/atoms';
-import { MenuItem } from '@/components/ui/organisms/Menu';
 import type React from 'react';
 import { memo, useCallback } from 'react';
 

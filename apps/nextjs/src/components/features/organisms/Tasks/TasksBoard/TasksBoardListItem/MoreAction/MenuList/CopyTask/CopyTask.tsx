@@ -1,5 +1,5 @@
+import { MenuItem } from '@/components/ui/Menu';
 import { Icon } from '@/components/ui/atoms';
-import { MenuItem } from '@/components/ui/organisms/Menu';
 import { useToast } from '@/hooks';
 import { taskDetailURL } from '@/router';
 import { memo, useCallback } from 'react';

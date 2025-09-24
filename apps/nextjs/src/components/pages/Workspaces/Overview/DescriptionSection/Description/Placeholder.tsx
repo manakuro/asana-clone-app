@@ -1,4 +1,4 @@
-import { EditorPlaceholder } from '@/components/ui/organisms/Editor';
+import { EditorPlaceholder } from '@/components/ui/Editor';
 import { memo } from 'react';
 import { useDescriptionContext } from './Provider';
 

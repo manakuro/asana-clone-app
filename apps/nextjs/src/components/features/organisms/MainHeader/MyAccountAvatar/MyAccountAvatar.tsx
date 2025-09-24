@@ -1,5 +1,5 @@
 import { MyAvatar } from '@/components/features/organisms/MyAvatar';
-import { Menu, MenuButton } from '@/components/ui/organisms/Menu';
+import { Menu, MenuButton } from '@/components/ui/Menu';
 import { useDisclosure } from '@/shared/chakra';
 import { memo, useCallback } from 'react';
 import { MenuList } from './MenuList';

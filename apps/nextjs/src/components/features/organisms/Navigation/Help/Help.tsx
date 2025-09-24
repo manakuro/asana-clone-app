@@ -1,12 +1,12 @@
 import { Divider } from '@/components/features/organisms/Navigation/Divider';
-import { Flex } from '@/components/ui/atoms';
 import {
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
   DrawerHeader,
-} from '@/components/ui/organisms/Drawer';
+} from '@/components/ui/Drawer';
+import { Flex } from '@/components/ui/atoms';
 import { Body } from './Body';
 import { Footer } from './Footer';
 import { useHelp } from './useHelp';

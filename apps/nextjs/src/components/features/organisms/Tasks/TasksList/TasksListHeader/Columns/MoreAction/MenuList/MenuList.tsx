@@ -1,7 +1,4 @@
-import {
-  MenuList as AtomsMenuList,
-  MenuItem,
-} from '@/components/ui/organisms/Menu';
+import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
 import { memo, useCallback } from 'react';
 
 type Props = {

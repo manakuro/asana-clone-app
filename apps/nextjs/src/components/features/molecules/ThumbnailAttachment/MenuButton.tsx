@@ -1,14 +1,14 @@
 import { useThumbnailAttachmentContext } from '@/components/features/molecules/ThumbnailAttachment/Provider';
 import {
+  MenuButton as AtomsMenuButton,
+  type MenuButtonProps,
+} from '@/components/ui/Menu';
+import {
   Icon,
   IconButton,
   type IconButtonProps,
   type IconProps,
 } from '@/components/ui/atoms';
-import {
-  MenuButton as AtomsMenuButton,
-  type MenuButtonProps,
-} from '@/components/ui/organisms/Menu';
 import { transitions } from '@/styles';
 import type React from 'react';
 import { useCallback, useMemo } from 'react';

@@ -1,4 +1,4 @@
-import { useReactNodeView } from '@/components/ui/organisms/Editor/Editors/ReactNodeView';
+import { useReactNodeView } from '@/components/ui/Editor/Editors/ReactNodeView';
 import { useProjectTaskQuery } from '@/hooks/queries/entities';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { memo } from 'react';

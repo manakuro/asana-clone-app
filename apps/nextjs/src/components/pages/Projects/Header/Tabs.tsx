@@ -1,5 +1,5 @@
+import { Tab, TabList } from '@/components/ui/Tabs';
 import { Flex, Heading } from '@/components/ui/atoms';
-import { Tab, TabList } from '@/components/ui/organisms/Tabs';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProject } from '@/store/entities/project';
 import { memo } from 'react';

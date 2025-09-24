@@ -1,4 +1,5 @@
 import { useInviteModal } from '@/components/features/organisms/Modals/InviteModal/useInviteModal';
+import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
 import {
   Flex,
   type FlexProps,
@@ -7,12 +8,6 @@ import {
   Portal,
   Text,
 } from '@/components/ui/atoms';
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-} from '@/components/ui/organisms/Menu';
 import type { IconType } from '@/shared/icons';
 import { memo, useCallback } from 'react';
 
