@@ -9,7 +9,9 @@ import {
   SearchMenuRightContainer,
 } from '@/components/features/organisms/Menus/SearchMenu';
 import type { PopoverProps } from '@/components/ui/Popover';
-import { Divider, Icon, Text } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import type { Teammate } from '@/store/entities/teammate';
 import { memo } from 'react';
 

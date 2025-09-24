@@ -1,5 +1,6 @@
 import { Modal, ModalBody, ModalContent } from '@/components/ui/Modal';
-import { Input, Stack } from '@/components/ui/atoms';
+import { Input } from '@/components/ui/atoms/Input';
+import { Stack } from '@/components/ui/atoms/Stack';
 import type React from 'react';
 import { useCallback } from 'react';
 import { useEditorLinkModal } from './useEditorLinkModal';

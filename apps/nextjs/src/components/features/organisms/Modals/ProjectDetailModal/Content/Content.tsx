@@ -4,7 +4,9 @@ import {
   ModalContent,
   ModalHeader,
 } from '@/components/ui/Modal';
-import { Divider, Flex, Stack } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { useProject, useProjectCommand } from '@/store/entities/project';
 import { memo, useCallback } from 'react';
 import { Description } from './Description';

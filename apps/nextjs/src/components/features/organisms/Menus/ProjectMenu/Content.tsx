@@ -6,7 +6,9 @@ import {
   SearchMenuRightContainer,
   useSearchMenu,
 } from '@/components/features/organisms/Menus/SearchMenu';
-import { Divider, Icon, Text } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import { useFirstRender } from '@/hooks';
 import type { Project } from '@/store/entities/project';
 import { memo, useCallback, useEffect } from 'react';

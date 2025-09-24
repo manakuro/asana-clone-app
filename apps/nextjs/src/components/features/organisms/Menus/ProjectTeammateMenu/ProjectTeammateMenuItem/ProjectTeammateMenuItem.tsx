@@ -4,7 +4,7 @@ import {
   SearchMenuRightContainer,
 } from '@/components/features/organisms/Menus/SearchMenu';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { Text } from '@/components/ui/atoms';
+import { Text } from '@/components/ui/atoms/Text';
 import type { Teammate } from '@/store/entities/teammate';
 import type React from 'react';
 import { memo, useCallback } from 'react';

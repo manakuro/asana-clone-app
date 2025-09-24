@@ -1,5 +1,5 @@
 import { Popover, type PopoverProps } from '@/components/ui/Popover';
-import { PortalManager } from '@/components/ui/atoms';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import { memo } from 'react';
 
 type Props = PopoverProps;

@@ -1,4 +1,5 @@
-import { Flex, Text } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Text } from '@/components/ui/atoms/Text';
 import { useLinkStyle } from '@/hooks';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { memo, useMemo } from 'react';

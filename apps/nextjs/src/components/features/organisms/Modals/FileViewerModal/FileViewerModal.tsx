@@ -4,7 +4,8 @@ import {
   ModalContent,
   ModalHeader,
 } from '@/components/ui/Modal';
-import { Divider, PortalManager } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import { Body } from './Body';
 import { Header } from './Header';
 import { useFileViewerModal } from './useFileViewerModal';

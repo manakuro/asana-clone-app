@@ -5,7 +5,9 @@ import {
   SearchMenuRightContainer,
   useSearchMenu,
 } from '@/components/features/organisms/Menus/SearchMenu';
-import { Divider, Icon, Text } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import type { Tag } from '@/store/entities/tag';
 import { memo, useCallback } from 'react';
 import { TagItem } from './TagItem';

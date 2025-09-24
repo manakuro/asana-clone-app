@@ -7,15 +7,13 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@/components/ui/Modal';
-import {
-  Button,
-  Divider,
-  Flex,
-  Radio,
-  RadioGroup,
-  Stack,
-  Text,
-} from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Radio } from '@/components/ui/atoms/Radio';
+import { RadioGroup } from '@/components/ui/atoms/Radio';
+import { Stack } from '@/components/ui/atoms/Stack';
+import { Text } from '@/components/ui/atoms/Text';
 import React, { useCallback } from 'react';
 import { useDeleteTaskSectionModal } from './useDeleteTaskSectionModal';
 

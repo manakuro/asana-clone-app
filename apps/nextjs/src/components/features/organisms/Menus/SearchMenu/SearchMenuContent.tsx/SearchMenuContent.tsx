@@ -2,7 +2,8 @@ import {
   PopoverContent,
   type PopoverContentProps,
 } from '@/components/ui/Popover';
-import { Flex, Portal } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Portal } from '@/components/ui/atoms/Portal';
 import { useClickOutside } from '@/hooks';
 import { memo } from 'react';
 import { useSearchMenuRef } from '../useSearchMenuRef';
