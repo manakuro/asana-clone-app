@@ -1,4 +1,4 @@
-import { InputWithIcon } from '@/components/ui/molecules';
+import { InputWithIcon } from '@/components/ui/molecules/InputWithIcon';
 import { memo } from 'react';
 
 export const SearchInput = memo(function SearchInput() {

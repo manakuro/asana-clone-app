@@ -1,7 +1,7 @@
 import { PopoverAssigneeInput } from '@/components/features/organisms/Popovers';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
 import { Icon } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';
 import { memo, useCallback, useState } from 'react';
