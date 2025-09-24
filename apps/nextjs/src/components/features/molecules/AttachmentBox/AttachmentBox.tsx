@@ -1,4 +1,4 @@
-import type { FlexProps } from '@/components/ui/atoms';
+import type { FlexProps } from '@/components/ui/atoms/Flex';
 import {
   getTaskFileIcon,
   getTaskFileName,

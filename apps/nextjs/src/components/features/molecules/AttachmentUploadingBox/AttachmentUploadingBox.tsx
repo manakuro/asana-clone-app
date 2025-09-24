@@ -1,10 +1,7 @@
-import {
-  Flex,
-  type FlexProps,
-  Icon,
-  Progress,
-  Text,
-} from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Progress } from '@/components/ui/atoms/Progress';
+import { Text } from '@/components/ui/atoms/Text';
 import { transitions } from '@/styles';
 
 type Props = FlexProps & {

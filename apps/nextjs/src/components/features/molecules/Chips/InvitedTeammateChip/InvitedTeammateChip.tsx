@@ -1,5 +1,9 @@
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { Badge, Box, Button, Icon, Text } from '@/components/ui/atoms';
+import { Badge } from '@/components/ui/atoms/Badge';
+import { Box } from '@/components/ui/atoms/Box';
+import { Button } from '@/components/ui/atoms/Button';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import type { Teammate } from '@/store/entities/teammate';
 import type React from 'react';

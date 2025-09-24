@@ -1,4 +1,4 @@
-import { Badge } from '@/components/ui/atoms';
+import { Badge } from '@/components/ui/atoms/Badge';
 import { useTaskPriority } from '@/store/entities/taskPriority';
 import type React from 'react';
 import { memo, useCallback } from 'react';

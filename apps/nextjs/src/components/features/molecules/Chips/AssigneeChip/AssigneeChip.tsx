@@ -1,5 +1,9 @@
 import { PopoverProfile } from '@/components/features/organisms/Popovers';
-import { Avatar, Box, Button, Icon, Text } from '@/components/ui/atoms';
+import { Avatar } from '@/components/ui/atoms/Avatar';
+import { Box } from '@/components/ui/atoms/Box';
+import { Button } from '@/components/ui/atoms/Button';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';
 import type React from 'react';

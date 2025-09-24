@@ -1,4 +1,5 @@
-import type { IconButtonProps, TextProps } from '@/components/ui/atoms';
+import type { IconButtonProps } from '@/components/ui/atoms/IconButton';
+import type { TextProps } from '@/components/ui/atoms/Text';
 import { LikeIconButton } from '@/components/ui/molecules/LikeIconButton';
 import { memo } from 'react';
 import { useLike } from './useLike';
