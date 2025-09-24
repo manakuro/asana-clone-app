@@ -1,6 +1,6 @@
 import { useShareProjectModal } from '@/components/features/organisms/Modals/ShareProjectModal';
 import { Button, Flex, type FlexProps, Icon } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useTooltip } from '@/components/ui/molecules/Tooltip/useTooltip';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useWorkspace } from '@/store/entities/workspace';

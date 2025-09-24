@@ -1,5 +1,5 @@
 import { Icon, type IconButtonProps } from '@/components/ui/atoms';
-import type { TooltipProps } from '@/components/ui/molecules';
+import type { TooltipProps } from '@/components/ui/molecules/Tooltip';
 import { useDecreaseListIndent } from '@/shared/prosemirror/hooks';
 import { memo } from 'react';
 import { BaseButton } from '../BaseButton';

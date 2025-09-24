@@ -1,8 +1,6 @@
 import type { IconButtonProps } from '@/components/ui/atoms';
-import {
-  FavoriteIconButton as MoleculesFavoriteIconButton,
-  Tooltip,
-} from '@/components/ui/molecules';
+import { FavoriteIconButton as MoleculesFavoriteIconButton } from '@/components/ui/molecules/FavoriteIconButton';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import {
   useFavoriteProjectIds,
   useFavoriteProjectIdsCommand,

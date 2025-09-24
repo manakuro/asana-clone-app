@@ -1,4 +1,4 @@
-import type { ToastProps } from '@/components/ui/molecules';
+import type { ToastProps } from '@/components/ui/molecules/Toast';
 import type { ToastId } from '@chakra-ui/react';
 import { createStandaloneToast } from '@chakra-ui/react';
 
