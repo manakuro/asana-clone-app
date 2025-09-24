@@ -2,7 +2,7 @@ import { Flex } from '@/components/ui/atoms';
 import {
   Tooltip as MoleculesTooltip,
   type TooltipProps,
-} from '@/components/ui/molecules';
+} from '@/components/ui/molecules/Tooltip';
 import { useDisclosure } from '@/shared/chakra';
 import { useTaskFile } from '@/store/entities/taskFile';
 import { useEffect } from 'react';
