@@ -1,5 +1,5 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
-import { Slide } from '@/components/ui/atoms';
+import { Slide } from '@/components/ui/atoms/Slide';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
 import type { Ref } from 'react';
 import { memo, useCallback } from 'react';

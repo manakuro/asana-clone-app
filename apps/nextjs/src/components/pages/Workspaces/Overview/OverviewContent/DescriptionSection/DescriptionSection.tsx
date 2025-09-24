@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { memo } from 'react';
 import { Description } from './Description';

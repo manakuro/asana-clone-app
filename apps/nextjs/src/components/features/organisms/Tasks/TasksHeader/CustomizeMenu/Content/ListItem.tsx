@@ -1,5 +1,5 @@
 import { useTasksTaskColumn } from '@/components/features/organisms/Tasks/hooks';
-import { Box } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
 import { CustomField } from '@/components/ui/molecules/CustomField';
 import { useDraggableInPortal } from '@/hooks/useDraggableInPortal';
 import { useTaskColumn } from '@/store/entities/taskColumn';

@@ -9,7 +9,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from '@/components/ui/Modal';
-import { Divider } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
 import { memo } from 'react';
 
 type Props = {

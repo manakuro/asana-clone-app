@@ -1,5 +1,5 @@
 import { HELP_CONTAINER_PADDING } from '@/components/features/organisms/Navigation/Help';
-import { Stack } from '@/components/ui/atoms';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { type PropsWithChildren, useCallback, useState } from 'react';
 import { guide1Item } from './Guide1';
 import { guide2Item } from './Guide2';

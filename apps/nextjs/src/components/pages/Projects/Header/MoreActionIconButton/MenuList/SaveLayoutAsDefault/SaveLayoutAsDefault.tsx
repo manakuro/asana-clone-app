@@ -1,5 +1,5 @@
 import { MenuItem } from '@/components/ui/Menu';
-import { Icon } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
 import { memo } from 'react';
 
 type Props = {

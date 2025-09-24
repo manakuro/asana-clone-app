@@ -1,4 +1,4 @@
-import { Icon } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
 import { useAtMention } from '@/shared/prosemirror/hooks';
 import { memo } from 'react';
 import { BaseButton } from '../BaseButton';

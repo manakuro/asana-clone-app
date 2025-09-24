@@ -1,6 +1,6 @@
 import { TasksContainer } from '@/components/features/organisms/Tasks';
 import { useProjectsPageContext } from '@/components/pages/Projects/Provider';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { memo } from 'react';
 import { OverviewContent } from './OverviewContent';
 import { OverviewLeft } from './OverviewLeft';

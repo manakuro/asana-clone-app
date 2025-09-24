@@ -3,7 +3,7 @@ import {
   MenuSelectButton,
 } from '@/components/features/organisms/Menus';
 import { useTasksTask } from '@/components/features/organisms/Tasks/hooks';
-import { Icon } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
 import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { memo, useCallback } from 'react';

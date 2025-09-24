@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { useProjectTeammateIdsByProjectIdSortedByCreatedAt } from '@/store/entities/projectTeammate';
 import { memo } from 'react';
 import { JoinedTeammate } from './JoinedTeammate';

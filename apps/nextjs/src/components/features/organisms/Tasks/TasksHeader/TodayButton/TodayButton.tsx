@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
 import { memo, useCallback } from 'react';
 import { useTasksCalendarContext } from '../../TasksCalendar';
 

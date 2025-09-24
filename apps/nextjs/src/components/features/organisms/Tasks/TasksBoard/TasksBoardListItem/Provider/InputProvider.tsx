@@ -1,4 +1,4 @@
-import type { FlexProps } from '@/components/ui/atoms';
+import type { FlexProps } from '@/components/ui/atoms/Flex';
 import { isHTMLElement } from '@/shared/isHTMLElement';
 import { createProvider } from '@/shared/react/createProvider';
 import type React from 'react';

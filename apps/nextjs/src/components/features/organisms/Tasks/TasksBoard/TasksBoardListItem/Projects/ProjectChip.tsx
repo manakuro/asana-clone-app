@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { memo } from 'react';

@@ -1,5 +1,5 @@
 import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { useHover } from '@/hooks/useHover';
 import { memo, useCallback, useState } from 'react';
 import { Content } from './Content';

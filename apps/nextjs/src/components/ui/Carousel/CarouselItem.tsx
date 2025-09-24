@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import type React from 'react';
 import { useMemo } from 'react';
 import { useCarouselContext } from './Provider';

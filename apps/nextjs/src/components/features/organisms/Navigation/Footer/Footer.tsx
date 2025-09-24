@@ -1,4 +1,4 @@
-import { List } from '@/components/ui/atoms';
+import { List } from '@/components/ui/atoms/List';
 import { isDev } from '@/shared/environment';
 import { memo } from 'react';
 import { MAX_WIDTH } from '../Navigation';

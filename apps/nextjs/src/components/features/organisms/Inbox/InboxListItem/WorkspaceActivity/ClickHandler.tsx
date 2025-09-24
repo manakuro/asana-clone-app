@@ -1,5 +1,5 @@
 import { useWorkspaceActivityTaskIds } from '@/components/features/organisms/Inbox/hooks';
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { useRouter } from '@/router';
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';

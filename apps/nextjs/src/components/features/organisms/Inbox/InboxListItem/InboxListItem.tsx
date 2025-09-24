@@ -1,5 +1,5 @@
 import { useInboxListItem } from '@/components/features/organisms/Inbox';
-import type { FlexProps } from '@/components/ui/atoms';
+import type { FlexProps } from '@/components/ui/atoms/Flex';
 import { ActivityTypeCode } from '@/store/entities/activityType';
 import { memo } from 'react';
 import { Provider } from './Provider';

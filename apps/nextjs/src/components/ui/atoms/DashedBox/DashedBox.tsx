@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { useClickableHoverStyle } from '@/hooks';
 import { forwardRef } from 'react';
 import type React from 'react';

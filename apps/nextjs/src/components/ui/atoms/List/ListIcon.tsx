@@ -1,4 +1,4 @@
-import { Icon } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
 import type { IconType } from '@/shared/icons';
 import { ListIcon as ChakraListIcon } from '@chakra-ui/react';
 import type React from 'react';

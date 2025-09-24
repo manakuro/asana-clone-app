@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import type { PropsWithChildren } from 'react';
 
 export function CustomNavList(props: PropsWithChildren) {

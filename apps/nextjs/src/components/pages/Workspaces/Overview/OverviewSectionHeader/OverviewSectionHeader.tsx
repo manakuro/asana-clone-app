@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 
 type Props = FlexProps;
 

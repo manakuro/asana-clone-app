@@ -1,7 +1,7 @@
 import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
 import { useTasksListHeaderContext } from '@/components/features/organisms/Tasks/TasksList/TasksListHeader/Provider';
 import { useTasksTaskColumn } from '@/components/features/organisms/Tasks/hooks';
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { useClickableHoverStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import { useTaskColumn } from '@/store/entities/taskColumn';

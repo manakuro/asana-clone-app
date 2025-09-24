@@ -1,5 +1,5 @@
 import { TasksContainer } from '@/components/features/organisms/Tasks';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { memo } from 'react';
 import { useWorkspacesPageContext } from '../Provider';
 import { DescriptionSection } from './DescriptionSection';

@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { keyframes } from '@chakra-ui/react';
 import { memo, useMemo } from 'react';
 

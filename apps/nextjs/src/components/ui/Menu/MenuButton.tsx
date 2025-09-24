@@ -1,4 +1,4 @@
-import { Box } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
 import type { ChakraProps } from '@/shared/chakra';
 import {
   MenuButton as ChakraMenuButton,

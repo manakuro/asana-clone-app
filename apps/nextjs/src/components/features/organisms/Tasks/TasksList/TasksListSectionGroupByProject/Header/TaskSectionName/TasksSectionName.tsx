@@ -1,4 +1,4 @@
-import { Box } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
 import { useProject } from '@/store/entities/project';
 import { memo } from 'react';
 

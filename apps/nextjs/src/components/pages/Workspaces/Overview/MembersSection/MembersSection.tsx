@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { useWorkspace } from '@/store/entities/workspace';
 import { useTeammateIdsByWorkspaceId } from '@/store/entities/workspaceTeammate';
 import { memo } from 'react';

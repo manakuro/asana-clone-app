@@ -1,5 +1,5 @@
 import type { SetValueParam } from '@/components/features/organisms/Menus/EditorMentionMenu';
-import type { FlexProps } from '@/components/ui/atoms';
+import type { FlexProps } from '@/components/ui/atoms/Flex';
 import type { Mention } from '@/store/entities/mention';
 import { MentionType } from '@/store/entities/mention';
 import { memo } from 'react';

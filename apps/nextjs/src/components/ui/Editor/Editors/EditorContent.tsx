@@ -1,5 +1,5 @@
 import { useEditorViewContext } from '@/components/ui/Editor/Editors/EdiorProvider';
-import { Box } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
 import {
   type CSSProperties,
   memo,

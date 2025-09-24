@@ -2,7 +2,7 @@ import {
   useTaskDetail,
   useTaskDetailResetScrollId,
 } from '@/components/features/organisms/TaskDetail';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import type { Ref } from 'react';
 import { memo, useEffect } from 'react';
 import { Form } from './Form';

@@ -3,12 +3,11 @@ import {
   MenuButton as AtomsMenuButton,
   type MenuButtonProps,
 } from '@/components/ui/Menu';
+import { Icon, type IconProps } from '@/components/ui/atoms/Icon';
 import {
-  Icon,
   IconButton,
   type IconButtonProps,
-  type IconProps,
-} from '@/components/ui/atoms';
+} from '@/components/ui/atoms/IconButton';
 import { transitions } from '@/styles';
 import type React from 'react';
 import { useCallback, useMemo } from 'react';

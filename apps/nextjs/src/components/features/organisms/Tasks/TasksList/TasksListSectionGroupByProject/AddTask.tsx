@@ -1,5 +1,5 @@
 import { useTasksTask } from '@/components/features/organisms/Tasks/hooks';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { useClickableHoverStyle } from '@/hooks';
 import { memo, useCallback } from 'react';
 

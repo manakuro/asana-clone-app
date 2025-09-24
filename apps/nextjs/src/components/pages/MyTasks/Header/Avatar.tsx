@@ -1,5 +1,5 @@
 import { MyAvatar } from '@/components/features/organisms/MyAvatar';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { memo } from 'react';
 
 export const Avatar = memo(function Avatar() {

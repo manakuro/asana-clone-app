@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import { memo, useEffect, useMemo } from 'react';

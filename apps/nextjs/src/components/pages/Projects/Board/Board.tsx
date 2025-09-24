@@ -11,7 +11,7 @@ import {
   useTasksBoardDetail,
 } from '@/components/features/organisms/Tasks';
 import { useProjectsPageContext } from '@/components/pages/Projects/Provider';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { memo, useCallback } from 'react';

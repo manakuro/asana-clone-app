@@ -17,7 +17,7 @@ import {
   TasksListLayout,
   useTasksListDetail,
 } from '@/components/features/organisms/Tasks';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { memo, useCallback } from 'react';

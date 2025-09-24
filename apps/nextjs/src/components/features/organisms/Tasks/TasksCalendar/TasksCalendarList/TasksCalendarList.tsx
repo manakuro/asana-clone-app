@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { dateFns } from '@/shared/dateFns';
 import { isHTMLElement } from '@/shared/isHTMLElement';
 import { memo, useEffect } from 'react';

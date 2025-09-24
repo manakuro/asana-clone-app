@@ -1,5 +1,5 @@
 import { Editor, EditorContent } from '@/components/ui/Editor';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import {
   parseDescription,
   stringifyDescription,

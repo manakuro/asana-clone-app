@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { pxToNum } from '@/shared/pxToNum';
 import { forwardRef } from 'react';
 import { memo, useCallback, useMemo } from 'react';

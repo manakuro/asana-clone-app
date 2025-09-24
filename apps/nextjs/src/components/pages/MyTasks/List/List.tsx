@@ -17,7 +17,7 @@ import {
   useTasksListDetail,
 } from '@/components/features/organisms/Tasks';
 import { useMyTasksContext } from '@/components/pages/MyTasks/Provider';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { memo } from 'react';
 import { SortMenu } from '../TasksHeader';

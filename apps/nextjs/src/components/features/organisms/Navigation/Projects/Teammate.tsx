@@ -1,5 +1,5 @@
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { WrapItem } from '@/components/ui/atoms';
+import { WrapItem } from '@/components/ui/atoms/Wrap';
 import { memo } from 'react';
 
 type Props = {

@@ -1,5 +1,5 @@
 import { PopoverEmoji } from '@/components/features/organisms/Popovers';
-import { Icon } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
 import { useEmoji } from '@/shared/prosemirror/hooks';
 import { memo } from 'react';
 import { BaseButton } from '../BaseButton';

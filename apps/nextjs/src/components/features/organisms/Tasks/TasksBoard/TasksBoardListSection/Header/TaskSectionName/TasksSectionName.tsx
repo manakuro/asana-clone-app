@@ -1,5 +1,5 @@
 import { useTasksTaskSection } from '@/components/features/organisms/Tasks/hooks';
-import { Box } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
 import { memo, useCallback, useMemo } from 'react';
 import { useTasksBoardListSectionContext } from '../../Provider';
 import { Input } from './Input';

@@ -1,6 +1,6 @@
 import { useNavigation } from '@/components/features/organisms/Navigation';
 import { Divider } from '@/components/features/organisms/Navigation/Divider';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { memo } from 'react';
 import { ProjectList } from './ProjectList';
 import { Teammates } from './Teammates';

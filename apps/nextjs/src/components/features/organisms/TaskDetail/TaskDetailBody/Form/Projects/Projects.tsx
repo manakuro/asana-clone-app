@@ -1,6 +1,6 @@
 import { Input } from '@/components/features/organisms/TaskDetail/TaskDetailBody/Form/Projects/Input';
 import { useTaskDetailProjectsInput } from '@/components/features/organisms/TaskDetail/hooks';
-import { Flex } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { useProjectTaskSectionsByProjectIdsQuery } from '@/hooks/queries/entities';
 import {
   useProjectIdsByTaskId,

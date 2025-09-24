@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { useWorkspaceActivityTasksTaskIds } from '@/store/app/inbox/activity/workspaceActivityTasks';
 import { useCreatedByIdsByTaskIds } from '@/store/entities/task';
 import { useTeammateNamesByTeammateIds } from '@/store/entities/teammate';

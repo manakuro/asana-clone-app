@@ -1,5 +1,5 @@
 import { PopoverDueDatePicker } from '@/components/features/organisms/Popovers';
-import { Input as AtomsInput } from '@/components/ui/atoms';
+import { Input as AtomsInput } from '@/components/ui/atoms/Input';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { formatDueDateInput } from '@/shared/date';

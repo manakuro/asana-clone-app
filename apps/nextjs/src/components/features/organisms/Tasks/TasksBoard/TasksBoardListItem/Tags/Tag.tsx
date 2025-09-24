@@ -1,5 +1,5 @@
 import { TagChip } from '@/components/features/molecules/Chips';
-import type { FlexProps } from '@/components/ui/atoms';
+import type { FlexProps } from '@/components/ui/atoms/Flex';
 import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useTaskTag } from '@/store/entities/taskTag';
 import { memo } from 'react';

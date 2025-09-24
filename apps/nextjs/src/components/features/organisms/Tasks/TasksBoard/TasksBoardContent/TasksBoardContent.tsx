@@ -1,6 +1,6 @@
 import { useTaskDetailDrawer } from '@/components/features/organisms/TaskDetails';
 import { useTasksBoardListSectionElement } from '@/components/features/organisms/Tasks/TasksBoard/TasksBoardListSection';
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { useMainStyle, usePrevious } from '@/hooks';
 import { useBreakpointValue } from '@/shared/chakra';
 import { isHTMLElement } from '@/shared/isHTMLElement';

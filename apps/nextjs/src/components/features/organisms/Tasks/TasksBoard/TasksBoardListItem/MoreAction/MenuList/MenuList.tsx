@@ -1,5 +1,5 @@
 import { MenuList as AtomsMenuList, MenuDivider } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/atoms';
+import { Portal } from '@/components/ui/atoms/Portal';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import type React from 'react';

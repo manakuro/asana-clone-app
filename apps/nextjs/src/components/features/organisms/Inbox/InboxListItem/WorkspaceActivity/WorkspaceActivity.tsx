@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { useWorkspaceActivity } from '@/store/app/inbox/activity';
 import { memo } from 'react';
 import { Container } from '../Container';
