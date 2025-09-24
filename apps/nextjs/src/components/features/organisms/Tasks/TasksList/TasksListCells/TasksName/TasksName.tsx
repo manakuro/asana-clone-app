@@ -7,7 +7,7 @@ import {
   Stack,
   Text,
 } from '@/components/ui/atoms';
-import { TaskDoneTransition } from '@/components/ui/molecules';
+import { TaskDoneTransition } from '@/components/ui/molecules/Transitions';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import type React from 'react';
 import { memo, useCallback } from 'react';

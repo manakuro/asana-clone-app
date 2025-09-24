@@ -1,6 +1,6 @@
 import { useTasksTaskColumn } from '@/components/features/organisms/Tasks/hooks';
 import { Box } from '@/components/ui/atoms';
-import { CustomField } from '@/components/ui/molecules';
+import { CustomField } from '@/components/ui/molecules/CustomField';
 import { useDraggableInPortal } from '@/hooks/useDraggableInPortal';
 import { useTaskColumn } from '@/store/entities/taskColumn';
 import { Draggable } from '@hello-pangea/dnd';

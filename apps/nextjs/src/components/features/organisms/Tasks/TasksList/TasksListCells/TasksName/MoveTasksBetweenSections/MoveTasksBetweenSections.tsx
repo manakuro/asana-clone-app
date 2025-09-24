@@ -4,7 +4,7 @@ import {
 } from '@/components/features/organisms/Menus';
 import { useTasksTask } from '@/components/features/organisms/Tasks/hooks';
 import { Icon } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { memo, useCallback } from 'react';
 import { MenuList } from './MenuList';

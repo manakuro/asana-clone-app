@@ -13,7 +13,7 @@ import {
   NextLink,
   Stack,
 } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useLinkStyle } from '@/hooks';
 import { ROUTE_MY_TASKS_LIST } from '@/router';
 import { useTasksDueSoonIds } from '@/store/app/home/tasksDueSoon';

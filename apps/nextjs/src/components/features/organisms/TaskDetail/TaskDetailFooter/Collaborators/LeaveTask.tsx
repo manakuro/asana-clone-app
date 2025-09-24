@@ -1,5 +1,5 @@
 import { Button, Flex, Icon } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import type React from 'react';
 import { memo } from 'react';
 import { useCollaboratorsContext } from './Provider';

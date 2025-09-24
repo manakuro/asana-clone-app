@@ -1,5 +1,5 @@
 import { Icon, IconButton } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { memo } from 'react';
 
 type Props = {

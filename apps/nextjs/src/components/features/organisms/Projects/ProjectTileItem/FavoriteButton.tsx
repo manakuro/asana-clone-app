@@ -1,4 +1,4 @@
-import { FavoriteIconButton } from '@/components/ui/molecules';
+import { FavoriteIconButton } from '@/components/ui/molecules/FavoriteIconButton';
 import { useClickableHoverStyle } from '@/hooks';
 import {
   useFavoriteProjectIds,

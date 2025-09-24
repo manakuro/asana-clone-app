@@ -1,6 +1,6 @@
 import { useTasksTask } from '@/components/features/organisms/Tasks/hooks';
 import { Icon, IconButton } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useTooltip } from '@/components/ui/molecules/Tooltip/useTooltip';
 import type { Ref } from 'react';
 import { memo, useCallback } from 'react';

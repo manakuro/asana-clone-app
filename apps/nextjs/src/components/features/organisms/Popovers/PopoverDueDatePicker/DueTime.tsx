@@ -6,7 +6,7 @@ import {
   Select,
   Text,
 } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { formatDueTime } from '@/shared/date';
 import { times } from '@/shared/date/time';

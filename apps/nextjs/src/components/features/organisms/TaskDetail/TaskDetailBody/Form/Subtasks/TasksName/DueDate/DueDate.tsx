@@ -1,6 +1,6 @@
 import { PopoverDueDatePicker } from '@/components/features/organisms/Popovers';
 import { DueDate as AtomsDueDate, Icon } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { getDifferenceInDays } from '@/shared/date';
 import { useTask } from '@/store/entities/task';

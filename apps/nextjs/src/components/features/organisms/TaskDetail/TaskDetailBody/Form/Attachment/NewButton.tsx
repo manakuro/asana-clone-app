@@ -1,6 +1,6 @@
 import { AttachmentMenu } from '@/components/features/organisms/Menus';
 import { MenuButton } from '@/components/ui/Menu';
-import { NewBox } from '@/components/ui/molecules';
+import { NewBox } from '@/components/ui/molecules/NewBox';
 import { memo } from 'react';
 
 export const NewButton = memo(function NewButton() {

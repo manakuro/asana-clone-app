@@ -1,6 +1,6 @@
 import { Menu, MenuButton } from '@/components/ui/Menu';
 import { Icon, IconButton, PortalManager } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useDisclosure } from '@/shared/chakra';
 import { memo, useCallback } from 'react';
 import { MenuList } from './MenuList';

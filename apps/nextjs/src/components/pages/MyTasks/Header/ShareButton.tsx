@@ -1,6 +1,6 @@
 import { useShareWorkspaceModal } from '@/components/features/organisms/Modals/ShareWorkspaceModal';
 import { Button, Flex, Icon } from '@/components/ui/atoms';
-import { Tooltip } from '@/components/ui/molecules';
+import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useTooltip } from '@/components/ui/molecules/Tooltip/useTooltip';
 import { memo, useCallback } from 'react';
 
