@@ -1,4 +1,6 @@
-import { Avatar, Flex, type FlexProps, Text } from '@/components/ui/atoms';
+import { Avatar } from '@/components/ui/atoms/Avatar';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Text } from '@/components/ui/atoms/Text';
 import type { Mention } from '@/store/entities/mention';
 import { useTeammate } from '@/store/entities/teammate';
 import { memo } from 'react';

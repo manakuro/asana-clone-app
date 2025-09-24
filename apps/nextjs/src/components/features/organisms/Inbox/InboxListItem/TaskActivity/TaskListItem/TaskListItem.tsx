@@ -1,4 +1,5 @@
-import { Flex, type FlexProps, Stack } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { TaskDoneTransition } from '@/components/ui/molecules/Transitions';
 import { useHover } from '@/hooks/useHover';
 import { useRouter } from '@/router';

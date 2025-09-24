@@ -1,14 +1,12 @@
 import { useNavigation } from '@/components/features/organisms/Navigation';
 import { PADDING_X } from '@/components/features/organisms/Navigation/Navigation';
 import { PopoverProjectMenu } from '@/components/features/organisms/Popovers';
-import {
-  ColorBox,
-  Flex,
-  Icon,
-  Link,
-  NextLink,
-  Text,
-} from '@/components/ui/atoms';
+import { ColorBox } from '@/components/ui/atoms/ColorBox';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Link } from '@/components/ui/atoms/Link';
+import { NextLink } from '@/components/ui/atoms/NextLink';
+import { Text } from '@/components/ui/atoms/Text';
 import { useClickableHoverStyle, useLinkHoverStyle } from '@/hooks';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';

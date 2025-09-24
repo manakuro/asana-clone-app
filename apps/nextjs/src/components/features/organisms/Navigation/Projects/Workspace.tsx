@@ -10,14 +10,12 @@ import {
   type MenuItemProps,
   MenuList,
 } from '@/components/ui/Menu';
-import {
-  Flex,
-  Icon,
-  Link,
-  NextLink,
-  Portal,
-  Text,
-} from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Link } from '@/components/ui/atoms/Link';
+import { NextLink } from '@/components/ui/atoms/NextLink';
+import { Portal } from '@/components/ui/atoms/Portal';
+import { Text } from '@/components/ui/atoms/Text';
 import { useClickableHoverStyle, useLinkHoverStyle } from '@/hooks';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';

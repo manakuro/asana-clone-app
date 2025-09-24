@@ -1,11 +1,7 @@
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import {
-  Box,
-  Button,
-  type ButtonProps,
-  Text,
-  type TextProps,
-} from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Button, type ButtonProps } from '@/components/ui/atoms/Button';
+import { Text, type TextProps } from '@/components/ui/atoms/Text';
 import { useHover } from '@/hooks/useHover';
 import { useOwnerTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';

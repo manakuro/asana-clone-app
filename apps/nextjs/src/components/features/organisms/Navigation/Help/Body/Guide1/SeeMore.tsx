@@ -1,5 +1,9 @@
 import { Section } from '@/components/features/organisms/Navigation/Help/Body/GuideListItem/ListItemDetail';
-import { AspectRatio, Box, Link, Stack, Text } from '@/components/ui/atoms';
+import { AspectRatio } from '@/components/ui/atoms/AspectRatio';
+import { Box } from '@/components/ui/atoms/Box';
+import { Link } from '@/components/ui/atoms/Link';
+import { Stack } from '@/components/ui/atoms/Stack';
+import { Text } from '@/components/ui/atoms/Text';
 import { guide1Item } from './item';
 
 export function SeeMore() {

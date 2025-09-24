@@ -2,14 +2,12 @@ import {
   PADDING_X,
   useNavigation,
 } from '@/components/features/organisms/Navigation';
-import {
-  Flex,
-  Icon,
-  IconButton,
-  Link,
-  Logo,
-  NextLink,
-} from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Link } from '@/components/ui/atoms/Link';
+import { Logo } from '@/components/ui/atoms/Logo';
+import { NextLink } from '@/components/ui/atoms/NextLink';
 import { ROUTE_HOME } from '@/router';
 import { memo } from 'react';
 

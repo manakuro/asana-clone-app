@@ -2,7 +2,11 @@ import {
   PADDING_X,
   useNavigation,
 } from '@/components/features/organisms/Navigation';
-import { ColorBox, Flex, Link, NextLink, Text } from '@/components/ui/atoms';
+import { ColorBox } from '@/components/ui/atoms/ColorBox';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Link } from '@/components/ui/atoms/Link';
+import { NextLink } from '@/components/ui/atoms/NextLink';
+import { Text } from '@/components/ui/atoms/Text';
 import { useLinkHoverStyle } from '@/hooks';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';

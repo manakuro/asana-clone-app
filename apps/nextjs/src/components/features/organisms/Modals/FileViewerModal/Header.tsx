@@ -1,14 +1,12 @@
 import { ComingSoonTooltip } from '@/components/features/molecules/Tooltips';
-import {
-  Button,
-  Divider,
-  Flex,
-  Icon,
-  IconButton,
-  Link,
-  Stack,
-  Text,
-} from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Link } from '@/components/ui/atoms/Link';
+import { Stack } from '@/components/ui/atoms/Stack';
+import { Text } from '@/components/ui/atoms/Text';
 import { formatTaskFileCreatedAt } from '@/shared/date';
 import { useTaskFile } from '@/store/entities/taskFile';
 import { memo } from 'react';

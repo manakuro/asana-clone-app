@@ -4,7 +4,9 @@ import {
   MenuSelectList,
 } from '@/components/features/organisms/Menus';
 import { MenuItemOption } from '@/components/ui/Menu';
-import { Button, Flex, Icon } from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { memo, useCallback, useMemo } from 'react';
 import {

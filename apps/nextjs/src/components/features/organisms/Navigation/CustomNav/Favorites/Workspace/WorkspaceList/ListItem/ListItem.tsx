@@ -2,7 +2,11 @@ import {
   PADDING_X,
   useNavigation,
 } from '@/components/features/organisms/Navigation';
-import { Flex, Icon, Link, NextLink, Text } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Link } from '@/components/ui/atoms/Link';
+import { NextLink } from '@/components/ui/atoms/NextLink';
+import { Text } from '@/components/ui/atoms/Text';
 import { useLinkHoverStyle } from '@/hooks';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';

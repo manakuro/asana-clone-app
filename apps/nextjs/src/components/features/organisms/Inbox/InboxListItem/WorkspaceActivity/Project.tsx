@@ -1,4 +1,6 @@
-import { Flex, type FlexProps, Icon, Link } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Link } from '@/components/ui/atoms/Link';
 import { useProject } from '@/store/entities/project';
 import { transitions } from '@/styles';
 import type React from 'react';

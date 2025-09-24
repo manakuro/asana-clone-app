@@ -1,4 +1,6 @@
-import { Flex, type FlexProps, Icon, Text } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import type { Mention } from '@/store/entities/mention';
 import { useWorkspace } from '@/store/entities/workspace';
 import { memo } from 'react';

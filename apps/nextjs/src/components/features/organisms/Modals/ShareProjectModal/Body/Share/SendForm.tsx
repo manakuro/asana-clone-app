@@ -1,12 +1,9 @@
 import { InvitedTeammateChip } from '@/components/features/molecules/Chips';
 import { InviteProjectTeammateMenu } from '@/components/features/organisms/Menus';
-import {
-  Input as AtomsInput,
-  Flex,
-  Textarea,
-  Wrap,
-  WrapItem,
-} from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Input as AtomsInput } from '@/components/ui/atoms/Input';
+import { Textarea } from '@/components/ui/atoms/Textarea';
+import { Wrap, WrapItem } from '@/components/ui/atoms/Wrap';
 import { useDisclosure } from '@/shared/chakra';
 import type { Teammate } from '@/store/entities/teammate';
 import type React from 'react';

@@ -1,4 +1,6 @@
-import { CheckIcon, Flex, type FlexProps, Text } from '@/components/ui/atoms';
+import { CheckIcon } from '@/components/ui/atoms/CheckIcon';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Text } from '@/components/ui/atoms/Text';
 import type { Mention } from '@/store/entities/mention';
 import { useProject } from '@/store/entities/project';
 import { memo } from 'react';

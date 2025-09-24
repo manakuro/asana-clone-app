@@ -1,4 +1,6 @@
-import { ColorBox, Flex, type FlexProps, Text } from '@/components/ui/atoms';
+import { ColorBox } from '@/components/ui/atoms/ColorBox';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Text } from '@/components/ui/atoms/Text';
 import type { Mention } from '@/store/entities/mention';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';

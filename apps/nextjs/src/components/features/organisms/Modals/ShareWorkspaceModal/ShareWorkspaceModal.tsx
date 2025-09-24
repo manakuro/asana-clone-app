@@ -6,15 +6,13 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@/components/ui/Modal';
-import {
-  Button,
-  Container,
-  Flex,
-  Icon,
-  Input,
-  Link,
-  MoreLink,
-} from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Container } from '@/components/ui/atoms/Container';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Input } from '@/components/ui/atoms/Input';
+import { Link } from '@/components/ui/atoms/Link';
+import { MoreLink } from '@/components/ui/atoms/MoreLink';
 import { useShareWorkspaceModal } from './useShareWorkspaceModal';
 
 export function ShareWorkspaceModal() {
