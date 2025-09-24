@@ -4,7 +4,8 @@ import {
   MenuSelectList,
 } from '@/components/features/organisms/Menus';
 import { MenuItemOption } from '@/components/ui/Menu';
-import { Button, Icon } from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Icon } from '@/components/ui/atoms/Icon';
 import type { ChakraProps } from '@/shared/chakra';
 import {
   INBOX_LIST_FILTER_STATUS_TYPE_ALL,

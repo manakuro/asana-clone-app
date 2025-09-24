@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { memo } from 'react';
 import { InboxListHeader } from '../InboxListHeader';
 import { InboxListItem } from '../InboxListItem';

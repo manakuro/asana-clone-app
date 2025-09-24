@@ -1,6 +1,6 @@
 import { PopoverAssigneeInput } from '@/components/features/organisms/Popovers';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { Icon } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
 import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';

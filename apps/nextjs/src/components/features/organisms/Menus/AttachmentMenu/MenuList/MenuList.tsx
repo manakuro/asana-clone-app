@@ -6,8 +6,8 @@ import {
 import {
   FileUploader,
   type FileUploaderParams,
-  Portal,
-} from '@/components/ui/atoms';
+} from '@/components/ui/atoms/Form/FileUploader';
+import { Portal } from '@/components/ui/atoms/Portal';
 import { useClickOutside, useMenuStyle } from '@/hooks';
 import { memo } from 'react';
 

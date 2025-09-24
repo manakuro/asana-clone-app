@@ -4,8 +4,8 @@ import { MenuButton } from '@/components/features/molecules/ThumbnailAttachment/
 import { Overlay } from '@/components/features/molecules/ThumbnailAttachment/Overlay';
 import { useThumbnailAttachmentContext } from '@/components/features/molecules/ThumbnailAttachment/Provider';
 import { Tooltip } from '@/components/features/molecules/ThumbnailAttachment/Tooltip';
-import type { FlexProps } from '@/components/ui/atoms';
-import { Image as AtomsImage } from '@/components/ui/atoms';
+import type { FlexProps } from '@/components/ui/atoms/Flex';
+import { Image as AtomsImage } from '@/components/ui/atoms/Image';
 import { useTaskFile } from '@/store/entities/taskFile';
 
 type Props = FlexProps & {

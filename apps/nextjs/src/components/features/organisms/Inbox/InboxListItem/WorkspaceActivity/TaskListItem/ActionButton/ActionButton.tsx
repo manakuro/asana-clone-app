@@ -1,5 +1,5 @@
 import { useInboxContext } from '@/components/features/organisms/Inbox';
-import type { IconButtonProps } from '@/components/ui/atoms';
+import type { IconButtonProps } from '@/components/ui/atoms/IconButton';
 import { memo } from 'react';
 import { ArchiveButton } from './ArchiveButton';
 import { MoveToInboxButton } from './MoveToInboxButton';

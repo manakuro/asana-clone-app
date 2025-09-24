@@ -5,7 +5,8 @@ import {
   type MenuProps,
   Menu as OrganismsMenu,
 } from '@/components/ui/Menu';
-import { Link, Portal } from '@/components/ui/atoms';
+import { Link } from '@/components/ui/atoms/Link';
+import { Portal } from '@/components/ui/atoms/Portal';
 import { useTaskFile } from '@/store/entities/taskFile';
 import { memo, useCallback } from 'react';
 
