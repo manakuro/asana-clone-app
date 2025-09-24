@@ -19,7 +19,7 @@ export const TasksBoardListItem = memo(function TasksBoardListItem(
   );
 });
 
-const Component = memo<Props>((props) => {
+const Component = memo(function Component(props: Props) {
   const { isMyTasksPage } = useTasksContext();
 
   if (isMyTasksPage) return <TasksBoardListItemForMyTasksPage {...props} />;

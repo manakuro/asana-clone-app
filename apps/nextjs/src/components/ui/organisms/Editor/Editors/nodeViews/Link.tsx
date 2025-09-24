@@ -8,7 +8,7 @@ import { Link as AtomsLink, Icon } from '@/components/ui/atoms';
 import type React from 'react';
 import { useReactNodeView } from '../ReactNodeView';
 
-export const Link: React.FCWithChildren = (props) => {
+export function Link(props: React.PropsWithChildren) {
   const context = useReactNodeView();
 
   return (
@@ -24,4 +24,4 @@ export const Link: React.FCWithChildren = (props) => {
       </PopoverEditorLinkContent>
     </PopoverEditorLink>
   );
-};
+}

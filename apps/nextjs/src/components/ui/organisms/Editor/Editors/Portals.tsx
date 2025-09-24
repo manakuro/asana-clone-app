@@ -1,9 +1,8 @@
-import type React from 'react';
 import { memo } from 'react';
 import ReactDOM from 'react-dom';
 import { useReactNodeViewPortals } from './ReactNodeViewPortals';
 
-export const Portals: React.FC = memo(() => {
+export const Portals = memo(function Portals() {
   const portals = useReactNodeViewPortals();
 
   return (

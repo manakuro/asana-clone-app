@@ -5,7 +5,6 @@ import {
   stringifyDescription,
 } from '@/shared/prosemirror/convertDescription';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Content, Label, Row } from '../Row';
 import { Container } from './Container';
@@ -25,7 +24,7 @@ export const Description = memo(function Description(props: Props) {
   );
 });
 
-const DescriptionHandler: React.FC<Props> = memo<Props>((props) => {
+const DescriptionHandler = memo(function DescriptionHandler(props: Props) {
   const { task, setTask, hasDescriptionUpdated } = useTask(props.taskId);
   const initialValue = useMemo(
     () => stringifyDescription(task.description),
@@ -65,7 +64,7 @@ type ComponentProps = {
   initialValue: string;
   resetView: number;
 };
-const Component: React.FC<ComponentProps> = memo<ComponentProps>((props) => {
+const Component = memo(function Component(props: ComponentProps) {
   const { onChange, initialValue, resetView } = props;
 
   const handleChange = useCallback(

@@ -1,10 +1,10 @@
 import { Flex, type FlexProps, Text } from '@/components/ui/atoms';
 import { isContentEmpty } from '@/shared/prosemirror/utils';
-import React, { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useEditorViewContext } from './EdiorProvider';
 
 type Props = FlexProps;
-export const EditorPlaceholder: React.FC<Props> = React.memo<Props>((props) => {
+export const EditorPlaceholder = memo(function EditorPlaceholder(props: Props) {
   const { children, ...rest } = props;
   const view = useEditorViewContext();
 

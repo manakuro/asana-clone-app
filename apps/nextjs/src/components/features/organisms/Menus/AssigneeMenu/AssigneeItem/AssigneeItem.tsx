@@ -1,7 +1,6 @@
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
 import { type FlexProps, Text } from '@/components/ui/atoms';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 import { LeftContainer, ListItem, RightContainer } from '../ListItem';
 
@@ -15,9 +14,7 @@ type Props = Override<
   index: number;
 };
 
-export const AssigneeItem: React.FC<Props> = memo<Props>(function AssigneeItem(
-  props: Props,
-) {
+export const AssigneeItem = memo(function AssigneeItem(props: Props) {
   const handleClick = useCallback(() => {
     props.onClick(props.assignee);
   }, [props]);

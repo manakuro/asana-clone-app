@@ -1,13 +1,7 @@
 import { MenuItem } from '@/components/ui/organisms/Menu';
-import type React from 'react';
 import { memo, useCallback } from 'react';
 
-type Props = {
-  projectId: string;
-  projectTeammateId: string;
-};
-
-export const RemoveFromProject: React.FC<Props> = memo<Props>(() => {
+export const RemoveFromProject = memo(function RemoveFromProject() {
   const handleRemoveFromProject = useCallback(() => {}, []);
 
   return (
@@ -16,4 +10,3 @@ export const RemoveFromProject: React.FC<Props> = memo<Props>(() => {
     </MenuItem>
   );
 });
-RemoveFromProject.displayName = 'RemoveFromProject';

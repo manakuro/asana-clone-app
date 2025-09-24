@@ -1,7 +1,6 @@
 import { TasksListItem } from '@/components/features/organisms/Tasks/TasksList/TasksListItem';
 import { useTasksTaskIdsByTaskSectionId } from '@/components/features/organisms/Tasks/hooks';
 import { Flex } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { AddTask } from './AddTask';
 import { AddTaskSection } from './AddTaskSection';
@@ -21,7 +20,7 @@ export const TasksListSection = memo(function TasksListSection(props: Props) {
   );
 });
 
-const Component: React.FC<Props> = memo<Props>((props) => {
+const Component = memo(function Component(props: Props) {
   const { taskIds } = useTasksTaskIdsByTaskSectionId(props.taskSectionId);
   const [isExpanded, setIsExpanded] = useState(true);
 

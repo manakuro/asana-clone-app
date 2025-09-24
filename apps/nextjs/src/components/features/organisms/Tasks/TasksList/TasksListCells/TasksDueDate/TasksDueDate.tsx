@@ -15,7 +15,7 @@ type Props = FlexProps & {
 export const TasksDueDate = memo(function TasksDueDate(props: Props) {
   const { task, setTaskDueDate, resetTaskDueDate } = useTask(props.taskId);
   const hasDueDate = useMemo(() => !!task.dueDate, [task.dueDate]);
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const { clickableHoverLightStyle } = useClickableHoverStyle();
   const showCalendarIcon = useMemo(
     () => !hasDueDate && isHovering,

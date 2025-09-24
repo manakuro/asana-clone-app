@@ -2,11 +2,10 @@ import { PopoverProfile } from '@/components/features/organisms/Popovers';
 import { useReactNodeView } from '@/components/ui/organisms/Editor/Editors/ReactNodeView';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo } from 'react';
 import { MentionText } from './MentionText';
 
-export const Teammate: React.FC = memo(() => {
+export const Teammate = memo(function Teammate() {
   const context = useReactNodeView();
   const attrs = context.node?.attrs as MentionAttrs;
   const { teammate } = useTeammate(attrs.mentionId);

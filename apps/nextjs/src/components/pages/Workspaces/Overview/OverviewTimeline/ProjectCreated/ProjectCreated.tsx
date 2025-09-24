@@ -2,14 +2,13 @@ import { Flex, Heading, Icon, Text } from '@/components/ui/atoms';
 import { formatCreatedAt } from '@/shared/date';
 import { useProject } from '@/store/entities/project';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { memo, useMemo } from 'react';
 
 type Props = {
   projectId: string;
 };
 
-export const ProjectCreated: React.FC<Props> = memo<Props>((props) => {
+export const ProjectCreated = memo(function ProjectCreated(props: Props) {
   const { projectId } = props;
   const { project } = useProject(projectId);
   const { teammate } = useTeammate(project.createdBy);
@@ -36,4 +35,3 @@ export const ProjectCreated: React.FC<Props> = memo<Props>((props) => {
     </Flex>
   );
 });
-ProjectCreated.displayName = 'JoinedTeammate';

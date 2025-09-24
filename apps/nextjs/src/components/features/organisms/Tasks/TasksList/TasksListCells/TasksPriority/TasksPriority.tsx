@@ -15,7 +15,7 @@ export const TasksPriority = memo(function TasksPriority(props: Props) {
   const { taskId } = props;
   const { task } = useTask(taskId);
   const [focused, setFocused] = useState(false);
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const hasPriority = useMemo(
     () => !!task.taskPriorityId,
     [task.taskPriorityId],

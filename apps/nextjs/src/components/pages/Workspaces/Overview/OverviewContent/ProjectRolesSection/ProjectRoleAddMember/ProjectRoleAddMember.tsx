@@ -1,7 +1,6 @@
 import { useShareProjectModal } from '@/components/features/organisms/Modals';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
 import { Flex, Text } from '@/components/ui/atoms';
-import type React from 'react';
 import { useCallback } from 'react';
 import { Button } from './Button';
 
@@ -9,7 +8,7 @@ type Props = {
   projectId: string;
 };
 
-export const ProjectRoleAddMember: React.FC<Props> = (props) => {
+export function ProjectRoleAddMember(props: Props) {
   const { projectId } = props;
   const { onOpen, setProjectId, setShareTab } = useShareProjectModal();
 
@@ -37,5 +36,4 @@ export const ProjectRoleAddMember: React.FC<Props> = (props) => {
       </Button>
     </Flex>
   );
-};
-ProjectRoleAddMember.displayName = 'ProjectRoleAddMember';
+}

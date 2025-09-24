@@ -2,7 +2,6 @@ import { TasksListItem } from '@/components/features/organisms/Tasks/TasksList/T
 import { TasksListSectionProvider } from '@/components/features/organisms/Tasks/TasksList/TasksListSection';
 import { Flex } from '@/components/ui/atoms';
 import { useMyTasksTaskIdsByProjectId } from '@/store/app/myTasks/tasks';
-import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Header } from './Header';
 import { Provider } from './Provider';
@@ -10,8 +9,8 @@ import { Provider } from './Provider';
 type Props = {
   projectId: string;
 };
-export const TasksListSectionGroupByProject: React.FC<Props> = memo<Props>(
-  (props) => {
+export const TasksListSectionGroupByProject = memo(
+  function TasksListSectionGroupByProject(props: Props) {
     return (
       <Provider projectId={props.projectId}>
         <Component {...props} />
@@ -20,7 +19,7 @@ export const TasksListSectionGroupByProject: React.FC<Props> = memo<Props>(
   },
 );
 
-const Component: React.FC<Props> = memo<Props>((props) => {
+const Component = memo(function Component(props: Props) {
   const { taskIds } = useMyTasksTaskIdsByProjectId(props.projectId);
   const [isExpanded, setIsExpanded] = useState(true);
 

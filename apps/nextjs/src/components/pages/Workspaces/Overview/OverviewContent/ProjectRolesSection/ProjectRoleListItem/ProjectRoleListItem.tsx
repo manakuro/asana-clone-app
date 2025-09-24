@@ -3,7 +3,6 @@ import { Flex, Icon, Text } from '@/components/ui/atoms';
 import { useHover } from '@/hooks/useHover';
 import { useProjectTeammate } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
 import { useMemo } from 'react';
 import { ProjectRoleMenu } from '../ProjectRoleMenu';
 import { Button } from './Button';
@@ -13,7 +12,7 @@ type Props = {
   projectId: string;
 };
 
-export const ProjectRoleListItem: React.FC<Props> = (props) => {
+export function ProjectRoleListItem(props: Props) {
   const { projectId, projectTeammateId } = props;
   const { projectTeammate, role } = useProjectTeammate(projectTeammateId);
   const { teammate } = useTeammate(projectTeammate.teammateId);
@@ -63,5 +62,4 @@ export const ProjectRoleListItem: React.FC<Props> = (props) => {
       </ProjectRoleMenu>
     </Flex>
   );
-};
-ProjectRoleListItem.displayName = 'ProjectRoleListItem';
+}

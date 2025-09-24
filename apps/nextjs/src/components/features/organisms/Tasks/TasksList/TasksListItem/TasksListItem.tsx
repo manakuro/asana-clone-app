@@ -2,7 +2,6 @@ import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/T
 import { TasksListRow } from '@/components/features/organisms/Tasks/TasksList/TasksListRow';
 import { useTasksTaskColumnIds } from '@/components/features/organisms/Tasks/hooks';
 import type { FlexProps } from '@/components/ui/atoms';
-import type React from 'react';
 import { memo } from 'react';
 import { Cell } from './Cell';
 import { Provider, useTasksListItemRowContext } from './Provider';
@@ -20,7 +19,7 @@ export const TasksListItem = memo(function TasksListItem(props: Props) {
   );
 });
 
-const Component: React.FC<Props> = memo<Props>((props) => {
+const Component = memo(function Component(props: Props) {
   const { selected } = useTasksListItemRowContext();
   const { tasksTaskColumnIds } = useTasksTaskColumnIds();
 

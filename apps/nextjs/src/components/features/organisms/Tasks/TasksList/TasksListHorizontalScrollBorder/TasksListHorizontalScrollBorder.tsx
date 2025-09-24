@@ -8,14 +8,13 @@ import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { useMountedRef } from '@/hooks';
 import type { ChakraProps } from '@/shared/chakra';
 import { TaskColumnType } from '@/store/entities/taskColumn';
-import type React from 'react';
 import { memo, useEffect, useMemo, useState } from 'react';
 
 type Props = FlexProps;
 
 const TOP = 72 + 60;
-export const TasksListHorizontalScrollBorder: React.FC<Props> = memo<Props>(
-  (props) => {
+export const TasksListHorizontalScrollBorder = memo(
+  function TasksListHorizontalScrollBorder(props: Props) {
     const [opacity, setOpacity] = useState<string>();
     const { isScrolling } = useTasksListContentHorizontalScroll();
     const { isStickyVertical } = useTasksListContentSticky();

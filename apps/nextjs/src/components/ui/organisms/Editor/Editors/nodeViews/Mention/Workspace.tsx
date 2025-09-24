@@ -6,10 +6,9 @@ import {
 } from '@/components/features/organisms/Popovers';
 import { Icon } from '@/components/ui/atoms';
 import { useWorkspace } from '@/store/entities/workspace';
-import type React from 'react';
 import { memo } from 'react';
 
-export const Workspace: React.FC = memo(() => {
+export const Workspace = memo(function Workspace() {
   const { workspace } = useWorkspace();
 
   return (

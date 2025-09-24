@@ -10,7 +10,7 @@ type Props = FlexProps & {
 };
 
 export const TasksAssignee = memo(function TasksAssignee(props: Props) {
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const [focused, setFocused] = useState(false);
 
   const handleClick = useCallback(() => {

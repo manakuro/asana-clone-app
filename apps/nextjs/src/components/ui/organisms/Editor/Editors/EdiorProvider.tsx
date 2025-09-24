@@ -1,7 +1,7 @@
 import type { Node as ProsemirrorNode } from 'prosemirror-model';
 import { EditorState, type Plugin } from 'prosemirror-state';
 import { type EditorProps, EditorView } from 'prosemirror-view';
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
 import {
   type Dispatch,
   type SetStateAction,
@@ -37,13 +37,13 @@ type Props = {
   forceUpdate?: number;
   resetView?: number;
 } & EditorProps;
-export const EditorProvider: React.FCWithChildren<Props> = (props) => {
+export function EditorProvider(props: PropsWithChildren<Props>) {
   return (
     <ReactNodeViewPortalsProvider>
       <Provider {...props} />
     </ReactNodeViewPortalsProvider>
   );
-};
+}
 
 const generateState = (props: Parameters<typeof EditorState.create>[0]) => {
   return EditorState.create({
@@ -106,7 +106,7 @@ const generateView = (
   return view;
 };
 
-const Provider: React.FCWithChildren<Props> = (props) => {
+function Provider(props: PropsWithChildren<Props>) {
   const { createPortal, removePortal } = useReactNodeViewCreatePortal();
   const [state, setState] = useState(generateState(props));
   const [view, setView] = useState<EditorView | null>(null);
@@ -184,4 +184,4 @@ const Provider: React.FCWithChildren<Props> = (props) => {
       </EditorViewContext.Provider>
     </EditorStateContext.Provider>
   );
-};
+}

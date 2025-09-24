@@ -3,7 +3,6 @@ import {
   useProjectTeammate,
   useProjectTeammatesCommand,
 } from '@/store/entities/projectTeammate';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
   projectTeammateId: string;
 };
 
-export const SetProjectOwner: React.FC<Props> = memo<Props>((props) => {
+export const SetProjectOwner = memo(function SetProjectOwner(props: Props) {
   const { projectTeammateId, projectId } = props;
   const { projectTeammate } = useProjectTeammate(projectTeammateId);
   const { setOwnerByProjectIdAndTeammateId, setProjectTeammateById } =
@@ -45,4 +44,3 @@ export const SetProjectOwner: React.FC<Props> = memo<Props>((props) => {
     <MenuItem onClick={handleSetAsProjectOwner}>Set as Project Owner</MenuItem>
   );
 });
-SetProjectOwner.displayName = 'SetProjectOwner';

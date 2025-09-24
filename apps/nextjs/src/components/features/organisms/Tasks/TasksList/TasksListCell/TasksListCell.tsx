@@ -1,7 +1,6 @@
 import { Flex, type FlexProps } from '@/components/ui/atoms';
 import { pxToNum } from '@/shared/pxToNum';
 import { forwardRef } from 'react';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { ColumnResizer } from './ColumnResizer';
 
@@ -16,8 +15,8 @@ type Props = {
 } & FlexProps;
 export type TasksListCellProps = Props;
 
-export const TasksListCell: React.FC<Props> = memo(
-  forwardRef((props, ref) => {
+export const TasksListCell = memo(
+  forwardRef<HTMLDivElement, Props>(function TasksListCell(props: Props, ref) {
     const {
       hover,
       resizable,

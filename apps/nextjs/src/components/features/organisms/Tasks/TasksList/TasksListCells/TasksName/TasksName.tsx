@@ -38,7 +38,7 @@ export const TasksName = memo(function TasksName(props: Props) {
   );
 });
 
-const Component: React.FC<Props> = memo<Props>((props) => {
+const Component = memo(function Component(props: Props) {
   const {
     ref,
     onMarkMenuOpened,
