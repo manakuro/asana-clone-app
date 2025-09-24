@@ -5,7 +5,16 @@
       "Bash(npm view:*)",
       "WebFetch(domain:nextjs.org)",
       "Bash(pnpm tsc:*)",
-      "Bash(pnpm lint:*)"
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm storybook:*)",
+      "Bash(pnpm build:*)",
+      "Bash(timeout 10 pnpm dev)",
+      "Bash(pnpm view:*)",
+      "Bash(npx tsc:*)",
+      "mcp__serena__check_onboarding_performed",
+      "mcp__serena__onboarding",
+      "mcp__serena__list_dir"
     ],
     "deny": [
       "Bash(sudo:*)",
