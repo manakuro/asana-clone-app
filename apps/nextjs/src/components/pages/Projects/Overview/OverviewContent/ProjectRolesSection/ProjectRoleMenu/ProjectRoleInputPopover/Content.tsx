@@ -1,5 +1,6 @@
 import { PopoverBody, PopoverContent } from '@/components/ui/Popover';
-import { Label, Portal } from '@/components/ui/atoms';
+import { Label } from '@/components/ui/atoms/Label';
+import { Portal } from '@/components/ui/atoms/Portal';
 import { useClickOutside } from '@/hooks';
 import {
   useProjectTeammate,

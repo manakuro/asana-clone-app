@@ -1,4 +1,6 @@
-import { Box, Button, Flex } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Button } from '@/components/ui/atoms/Button';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { memo } from 'react';
 import { Input } from '../Input';
 

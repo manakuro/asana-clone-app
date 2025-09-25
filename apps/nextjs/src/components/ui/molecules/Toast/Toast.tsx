@@ -1,4 +1,7 @@
-import { Button, Flex, Icon, IconButton } from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
 import type {
   RenderProps,
   UseToastOptions as UseToastOptionsChakra,

@@ -1,4 +1,4 @@
-import { Text, type TextProps } from '@/components/ui/atoms';
+import { Text, type TextProps } from '@/components/ui/atoms/Text';
 import { useLinkStyle } from '@/hooks/styles';
 
 type Props = TextProps;

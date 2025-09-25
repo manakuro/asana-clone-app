@@ -1,9 +1,8 @@
+import { Icon, type IconProps } from '@/components/ui/atoms/Icon';
 import {
-  Icon,
   IconButton,
   type IconButtonProps,
-  type IconProps,
-} from '@/components/ui/atoms';
+} from '@/components/ui/atoms/IconButton';
 import type React from 'react';
 import { memo, useCallback } from 'react';
 

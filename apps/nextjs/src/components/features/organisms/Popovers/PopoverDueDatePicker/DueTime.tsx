@@ -1,11 +1,9 @@
-import {
-  Flex,
-  Icon,
-  IconButton,
-  Option,
-  Select,
-  Text,
-} from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Option } from '@/components/ui/atoms/Select';
+import { Select } from '@/components/ui/atoms/Select';
+import { Text } from '@/components/ui/atoms/Text';
 import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { formatDueTime } from '@/shared/date';

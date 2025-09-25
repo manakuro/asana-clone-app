@@ -4,7 +4,9 @@ import {
   type PopoverProps,
   PopoverTrigger,
 } from '@/components/ui/Popover';
-import { Link, Portal, PortalManager } from '@/components/ui/atoms';
+import { Link } from '@/components/ui/atoms/Link';
+import { Portal } from '@/components/ui/atoms/Portal';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import { type ChakraProps, useDisclosure } from '@/shared/chakra';
 import type { MouseEvent, PropsWithChildren } from 'react';
 import { useCallback } from 'react';

@@ -5,7 +5,9 @@ import {
   PopoverHeader,
   type PopoverProps,
 } from '@/components/ui/Popover';
-import { Portal, Stack, Text } from '@/components/ui/atoms';
+import { Portal } from '@/components/ui/atoms/Portal';
+import { Stack } from '@/components/ui/atoms/Stack';
+import { Text } from '@/components/ui/atoms/Text';
 import { useClickOutside } from '@/hooks';
 import type { MouseEvent } from 'react';
 import { AssignToMeButton } from './AssignToMeButton';

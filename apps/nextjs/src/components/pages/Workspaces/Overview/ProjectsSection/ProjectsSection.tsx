@@ -7,7 +7,11 @@ import {
   ProjectTileItem,
   ProjectTileItemNew,
 } from '@/components/features/organisms/Projects';
-import { Box, Flex, Grid, Link, NextLink } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Grid } from '@/components/ui/atoms/Grid';
+import { Link } from '@/components/ui/atoms/Link';
+import { NextLink } from '@/components/ui/atoms/NextLink';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { useProjectIds } from '@/store/entities/project';
 import { memo, useState } from 'react';

@@ -1,11 +1,8 @@
-import {
-  Flex,
-  FormControl,
-  FormLabel,
-  Icon,
-  Switch,
-  type SwitchProps,
-} from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { FormControl } from '@/components/ui/atoms/Form';
+import { FormLabel } from '@/components/ui/atoms/Form';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Switch, type SwitchProps } from '@/components/ui/atoms/Switch';
 import { useClickableHoverStyle } from '@/hooks';
 
 type Props = SwitchProps & {

@@ -1,4 +1,4 @@
-import { ConditionalRender } from '@/components/ui/atoms';
+import { ConditionalRender } from '@/components/ui/atoms/ConditionalRender';
 import { useDebounce, usePrevious } from '@/hooks';
 import {
   type ProsemirrorTransformer,

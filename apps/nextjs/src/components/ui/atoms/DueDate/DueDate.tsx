@@ -1,4 +1,4 @@
-import { Text, type TextProps } from '@/components/ui/atoms';
+import { Text, type TextProps } from '@/components/ui/atoms/Text';
 import { formatDueDate } from '@/shared/date';
 import { dateFns } from '@/shared/dateFns';
 import { useMemo } from 'react';

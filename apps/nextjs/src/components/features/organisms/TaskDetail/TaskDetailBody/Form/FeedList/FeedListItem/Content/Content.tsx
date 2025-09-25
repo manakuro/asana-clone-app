@@ -1,4 +1,5 @@
-import { Flex, Stack } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { memo } from 'react';
 import { useTaskFeedListItemContext } from '../Provider';
 import { ContentAttachment } from './ContentAttachment';

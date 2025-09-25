@@ -1,5 +1,5 @@
 import { Popover } from '@/components/ui/Popover';
-import { PortalManager } from '@/components/ui/atoms';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import type React from 'react';
 
 export const PopoverEditorLink: React.FCWithChildren = (props) => {

@@ -1,5 +1,5 @@
 import { PopoverTrigger } from '@/components/ui/Popover';
-import { Link } from '@/components/ui/atoms';
+import { Link } from '@/components/ui/atoms/Link';
 import { useLinkStyle } from '@/hooks/styles';
 import type React from 'react';
 

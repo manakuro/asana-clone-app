@@ -1,13 +1,10 @@
 import { PopoverProjectMenu } from '@/components/features/organisms/Popovers';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import {
-  AvatarGroup,
-  Fade,
-  Flex,
-  type FlexProps,
-  Icon,
-  IconButton,
-} from '@/components/ui/atoms';
+import { AvatarGroup } from '@/components/ui/atoms/Avatar';
+import { Fade } from '@/components/ui/atoms/Fade';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
 import type { IconType } from '@/shared/icons';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';

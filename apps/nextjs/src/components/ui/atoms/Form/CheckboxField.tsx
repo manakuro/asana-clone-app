@@ -1,4 +1,4 @@
-import { Checkbox } from '@/components/ui/atoms';
+import { Checkbox } from '@/components/ui/atoms/Checkbox';
 import { type FieldInputProps, useField } from 'formik';
 import { type PropsWithChildren, memo } from 'react';
 

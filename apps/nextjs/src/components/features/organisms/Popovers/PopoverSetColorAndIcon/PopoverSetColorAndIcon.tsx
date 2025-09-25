@@ -5,7 +5,8 @@ import {
   type PopoverProps,
   PopoverTrigger,
 } from '@/components/ui/Popover';
-import { Divider, Link } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Link } from '@/components/ui/atoms/Link';
 import type { Project } from '@/store/entities/project';
 import type { PropsWithChildren } from 'react';
 import { ColorPicker } from './ColorPicker';

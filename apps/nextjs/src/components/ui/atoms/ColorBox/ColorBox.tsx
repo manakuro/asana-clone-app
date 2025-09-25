@@ -1,4 +1,4 @@
-import { Box, type BoxProps } from '@/components/ui/atoms';
+import { Box, type BoxProps } from '@/components/ui/atoms/Box';
 import { forwardRef } from 'react';
 import type React from 'react';
 

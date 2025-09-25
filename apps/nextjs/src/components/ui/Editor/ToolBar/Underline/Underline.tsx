@@ -1,4 +1,5 @@
-import { Icon, type IconButtonProps } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
+import type { IconButtonProps } from '@/components/ui/atoms/IconButton';
 import type { TooltipProps } from '@/components/ui/molecules/Tooltip';
 import { useUnderline } from '@/shared/prosemirror/hooks';
 import { memo } from 'react';

@@ -1,10 +1,10 @@
+import { Icon } from '@/components/ui/atoms/Icon';
 import {
-  Icon,
   Input,
   InputGroup,
   InputLeftElement,
   type InputProps,
-} from '@/components/ui/atoms';
+} from '@/components/ui/atoms/Input';
 import type { IconType } from '@/shared/icons';
 
 type Props = InputProps & {

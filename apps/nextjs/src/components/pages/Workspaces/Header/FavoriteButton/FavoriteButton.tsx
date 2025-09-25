@@ -1,4 +1,4 @@
-import type { IconButtonProps } from '@/components/ui/atoms';
+import type { IconButtonProps } from '@/components/ui/atoms/IconButton';
 import { FavoriteIconButton } from '@/components/ui/molecules/FavoriteIconButton';
 import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import {

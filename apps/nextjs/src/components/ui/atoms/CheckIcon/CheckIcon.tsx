@@ -1,4 +1,4 @@
-import { Icon, type IconProps } from '@/components/ui/atoms';
+import { Icon, type IconProps } from '@/components/ui/atoms/Icon';
 import { transitions } from '@/styles';
 import { useMemo } from 'react';
 

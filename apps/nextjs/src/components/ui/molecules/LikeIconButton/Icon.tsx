@@ -1,4 +1,6 @@
-import { Icon as AtomsIcon, Flex, Text } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon as AtomsIcon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { memo } from 'react';
 import type { LikeButtonProps } from './LikeIconButton';

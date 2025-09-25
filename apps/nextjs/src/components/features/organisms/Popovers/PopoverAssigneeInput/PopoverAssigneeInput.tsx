@@ -3,7 +3,8 @@ import {
   type PopoverProps,
   PopoverTrigger,
 } from '@/components/ui/Popover';
-import { Link, PortalManager } from '@/components/ui/atoms';
+import { Link } from '@/components/ui/atoms/Link';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import { useDisclosure } from '@/shared/chakra';
 import React, { type PropsWithChildren, useCallback } from 'react';
 import { Content } from './Content';

@@ -1,12 +1,8 @@
-import {
-  DueDate as AtomsDueDate,
-  Box,
-  Button,
-  type ButtonProps,
-  Flex,
-  Icon,
-  type IconProps,
-} from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Button, type ButtonProps } from '@/components/ui/atoms/Button';
+import { DueDate as AtomsDueDate } from '@/components/ui/atoms/DueDate';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon, type IconProps } from '@/components/ui/atoms/Icon';
 import { useHover } from '@/hooks/useHover';
 import type { ChakraProps } from '@/shared/chakra';
 import { memo, useCallback, useMemo, useState } from 'react';

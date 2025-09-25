@@ -1,4 +1,6 @@
-import { DashedBox, type FlexProps, Icon } from '@/components/ui/atoms';
+import { DashedBox } from '@/components/ui/atoms/DashedBox';
+import type { FlexProps } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
 
 type Props = FlexProps & {
   size: Sizes;

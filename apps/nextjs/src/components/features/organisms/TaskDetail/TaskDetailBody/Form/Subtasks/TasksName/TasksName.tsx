@@ -1,5 +1,7 @@
 import { TasksListRow } from '@/components/features/organisms/Tasks/TasksList/TasksListRow';
-import { CheckIcon, Flex, type FlexProps, Stack } from '@/components/ui/atoms';
+import { CheckIcon } from '@/components/ui/atoms/CheckIcon';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { TaskDoneTransition } from '@/components/ui/molecules/Transitions';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { memo, useCallback } from 'react';

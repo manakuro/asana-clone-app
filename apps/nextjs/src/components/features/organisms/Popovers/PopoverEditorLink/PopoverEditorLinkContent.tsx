@@ -1,5 +1,6 @@
 import { PopoverBody, PopoverContent } from '@/components/ui/Popover';
-import { Flex, Portal } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Portal } from '@/components/ui/atoms/Portal';
 import type React from 'react';
 
 export const PopoverEditorLinkContent: React.FCWithChildren = (props) => {

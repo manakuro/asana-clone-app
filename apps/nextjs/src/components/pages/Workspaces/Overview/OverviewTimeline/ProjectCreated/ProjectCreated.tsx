@@ -1,4 +1,7 @@
-import { Flex, Heading, Icon, Text } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Heading } from '@/components/ui/atoms/Heading';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import { formatCreatedAt } from '@/shared/date';
 import { useProject } from '@/store/entities/project';
 import { useTeammate } from '@/store/entities/teammate';

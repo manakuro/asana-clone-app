@@ -1,4 +1,6 @@
-import { ColorBox, Icon, WrapItem } from '@/components/ui/atoms';
+import { ColorBox } from '@/components/ui/atoms/ColorBox';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { WrapItem } from '@/components/ui/atoms/Wrap';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { memo, useCallback } from 'react';
 

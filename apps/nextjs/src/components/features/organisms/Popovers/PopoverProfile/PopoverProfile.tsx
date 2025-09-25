@@ -4,18 +4,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/Popover';
-import {
-  AspectRatio,
-  Box,
-  Button,
-  Divider,
-  Icon,
-  Image,
-  Portal,
-  PortalManager,
-  Text,
-} from '@/components/ui/atoms';
+import { AspectRatio } from '@/components/ui/atoms/AspectRatio';
+import { Box } from '@/components/ui/atoms/Box';
+import { Button } from '@/components/ui/atoms/Button';
+import { Divider } from '@/components/ui/atoms/Divider';
 import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Image } from '@/components/ui/atoms/Image';
+import { Portal } from '@/components/ui/atoms/Portal';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
+import { Text } from '@/components/ui/atoms/Text';
 import type React from 'react';
 
 type Props = {

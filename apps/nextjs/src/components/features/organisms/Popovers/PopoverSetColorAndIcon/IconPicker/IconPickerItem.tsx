@@ -1,9 +1,7 @@
-import {
-  Icon as AtomsIcon,
-  type BoxProps,
-  Center,
-  WrapItem,
-} from '@/components/ui/atoms';
+import type { BoxProps } from '@/components/ui/atoms/Box';
+import { Center } from '@/components/ui/atoms/Center';
+import { Icon as AtomsIcon } from '@/components/ui/atoms/Icon';
+import { WrapItem } from '@/components/ui/atoms/Wrap';
 import { useLinkHoverStyle } from '@/hooks';
 import type { IconType } from '@/shared/icons';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';

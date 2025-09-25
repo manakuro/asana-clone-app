@@ -1,4 +1,4 @@
-import { ConditionalRender } from '@/components/ui/atoms';
+import { ConditionalRender } from '@/components/ui/atoms/ConditionalRender';
 import { TextField } from '@material-ui/core';
 import StaticDatePicker, {
   type StaticDatePickerProps,

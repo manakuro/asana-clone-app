@@ -1,4 +1,7 @@
-import { Box, Flex, Skeleton, Stack } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Skeleton } from '@/components/ui/atoms/Skeleton';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { memo } from 'react';
 
 const TEXT_HEIGHT = '16px';

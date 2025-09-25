@@ -6,13 +6,11 @@ import {
   ModalOverlay,
 } from '@/components/ui/Modal';
 import { DurationBar } from '@/components/ui/VideoPlayer/DurationBar';
-import {
-  AspectRatio,
-  Box,
-  Flex,
-  Icon,
-  IconButton,
-} from '@/components/ui/atoms';
+import { AspectRatio } from '@/components/ui/atoms/AspectRatio';
+import { Box } from '@/components/ui/atoms/Box';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
 import { useCallback, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Duration } from './Duration';

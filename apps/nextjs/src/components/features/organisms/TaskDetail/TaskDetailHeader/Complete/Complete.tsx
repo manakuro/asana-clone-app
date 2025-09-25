@@ -1,4 +1,5 @@
-import { Button, CheckIcon } from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { CheckIcon } from '@/components/ui/atoms/CheckIcon';
 import { useTask } from '@/store/entities/task';
 import { memo, useCallback } from 'react';
 
