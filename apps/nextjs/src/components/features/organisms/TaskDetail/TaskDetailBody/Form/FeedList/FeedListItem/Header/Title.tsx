@@ -1,4 +1,6 @@
-import { Flex, Icon, Text, type TextProps } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text, type TextProps } from '@/components/ui/atoms/Text';
 import type { TaskFeed } from '@/store/entities/taskFeed';
 import type { Teammate } from '@/store/entities/teammate';
 import type React from 'react';

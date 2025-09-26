@@ -1,4 +1,6 @@
-import { Box, Divider, Heading } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Heading } from '@/components/ui/atoms/Heading';
 import type React from 'react';
 
 type Props = {
