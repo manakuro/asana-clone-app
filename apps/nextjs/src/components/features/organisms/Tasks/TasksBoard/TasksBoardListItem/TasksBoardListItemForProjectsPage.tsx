@@ -1,5 +1,5 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Stack } from '@/components/ui/Stack';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
 import type React from 'react';

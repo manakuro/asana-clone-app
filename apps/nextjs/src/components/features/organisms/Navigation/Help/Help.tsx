@@ -6,7 +6,7 @@ import {
   DrawerContent,
   DrawerHeader,
 } from '@/components/ui/Drawer';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { Body } from './Body';
 import { Footer } from './Footer';
 import { useHelp } from './useHelp';

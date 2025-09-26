@@ -1,7 +1,7 @@
 import { useTasksContext } from '@/components/features/organisms/Tasks';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Text } from '@/components/ui/atoms/Text';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { Text } from '@/components/ui/Text';
 import { useTask } from '@/store/entities/task';
 import { memo } from 'react';
 import { useTasksNameContext } from '../TasksNameProvider';

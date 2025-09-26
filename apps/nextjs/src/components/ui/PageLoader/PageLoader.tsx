@@ -1,6 +1,6 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Logo } from '@/components/ui/atoms/Logo';
-import { Spinner } from '@/components/ui/atoms/Spinner';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Logo } from '@/components/ui/Logo';
+import { Spinner } from '@/components/ui/Spinner';
 
 type Props = FlexProps;
 

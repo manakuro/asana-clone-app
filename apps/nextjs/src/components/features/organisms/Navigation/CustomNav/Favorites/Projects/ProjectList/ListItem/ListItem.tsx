@@ -2,11 +2,11 @@ import {
   PADDING_X,
   useNavigation,
 } from '@/components/features/organisms/Navigation';
-import { ColorBox } from '@/components/ui/atoms/ColorBox';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Link } from '@/components/ui/atoms/Link';
-import { NextLink } from '@/components/ui/atoms/NextLink';
-import { Text } from '@/components/ui/atoms/Text';
+import { ColorBox } from '@/components/ui/ColorBox';
+import { Flex } from '@/components/ui/Flex';
+import { Link } from '@/components/ui/Link';
+import { NextLink } from '@/components/ui/NextLink';
+import { Text } from '@/components/ui/Text';
 import { useLinkHoverStyle } from '@/hooks';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';

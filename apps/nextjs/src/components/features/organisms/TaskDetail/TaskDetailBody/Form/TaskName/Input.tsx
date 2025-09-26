@@ -1,5 +1,5 @@
-import { Flex } from '@/components/ui/atoms/Flex';
-import { InputText } from '@/components/ui/atoms/InputText';
+import { Flex } from '@/components/ui/Flex';
+import { InputText } from '@/components/ui/InputText';
 import { useDebounce } from '@/hooks';
 import type React from 'react';
 import { memo, useCallback, useEffect, useState } from 'react';

@@ -4,11 +4,11 @@ import {
   MenuSelectList,
 } from '@/components/features/organisms/Menus';
 import { useTasksTaskListStatus } from '@/components/features/organisms/Tasks/hooks';
+import { Button } from '@/components/ui/Button';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
 import { MenuItemOption } from '@/components/ui/Menu';
-import { Button } from '@/components/ui/atoms/Button';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Text } from '@/components/ui/atoms/Text';
+import { Text } from '@/components/ui/Text';
 import { useDisclosure } from '@/shared/chakra';
 import {
   TaskListCompletedStatusCode,

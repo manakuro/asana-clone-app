@@ -1,7 +1,7 @@
 import { TasksListRow } from '@/components/features/organisms/Tasks';
 import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Skeleton } from '@/components/ui/atoms/Skeleton';
+import { Flex } from '@/components/ui/Flex';
+import { Skeleton } from '@/components/ui/Skeleton';
 import { memo } from 'react';
 
 const TEXT_HEIGHT = '16px';

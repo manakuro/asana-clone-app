@@ -1,3 +1,8 @@
+import { AspectRatio } from '@/components/ui/AspectRatio';
+import { Box } from '@/components/ui/Box';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import {
   Modal,
   ModalBody,
@@ -6,11 +11,6 @@ import {
   ModalOverlay,
 } from '@/components/ui/Modal';
 import { DurationBar } from '@/components/ui/VideoPlayer/DurationBar';
-import { AspectRatio } from '@/components/ui/atoms/AspectRatio';
-import { Box } from '@/components/ui/atoms/Box';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
 import { useCallback, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Duration } from './Duration';

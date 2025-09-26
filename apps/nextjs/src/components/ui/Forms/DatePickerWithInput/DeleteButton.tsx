@@ -1,4 +1,4 @@
-import { Icon } from '@/components/ui/atoms/Icon';
+import { Icon } from '@/components/ui/Icon';
 import { useClickableHoverStyle } from '@/hooks';
 import type React from 'react';
 import { memo, useCallback } from 'react';

@@ -1,5 +1,5 @@
 import { useTasksTaskIdsByTaskSectionId } from '@/components/features/organisms/Tasks/hooks';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { transitions } from '@/styles';
 import { memo } from 'react';
 import { TasksBoardListItem } from '../TasksBoardListItem';

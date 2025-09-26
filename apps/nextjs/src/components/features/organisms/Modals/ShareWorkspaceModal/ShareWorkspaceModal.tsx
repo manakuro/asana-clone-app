@@ -1,3 +1,9 @@
+import { Button } from '@/components/ui/Button';
+import { Container } from '@/components/ui/Container';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { Input } from '@/components/ui/Input';
+import { Link } from '@/components/ui/Link';
 import {
   Modal,
   ModalBody,
@@ -6,13 +12,7 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@/components/ui/Modal';
-import { Button } from '@/components/ui/atoms/Button';
-import { Container } from '@/components/ui/atoms/Container';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Input } from '@/components/ui/atoms/Input';
-import { Link } from '@/components/ui/atoms/Link';
-import { MoreLink } from '@/components/ui/atoms/MoreLink';
+import { MoreLink } from '@/components/ui/MoreLink';
 import { useShareWorkspaceModal } from './useShareWorkspaceModal';
 
 export function ShareWorkspaceModal() {

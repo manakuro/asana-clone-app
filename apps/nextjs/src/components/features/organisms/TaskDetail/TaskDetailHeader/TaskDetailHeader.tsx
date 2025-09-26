@@ -1,9 +1,9 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
-import { Skeleton } from '@/components/ui/atoms/Skeleton';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
+import { Skeleton } from '@/components/ui/Skeleton';
+import { Stack } from '@/components/ui/Stack';
 import type { IconType } from '@/shared/icons';
 import { memo, useMemo } from 'react';
 import { Attachment } from './Attachment';

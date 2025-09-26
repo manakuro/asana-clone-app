@@ -1,4 +1,4 @@
-import { Label, type LabelProps } from '@/components/ui/atoms/Label';
+import { Label, type LabelProps } from '@/components/ui/Label';
 import { isInputFiles } from '@/shared/isInputFile';
 import type React from 'react';
 import { useCallback } from 'react';

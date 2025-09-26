@@ -1,12 +1,12 @@
 import { useThumbnailAttachmentContext } from '@/components/features/molecules/ThumbnailAttachment/Provider';
+import { Link } from '@/components/ui/Link';
 import {
   MenuItem,
   MenuList,
   type MenuProps,
   Menu as OrganismsMenu,
 } from '@/components/ui/Menu';
-import { Link } from '@/components/ui/atoms/Link';
-import { Portal } from '@/components/ui/atoms/Portal';
+import { Portal } from '@/components/ui/Portal';
 import { useTaskFile } from '@/store/entities/taskFile';
 import { memo, useCallback } from 'react';
 

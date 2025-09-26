@@ -1,6 +1,6 @@
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Stack } from '@/components/ui/Stack';
 import { TaskDoneTransition } from '@/components/ui/Transitions';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Stack } from '@/components/ui/atoms/Stack';
 import { useHover } from '@/hooks/useHover';
 import { useRouter } from '@/router';
 import type React from 'react';

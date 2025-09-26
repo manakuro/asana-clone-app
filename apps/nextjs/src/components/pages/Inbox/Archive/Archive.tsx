@@ -10,7 +10,7 @@ import {
 import { useInboxTaskDetail } from '@/components/features/organisms/Inbox';
 import { TaskDetailSide } from '@/components/features/organisms/TaskDetails';
 import { TasksProvider } from '@/components/features/organisms/Tasks';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { useInboxArchivePageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
 import { memo, useMemo } from 'react';

@@ -1,10 +1,10 @@
 import { ProjectChip } from '@/components/features/molecules/Chips';
 import { PopoverDueDatePicker } from '@/components/features/organisms/Popovers';
-import { CheckIcon } from '@/components/ui/atoms/CheckIcon';
-import { DueDate } from '@/components/ui/atoms/DueDate';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Stack } from '@/components/ui/atoms/Stack';
-import { Text } from '@/components/ui/atoms/Text';
+import { CheckIcon } from '@/components/ui/CheckIcon';
+import { DueDate } from '@/components/ui/DueDate';
+import { Flex } from '@/components/ui/Flex';
+import { Stack } from '@/components/ui/Stack';
+import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useRouter } from '@/router';
 import { formatDueTime } from '@/shared/date';

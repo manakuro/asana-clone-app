@@ -1,9 +1,6 @@
 import { useProjectDetailModal } from '@/components/features/organisms/Modals';
-import { Icon } from '@/components/ui/atoms/Icon';
-import {
-  IconButton,
-  type IconButtonProps,
-} from '@/components/ui/atoms/IconButton';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
 import { memo, useCallback } from 'react';
 
 type Props = {

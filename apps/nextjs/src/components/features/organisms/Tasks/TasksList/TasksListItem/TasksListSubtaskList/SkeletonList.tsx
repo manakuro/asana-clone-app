@@ -1,6 +1,6 @@
 import { TasksListRow } from '@/components/features/organisms/Tasks';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Skeleton } from '@/components/ui/atoms/Skeleton';
+import { Flex } from '@/components/ui/Flex';
+import { Skeleton } from '@/components/ui/Skeleton';
 import type React from 'react';
 import { memo } from 'react';
 

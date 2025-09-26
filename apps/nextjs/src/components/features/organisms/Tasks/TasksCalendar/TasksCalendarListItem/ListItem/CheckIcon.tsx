@@ -1,5 +1,5 @@
-import { CheckIcon as AtomsCheckIcon } from '@/components/ui/atoms/CheckIcon';
-import type { IconProps } from '@/components/ui/atoms/Icon';
+import { CheckIcon as AtomsCheckIcon } from '@/components/ui/CheckIcon';
+import type { IconProps } from '@/components/ui/Icon';
 import type { ChakraProps } from '@/shared/chakra';
 import { useProject } from '@/store/entities/project';
 import { useTask } from '@/store/entities/task';

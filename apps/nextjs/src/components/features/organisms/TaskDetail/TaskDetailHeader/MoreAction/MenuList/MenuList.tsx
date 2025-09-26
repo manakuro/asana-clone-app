@@ -1,12 +1,12 @@
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
 import {
   MenuList as AtomsMenuList,
   MenuDivider,
   MenuItem,
 } from '@/components/ui/Menu';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Portal } from '@/components/ui/atoms/Portal';
-import { Text } from '@/components/ui/atoms/Text';
+import { Portal } from '@/components/ui/Portal';
+import { Text } from '@/components/ui/Text';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import { useCallback } from 'react';

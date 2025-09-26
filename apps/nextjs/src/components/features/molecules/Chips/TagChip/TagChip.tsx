@@ -1,7 +1,7 @@
-import { Box } from '@/components/ui/atoms/Box';
-import { Button } from '@/components/ui/atoms/Button';
-import { Icon, type IconProps } from '@/components/ui/atoms/Icon';
-import { Text } from '@/components/ui/atoms/Text';
+import { Box } from '@/components/ui/Box';
+import { Button } from '@/components/ui/Button';
+import { Icon, type IconProps } from '@/components/ui/Icon';
+import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTaskTag } from '@/store/entities/taskTag';
 import type React from 'react';

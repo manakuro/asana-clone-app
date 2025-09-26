@@ -1,12 +1,12 @@
+import { Link } from '@/components/ui/Link';
 import {
   Popover,
   PopoverContent,
   type PopoverProps,
   PopoverTrigger,
 } from '@/components/ui/Popover';
-import { Link } from '@/components/ui/atoms/Link';
-import { Portal } from '@/components/ui/atoms/Portal';
-import { PortalManager } from '@/components/ui/atoms/PortalManager';
+import { Portal } from '@/components/ui/Portal';
+import { PortalManager } from '@/components/ui/PortalManager';
 import { type ChakraProps, useDisclosure } from '@/shared/chakra';
 import type { MouseEvent, PropsWithChildren } from 'react';
 import { useCallback } from 'react';

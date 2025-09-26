@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/atoms/Button';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Input as AtomsInput } from '@/components/ui/atoms/Input';
+import { Button } from '@/components/ui/Button';
+import { Flex } from '@/components/ui/Flex';
+import { Input as AtomsInput } from '@/components/ui/Input';
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 

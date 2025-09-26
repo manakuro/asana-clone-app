@@ -1,7 +1,7 @@
 import { useInviteModal } from '@/components/features/organisms/Modals';
 import { PADDING_X } from '@/components/features/organisms/Navigation/Navigation';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { Wrap, WrapItem } from '@/components/ui/atoms/Wrap';
+import { Wrap, WrapItem } from '@/components/ui/Wrap';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammates } from '@/store/entities/teammate';
 import { memo, useCallback } from 'react';

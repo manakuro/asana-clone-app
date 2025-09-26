@@ -1,9 +1,9 @@
 import { useShareWorkspaceModal } from '@/components/features/organisms/Modals/ShareWorkspaceModal';
+import { Button } from '@/components/ui/Button';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
-import { Button } from '@/components/ui/atoms/Button';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
 import { memo, useCallback } from 'react';
 
 export const ShareButton = memo(function ShareButton() {

@@ -1,7 +1,7 @@
+import { ConditionalRender } from '@/components/ui/ConditionalRender';
+import { Flex } from '@/components/ui/Flex';
 import { Popover, PopoverTrigger } from '@/components/ui/Popover';
-import { ConditionalRender } from '@/components/ui/atoms/ConditionalRender';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { PortalManager } from '@/components/ui/atoms/PortalManager';
+import { PortalManager } from '@/components/ui/PortalManager';
 import type { PropsWithChildren } from 'react';
 import { Content } from './Content';
 import { usePopoverEmojiContext } from './Provider';

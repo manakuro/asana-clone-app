@@ -1,11 +1,11 @@
 import { useFileViewerModal } from '@/components/features/organisms/Modals';
 import { useTasksRouter } from '@/components/features/organisms/Tasks/hooks';
-import { Divider } from '@/components/ui/atoms/Divider';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Image } from '@/components/ui/atoms/Image';
-import { Link } from '@/components/ui/atoms/Link';
-import { Text } from '@/components/ui/atoms/Text';
+import { Divider } from '@/components/ui/Divider';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { Image } from '@/components/ui/Image';
+import { Link } from '@/components/ui/Link';
+import { Text } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { useTask } from '@/store/entities/task';

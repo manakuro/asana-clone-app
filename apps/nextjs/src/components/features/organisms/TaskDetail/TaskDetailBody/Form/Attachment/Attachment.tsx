@@ -1,7 +1,7 @@
 import { ThumbnailAttachment } from '@/components/features/molecules/ThumbnailAttachment';
 import { useFileViewerModal } from '@/components/features/organisms/Modals';
-import { Wrap } from '@/components/ui/atoms/Wrap';
-import { WrapItem } from '@/components/ui/atoms/Wrap';
+import { Wrap } from '@/components/ui/Wrap';
+import { WrapItem } from '@/components/ui/Wrap';
 import { useToast } from '@/hooks';
 import {
   type TaskFile,

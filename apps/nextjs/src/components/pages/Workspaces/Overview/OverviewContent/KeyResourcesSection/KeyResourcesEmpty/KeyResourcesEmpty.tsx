@@ -1,9 +1,9 @@
 import { ComingSoonTooltip } from '@/components/features/molecules/Tooltips';
-import { Button } from '@/components/ui/atoms/Button';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Heading } from '@/components/ui/atoms/Heading';
-import { Image } from '@/components/ui/atoms/Image';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Button } from '@/components/ui/Button';
+import { Flex } from '@/components/ui/Flex';
+import { Heading } from '@/components/ui/Heading';
+import { Image } from '@/components/ui/Image';
+import { Stack } from '@/components/ui/Stack';
 
 export function KeyResourcesEmpty() {
   return (

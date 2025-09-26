@@ -1,7 +1,7 @@
+import { Button } from '@/components/ui/Button';
 import { AtMention, Emoji, Format } from '@/components/ui/Editor/ToolBar';
-import { Button } from '@/components/ui/atoms/Button';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Flex } from '@/components/ui/Flex';
+import { Stack } from '@/components/ui/Stack';
 import { transitions } from '@/styles';
 import { memo } from 'react';
 import { useInputContext } from '../Provider';

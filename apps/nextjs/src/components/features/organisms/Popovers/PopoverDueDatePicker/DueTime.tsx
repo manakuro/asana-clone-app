@@ -1,10 +1,10 @@
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
+import { Option } from '@/components/ui/Select';
+import { Select } from '@/components/ui/Select';
+import { Text } from '@/components/ui/Text';
 import { Tooltip } from '@/components/ui/Tooltip';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
-import { Option } from '@/components/ui/atoms/Select';
-import { Select } from '@/components/ui/atoms/Select';
-import { Text } from '@/components/ui/atoms/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { formatDueTime } from '@/shared/date';
 import { times } from '@/shared/date/time';

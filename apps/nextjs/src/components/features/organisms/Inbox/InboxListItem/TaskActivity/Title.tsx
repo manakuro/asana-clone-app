@@ -1,7 +1,7 @@
 import { useTaskActivityTaskIds } from '@/components/features/organisms/Inbox/hooks';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Link } from '@/components/ui/atoms/Link';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { Link } from '@/components/ui/Link';
 import { formatDueDate } from '@/shared/date';
 import { useTask } from '@/store/entities/task';
 import { transitions } from '@/styles';

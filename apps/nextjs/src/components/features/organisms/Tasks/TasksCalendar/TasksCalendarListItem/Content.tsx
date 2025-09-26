@@ -1,5 +1,5 @@
 import { useTasksTaskIdsByDueDate } from '@/components/features/organisms/Tasks/hooks';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Stack } from '@/components/ui/Stack';
 import { memo } from 'react';
 import { ListItem } from './ListItem';
 

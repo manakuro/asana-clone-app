@@ -1,8 +1,8 @@
 import { PopoverDueDatePicker } from '@/components/features/organisms/Popovers';
-import { Box } from '@/components/ui/atoms/Box';
-import { Button } from '@/components/ui/atoms/Button';
-import { DueDate as AtomsDueDate } from '@/components/ui/atoms/DueDate';
-import { Icon } from '@/components/ui/atoms/Icon';
+import { Box } from '@/components/ui/Box';
+import { Button } from '@/components/ui/Button';
+import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
+import { Icon } from '@/components/ui/Icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import { useTask } from '@/store/entities/task';

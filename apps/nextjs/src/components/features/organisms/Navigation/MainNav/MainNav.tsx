@@ -1,4 +1,4 @@
-import { List } from '@/components/ui/atoms/List';
+import { List } from '@/components/ui/List';
 import { memo } from 'react';
 import { MAX_WIDTH } from '../Navigation';
 import { Goals } from './Goals';

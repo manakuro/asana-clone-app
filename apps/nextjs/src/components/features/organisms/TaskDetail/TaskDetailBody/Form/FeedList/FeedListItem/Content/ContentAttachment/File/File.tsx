@@ -1,5 +1,5 @@
 import { AttachmentBox } from '@/components/features/molecules/AttachmentBox';
-import type { FlexProps } from '@/components/ui/atoms/Flex';
+import type { FlexProps } from '@/components/ui/Flex';
 import { memo } from 'react';
 
 type Props = FlexProps & {

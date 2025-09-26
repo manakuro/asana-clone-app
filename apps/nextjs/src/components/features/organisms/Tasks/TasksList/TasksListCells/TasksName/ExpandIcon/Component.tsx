@@ -1,6 +1,6 @@
 import { useSubtaskListContext } from '@/components/features/organisms/Tasks/TasksList/TasksListItem/Provider';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import type React from 'react';
 import { memo, useCallback } from 'react';
 

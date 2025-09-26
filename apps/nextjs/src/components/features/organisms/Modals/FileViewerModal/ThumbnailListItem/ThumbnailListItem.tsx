@@ -1,6 +1,6 @@
-import { Center } from '@/components/ui/atoms/Center';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Image } from '@/components/ui/atoms/Image';
+import { Center } from '@/components/ui/Center';
+import { Icon } from '@/components/ui/Icon';
+import { Image } from '@/components/ui/Image';
 import { FileTypeCode } from '@/graphql/enums';
 import type { ChakraProps } from '@/shared/chakra';
 import { getTaskFileIcon, useTaskFile } from '@/store/entities/taskFile';

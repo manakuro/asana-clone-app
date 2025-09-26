@@ -1,4 +1,4 @@
-import type { FlexProps } from '@/components/ui/atoms/Flex';
+import type { FlexProps } from '@/components/ui/Flex';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { type TaskFile, useTaskFile } from '@/store/entities/taskFile';
 import { memo, useCallback } from 'react';

@@ -6,10 +6,10 @@ import {
   useTasksTaskIds,
   useTasksTaskSectionIds,
 } from '@/components/features/organisms/Tasks/hooks';
-import { Box } from '@/components/ui/atoms/Box';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Box } from '@/components/ui/Box';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 

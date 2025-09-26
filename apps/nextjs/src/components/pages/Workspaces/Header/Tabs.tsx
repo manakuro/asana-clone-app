@@ -1,6 +1,6 @@
+import { Flex } from '@/components/ui/Flex';
+import { Heading } from '@/components/ui/Heading';
 import { Tab, TabList } from '@/components/ui/Tabs';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Heading } from '@/components/ui/atoms/Heading';
 import { useWorkspace } from '@/store/entities/workspace';
 import { memo } from 'react';
 import { FavoriteButton } from './FavoriteButton';

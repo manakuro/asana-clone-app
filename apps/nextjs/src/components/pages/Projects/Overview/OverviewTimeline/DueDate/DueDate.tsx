@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { memo } from 'react';
 import { useTimelineStyle } from '../useTimelineStyle';
 import { ProjectDueDate } from './ProjectDueDate';

@@ -1,12 +1,12 @@
+import { Divider } from '@/components/ui/Divider';
+import { Flex } from '@/components/ui/Flex';
 import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalHeader,
 } from '@/components/ui/Modal';
-import { Divider } from '@/components/ui/atoms/Divider';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Stack } from '@/components/ui/Stack';
 import { useProject, useProjectCommand } from '@/store/entities/project';
 import { memo, useCallback } from 'react';
 import { Description } from './Description';

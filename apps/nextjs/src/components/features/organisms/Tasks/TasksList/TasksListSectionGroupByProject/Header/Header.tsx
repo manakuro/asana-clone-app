@@ -1,7 +1,7 @@
 import { useTasksListContext } from '@/components/features/organisms/Tasks/TasksList/Provider';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { memo } from 'react';
 import { TaskSectionName } from './TaskSectionName';
 

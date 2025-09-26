@@ -1,9 +1,9 @@
 import { useShareProjectModal } from '@/components/features/organisms/Modals/ShareProjectModal';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
+import { AvatarGroup } from '@/components/ui/Avatar';
+import { Flex } from '@/components/ui/Flex';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
-import { AvatarGroup } from '@/components/ui/atoms/Avatar';
-import { Flex } from '@/components/ui/atoms/Flex';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { useWorkspace } from '@/store/entities/workspace';

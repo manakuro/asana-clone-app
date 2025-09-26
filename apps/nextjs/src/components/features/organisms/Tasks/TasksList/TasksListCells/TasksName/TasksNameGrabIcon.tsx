@@ -1,4 +1,4 @@
-import { Icon, type IconProps } from '@/components/ui/atoms/Icon';
+import { Icon, type IconProps } from '@/components/ui/Icon';
 import { memo } from 'react';
 import { useTasksNameContext } from './TasksNameProvider';
 

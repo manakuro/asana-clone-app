@@ -6,7 +6,7 @@ import {
 } from '@/components/features/organisms/Tasks';
 import { useTasksFilesDetail } from '@/components/features/organisms/Tasks/TasksFiles/useTasksFilesDetail';
 import { useProjectsPageContext } from '@/components/pages/Projects/Provider';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { useProjectsFilesPageQuery } from '@/hooks/queries/app';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';

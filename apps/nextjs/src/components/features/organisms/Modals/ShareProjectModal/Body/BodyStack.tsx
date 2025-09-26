@@ -1,4 +1,4 @@
-import { Stack, type StackProps } from '@/components/ui/atoms/Stack';
+import { Stack, type StackProps } from '@/components/ui/Stack';
 
 type Props = StackProps;
 

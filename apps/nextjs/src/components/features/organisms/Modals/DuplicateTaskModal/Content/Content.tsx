@@ -1,3 +1,8 @@
+import { Divider } from '@/components/ui/Divider';
+import { Flex } from '@/components/ui/Flex';
+import { CheckboxField } from '@/components/ui/Form';
+import { SubmitButton } from '@/components/ui/Form';
+import { TextField } from '@/components/ui/Form';
 import {
   ModalBody,
   ModalCloseButton,
@@ -5,12 +10,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from '@/components/ui/Modal';
-import { Divider } from '@/components/ui/atoms/Divider';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { CheckboxField } from '@/components/ui/atoms/Form';
-import { SubmitButton } from '@/components/ui/atoms/Form';
-import { TextField } from '@/components/ui/atoms/Form';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Stack } from '@/components/ui/Stack';
 import { useTask } from '@/store/entities/task';
 import { Form, Formik, type FormikConfig } from 'formik';
 import { memo, useCallback, useMemo } from 'react';

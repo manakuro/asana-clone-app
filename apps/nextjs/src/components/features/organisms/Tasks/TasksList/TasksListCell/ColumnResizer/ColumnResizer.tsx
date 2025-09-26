@@ -1,5 +1,5 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Portal } from '@/components/ui/atoms/Portal';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Portal } from '@/components/ui/Portal';
 import { useHover } from '@/hooks/useHover';
 import type React from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';

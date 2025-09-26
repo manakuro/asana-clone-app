@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import {
   useTaskFeedIdsByTaskId,
   useTaskFeedsPinnedIds,

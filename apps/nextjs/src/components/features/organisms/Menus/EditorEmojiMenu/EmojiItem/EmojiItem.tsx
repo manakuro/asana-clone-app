@@ -1,6 +1,6 @@
 import { useEditorEmojiMenu } from '@/components/features/organisms/Menus/EditorEmojiMenu';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Text } from '@/components/ui/atoms/Text';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Text } from '@/components/ui/Text';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import type { BaseEmoji } from '@/shared/emoji';

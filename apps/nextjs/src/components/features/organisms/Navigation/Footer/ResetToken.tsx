@@ -1,7 +1,7 @@
 import { Divider } from '@/components/features/organisms/Navigation/Divider';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { ListItem } from '@/components/ui/atoms/List';
-import { Text } from '@/components/ui/atoms/Text';
+import { Icon } from '@/components/ui/Icon';
+import { ListItem } from '@/components/ui/List';
+import { Text } from '@/components/ui/Text';
 import { setErrorToken } from '@/shared/apollo/client';
 import { transitions } from '@/styles';
 import type React from 'react';

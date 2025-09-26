@@ -1,9 +1,9 @@
 import { PopoverProfile } from '@/components/features/organisms/Popovers';
-import { Avatar } from '@/components/ui/atoms/Avatar';
-import { Box } from '@/components/ui/atoms/Box';
-import { Button } from '@/components/ui/atoms/Button';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Text } from '@/components/ui/atoms/Text';
+import { Avatar } from '@/components/ui/Avatar';
+import { Box } from '@/components/ui/Box';
+import { Button } from '@/components/ui/Button';
+import { Icon } from '@/components/ui/Icon';
+import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';
 import type React from 'react';

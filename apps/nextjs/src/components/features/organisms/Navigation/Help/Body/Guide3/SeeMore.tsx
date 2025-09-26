@@ -1,9 +1,9 @@
 import { Section } from '@/components/features/organisms/Navigation/Help/Body/GuideListItem/ListItemDetail';
-import { AspectRatio } from '@/components/ui/atoms/AspectRatio';
-import { Box } from '@/components/ui/atoms/Box';
-import { ListItem, UnorderedList } from '@/components/ui/atoms/List';
-import { Stack } from '@/components/ui/atoms/Stack';
-import { Text } from '@/components/ui/atoms/Text';
+import { AspectRatio } from '@/components/ui/AspectRatio';
+import { Box } from '@/components/ui/Box';
+import { ListItem, UnorderedList } from '@/components/ui/List';
+import { Stack } from '@/components/ui/Stack';
+import { Text } from '@/components/ui/Text';
 import { guide3Item } from './item';
 
 export function SeeMore() {

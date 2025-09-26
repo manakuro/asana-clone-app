@@ -1,6 +1,6 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Flex } from '@/components/ui/Flex';
+import { Stack } from '@/components/ui/Stack';
 import { memo } from 'react';
 import { Assignee } from './Assignee';
 import { Attachment } from './Attachment';

@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/atoms/Button';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
+import { Button } from '@/components/ui/Button';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
 import { useColorMode } from '@chakra-ui/color-mode';
 
 type Props = FlexProps;

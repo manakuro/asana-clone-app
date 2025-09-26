@@ -2,8 +2,8 @@ import {
   TasksHeader,
   TasksHeaderRight,
 } from '@/components/features/organisms/Tasks';
-import type { FlexProps } from '@/components/ui/atoms/Flex';
-import { Skeleton } from '@/components/ui/atoms/Skeleton';
+import type { FlexProps } from '@/components/ui/Flex';
+import { Skeleton } from '@/components/ui/Skeleton';
 import { memo } from 'react';
 
 type Props = FlexProps;

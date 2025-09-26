@@ -1,9 +1,9 @@
-import { Badge, type BadgeProps } from '@/components/ui/atoms/Badge';
-import { Box } from '@/components/ui/atoms/Box';
-import { Button } from '@/components/ui/atoms/Button';
-import { ColorBox } from '@/components/ui/atoms/ColorBox';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Text } from '@/components/ui/atoms/Text';
+import { Badge, type BadgeProps } from '@/components/ui/Badge';
+import { Box } from '@/components/ui/Box';
+import { Button } from '@/components/ui/Button';
+import { ColorBox } from '@/components/ui/ColorBox';
+import { Icon } from '@/components/ui/Icon';
+import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';

@@ -1,9 +1,9 @@
 import { InviteProjectTeammateMenu } from '@/components/features/organisms/Menus';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { AvatarGroup } from '@/components/ui/atoms/Avatar';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Input } from '@/components/ui/atoms/Input';
-import { Text } from '@/components/ui/atoms/Text';
+import { AvatarGroup } from '@/components/ui/Avatar';
+import { Flex } from '@/components/ui/Flex';
+import { Input } from '@/components/ui/Input';
+import { Text } from '@/components/ui/Text';
 import { useLinkStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';

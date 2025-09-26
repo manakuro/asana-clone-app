@@ -1,5 +1,5 @@
-import { CheckIcon } from '@/components/ui/atoms/CheckIcon';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { CheckIcon } from '@/components/ui/CheckIcon';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import type React from 'react';
 import { memo, useCallback } from 'react';

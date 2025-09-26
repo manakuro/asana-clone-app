@@ -1,7 +1,7 @@
 import { TagChip } from '@/components/features/molecules/Chips';
 import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
-import type { FlexProps } from '@/components/ui/atoms/Flex';
-import { Stack } from '@/components/ui/atoms/Stack';
+import type { FlexProps } from '@/components/ui/Flex';
+import { Stack } from '@/components/ui/Stack';
 import { useTaskTagIdsByTaskId } from '@/store/entities/taskTag';
 import { memo, useCallback, useState } from 'react';
 import { Input } from './Input';

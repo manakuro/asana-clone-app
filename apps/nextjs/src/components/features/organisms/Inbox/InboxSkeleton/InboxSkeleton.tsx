@@ -5,9 +5,9 @@ import {
   InboxListHeader,
   InboxRight,
 } from '@/components/features/organisms/Inbox';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Skeleton } from '@/components/ui/atoms/Skeleton';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Skeleton } from '@/components/ui/Skeleton';
+import { Stack } from '@/components/ui/Stack';
 
 type Props = FlexProps;
 

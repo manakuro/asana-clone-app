@@ -1,7 +1,7 @@
 import { useTaskDetailDrawerRef } from '@/components/features/organisms/TaskDetails';
-import { Box } from '@/components/ui/atoms/Box';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Input, type InputProps } from '@/components/ui/atoms/Input';
+import { Box } from '@/components/ui/Box';
+import { Flex } from '@/components/ui/Flex';
+import { Input, type InputProps } from '@/components/ui/Input';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,

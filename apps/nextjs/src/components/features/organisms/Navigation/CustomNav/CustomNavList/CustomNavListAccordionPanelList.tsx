@@ -1,4 +1,4 @@
-import { List } from '@/components/ui/atoms/List';
+import { List } from '@/components/ui/List';
 import type { PropsWithChildren } from 'react';
 
 export function CustomNavListAccordionPanelList(props: PropsWithChildren) {

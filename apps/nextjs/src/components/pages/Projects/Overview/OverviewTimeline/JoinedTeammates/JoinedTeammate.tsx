@@ -1,9 +1,9 @@
 import { useShareProjectModal } from '@/components/features/organisms/Modals';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Heading } from '@/components/ui/atoms/Heading';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Text } from '@/components/ui/atoms/Text';
+import { Flex } from '@/components/ui/Flex';
+import { Heading } from '@/components/ui/Heading';
+import { Icon } from '@/components/ui/Icon';
+import { Text } from '@/components/ui/Text';
 import { useLinkStyle } from '@/hooks';
 import { formatCreatedAt } from '@/shared/date';
 import { useMe } from '@/store/entities/me';

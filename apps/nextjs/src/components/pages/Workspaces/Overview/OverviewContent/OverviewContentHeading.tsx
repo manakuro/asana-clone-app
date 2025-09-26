@@ -1,4 +1,4 @@
-import { Heading, type HeadingProps } from '@/components/ui/atoms/Heading';
+import { Heading, type HeadingProps } from '@/components/ui/Heading';
 import type React from 'react';
 
 type Props = HeadingProps;

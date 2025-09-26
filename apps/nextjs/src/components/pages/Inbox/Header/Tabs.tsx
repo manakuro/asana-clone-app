@@ -1,6 +1,6 @@
+import { Flex } from '@/components/ui/Flex';
+import { Heading } from '@/components/ui/Heading';
 import { Tab, TabList } from '@/components/ui/Tabs';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Heading } from '@/components/ui/atoms/Heading';
 import { memo } from 'react';
 
 export const Tabs = memo(function Tabs() {

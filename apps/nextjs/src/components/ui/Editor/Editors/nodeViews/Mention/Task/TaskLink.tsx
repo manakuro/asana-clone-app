@@ -4,7 +4,7 @@ import {
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
 } from '@/components/features/organisms/Popovers';
-import { CheckIcon } from '@/components/ui/atoms/CheckIcon';
+import { CheckIcon } from '@/components/ui/CheckIcon';
 import { useProjectTask } from '@/store/entities/projectTask';
 import { useTask } from '@/store/entities/task';
 import { memo } from 'react';

@@ -1,4 +1,4 @@
-import type { FlexProps } from '@/components/ui/atoms/Flex';
+import type { FlexProps } from '@/components/ui/Flex';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { memo, useCallback } from 'react';
 import { TasksNameField } from './TasksNameField';

@@ -1,3 +1,6 @@
+import { Button } from '@/components/ui/Button';
+import { Divider } from '@/components/ui/Divider';
+import { Flex } from '@/components/ui/Flex';
 import {
   Modal,
   ModalBody,
@@ -7,13 +10,10 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@/components/ui/Modal';
-import { Button } from '@/components/ui/atoms/Button';
-import { Divider } from '@/components/ui/atoms/Divider';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Radio } from '@/components/ui/atoms/Radio';
-import { RadioGroup } from '@/components/ui/atoms/Radio';
-import { Stack } from '@/components/ui/atoms/Stack';
-import { Text } from '@/components/ui/atoms/Text';
+import { Radio } from '@/components/ui/Radio';
+import { RadioGroup } from '@/components/ui/Radio';
+import { Stack } from '@/components/ui/Stack';
+import { Text } from '@/components/ui/Text';
 import React, { useCallback } from 'react';
 import { useDeleteTaskSectionModal } from './useDeleteTaskSectionModal';
 

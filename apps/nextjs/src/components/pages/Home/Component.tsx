@@ -1,8 +1,8 @@
 import { TaskDetailModal } from '@/components/features/organisms/TaskDetails';
 import { TasksProvider } from '@/components/features/organisms/Tasks';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Head } from '@/components/ui/atoms/Head';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Flex } from '@/components/ui/Flex';
+import { Head } from '@/components/ui/Head';
+import { Stack } from '@/components/ui/Stack';
 import { getHomeDetailId, isHomeDetailURL, useRouter } from '@/router';
 import { memo } from 'react';
 import { Content } from './Content';

@@ -1,6 +1,6 @@
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Text } from '@/components/ui/atoms/Text';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { Text } from '@/components/ui/Text';
 import { transitions } from '@/styles';
 import { useCallback } from 'react';
 import { type Item, PADDING_X } from './GuideListItem';

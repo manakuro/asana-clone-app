@@ -1,6 +1,6 @@
-import { Box } from '@/components/ui/atoms/Box';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Textarea, type TextareaProps } from '@/components/ui/atoms/Textarea';
+import { Box } from '@/components/ui/Box';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Textarea, type TextareaProps } from '@/components/ui/Textarea';
 import type { ChakraProps } from '@/shared/chakra';
 import type React from 'react';
 import { memo, useMemo } from 'react';

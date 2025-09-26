@@ -1,7 +1,7 @@
 import {
   Button as AtomsButton,
   type ButtonProps,
-} from '@/components/ui/atoms/Button';
+} from '@/components/ui/Button';
 import { forwardRef } from 'react';
 
 type Props = ButtonProps;

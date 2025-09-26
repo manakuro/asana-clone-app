@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { transitions } from '@/styles';
 import { type PropsWithChildren, type Ref, memo, useMemo } from 'react';
 import { useTaskFeedListItemContext } from './Provider';

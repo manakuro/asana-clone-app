@@ -4,7 +4,7 @@ import { Menu } from '@/components/features/molecules/ThumbnailAttachment/Menu';
 import { MenuButton } from '@/components/features/molecules/ThumbnailAttachment/MenuButton';
 import { useThumbnailAttachmentContext } from '@/components/features/molecules/ThumbnailAttachment/Provider';
 import { Tooltip } from '@/components/features/molecules/ThumbnailAttachment/Tooltip';
-import type { FlexProps } from '@/components/ui/atoms/Flex';
+import type { FlexProps } from '@/components/ui/Flex';
 
 type Props = FlexProps & {
   taskFileId: string;

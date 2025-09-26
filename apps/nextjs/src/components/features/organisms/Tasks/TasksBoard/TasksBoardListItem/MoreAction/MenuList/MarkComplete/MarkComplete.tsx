@@ -1,5 +1,5 @@
+import { Icon } from '@/components/ui/Icon';
 import { MenuItem } from '@/components/ui/Menu';
-import { Icon } from '@/components/ui/atoms/Icon';
 import { useTask } from '@/store/entities/task';
 import { memo, useCallback } from 'react';
 import { useTasksBoardListItemContext } from '../../../Provider';

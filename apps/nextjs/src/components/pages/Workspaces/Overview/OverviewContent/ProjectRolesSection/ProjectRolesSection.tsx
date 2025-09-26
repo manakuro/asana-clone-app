@@ -1,5 +1,5 @@
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Grid } from '@/components/ui/atoms/Grid';
+import { Flex } from '@/components/ui/Flex';
+import { Grid } from '@/components/ui/Grid';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectTeammateIdsByProjectIdSortedByOwner } from '@/store/entities/projectTeammate';
 import { OverviewContentHeading } from '../OverviewContentHeading';

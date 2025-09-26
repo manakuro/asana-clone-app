@@ -1,6 +1,6 @@
+import { Flex } from '@/components/ui/Flex';
 import { ModalBody } from '@/components/ui/Modal';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';
-import { Flex } from '@/components/ui/atoms/Flex';
 import { memo, useCallback, useState } from 'react';
 import { type Index, MEMBERS_INDEX, SHARE_INDEX } from '../types';
 import { useShareProjectModal } from '../useShareProjectModal';

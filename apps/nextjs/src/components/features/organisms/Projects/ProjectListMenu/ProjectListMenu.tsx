@@ -1,3 +1,5 @@
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import {
   Menu,
   MenuButton,
@@ -5,9 +7,7 @@ import {
   MenuList,
   MenuOptionGroup,
 } from '@/components/ui/Menu';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
-import { Portal } from '@/components/ui/atoms/Portal';
+import { Portal } from '@/components/ui/Portal';
 import { memo, useCallback } from 'react';
 
 type Props = {

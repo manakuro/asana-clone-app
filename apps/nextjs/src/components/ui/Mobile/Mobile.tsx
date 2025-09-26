@@ -1,7 +1,7 @@
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Image } from '@/components/ui/atoms/Image';
-import { Logo } from '@/components/ui/atoms/Logo';
-import { Text } from '@/components/ui/atoms/Text';
+import { Flex } from '@/components/ui/Flex';
+import { Image } from '@/components/ui/Image';
+import { Logo } from '@/components/ui/Logo';
+import { Text } from '@/components/ui/Text';
 import { useResponsive } from '@/hooks';
 import { type PropsWithChildren, memo } from 'react';
 

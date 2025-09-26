@@ -1,6 +1,6 @@
+import { Icon } from '@/components/ui/Icon';
+import type { IconButtonProps } from '@/components/ui/IconButton';
 import type { TooltipProps } from '@/components/ui/Tooltip';
-import { Icon } from '@/components/ui/atoms/Icon';
-import type { IconButtonProps } from '@/components/ui/atoms/IconButton';
 import { useUnderline } from '@/shared/prosemirror/hooks';
 import { memo } from 'react';
 import { BaseButton } from '../BaseButton';

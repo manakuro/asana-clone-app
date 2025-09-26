@@ -1,6 +1,6 @@
 import { useTasksRouter } from '@/components/features/organisms/Tasks/hooks';
-import { Collapse } from '@/components/ui/atoms/Collapse';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Collapse } from '@/components/ui/Collapse';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useTask } from '@/store/entities/task';
 import { transitions } from '@/styles';
 import type React from 'react';

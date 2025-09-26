@@ -1,4 +1,4 @@
-import { Text, type TextProps } from '@/components/ui/atoms/Text';
+import { Text, type TextProps } from '@/components/ui/Text';
 import { formatFeedCreatedAt } from '@/shared/date';
 import { memo } from 'react';
 import { useTaskFeedListItemContext } from '../Provider';

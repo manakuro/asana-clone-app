@@ -1,7 +1,7 @@
+import { DueDate } from '@/components/ui/DueDate';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Stack } from '@/components/ui/Stack';
 import { TaskDoneTransition } from '@/components/ui/Transitions';
-import { DueDate } from '@/components/ui/atoms/DueDate';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Stack } from '@/components/ui/atoms/Stack';
 import { useHover } from '@/hooks/useHover';
 import { useRouter } from '@/router';
 import { useTask } from '@/store/entities/task';

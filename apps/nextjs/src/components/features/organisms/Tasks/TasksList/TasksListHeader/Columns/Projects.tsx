@@ -1,5 +1,5 @@
 import { useTasksTaskListStatus } from '@/components/features/organisms/Tasks/hooks';
-import { Icon } from '@/components/ui/atoms/Icon';
+import { Icon } from '@/components/ui/Icon';
 import { useTaskListSortStatus } from '@/store/entities/taskListSortStatus';
 import { memo, useCallback } from 'react';
 import { Container } from './Container';

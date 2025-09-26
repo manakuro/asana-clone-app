@@ -1,7 +1,7 @@
 import { ComingSoonTooltip } from '@/components/features/molecules/Tooltips';
-import { DashedBox } from '@/components/ui/atoms/DashedBox';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
+import { DashedBox } from '@/components/ui/DashedBox';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
 import { transitions } from '@/styles';
 import { Container } from './Container';
 

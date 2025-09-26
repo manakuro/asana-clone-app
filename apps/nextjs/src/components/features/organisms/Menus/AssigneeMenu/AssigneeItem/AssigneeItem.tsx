@@ -1,6 +1,6 @@
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import type { FlexProps } from '@/components/ui/atoms/Flex';
-import { Text } from '@/components/ui/atoms/Text';
+import type { FlexProps } from '@/components/ui/Flex';
+import { Text } from '@/components/ui/Text';
 import { useTeammate } from '@/store/entities/teammate';
 import { memo, useCallback } from 'react';
 import { LeftContainer, ListItem, RightContainer } from '../ListItem';

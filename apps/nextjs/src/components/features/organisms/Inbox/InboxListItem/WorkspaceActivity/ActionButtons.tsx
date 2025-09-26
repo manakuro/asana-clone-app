@@ -1,4 +1,4 @@
-import type { FlexProps } from '@/components/ui/atoms/Flex';
+import type { FlexProps } from '@/components/ui/Flex';
 import { memo } from 'react';
 import { useInboxContext } from '../../Inbox';
 import { Actions, ArchiveButton } from '../Actions';

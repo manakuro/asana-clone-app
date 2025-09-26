@@ -1,5 +1,5 @@
 import { PriorityChip } from '@/components/features/molecules/Chips';
-import type { FlexProps } from '@/components/ui/atoms/Flex';
+import type { FlexProps } from '@/components/ui/Flex';
 import { useTask } from '@/store/entities/task';
 import { memo } from 'react';
 

@@ -1,4 +1,4 @@
-import { Text, type TextProps } from '@/components/ui/atoms/Text';
+import { Text, type TextProps } from '@/components/ui/Text';
 import { useTask } from '@/store/entities/task';
 import { memo, useMemo } from 'react';
 

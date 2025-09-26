@@ -1,3 +1,5 @@
+import { Box } from '@/components/ui/Box';
+import { FileUploader, type FileUploaderParams } from '@/components/ui/Form';
 import {
   Menu,
   MenuButton,
@@ -5,11 +7,6 @@ import {
   MenuList,
   type MenuProps,
 } from '@/components/ui/Menu';
-import { Box } from '@/components/ui/atoms/Box';
-import {
-  FileUploader,
-  type FileUploaderParams,
-} from '@/components/ui/atoms/Form';
 import { useMenuStyle } from '@/hooks';
 import { chakra } from '@/shared/chakra';
 

@@ -1,6 +1,6 @@
-import { Checkbox } from '@/components/ui/atoms/Checkbox';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Text } from '@/components/ui/atoms/Text';
+import { Checkbox } from '@/components/ui/Checkbox';
+import { Flex } from '@/components/ui/Flex';
+import { Text } from '@/components/ui/Text';
 
 type Props = {
   isSetForEveryone: boolean;

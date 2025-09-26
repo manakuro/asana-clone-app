@@ -6,7 +6,7 @@ import {
 } from '@/components/features/organisms/Tasks';
 import { useTasksFilesDetail } from '@/components/features/organisms/Tasks/TasksFiles/useTasksFilesDetail';
 import { useMyTasksContext } from '@/components/pages/MyTasks/Provider';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { memo } from 'react';
 import { SkeletonFiles } from './SkeletonFiles';

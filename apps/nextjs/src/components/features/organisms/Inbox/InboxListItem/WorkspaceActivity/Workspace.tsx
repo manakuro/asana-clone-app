@@ -1,7 +1,7 @@
 import { useInboxListItemContext } from '@/components/features/organisms/Inbox/InboxListItem/Provider';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Text, type TextProps } from '@/components/ui/atoms/Text';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { Text, type TextProps } from '@/components/ui/Text';
 import { useWorkspace } from '@/store/entities/workspace';
 import { transitions } from '@/styles';
 import { memo, useMemo } from 'react';

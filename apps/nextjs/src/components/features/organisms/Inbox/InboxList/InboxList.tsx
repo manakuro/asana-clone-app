@@ -2,7 +2,7 @@ import {
   type UseInboxListItemIdsKeys,
   useInboxListItemIds,
 } from '@/components/features/organisms/Inbox';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { memo, useMemo } from 'react';
 import { InboxListSection } from '../InboxListSection';
 import { useInboxList } from './useInboxList';

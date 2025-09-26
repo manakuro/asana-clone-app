@@ -1,4 +1,4 @@
-import { Wrap } from '@/components/ui/atoms/Wrap';
+import { Wrap } from '@/components/ui/Wrap';
 import React, { type PropsWithChildren } from 'react';
 
 export function CarouselThumbnail(props: PropsWithChildren) {

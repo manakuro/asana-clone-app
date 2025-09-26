@@ -1,8 +1,8 @@
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Link, type LinkProps } from '@/components/ui/atoms/Link';
-import { ListItem, type ListItemProps } from '@/components/ui/atoms/List';
-import { NextLink } from '@/components/ui/atoms/NextLink';
-import { Text } from '@/components/ui/atoms/Text';
+import { Icon } from '@/components/ui/Icon';
+import { Link, type LinkProps } from '@/components/ui/Link';
+import { ListItem, type ListItemProps } from '@/components/ui/List';
+import { NextLink } from '@/components/ui/NextLink';
+import { Text } from '@/components/ui/Text';
 import { useLinkHoverStyle } from '@/hooks';
 import type { StaticRoutes } from '@/router';
 import { memo, useMemo } from 'react';

@@ -1,7 +1,7 @@
 'use client';
 
-import { Box } from '@/components/ui/atoms/Box';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Box } from '@/components/ui/Box';
+import { Flex } from '@/components/ui/Flex';
 import { memo } from 'react';
 import { CustomNav } from './CustomNav';
 import { Footer } from './Footer';

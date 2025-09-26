@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { forwardRef } from 'react';
 import { memo } from 'react';
 import { Provider } from './Provider';

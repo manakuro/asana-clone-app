@@ -1,5 +1,5 @@
 import { useTasksContext } from '@/components/features/organisms/Tasks';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { memo } from 'react';
 import { ProjectDueInfo } from './ProjectDueInfo';
 

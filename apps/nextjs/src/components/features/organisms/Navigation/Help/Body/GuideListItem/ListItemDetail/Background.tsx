@@ -1,7 +1,7 @@
+import { AspectRatio } from '@/components/ui/AspectRatio';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
 import { useVideoPlayer } from '@/components/ui/VideoPlayer';
-import { AspectRatio } from '@/components/ui/atoms/AspectRatio';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
 import { useCallback } from 'react';
 
 type Props = {

@@ -1,4 +1,4 @@
-import { Icon } from '@/components/ui/atoms/Icon';
+import { Icon } from '@/components/ui/Icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTaskCommand } from '@/store/entities/task';
 import type React from 'react';

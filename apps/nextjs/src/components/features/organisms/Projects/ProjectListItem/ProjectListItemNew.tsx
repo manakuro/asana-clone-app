@@ -1,7 +1,7 @@
 import { ComingSoonTooltip } from '@/components/features/molecules/Tooltips';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { NewBox } from '@/components/ui/NewBox';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Text } from '@/components/ui/atoms/Text';
+import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { Container } from './Container';
 

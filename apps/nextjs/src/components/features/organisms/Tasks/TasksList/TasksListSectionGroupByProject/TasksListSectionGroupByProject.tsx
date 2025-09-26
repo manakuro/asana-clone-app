@@ -1,6 +1,6 @@
 import { TasksListItem } from '@/components/features/organisms/Tasks/TasksList/TasksListItem';
 import { TasksListSectionProvider } from '@/components/features/organisms/Tasks/TasksList/TasksListSection';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { useMyTasksTaskIdsByProjectId } from '@/store/app/myTasks/tasks';
 import { memo, useCallback, useState } from 'react';
 import { Header } from './Header';

@@ -1,5 +1,5 @@
 import { useInboxContext } from '@/components/features/organisms/Inbox';
-import type { FlexProps } from '@/components/ui/atoms/Flex';
+import type { FlexProps } from '@/components/ui/Flex';
 import { memo } from 'react';
 import { Actions, ArchiveButton, MoveToInboxButton } from '../Actions';
 import { useInboxListItemContext } from '../Provider';

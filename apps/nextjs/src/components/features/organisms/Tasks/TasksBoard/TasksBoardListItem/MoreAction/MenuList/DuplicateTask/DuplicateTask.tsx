@@ -1,6 +1,6 @@
 import { useDuplicateTaskModal } from '@/components/features/organisms/Modals';
+import { Icon } from '@/components/ui/Icon';
 import { MenuItem } from '@/components/ui/Menu';
-import { Icon } from '@/components/ui/atoms/Icon';
 import { memo, useCallback } from 'react';
 
 type Props = {

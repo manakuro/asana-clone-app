@@ -4,8 +4,8 @@ import {
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
 } from '@/components/features/organisms/Popovers';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Link as AtomsLink } from '@/components/ui/atoms/Link';
+import { Icon } from '@/components/ui/Icon';
+import { Link as AtomsLink } from '@/components/ui/Link';
 import type React from 'react';
 import { useReactNodeView } from '../ReactNodeView';
 

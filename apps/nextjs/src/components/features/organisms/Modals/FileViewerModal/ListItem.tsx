@@ -1,8 +1,8 @@
+import { Box } from '@/components/ui/Box';
+import { Flex } from '@/components/ui/Flex';
+import { Image } from '@/components/ui/Image';
 import { PdfViewer } from '@/components/ui/PdfViewer';
-import { Box } from '@/components/ui/atoms/Box';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Image } from '@/components/ui/atoms/Image';
-import { Text } from '@/components/ui/atoms/Text';
+import { Text } from '@/components/ui/Text';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { useTaskFile } from '@/store/entities/taskFile';
 

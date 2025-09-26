@@ -1,7 +1,7 @@
 import { AttachmentMenu } from '@/components/features/organisms/Menus';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { MenuButton } from '@/components/ui/Menu';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
 import { memo } from 'react';
 import { useInputContext } from '../Provider';
 

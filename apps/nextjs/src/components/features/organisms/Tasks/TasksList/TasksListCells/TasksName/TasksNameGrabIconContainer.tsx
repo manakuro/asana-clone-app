@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import type React from 'react';
 import { memo, useMemo } from 'react';
 import { useTasksNameContext } from './TasksNameProvider';

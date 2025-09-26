@@ -1,6 +1,6 @@
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon as AtomsIcon } from '@/components/ui/atoms/Icon';
-import { Text } from '@/components/ui/atoms/Text';
+import { Flex } from '@/components/ui/Flex';
+import { Icon as AtomsIcon } from '@/components/ui/Icon';
+import { Text } from '@/components/ui/Text';
 import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/taskFeed';
 import { useMemo } from 'react';
 

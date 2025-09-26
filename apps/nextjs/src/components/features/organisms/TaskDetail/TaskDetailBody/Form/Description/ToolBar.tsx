@@ -1,3 +1,4 @@
+import { Divider } from '@/components/ui/Divider';
 import {
   AtMention,
   Bold,
@@ -11,8 +12,7 @@ import {
   Strikethrough,
   Underline,
 } from '@/components/ui/Editor/ToolBar';
-import { Divider } from '@/components/ui/atoms/Divider';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Stack } from '@/components/ui/Stack';
 import { memo } from 'react';
 import { useDescriptionContext } from './Provider';
 

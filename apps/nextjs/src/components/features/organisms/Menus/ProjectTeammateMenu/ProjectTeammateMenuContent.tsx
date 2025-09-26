@@ -1,10 +1,10 @@
 import { useSearchMenuRef } from '@/components/features/organisms/Menus/SearchMenu';
+import { Flex } from '@/components/ui/Flex';
 import {
   PopoverContent,
   type PopoverContentProps,
 } from '@/components/ui/Popover';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Portal } from '@/components/ui/atoms/Portal';
+import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
 import { memo } from 'react';
 

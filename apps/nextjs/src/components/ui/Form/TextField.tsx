@@ -1,6 +1,6 @@
-import { FormControl } from '@/components/ui/atoms/Form/FormControl';
-import { FormErrorMessage } from '@/components/ui/atoms/Form/FormErrorMessage';
-import { Input } from '@/components/ui/atoms/Input';
+import { FormControl } from '@/components/ui/Form/FormControl';
+import { FormErrorMessage } from '@/components/ui/Form/FormErrorMessage';
+import { Input } from '@/components/ui/Input';
 import { type FieldInputProps, useField } from 'formik';
 import { memo } from 'react';
 

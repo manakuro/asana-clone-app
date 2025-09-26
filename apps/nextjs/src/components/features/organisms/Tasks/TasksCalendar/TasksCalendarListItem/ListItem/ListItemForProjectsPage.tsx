@@ -1,6 +1,6 @@
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import type { FlexProps } from '@/components/ui/atoms/Flex';
-import { Stack } from '@/components/ui/atoms/Stack';
+import type { FlexProps } from '@/components/ui/Flex';
+import { Stack } from '@/components/ui/Stack';
 import { useHover } from '@/hooks/useHover';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectIdsByTaskId } from '@/store/entities/projectTask';

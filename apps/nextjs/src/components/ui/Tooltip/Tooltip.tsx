@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import {
   Tooltip as ChakraTooltip,
   type TooltipProps as ChakraTooltipProps,

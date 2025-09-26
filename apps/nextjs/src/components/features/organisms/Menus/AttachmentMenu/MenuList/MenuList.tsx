@@ -1,13 +1,13 @@
 import {
+  FileUploader,
+  type FileUploaderParams,
+} from '@/components/ui/Form/FileUploader';
+import {
   MenuGroup,
   MenuItem,
   MenuList as OrganismsMenuList,
 } from '@/components/ui/Menu';
-import {
-  FileUploader,
-  type FileUploaderParams,
-} from '@/components/ui/atoms/Form/FileUploader';
-import { Portal } from '@/components/ui/atoms/Portal';
+import { Portal } from '@/components/ui/Portal';
 import { useClickOutside, useMenuStyle } from '@/hooks';
 import { memo } from 'react';
 

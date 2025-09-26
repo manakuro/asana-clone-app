@@ -1,7 +1,7 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
 import { SUBTASK_LIST_CONTAINER_ID } from '@/components/features/organisms/TaskDetail/TaskDetailBody/Form/Subtasks';
 import { useTasksRouter } from '@/components/features/organisms/Tasks/hooks';
-import { IconButton } from '@/components/ui/atoms/IconButton';
+import { IconButton } from '@/components/ui/IconButton';
 import { useSubtaskIds } from '@/store/entities/task';
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';

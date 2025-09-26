@@ -1,7 +1,7 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Link } from '@/components/ui/atoms/Link';
-import { Text } from '@/components/ui/atoms/Text';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { Link } from '@/components/ui/Link';
+import { Text } from '@/components/ui/Text';
 import type { IconType } from '@/shared/icons';
 import { transitions } from '@/styles';
 import { type Sizes, sizes } from './sizes';

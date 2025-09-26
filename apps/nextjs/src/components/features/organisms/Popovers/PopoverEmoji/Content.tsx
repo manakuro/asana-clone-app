@@ -1,6 +1,6 @@
+import { Box } from '@/components/ui/Box';
 import { PopoverContent } from '@/components/ui/Popover';
-import { Box } from '@/components/ui/atoms/Box';
-import { Portal } from '@/components/ui/atoms/Portal';
+import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
 import { type BaseEmoji, EmojiPicker } from '@/shared/emoji';
 import { memo, useCallback } from 'react';

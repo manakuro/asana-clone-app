@@ -1,9 +1,9 @@
 import { PopoverSetColorAndIcon } from '@/components/features/organisms/Popovers';
+import { ColorBox } from '@/components/ui/ColorBox';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
 import { MenuItem } from '@/components/ui/Menu';
-import { ColorBox } from '@/components/ui/atoms/ColorBox';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Text } from '@/components/ui/atoms/Text';
+import { Text } from '@/components/ui/Text';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { memo } from 'react';

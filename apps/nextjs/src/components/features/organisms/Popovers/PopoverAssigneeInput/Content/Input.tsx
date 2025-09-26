@@ -1,10 +1,10 @@
 import { AssigneeMenu } from '@/components/features/organisms/Menus';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { Input as AtomsInput } from '@/components/ui/Input';
+import { InputGroup } from '@/components/ui/Input';
+import { InputRightElement } from '@/components/ui/Input';
 import type { PopoverProps } from '@/components/ui/Popover';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Input as AtomsInput } from '@/components/ui/atoms/Input';
-import { InputGroup } from '@/components/ui/atoms/Input';
-import { InputRightElement } from '@/components/ui/atoms/Input';
 import { useClickableHoverStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useTask, useTaskCommand } from '@/store/entities/task';

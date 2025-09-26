@@ -2,11 +2,11 @@ import {
   type Item,
   PADDING_X,
 } from '@/components/features/organisms/Navigation/Help/Body/GuideListItem';
-import { Box } from '@/components/ui/atoms/Box';
-import { Button } from '@/components/ui/atoms/Button';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { MoreLink } from '@/components/ui/atoms/MoreLink';
-import { Text } from '@/components/ui/atoms/Text';
+import { Box } from '@/components/ui/Box';
+import { Button } from '@/components/ui/Button';
+import { Flex } from '@/components/ui/Flex';
+import { MoreLink } from '@/components/ui/MoreLink';
+import { Text } from '@/components/ui/Text';
 import { useDisclosure } from '@chakra-ui/react';
 import type React from 'react';
 import { useCallback } from 'react';

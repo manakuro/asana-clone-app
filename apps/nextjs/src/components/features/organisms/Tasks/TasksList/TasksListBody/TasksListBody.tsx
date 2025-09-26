@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { type PropsWithChildren, memo } from 'react';
 import { useTasksListBody } from './useTasksListBody';
 

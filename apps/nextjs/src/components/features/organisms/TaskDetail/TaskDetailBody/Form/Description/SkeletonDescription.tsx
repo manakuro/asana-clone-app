@@ -1,6 +1,6 @@
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Skeleton } from '@/components/ui/atoms/Skeleton';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Flex } from '@/components/ui/Flex';
+import { Skeleton } from '@/components/ui/Skeleton';
+import { Stack } from '@/components/ui/Stack';
 import { memo } from 'react';
 
 export const SkeletonDescription = memo(function SkeletonDescription() {

@@ -1,4 +1,4 @@
-import type { FlexProps } from '@/components/ui/atoms/Flex';
+import type { FlexProps } from '@/components/ui/Flex';
 import { createProvider } from '@/shared/react/createProvider';
 import { useCallback, useMemo, useState } from 'react';
 

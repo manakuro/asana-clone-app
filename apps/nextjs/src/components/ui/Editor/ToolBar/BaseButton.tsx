@@ -2,11 +2,8 @@ import {
   useEditorStateContext,
   useEditorViewContext,
 } from '@/components/ui/Editor/Editors';
+import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
 import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
-import {
-  IconButton,
-  type IconButtonProps,
-} from '@/components/ui/atoms/IconButton';
 import type { ToolbarItem } from '@/shared/prosemirror/hooks';
 import type React from 'react';
 import { useCallback } from 'react';

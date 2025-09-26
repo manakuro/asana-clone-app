@@ -3,7 +3,7 @@ import {
   TaskDetailFooter,
   TaskDetailHeader,
 } from '@/components/features/organisms/TaskDetail';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { memo } from 'react';
 
 const HEADER_HEIGHT = 72;

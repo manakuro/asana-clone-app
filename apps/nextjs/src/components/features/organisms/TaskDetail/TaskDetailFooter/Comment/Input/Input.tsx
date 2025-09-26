@@ -1,5 +1,5 @@
 import { Editor, EditorContent } from '@/components/ui/Editor';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { getDefaultDescription } from '@/shared/prosemirror/getDefaultDescription';
 import { memo, useEffect, useState } from 'react';
 import { Attachments } from './Attachments';

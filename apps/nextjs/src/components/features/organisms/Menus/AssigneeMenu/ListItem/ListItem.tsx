@@ -1,5 +1,5 @@
 import { useAssigneeMenu } from '@/components/features/organisms/Menus/AssigneeMenu/useAssigneeMenu';
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import { memo, useEffect, useMemo } from 'react';

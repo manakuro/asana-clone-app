@@ -1,6 +1,9 @@
 import { useInviteModal } from '@/components/features/organisms/Modals/InviteModal/useInviteModal';
 import { useNavigation } from '@/components/features/organisms/Navigation';
 import { PADDING_X } from '@/components/features/organisms/Navigation/Navigation';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { Link } from '@/components/ui/Link';
 import {
   MenuItem as AtomsMenuItem,
   Menu,
@@ -10,12 +13,9 @@ import {
   type MenuItemProps,
   MenuList,
 } from '@/components/ui/Menu';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { Link } from '@/components/ui/atoms/Link';
-import { NextLink } from '@/components/ui/atoms/NextLink';
-import { Portal } from '@/components/ui/atoms/Portal';
-import { Text } from '@/components/ui/atoms/Text';
+import { NextLink } from '@/components/ui/NextLink';
+import { Portal } from '@/components/ui/Portal';
+import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle, useLinkHoverStyle } from '@/hooks';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';

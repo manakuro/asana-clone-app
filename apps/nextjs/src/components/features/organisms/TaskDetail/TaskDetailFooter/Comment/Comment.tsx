@@ -1,5 +1,5 @@
 import { MyAvatar } from '@/components/features/organisms/MyAvatar';
-import { Flex } from '@/components/ui/atoms/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { memo } from 'react';
 import { Input } from './Input';
 

@@ -1,4 +1,4 @@
-import { Wrap } from '@/components/ui/atoms/Wrap';
+import { Wrap } from '@/components/ui/Wrap';
 import { useProjectCommand } from '@/store/entities/project';
 import { useProjectIconIds } from '@/store/entities/projectIcon';
 import { useCallback } from 'react';

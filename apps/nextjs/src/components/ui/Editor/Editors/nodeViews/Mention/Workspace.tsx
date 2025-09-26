@@ -4,7 +4,7 @@ import {
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
 } from '@/components/features/organisms/Popovers';
-import { Icon } from '@/components/ui/atoms/Icon';
+import { Icon } from '@/components/ui/Icon';
 import { useWorkspace } from '@/store/entities/workspace';
 import { memo } from 'react';
 

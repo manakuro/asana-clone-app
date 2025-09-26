@@ -2,10 +2,10 @@ import { TasksListSectionGroupByProject } from '@/components/features/organisms/
 import { useTasksListContext } from '@/components/features/organisms/Tasks/TasksList/Provider';
 import { TasksListItem } from '@/components/features/organisms/Tasks/TasksList/TasksListItem';
 import { TasksListSectionProvider } from '@/components/features/organisms/Tasks/TasksList/TasksListSection';
-import { Box } from '@/components/ui/atoms/Box';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Box } from '@/components/ui/Box';
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { useMyTasksProjectIds } from '@/store/app/myTasks/projects';
 import { useMyTasksTaskIdsWithNoProject } from '@/store/app/myTasks/tasks';
 import type React from 'react';

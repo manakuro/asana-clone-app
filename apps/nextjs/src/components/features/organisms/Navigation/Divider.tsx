@@ -1,4 +1,4 @@
-import { Divider as AtomsDivider } from '@/components/ui/atoms/Divider';
+import { Divider as AtomsDivider } from '@/components/ui/Divider';
 import type React from 'react';
 
 export const Divider: React.FC = () => {

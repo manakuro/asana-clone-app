@@ -1,6 +1,6 @@
 import { useTasksListSectionContext } from '@/components/features/organisms/Tasks';
 import { useTasksTaskSection } from '@/components/features/organisms/Tasks/hooks';
-import { Box } from '@/components/ui/atoms/Box';
+import { Box } from '@/components/ui/Box';
 import { memo, useCallback, useMemo } from 'react';
 import { Input } from './Input';
 

@@ -1,6 +1,6 @@
+import { Icon } from '@/components/ui/Icon';
 import { Menu, MenuButton } from '@/components/ui/Menu';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { PortalManager } from '@/components/ui/atoms/PortalManager';
+import { PortalManager } from '@/components/ui/PortalManager';
 import { useClickableHoverStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import type React from 'react';

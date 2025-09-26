@@ -15,8 +15,8 @@ import {
   PopoverContent,
   type PopoverProps,
 } from '@/components/ui/Popover';
-import { Portal } from '@/components/ui/atoms/Portal';
-import { Stack } from '@/components/ui/atoms/Stack';
+import { Portal } from '@/components/ui/Portal';
+import { Stack } from '@/components/ui/Stack';
 import { useClickOutside } from '@/hooks';
 
 type Props = {

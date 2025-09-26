@@ -1,8 +1,8 @@
+import { Flex } from '@/components/ui/Flex';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { Menu, MenuButton } from '@/components/ui/Menu';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
-import { PortalManager } from '@/components/ui/atoms/PortalManager';
+import { PortalManager } from '@/components/ui/PortalManager';
 import { useDisclosure } from '@/shared/chakra';
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';

@@ -1,10 +1,10 @@
+import { Flex } from '@/components/ui/Flex';
+import { Heading } from '@/components/ui/Heading';
+import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
+import { Portal } from '@/components/ui/Portal';
 import { Tab, TabList } from '@/components/ui/Tabs';
-import { Flex } from '@/components/ui/atoms/Flex';
-import { Heading } from '@/components/ui/atoms/Heading';
-import { Icon } from '@/components/ui/atoms/Icon';
-import { IconButton } from '@/components/ui/atoms/IconButton';
-import { Portal } from '@/components/ui/atoms/Portal';
 import { memo } from 'react';
 
 export const Tabs = memo(function Tabs() {

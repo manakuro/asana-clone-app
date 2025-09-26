@@ -1,5 +1,5 @@
-import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
-import { Text } from '@/components/ui/atoms/Text';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Text } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
 import { transitions } from '@/styles';
 import { type ReactElement, useCallback, useState } from 'react';

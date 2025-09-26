@@ -1,5 +1,5 @@
 import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/atoms/Portal';
+import { Portal } from '@/components/ui/Portal';
 
 export function MenuList() {
   return (

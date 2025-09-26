@@ -1,6 +1,6 @@
 import { useTasksTask } from '@/components/features/organisms/Tasks/hooks';
-import { Button, type ButtonProps } from '@/components/ui/atoms/Button';
-import { Icon } from '@/components/ui/atoms/Icon';
+import { Button, type ButtonProps } from '@/components/ui/Button';
+import { Icon } from '@/components/ui/Icon';
 import { memo, useCallback } from 'react';
 
 type Props = {

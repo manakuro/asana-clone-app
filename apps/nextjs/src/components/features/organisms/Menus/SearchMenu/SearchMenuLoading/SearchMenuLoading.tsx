@@ -1,4 +1,4 @@
-import { Spinner } from '@/components/ui/atoms/Spinner';
+import { Spinner } from '@/components/ui/Spinner';
 import { memo } from 'react';
 import { SearchMenuListItem } from '../SearchMenuListItem';
 
