@@ -22,16 +22,16 @@ Configure your Firebase project by following the setup documentation:
 Install Go version 1.22.1:
 
 ```
-go install golang.org/dl/go1.22.1@latest
-go1.22.1 download
+go install golang.org/dl/go1.25.1@latest
+go1.25.1 download
 ```
 
 Verify the installation:
 
 ```
-go1.22.1 version
+go1.25.1 version
 
-go version go1.22.1 darwin/arm64
+go version go1.25.1 darwin/arm64
 ```
 
 ## Docker Setup

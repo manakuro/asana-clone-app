@@ -18,10 +18,10 @@ setup_db:
 
 # Migrate scheme to database.
 migrate_schema:
-	go1.22.1 run ./cmd/migration/main.go
+	go1.25.1 run ./cmd/migration/main.go
 
 migrate_schema_staging:
-	APP_ENV=staging go1.22.1 run ./cmd/migration/main.go
+	APP_ENV=staging go1.25.1 run ./cmd/migration/main.go
 
 # Connect database through proxy.
 connect_db_staging:
@@ -29,19 +29,19 @@ connect_db_staging:
 
 # Seed data
 seed:
-	go1.22.1 run ./cmd/seed/main.go
+	go1.25.1 run ./cmd/seed/main.go
 
 seed_staging:
-	APP_ENV=staging go1.22.1 run ./cmd/seed/main.go
+	APP_ENV=staging go1.25.1 run ./cmd/seed/main.go
 
 seed_production:
-	APP_ENV=production go1.22.1 run ./cmd/seed/main.go
+	APP_ENV=production go1.25.1 run ./cmd/seed/main.go
 
 ent_generate:
-	go1.22.1 generate ./ent --feature sql/upsert --idtype string
+	go1.25.1 generate ./ent --feature sql/upsert --idtype string
 
 generate:
-	go1.22.1 generate ./...
+	go1.25.1 generate ./...
 
 schema_description:
 	ent describe ./ent/schema
@@ -51,14 +51,14 @@ setup_test_db:
 	./bin/init_db_test.sh
 
 test_repository:
-	go1.22.1 test ./pkg/adapter/repository/...
+	go1.25.1 test ./pkg/adapter/repository/...
 
 # E2E
 setup_e2e_db:
 	./bin/init_db_e2e.sh
 
 e2e:
-	go1.22.1 test ./test/e2e/...
+	go1.25.1 test ./test/e2e/...
 
 # Deployment
 export image := `aws lightsail get-container-images --service-name project-management-demo | jq -r '.containerImages[0].image'`

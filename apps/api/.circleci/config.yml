@@ -43,11 +43,11 @@ commands:
           command: |
             echo << parameters.config >> | base64 --decode > ./config/config.${APP_ENV}.yml
             cat ./config/config.${APP_ENV}.yml
-            
-            go get golang.org/dl/go1.22.1
-            go1.22.1 download
-            go1.22.1 version 
-            
+
+            go get golang.org/dl/go1.25.1
+            go1.25.1 download
+            go1.25.1 version
+
             make migrate_schema
             sleep 5
             make seed
@@ -80,13 +80,13 @@ commands:
           name: Deploy app
           command: |
             echo << parameters.config >> | base64 -d > ./config/config.${APP_ENV}.yml
-            
+
             mkdir ./.keys
             echo << parameters.firebase_service_key >> > ./.keys/firebase-service-key.json
             cat ./.keys/firebase-service-key.json
-            
+
             echo "<< parameters.deploy_version >>"
-            
+
             envsubst < ./app.yaml.tpl > ./app.yaml
 
             GO111MODULE=on gcloud -q app deploy --version << parameters.deploy_version >> << parameters.deploy_options >>

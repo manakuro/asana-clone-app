@@ -3,7 +3,7 @@ tmp_dir = "tmp"
 
 [build]
   bin = "./tmp/main"
-  cmd = "go1.22.1 build -o ./tmp/main ./cmd/app/main.go"
+  cmd = "go1.25.1 build -o ./tmp/main ./cmd/app/main.go"
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor", "docker", "bin", "test", "testutil", "cmd/seed"]
   exclude_file = []
