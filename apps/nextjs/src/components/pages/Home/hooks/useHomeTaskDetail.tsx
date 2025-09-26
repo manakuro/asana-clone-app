@@ -1,5 +1,5 @@
-import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
-import { useTaskDetailModal } from '@/components/features/organisms/TaskDetails';
+import { useTaskDetail } from '@/components/features/TaskDetail';
+import { useTaskDetailModal } from '@/components/features/TaskDetails';
 import type { Params } from '@/shared/nextjs/navigation';
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';

@@ -1,5 +1,5 @@
-import { useInviteModal } from '@/components/features/organisms/Modals';
-import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
+import { useInviteModal } from '@/components/features/Modals';
+import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';

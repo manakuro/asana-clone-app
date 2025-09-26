@@ -1,4 +1,4 @@
-import { useEditorLinkModal } from '@/components/features/organisms/Modals';
+import { useEditorLinkModal } from '@/components/features/Modals';
 import { isMarkActive } from '@/shared/prosemirror/commands';
 import { schema } from '@/shared/prosemirror/config';
 import { type Command, toggleMark } from 'prosemirror-commands';

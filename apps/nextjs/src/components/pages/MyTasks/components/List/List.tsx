@@ -1,4 +1,4 @@
-import { TaskDetailDrawer } from '@/components/features/organisms/TaskDetails';
+import { TaskDetailDrawer } from '@/components/features/TaskDetails';
 import {
   AddTaskButton,
   CustomizeButton,
@@ -15,7 +15,7 @@ import {
   TasksListHorizontalScrollBorder,
   TasksListLayout,
   useTasksListDetail,
-} from '@/components/features/organisms/Tasks';
+} from '@/components/features/Tasks';
 import { useMyTasksContext } from '@/components/pages/MyTasks/providers/Provider';
 import { Flex } from '@/components/ui/Flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';

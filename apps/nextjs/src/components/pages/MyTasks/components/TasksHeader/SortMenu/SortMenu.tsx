@@ -1,4 +1,4 @@
-import { SortMenu as TasksHeaderSortMenu } from '@/components/features/organisms/Tasks/TasksHeader';
+import { SortMenu as TasksHeaderSortMenu } from '@/components/features/Tasks/TasksHeader';
 import { useMyTasksContext } from '@/components/pages/MyTasks/providers/Provider';
 import {
   type TaskListSortStatusCodeValue,

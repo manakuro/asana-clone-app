@@ -1,4 +1,4 @@
-import { PopoverEmoji } from '@/components/features/organisms/Popovers';
+import { PopoverEmoji } from '@/components/features/Popovers';
 import { Icon } from '@/components/ui/Icon';
 import { useEmoji } from '@/shared/prosemirror/hooks';
 import { memo } from 'react';

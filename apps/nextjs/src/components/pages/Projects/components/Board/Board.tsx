@@ -1,4 +1,4 @@
-import { TaskDetailDrawer } from '@/components/features/organisms/TaskDetails';
+import { TaskDetailDrawer } from '@/components/features/TaskDetails';
 import {
   CustomizeButton,
   CustomizeMenu,
@@ -9,7 +9,7 @@ import {
   TasksHeader,
   TasksHeaderRight,
   useTasksBoardDetail,
-} from '@/components/features/organisms/Tasks';
+} from '@/components/features/Tasks';
 import { useProjectsPageContext } from '@/components/pages/Projects/providers/Provider';
 import { Flex } from '@/components/ui/Flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';

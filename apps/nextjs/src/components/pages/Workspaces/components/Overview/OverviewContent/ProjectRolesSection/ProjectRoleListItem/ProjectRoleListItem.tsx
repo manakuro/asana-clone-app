@@ -1,4 +1,4 @@
-import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
+import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';

@@ -1,5 +1,5 @@
-import { TaskDetailModal } from '@/components/features/organisms/TaskDetails';
-import { TasksProvider } from '@/components/features/organisms/Tasks';
+import { TaskDetailModal } from '@/components/features/TaskDetails';
+import { TasksProvider } from '@/components/features/Tasks';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
 import { Stack } from '@/components/ui/Stack';

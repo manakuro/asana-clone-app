@@ -1,4 +1,4 @@
-import { PopoverProfile } from '@/components/features/organisms/Popovers';
+import { PopoverProfile } from '@/components/features/Popovers';
 import { Avatar } from '@/components/ui/Avatar';
 import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Navigation } from '@/components/features/organisms/Navigation';
+import { Navigation } from '@/components/features/Navigation';
 import { Flex } from '@/components/ui/Flex';
 import type React from 'react';
 import { memo } from 'react';

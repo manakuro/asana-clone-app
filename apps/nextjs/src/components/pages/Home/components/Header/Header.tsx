@@ -1,4 +1,4 @@
-import { MainHeader } from '@/components/features/organisms/MainHeader';
+import { MainHeader } from '@/components/features/MainHeader';
 import { Heading } from '@/components/ui/Heading';
 import { memo } from 'react';
 import { useTasksListContentVerticalScroll } from '../Content';

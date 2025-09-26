@@ -1,6 +1,6 @@
 'use client';
 
-import { MainHeader } from '@/components/features/organisms/MainHeader';
+import { MainHeader } from '@/components/features/MainHeader';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
 import { TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';

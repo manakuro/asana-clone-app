@@ -6,10 +6,10 @@ import {
   InboxListContent,
   InboxRight,
   InboxSkeleton,
-} from '@/components/features/organisms/Inbox';
-import { useInboxTaskDetail } from '@/components/features/organisms/Inbox';
-import { TaskDetailSide } from '@/components/features/organisms/TaskDetails';
-import { TasksProvider } from '@/components/features/organisms/Tasks';
+} from '@/components/features/Inbox';
+import { useInboxTaskDetail } from '@/components/features/Inbox';
+import { TaskDetailSide } from '@/components/features/TaskDetails';
+import { TasksProvider } from '@/components/features/Tasks';
 import { Flex } from '@/components/ui/Flex';
 import { useInboxArchivePageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';

@@ -1,4 +1,4 @@
-import { MyAvatar } from '@/components/features/organisms/MyAvatar';
+import { MyAvatar } from '@/components/features/MyAvatar';
 import { Flex } from '@/components/ui/Flex';
 import { memo } from 'react';
 

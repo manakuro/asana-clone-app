@@ -6,7 +6,7 @@ import {
   type ProjectListStatus,
   ProjectTileItem,
   ProjectTileItemNew,
-} from '@/components/features/organisms/Projects';
+} from '@/components/features/Projects';
 import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
 import { Grid } from '@/components/ui/Grid';

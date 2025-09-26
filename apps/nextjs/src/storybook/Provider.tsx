@@ -1,4 +1,4 @@
-import { Modals } from '@/components/features/organisms/Modals';
+import { Modals } from '@/components/features/Modals';
 import {
   useFavoriteProjectIdsQuery,
   useFavoriteWorkspaceIdsQuery,

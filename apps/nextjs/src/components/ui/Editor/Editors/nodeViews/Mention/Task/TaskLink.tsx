@@ -3,7 +3,7 @@ import {
   PopoverEditorLinkContent,
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
-} from '@/components/features/organisms/Popovers';
+} from '@/components/features/Popovers';
 import { CheckIcon } from '@/components/ui/CheckIcon';
 import { useProjectTask } from '@/store/entities/projectTask';
 import { useTask } from '@/store/entities/task';

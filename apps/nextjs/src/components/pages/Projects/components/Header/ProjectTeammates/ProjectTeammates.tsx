@@ -1,5 +1,5 @@
-import { useShareProjectModal } from '@/components/features/organisms/Modals/ShareProjectModal';
-import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
+import { useShareProjectModal } from '@/components/features/Modals/ShareProjectModal';
+import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { AvatarGroup } from '@/components/ui/Avatar';
 import { Flex } from '@/components/ui/Flex';
 import { Tooltip } from '@/components/ui/Tooltip';

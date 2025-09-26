@@ -3,7 +3,7 @@ import {
   PopoverEditorLinkContent,
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
-} from '@/components/features/organisms/Popovers';
+} from '@/components/features/Popovers';
 import { Icon } from '@/components/ui/Icon';
 import { useWorkspace } from '@/store/entities/workspace';
 import { memo } from 'react';

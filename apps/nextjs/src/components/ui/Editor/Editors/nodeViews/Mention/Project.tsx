@@ -3,7 +3,7 @@ import {
   PopoverEditorLinkContent,
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
-} from '@/components/features/organisms/Popovers';
+} from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { useReactNodeView } from '@/components/ui/Editor/Editors/ReactNodeView';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';

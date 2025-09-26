@@ -1,4 +1,4 @@
-import { TasksContainer } from '@/components/features/organisms/Tasks';
+import { TasksContainer } from '@/components/features/Tasks';
 import { useProjectsPageContext } from '@/components/pages/Projects/providers/Provider';
 import { Flex } from '@/components/ui/Flex';
 import { memo } from 'react';

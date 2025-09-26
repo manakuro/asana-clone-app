@@ -1,5 +1,5 @@
-import { TasksListRow } from '@/components/features/organisms/Tasks';
-import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
+import { TasksListRow } from '@/components/features/Tasks';
+import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
 import { Flex } from '@/components/ui/Flex';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { memo } from 'react';

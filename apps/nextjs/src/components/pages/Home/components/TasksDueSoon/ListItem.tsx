@@ -1,5 +1,5 @@
 import { ProjectChip } from '@/components/features/Chips';
-import { PopoverDueDatePicker } from '@/components/features/organisms/Popovers';
+import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { CheckIcon } from '@/components/ui/CheckIcon';
 import { DueDate } from '@/components/ui/DueDate';
 import { Flex } from '@/components/ui/Flex';

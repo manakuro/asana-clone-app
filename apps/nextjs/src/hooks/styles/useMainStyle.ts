@@ -1,4 +1,4 @@
-import { useNavigation } from '@/components/features/organisms/Navigation';
+import { useNavigation } from '@/components/features/Navigation';
 import { useEffect, useState } from 'react';
 
 export const useMainStyle = () => {

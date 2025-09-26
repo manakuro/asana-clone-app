@@ -3,7 +3,7 @@ import {
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
-} from '@/components/features/organisms/Tasks';
+} from '@/components/features/Tasks';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Stack } from '@/components/ui/Stack';

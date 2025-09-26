@@ -1,4 +1,4 @@
-import { PopoverSetColorAndIcon } from '@/components/features/organisms/Popovers';
+import { PopoverSetColorAndIcon } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';

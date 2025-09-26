@@ -1,11 +1,11 @@
 import {
   isEmojiOpen,
   onEmojiClose,
-} from '@/components/features/organisms/Menus/EditorEmojiMenu';
+} from '@/components/features/Menus/EditorEmojiMenu';
 import {
   isMentionOpen,
   onMentionClose,
-} from '@/components/features/organisms/Menus/EditorMentionMenu';
+} from '@/components/features/Menus/EditorMentionMenu';
 
 export const Escape = () => {
   if (isEmojiOpen) onEmojiClose();

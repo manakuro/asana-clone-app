@@ -1,4 +1,4 @@
-import { PopoverDueDatePicker } from '@/components/features/organisms/Popovers';
+import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { Input as AtomsInput } from '@/components/ui/Input';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';

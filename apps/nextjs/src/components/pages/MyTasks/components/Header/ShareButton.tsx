@@ -1,4 +1,4 @@
-import { useShareWorkspaceModal } from '@/components/features/organisms/Modals/ShareWorkspaceModal';
+import { useShareWorkspaceModal } from '@/components/features/Modals/ShareWorkspaceModal';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';

@@ -1,4 +1,4 @@
-import { useInviteModal } from '@/components/features/organisms/Modals';
+import { useInviteModal } from '@/components/features/Modals';
 import { Button } from '@/components/ui/Button';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';

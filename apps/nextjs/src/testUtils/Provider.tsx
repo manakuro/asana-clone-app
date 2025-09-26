@@ -1,4 +1,4 @@
-import { Modals } from '@/components/features/organisms/Modals';
+import { Modals } from '@/components/features/Modals';
 import { GlobalQuery } from '@/components/shared/app';
 import { PageLoader } from '@/components/ui/PageLoader';
 import { ApolloProvider } from '@/shared/apollo/ApolloProvider';

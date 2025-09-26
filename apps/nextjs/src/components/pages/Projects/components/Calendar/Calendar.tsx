@@ -1,4 +1,4 @@
-import { TaskDetailModal } from '@/components/features/organisms/TaskDetails';
+import { TaskDetailModal } from '@/components/features/TaskDetails';
 import {
   TasksCalendar,
   TasksCalendarContent,
@@ -6,14 +6,14 @@ import {
   TasksCalendarListHeader,
   TasksContainer,
   useTasksCalendarDetail,
-} from '@/components/features/organisms/Tasks';
+} from '@/components/features/Tasks';
 import {
   CalendarMonthPicker,
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
   TodayButton,
-} from '@/components/features/organisms/Tasks/TasksHeader';
+} from '@/components/features/Tasks/TasksHeader';
 import { useProjectsPageContext } from '@/components/pages/Projects/providers/Provider';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';

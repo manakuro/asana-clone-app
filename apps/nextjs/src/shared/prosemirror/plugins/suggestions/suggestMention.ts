@@ -7,7 +7,7 @@ import {
   onMentionEnter as onEnter,
   onMentionOpen as onOpen,
   setMentionQuery as setQuery,
-} from '@/components/features/organisms/Menus/EditorMentionMenu';
+} from '@/components/features/Menus/EditorMentionMenu';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import type { Suggester } from 'prosemirror-suggest';
 

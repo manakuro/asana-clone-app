@@ -1,4 +1,4 @@
-import { useShareProjectModal } from '@/components/features/organisms/Modals/ShareProjectModal';
+import { useShareProjectModal } from '@/components/features/Modals/ShareProjectModal';
 import { Button } from '@/components/ui/Button';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';

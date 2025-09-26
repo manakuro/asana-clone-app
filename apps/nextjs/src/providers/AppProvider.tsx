@@ -1,6 +1,6 @@
 'use client';
 
-import { Modals } from '@/components/features/organisms/Modals';
+import { Modals } from '@/components/features/Modals';
 import { GlobalQuery, Subscription } from '@/components/shared/app';
 import { Mobile } from '@/components/ui/Mobile';
 import { PageLoader } from '@/components/ui/PageLoader';

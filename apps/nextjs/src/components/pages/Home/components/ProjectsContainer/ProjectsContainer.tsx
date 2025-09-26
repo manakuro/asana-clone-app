@@ -6,7 +6,7 @@ import {
   type ProjectListStatus,
   ProjectTileItem,
   ProjectTileItemNew,
-} from '@/components/features/organisms/Projects';
+} from '@/components/features/Projects';
 import {
   Accordion,
   AccordionButton,

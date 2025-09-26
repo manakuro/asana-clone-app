@@ -1,4 +1,4 @@
-import { dueDatePickerCustomStyle } from '@/components/features/organisms/Popovers/PopoverDueDatePicker/dueDatePickerCustomStyle';
+import { dueDatePickerCustomStyle } from '@/components/features/Popovers/PopoverDueDatePicker/dueDatePickerCustomStyle';
 import { pdfViewerCustomStyle } from '@/components/ui/PdfViewer/pdfViewerCustomStyle';
 import { proseMirrorStyle } from '@/shared/prosemirror/style';
 import { theme as defaultTheme, extendTheme } from '@chakra-ui/react';

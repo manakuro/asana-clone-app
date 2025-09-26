@@ -6,7 +6,7 @@ import {
   onEmojiEnter as onEnter,
   onEmojiOpen as onOpen,
   setEmojiQuery as setQuery,
-} from '@/components/features/organisms/Menus/EditorEmojiMenu';
+} from '@/components/features/Menus/EditorEmojiMenu';
 import type { Suggester } from 'prosemirror-suggest';
 
 export const suggestEmoji: Suggester = {

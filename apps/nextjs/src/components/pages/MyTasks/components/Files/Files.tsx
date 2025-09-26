@@ -1,10 +1,10 @@
-import { TaskDetailModal } from '@/components/features/organisms/TaskDetails';
+import { TaskDetailModal } from '@/components/features/TaskDetails';
 import {
   TasksContainer,
   TasksFilesContent,
   TasksFilesList,
-} from '@/components/features/organisms/Tasks';
-import { useTasksFilesDetail } from '@/components/features/organisms/Tasks/TasksFiles/useTasksFilesDetail';
+} from '@/components/features/Tasks';
+import { useTasksFilesDetail } from '@/components/features/Tasks/TasksFiles/useTasksFilesDetail';
 import { useMyTasksContext } from '@/components/pages/MyTasks/providers/Provider';
 import { Flex } from '@/components/ui/Flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
