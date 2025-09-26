@@ -1,6 +1,6 @@
+import { Tooltip } from '@/components/ui/Tooltip';
 import { Icon } from '@/components/ui/atoms/Icon';
 import { IconButton } from '@/components/ui/atoms/IconButton';
-import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useTaskCommand } from '@/store/entities/task';
 import { memo, useCallback } from 'react';
 

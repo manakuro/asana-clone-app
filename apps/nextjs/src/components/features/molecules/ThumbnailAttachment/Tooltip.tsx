@@ -1,8 +1,8 @@
-import { Flex } from '@/components/ui/atoms/Flex';
 import {
   Tooltip as MoleculesTooltip,
   type TooltipProps,
-} from '@/components/ui/molecules/Tooltip';
+} from '@/components/ui/Tooltip';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { useDisclosure } from '@/shared/chakra';
 import { useTaskFile } from '@/store/entities/taskFile';
 import { useEffect } from 'react';

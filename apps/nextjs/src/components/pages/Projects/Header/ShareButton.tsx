@@ -1,9 +1,9 @@
 import { useShareProjectModal } from '@/components/features/organisms/Modals/ShareProjectModal';
+import { Tooltip } from '@/components/ui/Tooltip';
+import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
 import { Button } from '@/components/ui/atoms/Button';
 import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
 import { Icon } from '@/components/ui/atoms/Icon';
-import { Tooltip } from '@/components/ui/molecules/Tooltip';
-import { useTooltip } from '@/components/ui/molecules/Tooltip/useTooltip';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useWorkspace } from '@/store/entities/workspace';
 import { memo, useCallback } from 'react';

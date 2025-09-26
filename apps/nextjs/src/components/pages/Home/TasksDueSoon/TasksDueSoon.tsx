@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionPanel,
 } from '@/components/ui/Accordion';
+import { Tooltip } from '@/components/ui/Tooltip';
 import { Box } from '@/components/ui/atoms/Box';
 import { Flex } from '@/components/ui/atoms/Flex';
 import { Heading } from '@/components/ui/atoms/Heading';
@@ -11,7 +12,6 @@ import { Icon } from '@/components/ui/atoms/Icon';
 import { Link } from '@/components/ui/atoms/Link';
 import { NextLink } from '@/components/ui/atoms/NextLink';
 import { Stack } from '@/components/ui/atoms/Stack';
-import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useLinkStyle } from '@/hooks';
 import { ROUTE_MY_TASKS_LIST } from '@/router';
 import { useTasksDueSoonIds } from '@/store/app/home/tasksDueSoon';

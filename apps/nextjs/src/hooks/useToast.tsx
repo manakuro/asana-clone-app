@@ -1,4 +1,4 @@
-import { Toast, type ToastProps } from '@/components/ui/molecules/Toast';
+import { Toast, type ToastProps } from '@/components/ui/Toast';
 import { type ToastId, useToast as useToastChakraUi } from '@chakra-ui/react';
 import { useCallback, useRef } from 'react';
 

@@ -6,7 +6,7 @@ import {
   useTasksTaskSectionCommand,
 } from '@/components/features/organisms/Tasks/hooks';
 import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
-import { Tooltip } from '@/components/ui/molecules/Tooltip';
+import { Tooltip } from '@/components/ui/Tooltip';
 import { memo, useCallback, useMemo } from 'react';
 
 export const MenuList = memo(function MenuList() {

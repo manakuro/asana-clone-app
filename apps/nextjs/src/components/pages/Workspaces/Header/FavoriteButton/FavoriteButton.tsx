@@ -1,6 +1,6 @@
+import { FavoriteIconButton } from '@/components/ui/FavoriteIconButton';
+import { Tooltip } from '@/components/ui/Tooltip';
 import type { IconButtonProps } from '@/components/ui/atoms/IconButton';
-import { FavoriteIconButton } from '@/components/ui/molecules/FavoriteIconButton';
-import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import {
   useFavoriteWorkspaceIds,
   useFavoriteWorkspaceIdsCommand,

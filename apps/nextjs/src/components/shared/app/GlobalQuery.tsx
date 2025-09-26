@@ -1,4 +1,4 @@
-import { PageLoader } from '@/components/ui/molecules/PageLoader';
+import { PageLoader } from '@/components/ui/PageLoader';
 import {
   useFavoriteProjectIdsQuery,
   useFavoriteWorkspaceIdsQuery,

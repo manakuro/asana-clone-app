@@ -3,7 +3,7 @@
 import { Modals } from '@/components/features/organisms/Modals';
 import { GlobalQuery, Subscription } from '@/components/shared/app';
 import { Mobile } from '@/components/ui/Mobile';
-import { PageLoader } from '@/components/ui/molecules/PageLoader';
+import { PageLoader } from '@/components/ui/PageLoader';
 import { AuthProvider, useAuthContext } from '@/providers/AuthProvider';
 import { ApolloProvider } from '@/shared/apollo/ApolloProvider';
 import {

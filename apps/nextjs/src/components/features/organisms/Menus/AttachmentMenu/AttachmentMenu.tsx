@@ -1,7 +1,7 @@
 import { Menu } from '@/components/ui/Menu';
+import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
 import { Flex } from '@/components/ui/atoms/Flex';
 import type { FileUploaderParams } from '@/components/ui/atoms/Form/FileUploader';
-import { Tooltip, type TooltipProps } from '@/components/ui/molecules/Tooltip';
 import { useDisclosure } from '@/shared/chakra';
 import { type PropsWithChildren, memo } from 'react';
 import { MenuList } from './MenuList';

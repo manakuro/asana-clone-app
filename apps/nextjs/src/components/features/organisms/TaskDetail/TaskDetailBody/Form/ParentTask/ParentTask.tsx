@@ -1,8 +1,8 @@
 import { useTasksRouter } from '@/components/features/organisms/Tasks/hooks';
+import { Tooltip } from '@/components/ui/Tooltip';
 import { Flex } from '@/components/ui/atoms/Flex';
 import { Icon } from '@/components/ui/atoms/Icon';
 import { Text } from '@/components/ui/atoms/Text';
-import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTask } from '@/store/entities/task';
 import { memo, useCallback } from 'react';

@@ -1,8 +1,8 @@
 import { useTasksTask } from '@/components/features/organisms/Tasks/hooks';
+import { Tooltip } from '@/components/ui/Tooltip';
+import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
 import { Icon } from '@/components/ui/atoms/Icon';
 import { IconButton } from '@/components/ui/atoms/IconButton';
-import { Tooltip } from '@/components/ui/molecules/Tooltip';
-import { useTooltip } from '@/components/ui/molecules/Tooltip/useTooltip';
 import type { Ref } from 'react';
 import { memo, useCallback } from 'react';
 

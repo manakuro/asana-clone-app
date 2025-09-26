@@ -1,6 +1,6 @@
 'use client';
 
-import { PageLoader } from '@/components/ui/molecules/PageLoader';
+import { PageLoader } from '@/components/ui/PageLoader';
 import {
   useMyTasksDetailPageQuery,
   useMyTasksPageQuery,

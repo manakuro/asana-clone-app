@@ -1,6 +1,6 @@
+import { Tooltip } from '@/components/ui/Tooltip';
 import { Icon } from '@/components/ui/atoms/Icon';
 import { IconButton } from '@/components/ui/atoms/IconButton';
-import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { memo } from 'react';
 
 type Props = {

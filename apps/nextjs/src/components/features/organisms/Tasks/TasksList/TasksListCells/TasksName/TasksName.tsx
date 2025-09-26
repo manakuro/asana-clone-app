@@ -1,11 +1,11 @@
 import { useTasksListContext } from '@/components/features/organisms/Tasks/TasksList/Provider';
 import { useTasksRouter } from '@/components/features/organisms/Tasks/hooks';
+import { TaskDoneTransition } from '@/components/ui/Transitions';
 import { CheckIcon } from '@/components/ui/atoms/CheckIcon';
 import type { FlexProps } from '@/components/ui/atoms/Flex';
 import { Icon } from '@/components/ui/atoms/Icon';
 import { Stack } from '@/components/ui/atoms/Stack';
 import { Text } from '@/components/ui/atoms/Text';
-import { TaskDoneTransition } from '@/components/ui/molecules/Transitions';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import type React from 'react';
 import { memo, useCallback } from 'react';
