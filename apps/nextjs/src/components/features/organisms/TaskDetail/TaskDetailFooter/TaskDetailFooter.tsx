@@ -1,4 +1,5 @@
-import { Flex, type FlexProps, Skeleton } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Skeleton } from '@/components/ui/atoms/Skeleton';
 import { memo } from 'react';
 import { Collaborators } from './Collaborators';
 import { Comment } from './Comment';

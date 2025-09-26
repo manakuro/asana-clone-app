@@ -1,6 +1,8 @@
 import { useInviteModal } from '@/components/features/organisms/Modals/InviteModal/useInviteModal';
 import { Divider } from '@/components/features/organisms/Navigation/Divider';
-import { Icon, ListItem, Text } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { ListItem } from '@/components/ui/atoms/List';
+import { Text } from '@/components/ui/atoms/Text';
 import { transitions } from '@/styles';
 import type React from 'react';
 import { useCallback } from 'react';

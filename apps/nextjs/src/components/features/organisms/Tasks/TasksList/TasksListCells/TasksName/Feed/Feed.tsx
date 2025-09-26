@@ -1,7 +1,7 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
 import { FEED_LIST_CONTAINER_ID } from '@/components/features/organisms/TaskDetail/TaskDetailBody/Form/FeedList';
 import { useTasksRouter } from '@/components/features/organisms/Tasks/hooks';
-import { IconButton } from '@/components/ui/atoms';
+import { IconButton } from '@/components/ui/atoms/IconButton';
 import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/taskFeed';
 import type React from 'react';
 import { useCallback, useMemo } from 'react';

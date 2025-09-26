@@ -1,4 +1,5 @@
-import { Button, Icon } from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Icon } from '@/components/ui/atoms/Icon';
 import { memo } from 'react';
 
 export const WeekendsButton = memo(function WeekendsButton() {

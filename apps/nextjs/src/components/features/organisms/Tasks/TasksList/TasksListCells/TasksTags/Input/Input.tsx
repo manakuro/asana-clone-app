@@ -1,11 +1,8 @@
 import { TagChip } from '@/components/features/molecules/Chips';
 import { TagMenu } from '@/components/features/organisms/Menus';
-import {
-  Input as AtomsInput,
-  Flex,
-  Wrap,
-  WrapItem,
-} from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Input as AtomsInput } from '@/components/ui/atoms/Input';
+import { Wrap, WrapItem } from '@/components/ui/atoms/Wrap';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import type { Tag } from '@/store/entities/tag';

@@ -1,4 +1,5 @@
-import { Flex, Text } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Text } from '@/components/ui/atoms/Text';
 import { memo } from 'react';
 import { Input } from './Input';
 import { LeaveTask } from './LeaveTask';

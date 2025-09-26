@@ -1,12 +1,9 @@
 import { AssigneeChip } from '@/components/features/molecules/Chips';
 import { InviteCollaboratorMenu } from '@/components/features/organisms/Menus';
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
-import {
-  Input as AtomsInput,
-  Flex,
-  Wrap,
-  WrapItem,
-} from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Input as AtomsInput } from '@/components/ui/atoms/Input';
+import { Wrap, WrapItem } from '@/components/ui/atoms/Wrap';
 import { useClickOutside } from '@/hooks';
 import {
   type ChakraProps,

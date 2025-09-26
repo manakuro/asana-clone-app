@@ -3,7 +3,10 @@ import {
   useTasksTaskColumnIds,
 } from '@/components/features/organisms/Tasks/hooks';
 import { Menu, MenuButton } from '@/components/ui/Menu';
-import { Box, Icon, IconButton, PortalManager } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import { memo, useCallback, useMemo } from 'react';
 import { MenuList } from './MenuList';
 

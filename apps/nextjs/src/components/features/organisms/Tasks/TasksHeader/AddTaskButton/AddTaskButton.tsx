@@ -4,15 +4,15 @@ import {
   useTasksTaskSectionIds,
 } from '@/components/features/organisms/Tasks/hooks';
 import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
+import { Button } from '@/components/ui/atoms/Button';
 import {
-  Button,
   ButtonGroup,
   type ButtonGroupProps,
-  Divider,
-  Icon,
-  IconButton,
-  Portal,
-} from '@/components/ui/atoms';
+} from '@/components/ui/atoms/ButtonGroup';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Portal } from '@/components/ui/atoms/Portal';
 import type { ChakraProps } from '@/shared/chakra';
 import { memo, useCallback, useMemo } from 'react';
 

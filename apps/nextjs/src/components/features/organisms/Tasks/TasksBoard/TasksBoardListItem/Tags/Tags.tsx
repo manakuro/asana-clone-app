@@ -1,4 +1,5 @@
-import { type FlexProps, Stack } from '@/components/ui/atoms';
+import type { FlexProps } from '@/components/ui/atoms/Flex';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { useTaskTagIdsByTaskId } from '@/store/entities/taskTag';
 import { memo } from 'react';
 import { Tag } from './Tag';

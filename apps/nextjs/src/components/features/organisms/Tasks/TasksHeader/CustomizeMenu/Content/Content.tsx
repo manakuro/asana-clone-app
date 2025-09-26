@@ -5,7 +5,11 @@ import {
   DrawerContent,
   DrawerHeader,
 } from '@/components/ui/Drawer';
-import { Box, Flex, Heading, Icon, IconButton } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Heading } from '@/components/ui/atoms/Heading';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
 import { useDnd } from '@/hooks/dnd/useDnd';
 import { isMyTasksBoardURL } from '@/router';
 import { DragDropContext, Droppable } from '@hello-pangea/dnd';

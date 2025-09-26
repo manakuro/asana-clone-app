@@ -1,14 +1,11 @@
 import { useTasksCalendarContext } from '@/components/features/organisms/Tasks';
 import { Popover, PopoverTrigger } from '@/components/ui/Popover';
-import {
-  Flex,
-  type FlexProps,
-  Icon,
-  IconButton,
-  Link,
-  PortalManager,
-  Text,
-} from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Link } from '@/components/ui/atoms/Link';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
+import { Text } from '@/components/ui/atoms/Text';
 import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';
 import { memo, useMemo } from 'react';

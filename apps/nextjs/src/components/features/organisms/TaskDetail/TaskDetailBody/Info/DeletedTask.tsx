@@ -1,4 +1,7 @@
-import { Button, Flex, Icon, Text } from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import { useTaskCommand } from '@/store/entities/task';
 import { memo, useCallback } from 'react';
 

@@ -1,4 +1,7 @@
-import { Box, Button, Flex, Text } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Button } from '@/components/ui/atoms/Button';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Text } from '@/components/ui/atoms/Text';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 

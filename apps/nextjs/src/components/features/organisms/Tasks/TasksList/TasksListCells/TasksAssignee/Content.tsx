@@ -1,5 +1,6 @@
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { Flex, Text } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Text } from '@/components/ui/atoms/Text';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { type Teammate, useTeammate } from '@/store/entities/teammate';
 import { memo, useCallback, useMemo } from 'react';

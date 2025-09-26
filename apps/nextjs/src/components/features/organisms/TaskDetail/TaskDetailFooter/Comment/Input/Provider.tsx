@@ -2,7 +2,10 @@ import {
   useTaskDetail,
   useTaskDetailBody,
 } from '@/components/features/organisms/TaskDetail';
-import type { FileUploaderParams, UploadedFile } from '@/components/ui/atoms';
+import type {
+  FileUploaderParams,
+  UploadedFile,
+} from '@/components/ui/atoms/Form';
 import { useClickOutside, useToast } from '@/hooks';
 import { getScrollBottom } from '@/shared/getScrollBottom';
 import { parseDescription } from '@/shared/prosemirror/convertDescription';

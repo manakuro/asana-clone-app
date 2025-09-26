@@ -3,7 +3,10 @@ import {
   MenuDivider,
   MenuItem,
 } from '@/components/ui/Menu';
-import { Flex, Icon, Portal, Text } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Portal } from '@/components/ui/atoms/Portal';
+import { Text } from '@/components/ui/atoms/Text';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import { useCallback } from 'react';

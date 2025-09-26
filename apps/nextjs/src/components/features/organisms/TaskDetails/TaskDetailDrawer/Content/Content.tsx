@@ -5,7 +5,8 @@ import {
   TaskDetailFooter,
   TaskDetailHeader,
 } from '@/components/features/organisms/TaskDetail';
-import { Divider, Flex } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Flex } from '@/components/ui/atoms/Flex';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,

@@ -1,5 +1,7 @@
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
-import { Icon, IconButton, Stack } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { useTeammateIdsByTaskId } from '@/store/entities/taskCollaborator';
 import { memo } from 'react';
 import { useCollaboratorsContext } from '../Provider';

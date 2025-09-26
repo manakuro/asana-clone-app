@@ -1,5 +1,6 @@
 import { useTasksTaskFiles } from '@/components/features/organisms/Tasks/hooks';
-import { Flex, Stack } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { useBreakpointValue } from '@/shared/chakra';
 import { splitByNumber } from '@/shared/utils';
 import { memo, useMemo } from 'react';

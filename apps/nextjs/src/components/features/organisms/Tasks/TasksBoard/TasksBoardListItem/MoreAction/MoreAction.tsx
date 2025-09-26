@@ -1,5 +1,8 @@
 import { Menu, MenuButton } from '@/components/ui/Menu';
-import { Flex, Icon, IconButton, PortalManager } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import { useDisclosure } from '@/shared/chakra';
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';

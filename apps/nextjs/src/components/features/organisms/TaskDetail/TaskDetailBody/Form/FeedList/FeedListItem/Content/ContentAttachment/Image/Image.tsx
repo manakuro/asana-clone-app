@@ -1,10 +1,7 @@
-import {
-  Image as AtomsImage,
-  Flex,
-  type FlexProps,
-  Link,
-  Text,
-} from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Image as AtomsImage } from '@/components/ui/atoms/Image';
+import { Link } from '@/components/ui/atoms/Link';
+import { Text } from '@/components/ui/atoms/Text';
 import { useTaskFile } from '@/store/entities/taskFile';
 import { memo } from 'react';
 

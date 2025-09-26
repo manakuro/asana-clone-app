@@ -1,4 +1,5 @@
-import { Icon, IconButton } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
 import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { memo } from 'react';
 

@@ -1,5 +1,7 @@
 import { Menu, MenuButton, MenuGroup, MenuList } from '@/components/ui/Menu';
-import { Icon, IconButton, Portal } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Portal } from '@/components/ui/atoms/Portal';
 import { memo } from 'react';
 import { useTaskFeedListItemContext } from '../../Provider';
 import { CopyCommentLink } from './CopyCommentLink';

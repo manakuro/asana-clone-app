@@ -1,4 +1,5 @@
-import { Flex, type FlexProps, Text } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Text } from '@/components/ui/atoms/Text';
 import { memo } from 'react';
 import { Content } from './Content';
 import { Info } from './Info';

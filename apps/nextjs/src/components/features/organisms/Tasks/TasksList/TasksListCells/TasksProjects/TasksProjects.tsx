@@ -1,5 +1,6 @@
 import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
-import { type FlexProps, Stack } from '@/components/ui/atoms';
+import type { FlexProps } from '@/components/ui/atoms/Flex';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { useProjectTaskIdsByTaskId } from '@/store/entities/projectTask';
 import { memo, useCallback, useState } from 'react';
 import { Input } from './Input';

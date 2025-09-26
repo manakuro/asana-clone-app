@@ -11,7 +11,8 @@ import {
   Strikethrough,
   Underline,
 } from '@/components/ui/Editor/ToolBar';
-import { Divider, Stack } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { memo } from 'react';
 import { useDescriptionContext } from './Provider';
 

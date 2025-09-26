@@ -1,4 +1,7 @@
-import { Input as AtomsInput, type InputProps } from '@/components/ui/atoms';
+import {
+  Input as AtomsInput,
+  type InputProps,
+} from '@/components/ui/atoms/Input';
 import { useClickOutside } from '@/hooks';
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';

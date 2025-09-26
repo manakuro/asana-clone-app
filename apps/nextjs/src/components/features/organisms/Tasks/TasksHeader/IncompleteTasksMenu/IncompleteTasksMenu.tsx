@@ -5,7 +5,10 @@ import {
 } from '@/components/features/organisms/Menus';
 import { useTasksTaskListStatus } from '@/components/features/organisms/Tasks/hooks';
 import { MenuItemOption } from '@/components/ui/Menu';
-import { Button, Flex, Icon, Text } from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import { useDisclosure } from '@/shared/chakra';
 import {
   TaskListCompletedStatusCode,
