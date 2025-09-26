@@ -5,11 +5,11 @@ import {
   MenuList,
   type MenuProps,
 } from '@/components/ui/Menu';
+import { Box } from '@/components/ui/atoms/Box';
 import {
-  Box,
   FileUploader,
   type FileUploaderParams,
-} from '@/components/ui/atoms';
+} from '@/components/ui/atoms/Form';
 import { useMenuStyle } from '@/hooks';
 import { chakra } from '@/shared/chakra';
 

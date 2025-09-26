@@ -1,6 +1,7 @@
 import { useShareProjectModal } from '@/components/features/organisms/Modals';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { Flex, Text } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Text } from '@/components/ui/atoms/Text';
 import { useCallback } from 'react';
 import { Button } from './Button';
 

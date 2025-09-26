@@ -1,4 +1,5 @@
-import { Flex, type FlexProps, Icon } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTaskCommand } from '@/store/entities/task';
 import type React from 'react';

@@ -4,13 +4,10 @@ import {
   PopoverHeader,
   type PopoverProps,
 } from '@/components/ui/Popover';
-import {
-  Flex,
-  type FlexProps,
-  Icon,
-  Portal,
-  Text,
-} from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Portal } from '@/components/ui/atoms/Portal';
+import { Text } from '@/components/ui/atoms/Text';
 import { useClickOutside, useClickableHoverStyle } from '@/hooks';
 import { dateFns } from '@/shared/dateFns';
 import { useCallback, useEffect, useMemo, useState } from 'react';

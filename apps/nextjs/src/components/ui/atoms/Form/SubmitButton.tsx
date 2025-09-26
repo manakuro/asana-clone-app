@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from '@/components/ui/atoms';
+import { Button, type ButtonProps } from '@/components/ui/atoms/Button';
 import { useFormikContext } from 'formik';
 import { memo } from 'react';
 

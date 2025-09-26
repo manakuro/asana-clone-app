@@ -1,4 +1,8 @@
-import { Box, Button, Flex, Icon, Stack } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Button } from '@/components/ui/atoms/Button';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { useProjectTask } from '@/store/entities/projectTask';
 import { memo, useCallback } from 'react';
 import { ProjectButton } from './ProjectButton';

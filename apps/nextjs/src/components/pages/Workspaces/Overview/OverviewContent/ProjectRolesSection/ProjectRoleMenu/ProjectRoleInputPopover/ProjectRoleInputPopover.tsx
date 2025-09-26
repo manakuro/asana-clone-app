@@ -3,7 +3,8 @@ import {
   type PopoverProps,
   PopoverTrigger,
 } from '@/components/ui/Popover';
-import { Flex, PortalManager } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import type { PropsWithChildren } from 'react';
 import { useRef } from 'react';
 import { Content } from './Content';

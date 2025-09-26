@@ -1,4 +1,5 @@
-import { Flex, Icon } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
 import type { IconType } from '@/shared/icons';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProject } from '@/store/entities/project';

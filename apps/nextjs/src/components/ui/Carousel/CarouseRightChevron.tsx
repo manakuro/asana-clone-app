@@ -1,4 +1,6 @@
-import { Flex, Icon, IconButton } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
 import { useCallback } from 'react';
 import { useCarouselContext } from './Provider';
 

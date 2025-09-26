@@ -1,9 +1,6 @@
-import {
-  Icon as AtomsIcon,
-  Flex,
-  Text,
-  type TextProps,
-} from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon as AtomsIcon } from '@/components/ui/atoms/Icon';
+import { Text, type TextProps } from '@/components/ui/atoms/Text';
 import { memo } from 'react';
 
 type Props = {
