@@ -1,4 +1,4 @@
-import { useThumbnailAttachmentContext } from '@/components/features/molecules/ThumbnailAttachment/Provider';
+import { useThumbnailAttachmentContext } from '@/components/features/ThumbnailAttachment/Provider';
 import { Icon, type IconProps } from '@/components/ui/Icon';
 import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
 import {

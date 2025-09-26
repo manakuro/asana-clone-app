@@ -1,4 +1,4 @@
-import { TagChip } from '@/components/features/molecules/Chips';
+import { TagChip } from '@/components/features/Chips';
 import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
 import type { FlexProps } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';

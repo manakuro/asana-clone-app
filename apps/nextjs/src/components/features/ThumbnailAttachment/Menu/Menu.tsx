@@ -1,4 +1,4 @@
-import { useThumbnailAttachmentContext } from '@/components/features/molecules/ThumbnailAttachment/Provider';
+import { useThumbnailAttachmentContext } from '@/components/features/ThumbnailAttachment/Provider';
 import { Link } from '@/components/ui/Link';
 import {
   MenuItem,

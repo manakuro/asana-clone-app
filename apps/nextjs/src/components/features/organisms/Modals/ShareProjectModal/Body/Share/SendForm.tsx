@@ -1,4 +1,4 @@
-import { InvitedTeammateChip } from '@/components/features/molecules/Chips';
+import { InvitedTeammateChip } from '@/components/features/Chips';
 import { InviteProjectTeammateMenu } from '@/components/features/organisms/Menus';
 import { Flex } from '@/components/ui/Flex';
 import { Input as AtomsInput } from '@/components/ui/Input';

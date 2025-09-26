@@ -1,4 +1,4 @@
-import { ComingSoonTooltip } from '@/components/features/molecules/Tooltips';
+import { ComingSoonTooltip } from '@/components/features/Tooltips';
 import { Button } from '@/components/ui/Button';
 import { Divider } from '@/components/ui/Divider';
 import { Flex } from '@/components/ui/Flex';

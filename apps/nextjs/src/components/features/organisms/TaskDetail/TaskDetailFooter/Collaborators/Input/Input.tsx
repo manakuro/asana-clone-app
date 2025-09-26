@@ -1,4 +1,4 @@
-import { AssigneeChip } from '@/components/features/molecules/Chips';
+import { AssigneeChip } from '@/components/features/Chips';
 import { InviteCollaboratorMenu } from '@/components/features/organisms/Menus';
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
 import { Flex } from '@/components/ui/Flex';

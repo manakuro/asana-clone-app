@@ -1,4 +1,4 @@
-import { AttachmentBox } from '@/components/features/molecules/AttachmentBox';
+import { AttachmentBox } from '@/components/features/AttachmentBox';
 import type { FlexProps } from '@/components/ui/Flex';
 import { memo } from 'react';
 

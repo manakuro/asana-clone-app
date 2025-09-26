@@ -1,9 +1,9 @@
-import { AttachmentBox } from '@/components/features/molecules/AttachmentBox';
-import { Container } from '@/components/features/molecules/ThumbnailAttachment/Container';
-import { Menu } from '@/components/features/molecules/ThumbnailAttachment/Menu';
-import { MenuButton } from '@/components/features/molecules/ThumbnailAttachment/MenuButton';
-import { useThumbnailAttachmentContext } from '@/components/features/molecules/ThumbnailAttachment/Provider';
-import { Tooltip } from '@/components/features/molecules/ThumbnailAttachment/Tooltip';
+import { AttachmentBox } from '@/components/features/AttachmentBox';
+import { Container } from '@/components/features/ThumbnailAttachment/Container';
+import { Menu } from '@/components/features/ThumbnailAttachment/Menu';
+import { MenuButton } from '@/components/features/ThumbnailAttachment/MenuButton';
+import { useThumbnailAttachmentContext } from '@/components/features/ThumbnailAttachment/Provider';
+import { Tooltip } from '@/components/features/ThumbnailAttachment/Tooltip';
 import type { FlexProps } from '@/components/ui/Flex';
 
 type Props = FlexProps & {

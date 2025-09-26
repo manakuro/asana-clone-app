@@ -1,4 +1,4 @@
-import { TagChip } from '@/components/features/molecules/Chips';
+import { TagChip } from '@/components/features/Chips';
 import type { FlexProps } from '@/components/ui/Flex';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useTaskTag } from '@/store/entities/taskTag';

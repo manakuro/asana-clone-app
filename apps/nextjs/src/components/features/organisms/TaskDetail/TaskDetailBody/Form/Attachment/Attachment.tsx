@@ -1,4 +1,4 @@
-import { ThumbnailAttachment } from '@/components/features/molecules/ThumbnailAttachment';
+import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
 import { useFileViewerModal } from '@/components/features/organisms/Modals';
 import { Wrap } from '@/components/ui/Wrap';
 import { WrapItem } from '@/components/ui/Wrap';

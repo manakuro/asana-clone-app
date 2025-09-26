@@ -1,5 +1,5 @@
-import { AttachmentUploadingBox } from '@/components/features/molecules/AttachmentUploadingBox';
-import { ThumbnailAttachment } from '@/components/features/molecules/ThumbnailAttachment';
+import { AttachmentUploadingBox } from '@/components/features/AttachmentUploadingBox';
+import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
 import { useFileViewerModal } from '@/components/features/organisms/Modals';
 import { useInputContext } from '@/components/features/organisms/TaskDetail/TaskDetailFooter/Comment/Input/Provider';
 import { Wrap, WrapItem } from '@/components/ui/Wrap';

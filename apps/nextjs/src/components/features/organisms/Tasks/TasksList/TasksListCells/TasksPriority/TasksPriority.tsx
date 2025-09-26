@@ -1,4 +1,4 @@
-import { PriorityChip } from '@/components/features/molecules/Chips';
+import { PriorityChip } from '@/components/features/Chips';
 import { TasksListCell } from '@/components/features/organisms/Tasks/TasksList/TasksListCell';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';

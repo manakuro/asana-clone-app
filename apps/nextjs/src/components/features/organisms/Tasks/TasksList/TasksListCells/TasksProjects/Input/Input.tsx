@@ -1,4 +1,4 @@
-import { ProjectChip } from '@/components/features/molecules/Chips';
+import { ProjectChip } from '@/components/features/Chips';
 import { ProjectMenu } from '@/components/features/organisms/Menus';
 import { Flex } from '@/components/ui/Flex';
 import { Input as AtomsInput } from '@/components/ui/Input';

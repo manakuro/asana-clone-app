@@ -1,4 +1,4 @@
-import { ProjectChip } from '@/components/features/molecules/Chips';
+import { ProjectChip } from '@/components/features/Chips';
 import { useProjectTask } from '@/store/entities/projectTask';
 import { memo } from 'react';
 

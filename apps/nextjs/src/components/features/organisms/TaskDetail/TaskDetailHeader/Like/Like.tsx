@@ -1,4 +1,4 @@
-import { LikeTaskIconButton } from '@/components/features/molecules/LikeTaskIconButton';
+import { LikeTaskIconButton } from '@/components/features/LikeTaskIconButton';
 import { useTaskDetail } from '@/components/features/organisms/TaskDetail';
 import { memo } from 'react';
 

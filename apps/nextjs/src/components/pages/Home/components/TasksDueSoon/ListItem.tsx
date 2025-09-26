@@ -1,4 +1,4 @@
-import { ProjectChip } from '@/components/features/molecules/Chips';
+import { ProjectChip } from '@/components/features/Chips';
 import { PopoverDueDatePicker } from '@/components/features/organisms/Popovers';
 import { CheckIcon } from '@/components/ui/CheckIcon';
 import { DueDate } from '@/components/ui/DueDate';
