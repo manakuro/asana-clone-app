@@ -22,12 +22,12 @@ import {
 } from '@/store/entities/teammateTaskTabStatus';
 import { useParams, usePathname } from 'next/navigation';
 import React, { memo, useCallback, useEffect } from 'react';
-import { Board } from './Board';
-import { Calendar } from './Calendar';
-import { Files } from './Files';
-import { Header } from './Header';
-import { List } from './List';
-import { Provider, useMyTasksContext } from './Provider';
+import { Board } from './components/Board';
+import { Calendar } from './components/Calendar';
+import { Files } from './components/Files';
+import { Header } from './components/Header';
+import { List } from './components/List';
+import { Provider, useMyTasksContext } from './providers/Provider';
 
 type Props = {
   loading: boolean;

@@ -16,13 +16,13 @@ import { useProjectsProjectId } from '@/store/app/projects/project';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
 import { usePathname } from 'next/navigation';
 import { memo, useCallback, useLayoutEffect, useMemo, useState } from 'react';
-import { Board } from './Board';
-import { Calendar } from './Calendar';
-import { Files } from './Files';
-import { Header } from './Header';
-import { List } from './List';
-import { Overview } from './Overview';
-import { Provider, useProjectsPageContext } from './Provider';
+import { Board } from './components/Board';
+import { Calendar } from './components/Calendar';
+import { Files } from './components/Files';
+import { Header } from './components/Header';
+import { List } from './components/List';
+import { Overview } from './components/Overview';
+import { Provider, useProjectsPageContext } from './providers/Provider';
 
 type Props = {
   loading: boolean;

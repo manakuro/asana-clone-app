@@ -11,9 +11,9 @@ import {
 import { useWorkspace } from '@/store/entities/workspace';
 import { usePathname } from 'next/navigation';
 import { memo, useCallback, useState } from 'react';
-import { Header } from './Header';
-import { Overview } from './Overview';
-import { Provider, useWorkspacesPageContext } from './Provider';
+import { Header } from './components/Header';
+import { Overview } from './components/Overview';
+import { Provider, useWorkspacesPageContext } from './providers/Provider';
 
 type Props = {
   loading: boolean;

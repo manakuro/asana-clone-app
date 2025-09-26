@@ -5,12 +5,12 @@ import { Head } from '@/components/ui/Head';
 import { Stack } from '@/components/ui/Stack';
 import { getHomeDetailId, isHomeDetailURL, useRouter } from '@/router';
 import { memo } from 'react';
-import { Content } from './Content';
-import { FavoriteProjects } from './FavoriteProjects';
-import { Header } from './Header';
-import { RecentProjects } from './RecentProjects';
-import { SkeletonHome } from './SkeletonHome';
-import { TasksDueSoon } from './TasksDueSoon';
+import { Content } from './components/Content';
+import { FavoriteProjects } from './components/FavoriteProjects';
+import { Header } from './components/Header';
+import { RecentProjects } from './components/RecentProjects';
+import { SkeletonHome } from './components/SkeletonHome';
+import { TasksDueSoon } from './components/TasksDueSoon';
 import { useHomeTaskDetail } from './hooks';
 
 type Props = {

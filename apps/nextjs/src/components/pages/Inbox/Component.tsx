@@ -6,10 +6,10 @@ import { Head } from '@/components/ui/Head';
 import { TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';
 import { useRouter } from '@/router';
 import React, { memo, useCallback } from 'react';
-import { Activity } from './Activity';
-import { Archive } from './Archive';
-import { Header } from './Header';
-import { Provider, useInboxPageContext } from './Provider';
+import { Activity } from './components/Activity';
+import { Archive } from './components/Archive';
+import { Header } from './components/Header';
+import { Provider, useInboxPageContext } from './providers/Provider';
 
 const ACTIVITY_INDEX = 0 as const;
 const ARCHIVE_INDEX = 1 as const;
