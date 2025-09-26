@@ -1,5 +1,9 @@
 import { ComingSoonTooltip } from '@/components/features/molecules/Tooltips';
-import { Button, Flex, Heading, Image, Stack } from '@/components/ui/atoms';
+import { Button } from '@/components/ui/atoms/Button';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Heading } from '@/components/ui/atoms/Heading';
+import { Image } from '@/components/ui/atoms/Image';
+import { Stack } from '@/components/ui/atoms/Stack';
 
 export function KeyResourcesEmpty() {
   return (

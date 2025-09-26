@@ -1,6 +1,9 @@
 import { useEditorStateContext } from '@/components/ui/Editor/Editors';
 import { Popover, PopoverTrigger } from '@/components/ui/Popover';
-import { Icon, IconButton, Link, PortalManager } from '@/components/ui/atoms';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { IconButton } from '@/components/ui/atoms/IconButton';
+import { Link } from '@/components/ui/atoms/Link';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import { useDisclosure } from '@/shared/chakra';
 import {
   useBold,

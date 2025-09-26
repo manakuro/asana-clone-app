@@ -1,5 +1,6 @@
 import { Menu } from '@/components/ui/Menu';
-import { Box, PortalManager } from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { PortalManager } from '@/components/ui/atoms/PortalManager';
 import { useDisclosure } from '@/shared/chakra';
 import { type PropsWithChildren, memo } from 'react';
 import { MenuList } from './MenuList';

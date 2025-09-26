@@ -1,5 +1,7 @@
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { Flex, Icon, Text } from '@/components/ui/atoms';
+import { Flex } from '@/components/ui/atoms/Flex';
+import { Icon } from '@/components/ui/atoms/Icon';
+import { Text } from '@/components/ui/atoms/Text';
 import { useHover } from '@/hooks/useHover';
 import { useProjectTeammate } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';

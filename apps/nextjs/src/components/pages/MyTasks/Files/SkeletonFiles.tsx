@@ -1,4 +1,6 @@
-import { Flex, type FlexProps, Skeleton, Stack } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Skeleton } from '@/components/ui/atoms/Skeleton';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { useBreakpointValue } from '@/shared/chakra';
 import { memo } from 'react';
 

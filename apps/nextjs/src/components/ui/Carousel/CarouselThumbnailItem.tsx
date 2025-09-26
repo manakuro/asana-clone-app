@@ -1,4 +1,5 @@
-import { AspectRatio, WrapItem } from '@/components/ui/atoms';
+import { AspectRatio } from '@/components/ui/atoms/AspectRatio';
+import { WrapItem } from '@/components/ui/atoms/Wrap';
 import { useClickableHoverStyle } from '@/hooks';
 import type { PropsWithChildren } from 'react';
 import { useCallback, useMemo } from 'react';

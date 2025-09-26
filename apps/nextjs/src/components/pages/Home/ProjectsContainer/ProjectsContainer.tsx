@@ -13,14 +13,11 @@ import {
   AccordionItem,
   AccordionPanel,
 } from '@/components/ui/Accordion';
-import {
-  Box,
-  Flex,
-  type FlexProps,
-  Grid,
-  Heading,
-  Icon,
-} from '@/components/ui/atoms';
+import { Box } from '@/components/ui/atoms/Box';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Grid } from '@/components/ui/atoms/Grid';
+import { Heading } from '@/components/ui/atoms/Heading';
+import { Icon } from '@/components/ui/atoms/Icon';
 import { memo, useState } from 'react';
 
 type Props = {

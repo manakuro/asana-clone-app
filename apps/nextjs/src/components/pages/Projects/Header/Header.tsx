@@ -1,4 +1,5 @@
-import { Divider, Flex } from '@/components/ui/atoms';
+import { Divider } from '@/components/ui/atoms/Divider';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { memo } from 'react';
 import { ProjectIcon } from './ProjectIcon';
 import { ProjectTeammates } from './ProjectTeammates';

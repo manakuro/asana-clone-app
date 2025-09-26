@@ -1,6 +1,7 @@
 import { useShareProjectModal } from '@/components/features/organisms/Modals/ShareProjectModal';
 import { TeammateAvatar } from '@/components/features/organisms/TeammateAvatar';
-import { AvatarGroup, Flex } from '@/components/ui/atoms';
+import { AvatarGroup } from '@/components/ui/atoms/Avatar';
+import { Flex } from '@/components/ui/atoms/Flex';
 import { Tooltip } from '@/components/ui/molecules/Tooltip';
 import { useTooltip } from '@/components/ui/molecules/Tooltip/useTooltip';
 import { useProjectsProjectId } from '@/store/app/projects/project';

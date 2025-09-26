@@ -2,7 +2,9 @@ import {
   TasksHeader,
   TasksHeaderRight,
 } from '@/components/features/organisms/Tasks';
-import { Flex, type FlexProps, Skeleton, Stack } from '@/components/ui/atoms';
+import { Flex, type FlexProps } from '@/components/ui/atoms/Flex';
+import { Skeleton } from '@/components/ui/atoms/Skeleton';
+import { Stack } from '@/components/ui/atoms/Stack';
 import { memo } from 'react';
 
 type Props = FlexProps;
