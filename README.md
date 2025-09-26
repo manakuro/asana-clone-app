@@ -1,14 +1,14 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/manakuro/asana-clone-app)
 
 # Asana clone app
-An Asana clone application for portfolio apps, built with real-time communication with WebSockets and seamless updates with Optimistic UI.
+An Asana clone application as a portfolio project, built with real-time communication with WebSockets and seamless updates with Optimistic UI.
 
 - [Live Demo](https://project-management-demo.manatoworks.me/)
 - [Storybook](https://main--63894befbaf58840c037c246.chromatic.com)
 
 ## Development Environment
 - Node.js 22.17.0
-- pnpm 10.13.1
+- pnpm 10.15.0
 
 ## Installation
 ```
