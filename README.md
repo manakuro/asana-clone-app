@@ -7,8 +7,8 @@ An Asana clone application as a portfolio project, built with real-time communic
 - [Storybook](https://main--63894befbaf58840c037c246.chromatic.com)
 
 ## Development Environment
-- Node.js 22.17.0
-- pnpm 10.15.0
+- Node.js 24.12.0
+- pnpm 10.25.0
 
 ## Installation
 ```
