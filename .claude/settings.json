@@ -14,16 +14,15 @@
       "Bash(npx tsc:*)",
       "mcp__serena__check_onboarding_performed",
       "mcp__serena__onboarding",
-      "mcp__serena__list_dir"
+      "mcp__serena__list_dir",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [
       "Bash(sudo:*)",
       "Bash(rm:*)",
       "Bash(rm -rf:*)",
-      "Bash(git push:*)",
-      "Bash(git commit:*)",
       "Bash(git reset:*)",
-      "Bash(git rebase:*)",
       "Read(.env.*)",
       "Read(id_rsa)",
       "Read(id_ed25519)",
