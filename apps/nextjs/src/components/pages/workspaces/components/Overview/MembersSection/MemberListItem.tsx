@@ -1,9 +1,9 @@
+import type React from 'react';
+import { memo } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo } from 'react';
 
 type Props = {
   teammateId: string;

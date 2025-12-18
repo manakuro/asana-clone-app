@@ -1,5 +1,6 @@
-import { Input } from '@/components/features/TaskDetail/TaskDetailBody/Form/Projects/Input';
+import { memo, useCallback } from 'react';
 import { useTaskDetailProjectsInput } from '@/components/features/TaskDetail/hooks';
+import { Input } from '@/components/features/TaskDetail/TaskDetailBody/Form/Projects/Input';
 import { Flex } from '@/components/ui/Flex';
 import { useProjectTaskSectionsByProjectIdsQuery } from '@/hooks/queries/entities';
 import {
@@ -8,7 +9,6 @@ import {
   useProjectTaskIdsByTaskId,
 } from '@/store/entities/projectTask';
 import { useTask } from '@/store/entities/task';
-import { memo, useCallback } from 'react';
 import { Content, Label, Row } from '../Row';
 import { Selected } from './Selected';
 import { UnSelected } from './UnSelected';

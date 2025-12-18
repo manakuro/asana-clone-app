@@ -6,14 +6,14 @@ export const bold: MarkSpec = {
   parseDOM: [
     {
       tag: 'b',
-      // @ts-ignore
+      // @ts-expect-error
       getAttrs: (element: HTMLElement) =>
         element.style.fontWeight !== 'normal' && null,
     },
     { tag: 'strong' },
     {
       style: 'font-weight',
-      // @ts-ignore
+      // @ts-expect-error
       getAttrs: (style: string) =>
         /^(bold(er)?|[5-9]\d{2,})$/.test(style) && null,
     },

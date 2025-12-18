@@ -1,5 +1,6 @@
 import type { TaskColumnType } from '@/graphql/enums';
 import type { TaskColumnResponse } from '@/graphql/types/taskColumn';
+
 export type { TaskColumnResponse } from '@/graphql/types/taskColumn';
 
 export type TaskColumn = TaskColumnResponse;

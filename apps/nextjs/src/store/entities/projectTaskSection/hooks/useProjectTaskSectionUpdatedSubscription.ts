@@ -1,10 +1,9 @@
+import { useAtomCallback } from 'jotai/utils';
+import isEqual from 'lodash-es/isEqual';
+import { useCallback, useMemo } from 'react';
 import { useProjectTaskSectionUpdatedSubscription as useSubscription } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
-import { useAtomCallback } from 'jotai/utils';
-import isEqual from 'lodash-es/isEqual';
-import { useMemo } from 'react';
-import { useCallback } from 'react';
 import type { ProjectTaskSectionUpdatedSubscriptionResponse as Response } from '../type';
 import { useProjectTaskSectionResponse } from './useProjectTaskSectionResponse';
 
@@ -45,7 +44,7 @@ export const useProjectTaskSectionUpdatedSubscription = (props: Props) => {
 
   const setBySubscription = useAtomCallback(
     useCallback(
-      (_, set, response: Response) => {
+      (_, _set, response: Response) => {
         const updated = response.projectTaskSectionUpdated;
 
         if (isDev()) console.log('Project Task Section updated!');

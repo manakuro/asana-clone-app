@@ -1,5 +1,5 @@
-import { useKeyPress } from '@/hooks';
 import { useCallback } from 'react';
+import { useKeyPress } from '@/hooks';
 import { useSearchMenuIndex } from './useSearchMenuIndex';
 import { useSearchMenuRef } from './useSearchMenuRef';
 

@@ -1,7 +1,7 @@
+import { memo, useCallback } from 'react';
 import type { FlexProps } from '@/components/ui/Flex';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { type TaskFile, useTaskFile } from '@/store/entities/taskFile';
-import { memo, useCallback } from 'react';
 import { File } from './File';
 import { Image } from './Image';
 import { Provider } from './Provider';
@@ -23,7 +23,7 @@ export const ThumbnailAttachment = memo(function ThumbnailAttachment(
 });
 
 export const Component = memo(function Component(props: Props) {
-  const { taskFileId, onOpenFileViewer, onDelete, ...rest } = props;
+  const { taskFileId, onOpenFileViewer, onDelete: _, ...rest } = props;
   const { taskFile } = useTaskFile(taskFileId);
 
   const handleClick = useCallback(() => {

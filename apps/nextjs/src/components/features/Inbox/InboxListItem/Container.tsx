@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { transitions } from '@/styles';
-import { memo } from 'react';
 import { useInboxListItemContext } from './Provider';
 
 type Props = FlexProps;

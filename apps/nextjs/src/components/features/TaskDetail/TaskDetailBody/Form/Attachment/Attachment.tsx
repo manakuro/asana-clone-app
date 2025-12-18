@@ -1,13 +1,12 @@
+import { memo, useCallback } from 'react';
 import { useFileViewerModal } from '@/components/features/Modals';
 import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
-import { Wrap } from '@/components/ui/Wrap';
-import { WrapItem } from '@/components/ui/Wrap';
+import { Wrap, WrapItem } from '@/components/ui/Wrap';
 import { useToast } from '@/hooks';
 import {
   type TaskFile,
   useTaskFileIdsByTaskId,
 } from '@/store/entities/taskFile';
-import { memo, useCallback } from 'react';
 import { NewButton } from './NewButton';
 
 type Props = {

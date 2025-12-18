@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import type { IconType } from '@/shared/icons';
@@ -5,7 +6,6 @@ import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { useProjectIcon } from '@/store/entities/projectIcon';
-import { memo } from 'react';
 
 export const ProjectIcon = memo(function ProjectIcon() {
   const { projectId } = useProjectsProjectId();

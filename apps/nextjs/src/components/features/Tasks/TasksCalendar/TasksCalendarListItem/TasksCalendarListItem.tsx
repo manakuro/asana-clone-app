@@ -1,9 +1,9 @@
+import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
-import { memo } from 'react';
 import { Content } from './Content';
-import { Info } from './Info';
 import { useListItemStyle } from './hooks';
+import { Info } from './Info';
 
 type Props = {
   dateString: string;

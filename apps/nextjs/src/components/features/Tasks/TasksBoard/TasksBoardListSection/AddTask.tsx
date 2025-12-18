@@ -1,7 +1,7 @@
+import { memo, useCallback } from 'react';
 import { useTasksTask } from '@/components/features/Tasks/hooks';
 import { Button, type ButtonProps } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
-import { memo, useCallback } from 'react';
 
 type Props = {
   taskSectionId: string;

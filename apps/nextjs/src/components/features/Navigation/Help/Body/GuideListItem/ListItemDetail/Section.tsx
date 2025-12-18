@@ -1,7 +1,7 @@
+import type React from 'react';
 import { Box } from '@/components/ui/Box';
 import { Divider } from '@/components/ui/Divider';
 import { Heading } from '@/components/ui/Heading';
-import type React from 'react';
 
 type Props = {
   title?: string;

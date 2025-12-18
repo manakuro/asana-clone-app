@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Box } from '@/components/ui/Box';
 import { Button, type ButtonProps } from '@/components/ui/Button';
 import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
@@ -5,7 +6,6 @@ import { Flex } from '@/components/ui/Flex';
 import { Icon, type IconProps } from '@/components/ui/Icon';
 import { useHover } from '@/hooks/useHover';
 import type { ChakraProps } from '@/shared/chakra';
-import { memo, useCallback, useMemo, useState } from 'react';
 import { DeleteButton } from './DeleteButton';
 import { Input } from './Input';
 

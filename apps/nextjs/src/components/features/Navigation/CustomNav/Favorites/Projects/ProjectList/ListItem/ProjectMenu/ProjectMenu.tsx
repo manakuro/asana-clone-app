@@ -1,10 +1,10 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { Menu, MenuButton } from '@/components/ui/Menu';
 import { PortalManager } from '@/components/ui/PortalManager';
 import { useClickableHoverStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 import { MenuList } from './MenuList';
 
 type Props = {

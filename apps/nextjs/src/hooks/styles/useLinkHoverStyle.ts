@@ -1,6 +1,6 @@
+import { useMemo } from 'react';
 import type { ChakraProps, Colors } from '@/shared/chakra';
 import { transitions } from '@/styles';
-import { useMemo } from 'react';
 
 export type UseHoverProps = {
   light?: boolean;

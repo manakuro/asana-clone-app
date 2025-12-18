@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
@@ -8,7 +9,6 @@ import { PortalManager } from '@/components/ui/PortalManager';
 import { Text } from '@/components/ui/Text';
 import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';
-import { memo, useMemo } from 'react';
 import { Content } from './Content';
 
 type Props = FlexProps;

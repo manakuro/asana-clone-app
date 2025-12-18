@@ -1,5 +1,5 @@
-import { Flex, type FlexProps } from '@/components/ui/Flex';
 import type React from 'react';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 
 type Props = FlexProps;
 

@@ -1,7 +1,7 @@
-import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
-import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
 import type React from 'react';
 import { memo } from 'react';
+import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
+import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
 import { ListBasic } from './ListBasic';
 import { ListSortByAlphabetical } from './ListSortByAlphabetical';
 import { ListSortByDueDate } from './ListSortByDueDate';

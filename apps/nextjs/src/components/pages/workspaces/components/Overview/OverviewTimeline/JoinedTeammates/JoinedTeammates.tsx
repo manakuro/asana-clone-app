@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { useProjectTeammateIdsByProjectIdSortedByCreatedAt } from '@/store/entities/projectTeammate';
-import { memo } from 'react';
 import { JoinedTeammate } from './JoinedTeammate';
 
 type Props = {

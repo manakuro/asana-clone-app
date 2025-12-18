@@ -31,7 +31,6 @@ export const emoji: Override<
   parseDOM: [
     {
       tag: 'span[data-mention-emoji]',
-      // @ts-ignore
       getAttrs: (element: HTMLSpanElement): Attrs => {
         const emoji = element.getAttribute('data-mention-emoji') ?? '';
         return {

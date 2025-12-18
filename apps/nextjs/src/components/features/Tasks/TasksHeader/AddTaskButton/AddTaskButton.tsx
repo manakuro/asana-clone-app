@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import {
   useTasksTask,
   useTasksTaskSectionCommand,
@@ -14,7 +15,6 @@ import { IconButton } from '@/components/ui/IconButton';
 import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import type { ChakraProps } from '@/shared/chakra';
-import { memo, useCallback, useMemo } from 'react';
 
 type Props = ButtonGroupProps & {
   solid?: boolean;
@@ -22,7 +22,7 @@ type Props = ButtonGroupProps & {
 };
 
 export const AddTaskButton = memo(function AddTaskButton(props: Props) {
-  const { solid, outlined, ...rest } = props;
+  const { solid, outlined: _, ...rest } = props;
   const { addTaskSection } = useTasksTaskSectionCommand();
   const { taskSectionIds } = useTasksTaskSectionIds();
   const firstTaskSectionId = useMemo(() => taskSectionIds[0], [taskSectionIds]);
@@ -32,10 +32,10 @@ export const AddTaskButton = memo(function AddTaskButton(props: Props) {
     addTask({ taskSectionId: firstTaskSectionId });
   }, [addTask, firstTaskSectionId]);
 
-  const buttonGroupProps: ButtonGroupProps = props.solid
+  const buttonGroupProps: ButtonGroupProps = solid
     ? { variant: 'solid', colorScheme: 'teal' }
     : { variant: 'outline' };
-  const iconStyle: ChakraProps = props.solid
+  const iconStyle: ChakraProps = solid
     ? { color: 'white' }
     : { color: 'text.muted' };
 

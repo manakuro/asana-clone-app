@@ -1,5 +1,7 @@
-import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
+import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
 import { CheckIcon } from '@/components/ui/CheckIcon';
 import type { FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
@@ -7,8 +9,6 @@ import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';
 import { TaskDoneTransition } from '@/components/ui/Transitions';
 import { useTask, useTaskCommand } from '@/store/entities/task';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 import { ExpandIcon } from './ExpandIcon';
 import { Feed } from './Feed';
 import { Like } from './Like';
@@ -83,59 +83,57 @@ const Component = memo(function Component(props: Props) {
   );
 
   return (
-    <>
-      <TasksNameCell
-        pl={props.isSubtask ? 12 : 6}
-        onClick={handleClick}
-        containerStyle={{
-          w: props.width,
-          minW: '400px',
-          maxW: '800px',
-          ...stickyStyle,
-          bg: 'inherit',
-        }}
-        ref={ref}
-      >
-        <TaskDoneTransition isTransitioning={isTransitioning} />
-        <TasksNameGrabIconContainer>
-          <TasksNameGrabIcon />
-        </TasksNameGrabIconContainer>
-        <ExpandIcon taskId={props.taskId} />
-        <CheckIcon
-          completed={task.completed}
-          ml={1}
-          onClick={handleToggleDone}
-          zIndex={2}
-          isTransitioning={isTransitioning}
-        />
-        <TasksNameField
+    <TasksNameCell
+      pl={props.isSubtask ? 12 : 6}
+      onClick={handleClick}
+      containerStyle={{
+        w: props.width,
+        minW: '400px',
+        maxW: '800px',
+        ...stickyStyle,
+        bg: 'inherit',
+      }}
+      ref={ref}
+    >
+      <TaskDoneTransition isTransitioning={isTransitioning} />
+      <TasksNameGrabIconContainer>
+        <TasksNameGrabIcon />
+      </TasksNameGrabIconContainer>
+      <ExpandIcon taskId={props.taskId} />
+      <CheckIcon
+        completed={task.completed}
+        ml={1}
+        onClick={handleToggleDone}
+        zIndex={2}
+        isTransitioning={isTransitioning}
+      />
+      <TasksNameField
+        taskId={props.taskId}
+        value={task.name}
+        isNew={task.isNew}
+        completed={task.completed}
+        onChange={handleChangeName}
+        deleteTask={handleDeleteTask}
+        focusedBorder
+        flex={1}
+      />
+      <Stack direction="row" spacing={1} ml={1} mr="auto">
+        <TaskParentName />
+        <Like />
+        <Feed />
+        <Subtask />
+      </Stack>
+      <TasksNameRightContainer>
+        <MoveTasksBetweenSections
+          onOpened={onMarkMenuOpened}
+          onClosed={onMarkMenuClosed}
           taskId={props.taskId}
-          value={task.name}
-          isNew={task.isNew}
-          completed={task.completed}
-          onChange={handleChangeName}
-          deleteTask={handleDeleteTask}
-          focusedBorder
-          flex={1}
         />
-        <Stack direction="row" spacing={1} ml={1} mr="auto">
-          <TaskParentName />
-          <Like />
-          <Feed />
-          <Subtask />
-        </Stack>
-        <TasksNameRightContainer>
-          <MoveTasksBetweenSections
-            onOpened={onMarkMenuOpened}
-            onClosed={onMarkMenuClosed}
-            taskId={props.taskId}
-          />
-          <Text fontSize="xs" color="text.muted" ml={2}>
-            Details
-          </Text>
-          <Icon icon="chevronRight" color="text.muted" mt="1px" />
-        </TasksNameRightContainer>
-      </TasksNameCell>
-    </>
+        <Text fontSize="xs" color="text.muted" ml={2}>
+          Details
+        </Text>
+        <Icon icon="chevronRight" color="text.muted" mt="1px" />
+      </TasksNameRightContainer>
+    </TasksNameCell>
   );
 });

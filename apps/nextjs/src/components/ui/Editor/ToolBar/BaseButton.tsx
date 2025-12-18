@@ -1,3 +1,5 @@
+import type React from 'react';
+import { useCallback } from 'react';
 import {
   useEditorStateContext,
   useEditorViewContext,
@@ -5,8 +7,6 @@ import {
 import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
 import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
 import type { ToolbarItem } from '@/shared/prosemirror/hooks';
-import type React from 'react';
-import { useCallback } from 'react';
 
 type Props = {
   isActive?: ToolbarItem['isActive'];
@@ -18,7 +18,7 @@ type Props = {
 export function BaseButton(props: Props) {
   const state = useEditorStateContext();
   const view = useEditorViewContext();
-  const { onClick, tooltip, action, isEnable, isActive, ...rest } = props;
+  const { onClick: _, tooltip, action, isEnable, isActive, ...rest } = props;
 
   const handleMouseDown = useCallback(
     (e: React.MouseEvent) => {

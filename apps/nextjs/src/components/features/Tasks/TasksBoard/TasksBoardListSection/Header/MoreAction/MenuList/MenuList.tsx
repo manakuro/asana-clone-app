@@ -1,10 +1,10 @@
+import { memo, useCallback } from 'react';
 import { useDeleteTaskSectionModal } from '@/components/features/Modals';
 import {
   useHasTasksByTaskSectionId,
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
 import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
-import { memo, useCallback } from 'react';
 import { useTasksBoardListSectionContext } from '../../../Provider';
 
 export const MenuList = memo(function MenuList() {

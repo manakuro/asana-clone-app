@@ -1,8 +1,8 @@
+import { useCallback, useMemo, useState } from 'react';
 import { getCalendarMatrix } from '@/shared/date';
 import { dateFns } from '@/shared/dateFns';
 import { isHTMLElement } from '@/shared/isHTMLElement';
 import { createProvider } from '@/shared/react/createProvider';
-import { useCallback, useMemo, useState } from 'react';
 import { useTasksCalendarId } from './useTasksCalendarId';
 
 type ContextProps = {

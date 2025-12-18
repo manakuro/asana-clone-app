@@ -1,5 +1,5 @@
-import { useResizeObserver } from '@/hooks/useResizeObserver';
 import { atom, useAtom } from 'jotai';
+import { useResizeObserver } from '@/hooks/useResizeObserver';
 import { useTasksListContent } from './useTasksListContent';
 
 const isStickyVerticalAtom = atom<boolean>(false);

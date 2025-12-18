@@ -1,6 +1,6 @@
-import { useDisclosure } from '@/shared/chakra';
 import type React from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
+import { useDisclosure } from '@/shared/chakra';
 
 type Props<ListStatus> = {
   onChange: (status: ListStatus) => void;

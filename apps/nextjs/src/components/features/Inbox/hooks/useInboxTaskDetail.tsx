@@ -1,11 +1,11 @@
+import { useParams, usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 import {
   useTaskDetail,
   useTaskDetailResetId,
 } from '@/components/features/TaskDetail';
 import { useTaskDetailSide } from '@/components/features/TaskDetails';
 import type { Params } from '@/shared/nextjs/navigation';
-import { useParams, usePathname } from 'next/navigation';
-import { useEffect } from 'react';
 
 type Props = {
   isTaskDetailURL: (params: Params, pathname: string | null) => boolean;

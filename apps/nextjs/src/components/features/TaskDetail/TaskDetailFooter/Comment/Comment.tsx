@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { MyAvatar } from '@/components/features/MyAvatar';
 import { Flex } from '@/components/ui/Flex';
-import { memo } from 'react';
 import { Input } from './Input';
 
 export const Comment = memo(function Comment() {

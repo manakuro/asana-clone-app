@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { Divider } from '@/components/ui/Divider';
 import { Flex } from '@/components/ui/Flex';
 import {
@@ -8,7 +9,6 @@ import {
 } from '@/components/ui/Modal';
 import { Stack } from '@/components/ui/Stack';
 import { useProject, useProjectCommand } from '@/store/entities/project';
-import { memo, useCallback } from 'react';
 import { Description } from './Description';
 import { DescriptionTitle } from './DescriptionTitle';
 import { Label } from './Label';

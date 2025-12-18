@@ -1,10 +1,10 @@
+import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Menu, MenuButton } from '@/components/ui/Menu';
 import { PortalManager } from '@/components/ui/PortalManager';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useDisclosure } from '@/shared/chakra';
-import { memo, useCallback } from 'react';
 import { MenuList } from './MenuList';
 
 type Props = {

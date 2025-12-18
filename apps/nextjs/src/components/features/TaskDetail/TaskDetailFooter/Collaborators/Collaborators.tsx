@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
-import { memo } from 'react';
 import { Input } from './Input';
 import { LeaveTask } from './LeaveTask';
 import { Provider } from './Provider';

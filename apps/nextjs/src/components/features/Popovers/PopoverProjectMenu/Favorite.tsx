@@ -1,9 +1,9 @@
+import type React from 'react';
+import { useCallback, useMemo } from 'react';
 import {
   useFavoriteProjectIds,
   useFavoriteProjectIdsCommand,
 } from '@/store/entities/favoriteProjectIds';
-import type React from 'react';
-import { useCallback, useMemo } from 'react';
 import { MenuItem } from './MenuItem';
 
 type Props = {

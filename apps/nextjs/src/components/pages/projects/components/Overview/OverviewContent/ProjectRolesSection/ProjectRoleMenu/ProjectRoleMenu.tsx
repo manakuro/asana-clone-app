@@ -1,8 +1,8 @@
+import { memo, type PropsWithChildren } from 'react';
 import { Box } from '@/components/ui/Box';
 import { Menu } from '@/components/ui/Menu';
 import { PortalManager } from '@/components/ui/PortalManager';
 import { useDisclosure } from '@/shared/chakra';
-import { type PropsWithChildren, memo } from 'react';
 import { MenuList } from './MenuList';
 import { ProjectRoleInputPopover } from './ProjectRoleInputPopover';
 

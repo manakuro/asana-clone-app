@@ -1,7 +1,7 @@
+import { useCallback } from 'react';
 import { Wrap } from '@/components/ui/Wrap';
 import { useProjectCommand } from '@/store/entities/project';
 import { useProjectIconIds } from '@/store/entities/projectIcon';
-import { useCallback } from 'react';
 import { IconPickerItem } from './IconPickerItem';
 
 type Props = {

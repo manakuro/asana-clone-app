@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import {
   MenuSelect,
   MenuSelectButton,
@@ -8,7 +9,6 @@ import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { MenuItemOption } from '@/components/ui/Menu';
 import { useClickableHoverStyle } from '@/hooks';
-import { memo, useCallback, useMemo } from 'react';
 import {
   PROJECT_PERMISSION_CAN_COMMENT,
   PROJECT_PERMISSION_CAN_EDIT,
@@ -67,7 +67,7 @@ export const PermissionMenu = memo(function PermissionMenu() {
         defaultValue={status.toString()}
         menuListProps={{ maxW: '250px' }}
       >
-        {items.map((item, i) => (
+        {items.map((item, _i) => (
           <MenuItemOption
             value={item.value.toString()}
             key={item.value}

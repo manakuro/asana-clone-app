@@ -1,3 +1,4 @@
+import { memo, useCallback, useEffect } from 'react';
 import { useSearchProjectsQuery } from '@/components/features/Menus/ProjectMenu/useSearchProjectsQuery';
 import {
   SearchMenuLeftContainer,
@@ -11,7 +12,6 @@ import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { useFirstRender } from '@/hooks';
 import type { Project } from '@/store/entities/project';
-import { memo, useCallback, useEffect } from 'react';
 import { ProjectItem } from './ProjectItem';
 
 type Props = {

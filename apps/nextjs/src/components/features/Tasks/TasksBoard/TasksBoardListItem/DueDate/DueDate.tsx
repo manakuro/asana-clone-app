@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { Button } from '@/components/ui/Button';
 import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
@@ -5,7 +6,6 @@ import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTask } from '@/store/entities/task';
-import { memo, useCallback, useMemo } from 'react';
 import { useTasksBoardListItemContext } from '../Provider';
 
 type Props = FlexProps & {

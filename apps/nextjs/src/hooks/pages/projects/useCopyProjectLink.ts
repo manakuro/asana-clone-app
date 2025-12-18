@@ -1,6 +1,6 @@
+import { useCallback } from 'react';
 import { useToast } from '@/hooks';
 import { getProjectsURL } from '@/router/projects';
-import { useCallback } from 'react';
 
 type Props = {
   projectId: string;

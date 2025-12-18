@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import {
   MenuSelect,
   MenuSelectButton,
@@ -16,7 +17,6 @@ import {
   type InboxListFilterStatuses,
   useInboxListStatus,
 } from '@/store/app/inbox/activity/inboxListStatus';
-import { memo, useCallback, useMemo } from 'react';
 
 const items: {
   value: InboxListFilterStatuses;
@@ -83,7 +83,7 @@ export const FilterButton = memo(function FilterButton() {
         Filter{text}
       </MenuSelectButton>
       <MenuSelectList defaultValue={filterStatus.toString()}>
-        {items.map((item, i) => (
+        {items.map((item, _i) => (
           <MenuItemOption
             value={item.value.toString()}
             key={item.value.toString()}

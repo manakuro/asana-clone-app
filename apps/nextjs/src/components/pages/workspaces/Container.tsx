@@ -1,7 +1,7 @@
 'use client';
 
-import { useWorkspacePageQuery } from '@/hooks/queries/app';
 import { memo } from 'react';
+import { useWorkspacePageQuery } from '@/hooks/queries/app';
 import { Component } from './Component';
 
 export const Container = memo(function Container() {

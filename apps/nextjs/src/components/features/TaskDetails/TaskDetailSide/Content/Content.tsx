@@ -1,10 +1,10 @@
+import { memo } from 'react';
 import {
   TaskDetailBody,
   TaskDetailFooter,
   TaskDetailHeader,
 } from '@/components/features/TaskDetail';
 import { Flex } from '@/components/ui/Flex';
-import { memo } from 'react';
 
 const HEADER_HEIGHT = 72;
 const TOP = HEADER_HEIGHT;

@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useState } from 'react';
 import { DueDate } from '@/components/ui/DueDate';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
@@ -5,8 +7,6 @@ import { TaskDoneTransition } from '@/components/ui/Transitions';
 import { useHover } from '@/hooks/useHover';
 import { useRouter } from '@/router';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
-import { memo, useCallback, useState } from 'react';
 import { ActionButton } from './ActionButton';
 import { CheckIcon } from './CheckIcon';
 import { Feed } from './Feed';
@@ -70,11 +70,7 @@ export const TaskListItem = memo(function TaskListItem(props: Props) {
           <Feed taskId={taskId} />
         </Stack>
       </Row>
-      <ActionButton
-        taskId={taskId}
-        ml={3}
-        visibility={isHovering ? 'visible' : 'hidden'}
-      />
+      <ActionButton ml={3} visibility={isHovering ? 'visible' : 'hidden'} />
     </Flex>
   );
 });

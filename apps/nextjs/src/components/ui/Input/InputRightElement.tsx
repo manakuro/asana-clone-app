@@ -1,4 +1,4 @@
 export {
-  InputRightElement,
   type InputElementProps,
+  InputRightElement,
 } from '@chakra-ui/react';

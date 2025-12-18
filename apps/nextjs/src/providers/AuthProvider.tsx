@@ -1,12 +1,12 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import {
   onAuthStateChanged,
   onIdTokenChanged,
   signInAnonymously,
 } from '@/shared/firebase/auth';
 import { createProvider } from '@/shared/react/createProvider';
-import { useEffect, useState } from 'react';
 
 const useValue = () => {
   const [idToken, setIdToken] = useState('');

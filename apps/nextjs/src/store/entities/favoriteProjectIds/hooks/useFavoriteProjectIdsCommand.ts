@@ -1,10 +1,10 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   useCreateFavoriteProjectMutation,
   useDeleteFavoriteProjectMutation,
 } from '@/graphql/hooks';
 import { useMe } from '@/store/entities/me';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { favoriteProjectIdsState } from '../atom';
 import { FAVORITE_PROJECT_IDS_UPDATED_SUBSCRIPTION_REQUEST_ID } from './useFavoriteProjectIdsUpdatedSubscription';
 import { useUpsert } from './useUpsert';

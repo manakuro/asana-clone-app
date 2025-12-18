@@ -1,3 +1,4 @@
+import type { PropsWithChildren } from 'react';
 import { Divider } from '@/components/ui/Divider';
 import { Link } from '@/components/ui/Link';
 import {
@@ -8,7 +9,6 @@ import {
   PopoverTrigger,
 } from '@/components/ui/Popover';
 import type { Project } from '@/store/entities/project';
-import type { PropsWithChildren } from 'react';
 import { ColorPicker } from './ColorPicker';
 import { IconPicker } from './IconPicker';
 import { Setting } from './Setting';

@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { Label } from '@/components/ui/Label';
 import { PopoverBody, PopoverContent } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
@@ -7,8 +9,6 @@ import {
   useProjectTeammatesCommand,
 } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 import { Form } from './Form';
 
 type Props = {

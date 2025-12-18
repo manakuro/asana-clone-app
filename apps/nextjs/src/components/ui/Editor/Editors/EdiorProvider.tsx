@@ -3,21 +3,21 @@ import { EditorState, type Plugin } from 'prosemirror-state';
 import { type EditorProps, EditorView } from 'prosemirror-view';
 import type { PropsWithChildren } from 'react';
 import {
+  createContext,
   type Dispatch,
   type SetStateAction,
-  createContext,
   useCallback,
   useContext,
   useEffect,
   useState,
 } from 'react';
+import { Emoji, Link, Mention } from './nodeViews';
 import { createReactNodeView } from './ReactNodeView';
 import {
   type PortalHandlers,
   ReactNodeViewPortalsProvider,
   useReactNodeViewCreatePortal,
 } from './ReactNodeViewPortals';
-import { Emoji, Link, Mention } from './nodeViews';
 
 const EditorStateContext = createContext<EditorState | null>(null);
 const EditorViewContext = createContext<EditorView | null>(null);
@@ -149,7 +149,7 @@ function Provider(props: PropsWithChildren<Props>) {
   //   )
   // }, [props.forceUpdate])
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: used for resetting view
   const resetView = useCallback(() => {
     setView(
       generateView({
@@ -165,13 +165,13 @@ function Provider(props: PropsWithChildren<Props>) {
     );
   }, [props]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: used for resetting view
   useEffect(() => {
     resetView();
     /* eslint react-hooks/exhaustive-deps: off */
   }, [props.editable]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: used for resetting view
   useEffect(() => {
     resetView();
     /* eslint react-hooks/exhaustive-deps: off */

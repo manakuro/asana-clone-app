@@ -1,7 +1,7 @@
-import { Input, type InputProps } from '@/components/ui/Input';
-import { useDebounce } from '@/hooks';
 import type React from 'react';
 import { memo, useCallback, useEffect, useState } from 'react';
+import { Input, type InputProps } from '@/components/ui/Input';
+import { useDebounce } from '@/hooks';
 
 type Props = {
   value: string;

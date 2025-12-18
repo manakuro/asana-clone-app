@@ -1,9 +1,9 @@
 import type { TaskTagResponse } from '@/graphql/types/taskTag';
 
 export type {
-  TaskTagResponse,
   TaskTagCreatedSubscriptionResponse,
   TaskTagDeletedSubscriptionResponse,
+  TaskTagResponse,
 } from '@/graphql/types/taskTag';
 
 export type TaskTag = TaskTagResponse;

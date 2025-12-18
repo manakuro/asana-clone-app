@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useState } from 'react';
 import { ProjectChip } from '@/components/features/Chips';
 import { ProjectMenu } from '@/components/features/Menus';
 import { Flex } from '@/components/ui/Flex';
@@ -9,8 +11,6 @@ import {
   useProjectIdsByTaskId,
   useProjectTaskCommand,
 } from '@/store/entities/projectTask';
-import type React from 'react';
-import { memo, useCallback, useState } from 'react';
 
 type Props = {
   taskId: string;

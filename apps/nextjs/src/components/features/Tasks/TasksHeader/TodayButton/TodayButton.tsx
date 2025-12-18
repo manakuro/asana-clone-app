@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/Button';
 import { memo, useCallback } from 'react';
+import { Button } from '@/components/ui/Button';
 import { useTasksCalendarContext } from '../../TasksCalendar';
 
 export const TodayButton = memo(function TodayButton() {

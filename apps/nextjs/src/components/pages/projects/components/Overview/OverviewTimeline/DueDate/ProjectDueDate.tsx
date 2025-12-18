@@ -1,8 +1,8 @@
+import { memo, useCallback } from 'react';
 import type { ButtonProps } from '@/components/ui/Button';
 import { DatePickerWithInput } from '@/components/ui/Forms/DatePickerWithInput';
 import type { IconProps } from '@/components/ui/Icon';
 import { useProject, useProjectCommand } from '@/store/entities/project';
-import { memo, useCallback } from 'react';
 
 type Props = {
   projectId: string;

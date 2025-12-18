@@ -1,7 +1,7 @@
-import { SearchMenuListItem } from '@/components/features/Menus/SearchMenu';
-import type { Project } from '@/store/entities/project';
 import type React from 'react';
 import { memo, useCallback } from 'react';
+import { SearchMenuListItem } from '@/components/features/Menus/SearchMenu';
+import type { Project } from '@/store/entities/project';
 
 type Props = {
   onClick: (project: string) => void;

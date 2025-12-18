@@ -2,8 +2,7 @@ import {
   Link as ChakraLink,
   type LinkProps as ChakraLinkProps,
 } from '@chakra-ui/react';
-import { forwardRef } from 'react';
-import { useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 
 type Props = ChakraLinkProps & {
   hover?: boolean;

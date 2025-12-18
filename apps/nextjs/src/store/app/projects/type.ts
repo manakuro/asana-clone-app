@@ -1,4 +1,4 @@
 export type {
-  ProjectsResponse,
   ProjectsProjectTaskSectionResponse,
+  ProjectsResponse,
 } from '@/graphql/types/app/projects';

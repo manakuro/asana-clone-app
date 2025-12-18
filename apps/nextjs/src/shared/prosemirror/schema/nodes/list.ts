@@ -17,7 +17,7 @@ export const list: NodeSpec = {
   parseDOM: [
     {
       tag: 'ol',
-      // @ts-ignore
+      // @ts-expect-error
       getAttrs: (element: HTMLOListElement): Attrs => {
         const start = element.getAttribute('start');
 

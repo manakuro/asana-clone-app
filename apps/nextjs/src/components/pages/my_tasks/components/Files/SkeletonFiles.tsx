@@ -1,8 +1,8 @@
+import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Stack } from '@/components/ui/Stack';
 import { useBreakpointValue } from '@/shared/chakra';
-import { memo } from 'react';
 
 type Props = FlexProps;
 

@@ -16,7 +16,16 @@ type Props = FlexProps & {
 };
 
 export function Component(props: Props) {
-  const { size, color, name, isHovering, fileName, src, icon, ...rest } = props;
+  const {
+    size,
+    color: _,
+    name,
+    isHovering,
+    fileName,
+    src,
+    icon,
+    ...rest
+  } = props;
   const sizeStyle = sizes[size];
 
   return (

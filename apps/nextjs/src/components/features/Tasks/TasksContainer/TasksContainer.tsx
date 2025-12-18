@@ -1,4 +1,4 @@
-import { type PropsWithChildren, memo } from 'react';
+import { memo, type PropsWithChildren } from 'react';
 import { TasksModals } from '../TasksModals';
 import { TasksProvider, type TasksProviderProps } from '../TasksProvider';
 

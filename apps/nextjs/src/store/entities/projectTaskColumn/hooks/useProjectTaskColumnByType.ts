@@ -1,6 +1,6 @@
-import type { TaskColumnTypeValue } from '@/store/entities/taskColumn';
 import { useAtomValue } from 'jotai';
 import { useMemo } from 'react';
+import type { TaskColumnTypeValue } from '@/store/entities/taskColumn';
 import { projectsTaskColumnByTypeState } from '../atom';
 
 export const useProjectTaskColumnByType = ({

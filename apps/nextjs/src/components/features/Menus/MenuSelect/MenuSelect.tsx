@@ -1,7 +1,6 @@
 import { Menu, type MenuProps } from '@/components/ui/Menu';
 import { type MaybeRenderProp, runIfFn } from '@/shared/utils';
-import { type UseMenuSelect, useMenuSelect } from './useMenuSelect';
-import { Context } from './useMenuSelect';
+import { Context, type UseMenuSelect, useMenuSelect } from './useMenuSelect';
 
 type Props<ListStatus> = {
   onChange: (listStatus: ListStatus) => void;

@@ -1,5 +1,4 @@
-import { useAtomCallback } from 'jotai/utils';
-import { RESET } from 'jotai/utils';
+import { RESET, useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import { projectTaskSectionState } from '../atom';
 

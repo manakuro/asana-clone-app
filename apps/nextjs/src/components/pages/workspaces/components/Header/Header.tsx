@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Divider } from '@/components/ui/Divider';
 import { Flex } from '@/components/ui/Flex';
-import { memo } from 'react';
 import { InviteButton } from './InviteButton';
 import { SkeletonHeader } from './SkeletonHeader';
 import { Tabs } from './Tabs';

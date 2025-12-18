@@ -1,7 +1,7 @@
-import { type ChakraProps, chakra } from '@/shared/chakra';
 import styled from '@emotion/styled';
 import type React from 'react';
 import { useCallback, useMemo } from 'react';
+import { type ChakraProps, chakra } from '@/shared/chakra';
 import type { State } from './VideoPlayer';
 
 type Props = {

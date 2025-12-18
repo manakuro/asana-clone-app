@@ -1,10 +1,10 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import {
   CheckIcon as AtomsCheckIcon,
   type CheckIconProps,
 } from '@/components/ui/CheckIcon';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Props = {
   taskId: string;

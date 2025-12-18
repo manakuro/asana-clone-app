@@ -1,6 +1,6 @@
+import type React from 'react';
 import type { Item } from '@/components/features/Navigation/Help/Body/GuideListItem';
 import { Flex } from '@/components/ui/Flex';
-import type React from 'react';
 import { Background } from './Background';
 import { Detail } from './Detail';
 import { Header } from './Header';

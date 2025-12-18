@@ -1,5 +1,5 @@
-import { type ChakraProps, chakra } from '@/shared/chakra';
 import styled from '@emotion/styled';
+import { type ChakraProps, chakra } from '@/shared/chakra';
 
 type Props = {
   seconds: number;

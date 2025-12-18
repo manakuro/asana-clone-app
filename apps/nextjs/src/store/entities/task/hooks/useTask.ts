@@ -1,3 +1,6 @@
+import { useAtomValue } from 'jotai';
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback, useMemo } from 'react';
 import { useUpdateTaskMutation } from '@/graphql/hooks';
 import {
   formatDueTimeToLocalTimezone,
@@ -5,10 +8,6 @@ import {
 } from '@/shared/date';
 import { omit } from '@/shared/utils/omit';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomValue } from 'jotai';
-import { useAtomCallback } from 'jotai/utils';
-import { useMemo } from 'react';
-import { useCallback } from 'react';
 import { taskState } from '../atom';
 import type { Task, UpdateTaskInput } from '../type';
 import { hasTaskBeenPersisted } from '../util';

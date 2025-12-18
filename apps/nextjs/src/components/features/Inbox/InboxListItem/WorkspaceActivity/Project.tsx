@@ -1,10 +1,10 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
 import { useProject } from '@/store/entities/project';
 import { transitions } from '@/styles';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Props = FlexProps & {
   projectId: string;

@@ -1,5 +1,5 @@
-import { useNavigation } from '@/components/features/Navigation';
 import { useEffect, useState } from 'react';
+import { useNavigation } from '@/components/features/Navigation';
 
 export const useMainStyle = () => {
   const { isExpanded } = useNavigation();

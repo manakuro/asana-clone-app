@@ -1,5 +1,5 @@
-import { MenuItem } from '@/components/ui/Menu';
 import { memo, useCallback } from 'react';
+import { MenuItem } from '@/components/ui/Menu';
 
 export const RemoveFromProject = memo(function RemoveFromProject() {
   const handleRemoveFromProject = useCallback(() => {}, []);

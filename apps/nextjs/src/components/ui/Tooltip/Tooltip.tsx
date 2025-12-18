@@ -1,10 +1,10 @@
-import { Flex } from '@/components/ui/Flex';
 import {
   Tooltip as ChakraTooltip,
   type TooltipProps as ChakraTooltipProps,
 } from '@chakra-ui/react';
-import { forwardRef } from 'react';
 import type React from 'react';
+import { forwardRef } from 'react';
+import { Flex } from '@/components/ui/Flex';
 
 type Props = ChakraTooltipProps & {
   withIcon?: boolean;
@@ -42,7 +42,7 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
       ...rest,
     };
 
-    if (props.withIcon) {
+    if (withIcon) {
       // NOTE: Need to wrap Icon with span
       // @see https://github.com/chakra-ui/chakra-ui/issues/2869
       return (

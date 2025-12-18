@@ -1,7 +1,7 @@
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { transitions } from '@/styles';
 import { memo, useEffect, useMemo, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { transitions } from '@/styles';
 
 type Props = FlexProps;
 

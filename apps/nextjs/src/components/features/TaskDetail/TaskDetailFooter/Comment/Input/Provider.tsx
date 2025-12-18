@@ -1,3 +1,5 @@
+import type React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import {
   useTaskDetail,
   useTaskDetailBody,
@@ -14,13 +16,11 @@ import {
   useTaskFeedCommand,
 } from '@/store/entities/taskFeed';
 import {
-  type TaskFile,
   getTaskFileTypeFromFile,
   initialState,
+  type TaskFile,
   useTaskFileCommand,
 } from '@/store/entities/taskFile';
-import type React from 'react';
-import { useCallback, useMemo, useState } from 'react';
 
 type ContextProps = {
   taskFeed: TaskFeed;

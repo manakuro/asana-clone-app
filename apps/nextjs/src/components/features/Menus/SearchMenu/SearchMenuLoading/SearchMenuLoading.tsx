@@ -1,5 +1,5 @@
-import { Spinner } from '@/components/ui/Spinner';
 import { memo } from 'react';
+import { Spinner } from '@/components/ui/Spinner';
 import { SearchMenuListItem } from '../SearchMenuListItem';
 
 export const SearchMenuLoading = memo(function SearchMenuLoading() {

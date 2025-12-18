@@ -2,8 +2,8 @@ import {
   Input as ChakraInput,
   type InputProps as ChakraInputProps,
 } from '@chakra-ui/react';
-import { forwardRef } from 'react';
 import type React from 'react';
+import { forwardRef } from 'react';
 
 type Props = ChakraInputProps & {
   ref?: React.MutableRefObject<any>;

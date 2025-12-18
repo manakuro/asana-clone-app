@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
@@ -5,7 +6,6 @@ import { Text } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
 import { useProjectTeammate } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';
-import { useMemo } from 'react';
 import { ProjectRoleMenu } from '../ProjectRoleMenu';
 import { Button } from './Button';
 

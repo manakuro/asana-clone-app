@@ -1,7 +1,7 @@
-import type { InboxActivityPageQuery } from '@/graphql/types/app/inbox';
-import { getNodesFromEdges } from '@/shared/apollo/util';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import type { InboxActivityPageQuery } from '@/graphql/types/app/inbox';
+import { getNodesFromEdges } from '@/shared/apollo/util';
 import { useActivitiesResponse } from '../activities';
 import { useInboxListStatusResponse } from '../inboxListStatus';
 import {
@@ -14,12 +14,12 @@ import {
 } from '../taskActivityTasks';
 import type { ActivityResponse } from '../type';
 import {
-  type WorkspaceActivityResponse,
   useWorkspaceActivitiesResponse,
+  type WorkspaceActivityResponse,
 } from '../workspaceActivities';
 import {
-  type WorkspaceActivityTaskResponse,
   useWorkspaceActivityTasksResponse,
+  type WorkspaceActivityTaskResponse,
 } from '../workspaceActivityTasks';
 
 export const useActivityResponse = () => {

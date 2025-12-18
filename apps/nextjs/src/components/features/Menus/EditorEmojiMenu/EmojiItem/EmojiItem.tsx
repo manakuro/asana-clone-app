@@ -1,10 +1,10 @@
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useEditorEmojiMenu } from '@/components/features/Menus/EditorEmojiMenu';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import type { BaseEmoji } from '@/shared/emoji';
-import { memo, useCallback, useEffect, useMemo } from 'react';
 
 type Props = Override<
   FlexProps,

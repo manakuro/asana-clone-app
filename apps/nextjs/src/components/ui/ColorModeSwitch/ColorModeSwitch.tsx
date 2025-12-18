@@ -1,7 +1,7 @@
+import { useColorMode } from '@chakra-ui/color-mode';
 import { Button } from '@/components/ui/Button';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import { useColorMode } from '@chakra-ui/color-mode';
 
 type Props = FlexProps;
 

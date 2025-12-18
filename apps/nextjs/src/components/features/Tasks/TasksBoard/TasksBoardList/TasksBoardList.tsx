@@ -1,7 +1,7 @@
-import { useTasksTaskSectionIds } from '@/components/features/Tasks/hooks';
-import { Flex } from '@/components/ui/Flex';
 import type React from 'react';
 import { memo } from 'react';
+import { useTasksTaskSectionIds } from '@/components/features/Tasks/hooks';
+import { Flex } from '@/components/ui/Flex';
 import { TasksBoardListSection } from '../TasksBoardListSection';
 
 export const TasksBoardList: React.FC = memo(() => {

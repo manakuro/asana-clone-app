@@ -1,9 +1,9 @@
+import { memo, type PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Image } from '@/components/ui/Image';
 import { Logo } from '@/components/ui/Logo';
 import { Text } from '@/components/ui/Text';
 import { useResponsive } from '@/hooks';
-import { type PropsWithChildren, memo } from 'react';
 
 type Props = PropsWithChildren;
 export type MenuProps = Props;

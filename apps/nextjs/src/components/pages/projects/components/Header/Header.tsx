@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Divider } from '@/components/ui/Divider';
 import { Flex } from '@/components/ui/Flex';
-import { memo } from 'react';
 import { ProjectIcon } from './ProjectIcon';
 import { ProjectTeammates } from './ProjectTeammates';
 import { ShareButton } from './ShareButton';

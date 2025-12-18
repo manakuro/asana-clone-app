@@ -1,7 +1,6 @@
-import type { Task } from '@/store/entities/task';
-import { useAtomCallback } from 'jotai/utils';
-import { RESET } from 'jotai/utils';
+import { RESET, useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import type { Task } from '@/store/entities/task';
 import { taskState } from '../atom';
 
 export const useResetTask = () => {

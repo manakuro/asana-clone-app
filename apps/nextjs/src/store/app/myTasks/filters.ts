@@ -1,3 +1,4 @@
+import type { Getter } from 'jotai';
 import { dateFns } from '@/shared/dateFns';
 import { uniq } from '@/shared/utils';
 import {
@@ -8,7 +9,6 @@ import { projectTasksState } from '@/store/entities/projectTask';
 import type { Task } from '@/store/entities/task';
 import { taskLikesByTaskIdState } from '@/store/entities/taskLike';
 import type { TeammateTaskSection } from '@/store/entities/teammatesTaskSection';
-import type { Getter } from 'jotai';
 
 type Params = {
   get: Getter;

@@ -1,8 +1,8 @@
+import { memo, useCallback } from 'react';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Icon } from '@/components/ui/Icon';
 import { WrapItem } from '@/components/ui/Wrap';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { memo, useCallback } from 'react';
 
 type Props = {
   projectBaseColorId: string;

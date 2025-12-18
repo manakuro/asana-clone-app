@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { ModalBody, ModalContent } from '@/components/ui/Modal';
 import { useMenuStyle } from '@/hooks';
-import { memo } from 'react';
 import { MenuList } from './MenuList';
 import { useEditorMentionMenu } from './useEditorMentionMenu';
 

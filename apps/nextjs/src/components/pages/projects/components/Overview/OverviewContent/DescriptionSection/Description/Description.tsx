@@ -1,3 +1,4 @@
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Editor, EditorContent } from '@/components/ui/Editor';
 import { Flex } from '@/components/ui/Flex';
 import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
@@ -10,7 +11,6 @@ import {
   useProject,
   useProjectCommand,
 } from '@/store/entities/project';
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Container } from './Container';
 import { Placeholder } from './Placeholder';
 import { Provider } from './Provider';
@@ -51,7 +51,7 @@ const DescriptionHandler = memo(function DescriptionHandler(props: Props) {
     [project.description, setProject, projectId],
   );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: used for resetting view
   useEffect(() => {
     setResetView((s) => s + 1);
   }, [hasDescriptionUpdated]);

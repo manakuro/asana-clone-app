@@ -1,7 +1,7 @@
-import { Input as AtomsInput, type InputProps } from '@/components/ui/Input';
-import { useClickOutside } from '@/hooks';
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
+import { Input as AtomsInput, type InputProps } from '@/components/ui/Input';
+import { useClickOutside } from '@/hooks';
 
 type Props = {
   onClickOutside: () => void;
@@ -14,9 +14,9 @@ export const Input = memo(function Input(props: Props) {
   const [value, setValue] = useState<string>(props.value);
 
   const handleClickOutside = useCallback(() => {
-    props.onChange(value);
-    props.onClickOutside();
-  }, [props, value]);
+    onChange(value);
+    onClickOutside();
+  }, [onClickOutside, onChange, value]);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);

@@ -1,6 +1,6 @@
+import type React from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { useClickOutside } from '@/hooks';
-import type React from 'react';
 
 type Props = {
   isOpen: boolean;

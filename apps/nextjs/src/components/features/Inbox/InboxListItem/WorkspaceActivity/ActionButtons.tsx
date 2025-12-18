@@ -1,12 +1,12 @@
-import type { FlexProps } from '@/components/ui/Flex';
 import { memo } from 'react';
+import type { FlexProps } from '@/components/ui/Flex';
 import { useInboxContext } from '../../Inbox';
 import { Actions, ArchiveButton } from '../Actions';
 import { useInboxListItemContext } from '../Provider';
 
 type Props = FlexProps;
 
-export const ActionButtons = memo(function ActionButtons(props: Props) {
+export const ActionButtons = memo(function ActionButtons(_props: Props) {
   const { isHovering } = useInboxListItemContext();
   const { isArchive } = useInboxContext();
 

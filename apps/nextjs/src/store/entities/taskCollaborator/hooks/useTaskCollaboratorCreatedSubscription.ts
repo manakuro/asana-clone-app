@@ -1,10 +1,10 @@
+import { useAtomCallback } from 'jotai/utils';
+import isEqual from 'lodash-es/isEqual';
+import { useCallback, useMemo } from 'react';
 import { useTaskCollaboratorCreatedSubscription as useSubscription } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import { useTeammateResponse } from '@/store/entities/teammate';
-import { useAtomCallback } from 'jotai/utils';
-import isEqual from 'lodash-es/isEqual';
-import { useCallback, useMemo } from 'react';
 import type { TaskCollaboratorCreatedSubscriptionResponse as Response } from '../type';
 import { useTaskCollaboratorResponse } from './useTaskCollaboratorResponse';
 

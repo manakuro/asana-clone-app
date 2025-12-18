@@ -1,7 +1,7 @@
+import { useCallback } from 'react';
 import { Wrap } from '@/components/ui/Wrap';
 import { useProjectCommand } from '@/store/entities/project';
 import { useProjectBaseColorIds } from '@/store/entities/projectBaseColor';
-import { useCallback } from 'react';
 import { ColorPickerItem } from './ColorPickerItem';
 
 type Props = {

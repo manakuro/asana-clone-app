@@ -1,8 +1,7 @@
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Option } from '@/components/ui/Select';
-import { Select } from '@/components/ui/Select';
+import { Option, Select } from '@/components/ui/Select';
 import { Text } from '@/components/ui/Text';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';

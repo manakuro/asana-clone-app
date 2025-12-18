@@ -1,8 +1,8 @@
+import { memo, useMemo } from 'react';
 import { useTasksTaskColumn } from '@/components/features/Tasks/hooks';
 import type { FlexProps } from '@/components/ui/Flex';
 import { useTaskColumn } from '@/store/entities/taskColumn';
 import { TaskColumnType } from '@/store/entities/taskColumn/type';
-import { memo, useMemo } from 'react';
 import {
   TasksAssignee,
   TasksDueDate,

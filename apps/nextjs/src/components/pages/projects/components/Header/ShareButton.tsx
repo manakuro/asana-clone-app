@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { useShareProjectModal } from '@/components/features/Modals/ShareProjectModal';
 import { Button } from '@/components/ui/Button';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
@@ -6,7 +7,6 @@ import { Tooltip } from '@/components/ui/Tooltip';
 import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useWorkspace } from '@/store/entities/workspace';
-import { memo, useCallback } from 'react';
 
 type Props = FlexProps;
 

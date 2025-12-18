@@ -1,10 +1,10 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   useUpdateProjectTeammateMutation,
   useUpdateProjectTeammateOwnerMutation,
 } from '@/graphql/hooks';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import {
   ownerProjectTeammateByProjectIdState,
   projectTeammateByProjectIdAndTeammateIdState,

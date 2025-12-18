@@ -1,3 +1,5 @@
+import { useCallback, useRef, useState } from 'react';
+import ReactPlayer from 'react-player';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
@@ -11,8 +13,6 @@ import {
   ModalOverlay,
 } from '@/components/ui/Modal';
 import { DurationBar } from '@/components/ui/VideoPlayer/DurationBar';
-import { useCallback, useRef, useState } from 'react';
-import ReactPlayer from 'react-player';
 import { Duration } from './Duration';
 import { useVideoPlayer } from './useVideoPlayer';
 

@@ -1,8 +1,8 @@
-import { useMountedRef } from '@/hooks';
-import { ROUTE_MY_TASKS, useRouter } from '@/router';
-import { createProvider } from '@/shared/react/createProvider';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useMountedRef } from '@/hooks';
+import { ROUTE_MY_TASKS } from '@/router';
+import { createProvider } from '@/shared/react/createProvider';
 
 type ContextProps = {
   selected: boolean;
@@ -14,7 +14,6 @@ type Props = {
 
 const useValue = (props: Props): ContextProps => {
   const [selected, setSelected] = useState<boolean>(false);
-  const { router } = useRouter();
   const { mountedRef } = useMountedRef();
   const params = useParams();
 

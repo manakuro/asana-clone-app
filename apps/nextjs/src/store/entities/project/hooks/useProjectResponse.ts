@@ -1,11 +1,11 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import { uniqBy } from '@/shared/utils';
 import {
   type ProjectTeammate,
   projectTeammateState,
 } from '@/store/entities/projectTeammate';
 import { type Teammate, useTeammateResponse } from '@/store/entities/teammate';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { projectState } from '../atom';
 import type { ProjectResponse } from '../type';
 
@@ -19,7 +19,9 @@ export const useProjectResponse = () => {
         return uniqBy(acc, 'id');
       }, []);
 
-      projectTeammates.forEach((p) => set(projectTeammateState(p.id), p));
+      projectTeammates.forEach((p) => {
+        set(projectTeammateState(p.id), p);
+      });
     }, []),
   );
 

@@ -1,3 +1,5 @@
+import { usePathname } from 'next/navigation';
+import { memo, useCallback, useState } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
@@ -9,8 +11,6 @@ import {
   useRouter,
 } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';
-import { usePathname } from 'next/navigation';
-import { memo, useCallback, useState } from 'react';
 import { Header } from './components/Header';
 import { Overview } from './components/Overview';
 import { Provider, useWorkspacesPageContext } from './providers/Provider';

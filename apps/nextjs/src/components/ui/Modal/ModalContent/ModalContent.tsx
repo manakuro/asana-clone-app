@@ -2,8 +2,8 @@ import {
   ModalContent as ChakraModalContent,
   type ModalContentProps as ChakraModalContentProps,
 } from '@chakra-ui/react';
-import { forwardRef } from 'react';
 import type React from 'react';
+import { forwardRef } from 'react';
 
 type Props = ChakraModalContentProps & {
   ref?: React.ForwardedRef<any>;

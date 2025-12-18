@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { ProjectsContainer } from '@/components/pages/home/components/ProjectsContainer';
 import { useFavoriteProjectIds } from '@/store/entities/favoriteProjectIds';
-import { memo } from 'react';
 
 export const FavoriteProjects = memo(function FavoriteProjects() {
   const { favoriteProjectIds } = useFavoriteProjectIds();

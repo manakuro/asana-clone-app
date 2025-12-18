@@ -1,6 +1,6 @@
-import { type TaskResponse, useTasksResponse } from '@/store/entities/task';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import { type TaskResponse, useTasksResponse } from '@/store/entities/task';
 import { projectTaskState } from '../atom';
 import type { ProjectTaskResponse } from '../type';
 

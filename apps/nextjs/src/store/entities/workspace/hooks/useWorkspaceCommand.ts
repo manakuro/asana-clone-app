@@ -1,6 +1,6 @@
-import { useUpdateWorkspaceMutation } from '@/graphql/hooks';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import { useUpdateWorkspaceMutation } from '@/graphql/hooks';
 import { workspaceState } from '../atom';
 import type { Workspace } from '../type';
 import { useUpsert } from './useUpsert';

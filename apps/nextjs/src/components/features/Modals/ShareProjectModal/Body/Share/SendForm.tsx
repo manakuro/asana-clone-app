@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useState } from 'react';
 import { InvitedTeammateChip } from '@/components/features/Chips';
 import { InviteProjectTeammateMenu } from '@/components/features/Menus';
 import { Flex } from '@/components/ui/Flex';
@@ -6,8 +8,6 @@ import { Textarea } from '@/components/ui/Textarea';
 import { Wrap, WrapItem } from '@/components/ui/Wrap';
 import { useDisclosure } from '@/shared/chakra';
 import type { Teammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo, useCallback, useState } from 'react';
 import { PermissionMenu } from '../PermissionMenu';
 
 type Props = {

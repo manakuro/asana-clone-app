@@ -1,9 +1,9 @@
+import { memo } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Stack } from '@/components/ui/Stack';
 import { useTeammateIdsByTaskId } from '@/store/entities/taskCollaborator';
-import { memo } from 'react';
 import { useCollaboratorsContext } from '../Provider';
 import { Teammate } from './Teammate';
 

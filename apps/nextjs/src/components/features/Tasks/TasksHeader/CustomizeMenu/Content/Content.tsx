@@ -1,3 +1,7 @@
+import { DragDropContext, Droppable } from '@hello-pangea/dnd';
+import { usePathname } from 'next/navigation';
+import type React from 'react';
+import { memo, useEffect, useMemo } from 'react';
 import { Divider } from '@/components/features/Navigation/Divider';
 import { useTasksTaskColumnCustomizable } from '@/components/features/Tasks/hooks';
 import { Box } from '@/components/ui/Box';
@@ -12,10 +16,6 @@ import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { useDnd } from '@/hooks/dnd/useDnd';
 import { isMyTasksBoardURL } from '@/router';
-import { DragDropContext, Droppable } from '@hello-pangea/dnd';
-import { usePathname } from 'next/navigation';
-import type React from 'react';
-import { memo, useEffect, useMemo } from 'react';
 import { useCustomizeMenu } from '../useCustomizeMenu';
 import { ListItem } from './ListItem';
 

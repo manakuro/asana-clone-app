@@ -1,9 +1,9 @@
+import { memo, useCallback } from 'react';
 import { Box } from '@/components/ui/Box';
 import { PopoverContent } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
 import { type BaseEmoji, EmojiPicker } from '@/shared/emoji';
-import { memo, useCallback } from 'react';
 import { usePopoverEmojiContext } from './Provider';
 
 import 'emoji-mart/css/emoji-mart.css';

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   PopoverEditorLink,
   PopoverEditorLinkContent,
@@ -7,7 +8,6 @@ import {
 import { CheckIcon } from '@/components/ui/CheckIcon';
 import { useProjectTask } from '@/store/entities/projectTask';
 import { useTask } from '@/store/entities/task';
-import { memo } from 'react';
 
 type Props = {
   projectTaskId: string;

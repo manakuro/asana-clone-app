@@ -1,7 +1,7 @@
-import { Label, type LabelProps } from '@/components/ui/Label';
-import { isInputFiles } from '@/shared/isInputFile';
 import type React from 'react';
 import { useCallback } from 'react';
+import { Label, type LabelProps } from '@/components/ui/Label';
+import { isInputFiles } from '@/shared/isInputFile';
 
 export type UploadedFile = {
   name: string;
@@ -49,15 +49,9 @@ export function FileUploader(props: Props) {
   );
 
   return (
-    <Label {...rest} htmlFor={props.id}>
+    <Label {...rest} htmlFor={id}>
       {props.children}
-      <input
-        type="file"
-        id={props.id}
-        hidden
-        onChange={handleChange}
-        multiple
-      />
+      <input type="file" id={id} hidden onChange={handleChange} multiple />
     </Label>
   );
 }

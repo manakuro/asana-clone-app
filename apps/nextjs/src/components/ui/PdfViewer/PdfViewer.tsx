@@ -1,6 +1,6 @@
-import { Box } from '@/components/ui/Box';
 import * as PDFViewer from '@react-pdf-viewer/core';
 import type React from 'react';
+import { Box } from '@/components/ui/Box';
 
 import '@react-pdf-viewer/core/lib/styles/index.css';
 const packageJson = require('../../../../package.json');

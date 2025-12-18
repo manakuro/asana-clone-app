@@ -1,13 +1,13 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { removeAllListeners } from '@/mocks/server';
-import { Provider, mockDate } from '@/testUtils';
+import { mockDate, Provider } from '@/testUtils';
 import {
   closeServer,
   resetHandlers,
   resetServer,
   startServer,
 } from '@/testUtils/mock/setup';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { Container } from '../Container';
 
 // TODO: fix test

@@ -1,9 +1,9 @@
+import { useCallback, useMemo, useState } from 'react';
 import { useHomePageQuery as useQuery } from '@/graphql/hooks';
 import { useMountedRef } from '@/hooks';
 import { useHomeResponse } from '@/store/app/home';
 import { useMe } from '@/store/entities/me';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useCallback, useMemo, useState } from 'react';
 
 export const useHomePageQuery = () => {
   const { me } = useMe();

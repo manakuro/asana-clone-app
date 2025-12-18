@@ -1,7 +1,7 @@
+import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { memo } from 'react';
 
 type Props = FlexProps & {
   projectId: string;

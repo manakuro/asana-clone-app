@@ -1,6 +1,6 @@
-import { useUpdateTeammateTaskTabStatusMutation } from '@/graphql/hooks';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import { useUpdateTeammateTaskTabStatusMutation } from '@/graphql/hooks';
 import { tabStatusState } from '../atom';
 import {
   type TeammateTaskTabStatus,

@@ -1,10 +1,10 @@
+import { memo } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import type { FlexProps } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
 import { useHover } from '@/hooks/useHover';
 import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
 import { useTask } from '@/store/entities/task';
-import { memo } from 'react';
 import { CheckIcon } from './CheckIcon';
 import { Container } from './Container';
 import { Input } from './Input';

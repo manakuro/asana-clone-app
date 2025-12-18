@@ -1,6 +1,6 @@
+import { memo, useCallback } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { Modal, ModalOverlay } from '@/components/ui/Modal';
-import { memo, useCallback } from 'react';
 import { Content } from './Content';
 import { useTaskDetailModal } from './useTaskDetailModal';
 

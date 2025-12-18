@@ -1,8 +1,8 @@
+import { type FieldInputProps, useField } from 'formik';
+import { memo } from 'react';
 import { FormControl } from '@/components/ui/Form/FormControl';
 import { FormErrorMessage } from '@/components/ui/Form/FormErrorMessage';
 import { Input } from '@/components/ui/Input';
-import { type FieldInputProps, useField } from 'formik';
-import { memo } from 'react';
 
 type Props = {
   name: string;

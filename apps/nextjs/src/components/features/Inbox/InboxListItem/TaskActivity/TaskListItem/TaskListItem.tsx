@@ -1,10 +1,10 @@
+import type React from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
 import { TaskDoneTransition } from '@/components/ui/Transitions';
 import { useHover } from '@/hooks/useHover';
 import { useRouter } from '@/router';
-import type React from 'react';
-import { memo, useCallback, useState } from 'react';
 import { CheckIcon } from './CheckIcon';
 import { Feed } from './Feed';
 import { Like } from './Like';

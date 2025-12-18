@@ -1,6 +1,6 @@
-import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useAtomValue } from 'jotai';
 import { useMemo } from 'react';
+import { useProjectsProjectId } from '@/store/app/projects/project';
 import { projectsTaskSectionIdsState } from '../atom';
 
 export const useProjectsTaskSectionIds = () => {

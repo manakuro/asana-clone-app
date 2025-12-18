@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useWorkspaceActivity } from '@/store/app/inbox/activity';
-import { memo } from 'react';
 import { Container } from '../Container';
 import { ActionButtons } from './ActionButtons';
 import { ClickHandler } from './ClickHandler';

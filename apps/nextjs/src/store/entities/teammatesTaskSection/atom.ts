@@ -1,6 +1,6 @@
+import { atom } from 'jotai';
 import { teammateTaskByTaskIdState } from '@/store/entities/teammateTask';
 import { createState } from '@/store/util';
-import { atom } from 'jotai';
 import type { TeammateTaskSection } from './type';
 
 export const initialState = (): TeammateTaskSection => ({

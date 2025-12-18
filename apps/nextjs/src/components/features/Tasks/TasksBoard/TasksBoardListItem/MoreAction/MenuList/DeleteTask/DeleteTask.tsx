@@ -1,8 +1,8 @@
+import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { MenuItem } from '@/components/ui/Menu';
 import { useToast } from '@/hooks';
 import { useTask, useTaskCommand } from '@/store/entities/task';
-import { memo, useCallback } from 'react';
 
 type Props = {
   onMouseEnter: () => void;

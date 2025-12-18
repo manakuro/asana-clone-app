@@ -1,3 +1,4 @@
+import type { Getter } from 'jotai';
 import { dateFns } from '@/shared/dateFns';
 import type { ProjectTaskSection } from '@/store/entities/projectTaskSection';
 import type { Task } from '@/store/entities/task';
@@ -7,7 +8,6 @@ import {
   taskPriorityState,
 } from '@/store/entities/taskPriority';
 import { teammateState } from '@/store/entities/teammate';
-import type { Getter } from 'jotai';
 import {
   isTaskListCompletedStatusState,
   isTaskListSortStatusState,

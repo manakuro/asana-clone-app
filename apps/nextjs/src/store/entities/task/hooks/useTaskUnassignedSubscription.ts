@@ -1,3 +1,5 @@
+import isEqual from 'lodash-es/isEqual';
+import { useCallback } from 'react';
 import { useTaskUnassignedSubscription as useSubscription } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
@@ -6,8 +8,6 @@ import {
   useTaskCommand,
 } from '@/store/entities/task';
 import { useResetTeammateTask } from '@/store/entities/teammateTask';
-import isEqual from 'lodash-es/isEqual';
-import { useCallback } from 'react';
 
 // NOTE: To prevent re-rendering via duplicated subscription response.
 let previousData: any;

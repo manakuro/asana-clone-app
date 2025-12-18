@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
@@ -5,7 +6,6 @@ import { Text } from '@/components/ui/Text';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTask } from '@/store/entities/task';
-import { memo, useCallback } from 'react';
 
 type Props = {
   taskId: string;
@@ -32,17 +32,15 @@ export const ParentTask = memo(function ParentTask(props: Props) {
         size="sm"
         withIcon
       >
-        <>
-          <Text
-            {...clickableHoverLightStyle}
-            textDecoration="underline"
-            _hover={{ textDecoration: 'underline !important', opacity: 1 }}
-            onClick={handleClick}
-          >
-            {parentTask.name}
-          </Text>
-          <Icon icon="chevronRight" color="text.muted" size="sm" mt={1} />
-        </>
+        <Text
+          {...clickableHoverLightStyle}
+          textDecoration="underline"
+          _hover={{ textDecoration: 'underline !important', opacity: 1 }}
+          onClick={handleClick}
+        >
+          {parentTask.name}
+        </Text>
+        <Icon icon="chevronRight" color="text.muted" size="sm" mt={1} />
       </Tooltip>
     </Flex>
   );

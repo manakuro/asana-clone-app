@@ -1,7 +1,7 @@
+import { memo, useCallback, useState } from 'react';
 import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useHover } from '@/hooks/useHover';
-import { memo, useCallback, useState } from 'react';
 import { Content } from './Content';
 
 type Props = FlexProps & {

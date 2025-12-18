@@ -1,6 +1,6 @@
+import { memo, useCallback, useMemo } from 'react';
 import { MenuItem } from '@/components/ui/Menu';
 import { useProjectTeammate } from '@/store/entities/projectTeammate';
-import { memo, useCallback, useMemo } from 'react';
 
 type Props = {
   projectId: string;

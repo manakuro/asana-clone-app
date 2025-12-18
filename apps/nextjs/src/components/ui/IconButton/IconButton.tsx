@@ -1,12 +1,11 @@
-import { useDisabledStyle, useLinkHoverStyle } from '@/hooks';
-import type { ChakraProps } from '@/shared/chakra';
 import {
   IconButton as ChakraIconButton,
   type IconButtonProps as ChakraIconButtonProps,
 } from '@chakra-ui/react';
-import { forwardRef } from 'react';
 import type React from 'react';
-import { useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
+import { useDisabledStyle, useLinkHoverStyle } from '@/hooks';
+import type { ChakraProps } from '@/shared/chakra';
 
 type Props = ChakraIconButtonProps & {
   light?: boolean;
@@ -17,7 +16,7 @@ export type IconButtonProps = Props;
 export const IconButton = forwardRef<HTMLButtonElement, Props>(
   function IconButton(props, ref) {
     const { light, isDisabled, ...rest } = props;
-    const { selectedStyle, ...linkHoverStyle } = useLinkHoverStyle();
+    const { selectedStyle: _, ...linkHoverStyle } = useLinkHoverStyle();
     const { disabledStyle } = useDisabledStyle();
 
     const style = useMemo(
@@ -26,7 +25,7 @@ export const IconButton = forwardRef<HTMLButtonElement, Props>(
         ...(light ? linkHoverStyle : {}),
         ...(isDisabled ? { ...disabledStyle } : {}),
       }),
-      // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+      // biome-ignore lint/correctness/useExhaustiveDependencies: used for styling
       [disabledStyle, isDisabled, light, linkHoverStyle, props.variant],
     );
 

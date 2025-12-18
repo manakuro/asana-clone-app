@@ -1,8 +1,8 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { MenuItem } from '@/components/ui/Menu';
 import { useCopyProjectLink } from '@/hooks/pages/projects';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Props = {
   onClose: () => void;

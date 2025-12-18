@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import { useEditorStateContext } from '@/components/ui/Editor/Editors';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
@@ -13,7 +14,6 @@ import {
   useStrikethrough,
   useUnderline,
 } from '@/shared/prosemirror/hooks';
-import { memo, useCallback, useMemo } from 'react';
 import { Content } from './Content';
 
 export const Format = memo(function Format() {

@@ -1,7 +1,7 @@
+import { memo, useMemo } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useClickableHoverStyle } from '@/hooks';
-import { memo, useMemo } from 'react';
 
 type Props = FlexProps & {
   taskId: string;

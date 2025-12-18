@@ -1,8 +1,8 @@
+import type React from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useWorkspaceActivityTaskIds } from '@/components/features/Inbox/hooks';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useRouter } from '@/router';
-import type React from 'react';
-import { memo, useCallback, useMemo } from 'react';
 
 type Props = FlexProps & {
   workspaceActivityId: string;

@@ -1,9 +1,9 @@
+import { atom } from 'jotai';
 import { sortTeammateTaskSections } from '@/store/app/myTasks/filters';
 import { isTaskListSortStatusState } from '@/store/app/myTasks/taskListStatus';
+import { taskSectionsByTeammateIdState } from '@/store/entities/teammatesTaskSection';
 import { tasksByTeammateIdState } from '@/store/entities/teammateTask';
 import { isTabStatusState } from '@/store/entities/teammateTaskTabStatus';
-import { taskSectionsByTeammateIdState } from '@/store/entities/teammatesTaskSection';
-import { atom } from 'jotai';
 
 export const taskSectionIdsState = (teammateId: string) =>
   atom<string[]>((get) => {

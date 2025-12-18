@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import {
   Carousel,
   CarouselBody,
@@ -7,7 +8,6 @@ import {
   CarouselThumbnail,
   CarouselThumbnailItem,
 } from '@/components/ui/Carousel';
-import { memo, useCallback, useMemo } from 'react';
 import { ListItem } from './ListItem';
 import { ThumbnailListItem } from './ThumbnailListItem/ThumbnailListItem';
 import { useFileViewerModal } from './useFileViewerModal';

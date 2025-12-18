@@ -1,10 +1,10 @@
+import { memo } from 'react';
 import { TaskDetailModal } from '@/components/features/TaskDetails';
 import { TasksProvider } from '@/components/features/Tasks';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
 import { Stack } from '@/components/ui/Stack';
 import { getHomeDetailId, isHomeDetailURL, useRouter } from '@/router';
-import { memo } from 'react';
 import { Content } from './components/Content';
 import { FavoriteProjects } from './components/FavoriteProjects';
 import { Header } from './components/Header';

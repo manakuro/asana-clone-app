@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
@@ -10,7 +11,6 @@ import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
-import { useCallback } from 'react';
 import { PopoverMore } from './PopoverMore';
 
 type Props = {

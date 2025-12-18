@@ -1,7 +1,6 @@
+import { forwardRef, memo, useCallback, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { pxToNum } from '@/shared/pxToNum';
-import { forwardRef } from 'react';
-import { memo, useCallback, useMemo } from 'react';
 import { ColumnResizer } from './ColumnResizer';
 
 type Props = {

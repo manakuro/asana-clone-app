@@ -2,8 +2,8 @@ import {
   Slide as ChakraSlide,
   type SlideProps as ChakraSlideProps,
 } from '@chakra-ui/react';
-import { forwardRef } from 'react';
 import type React from 'react';
+import { forwardRef } from 'react';
 
 type Props = ChakraSlideProps & {
   ref?: React.ForwardedRef<any>;

@@ -1,10 +1,10 @@
+import { memo, type PropsWithChildren } from 'react';
 import {
   SearchMenu,
   SearchMenuContent,
   SearchMenuTrigger,
 } from '@/components/features/Menus/SearchMenu';
 import type { PopoverProps } from '@/components/ui/Popover';
-import { type PropsWithChildren, memo } from 'react';
 import { Content } from './Content';
 
 type Props = PopoverProps & {

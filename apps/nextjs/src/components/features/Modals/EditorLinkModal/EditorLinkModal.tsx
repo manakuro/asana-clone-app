@@ -1,8 +1,8 @@
+import type React from 'react';
+import { useCallback } from 'react';
 import { Input } from '@/components/ui/Input';
 import { Modal, ModalBody, ModalContent } from '@/components/ui/Modal';
 import { Stack } from '@/components/ui/Stack';
-import type React from 'react';
-import { useCallback } from 'react';
 import { useEditorLinkModal } from './useEditorLinkModal';
 
 const MARGIN = 30;

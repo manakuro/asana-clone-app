@@ -1,10 +1,10 @@
+import { memo, useCallback } from 'react';
 import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Stack } from '@/components/ui/Stack';
 import { useProjectTask } from '@/store/entities/projectTask';
-import { memo, useCallback } from 'react';
 import { ProjectButton } from './ProjectButton';
 import { Section } from './Section';
 

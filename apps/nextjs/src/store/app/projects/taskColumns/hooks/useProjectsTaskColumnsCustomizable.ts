@@ -1,8 +1,8 @@
-import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useProjectTaskColumnCommand } from '@/store/entities/projectTaskColumn';
 import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
+import { useProjectsProjectId } from '@/store/app/projects/project';
+import { useProjectTaskColumnCommand } from '@/store/entities/projectTaskColumn';
 import { projectsTaskColumnIdsCustomizableState } from '../atom';
 
 export const useProjectsTaskColumnsCustomizable = () => {

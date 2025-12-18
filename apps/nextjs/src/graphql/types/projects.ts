@@ -1,9 +1,9 @@
 import type { ProjectsQuery } from '@/graphql/types';
 
-export type { ProjectsQuery, ProjectsQueryVariables } from '@/graphql/types';
 export type {
-  ProjectsQueryHookResult,
   ProjectsLazyQueryHookResult,
+  ProjectsQueryHookResult,
 } from '@/graphql/hooks';
+export type { ProjectsQuery, ProjectsQueryVariables } from '@/graphql/types';
 
 export type ProjectsResponse = ProjectsQuery['projects'];

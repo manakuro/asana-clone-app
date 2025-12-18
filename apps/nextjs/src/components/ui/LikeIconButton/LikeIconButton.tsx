@@ -1,7 +1,7 @@
-import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
-import type { TextProps } from '@/components/ui/Text';
 import type React from 'react';
 import { memo, useCallback } from 'react';
+import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
+import type { TextProps } from '@/components/ui/Text';
 import { Icon } from './Icon';
 
 type Props = {
@@ -33,7 +33,7 @@ export const LikeIconButton = memo(function LikeIconButton(props: Props) {
     [onToggleLike],
   );
 
-  if (!props.show) return null;
+  if (!show) return null;
 
   return (
     <IconButton

@@ -1,3 +1,5 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import {
   type ProjectTaskColumnResponse,
@@ -5,8 +7,6 @@ import {
 } from '@/store/entities/projectTaskColumn';
 import { useProjectTaskSectionResponse } from '@/store/entities/projectTaskSection';
 import type { ProjectTaskSectionResponse } from '@/store/entities/projectTaskSection/type';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { taskListStatusState } from '../taskListStatus';
 import type {
   ProjectsProjectTaskSectionResponse,

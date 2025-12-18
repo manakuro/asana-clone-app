@@ -1,8 +1,8 @@
+import { memo } from 'react';
 import { Button } from '@/components/ui/Button';
 import { AtMention, Emoji, Format } from '@/components/ui/Editor/ToolBar';
 import { Flex } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
-import { memo } from 'react';
 import { useTaskFeedListItemContext } from '../../Provider';
 
 export const ToolBar = memo(function ToolBar() {

@@ -1,3 +1,6 @@
+import { useAtomCallback } from 'jotai/utils';
+import isEqual from 'lodash-es/isEqual';
+import { useCallback } from 'react';
 import { useTaskUpdatedSubscription as useSubscription } from '@/graphql/hooks';
 import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
 import { uuid } from '@/shared/uuid';
@@ -5,9 +8,6 @@ import {
   type TaskUpdatedSubscriptionResponse,
   taskState,
 } from '@/store/entities/task';
-import { useAtomCallback } from 'jotai/utils';
-import isEqual from 'lodash-es/isEqual';
-import { useCallback } from 'react';
 import { useSetHasDescriptionUpdated } from './useHasDescriptionUpdated';
 import { useUpsert } from './useUpsert';
 

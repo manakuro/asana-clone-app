@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import {
   Menu,
   MenuButton,
@@ -6,7 +7,6 @@ import {
   type MenuProps,
 } from '@/components/ui/Menu';
 import { chakra } from '@/shared/chakra';
-import { useCallback } from 'react';
 
 type Props = {
   onClose: () => void;

@@ -1,8 +1,8 @@
+import { memo } from 'react';
 import { TasksListRow } from '@/components/features/Tasks';
 import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
 import { Flex } from '@/components/ui/Flex';
 import { Skeleton } from '@/components/ui/Skeleton';
-import { memo } from 'react';
 
 const TEXT_HEIGHT = '16px';
 export const SkeletonListContent = memo(function SkeletonListContent() {
@@ -27,7 +27,7 @@ export const SkeletonListContent = memo(function SkeletonListContent() {
           </Flex>
           <Flex flexDirection="column" ml={8}>
             {['40%', '32%', '38%', '42%', '50%', '40%', '41%'].map((w, i) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+              // biome-ignore lint/suspicious/noArrayIndexKey: used for skeleton loader
               <TasksListRow key={i} alignItems="center">
                 <Skeleton h={TEXT_HEIGHT} w="20px" borderRadius="full" />
                 <Skeleton h={TEXT_HEIGHT} w={w} ml={2} borderRadius="full" />
@@ -40,7 +40,7 @@ export const SkeletonListContent = memo(function SkeletonListContent() {
           </Flex>
           <Flex flexDirection="column" ml={8}>
             {['39%', '30%', '38%', '42%'].map((w, i) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+              // biome-ignore lint/suspicious/noArrayIndexKey: used for skeleton loader
               <TasksListRow key={i} alignItems="center">
                 <Skeleton h={TEXT_HEIGHT} w="20px" borderRadius="full" />
                 <Skeleton h={TEXT_HEIGHT} w={w} ml={2} borderRadius="full" />

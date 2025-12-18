@@ -2,12 +2,12 @@ import type { TaskFragmentFragment } from '@/graphql/types';
 
 export type TaskResponse = NonNullable<TaskFragmentFragment>;
 export type {
-  TaskUpdatedSubscription as TaskUpdatedSubscriptionResponse,
-  TaskDeletedSubscription as TaskDeletedSubscriptionResponse,
-  TaskUndeletedSubscription as TaskUndeletedSubscriptionResponse,
   TaskAssignedSubscription as TaskAssignedSubscriptionResponse,
+  TaskDeletedSubscription as TaskDeletedSubscriptionResponse,
   TaskUnassignedSubscription as TaskUnassignedSubscriptionResponse,
-  UpdateTaskMutationVariables,
+  TaskUndeletedSubscription as TaskUndeletedSubscriptionResponse,
+  TaskUpdatedSubscription as TaskUpdatedSubscriptionResponse,
   UndeleteTaskInput,
   UpdateTaskInput,
+  UpdateTaskMutationVariables,
 } from '@/graphql/types';

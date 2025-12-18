@@ -1,8 +1,8 @@
+import type { PropsWithChildren } from 'react';
+import { useCallback, useMemo } from 'react';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import { WrapItem } from '@/components/ui/Wrap';
 import { useClickableHoverStyle } from '@/hooks';
-import type { PropsWithChildren } from 'react';
-import { useCallback, useMemo } from 'react';
 import { useCarouselContext } from './Provider';
 
 type Props = {

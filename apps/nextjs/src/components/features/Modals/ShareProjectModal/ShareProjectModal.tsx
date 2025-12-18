@@ -1,10 +1,10 @@
+import { memo } from 'react';
 import {
   Modal,
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
 } from '@/components/ui/Modal';
-import { memo } from 'react';
 import { Body } from './Body';
 import { Footer } from './Footer';
 import { Header } from './Header';

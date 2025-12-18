@@ -1,6 +1,7 @@
 import { createMuiTheme } from '@material-ui/core';
-export * from '@material-ui/lab';
+
 export { ThemeProvider as MuiThemeProvider } from '@material-ui/core';
+export * from '@material-ui/lab';
 export { default as AdapterDateFns } from '@material-ui/lab/AdapterDateFns';
 
 export const muiTheme = createMuiTheme({

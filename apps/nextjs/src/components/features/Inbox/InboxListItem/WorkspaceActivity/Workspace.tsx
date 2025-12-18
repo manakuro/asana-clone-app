@@ -1,14 +1,10 @@
+import { memo, useMemo } from 'react';
 import { useInboxListItemContext } from '@/components/features/Inbox/InboxListItem/Provider';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text, type TextProps } from '@/components/ui/Text';
 import { useWorkspace } from '@/store/entities/workspace';
 import { transitions } from '@/styles';
-import { memo, useMemo } from 'react';
-
-type Props = FlexProps & {
-  workspaceId: string;
-};
 
 export const Workspace = memo(function Workspace() {
   const { workspace } = useWorkspace();

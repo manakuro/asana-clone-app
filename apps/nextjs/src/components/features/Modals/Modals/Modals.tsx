@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   EditorEmojiMenu,
   EditorMentionMenu,
@@ -13,7 +14,6 @@ import {
 } from '@/components/features/Modals';
 import { Help } from '@/components/features/Navigation';
 import { VideoPlayer } from '@/components/ui/VideoPlayer';
-import { memo } from 'react';
 
 export const Modals = memo(function Modals() {
   return (

@@ -1,10 +1,10 @@
+import { memo } from 'react';
 import {
   ProjectTeammateMenuItem,
   useProjectTeammateMenu,
 } from '@/components/features/Menus/ProjectTeammateMenu';
 import { SearchMenuLoading } from '@/components/features/Menus/SearchMenu';
 import type { Teammate } from '@/store/entities/teammate';
-import { memo } from 'react';
 
 type Props = {
   onSelect: (val: Teammate) => void;

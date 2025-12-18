@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo } from 'react';
 import { MenuSelectList } from '@/components/features/Menus';
 import {
   type TaskSection,
@@ -5,8 +7,6 @@ import {
   useTasksTaskSections,
 } from '@/components/features/Tasks/hooks';
 import { MenuItemOption } from '@/components/ui/Menu';
-import type React from 'react';
-import { memo } from 'react';
 
 type Props = {
   taskId: string;

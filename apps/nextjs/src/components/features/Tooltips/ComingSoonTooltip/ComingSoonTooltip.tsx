@@ -1,5 +1,5 @@
-import { Tooltip } from '@/components/ui/Tooltip';
 import type { PropsWithChildren } from 'react';
+import { Tooltip } from '@/components/ui/Tooltip';
 
 export function ComingSoonTooltip(props: PropsWithChildren) {
   return (

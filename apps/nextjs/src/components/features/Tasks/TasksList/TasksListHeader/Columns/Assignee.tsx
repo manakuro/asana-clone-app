@@ -1,7 +1,7 @@
+import { memo, useCallback } from 'react';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
 import { Icon } from '@/components/ui/Icon';
 import { useTaskListSortStatus } from '@/store/entities/taskListSortStatus';
-import { memo, useCallback } from 'react';
 import { Container } from './Container';
 
 type Props = {

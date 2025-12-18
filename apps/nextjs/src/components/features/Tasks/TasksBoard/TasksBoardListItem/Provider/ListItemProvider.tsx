@@ -1,12 +1,12 @@
-import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
-import { useHover } from '@/hooks/useHover';
-import { ROUTE_MY_TASKS, useRouter } from '@/router';
-import { createProvider } from '@/shared/react/createProvider';
-import { useTask } from '@/store/entities/task';
-import { useTaskListCompletedStatus } from '@/store/entities/taskListCompletedStatus';
 import { useParams } from 'next/navigation';
 import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
+import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
+import { useHover } from '@/hooks/useHover';
+import { ROUTE_MY_TASKS } from '@/router';
+import { createProvider } from '@/shared/react/createProvider';
+import { useTask } from '@/store/entities/task';
+import { useTaskListCompletedStatus } from '@/store/entities/taskListCompletedStatus';
 
 type ContextProps = {
   selected: boolean;
@@ -24,7 +24,6 @@ type Props = {
 
 const useValue = (props: Props): ContextProps => {
   const [selected, setSelected] = useState<boolean>(false);
-  const { router } = useRouter();
   const { ref, isHovering } = useHover();
   const [isOpening, setIsOpening] = useState(true);
   const { task, setTask } = useTask(props.taskId);

@@ -1,10 +1,10 @@
+import type React from 'react';
+import { useCallback, useState } from 'react';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
 } from '@/hooks';
 import { createProvider } from '@/shared/react/createProvider';
-import type React from 'react';
-import { useCallback, useState } from 'react';
 
 type ContextProps = {
   focused: boolean;

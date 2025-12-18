@@ -1,16 +1,18 @@
+import type React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { AssigneeMenu } from '@/components/features/Menus';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import { Input as AtomsInput } from '@/components/ui/Input';
-import { InputGroup } from '@/components/ui/Input';
-import { InputRightElement } from '@/components/ui/Input';
+import {
+  Input as AtomsInput,
+  InputGroup,
+  InputRightElement,
+} from '@/components/ui/Input';
 import type { PopoverProps } from '@/components/ui/Popover';
 import { useClickableHoverStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { type Teammate, useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { useCallback, useMemo, useState } from 'react';
 
 type Props = {
   taskId: string;

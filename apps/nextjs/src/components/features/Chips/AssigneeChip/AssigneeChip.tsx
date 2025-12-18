@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { PopoverProfile } from '@/components/features/Popovers';
 import { Avatar } from '@/components/ui/Avatar';
 import { Box } from '@/components/ui/Box';
@@ -6,8 +8,6 @@ import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Props = {
   teammateId: string;

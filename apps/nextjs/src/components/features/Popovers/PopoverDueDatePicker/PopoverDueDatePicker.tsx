@@ -1,3 +1,5 @@
+import type { MouseEvent, PropsWithChildren } from 'react';
+import { useCallback } from 'react';
 import { Link } from '@/components/ui/Link';
 import {
   Popover,
@@ -8,8 +10,6 @@ import {
 import { Portal } from '@/components/ui/Portal';
 import { PortalManager } from '@/components/ui/PortalManager';
 import { type ChakraProps, useDisclosure } from '@/shared/chakra';
-import type { MouseEvent, PropsWithChildren } from 'react';
-import { useCallback } from 'react';
 import { Body } from './Body';
 
 type Props = {

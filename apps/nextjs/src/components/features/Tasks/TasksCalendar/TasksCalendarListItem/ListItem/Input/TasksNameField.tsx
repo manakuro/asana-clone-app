@@ -1,8 +1,8 @@
+import type React from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Input, type InputProps } from '@/components/ui/Input';
 import { useClickOutside, useDebounce } from '@/hooks';
-import type React from 'react';
-import { memo, useCallback, useEffect, useState } from 'react';
 
 type Props = {
   value: string;

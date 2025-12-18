@@ -1,6 +1,6 @@
-import { useMe } from '@/store/entities/me';
 import { useAtomValue } from 'jotai';
 import { useMemo } from 'react';
+import { useMe } from '@/store/entities/me';
 import { taskFileIdsState } from '../atom';
 
 export const useMyTasksFiles = () => {

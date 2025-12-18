@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import {
@@ -8,7 +9,6 @@ import {
   MenuOptionGroup,
 } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
-import { memo, useCallback } from 'react';
 
 type Props = {
   listStatus: ProjectListStatus;

@@ -1,5 +1,10 @@
 'use client';
 
+import { ChakraProvider } from '@chakra-ui/react';
+import { resetServerContext } from '@hello-pangea/dnd';
+import enLocale from 'date-fns/locale/en-US';
+import type { PropsWithChildren } from 'react';
+import { theme } from 'src/styles';
 import { Modals } from '@/components/features/Modals';
 import { GlobalQuery, Subscription } from '@/components/shared/app';
 import { Mobile } from '@/components/ui/Mobile';
@@ -12,11 +17,6 @@ import {
   MuiThemeProvider,
   muiTheme,
 } from '@/shared/materialUI';
-import { ChakraProvider } from '@chakra-ui/react';
-import { resetServerContext } from '@hello-pangea/dnd';
-import enLocale from 'date-fns/locale/en-US';
-import type { PropsWithChildren } from 'react';
-import { theme } from 'src/styles';
 
 resetServerContext();
 
@@ -49,10 +49,8 @@ function Inner({ children }: PropsWithChildren) {
     <ApolloProvider>
       <GlobalQuery>
         <Subscription>
-          <>
-            {children}
-            <Modals />
-          </>
+          {children}
+          <Modals />
         </Subscription>
       </GlobalQuery>
     </ApolloProvider>

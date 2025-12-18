@@ -1,6 +1,6 @@
-import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { memo, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 
 type Props = {
   observeScrollUp?: boolean;

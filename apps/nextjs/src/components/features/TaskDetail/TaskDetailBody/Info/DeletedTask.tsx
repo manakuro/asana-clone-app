@@ -1,9 +1,9 @@
+import { memo, useCallback } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { useTaskCommand } from '@/store/entities/task';
-import { memo, useCallback } from 'react';
 
 type Props = {
   taskId: string;

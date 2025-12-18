@@ -1,6 +1,6 @@
-import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { keyframes } from '@chakra-ui/react';
 import { memo, useMemo } from 'react';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 
 type Props = FlexProps & {
   isTransitioning: boolean;

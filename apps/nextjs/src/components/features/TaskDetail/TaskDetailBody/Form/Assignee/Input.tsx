@@ -1,11 +1,11 @@
+import type React from 'react';
+import { memo, useCallback, useState } from 'react';
 import { AssigneeMenu } from '@/components/features/Menus';
 import { Input as AtomsInput } from '@/components/ui/Input';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useTaskCommand } from '@/store/entities/task';
 import type { Teammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo, useCallback, useState } from 'react';
 
 type Props = {
   taskId: string;

@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import {
   MenuSelect,
   MenuSelectButton,
@@ -15,7 +16,6 @@ import {
   type TaskListCompletedStatusCodeValue,
   useTaskListCompletedStatus,
 } from '@/store/entities/taskListCompletedStatus';
-import { memo, useCallback, useMemo } from 'react';
 import { PopoverCompletedTasks } from './PopoverCompletedTasks';
 
 type Props = {

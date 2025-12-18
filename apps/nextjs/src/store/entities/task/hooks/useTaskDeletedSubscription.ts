@@ -1,11 +1,11 @@
+import isEqual from 'lodash-es/isEqual';
+import { useCallback, useMemo } from 'react';
 import { useTaskDeletedSubscription as useSubscription } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import { useDeletedTaskResponse } from '@/store/entities/deletedTask';
 import { useResetProjectTask } from '@/store/entities/projectTask';
 import { useResetTeammateTask } from '@/store/entities/teammateTask';
-import isEqual from 'lodash-es/isEqual';
-import { useCallback, useMemo } from 'react';
 import type { TaskDeletedSubscriptionResponse as Response } from '../type';
 
 // NOTE: To prevent re-rendering via duplicated subscription response.

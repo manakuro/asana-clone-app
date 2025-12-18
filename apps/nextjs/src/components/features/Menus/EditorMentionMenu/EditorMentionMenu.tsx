@@ -1,5 +1,5 @@
-import { Modal } from '@/components/ui/Modal';
 import { memo } from 'react';
+import { Modal } from '@/components/ui/Modal';
 import { MenuContent } from './MenuContent';
 import { useEditorMentionMenu } from './useEditorMentionMenu';
 

@@ -1,13 +1,13 @@
-import { ConditionalRender } from '@/components/ui/ConditionalRender';
-import { useDebounce, usePrevious } from '@/hooks';
-import {
-  type ProsemirrorTransformer,
-  createJSONTransformer,
-} from '@/shared/prosemirror/transformers';
 import type { Node as ProsemirrorNode, Schema } from 'prosemirror-model';
 import type { Plugin } from 'prosemirror-state';
 import type { EditorProps } from 'prosemirror-view';
 import { type PropsWithChildren, useMemo } from 'react';
+import { ConditionalRender } from '@/components/ui/ConditionalRender';
+import { useDebounce, usePrevious } from '@/hooks';
+import {
+  createJSONTransformer,
+  type ProsemirrorTransformer,
+} from '@/shared/prosemirror/transformers';
 import { EditorProvider, useEditorStateContext } from './EdiorProvider';
 import { Portals } from './Portals';
 

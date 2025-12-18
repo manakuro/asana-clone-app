@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { useFileViewerModal } from '@/components/features/Modals';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { Divider } from '@/components/ui/Divider';
@@ -15,8 +17,6 @@ import {
   useTaskFileIdsByTaskId,
 } from '@/store/entities/taskFile';
 import { transitions } from '@/styles';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Props = {
   taskFileId: string;

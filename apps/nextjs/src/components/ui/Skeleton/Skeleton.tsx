@@ -2,8 +2,8 @@ import {
   Skeleton as ChakraSkeleton,
   type SkeletonProps as ChakraSkeletonProps,
 } from '@chakra-ui/react';
-import { forwardRef } from 'react';
 import type React from 'react';
+import { forwardRef } from 'react';
 
 type Props = ChakraSkeletonProps & {
   ref?: React.ForwardedRef<any>;

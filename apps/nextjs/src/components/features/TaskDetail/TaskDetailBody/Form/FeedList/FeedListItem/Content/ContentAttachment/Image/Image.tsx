@@ -1,9 +1,9 @@
+import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Image as AtomsImage } from '@/components/ui/Image';
 import { Link } from '@/components/ui/Link';
 import { Text } from '@/components/ui/Text';
 import { useTaskFile } from '@/store/entities/taskFile';
-import { memo } from 'react';
 
 type Props = FlexProps & {
   taskFileId: string;

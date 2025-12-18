@@ -1,8 +1,8 @@
+import { memo } from 'react';
 import { PopoverProfile } from '@/components/features/Popovers';
 import { useReactNodeView } from '@/components/ui/Editor/Editors/ReactNodeView';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { useTeammate } from '@/store/entities/teammate';
-import { memo } from 'react';
 import { MentionText } from './MentionText';
 
 export const Teammate = memo(function Teammate() {

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   TaskDetailBody,
   TaskDetailFooter,
@@ -10,7 +11,6 @@ import {
   ModalFooter,
   ModalHeader,
 } from '@/components/ui/Modal';
-import { memo } from 'react';
 
 type Props = {
   loading: boolean;

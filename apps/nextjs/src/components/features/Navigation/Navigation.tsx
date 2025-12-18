@@ -1,14 +1,14 @@
 'use client';
 
+import { memo } from 'react';
 import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
-import { memo } from 'react';
 import { CustomNav } from './CustomNav';
 import { Footer } from './Footer';
 import { Header } from './Header';
+import { useNavigation } from './hooks';
 import { MainNav } from './MainNav';
 import { Projects } from './Projects';
-import { useNavigation } from './hooks';
 
 export const PADDING_X = 4;
 export const MAX_WIDTH = '240px';

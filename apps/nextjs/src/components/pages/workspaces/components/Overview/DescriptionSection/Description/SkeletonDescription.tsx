@@ -1,7 +1,7 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Stack } from '@/components/ui/Stack';
-import { memo } from 'react';
 
 export const SkeletonDescription = memo(function SkeletonDescription() {
   return (

@@ -1,10 +1,10 @@
+import { useEffect, useMemo, useState } from 'react';
 import { useProjectTaskSectionsQuery as useQuery } from '@/graphql/hooks';
 import type { ProjectTaskSectionsQuery } from '@/graphql/types';
 import type { ProjectTaskSectionResponse } from '@/graphql/types/projectTaskSections';
 import { useMountedRef } from '@/hooks';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import { useProjectTaskSectionResponse } from '@/store/entities/projectTaskSection';
-import { useEffect, useMemo, useState } from 'react';
 
 export const useProjectTaskSectionsByProjectIdsQuery = (
   projectIds: string[],
@@ -24,7 +24,7 @@ export const useProjectTaskSectionsByProjectIdsQuery = (
   const [loading, setLoading] = useState(queryResult.loading);
   const { mountedRef } = useMountedRef();
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: used for getting nodes from edges
   useEffect(() => {
     if (!queryResult.data) return;
     if (queryResult.loading) return;

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { TaskDetailModal } from '@/components/features/TaskDetails';
 import {
   TasksCalendar,
@@ -16,7 +17,6 @@ import {
 } from '@/components/features/Tasks/TasksHeader';
 import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
-import { memo } from 'react';
 import { SkeletonCalendar } from './SkeletonCalendar';
 
 export const Calendar = memo(function Calendar() {

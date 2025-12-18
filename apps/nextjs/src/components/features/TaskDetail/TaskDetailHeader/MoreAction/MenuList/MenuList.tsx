@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import {
@@ -9,7 +10,6 @@ import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
-import { useCallback } from 'react';
 import { AddToAnotherProject } from './AddToAnotherProject';
 import { DeleteTask } from './DeleteTask';
 import { PopoverAdvancedActions } from './PopoverAdvancedActions';

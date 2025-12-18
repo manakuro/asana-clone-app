@@ -1,10 +1,10 @@
+import { memo, useCallback, useState } from 'react';
 import { PopoverAssigneeInput } from '@/components/features/Popovers';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Icon } from '@/components/ui/Icon';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';
-import { memo, useCallback, useState } from 'react';
 
 type Props = {
   taskId: string;

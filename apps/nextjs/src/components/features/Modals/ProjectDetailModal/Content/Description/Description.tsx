@@ -1,3 +1,5 @@
+import isEqual from 'lodash-es/isEqual';
+import { memo, useCallback, useMemo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/Editor';
 import { Flex } from '@/components/ui/Flex';
 import {
@@ -5,8 +7,6 @@ import {
   stringifyDescription,
 } from '@/shared/prosemirror/convertDescription';
 import { useProject, useProjectCommand } from '@/store/entities/project';
-import isEqual from 'lodash-es/isEqual';
-import { memo, useCallback, useMemo } from 'react';
 import { Container } from './Container';
 import { Placeholder } from './Placeholder';
 import { Provider } from './Provider';

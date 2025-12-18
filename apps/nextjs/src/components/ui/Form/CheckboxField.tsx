@@ -1,6 +1,6 @@
-import { Checkbox } from '@/components/ui/Checkbox';
 import { type FieldInputProps, useField } from 'formik';
-import { type PropsWithChildren, memo } from 'react';
+import { memo, type PropsWithChildren } from 'react';
+import { Checkbox } from '@/components/ui/Checkbox';
 
 type Props = PropsWithChildren<{
   name: string;

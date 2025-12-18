@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import {
   Menu,
   MenuButton,
@@ -11,7 +12,6 @@ import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,
 } from '@/store/entities/taskListCompletedStatus';
-import { useCallback } from 'react';
 
 type Props = {
   onClose: () => void;

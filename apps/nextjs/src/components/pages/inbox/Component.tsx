@@ -1,11 +1,11 @@
 'use client';
 
+import React, { memo, useCallback } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
 import { TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';
 import { useRouter } from '@/router';
-import React, { memo, useCallback } from 'react';
 import { Activity } from './components/Activity';
 import { Archive } from './components/Archive';
 import { Header } from './components/Header';

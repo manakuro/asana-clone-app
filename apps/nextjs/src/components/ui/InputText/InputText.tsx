@@ -1,9 +1,9 @@
+import type React from 'react';
+import { memo, useMemo } from 'react';
 import { Box } from '@/components/ui/Box';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Textarea, type TextareaProps } from '@/components/ui/Textarea';
 import type { ChakraProps } from '@/shared/chakra';
-import type React from 'react';
-import { memo, useMemo } from 'react';
 
 type Props = {
   value: string;

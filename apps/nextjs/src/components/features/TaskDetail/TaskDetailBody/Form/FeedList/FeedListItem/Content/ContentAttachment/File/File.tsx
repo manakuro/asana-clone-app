@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { AttachmentBox } from '@/components/features/AttachmentBox';
 import type { FlexProps } from '@/components/ui/Flex';
-import { memo } from 'react';
 
 type Props = FlexProps & {
   taskFileId: string;

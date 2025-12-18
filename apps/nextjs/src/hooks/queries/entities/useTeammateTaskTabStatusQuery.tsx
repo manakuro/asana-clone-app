@@ -1,8 +1,8 @@
+import { atom, useAtom } from 'jotai';
+import { useEffect } from 'react';
 import { useTeammateTaskTabStatusQuery as useQuery } from '@/graphql/hooks';
 import { useMountedRef } from '@/hooks';
 import { useTeammateTaskTabStatusResponse } from '@/store/entities/teammateTaskTabStatus';
-import { atom, useAtom } from 'jotai';
-import { useEffect } from 'react';
 
 const loadingAtom = atom<boolean>(true);
 

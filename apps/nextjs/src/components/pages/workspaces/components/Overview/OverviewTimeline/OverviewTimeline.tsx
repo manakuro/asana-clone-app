@@ -1,5 +1,5 @@
-import { useProjectsProjectId } from '@/store/app/projects/project';
 import { memo } from 'react';
+import { useProjectsProjectId } from '@/store/app/projects/project';
 import { DueDate } from './DueDate';
 import { JoinedTeammates } from './JoinedTeammates';
 import { ProjectCreated } from './ProjectCreated';

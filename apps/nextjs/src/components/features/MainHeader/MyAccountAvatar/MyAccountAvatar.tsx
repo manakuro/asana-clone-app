@@ -1,7 +1,7 @@
+import { memo, useCallback } from 'react';
 import { MyAvatar } from '@/components/features/MyAvatar';
 import { Menu, MenuButton } from '@/components/ui/Menu';
 import { useDisclosure } from '@/shared/chakra';
-import { memo, useCallback } from 'react';
 import { MenuList } from './MenuList';
 
 export const MyAccountAvatar = memo(function MyAccountAvatar() {

@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { useTasksTaskColumnIds } from '@/components/features/Tasks/hooks';
 import { Flex } from '@/components/ui/Flex';
-import { memo } from 'react';
 import { Column } from './Column';
 import { RemainingSpace } from './Columns';
 import { Provider, useTasksListHeaderContext } from './Provider';

@@ -1,5 +1,5 @@
-import { Tooltip } from '@/components/ui/Tooltip';
 import type React from 'react';
+import { Tooltip } from '@/components/ui/Tooltip';
 
 type Props = {
   label: string;

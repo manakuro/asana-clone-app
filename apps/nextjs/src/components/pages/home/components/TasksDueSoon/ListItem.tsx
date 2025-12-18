@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { ProjectChip } from '@/components/features/Chips';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { CheckIcon } from '@/components/ui/CheckIcon';
@@ -10,8 +12,6 @@ import { useRouter } from '@/router';
 import { formatDueTime } from '@/shared/date';
 import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Props = {
   taskId: string;

@@ -1,5 +1,5 @@
-import { useProjectIds } from '@/store/entities/project';
 import { memo } from 'react';
+import { useProjectIds } from '@/store/entities/project';
 import { ListItem } from './ListItem';
 
 export const ProjectList = memo(function ProjectList() {

@@ -1,8 +1,8 @@
+import { useCallback } from 'react';
 import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,
 } from '@/store/entities/taskListCompletedStatus';
-import { useCallback } from 'react';
 
 const isCompleted = (
   status: TaskListCompletedStatusCodeValue,

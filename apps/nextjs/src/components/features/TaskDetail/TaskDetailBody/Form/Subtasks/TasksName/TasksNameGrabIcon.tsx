@@ -1,5 +1,5 @@
-import { Icon, type IconProps } from '@/components/ui/Icon';
 import { memo } from 'react';
+import { Icon, type IconProps } from '@/components/ui/Icon';
 import { useSubtasksNameContext } from './Provider';
 
 type Props = Omit<IconProps, 'icon'>;

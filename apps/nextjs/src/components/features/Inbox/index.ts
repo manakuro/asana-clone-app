@@ -1,3 +1,4 @@
+export * from './hooks';
 export * from './Inbox';
 export * from './InboxHeader';
 export * from './InboxLeft';
@@ -6,4 +7,3 @@ export * from './InboxListContent';
 export * from './InboxListHeader';
 export * from './InboxRight';
 export * from './InboxSkeleton';
-export * from './hooks';

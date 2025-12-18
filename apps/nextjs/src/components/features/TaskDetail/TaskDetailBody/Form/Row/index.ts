@@ -1,3 +1,3 @@
-export * from './Row';
-export * from './Label';
 export * from './Content';
+export * from './Label';
+export * from './Row';

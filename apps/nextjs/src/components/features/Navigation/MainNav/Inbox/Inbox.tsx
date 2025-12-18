@@ -1,6 +1,6 @@
-import { ROUTE_INBOX } from '@/router';
 import { usePathname } from 'next/navigation';
 import { memo, useMemo } from 'react';
+import { ROUTE_INBOX } from '@/router';
 import { NavListItem } from '../../NavListItem';
 import type { NavListItem as TNavListItem } from '../../type';
 

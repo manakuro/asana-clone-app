@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { FavoriteIconButton } from '@/components/ui/FavoriteIconButton';
 import type { IconButtonProps } from '@/components/ui/IconButton';
 import { Tooltip } from '@/components/ui/Tooltip';
@@ -6,7 +7,6 @@ import {
   useFavoriteWorkspaceIdsCommand,
 } from '@/store/entities/favoriteWorkspaceIds';
 import { useWorkspace } from '@/store/entities/workspace';
-import { memo } from 'react';
 
 type Props = Omit<IconButtonProps, 'aria-label' | 'icon' | 'textStyle'>;
 

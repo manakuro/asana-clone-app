@@ -1,8 +1,8 @@
+import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import type { IconButtonProps } from '@/components/ui/IconButton';
 import type { TooltipProps } from '@/components/ui/Tooltip';
 import { useStrikethrough } from '@/shared/prosemirror/hooks';
-import { memo } from 'react';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label'> & {

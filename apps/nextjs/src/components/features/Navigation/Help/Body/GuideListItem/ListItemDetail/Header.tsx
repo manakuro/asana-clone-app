@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import {
   type Item,
   PADDING_X,
@@ -5,7 +6,6 @@ import {
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
-import { useCallback } from 'react';
 
 type Props = {
   item: Item;

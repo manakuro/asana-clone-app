@@ -1,5 +1,5 @@
-import { List } from '@/components/ui/List';
 import { memo } from 'react';
+import { List } from '@/components/ui/List';
 import { MAX_WIDTH } from '../Navigation';
 import { Goals } from './Goals';
 import { Home } from './Home';

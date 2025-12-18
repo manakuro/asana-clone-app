@@ -1,8 +1,8 @@
+import { memo } from 'react';
 import { AttachmentMenu } from '@/components/features/Menus';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { MenuButton } from '@/components/ui/Menu';
-import { memo } from 'react';
 import { useInputContext } from '../Provider';
 
 export const Attachment = memo(function Attachment() {

@@ -1,6 +1,6 @@
-import { useTaskColumnsResponse } from '@/store/entities/taskColumn';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import { useTaskColumnsResponse } from '@/store/entities/taskColumn';
 import { teammateTaskColumnState } from '../atom';
 import type { TeammateTaskColumnResponse } from '../type';
 

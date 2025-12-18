@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { PopoverProjectMenu } from '@/components/features/Popovers';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { AvatarGroup } from '@/components/ui/Avatar';
@@ -11,7 +12,6 @@ import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { useProjectIcon } from '@/store/entities/projectIcon';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { transitions } from '@/styles';
-import { memo } from 'react';
 import { Container } from './Container';
 import { FavoriteButton } from './FavoriteButton';
 

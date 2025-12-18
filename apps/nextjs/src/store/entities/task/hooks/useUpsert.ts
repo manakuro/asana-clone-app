@@ -1,6 +1,6 @@
-import type { Task } from '@/store/entities/task';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import type { Task } from '@/store/entities/task';
 import { taskState } from '../atom';
 
 export const useUpsert = () => {

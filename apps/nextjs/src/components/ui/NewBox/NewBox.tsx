@@ -24,7 +24,7 @@ const sizes = {
 type Sizes = keyof typeof sizes;
 
 export function NewBox(props: Props) {
-  const { size, color, ...rest } = props;
+  const { size, color: _, ...rest } = props;
   const sizeStyle = sizes[size];
 
   return (

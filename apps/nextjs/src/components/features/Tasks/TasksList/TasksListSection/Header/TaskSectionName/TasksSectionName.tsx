@@ -1,7 +1,7 @@
+import { memo, useCallback, useMemo } from 'react';
 import { useTasksListSectionContext } from '@/components/features/Tasks';
 import { useTasksTaskSection } from '@/components/features/Tasks/hooks';
 import { Box } from '@/components/ui/Box';
-import { memo, useCallback, useMemo } from 'react';
 import { Input } from './Input';
 
 type Props = {

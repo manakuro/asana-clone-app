@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import {
   SearchMenuLeftContainer,
   SearchMenuListItem,
@@ -6,8 +8,6 @@ import {
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Text } from '@/components/ui/Text';
 import type { Teammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Props = {
   onClick: (teammate: Teammate) => void;

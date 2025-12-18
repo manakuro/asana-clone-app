@@ -1,9 +1,9 @@
+import { memo } from 'react';
 import { Avatar } from '@/components/ui/Avatar';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import type { Mention } from '@/store/entities/mention';
 import { useTeammate } from '@/store/entities/teammate';
-import { memo } from 'react';
 import { LeftContainer } from './LeftContainer';
 import { RightContainer } from './RightContainer';
 

@@ -1,6 +1,6 @@
+import { memo, useMemo } from 'react';
 import { LikeTaskIconButton } from '@/components/features/LikeTaskIconButton';
 import { useTaskLikesByTaskId } from '@/store/entities/taskLike';
-import { memo, useMemo } from 'react';
 import { useTasksBoardListItemContext } from '../Provider';
 
 type Props = {

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   TasksCalendarContent,
   TasksHeader,
@@ -7,7 +8,6 @@ import {
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Stack } from '@/components/ui/Stack';
-import { memo } from 'react';
 
 type Props = FlexProps;
 

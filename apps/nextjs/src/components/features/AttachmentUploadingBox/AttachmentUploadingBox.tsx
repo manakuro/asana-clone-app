@@ -26,7 +26,7 @@ const sizes = {
 type Sizes = keyof typeof sizes;
 
 export function AttachmentUploadingBox(props: Props) {
-  const { size, color, ...rest } = props;
+  const { size, color: _, ...rest } = props;
   const sizeStyle = sizes[size];
   const taskFile = props.file.name;
   const progressValue = props.file.num;

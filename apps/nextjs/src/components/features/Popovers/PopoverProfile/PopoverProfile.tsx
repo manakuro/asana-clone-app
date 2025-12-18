@@ -1,3 +1,4 @@
+import type React from 'react';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
@@ -14,7 +15,6 @@ import {
 import { Portal } from '@/components/ui/Portal';
 import { PortalManager } from '@/components/ui/PortalManager';
 import { Text } from '@/components/ui/Text';
-import type React from 'react';
 
 type Props = {
   profile: {

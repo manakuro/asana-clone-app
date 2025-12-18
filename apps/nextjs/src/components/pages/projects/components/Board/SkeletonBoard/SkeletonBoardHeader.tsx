@@ -1,7 +1,7 @@
+import { memo } from 'react';
 import { TasksHeader, TasksHeaderRight } from '@/components/features/Tasks';
 import type { FlexProps } from '@/components/ui/Flex';
 import { Skeleton } from '@/components/ui/Skeleton';
-import { memo } from 'react';
 
 type Props = FlexProps;
 
