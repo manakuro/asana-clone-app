@@ -1,3 +1,5 @@
+import { RESET, useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   useCreateProjectTaskByTaskIdMutation,
   useCreateProjectTaskMutation,
@@ -12,9 +14,6 @@ import {
   useTaskCommand,
 } from '@/store/entities/task';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomCallback } from 'jotai/utils';
-import { RESET } from 'jotai/utils';
-import { useCallback } from 'react';
 import {
   initialState,
   projectTaskByTaskIdAndProjectIdState,
@@ -61,7 +60,7 @@ export const useProjectTaskCommand = () => {
     useCallback(
       async (
         get,
-        set,
+        _set,
         input: Override<Partial<ProjectTask>, { id: string }>,
       ) => {
         const prev = get(projectTaskState(input.id));
@@ -98,7 +97,7 @@ export const useProjectTaskCommand = () => {
     useCallback(
       async (
         get,
-        set,
+        _set,
         { taskId, projectId }: { taskId: string; projectId: string },
         input: Partial<ProjectTask>,
       ) => {
@@ -225,7 +224,7 @@ export const useProjectTaskCommand = () => {
 
   const addProjectTaskByTaskId = useAtomCallback(
     useCallback(
-      async (get, set, input: { projectId: string; taskId: string }) => {
+      async (get, _set, input: { projectId: string; taskId: string }) => {
         const projectTask = get(
           projectTaskByTaskIdAndProjectIdState({
             projectId: input.projectId,
@@ -287,7 +286,7 @@ export const useProjectTaskCommand = () => {
 
   const deleteProjectTask = useAtomCallback(
     useCallback(
-      async (get, set, input: { id: string }) => {
+      async (get, _set, input: { id: string }) => {
         const projectTask = get(projectTaskState(input.id));
 
         resetProjectTask(projectTask.id);
@@ -328,7 +327,7 @@ export const useProjectTaskCommand = () => {
 
   const deleteProjectTaskByTaskId = useAtomCallback(
     useCallback(
-      async (get, set, input: { taskId: string }) => {
+      async (get, _set, input: { taskId: string }) => {
         const projectTask = get(projectTaskByTaskIdState(input.taskId));
 
         resetProjectTask(projectTask.id);

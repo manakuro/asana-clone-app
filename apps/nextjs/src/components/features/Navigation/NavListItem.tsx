@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { Link, type LinkProps } from '@/components/ui/Link';
 import { ListItem, type ListItemProps } from '@/components/ui/List';
@@ -5,7 +6,6 @@ import { NextLink } from '@/components/ui/NextLink';
 import { Text } from '@/components/ui/Text';
 import { useLinkHoverStyle } from '@/hooks';
 import type { StaticRoutes } from '@/router';
-import { memo, useMemo } from 'react';
 import { PADDING_X } from './Navigation';
 import type { NavListItem as TNavListItem } from './type';
 
@@ -17,7 +17,7 @@ type Props = {
 } & ListItemProps;
 
 export const NavListItem = memo(function NavListItem(props: Props) {
-  const { item, linkStyle, light, disabled, ...rest } = props;
+  const { item, linkStyle, light: _, disabled, ...rest } = props;
   const { _hover, selectedStyle } = useLinkHoverStyle();
   const listItemStyle = useMemo(
     (): ListItemProps => ({
@@ -52,7 +52,7 @@ export const NavListItem = memo(function NavListItem(props: Props) {
 
 function WithNextLink(props: Props) {
   return props.item.isExternal ? (
-    <>{props.children}</>
+    props.children
   ) : (
     <NextLink href={props.item.href as StaticRoutes} passHref legacyBehavior>
       {props.children}

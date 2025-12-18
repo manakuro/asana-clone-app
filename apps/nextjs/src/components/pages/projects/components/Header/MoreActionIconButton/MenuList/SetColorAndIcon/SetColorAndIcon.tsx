@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { PopoverSetColorAndIcon } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
@@ -6,7 +7,6 @@ import { MenuItem } from '@/components/ui/Menu';
 import { Text } from '@/components/ui/Text';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { memo } from 'react';
 
 type Props = {
   onClose: () => void;

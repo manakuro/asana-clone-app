@@ -1,9 +1,9 @@
+import { atom, useAtom } from 'jotai';
+import { useCallback } from 'react';
 import {
   useTaskDetailResetId,
   useTaskDetailResetScrollId,
 } from '@/components/features/TaskDetail';
-import { atom, useAtom } from 'jotai';
-import { useCallback } from 'react';
 
 const isOpenAtom = atom(false);
 

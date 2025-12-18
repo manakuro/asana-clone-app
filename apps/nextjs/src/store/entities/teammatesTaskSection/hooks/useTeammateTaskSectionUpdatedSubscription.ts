@@ -1,8 +1,8 @@
+import isEqual from 'lodash-es/isEqual';
+import { useCallback, useMemo } from 'react';
 import { useTeammateTaskSectionUpdatedSubscription as useSubscription } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
-import isEqual from 'lodash-es/isEqual';
-import { useCallback, useMemo } from 'react';
 import type { TeammateTaskSectionUpdatedSubscriptionResponse as Response } from '../type';
 import { useTeammatesTaskSectionResponse } from './useTeammatesTaskSectionResponse';
 

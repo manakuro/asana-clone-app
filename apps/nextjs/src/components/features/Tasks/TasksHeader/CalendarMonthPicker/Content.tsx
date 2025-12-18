@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
@@ -8,9 +9,8 @@ import {
 } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
-import { useClickOutside, useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle, useClickOutside } from '@/hooks';
 import { dateFns } from '@/shared/dateFns';
-import { useCallback, useEffect, useMemo, useState } from 'react';
 
 type Props = {
   onClose: () => void;

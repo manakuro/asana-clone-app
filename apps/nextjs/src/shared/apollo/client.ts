@@ -1,9 +1,9 @@
-import { refreshToken } from '@/shared/firebase/auth';
 import {
   ApolloClient,
   InMemoryCache,
   type NormalizedCacheObject,
 } from '@apollo/client';
+import { refreshToken } from '@/shared/firebase/auth';
 import { type CreateLinkProps, createLink } from './createLink';
 
 type Props = CreateLinkProps;

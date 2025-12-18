@@ -1,3 +1,4 @@
+import { atom } from 'jotai';
 import {
   filterByNoProject,
   filterByProjectTasks,
@@ -11,7 +12,6 @@ import {
   tasksByTeammateTaskSectionIdState,
 } from '@/store/entities/teammateTask';
 import { isTabStatusState } from '@/store/entities/teammateTaskTabStatus';
-import { atom } from 'jotai';
 
 export const taskIdsState = atom<string[]>((get) => {
   let tasks = get(tasksByTeammateIdState);

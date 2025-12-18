@@ -1,9 +1,9 @@
-import { useUpdateTeammateTaskSectionMutation } from '@/graphql/hooks';
-import { omit } from '@/shared/utils/omit';
-import { useWorkspace } from '@/store/entities/workspace';
 import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
+import { useUpdateTeammateTaskSectionMutation } from '@/graphql/hooks';
+import { omit } from '@/shared/utils/omit';
+import { useWorkspace } from '@/store/entities/workspace';
 import { teammatesTaskSectionState } from '../atom';
 import type {
   TeammateTaskSection,

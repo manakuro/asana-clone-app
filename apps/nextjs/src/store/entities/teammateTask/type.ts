@@ -1,9 +1,9 @@
 import type { TeammateTaskResponse } from '@/graphql/types/teammateTask';
 
 export type {
-  TeammateTaskResponse,
   TeammateTaskCreatedSubscriptionResponse,
   TeammateTaskDeletedSubscriptionResponse,
+  TeammateTaskResponse,
   TeammateTaskUpdatedSubscriptionResponse,
 } from '@/graphql/types/teammateTask';
 

@@ -1,9 +1,9 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   type TeammateTaskResponse,
   useTeammateTaskResponse,
 } from '@/store/entities/teammateTask';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import type { HomeResponse } from '../type';
 
 export const useHomeResponse = () => {

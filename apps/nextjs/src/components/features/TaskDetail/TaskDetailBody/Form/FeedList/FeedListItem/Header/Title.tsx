@@ -1,10 +1,10 @@
+import type React from 'react';
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text, type TextProps } from '@/components/ui/Text';
 import type { TaskFeed } from '@/store/entities/taskFeed';
 import type { Teammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo } from 'react';
 import { useTaskFeedListItemContext } from '../Provider';
 
 type Props = TextProps;

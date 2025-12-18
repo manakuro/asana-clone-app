@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { useInviteModal } from '@/components/features/Modals/InviteModal/useInviteModal';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
@@ -6,7 +7,6 @@ import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import type { IconType } from '@/shared/icons';
-import { memo, useCallback } from 'react';
 
 export const AddButton = memo(function AddButton() {
   const inviteModal = useInviteModal();

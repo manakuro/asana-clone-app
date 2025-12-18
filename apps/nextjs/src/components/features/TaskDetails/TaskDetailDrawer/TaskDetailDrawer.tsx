@@ -1,8 +1,8 @@
+import type { Ref } from 'react';
+import { memo, useCallback } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { Slide } from '@/components/ui/Slide';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
-import type { Ref } from 'react';
-import { memo, useCallback } from 'react';
 import { Content } from './Content';
 import { useTaskDetailDrawer } from './useTaskDetailDrawer';
 import { useTaskDetailDrawerRef } from './useTaskDetailDrawerRef';

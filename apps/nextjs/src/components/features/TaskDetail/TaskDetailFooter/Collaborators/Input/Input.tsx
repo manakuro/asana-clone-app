@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useState } from 'react';
 import { AssigneeChip } from '@/components/features/Chips';
 import { InviteCollaboratorMenu } from '@/components/features/Menus';
 import { useTaskDetail } from '@/components/features/TaskDetail';
@@ -15,8 +17,6 @@ import {
   useTeammateIdsByTaskId,
 } from '@/store/entities/taskCollaborator';
 import type { Teammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo, useCallback, useState } from 'react';
 import { useCollaboratorsContext } from '../Provider';
 
 export const Input: React.FC = () => {

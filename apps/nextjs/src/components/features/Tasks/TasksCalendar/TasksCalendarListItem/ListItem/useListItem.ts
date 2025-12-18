@@ -1,6 +1,6 @@
-import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import type React from 'react';
 import { useCallback } from 'react';
+import { useTasksRouter } from '@/components/features/Tasks/hooks';
 
 type Props = {
   taskId: string;

@@ -1,5 +1,5 @@
-import { MenuList as AtomsMenuList } from '@/components/ui/Menu';
 import { memo } from 'react';
+import { MenuList as AtomsMenuList } from '@/components/ui/Menu';
 import { AddRole } from './AddRole';
 import { RemoveFromProject } from './RemoveFromProject';
 import { SetProjectOwner } from './SetProjectOwner';

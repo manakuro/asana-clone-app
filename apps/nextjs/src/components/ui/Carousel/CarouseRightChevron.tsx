@@ -1,7 +1,7 @@
+import { useCallback } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { useCallback } from 'react';
 import { useCarouselContext } from './Provider';
 
 export function CarouselRightChevron() {

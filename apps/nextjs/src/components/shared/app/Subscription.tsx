@@ -1,3 +1,5 @@
+import type { PropsWithChildren, ReactElement } from 'react';
+import { memo } from 'react';
 import { useFavoriteProjectIdsUpdatedSubscription } from '@/store/entities/favoriteProjectIds';
 import { useMe } from '@/store/entities/me';
 import { useProjectUpdatedSubscription } from '@/store/entities/project';
@@ -45,10 +47,6 @@ import {
   useTaskTagDeletedSubscription,
 } from '@/store/entities/taskTag';
 import {
-  useTeammateTaskCreatedSubscription,
-  useTeammateTaskUpdatedSubscription,
-} from '@/store/entities/teammateTask';
-import {
   useTeammateTaskSectionCreatedSubscription,
   useTeammateTaskSectionDeletedAndDeleteTasksSubscription,
   useTeammateTaskSectionDeletedAndKeepTasksSubscription,
@@ -58,11 +56,13 @@ import {
   useTeammateTaskSectionUpdatedSubscription,
 } from '@/store/entities/teammatesTaskSection';
 import {
+  useTeammateTaskCreatedSubscription,
+  useTeammateTaskUpdatedSubscription,
+} from '@/store/entities/teammateTask';
+import {
   useWorkspace,
   useWorkspaceUpdatedSubscription,
 } from '@/store/entities/workspace';
-import type { PropsWithChildren, ReactElement } from 'react';
-import { memo } from 'react';
 
 export const Subscription = memo(function Subscription(
   props: PropsWithChildren,

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { TaskDetailModal } from '@/components/features/TaskDetails';
 import {
   TasksContainer,
@@ -8,7 +9,6 @@ import { useTasksFilesDetail } from '@/components/features/Tasks/TasksFiles/useT
 import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
 import { Flex } from '@/components/ui/Flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
-import { memo } from 'react';
 import { SkeletonFiles } from './SkeletonFiles';
 
 export const Files = memo(function Files() {

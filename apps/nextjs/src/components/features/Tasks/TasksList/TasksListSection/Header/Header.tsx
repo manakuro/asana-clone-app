@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
 import { useTasksListSectionContext } from '@/components/features/Tasks/TasksList/TasksListSection/Provider';
 import { Flex } from '@/components/ui/Flex';
@@ -5,7 +6,6 @@ import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Stack } from '@/components/ui/Stack';
 import { useHover } from '@/hooks/useHover';
-import { memo } from 'react';
 import { AddTaskButton } from './AddTaskButton';
 import { MoreAction } from './MoreAction';
 import { TaskSectionName } from './TaskSectionName';

@@ -1,8 +1,8 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { useSubtaskListContext } from '@/components/features/Tasks/TasksList/TasksListItem/Provider';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Props = {
   showExpandIcon: boolean;

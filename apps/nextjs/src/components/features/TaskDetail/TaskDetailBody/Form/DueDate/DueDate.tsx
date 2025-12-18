@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
@@ -6,8 +8,6 @@ import { Icon } from '@/components/ui/Icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import { useTask } from '@/store/entities/task';
-import type React from 'react';
-import { memo, useCallback, useMemo } from 'react';
 import { Content, Label, Row } from '../Row';
 
 type Props = {

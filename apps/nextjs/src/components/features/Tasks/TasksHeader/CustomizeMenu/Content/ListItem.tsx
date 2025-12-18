@@ -1,10 +1,10 @@
+import { Draggable } from '@hello-pangea/dnd';
+import { memo, useCallback, useMemo } from 'react';
 import { useTasksTaskColumn } from '@/components/features/Tasks/hooks';
 import { Box } from '@/components/ui/Box';
 import { CustomField } from '@/components/ui/CustomField';
 import { useDraggableInPortal } from '@/hooks/useDraggableInPortal';
 import { useTaskColumn } from '@/store/entities/taskColumn';
-import { Draggable } from '@hello-pangea/dnd';
-import { memo, useCallback, useMemo } from 'react';
 
 type Props = {
   tasksTaskColumnId: string;

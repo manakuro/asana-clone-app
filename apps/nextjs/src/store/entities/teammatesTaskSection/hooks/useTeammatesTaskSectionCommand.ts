@@ -1,3 +1,5 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   useCreateTeammateTaskSectionMutation,
   useDeleteTeammateTaskSectionAndDeleteTasksMutation,
@@ -16,8 +18,6 @@ import {
   useTeammateTaskResponse,
 } from '@/store/entities/teammateTask';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { initialState, teammatesTaskSectionState } from '../atom';
 import type {
   DeleteTeammateTaskSectionAndDeleteTasksMutation,
@@ -26,13 +26,13 @@ import type {
   TeammateTaskSectionResponse,
 } from '../type';
 import { useResetTeammateTaskSection } from './useResetTeammateTaskSection';
+import { useTeammatesTaskSectionResponse } from './useTeammatesTaskSectionResponse';
 import { TEAMMATE_TASK_SECTION_CREATED_SUBSCRIPTION_REQUEST_ID } from './useTeammateTaskSectionCreatedSubscription';
 import { TEAMMATE_TASK_SECTION_DELETED_AND_DELETE_TASKS_SUBSCRIPTION_REQUEST_ID } from './useTeammateTaskSectionDeletedAndDeleteTasksSubscription';
 import { TEAMMATE_TASK_SECTION_DELETED_AND_KEEP_TASKS_SUBSCRIPTION_REQUEST_ID } from './useTeammateTaskSectionDeletedAndKeepTasksSubscription';
 import { TEAMMATE_TASK_SECTION_DELETED_SUBSCRIPTION_REQUEST_ID } from './useTeammateTaskSectionDeletedSubscription';
 import { TEAMMATE_TASK_SECTION_UNDELETED_AND_DELETE_TASKS_SUBSCRIPTION_REQUEST_ID } from './useTeammateTaskSectionUndeletedAndDeleteTasksSubscription';
 import { TEAMMATE_TASK_SECTION_UNDELETED_AND_KEEP_TASKS_SUBSCRIPTION_REQUEST_ID } from './useTeammateTaskSectionUndeletedAndKeepTasksSubscription';
-import { useTeammatesTaskSectionResponse } from './useTeammatesTaskSectionResponse';
 import { useUpsert } from './useUpsert';
 
 export const useTeammatesTaskSectionCommand = () => {
@@ -321,7 +321,7 @@ export const useTeammatesTaskSectionCommand = () => {
           setTeammateTask(newTeammateTasks as TeammateTaskResponse[], {
             includeTask: false,
           });
-        } catch (e) {
+        } catch (_e) {
           // Handle error
         }
       },

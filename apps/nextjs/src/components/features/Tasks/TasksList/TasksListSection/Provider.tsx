@@ -1,6 +1,6 @@
+import { useCallback, useMemo, useState } from 'react';
 import type { FlexProps } from '@/components/ui/Flex';
 import { createProvider } from '@/shared/react/createProvider';
-import { useCallback, useMemo, useState } from 'react';
 
 type ContextProps = {
   focused: boolean;

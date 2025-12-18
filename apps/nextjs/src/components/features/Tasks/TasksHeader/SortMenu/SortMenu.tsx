@@ -35,7 +35,7 @@ export const SortMenu = <T extends TaskListSortStatusCodeValue>(
         Sort{text}
       </MenuSelectButton>
       <MenuSelectList defaultValue={defaultValue}>
-        {items.map((item, i) => (
+        {items.map((item, _i) => (
           <MenuItemOption
             value={item.value.toString()}
             key={item.value.toString()}

@@ -1,11 +1,11 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
 import { Icon, type IconProps } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTaskTag } from '@/store/entities/taskTag';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Variant = 'button' | 'icon';
 

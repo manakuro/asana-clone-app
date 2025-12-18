@@ -1,5 +1,5 @@
-import type { TaskListCompletedStatusCodeValue } from '@/store/entities/taskListCompletedStatus';
 import { useCallback } from 'react';
+import type { TaskListCompletedStatusCodeValue } from '@/store/entities/taskListCompletedStatus';
 import {
   type TaskListCompletedStatuses,
   taskListCompletedStatues,

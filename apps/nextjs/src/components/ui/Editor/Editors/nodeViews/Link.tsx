@@ -1,3 +1,4 @@
+import type React from 'react';
 import {
   PopoverEditorLink,
   PopoverEditorLinkContent,
@@ -6,7 +7,6 @@ import {
 } from '@/components/features/Popovers';
 import { Icon } from '@/components/ui/Icon';
 import { Link as AtomsLink } from '@/components/ui/Link';
-import type React from 'react';
 import { useReactNodeView } from '../ReactNodeView';
 
 export function Link(props: React.PropsWithChildren) {

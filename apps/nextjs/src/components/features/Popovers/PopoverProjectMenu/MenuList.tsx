@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { PopoverSetColorAndIcon } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
@@ -9,7 +10,6 @@ import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import type { Project } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { useCallback } from 'react';
 import { ArchiveProject } from './ArchiveProject';
 import { CopyProjectLink } from './CopyProjectLink';
 import { DeleteProject } from './DeleteProject';

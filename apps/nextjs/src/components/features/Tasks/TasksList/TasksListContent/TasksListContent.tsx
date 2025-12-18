@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useMainStyle } from '@/hooks';
-import { memo } from 'react';
 import { useTasksListContent } from './useTasksListContent';
 import { useTasksListContentHorizontalScroll } from './useTasksListContentHorizontalScroll';
 import { useTasksListContentSticky } from './useTasksListContentSticky';

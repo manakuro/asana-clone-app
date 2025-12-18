@@ -1,8 +1,8 @@
+import type React from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Input as AtomsInput } from '@/components/ui/Input';
-import type React from 'react';
-import { memo, useCallback, useState } from 'react';
 
 type Props = {
   defaultValue: string;

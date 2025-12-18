@@ -1,13 +1,13 @@
+import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Tooltip } from '@/components/ui/Tooltip';
-import { memo } from 'react';
 
 type Props = {
   taskId: string;
 };
 
-export const Copy = memo(function Copy(props: Props) {
+export const Copy = memo(function Copy(_props: Props) {
   return (
     <Tooltip
       hasArrow

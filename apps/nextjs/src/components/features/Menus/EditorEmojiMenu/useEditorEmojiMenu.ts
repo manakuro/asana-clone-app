@@ -1,3 +1,6 @@
+import { useAtom } from 'jotai';
+import { atomWithReset, useResetAtom } from 'jotai/utils';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useResizeObserver } from '@/hooks/useResizeObserver';
 import { calculateModalPosition } from '@/shared/calculateModalPosition';
 import {
@@ -8,11 +11,8 @@ import {
   frequently,
 } from '@/shared/emoji';
 import { getCaretPosition } from '@/shared/getCaretPosition';
-import { useAtom } from 'jotai';
-import { atomWithReset, useResetAtom } from 'jotai/utils';
-import { useCallback, useEffect, useMemo, useRef } from 'react';
 
-const key = (str: string) =>
+const _key = (str: string) =>
   `src/components/organisms/Menus/EditorEmojiMenu/useEditorEmojiMenu/${str}`;
 
 const DEFAULT_EMOJIS = [

@@ -1,6 +1,6 @@
-import { Flex } from '@/components/ui/Flex';
 import type React from 'react';
 import { useMemo } from 'react';
+import { Flex } from '@/components/ui/Flex';
 import { useCarouselContext } from './Provider';
 
 type Props = {

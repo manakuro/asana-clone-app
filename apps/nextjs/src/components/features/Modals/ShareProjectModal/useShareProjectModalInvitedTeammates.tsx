@@ -1,7 +1,7 @@
-import type { Teammate } from '@/store/entities/teammate';
 import { useAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
 import { useMemo } from 'react';
+import type { Teammate } from '@/store/entities/teammate';
 
 const invitedTeammatesState = atomWithReset<Teammate[]>([]);
 

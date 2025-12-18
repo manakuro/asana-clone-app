@@ -1,5 +1,5 @@
-import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { memo } from 'react';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useTaskFeedListItemContext } from '../../Provider';
 
 type Props = FlexProps;

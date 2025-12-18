@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import {
   Tooltip as MoleculesTooltip,
@@ -5,7 +6,6 @@ import {
 } from '@/components/ui/Tooltip';
 import { useDisclosure } from '@/shared/chakra';
 import { useTaskFile } from '@/store/entities/taskFile';
-import { useEffect } from 'react';
 import { useThumbnailAttachmentContext } from './Provider';
 
 type Props = Omit<TooltipProps, 'label' | 'size'> & {

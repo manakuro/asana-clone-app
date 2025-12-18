@@ -1,5 +1,5 @@
-import { projectsTaskColumnsByProjectIdState } from '@/store/entities/projectTaskColumn';
 import { atom } from 'jotai';
+import { projectsTaskColumnsByProjectIdState } from '@/store/entities/projectTaskColumn';
 
 export const projectsTaskColumnIdsState = (projectId: string) =>
   atom<string[]>((get) => {

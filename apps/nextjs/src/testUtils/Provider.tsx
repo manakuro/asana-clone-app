@@ -1,3 +1,7 @@
+import { ChakraProvider } from '@chakra-ui/react';
+import enLocale from 'date-fns/locale/en-US';
+import type React from 'react';
+import { Suspense } from 'react';
 import { Modals } from '@/components/features/Modals';
 import { GlobalQuery } from '@/components/shared/app';
 import { PageLoader } from '@/components/ui/PageLoader';
@@ -9,10 +13,6 @@ import {
   muiTheme,
 } from '@/shared/materialUI';
 import { theme } from '@/styles';
-import { ChakraProvider } from '@chakra-ui/react';
-import enLocale from 'date-fns/locale/en-US';
-import type React from 'react';
-import { Suspense } from 'react';
 
 export const Provider: React.FCWithChildren = (props) => {
   return (

@@ -34,7 +34,6 @@ export const mention: Override<
   parseDOM: [
     {
       tag: 'span[data-mention-mentionId]',
-      // @ts-ignore
       getAttrs: (element: HTMLSpanElement): Attrs => {
         const mentionId = element.getAttribute('data-mention-mentionId') ?? '';
         const mentionType =

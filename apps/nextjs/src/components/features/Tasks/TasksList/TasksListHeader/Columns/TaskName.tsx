@@ -1,5 +1,5 @@
-import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
 import { memo } from 'react';
+import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
 import { Container } from './Container';
 
 type Props = {

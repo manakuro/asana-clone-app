@@ -3,8 +3,8 @@ import {
   type BoxProps as ChakraBoxProps,
 } from '@chakra-ui/react';
 import type { DraggableProvided } from '@hello-pangea/dnd';
-import { forwardRef } from 'react';
 import type React from 'react';
+import { forwardRef } from 'react';
 
 type Props = ChakraBoxProps & {
   ref?: React.ForwardedRef<any> | DraggableProvided['innerRef'];

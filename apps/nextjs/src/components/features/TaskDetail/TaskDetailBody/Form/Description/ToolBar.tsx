@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Divider } from '@/components/ui/Divider';
 import {
   AtMention,
@@ -13,7 +14,6 @@ import {
   Underline,
 } from '@/components/ui/Editor/ToolBar';
 import { Stack } from '@/components/ui/Stack';
-import { memo } from 'react';
 import { useDescriptionContext } from './Provider';
 
 export const ToolBar = memo(function ToolBar() {

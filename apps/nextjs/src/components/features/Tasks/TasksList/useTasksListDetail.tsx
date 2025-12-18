@@ -1,10 +1,10 @@
+import { useParams, usePathname } from 'next/navigation';
+import { useCallback, useEffect } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksListBody } from '@/components/features/Tasks';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
 import type { Params } from '@/shared/nextjs/navigation';
-import { useParams, usePathname } from 'next/navigation';
-import { useCallback, useEffect } from 'react';
 
 type Props = {
   isTaskDetailURL: (params: Params, pathname: string | null) => boolean;

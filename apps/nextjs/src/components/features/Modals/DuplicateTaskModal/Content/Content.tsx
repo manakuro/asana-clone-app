@@ -1,8 +1,8 @@
+import { Form, Formik, type FormikConfig } from 'formik';
+import { memo, useCallback, useMemo } from 'react';
 import { Divider } from '@/components/ui/Divider';
 import { Flex } from '@/components/ui/Flex';
-import { CheckboxField } from '@/components/ui/Form';
-import { SubmitButton } from '@/components/ui/Form';
-import { TextField } from '@/components/ui/Form';
+import { CheckboxField, SubmitButton, TextField } from '@/components/ui/Form';
 import {
   ModalBody,
   ModalCloseButton,
@@ -12,8 +12,6 @@ import {
 } from '@/components/ui/Modal';
 import { Stack } from '@/components/ui/Stack';
 import { useTask } from '@/store/entities/task';
-import { Form, Formik, type FormikConfig } from 'formik';
-import { memo, useCallback, useMemo } from 'react';
 import { Label } from './Label';
 
 type Props = {

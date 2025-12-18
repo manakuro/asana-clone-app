@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import { TaskDetailModal } from '@/components/features/TaskDetails';
 import {
   TasksContainer,
@@ -10,7 +11,6 @@ import { Flex } from '@/components/ui/Flex';
 import { useProjectsFilesPageQuery } from '@/hooks/queries/app';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { memo, useCallback, useMemo } from 'react';
 import { SkeletonFiles } from './SkeletonFiles';
 
 export const Files = memo(function Files() {

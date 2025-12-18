@@ -1,6 +1,6 @@
-import { createProvider } from '@/shared/react/createProvider';
 import type React from 'react';
 import { type SetStateAction, useEffect, useState } from 'react';
+import { createProvider } from '@/shared/react/createProvider';
 
 type ContextProps = {
   loadingQuery: boolean;

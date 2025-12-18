@@ -11,7 +11,7 @@ export const useTaskDetailDrawerRef = (deps?: any) => {
   const ref = useRef<HTMLElement | null>(null);
   const [state, setState] = useAtom(refAtom);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: include deps as a dependencies
   useEffect(() => {
     if (ref.current) {
       setState(ref.current);

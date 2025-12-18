@@ -1,5 +1,5 @@
-import { LayoutDefault } from '@/components/ui/Layout';
 import type { Meta, StoryObj } from '@storybook/react';
+import { LayoutDefault } from '@/components/ui/Layout';
 import { Container as Page } from './Container';
 
 const meta: Meta<typeof Page> = {

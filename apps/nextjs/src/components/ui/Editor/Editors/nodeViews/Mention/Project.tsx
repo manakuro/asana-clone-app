@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   PopoverEditorLink,
   PopoverEditorLinkContent,
@@ -9,7 +10,6 @@ import { useReactNodeView } from '@/components/ui/Editor/Editors/ReactNodeView';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { memo } from 'react';
 
 export const Project = memo(function Project() {
   const context = useReactNodeView();

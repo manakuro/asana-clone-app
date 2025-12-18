@@ -1,9 +1,9 @@
-import { useTaskCollaboratorDeletedSubscription as useSubscription } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
+import { useTaskCollaboratorDeletedSubscription as useSubscription } from '@/graphql/hooks';
+import { isDev } from '@/shared/environment';
+import { uuid } from '@/shared/uuid';
 import type { TaskCollaboratorDeletedSubscriptionResponse as Response } from '../type';
 import { useResetTaskCollaborator } from './useResetTaskCollaborator';
 

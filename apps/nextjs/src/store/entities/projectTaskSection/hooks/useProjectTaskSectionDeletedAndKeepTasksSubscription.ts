@@ -1,3 +1,6 @@
+import { useAtomCallback } from 'jotai/utils';
+import isEqual from 'lodash-es/isEqual';
+import { useCallback, useMemo } from 'react';
 import { useProjectTaskSectionDeletedAndKeepTasksSubscription as useSubscription } from '@/graphql/hooks';
 import type { ProjectTaskResponse } from '@/graphql/types/projectTask';
 import { isDev } from '@/shared/environment';
@@ -6,10 +9,6 @@ import {
   projectTasksByProjectTaskSectionIdState,
   useProjectTaskResponse,
 } from '@/store/entities/projectTask';
-import { useAtomCallback } from 'jotai/utils';
-import isEqual from 'lodash-es/isEqual';
-import { useMemo } from 'react';
-import { useCallback } from 'react';
 import type { ProjectTaskSectionDeletedAndKeepTasksSubscriptionResponse as Response } from '../type';
 import { useResetProjectTaskSection } from './useResetProjectTaskSection';
 
@@ -55,7 +54,7 @@ export const useProjectTaskSectionDeletedAndKeepTasksSubscription = (
 
   const setBySubscription = useAtomCallback(
     useCallback(
-      async (get, set, response: Response) => {
+      async (get, _set, response: Response) => {
         if (isDev()) console.log('Project Task Section deleted!');
 
         const projectTaskSection =

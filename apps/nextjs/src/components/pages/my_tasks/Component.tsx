@@ -1,5 +1,7 @@
 'use client';
 
+import { useParams, usePathname } from 'next/navigation';
+import React, { memo, useCallback, useEffect } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
@@ -20,8 +22,6 @@ import {
   useTeammateTaskTabStatus,
   useTeammateTaskTabStatusCommand,
 } from '@/store/entities/teammateTaskTabStatus';
-import { useParams, usePathname } from 'next/navigation';
-import React, { memo, useCallback, useEffect } from 'react';
 import { Board } from './components/Board';
 import { Calendar } from './components/Calendar';
 import { Files } from './components/Files';

@@ -1,10 +1,10 @@
+import type React from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { Collapse } from '@/components/ui/Collapse';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useTask } from '@/store/entities/task';
 import { transitions } from '@/styles';
-import type React from 'react';
-import { memo, useCallback, useMemo } from 'react';
 import { useTasksBoardListItemContext } from './Provider';
 
 type Props = FlexProps & {

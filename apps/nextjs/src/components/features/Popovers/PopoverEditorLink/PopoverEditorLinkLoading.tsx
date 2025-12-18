@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Spinner } from '@/components/ui/Spinner';
-import { memo } from 'react';
 
 export const PopoverEditorLinkLoading = memo(
   function PopoverEditorLinkLoading() {

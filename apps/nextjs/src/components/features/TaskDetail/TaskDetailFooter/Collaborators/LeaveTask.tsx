@@ -1,9 +1,9 @@
+import type React from 'react';
+import { memo } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Tooltip } from '@/components/ui/Tooltip';
-import type React from 'react';
-import { memo } from 'react';
 import { useCollaboratorsContext } from './Provider';
 
 export const LeaveTask: React.FC = memo(() => {

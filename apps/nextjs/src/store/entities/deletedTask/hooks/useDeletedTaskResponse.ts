@@ -1,7 +1,7 @@
-import { uniqBy } from '@/shared/utils';
-import { type TaskResponse, useTasksResponse } from '@/store/entities/task';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import { uniqBy } from '@/shared/utils';
+import { type TaskResponse, useTasksResponse } from '@/store/entities/task';
 import { deletedTaskState } from '../atom';
 import type { DeletedTaskResponse } from '../type';
 
@@ -11,7 +11,7 @@ export const useDeletedTaskResponse = () => {
   const setDeletedTask = useAtomCallback(
     useCallback(
       (
-        get,
+        _get,
         set,
         data: DeletedTaskResponse[],
         options?: { includeTask: boolean },

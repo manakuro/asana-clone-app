@@ -1,5 +1,7 @@
 'use client';
 
+import { useParams } from 'next/navigation';
+import { useEffect, useMemo } from 'react';
 import {
   useInboxListItem,
   useTaskActivityTaskIds,
@@ -8,8 +10,6 @@ import {
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { isInboxDetailURL } from '@/router';
 import { useActivityType } from '@/store/entities/activityType';
-import { useParams } from 'next/navigation';
-import { useEffect, useMemo } from 'react';
 
 type Props = {
   listItemId?: string;

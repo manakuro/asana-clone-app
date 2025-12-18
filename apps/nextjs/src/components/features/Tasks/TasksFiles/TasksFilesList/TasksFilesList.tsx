@@ -1,9 +1,9 @@
+import { memo, useMemo } from 'react';
 import { useTasksTaskFiles } from '@/components/features/Tasks/hooks';
 import { Flex } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
 import { useBreakpointValue } from '@/shared/chakra';
 import { splitByNumber } from '@/shared/utils';
-import { memo, useMemo } from 'react';
 import { TasksFilesListItem } from '../TasksFilesListItem';
 
 export const TasksFilesList = memo(function TasksFilesList() {

@@ -1,9 +1,9 @@
+import { memo, useCallback } from 'react';
 import { AttachmentUploadingBox } from '@/components/features/AttachmentUploadingBox';
 import { useFileViewerModal } from '@/components/features/Modals';
 import { useInputContext } from '@/components/features/TaskDetail/TaskDetailFooter/Comment/Input/Provider';
 import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
 import { Wrap, WrapItem } from '@/components/ui/Wrap';
-import { memo, useCallback } from 'react';
 
 export const Attachments = memo(function Attachments() {
   const { taskFileIds, uploadingFiles, onDeleteTaskFile } = useInputContext();

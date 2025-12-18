@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   ProjectTeammateMenuItem,
   useProjectTeammateMenu,
@@ -12,7 +13,6 @@ import { Divider } from '@/components/ui/Divider';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import type { Teammate } from '@/store/entities/teammate';
-import { memo } from 'react';
 
 type Props = {
   onSelect: (val: Teammate) => void;

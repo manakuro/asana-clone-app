@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import {
   PopoverContent,
@@ -5,7 +6,6 @@ import {
 } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
-import { memo } from 'react';
 import { useSearchMenuRef } from '../useSearchMenuRef';
 
 type Props = PopoverContentProps & {

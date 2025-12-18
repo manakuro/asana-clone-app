@@ -1,5 +1,5 @@
-import { Flex } from '@/components/ui/Flex';
 import type React from 'react';
+import { Flex } from '@/components/ui/Flex';
 import { Provider } from './Provider';
 
 type Props = {

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Input, type InputProps } from '@/components/ui/Input';
 import {
   Menu,
@@ -6,7 +7,6 @@ import {
   MenuList,
 } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
-import React from 'react';
 
 type Props = {
   value: string;
@@ -31,7 +31,7 @@ export function Select(props: React.PropsWithChildren<Props>) {
   return (
     <Menu placement="bottom-start" isLazy>
       <MenuButton {...rest}>
-        <Input size={size} value={props.value} onChange={() => {}} />
+        <Input size={size} value={value} onChange={() => {}} />
       </MenuButton>
       <Portal>
         <MenuList zIndex="popover" minW={28} maxH={60} overflowY="scroll">

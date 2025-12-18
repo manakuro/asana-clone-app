@@ -1,3 +1,5 @@
+import { usePathname } from 'next/navigation';
+import { memo, useMemo } from 'react';
 import { useNavigation } from '@/components/features/Navigation';
 import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { PopoverProjectMenu } from '@/components/features/Popovers';
@@ -12,8 +14,6 @@ import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { usePathname } from 'next/navigation';
-import { memo, useMemo } from 'react';
 
 type Props = {
   projectId: string;

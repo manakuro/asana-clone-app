@@ -1,7 +1,7 @@
+import { memo } from 'react';
 import { PopoverEmoji } from '@/components/features/Popovers';
 import { Icon } from '@/components/ui/Icon';
 import { useEmoji } from '@/shared/prosemirror/hooks';
-import { memo } from 'react';
 import { BaseButton } from '../BaseButton';
 
 export function Emoji() {

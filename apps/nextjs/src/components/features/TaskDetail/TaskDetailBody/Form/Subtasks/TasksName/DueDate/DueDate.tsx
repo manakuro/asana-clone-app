@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
 import { Icon } from '@/components/ui/Icon';
@@ -5,7 +6,6 @@ import { Tooltip } from '@/components/ui/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { getDifferenceInDays } from '@/shared/date';
 import { useTask } from '@/store/entities/task';
-import { memo, useCallback } from 'react';
 import { useDueDate } from './useDueDate';
 
 type Props = {

@@ -1,9 +1,9 @@
+import { memo } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';
-import { memo } from 'react';
 import { PermissionMenu } from '../../PermissionMenu';
 
 type Props = {

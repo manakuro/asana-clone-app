@@ -3,7 +3,6 @@ import type { EditorView } from 'prosemirror-view';
 
 const isOfType = <Type>(type: string, predicate?: (value: Type) => boolean) => {
   return (value: unknown): value is Type => {
-    // biome-ignore lint/suspicious/useValidTypeof: <explanation>
     if (typeof value !== type) return false;
     return predicate ? predicate(value as Type) : true;
   };
@@ -11,14 +10,14 @@ const isOfType = <Type>(type: string, predicate?: (value: Type) => boolean) => {
 export const isString = isOfType<string>('string');
 export const isNull = (value: unknown): value is null => value === null;
 export const isUndefined = isOfType<undefined>('undefined');
-// biome-ignore lint/complexity/noBannedTypes: <explanation>
+// biome-ignore lint/complexity/noBannedTypes: used for type narrowing
 export const isFunction = isOfType<Function>('function');
 export const isNumber = isOfType<number>(
   'number',
   (value) => !Number.isNaN(value),
 );
 export const Cast = <Type = any>(value: unknown): Type => value as Type;
-// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
+// biome-ignore lint/suspicious/noShadowRestrictedNames: should replace native function
 export const toString = (value: unknown): string =>
   Object.prototype.toString.call(value);
 

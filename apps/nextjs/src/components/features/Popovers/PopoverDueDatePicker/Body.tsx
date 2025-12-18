@@ -1,3 +1,4 @@
+import React, { memo, useCallback, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
 import { DatePicker } from '@/components/ui/DatePicker';
 import { Divider } from '@/components/ui/Divider';
@@ -6,7 +7,6 @@ import { PopoverBody, type PopoverProps } from '@/components/ui/Popover';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';
-import React, { memo, useCallback, useEffect } from 'react';
 import { DueTime } from './DueTime';
 
 type Props = {

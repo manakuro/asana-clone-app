@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { useThumbnailAttachmentContext } from '@/components/features/ThumbnailAttachment/Provider';
 import { Link } from '@/components/ui/Link';
 import {
@@ -8,7 +9,6 @@ import {
 } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { useTaskFile } from '@/store/entities/taskFile';
-import { memo, useCallback } from 'react';
 
 type Props = MenuProps & {
   taskFileId: string;

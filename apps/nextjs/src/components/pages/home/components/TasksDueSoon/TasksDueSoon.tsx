@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   Accordion,
   AccordionButton,
@@ -15,7 +16,6 @@ import { Tooltip } from '@/components/ui/Tooltip';
 import { useLinkStyle } from '@/hooks';
 import { ROUTE_MY_TASKS_LIST } from '@/router';
 import { useTasksDueSoonIds } from '@/store/app/home/tasksDueSoon';
-import { memo } from 'react';
 import { ListItem } from './ListItem';
 
 export const TasksDueSoon = memo(function TasksDueSoon() {

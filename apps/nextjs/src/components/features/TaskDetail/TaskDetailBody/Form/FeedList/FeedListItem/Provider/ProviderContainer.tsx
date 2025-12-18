@@ -1,9 +1,9 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTaskDetailBody } from '@/components/features/TaskDetail/TaskDetailBody/useTaskDetailBody';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { isHTMLElement } from '@/shared/isHTMLElement';
 import { createProvider } from '@/shared/react/createProvider';
 import { useTaskFeed } from '@/store/entities/taskFeed';
-import { useCallback, useEffect, useRef, useState } from 'react';
 
 type Props = {
   taskFeedId: string;

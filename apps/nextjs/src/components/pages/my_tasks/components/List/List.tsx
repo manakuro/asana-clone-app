@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { TaskDetailDrawer } from '@/components/features/TaskDetails';
 import {
   AddTaskButton,
@@ -19,7 +20,6 @@ import {
 import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
 import { Flex } from '@/components/ui/Flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
-import { memo } from 'react';
 import { SortMenu } from '../TasksHeader';
 import { SkeletonListContent, SkeletonListHeader } from './SkeletonList';
 

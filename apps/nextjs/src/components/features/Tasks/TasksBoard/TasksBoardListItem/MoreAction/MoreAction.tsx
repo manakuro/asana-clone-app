@@ -1,11 +1,11 @@
+import type React from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Menu, MenuButton } from '@/components/ui/Menu';
 import { PortalManager } from '@/components/ui/PortalManager';
 import { useDisclosure } from '@/shared/chakra';
-import type React from 'react';
-import { memo, useCallback, useMemo } from 'react';
 import {
   useTasksBoardListItemContext,
   useTasksBoardListItemInputContext,

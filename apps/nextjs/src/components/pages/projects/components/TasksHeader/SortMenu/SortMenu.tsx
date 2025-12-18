@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import { SortMenu as TasksHeaderSortMenu } from '@/components/features/Tasks/TasksHeader';
 import { useProjectsPageContext } from '@/components/pages/projects/providers/Provider';
 import {
@@ -5,7 +6,6 @@ import {
   useProjectsTaskListStatus,
 } from '@/store/app/projects/taskListStatus';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
-import { memo, useCallback, useMemo } from 'react';
 
 const ITEMS: {
   value: TaskListSortStatusCodeValue;

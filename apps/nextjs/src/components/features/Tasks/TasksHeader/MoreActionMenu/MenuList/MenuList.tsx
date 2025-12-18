@@ -1,5 +1,5 @@
-import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
 import { memo } from 'react';
+import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
 
 export const MenuList = memo(function MenuList() {
   return (

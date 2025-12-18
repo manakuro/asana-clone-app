@@ -1,10 +1,10 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   useCreateFavoriteWorkspaceMutation,
   useDeleteFavoriteWorkspaceMutation,
 } from '@/graphql/hooks';
 import { useMe } from '@/store/entities/me';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { favoriteWorkspaceIdsState } from '../atom';
 import {
   FAVORITE_WORKSPACE_IDS_UPDATED_SUBSCRIPTION_REQUEST_ID,

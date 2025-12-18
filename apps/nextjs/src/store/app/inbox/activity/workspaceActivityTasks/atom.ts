@@ -1,5 +1,5 @@
-import { createState } from '@/store/util';
 import { atom } from 'jotai';
+import { createState } from '@/store/util';
 import type { WorkspaceActivityTask } from './type';
 
 export const initialState = (): WorkspaceActivityTask => ({

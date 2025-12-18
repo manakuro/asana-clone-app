@@ -1,9 +1,9 @@
+import { memo, type PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import type { FileUploaderParams } from '@/components/ui/Form/FileUploader';
 import { Menu } from '@/components/ui/Menu';
 import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
 import { useDisclosure } from '@/shared/chakra';
-import { type PropsWithChildren, memo } from 'react';
 import { MenuList } from './MenuList';
 
 type Props = PropsWithChildren<{

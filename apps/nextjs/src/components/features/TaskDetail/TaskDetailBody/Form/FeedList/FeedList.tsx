@@ -1,9 +1,9 @@
+import { memo, useMemo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import {
   useTaskFeedIdsByTaskId,
   useTaskFeedsPinnedIds,
 } from '@/store/entities/taskFeed';
-import { memo, useMemo } from 'react';
 import { FeedListItem } from './FeedListItem';
 
 type Props = {

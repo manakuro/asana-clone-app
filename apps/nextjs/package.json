@@ -159,7 +159,7 @@
     "typescript": "^5.6.3",
     "utility-types": "^3.10.0",
     "yargs": "^17.6.2",
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.3.8",
     "biome-config": "workspace:*",
     "vitest": "^3.2.4",
     "vite-tsconfig-paths": "^5.1.4",

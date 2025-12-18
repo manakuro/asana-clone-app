@@ -1,8 +1,8 @@
+import { memo, useCallback, useState } from 'react';
 import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
 import type { FlexProps } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
 import { useProjectTaskIdsByTaskId } from '@/store/entities/projectTask';
-import { memo, useCallback, useState } from 'react';
 import { Input } from './Input';
 import { ListItem } from './ListItem';
 

@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTaskDetailDrawerRef } from '@/components/features/TaskDetails';
 import { Flex } from '@/components/ui/Flex';
 import type { InputProps } from '@/components/ui/Input';
@@ -8,10 +10,8 @@ import {
   useDebounce,
 } from '@/hooks';
 import { useTaskOptimistic } from '@/store/entities/task';
-import type React from 'react';
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { useTasksBoardListItemInputContext } from '../Provider';
 import { useTasksBoardListItemElement } from '../index';
+import { useTasksBoardListItemInputContext } from '../Provider';
 
 type Props = {
   taskId: string;

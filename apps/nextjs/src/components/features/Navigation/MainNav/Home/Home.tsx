@@ -1,6 +1,6 @@
-import { ROUTE_HOME } from '@/router';
 import { usePathname } from 'next/navigation';
 import { memo, useMemo } from 'react';
+import { ROUTE_HOME } from '@/router';
 import { NavListItem } from '../../NavListItem';
 import type { NavListItem as TNavListItem } from '../../type';
 

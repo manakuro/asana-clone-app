@@ -1,5 +1,5 @@
-import type { TeammateTaskTabStatus } from '@/store/entities/teammateTaskTabStatus';
 import { useCallback } from 'react';
+import type { TeammateTaskTabStatus } from '@/store/entities/teammateTaskTabStatus';
 import { useUpsert } from './useUpsert';
 
 export const useTeammateTaskTabStatusResponse = () => {

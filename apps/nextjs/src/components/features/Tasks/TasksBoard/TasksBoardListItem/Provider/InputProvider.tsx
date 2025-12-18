@@ -1,6 +1,3 @@
-import type { FlexProps } from '@/components/ui/Flex';
-import { isHTMLElement } from '@/shared/isHTMLElement';
-import { createProvider } from '@/shared/react/createProvider';
 import type React from 'react';
 import {
   type Dispatch,
@@ -9,6 +6,9 @@ import {
   useRef,
   useState,
 } from 'react';
+import type { FlexProps } from '@/components/ui/Flex';
+import { isHTMLElement } from '@/shared/isHTMLElement';
+import { createProvider } from '@/shared/react/createProvider';
 
 type ContextProps = {
   ref: React.MutableRefObject<HTMLElement | null>;

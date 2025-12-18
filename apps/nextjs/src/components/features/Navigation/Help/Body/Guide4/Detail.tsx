@@ -24,19 +24,17 @@ const items: TNavListItem[] = [
 ];
 export function Detail() {
   return (
-    <>
-      <List w="full">
-        {items.map((n) => (
-          <NavListItem
-            key={n.name}
-            item={n}
-            light
-            linkStyle={{
-              borderRadius: 'md',
-            }}
-          />
-        ))}
-      </List>
-    </>
+    <List w="full">
+      {items.map((n) => (
+        <NavListItem
+          key={n.name}
+          item={n}
+          light
+          linkStyle={{
+            borderRadius: 'md',
+          }}
+        />
+      ))}
+    </List>
   );
 }

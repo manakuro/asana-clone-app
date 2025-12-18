@@ -1,7 +1,7 @@
+import { memo, useCallback } from 'react';
 import { useTasksTask } from '@/components/features/Tasks/hooks';
 import { Flex } from '@/components/ui/Flex';
 import { useClickableHoverStyle } from '@/hooks';
-import { memo, useCallback } from 'react';
 
 type Props = {
   taskSectionId: string;

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useSearchMenuRef } from '@/components/features/Menus/SearchMenu';
 import { Flex } from '@/components/ui/Flex';
 import {
@@ -6,7 +7,6 @@ import {
 } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
-import { memo } from 'react';
 
 type Props = PopoverContentProps & {
   onClose: () => void;

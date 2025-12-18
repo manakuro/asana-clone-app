@@ -1,3 +1,5 @@
+import { usePathname } from 'next/navigation';
+import { memo, useCallback, useLayoutEffect, useMemo, useState } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
@@ -14,8 +16,6 @@ import { isProjectsOverviewURL } from '@/router/projects';
 import { useMyTasksTaskListStatus } from '@/store/app/myTasks/taskListStatus';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
-import { usePathname } from 'next/navigation';
-import { memo, useCallback, useLayoutEffect, useMemo, useState } from 'react';
 import { Board } from './components/Board';
 import { Calendar } from './components/Calendar';
 import { Files } from './components/Files';

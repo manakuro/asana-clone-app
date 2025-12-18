@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import {
   Inbox,
   InboxHeader,
@@ -6,14 +7,13 @@ import {
   InboxListContent,
   InboxRight,
   InboxSkeleton,
+  useInboxTaskDetail,
 } from '@/components/features/Inbox';
-import { useInboxTaskDetail } from '@/components/features/Inbox';
 import { TaskDetailSide } from '@/components/features/TaskDetails';
 import { TasksProvider } from '@/components/features/Tasks';
 import { Flex } from '@/components/ui/Flex';
 import { useInboxArchivePageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
-import { memo, useMemo } from 'react';
 import { useInboxPageContext } from '../../providers/Provider';
 
 export const Archive = memo(function Archive() {

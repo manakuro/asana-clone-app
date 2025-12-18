@@ -1,3 +1,4 @@
+import type { PropsWithChildren, ReactElement } from 'react';
 import { PageLoader } from '@/components/ui/PageLoader';
 import {
   useFavoriteProjectIdsQuery,
@@ -12,7 +13,6 @@ import {
   useWorkspaceQuery,
 } from '@/hooks/queries/entities';
 import { useMe } from '@/store/entities/me';
-import type { PropsWithChildren, ReactElement } from 'react';
 
 export function GlobalQuery(props: PropsWithChildren) {
   useTaskPrioritiesQuery();

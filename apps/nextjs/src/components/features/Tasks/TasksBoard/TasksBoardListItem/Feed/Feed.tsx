@@ -1,10 +1,10 @@
+import type React from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { FEED_LIST_CONTAINER_ID } from '@/components/features/TaskDetail/TaskDetailBody/Form/FeedList';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { IconButton } from '@/components/ui/IconButton';
 import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/taskFeed';
-import type React from 'react';
-import { memo, useCallback, useMemo } from 'react';
 import { Icon } from './Icon';
 
 type Props = {

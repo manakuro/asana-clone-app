@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import {
   SearchMenuLeftContainer,
   SearchMenuListItem,
@@ -9,7 +10,6 @@ import { Divider } from '@/components/ui/Divider';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import type { Tag } from '@/store/entities/tag';
-import { memo, useCallback } from 'react';
 import { TagItem } from './TagItem';
 import { useSearchTagsQuery } from './useSearchTagsQuery';
 

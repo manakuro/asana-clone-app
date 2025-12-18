@@ -1,3 +1,4 @@
+import type { Suggester } from 'prosemirror-suggest';
 import {
   getMentionId,
   getMentionType,
@@ -9,7 +10,6 @@ import {
   setMentionQuery as setQuery,
 } from '@/components/features/Menus/EditorMentionMenu';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
-import type { Suggester } from 'prosemirror-suggest';
 
 export const MENTION_CHAR = '@';
 export const suggestMention: Suggester = {

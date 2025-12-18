@@ -1,3 +1,4 @@
+import { memo, useState } from 'react';
 import {
   PROJECT_LIST_MENU_VIEW_AS_TILES,
   ProjectListItem,
@@ -18,7 +19,6 @@ import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Grid } from '@/components/ui/Grid';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';
-import { memo, useState } from 'react';
 
 type Props = {
   projectIds: string[];

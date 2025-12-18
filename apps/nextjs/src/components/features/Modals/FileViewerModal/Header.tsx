@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
 import { Button } from '@/components/ui/Button';
 import { Divider } from '@/components/ui/Divider';
@@ -9,7 +10,6 @@ import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';
 import { formatTaskFileCreatedAt } from '@/shared/date';
 import { useTaskFile } from '@/store/entities/taskFile';
-import { memo } from 'react';
 import { useFileViewerModal } from './useFileViewerModal';
 
 export const Header = memo(function Header() {

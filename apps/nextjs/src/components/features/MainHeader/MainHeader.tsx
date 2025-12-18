@@ -1,8 +1,8 @@
+import { memo, type PropsWithChildren, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
 import { useMainStyle } from '@/hooks';
 import type { ChakraProps } from '@/shared/chakra';
-import { type PropsWithChildren, memo, useMemo } from 'react';
 import { AddButton } from './AddButton';
 import { MyAccountAvatar } from './MyAccountAvatar';
 import { SearchInput } from './SearchInput';

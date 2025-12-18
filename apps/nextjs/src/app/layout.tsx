@@ -1,11 +1,11 @@
+import type { Metadata } from 'next';
+import type { PropsWithChildren } from 'react';
 import { LayoutDefault } from '@/components/ui/Layout';
 import { AppProvider } from '@/providers/AppProvider';
 import { AuthProvider } from '@/providers/AuthProvider';
 import { description } from '@/shared/metatag/description';
 import { title } from '@/shared/metatag/title';
 import { roboto } from '@/styles/fonts';
-import type { Metadata } from 'next';
-import type { PropsWithChildren } from 'react';
 
 export const metadata: Metadata = {
   title,

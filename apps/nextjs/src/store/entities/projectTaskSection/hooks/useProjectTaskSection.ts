@@ -1,10 +1,10 @@
+import { useAtomValue } from 'jotai';
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback, useMemo } from 'react';
 import { useUpdateProjectTaskSectionMutation } from '@/graphql/hooks';
 import type { UpdateTeammateTaskSectionInput } from '@/graphql/types';
 import { omit } from '@/shared/utils/omit';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomValue } from 'jotai';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback, useMemo } from 'react';
 import { projectTaskSectionState } from '../atom';
 import type { ProjectTaskSection } from '../type';
 import {
@@ -29,7 +29,7 @@ export const useProjectTaskSection = (projectTaskSectionId: string) => {
 
   const setProjectTaskSection = useAtomCallback(
     useCallback(
-      async (get, set, input: Partial<ProjectTaskSection>) => {
+      async (get, _set, input: Partial<ProjectTaskSection>) => {
         const prev = get(projectTaskSectionState(projectTaskSectionId));
         if (!hasProjectTaskSectionBeenPersisted(prev)) return;
 
@@ -59,7 +59,7 @@ export const useProjectTaskSection = (projectTaskSectionId: string) => {
 
   const setProjectTaskSectionName = useAtomCallback(
     useCallback(
-      async (_, set, input: string) => {
+      async (_, _set, input: string) => {
         if (
           projectTaskSection.name &&
           input &&

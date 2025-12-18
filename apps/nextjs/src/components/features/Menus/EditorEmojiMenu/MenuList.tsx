@@ -1,7 +1,7 @@
+import { useCallback } from 'react';
 import { ModalBody, ModalContent } from '@/components/ui/Modal';
 import { useMenuStyle } from '@/hooks';
 import type { BaseEmoji } from '@/shared/emoji';
-import { useCallback } from 'react';
 import { EmojiItem } from './EmojiItem';
 import { useEditorEmojiMenu } from './useEditorEmojiMenu';
 

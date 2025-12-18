@@ -1,3 +1,5 @@
+import { RESET, useAtomCallback } from 'jotai/utils';
+import { useCallback, useRef } from 'react';
 import {
   useAssignTaskMutation,
   useCreateTaskMutation,
@@ -28,9 +30,6 @@ import {
   useTeammateTaskResponse,
 } from '@/store/entities/teammateTask';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomCallback } from 'jotai/utils';
-import { RESET } from 'jotai/utils';
-import { useCallback, useRef } from 'react';
 import { initialState, taskState } from '../atom';
 import { useResetTask } from './useResetTask';
 import { TASK_ASSIGNED_SUBSCRIPTION_REQUEST_ID } from './useTaskAssignedSubscription';
@@ -72,7 +71,7 @@ export const useTaskCommand = () => {
 
   const unassignTask = useAtomCallback(
     useCallback(
-      async (get, set, input: { id: string }) => {
+      async (get, _set, input: { id: string }) => {
         const prev = get(taskState(input.id));
         setTaskById(input.id, { assigneeId: '' });
 
@@ -109,7 +108,7 @@ export const useTaskCommand = () => {
 
   const assignTask = useAtomCallback(
     useCallback(
-      async (get, set, input: { id: string; assigneeId: string }) => {
+      async (get, _set, input: { id: string; assigneeId: string }) => {
         const prev = get(taskState(input.id));
 
         if (
@@ -279,7 +278,7 @@ export const useTaskCommand = () => {
 
   const undeleteTask = useAtomCallback(
     useCallback(
-      async (get, set, input: { taskId: string }) => {
+      async (get, _set, input: { taskId: string }) => {
         const deletedTasks = get(deletedTasksByTaskIdState(input.taskId));
         deletedTasks.forEach((d) => {
           resetDeletedTask(d.id);

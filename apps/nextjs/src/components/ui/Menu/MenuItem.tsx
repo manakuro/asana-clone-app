@@ -1,9 +1,9 @@
-import { useDisabledStyle } from '@/hooks';
 import {
   MenuItem as ChakraMenuItem,
   type MenuItemProps as ChakraMenuItemProps,
 } from '@chakra-ui/react';
 import React, { useMemo } from 'react';
+import { useDisabledStyle } from '@/hooks';
 
 type Props = ChakraMenuItemProps & {
   link?: boolean;

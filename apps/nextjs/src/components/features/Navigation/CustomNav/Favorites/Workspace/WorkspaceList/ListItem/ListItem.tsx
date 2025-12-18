@@ -1,3 +1,5 @@
+import { usePathname } from 'next/navigation';
+import { memo, useMemo } from 'react';
 import { PADDING_X, useNavigation } from '@/components/features/Navigation';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
@@ -7,8 +9,6 @@ import { Text } from '@/components/ui/Text';
 import { useLinkHoverStyle } from '@/hooks';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';
-import { usePathname } from 'next/navigation';
-import { memo, useMemo } from 'react';
 import { WorkspaceMenu } from './WorkspaceMenu';
 
 export const ListItem = memo(function ListItem() {

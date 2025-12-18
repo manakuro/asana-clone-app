@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { Badge, type BadgeProps } from '@/components/ui/Badge';
 import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
@@ -7,8 +9,6 @@ import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Variant = 'badge' | 'button';
 

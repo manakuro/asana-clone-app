@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { TaskDetailDrawer } from '@/components/features/TaskDetails';
 import {
   CustomizeButton,
@@ -14,7 +15,6 @@ import { useProjectsPageContext } from '@/components/pages/projects/providers/Pr
 import { Flex } from '@/components/ui/Flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { memo, useCallback } from 'react';
 import { SortMenu } from '../TasksHeader';
 import { SkeletonBoardContent, SkeletonBoardHeader } from './SkeletonBoard';
 

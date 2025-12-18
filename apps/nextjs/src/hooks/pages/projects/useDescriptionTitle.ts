@@ -1,5 +1,5 @@
-import { useProject, useProjectCommand } from '@/store/entities/project';
 import { useCallback } from 'react';
+import { useProject, useProjectCommand } from '@/store/entities/project';
 
 type Props = {
   projectId: string;

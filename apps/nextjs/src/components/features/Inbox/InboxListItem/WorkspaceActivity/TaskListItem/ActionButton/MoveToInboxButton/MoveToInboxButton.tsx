@@ -1,14 +1,11 @@
+import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
 import { Tooltip } from '@/components/ui/Tooltip';
-import { memo, useCallback } from 'react';
 
-type Props = {
-  taskId: string;
-} & Omit<IconButtonProps, 'aria-label'>;
+type Props = Omit<IconButtonProps, 'aria-label'>;
 
 export const MoveToInboxButton = memo(function MoveToInboxButton(props: Props) {
-  const { taskId, ...rest } = props;
   const handleClick = useCallback(() => {}, []);
 
   return (
@@ -17,7 +14,7 @@ export const MoveToInboxButton = memo(function MoveToInboxButton(props: Props) {
         aria-label="Move to Inbox"
         icon={<Icon icon="arrowLeftAlt" color="text.muted" size="xs" />}
         variant="ghost"
-        {...rest}
+        {...props}
         onClick={handleClick}
       />
     </Tooltip>

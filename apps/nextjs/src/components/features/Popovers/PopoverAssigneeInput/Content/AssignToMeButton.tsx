@@ -1,8 +1,8 @@
+import { useCallback } from 'react';
 import { Button } from '@/components/ui/Button';
 import type { PopoverProps } from '@/components/ui/Popover';
 import { useMe } from '@/store/entities/me';
 import { useTaskCommand } from '@/store/entities/task';
-import { useCallback } from 'react';
 
 type Props = {
   taskId: string;

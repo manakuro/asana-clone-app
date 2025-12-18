@@ -1,3 +1,5 @@
+import type React from 'react';
+import { useCallback } from 'react';
 import {
   MenuList as AtomsMenuList,
   type MenuListProps,
@@ -6,8 +8,6 @@ import {
 } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks/useClickOutside';
-import type React from 'react';
-import { useCallback } from 'react';
 import { useMenuSelectContext } from '../useMenuSelect';
 
 type Props = MenuOptionGroupProps & {

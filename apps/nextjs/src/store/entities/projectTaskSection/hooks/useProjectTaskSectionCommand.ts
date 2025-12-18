@@ -1,3 +1,5 @@
+import { RESET, useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   useCreateProjectTaskSectionMutation,
   useDeleteProjectTaskSectionAndDeleteTasksMutation,
@@ -15,9 +17,6 @@ import {
   useResetProjectTask,
 } from '@/store/entities/projectTask';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomCallback } from 'jotai/utils';
-import { RESET } from 'jotai/utils';
-import { useCallback } from 'react';
 import { initialState, projectTaskSectionState } from '../atom';
 import type {
   DeleteProjectTaskSectionAndDeleteTasksMutation,
@@ -248,7 +247,11 @@ export const useProjectTaskSectionCommand = () => {
 
   const undeleteTaskSectionAndKeepTasks = useAtomCallback(
     useCallback(
-      async (get, set, input: DeleteProjectTaskSectionAndKeepTasksMutation) => {
+      async (
+        get,
+        _set,
+        input: DeleteProjectTaskSectionAndKeepTasksMutation,
+      ) => {
         const projectTaskSection =
           input.deleteProjectTaskSectionAndKeepTasks.projectTaskSection;
         const projectTaskIds =
@@ -289,7 +292,7 @@ export const useProjectTaskSectionCommand = () => {
           setProjectTask(newProjectTasks as ProjectTaskResponse[], {
             includeTask: false,
           });
-        } catch (error) {
+        } catch (_error) {
           // Handle error silently
         }
       },
@@ -304,7 +307,11 @@ export const useProjectTaskSectionCommand = () => {
 
   const undeleteTaskSectionAndDeleteTasks = useAtomCallback(
     useCallback(
-      async (_, set, input: DeleteProjectTaskSectionAndDeleteTasksMutation) => {
+      async (
+        _,
+        _set,
+        input: DeleteProjectTaskSectionAndDeleteTasksMutation,
+      ) => {
         const projectTaskSection =
           input.deleteProjectTaskSectionAndDeleteTasks.projectTaskSection;
         const projectTaskIds =

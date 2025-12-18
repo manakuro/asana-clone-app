@@ -1,11 +1,10 @@
+import type { PropsWithChildren } from 'react';
 import { ConditionalRender } from '@/components/ui/ConditionalRender';
 import { Flex } from '@/components/ui/Flex';
 import { Popover, PopoverTrigger } from '@/components/ui/Popover';
 import { PortalManager } from '@/components/ui/PortalManager';
-import type { PropsWithChildren } from 'react';
 import { Content } from './Content';
-import { usePopoverEmojiContext } from './Provider';
-import { Provider } from './Provider';
+import { Provider, usePopoverEmojiContext } from './Provider';
 
 export function PopoverEmoji(props: PropsWithChildren) {
   return (

@@ -1,9 +1,9 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import { useUpdateTeammateTaskListStatusMutation } from '@/graphql/hooks';
 import type { TaskListSortStatusCodeValue } from '@/store/app/myTasks/taskListStatus';
 import type { TaskListCompletedStatusCodeValue } from '@/store/entities/taskListCompletedStatus';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { taskListStatusState } from '../atom';
 import { useUpsert } from './useUpsert';
 

@@ -1,3 +1,4 @@
+import { memo, useEffect, useMemo, useState } from 'react';
 import { useNavigation } from '@/components/features/Navigation';
 import {
   useTasksListContentHorizontalScroll,
@@ -8,7 +9,6 @@ import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useMountedRef } from '@/hooks';
 import type { ChakraProps } from '@/shared/chakra';
 import { TaskColumnType } from '@/store/entities/taskColumn';
-import { memo, useEffect, useMemo, useState } from 'react';
 
 type Props = FlexProps;
 

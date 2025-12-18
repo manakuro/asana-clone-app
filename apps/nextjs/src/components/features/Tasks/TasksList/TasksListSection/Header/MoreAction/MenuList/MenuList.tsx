@@ -1,13 +1,13 @@
+import { memo, useCallback, useMemo } from 'react';
 import { useDeleteTaskSectionModal } from '@/components/features/Modals';
-import { useTasksListSectionContext } from '@/components/features/Tasks/TasksList/TasksListSection/Provider';
 import {
   useHasTasksByTaskSectionId,
   useTasksCanDeleteTaskSection,
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
+import { useTasksListSectionContext } from '@/components/features/Tasks/TasksList/TasksListSection/Provider';
 import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
 import { Tooltip } from '@/components/ui/Tooltip';
-import { memo, useCallback, useMemo } from 'react';
 
 export const MenuList = memo(function MenuList() {
   const { setModalState, onOpen } = useDeleteTaskSectionModal();

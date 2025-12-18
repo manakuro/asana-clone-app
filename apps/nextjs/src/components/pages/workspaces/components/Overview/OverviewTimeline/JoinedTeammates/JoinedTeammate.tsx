@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useShareProjectModal } from '@/components/features/Modals';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/Flex';
@@ -9,8 +11,6 @@ import { formatCreatedAt } from '@/shared/date';
 import { useMe } from '@/store/entities/me';
 import { useProjectTeammate } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo, useCallback, useMemo } from 'react';
 import { useTimelineStyle } from '../useTimelineStyle';
 
 type Props = {

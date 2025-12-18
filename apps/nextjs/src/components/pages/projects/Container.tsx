@@ -1,13 +1,13 @@
 'use client';
 
+import { useParams, usePathname } from 'next/navigation';
+import { memo, useCallback, useEffect } from 'react';
 import {
   useProjectsPageQuery,
   useProjectsTaskDetailPageQuery,
 } from '@/hooks/queries/app';
 import { getProjectsIdFromURL } from '@/router/projects';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useParams, usePathname } from 'next/navigation';
-import { memo, useCallback, useEffect } from 'react';
 import { Component } from './Component';
 
 export const Container = memo(function Container() {

@@ -1,3 +1,8 @@
+import { ApolloProvider as ApolloProviderLibs } from '@apollo/client';
+import { ChakraProvider } from '@chakra-ui/react';
+import enLocale from 'date-fns/locale/en-US';
+import type React from 'react';
+import { useMemo } from 'react';
 import { Modals } from '@/components/features/Modals';
 import {
   useFavoriteProjectIdsQuery,
@@ -19,11 +24,6 @@ import {
   muiTheme,
 } from '@/shared/materialUI';
 import { theme } from '@/styles';
-import { ApolloProvider as ApolloProviderLibs } from '@apollo/client';
-import { ChakraProvider } from '@chakra-ui/react';
-import enLocale from 'date-fns/locale/en-US';
-import type React from 'react';
-import { useMemo } from 'react';
 
 export const Provider: React.FCWithChildren = (props) => {
   return (
@@ -35,10 +35,8 @@ export const Provider: React.FCWithChildren = (props) => {
         >
           <ApolloProvider>
             <GlobalQuery>
-              <>
-                {props.children}
-                <Modals />
-              </>
+              {props.children}
+              <Modals />
             </GlobalQuery>
           </ApolloProvider>
         </LocalizationProvider>

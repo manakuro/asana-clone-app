@@ -1,8 +1,8 @@
+import { memo, useCallback, useState } from 'react';
 import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListItem';
 import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
 import { Flex } from '@/components/ui/Flex';
 import { useMyTasksTaskIdsByProjectId } from '@/store/app/myTasks/tasks';
-import { memo, useCallback, useState } from 'react';
 import { Header } from './Header';
 import { Provider } from './Provider';
 
@@ -28,23 +28,21 @@ const Component = memo(function Component(props: Props) {
   }, []);
 
   return (
-    <>
-      <Flex flex={1} flexDirection="column">
-        <Header
-          projectId={props.projectId}
-          onToggle={handleToggle}
-          isExpanded={isExpanded}
-        />
-        {isExpanded && (
-          <Flex flexDirection="column">
-            {taskIds.map((id) => (
-              <TasksListSectionProvider taskSectionId="" key={id}>
-                <TasksListItem taskId={id} />
-              </TasksListSectionProvider>
-            ))}
-          </Flex>
-        )}
-      </Flex>
-    </>
+    <Flex flex={1} flexDirection="column">
+      <Header
+        projectId={props.projectId}
+        onToggle={handleToggle}
+        isExpanded={isExpanded}
+      />
+      {isExpanded && (
+        <Flex flexDirection="column">
+          {taskIds.map((id) => (
+            <TasksListSectionProvider taskSectionId="" key={id}>
+              <TasksListItem taskId={id} />
+            </TasksListSectionProvider>
+          ))}
+        </Flex>
+      )}
+    </Flex>
   );
 });

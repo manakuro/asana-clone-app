@@ -1,6 +1,6 @@
-import { Box, type BoxProps } from '@/components/ui/Box';
-import { forwardRef } from 'react';
 import type React from 'react';
+import { forwardRef } from 'react';
+import { Box, type BoxProps } from '@/components/ui/Box';
 
 type Props = BoxProps & {
   ref?: React.ForwardedRef<any>;

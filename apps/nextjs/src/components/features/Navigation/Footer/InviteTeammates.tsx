@@ -1,11 +1,11 @@
+import type React from 'react';
+import { useCallback } from 'react';
 import { useInviteModal } from '@/components/features/Modals/InviteModal/useInviteModal';
 import { Divider } from '@/components/features/Navigation/Divider';
 import { Icon } from '@/components/ui/Icon';
 import { ListItem } from '@/components/ui/List';
 import { Text } from '@/components/ui/Text';
 import { transitions } from '@/styles';
-import type React from 'react';
-import { useCallback } from 'react';
 import { PADDING_X } from '../Navigation';
 
 export const InviteTeammates: React.FC = () => {

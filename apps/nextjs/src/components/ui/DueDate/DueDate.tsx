@@ -1,7 +1,7 @@
+import { useMemo } from 'react';
 import { Text, type TextProps } from '@/components/ui/Text';
 import { formatDueDate } from '@/shared/date';
 import { dateFns } from '@/shared/dateFns';
-import { useMemo } from 'react';
 
 type Props = TextProps & {
   dueDate: string;

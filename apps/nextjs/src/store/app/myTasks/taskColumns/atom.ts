@@ -1,5 +1,5 @@
-import { teammatesTaskColumnsByTeammateIdState } from '@/store/entities/teammateTaskColumn';
 import { atom } from 'jotai';
+import { teammatesTaskColumnsByTeammateIdState } from '@/store/entities/teammateTaskColumn';
 
 export const taskColumnIdsState = (teammateId: string) =>
   atom<string[]>((get) => {

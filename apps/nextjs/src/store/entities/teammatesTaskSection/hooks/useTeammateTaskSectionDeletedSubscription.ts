@@ -1,8 +1,8 @@
+import isEqual from 'lodash-es/isEqual';
+import { useCallback, useMemo } from 'react';
 import { useTeammateTaskSectionDeletedSubscription as useSubscription } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
-import isEqual from 'lodash-es/isEqual';
-import { useCallback, useMemo } from 'react';
 import type { TeammateTaskSectionDeletedSubscriptionResponse as Response } from '../type';
 import { useResetTeammateTaskSection } from './useResetTeammateTaskSection';
 

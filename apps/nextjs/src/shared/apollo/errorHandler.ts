@@ -1,5 +1,5 @@
-import { useStandaloneToast } from '@/hooks';
 import type { ErrorResponse } from '@apollo/client/link/error';
+import { useStandaloneToast } from '@/hooks';
 
 let unauthorized = false;
 
@@ -19,11 +19,11 @@ export const graphqlErrorHandler = ({
 }: ErrorResponse) => {
   console.log('graphQLErrors: ', graphQLErrors);
   if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }) =>
+    graphQLErrors.forEach(({ message, locations, path }) => {
       console.log(
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-      ),
-    );
+      );
+    });
 
   if ((networkError as any)?.statusCode === 401) {
     handleUnauthorizedError();
@@ -36,6 +36,7 @@ const handleUnauthorizedError = () => {
   if (unauthorized) return;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  // biome-ignore lint/correctness/useHookAtTopLevel: used for error handling
   const { toast } = useStandaloneToast();
 
   toast({

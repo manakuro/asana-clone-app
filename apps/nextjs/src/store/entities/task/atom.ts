@@ -1,8 +1,8 @@
-import { getDefaultDescription } from '@/shared/prosemirror/getDefaultDescription';
-import { createState } from '@/store/util';
 import deepEqual from 'fast-deep-equal';
 import { atom } from 'jotai';
 import { atomFamily, atomWithReset } from 'jotai/utils';
+import { getDefaultDescription } from '@/shared/prosemirror/getDefaultDescription';
+import { createState } from '@/store/util';
 import type { Task } from './type';
 
 export const initialState = (): Task => ({

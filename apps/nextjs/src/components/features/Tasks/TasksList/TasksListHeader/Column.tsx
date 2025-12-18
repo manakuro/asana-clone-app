@@ -1,7 +1,6 @@
-import { useTasksTaskColumn } from '@/components/features/Tasks/hooks';
-import { useTaskColumn } from '@/store/entities/taskColumn';
-import { TaskColumnType } from '@/store/entities/taskColumn';
 import { memo } from 'react';
+import { useTasksTaskColumn } from '@/components/features/Tasks/hooks';
+import { TaskColumnType, useTaskColumn } from '@/store/entities/taskColumn';
 import {
   Assignee,
   DueDate,

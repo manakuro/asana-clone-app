@@ -1,7 +1,6 @@
-import { atom } from 'jotai';
-import { useAtom } from 'jotai';
+import { atom, useAtom } from 'jotai';
 
-const key = (str: string) =>
+const _key = (str: string) =>
   `src/store/entities/workspace/hooks/useHasDescriptionUpdated/${str}`;
 
 const hasDescriptionUpdatedState = atom<number>(1);

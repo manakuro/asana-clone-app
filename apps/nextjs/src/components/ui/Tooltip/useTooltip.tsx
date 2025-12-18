@@ -1,7 +1,7 @@
+import { useEffect } from 'react';
 import { useMountedRef } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import { useDisclosure } from '@/shared/chakra';
-import { useEffect } from 'react';
 
 type Props = {
   openDelay?: number;

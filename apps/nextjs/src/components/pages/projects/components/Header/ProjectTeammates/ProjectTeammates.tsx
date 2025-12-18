@@ -1,3 +1,4 @@
+import { memo, type Ref, useCallback } from 'react';
 import { useShareProjectModal } from '@/components/features/Modals/ShareProjectModal';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { AvatarGroup } from '@/components/ui/Avatar';
@@ -8,7 +9,6 @@ import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { useWorkspace } from '@/store/entities/workspace';
 import { transitions } from '@/styles';
-import { type Ref, memo, useCallback } from 'react';
 
 export const ProjectTeammates = memo(function ProjectTeammates() {
   const { projectId } = useProjectsProjectId();

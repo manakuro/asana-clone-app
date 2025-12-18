@@ -1,6 +1,6 @@
+import { memo, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useClickableHoverStyle } from '@/hooks';
-import { memo, useMemo } from 'react';
 
 type Props = FlexProps & {
   selected?: boolean;

@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import {
   TaskDetailBody,
   TaskDetailFooter,
@@ -12,7 +13,6 @@ import {
   useClickOutside,
   useDrawerStyle,
 } from '@/hooks';
-import { memo } from 'react';
 
 const HEADER_HEIGHT = 71;
 const TOP = HEADER_HEIGHT;

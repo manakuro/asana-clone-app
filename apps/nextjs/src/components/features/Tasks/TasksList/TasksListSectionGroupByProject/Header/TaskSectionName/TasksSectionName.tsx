@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Box } from '@/components/ui/Box';
 import { useProject } from '@/store/entities/project';
-import { memo } from 'react';
 
 type Props = {
   projectId: string;

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   FileUploader,
   type FileUploaderParams,
@@ -9,7 +10,6 @@ import {
 } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside, useMenuStyle } from '@/hooks';
-import { memo } from 'react';
 
 type Props = {
   onUpload?: (files: FileUploaderParams) => void;

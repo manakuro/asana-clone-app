@@ -1,5 +1,5 @@
-import { MenuButton, type MenuButtonProps } from '@/components/ui/Menu';
 import { memo } from 'react';
+import { MenuButton, type MenuButtonProps } from '@/components/ui/Menu';
 import { useMenuSelectContext } from './useMenuSelect';
 
 type Props = MenuButtonProps;

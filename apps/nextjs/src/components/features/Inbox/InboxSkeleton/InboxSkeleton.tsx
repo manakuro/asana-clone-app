@@ -5,11 +5,9 @@ import {
   InboxListHeader,
   InboxRight,
 } from '@/components/features/Inbox';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Stack } from '@/components/ui/Stack';
-
-type Props = FlexProps;
 
 const BUTTON_HEIGHT = '28px';
 const TEXT_HEIGHT = '16px';

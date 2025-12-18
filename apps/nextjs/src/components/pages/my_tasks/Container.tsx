@@ -1,5 +1,7 @@
 'use client';
 
+import type React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { PageLoader } from '@/components/ui/PageLoader';
 import {
   useMyTasksDetailPageQuery,
@@ -7,8 +9,6 @@ import {
 } from '@/hooks/queries/app';
 import { useTeammateTaskTabStatusQuery } from '@/hooks/queries/entities';
 import { useMe } from '@/store/entities/me';
-import type React from 'react';
-import { useCallback, useEffect, useState } from 'react';
 import { Component } from './Component';
 
 export function Container() {

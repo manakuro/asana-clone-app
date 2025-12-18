@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Skeleton } from '@/components/ui/Skeleton';
-import { memo } from 'react';
 import { Collaborators } from './Collaborators';
 import { Comment } from './Comment';
 
@@ -10,7 +10,7 @@ type Props = {
 
 export const TaskDetailFooter = memo(function TaskDetailFooter(props: Props) {
   const { loading, ...rest } = props;
-  if (props.loading)
+  if (loading)
     return (
       <Flex flex={1} px={6} py={2} bg="gray.50" flexDirection="column">
         <Flex w="full" alignItems="center">

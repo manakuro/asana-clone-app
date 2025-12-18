@@ -1,8 +1,8 @@
+import { type Command, toggleMark } from 'prosemirror-commands';
+import { useCallback, useMemo } from 'react';
 import { useEditorLinkModal } from '@/components/features/Modals';
 import { isMarkActive } from '@/shared/prosemirror/commands';
 import { schema } from '@/shared/prosemirror/config';
-import { type Command, toggleMark } from 'prosemirror-commands';
-import { useCallback, useMemo } from 'react';
 import type { ToolbarItem } from './types';
 
 export const useLink = (): ToolbarItem => {

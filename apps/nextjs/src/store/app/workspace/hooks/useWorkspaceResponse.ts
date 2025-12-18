@@ -1,9 +1,9 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import { useProjectResponse } from '@/store/entities/project';
 import { useTeammateResponse } from '@/store/entities/teammate';
 import { useWorkspaceResponse as useWorkspaceResponseEntity } from '@/store/entities/workspace';
 import { useWorkspaceTeammateResponse } from '@/store/entities/workspaceTeammate';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import type { WorkspaceResponse } from '../type';
 
 export const useWorkspaceResponse = () => {

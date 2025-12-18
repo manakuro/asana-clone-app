@@ -1,6 +1,5 @@
 import { Flex } from '@/components/ui/Flex';
-import { FormControl } from '@/components/ui/Form';
-import { FormLabel } from '@/components/ui/Form';
+import { FormControl, FormLabel } from '@/components/ui/Form';
 import { Icon } from '@/components/ui/Icon';
 import { Switch, type SwitchProps } from '@/components/ui/Switch';
 import { useClickableHoverStyle } from '@/hooks';

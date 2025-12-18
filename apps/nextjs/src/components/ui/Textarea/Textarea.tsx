@@ -2,8 +2,8 @@ import {
   Textarea as ChakraTextarea,
   type TextareaProps as ChakraTextareaProps,
 } from '@chakra-ui/react';
-import { forwardRef } from 'react';
 import type React from 'react';
+import { forwardRef } from 'react';
 
 type Props = ChakraTextareaProps & {
   ref?: React.ForwardedRef<any>;

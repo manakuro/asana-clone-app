@@ -1,9 +1,9 @@
+import { useMemo } from 'react';
 import { useTasksListContentVerticalScroll } from '@/components/features/Tasks';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
 import type { ChakraProps } from '@/shared/chakra';
 import { createProvider } from '@/shared/react/createProvider';
 import { useTaskListSortStatus } from '@/store/entities/taskListSortStatus';
-import { useMemo } from 'react';
 
 type ContextProps = {
   sortedStyle: ChakraProps;

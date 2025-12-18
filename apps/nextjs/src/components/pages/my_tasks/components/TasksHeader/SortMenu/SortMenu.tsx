@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo } from 'react';
 import { SortMenu as TasksHeaderSortMenu } from '@/components/features/Tasks/TasksHeader';
 import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
 import {
@@ -5,7 +6,6 @@ import {
   useMyTasksTaskListStatus,
 } from '@/store/app/myTasks/taskListStatus';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
-import { memo, useCallback, useMemo } from 'react';
 
 type Props = {
   projectSortable?: boolean;

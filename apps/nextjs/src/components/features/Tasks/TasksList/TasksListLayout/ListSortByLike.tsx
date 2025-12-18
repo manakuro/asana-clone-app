@@ -1,9 +1,9 @@
-import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListItem';
-import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
-import { useTasksTaskIds } from '@/components/features/Tasks/hooks';
-import { Flex } from '@/components/ui/Flex';
 import type React from 'react';
 import { memo } from 'react';
+import { useTasksTaskIds } from '@/components/features/Tasks/hooks';
+import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListItem';
+import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
+import { Flex } from '@/components/ui/Flex';
 
 export const ListSortByLike: React.FC = memo(() => {
   const { taskIds } = useTasksTaskIds();

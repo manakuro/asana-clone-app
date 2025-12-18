@@ -1,7 +1,7 @@
+import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
 import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
-import { memo, useCallback } from 'react';
 
 type Props = {
   tooltipProps: Omit<TooltipProps, 'children'>;

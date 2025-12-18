@@ -1,4 +1,3 @@
-import { uniqBy } from '@/shared/utils';
 import React, {
   type PropsWithChildren,
   useCallback,
@@ -6,6 +5,7 @@ import React, {
   useState,
 } from 'react';
 import shortid from 'shortid';
+import { uniqBy } from '@/shared/utils';
 
 type Portal = {
   Component: React.FC;

@@ -1,5 +1,3 @@
-import { Box } from '@/components/ui/Box';
-import { useEditorViewContext } from '@/components/ui/Editor/Editors/EdiorProvider';
 import {
   type CSSProperties,
   memo,
@@ -7,6 +5,8 @@ import {
   useLayoutEffect,
   useRef,
 } from 'react';
+import { Box } from '@/components/ui/Box';
+import { useEditorViewContext } from '@/components/ui/Editor/Editors/EdiorProvider';
 import 'prosemirror-view/style/prosemirror.css';
 
 type Props = {
@@ -19,7 +19,7 @@ export const EditorContent = memo(function EditorContent(props: Props) {
   const view = useEditorViewContext();
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: used for rendering view
   useLayoutEffect(() => {
     const current = ref.current;
     if (current && view) {

@@ -1,5 +1,5 @@
-import { createProvider } from '@/shared/react/createProvider';
 import { useCallback, useState } from 'react';
+import { createProvider } from '@/shared/react/createProvider';
 
 type ContextProps = {
   focused: boolean;

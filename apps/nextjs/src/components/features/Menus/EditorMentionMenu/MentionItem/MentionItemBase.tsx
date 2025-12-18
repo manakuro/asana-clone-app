@@ -1,3 +1,4 @@
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import {
   type SetValueParam,
   useEditorMentionMenu,
@@ -6,7 +7,6 @@ import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import type { Mention } from '@/store/entities/mention';
-import { memo, useCallback, useEffect, useMemo } from 'react';
 
 type Props = Override<
   FlexProps,

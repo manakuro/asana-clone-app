@@ -1,9 +1,9 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   useUpdateTeammateTaskColumnMutation,
   useUpdateTeammateTaskColumnOrderMutation,
 } from '@/graphql/hooks';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { teammateTaskColumnState, teammateTaskColumnsState } from '../atom';
 import type { TeammateTaskColumn } from '../type';
 import { useUpsert } from './useUpsert';

@@ -1,4 +1,5 @@
 import type { WorkspaceActivityResponse } from '@/graphql/types/workspaceActivity';
+
 export type { WorkspaceActivityResponse } from '@/graphql/types/workspaceActivity';
 
 export type WorkspaceActivity = Omit<

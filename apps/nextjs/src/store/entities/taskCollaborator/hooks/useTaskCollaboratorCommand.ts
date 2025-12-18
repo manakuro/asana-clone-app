@@ -1,3 +1,5 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   useCreateTaskCollaboratorMutation,
   useDeleteTaskCollaboratorMutation,
@@ -10,8 +12,6 @@ import {
   useTeammateResponse,
 } from '@/store/entities/teammate';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { initialState, taskCollaboratorByTaskIdAndTeammateId } from '../atom';
 import { useResetTaskCollaborator } from './useResetTaskCollaborator';
 import { TASK_COLLABORATOR_CREATED_SUBSCRIPTION_REQUEST_ID } from './useTaskCollaboratorCreatedSubscription';
@@ -32,7 +32,7 @@ export const useTaskCollaboratorCommand = () => {
 
   const addTaskCollaboratorByTeammate = useAtomCallback(
     useCallback(
-      async (get, set, input: { taskId: string; teammate: Teammate }) => {
+      async (get, _set, input: { taskId: string; teammate: Teammate }) => {
         const taskCollaborator = get(
           taskCollaboratorByTaskIdAndTeammateId({
             teammateId: input.teammate.id,
@@ -96,7 +96,7 @@ export const useTaskCollaboratorCommand = () => {
 
   const deleteTaskCollaboratorByTeammate = useAtomCallback(
     useCallback(
-      async (get, set, input: { taskId: string; teammateId: string }) => {
+      async (get, _set, input: { taskId: string; teammateId: string }) => {
         const taskCollaborator = get(
           taskCollaboratorByTaskIdAndTeammateId({
             taskId: input.taskId,

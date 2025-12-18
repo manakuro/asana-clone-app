@@ -1,3 +1,5 @@
+import { usePathname } from 'next/navigation';
+import { memo, useMemo } from 'react';
 import { PADDING_X, useNavigation } from '@/components/features/Navigation';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
@@ -9,8 +11,6 @@ import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { usePathname } from 'next/navigation';
-import { memo, useMemo } from 'react';
 import { ProjectMenu } from './ProjectMenu';
 
 type Props = {

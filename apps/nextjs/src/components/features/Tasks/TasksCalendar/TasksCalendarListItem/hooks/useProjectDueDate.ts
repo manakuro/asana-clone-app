@@ -1,7 +1,7 @@
+import { useMemo } from 'react';
 import { dateFns } from '@/shared/dateFns';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProject } from '@/store/entities/project';
-import { useMemo } from 'react';
 
 type Props = {
   dateString: string;

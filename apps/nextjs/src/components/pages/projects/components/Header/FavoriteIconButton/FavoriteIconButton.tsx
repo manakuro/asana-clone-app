@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { FavoriteIconButton as MoleculesFavoriteIconButton } from '@/components/ui/FavoriteIconButton';
 import type { IconButtonProps } from '@/components/ui/IconButton';
 import { Tooltip } from '@/components/ui/Tooltip';
@@ -7,7 +8,6 @@ import {
 } from '@/store/entities/favoriteProjectIds';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { memo } from 'react';
 
 type Props = {
   projectId: string;

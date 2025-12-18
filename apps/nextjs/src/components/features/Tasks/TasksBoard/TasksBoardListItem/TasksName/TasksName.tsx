@@ -1,8 +1,8 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import { CheckIcon } from '@/components/ui/CheckIcon';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useTask, useTaskCommand } from '@/store/entities/task';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 import { useTasksBoardListItemContext } from '../Provider';
 import { TasksNameProvider } from './Provider';
 import { TasksNameField } from './TasksNameField';

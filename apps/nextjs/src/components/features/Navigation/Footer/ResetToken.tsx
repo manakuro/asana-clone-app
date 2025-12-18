@@ -1,11 +1,11 @@
+import type React from 'react';
+import { useCallback } from 'react';
 import { Divider } from '@/components/features/Navigation/Divider';
 import { Icon } from '@/components/ui/Icon';
 import { ListItem } from '@/components/ui/List';
 import { Text } from '@/components/ui/Text';
 import { setErrorToken } from '@/shared/apollo/client';
 import { transitions } from '@/styles';
-import type React from 'react';
-import { useCallback } from 'react';
 import { PADDING_X } from '../Navigation';
 
 export const ResetToken: React.FC = () => {

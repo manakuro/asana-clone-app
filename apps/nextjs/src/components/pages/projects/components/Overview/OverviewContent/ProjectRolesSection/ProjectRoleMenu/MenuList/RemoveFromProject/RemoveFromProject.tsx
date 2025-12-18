@@ -1,5 +1,5 @@
-import { MenuItem } from '@/components/ui/Menu';
 import { memo, useCallback } from 'react';
+import { MenuItem } from '@/components/ui/Menu';
 
 type Props = {
   projectId: string;

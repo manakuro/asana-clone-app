@@ -1,7 +1,7 @@
-import { isDev } from '@/shared/environment';
-import { omit } from '@/shared/utils/omit';
 import { diff } from 'deep-object-diff';
 import isEqual from 'lodash-es/isEqual';
+import { isDev } from '@/shared/environment';
+import { omit } from '@/shared/utils/omit';
 import type { Task } from './type';
 
 export const isTaskEqual = (value: Task, other: Task): boolean => {

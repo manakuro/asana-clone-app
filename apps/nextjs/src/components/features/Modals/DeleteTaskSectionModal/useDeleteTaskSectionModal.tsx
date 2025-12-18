@@ -1,12 +1,12 @@
+import { atom, useAtom } from 'jotai';
+import { atomWithReset, useResetAtom } from 'jotai/utils';
+import { useCallback } from 'react';
 import {
   useTasksCompletedTaskSizeByTaskSectionId,
   useTasksTaskSection,
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
 import { useToast } from '@/hooks';
-import { atom, useAtom } from 'jotai';
-import { atomWithReset, useResetAtom } from 'jotai/utils';
-import { useCallback } from 'react';
 
 const openAtom = atom(false);
 

@@ -1,7 +1,7 @@
+import { memo, useEffect, useState } from 'react';
 import { Editor, EditorContent } from '@/components/ui/Editor';
 import { Flex } from '@/components/ui/Flex';
 import { getDefaultDescription } from '@/shared/prosemirror/getDefaultDescription';
-import { memo, useEffect, useState } from 'react';
 import { Attachments } from './Attachments';
 import { Container } from './Container';
 import { Placeholder } from './Placeholder';
@@ -18,11 +18,11 @@ export function Input() {
   );
 }
 
-const Component: React.FC = memo(function Component() {
+const Component = memo(function Component() {
   const { onChangeDescription, taskFeed } = useInputContext();
   const [resetView, setResetView] = useState<number>(1);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: to reset view
   useEffect(() => {
     setResetView((s) => s + 1);
   }, [taskFeed.id]);

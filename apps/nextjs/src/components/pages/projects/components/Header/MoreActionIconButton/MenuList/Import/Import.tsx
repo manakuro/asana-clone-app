@@ -1,8 +1,8 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { MenuItem } from '@/components/ui/Menu';
 import { Text } from '@/components/ui/Text';
-import { memo } from 'react';
 import { PopoverImportActions } from './PopoverImportActions';
 
 type Props = {

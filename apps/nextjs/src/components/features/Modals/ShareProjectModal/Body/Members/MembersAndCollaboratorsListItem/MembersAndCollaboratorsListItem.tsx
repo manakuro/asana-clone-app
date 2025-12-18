@@ -1,9 +1,9 @@
+import { memo } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useWorkspace } from '@/store/entities/workspace';
-import { memo } from 'react';
 import { PermissionMenu } from '../../PermissionMenu';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const MembersAndCollaboratorsListItem = memo(
-  function MembersAndCollaboratorsListItem(props: Props) {
+  function MembersAndCollaboratorsListItem(_props: Props) {
     const { clickableHoverStyle } = useClickableHoverStyle();
     const { workspace } = useWorkspace();
 

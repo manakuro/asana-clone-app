@@ -1,8 +1,8 @@
+import { memo } from 'react';
 import type { SetValueParam } from '@/components/features/Menus/EditorMentionMenu';
 import type { FlexProps } from '@/components/ui/Flex';
 import type { Mention } from '@/store/entities/mention';
 import { MentionType } from '@/store/entities/mention';
-import { memo } from 'react';
 import { MentionItemBase } from './MentionItemBase';
 import { Project } from './Project';
 import { Task } from './Task';
@@ -20,7 +20,7 @@ type Props = Override<
 };
 
 export const MentionItem = memo(function MentionItem(props: Props) {
-  const { onClick, mention, ...rest } = props;
+  const { onClick: _, mention, ...rest } = props;
 
   switch (mention.type) {
     case MentionType.TEAMMATE:

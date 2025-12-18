@@ -1,7 +1,7 @@
+import { memo } from 'react';
 import { useReactNodeView } from '@/components/ui/Editor/Editors/ReactNodeView';
 import { useProjectTaskQuery } from '@/hooks/queries/entities';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
-import { memo } from 'react';
 import { Loading } from './Loading';
 import { TaskLink } from './TaskLink';
 

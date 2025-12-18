@@ -1,8 +1,8 @@
+import { memo, useMemo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import { useLinkStyle } from '@/hooks';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
-import { memo, useMemo } from 'react';
 import { BodyHeader } from '../BodyHeader';
 import { BodyStack } from '../BodyStack';
 import { MemberListItem } from './MemberListItem';

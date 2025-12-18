@@ -1,7 +1,7 @@
+import { useMemo } from 'react';
 import { useFavoriteProjectIdsQuery as useQuery } from '@/graphql/hooks';
 import { useFavoriteProjectIdsResponse } from '@/store/entities/favoriteProjectIds';
 import { useMe } from '@/store/entities/me';
-import { useMemo } from 'react';
 
 export const useFavoriteProjectIdsQuery = () => {
   const { me } = useMe();

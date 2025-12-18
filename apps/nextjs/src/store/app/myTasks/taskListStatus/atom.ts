@@ -1,6 +1,6 @@
+import { atom } from 'jotai';
 import { TaskListCompletedStatusCode } from '@/store/entities/taskListCompletedStatus';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
-import { atom } from 'jotai';
 import type { TeammateTaskListStatus } from './type';
 
 export const taskListStatusState = atom<TeammateTaskListStatus>({

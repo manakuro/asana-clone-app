@@ -1,8 +1,8 @@
+import { useMemo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { useSubtaskIds } from '@/store/entities/task';
-import { useMemo } from 'react';
 
 type Props = {
   taskId: string;

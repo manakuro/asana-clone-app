@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { ProjectsContainer } from '@/components/pages/home/components/ProjectsContainer';
 import { useProjectIds } from '@/store/entities/project';
-import { memo } from 'react';
 
 export const RecentProjects = memo(function RecentProjects() {
   const { projectIds } = useProjectIds();

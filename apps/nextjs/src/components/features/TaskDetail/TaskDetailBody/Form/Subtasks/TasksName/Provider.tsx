@@ -1,7 +1,7 @@
-import { useHover } from '@/hooks/useHover';
-import { createProvider } from '@/shared/react/createProvider';
 import type React from 'react';
 import { useCallback, useMemo, useState } from 'react';
+import { useHover } from '@/hooks/useHover';
+import { createProvider } from '@/shared/react/createProvider';
 import { type UseInputFocus, useInputFocus } from './useInputFocus';
 
 type ContextProps = UseInputFocus & {

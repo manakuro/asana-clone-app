@@ -1,7 +1,7 @@
+import { memo, useEffect, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
-import { memo, useEffect, useMemo } from 'react';
 import { useSearchMenuIndex } from '../useSearchMenuIndex';
 
 type Props = FlexProps & {

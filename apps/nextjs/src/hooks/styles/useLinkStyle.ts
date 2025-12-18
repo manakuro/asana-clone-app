@@ -1,5 +1,5 @@
-import type { ChakraProps } from '@/shared/chakra';
 import { useMemo } from 'react';
+import type { ChakraProps } from '@/shared/chakra';
 
 type Props = ChakraProps;
 

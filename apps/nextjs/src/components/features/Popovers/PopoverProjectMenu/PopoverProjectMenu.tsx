@@ -1,9 +1,9 @@
+import type React from 'react';
+import { useCallback } from 'react';
 import type { IconButtonProps } from '@/components/ui/IconButton';
 import { Menu, MenuButton, type MenuButtonProps } from '@/components/ui/Menu';
 import { type ChakraProps, useDisclosure } from '@/shared/chakra';
 import { useProject } from '@/store/entities/project';
-import type React from 'react';
-import { useCallback } from 'react';
 import { MenuList } from './MenuList';
 
 type Props = MenuButtonProps & {

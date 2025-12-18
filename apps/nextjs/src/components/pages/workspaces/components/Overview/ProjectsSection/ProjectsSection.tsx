@@ -1,3 +1,4 @@
+import { memo, useState } from 'react';
 import {
   PROJECT_LIST_MENU_VIEW_AS_TILES,
   ProjectListItem,
@@ -14,7 +15,6 @@ import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { useProjectIds } from '@/store/entities/project';
-import { memo, useState } from 'react';
 import {
   OverviewSectionHeader,
   OverviewSectionHeaderHeading,

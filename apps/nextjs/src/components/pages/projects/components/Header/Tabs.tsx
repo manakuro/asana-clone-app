@@ -1,9 +1,9 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Heading } from '@/components/ui/Heading';
 import { Tab, TabList } from '@/components/ui/Tabs';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProject } from '@/store/entities/project';
-import { memo } from 'react';
 import { FavoriteIconButton } from './FavoriteIconButton';
 import { MoreActionIconButton } from './MoreActionIconButton';
 import { ProjectDetailIconButton } from './ProjectDetailIconButton';

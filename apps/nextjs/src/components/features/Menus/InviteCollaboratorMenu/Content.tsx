@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import {
   ProjectTeammateMenuItem,
   useProjectTeammateMenu,
@@ -13,7 +14,6 @@ import { Icon } from '@/components/ui/Icon';
 import type { PopoverProps } from '@/components/ui/Popover';
 import { Text } from '@/components/ui/Text';
 import type { Teammate } from '@/store/entities/teammate';
-import { memo } from 'react';
 
 type Props = PopoverProps & {
   onSelect: (val: Teammate) => void;

@@ -1,10 +1,10 @@
-import { config } from '@/config';
-import { websocketErrorHandler } from '@/shared/apollo/errorHandler';
-import { isClient } from '@/shared/environment';
 import { HttpLink, split } from '@apollo/client';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { SubscriptionClient } from 'subscriptions-transport-ws';
+import { config } from '@/config';
+import { websocketErrorHandler } from '@/shared/apollo/errorHandler';
+import { isClient } from '@/shared/environment';
 
 export type CreateHttpProps = {
   idToken: string;

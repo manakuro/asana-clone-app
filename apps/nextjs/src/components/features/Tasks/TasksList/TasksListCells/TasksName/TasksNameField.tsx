@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTaskDetailDrawerRef } from '@/components/features/TaskDetails';
 import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
@@ -9,8 +11,6 @@ import {
   useMountedRef,
 } from '@/hooks';
 import { useTaskOptimistic } from '@/store/entities/task';
-import type React from 'react';
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksNameContext } from './TasksNameProvider';
 
 type Props = {

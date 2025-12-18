@@ -1,6 +1,6 @@
-import type { ProjectTaskListStatus } from '@/store/app/projects/taskListStatus';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import type { ProjectTaskListStatus } from '@/store/app/projects/taskListStatus';
 import { taskListStatusState } from '../atom';
 
 export const useTaskListStatusCommand = () => {

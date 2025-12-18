@@ -1,3 +1,5 @@
+import type React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { useToast } from '@/hooks';
 import { parseDescription } from '@/shared/prosemirror/convertDescription';
@@ -5,8 +7,6 @@ import { createProvider } from '@/shared/react/createProvider';
 import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/taskFeed';
 import { useTaskFileIdsByTaskFeedId } from '@/store/entities/taskFile';
 import { useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { useCallback, useMemo, useState } from 'react';
 import { Provider as ProviderContainer } from './ProviderContainer';
 
 type Props = {

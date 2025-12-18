@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { TagChip } from '@/components/features/Chips';
 import { TagMenu } from '@/components/features/Menus';
 import { Flex } from '@/components/ui/Flex';
@@ -10,8 +12,6 @@ import {
   useTaskTagCommand,
   useTaskTagIdsByTaskId,
 } from '@/store/entities/taskTag';
-import type React from 'react';
-import { memo, useCallback, useMemo, useRef, useState } from 'react';
 
 type Props = {
   taskId: string;

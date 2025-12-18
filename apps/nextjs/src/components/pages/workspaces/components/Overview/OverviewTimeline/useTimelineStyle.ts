@@ -1,5 +1,5 @@
-import type { ChakraProps } from '@/shared/chakra';
 import { useMemo } from 'react';
+import type { ChakraProps } from '@/shared/chakra';
 
 export const useTimelineStyle = () => {
   const timelineBorderStyle = useMemo(

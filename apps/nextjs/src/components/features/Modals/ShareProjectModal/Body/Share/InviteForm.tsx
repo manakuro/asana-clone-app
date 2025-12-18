@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { InviteProjectTeammateMenu } from '@/components/features/Menus';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { AvatarGroup } from '@/components/ui/Avatar';
@@ -8,8 +10,6 @@ import { useLinkStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { type Teammate, useTeammate } from '@/store/entities/teammate';
-import type React from 'react';
-import { memo, useCallback, useMemo, useState } from 'react';
 
 type Props = {
   projectId: string;

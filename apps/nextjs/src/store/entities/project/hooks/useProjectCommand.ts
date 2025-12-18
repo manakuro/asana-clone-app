@@ -1,3 +1,5 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import { useUpdateProjectMutation } from '@/graphql/hooks';
 import type { UpdateProjectInput } from '@/graphql/types';
 import {
@@ -6,8 +8,6 @@ import {
 } from '@/shared/date';
 import { omit } from '@/shared/utils/omit';
 import { useWorkspace } from '@/store/entities/workspace';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { projectState } from '../atom';
 import type { Project } from '../type';
 import { useSetHasDescriptionUpdated } from './useHasDescriptionUpdated';
@@ -83,7 +83,7 @@ export const useProjectCommand = () => {
 
   const setProjectDueDate = useAtomCallback(
     useCallback(
-      async (get, set, input: { projectId: string; dueDate: Date }) => {
+      async (_get, _set, input: { projectId: string; dueDate: Date }) => {
         await setProject({
           projectId: input.projectId,
           dueDate: formatDueTimeToLocalTimezone(input.dueDate),

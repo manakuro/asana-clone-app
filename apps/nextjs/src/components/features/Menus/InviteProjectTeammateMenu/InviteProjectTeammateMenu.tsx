@@ -1,3 +1,4 @@
+import { memo, type PropsWithChildren } from 'react';
 import {
   ProjectTeammateMenu,
   ProjectTeammateMenuContent,
@@ -8,7 +9,6 @@ import type {
   PopoverProps,
 } from '@/components/ui/Popover';
 import type { Teammate } from '@/store/entities/teammate';
-import { type PropsWithChildren, memo } from 'react';
 import { Content } from './Content';
 
 type Props = PopoverProps & {

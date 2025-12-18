@@ -1,6 +1,6 @@
+import { useCallback } from 'react';
 import { MenuItem } from '@/components/ui/Menu';
 import { useFavoriteProjectIdsCommand } from '@/store/entities/favoriteProjectIds';
-import { useCallback } from 'react';
 
 type Props = {
   projectId: string;

@@ -14,7 +14,7 @@ type Props = FlexProps & {
 };
 
 export function AttachmentBox(props: Props) {
-  const { size, color, taskFileId, isHovering, ...rest } = props;
+  const { size, color, taskFileId, isHovering: _, ...rest } = props;
   const { taskFile } = useTaskFile(taskFileId);
   const icon = getTaskFileIcon(taskFile.fileType.typeCode);
   const taskFileName = getTaskFileName(taskFile.fileType.typeCode);

@@ -1,7 +1,7 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Heading } from '@/components/ui/Heading';
 import { Tab, TabList } from '@/components/ui/Tabs';
-import { memo } from 'react';
 
 export const Tabs = memo(function Tabs() {
   return (

@@ -1,10 +1,10 @@
+import { useAtomCallback } from 'jotai/utils';
+import { useCallback } from 'react';
 import { uniqBy } from '@/shared/utils';
 import {
   type TeammateTaskResponse,
   useTeammateTaskResponse,
 } from '@/store/entities/teammateTask';
-import { useAtomCallback } from 'jotai/utils';
-import { useCallback } from 'react';
 import { teammatesTaskSectionState } from '../atom';
 import type { TeammateTaskSectionResponse } from '../type';
 

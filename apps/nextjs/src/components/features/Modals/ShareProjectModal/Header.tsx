@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { ModalHeader } from '@/components/ui/Modal';
 import { useProject } from '@/store/entities/project';
-import { memo } from 'react';
 
 type Props = {
   projectId: string;

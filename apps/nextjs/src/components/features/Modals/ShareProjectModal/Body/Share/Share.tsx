@@ -1,6 +1,6 @@
+import { memo, useCallback } from 'react';
 import { uniqBy } from '@/shared/utils';
 import type { Teammate } from '@/store/entities/teammate';
-import { memo, useCallback } from 'react';
 import { useShareProjectModalInvitedTeammates } from '../../useShareProjectModalInvitedTeammates';
 import { BodyHeader } from '../BodyHeader';
 import { BodyStack } from '../BodyStack';

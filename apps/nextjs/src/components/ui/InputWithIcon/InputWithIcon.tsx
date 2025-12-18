@@ -40,7 +40,7 @@ export function InputWithIcon(props: Props) {
     <InputGroup size={size}>
       <InputLeftElement
         pointerEvents="none"
-        // biome-ignore lint/correctness/noChildrenProp: <explanation>
+        // biome-ignore lint/correctness/noChildrenProp: used for children prop
         children={<Icon icon={icon} color="gray.300" {...iconSize} />}
       />
       <Input focusBorderColor="primary" placeholder="Search" {...inputProps} />

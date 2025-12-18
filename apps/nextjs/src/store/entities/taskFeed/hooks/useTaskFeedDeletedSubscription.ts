@@ -1,9 +1,9 @@
-import { useTaskFeedDeletedSubscription as useSubscription } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
-import { taskFeedState } from '@/store/entities/taskFeed';
 import { RESET, useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
+import { useTaskFeedDeletedSubscription as useSubscription } from '@/graphql/hooks';
+import { uuid } from '@/shared/uuid';
+import { taskFeedState } from '@/store/entities/taskFeed';
 import type { TaskFeedDeletedSubscriptionResponse } from '../type';
 
 // NOTE: To prevent re-rendering via duplicated subscription response.

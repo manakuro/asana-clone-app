@@ -20,7 +20,7 @@ export const image: NodeSpec = {
   parseDOM: [
     {
       tag: 'img[src]',
-      // @ts-ignore
+      // @ts-expect-error
       getAttrs: (element: HTMLImageElement): Attrs => {
         return {
           src: element.getAttribute('src') as string,

@@ -1,6 +1,6 @@
+import { memo, useCallback, useEffect, useState } from 'react';
 import { SearchMenuLoading } from '@/components/features/Menus/SearchMenu';
 import { useDebounce } from '@/hooks';
-import { memo, useCallback, useEffect, useState } from 'react';
 import { MentionItem } from './MentionItem';
 import { Empty } from './MentionItem/Empty';
 import {

@@ -1,3 +1,4 @@
+import { type PropsWithChildren, useRef } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import {
   Popover,
@@ -5,7 +6,6 @@ import {
   PopoverTrigger,
 } from '@/components/ui/Popover';
 import { PortalManager } from '@/components/ui/PortalManager';
-import { type PropsWithChildren, useRef } from 'react';
 import { Content } from './Content';
 
 type Props = PopoverProps & {

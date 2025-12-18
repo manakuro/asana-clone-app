@@ -1,6 +1,6 @@
-import { useTeammateTaskCommand } from '@/store/entities/teammateTask';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
+import { useTeammateTaskCommand } from '@/store/entities/teammateTask';
 
 export const useMyTasksTask = () => {
   const { addTeammateTask, setTeammateTaskByTaskId } = useTeammateTaskCommand();

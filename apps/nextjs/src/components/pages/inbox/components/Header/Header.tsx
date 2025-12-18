@@ -1,5 +1,5 @@
-import { Flex } from '@/components/ui/Flex';
 import { memo } from 'react';
+import { Flex } from '@/components/ui/Flex';
 import { Tabs } from './Tabs';
 
 export const Header = memo(function Header() {

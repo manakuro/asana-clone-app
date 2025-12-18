@@ -1,3 +1,5 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
 import type { BoxProps } from '@/components/ui/Box';
 import { Center } from '@/components/ui/Center';
 import { Icon as AtomsIcon } from '@/components/ui/Icon';
@@ -7,8 +9,6 @@ import type { IconType } from '@/shared/icons';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { useProjectIcon } from '@/store/entities/projectIcon';
 import { useProjectLightColor } from '@/store/entities/projectLightColor';
-import type React from 'react';
-import { memo, useCallback } from 'react';
 
 type Props = {
   projectIconId: string;

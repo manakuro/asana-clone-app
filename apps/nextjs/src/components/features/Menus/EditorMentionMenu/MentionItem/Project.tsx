@@ -1,10 +1,10 @@
+import { memo } from 'react';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import type { Mention } from '@/store/entities/mention';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { memo } from 'react';
 import { LeftContainer } from './LeftContainer';
 import { RightContainer } from './RightContainer';
 

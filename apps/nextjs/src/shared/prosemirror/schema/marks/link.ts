@@ -14,7 +14,7 @@ export const link: MarkSpec = {
   parseDOM: [
     {
       tag: 'a[href]',
-      // @ts-ignore
+      // @ts-expect-error
       getAttrs: (element: HTMLAnchorElement): Attrs => {
         return {
           href: element.getAttribute('href') as string,

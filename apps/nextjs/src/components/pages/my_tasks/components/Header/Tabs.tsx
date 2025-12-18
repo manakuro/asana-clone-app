@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';
@@ -5,7 +6,6 @@ import { IconButton } from '@/components/ui/IconButton';
 import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Tab, TabList } from '@/components/ui/Tabs';
-import { memo } from 'react';
 
 export const Tabs = memo(function Tabs() {
   return (

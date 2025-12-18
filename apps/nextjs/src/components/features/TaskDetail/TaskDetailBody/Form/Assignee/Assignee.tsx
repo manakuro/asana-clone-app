@@ -1,3 +1,4 @@
+import { memo, useCallback, useMemo, useState } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Box } from '@/components/ui/Box';
 import { Button, type ButtonProps } from '@/components/ui/Button';
@@ -5,7 +6,6 @@ import { Text, type TextProps } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
 import { useTask } from '@/store/entities/task';
 import { useTeammate } from '@/store/entities/teammate';
-import { memo, useCallback, useMemo, useState } from 'react';
 import { Content, Label, Row } from '../Row';
 import { DeleteButton } from './DeleteButton';
 import { Input } from './Input';

@@ -1,8 +1,8 @@
+import { useCallback } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { transitions } from '@/styles';
-import { useCallback } from 'react';
 import { type Item, PADDING_X } from './GuideListItem';
 
 type Props = {
