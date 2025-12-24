@@ -13,7 +13,7 @@ type Props = {
 export const LikeTaskIconButton = memo(function LikeTaskIconButton(
   props: Props,
 ) {
-  const { show, ...rest } = props;
+  const { show, taskId: _, ...rest } = props;
   const { hasAnyoneLiked, label, likeLength, onToggleLike } = useLike(props);
 
   return (
