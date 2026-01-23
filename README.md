@@ -10,6 +10,12 @@ An Asana clone application as a portfolio project, built with real-time communic
 - Node.js 24.13.0
 - pnpm 10.28.1
 
+## Set up safe-chain
+
+```
+curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh
+```
+
 ## Installation
 ```
 npm install -g corepack@latest

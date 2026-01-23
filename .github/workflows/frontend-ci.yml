@@ -19,6 +19,8 @@ jobs:
           node-version-file: '.node-version'
           cache: 'pnpm'
           cache-dependency-path: pnpm-lock.yaml
+      - name: Install safe-chain
+        run: curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci
       - name: Cache node_modules
         uses: actions/cache@v4
         id: node_modules_cache_id
