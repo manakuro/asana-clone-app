@@ -1,7 +1,7 @@
 # Pull Request Creation Assistance Based on PR Template
 
 Please push the current branch to the git remote origin and create a PR.
-
+Use the GitHub MCP to create the PR, not using the gh cli.
 Generate a Pull Request description following the template in `.github/PULL_REQUEST_TEMPLATE.md`.
 
 Include the following information:
