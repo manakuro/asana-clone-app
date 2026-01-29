@@ -1,41 +1,46 @@
-const fs = require('fs');
-const https = require('https');
-const {
-  getIntrospectionQuery,
+import fs from 'node:fs';
+import {
   buildClientSchema,
+  getIntrospectionQuery,
+  type IntrospectionQuery,
   printSchema,
-} = require('graphql');
-const fetch = require('node-fetch');
+} from 'graphql';
 
 const defaultHeaders = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
 };
 
-module.exports.downloadSchema = async function downloadSchema(
-  url,
-  outputPath,
-  additionalHeaders,
-  insecure,
-) {
+export async function downloadSchema(
+  url: string,
+  outputPath: string,
+  additionalHeaders?: Record<string, string>,
+  insecure?: boolean,
+): Promise<void> {
   const headers = { ...defaultHeaders, ...additionalHeaders };
-  const agent = insecure
-    ? new https.Agent({ rejectUnauthorized: false })
-    : undefined;
 
-  let result;
+  // Note: insecure parameter is not supported with native fetch
+  if (insecure) {
+    console.warn(
+      'Warning: insecure parameter is not supported with native fetch',
+    );
+  }
+
+  let result: { data?: IntrospectionQuery; errors?: unknown };
   try {
     const response = await fetch(url, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({ query: getIntrospectionQuery() }),
-      agent,
     });
 
-    result = await response.json();
+    result = (await response.json()) as {
+      data?: IntrospectionQuery;
+      errors?: unknown;
+    };
   } catch (error) {
     throw new Error(
-      `Error while fetching introspection query result: ${error.message}`,
+      `Error while fetching introspection query result: ${(error as Error).message}`,
     );
   }
 
@@ -57,4 +62,4 @@ module.exports.downloadSchema = async function downloadSchema(
   const sdl = printSchema(schema);
 
   fs.writeFileSync(outputPath, sdl);
-};
+}
