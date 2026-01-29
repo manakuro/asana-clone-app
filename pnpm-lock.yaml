@@ -79,9 +79,6 @@ importers:
       date-fns:
         specifier: ^2.23.0
         version: 2.23.0
-      deep-object-diff:
-        specifier: ^1.1.7
-        version: 1.1.7
       emoji-mart:
         specifier: ^3.0.1
         version: 3.0.1(react@18.3.1)
@@ -4845,9 +4842,6 @@ packages:
 
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
-
-  deep-object-diff@1.1.7:
-    resolution: {integrity: sha512-QkgBca0mL08P6HiOjoqvmm6xOAl2W6CT2+34Ljhg0OeFan8cwlcdq8jrLKsBBuUFAZLsN5b6y491KdKEoSo9lg==}
 
   deepmerge@2.2.1:
     resolution: {integrity: sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==}
@@ -13690,8 +13684,6 @@ snapshots:
 
   deep-is@0.1.4:
     optional: true
-
-  deep-object-diff@1.1.7: {}
 
   deepmerge@2.2.1: {}
 
