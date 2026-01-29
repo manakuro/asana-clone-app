@@ -25,7 +25,7 @@
     "codegen:watch": "pnpm codegen:download && graphql-codegen --config codegen.ts --watch",
     "codegen:download": "env-cmd -f ./.env.local tsx scripts/codegen/download.ts",
     "codegen:prod": "pnpm codegen:download:prod && graphql-codegen",
-    "codegen:download:prod": "echo ENV_JSON > ./env.json && env-cmd -f ./.env.json tsx scripts/codegen/download.ts",
+    "codegen:download:prod": "echo ENV_JSON > ./env.json && env-cmd -f ./.env.json npx tsx scripts/codegen/download.ts",
     "codegen:ci": "graphql-codegen --config codegen.ts",
     "new:queryMock": "ts-node ./scripts/newQueryMock.ts",
     "new:mutationMock": "ts-node ./scripts/newMutationMock.ts",
