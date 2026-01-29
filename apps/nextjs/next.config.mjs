@@ -1,4 +1,7 @@
-module.exports = {
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   webpack(config, { nextRuntime }) {
     if (nextRuntime === 'nodejs') {
       config.resolve.alias.canvas = false;
@@ -11,3 +14,4 @@ module.exports = {
     return config;
   },
 };
+export default nextConfig;
