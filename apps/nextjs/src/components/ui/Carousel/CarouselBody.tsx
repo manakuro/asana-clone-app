@@ -16,7 +16,7 @@ export function CarouselBody(props: PropsWithChildren) {
 
     return React.cloneElement(child, {
       index,
-    });
+    } as { index: number });
   });
 
   useEffect(() => {

@@ -1,3 +1,4 @@
+import type { UsePopoverProps } from '@chakra-ui/react';
 import type { PropsWithChildren } from 'react';
 import { useRef } from 'react';
 import { Flex } from '@/components/ui/Flex';
@@ -27,7 +28,7 @@ export function ProjectRoleInputPopover(props: PropsWithChildren<Props>) {
         isLazy
         placement="bottom-start"
         isOpen={isOpen}
-        initialFocusRef={initialFocusRef}
+        initialFocusRef={initialFocusRef as UsePopoverProps['initialFocusRef']}
         {...rest}
       >
         <PopoverTrigger>

@@ -1,3 +1,4 @@
+import type { UsePopoverProps } from '@chakra-ui/react';
 import React, { type PropsWithChildren, useCallback } from 'react';
 import { Link } from '@/components/ui/Link';
 import {
@@ -42,7 +43,7 @@ export function PopoverAssigneeInput(props: PropsWithChildren<Props>) {
       <Popover
         placement="bottom-end"
         isOpen={popoverDisclosure.isOpen}
-        initialFocusRef={inputRef}
+        initialFocusRef={inputRef as UsePopoverProps['initialFocusRef']}
         isLazy
         closeOnBlur={false}
       >

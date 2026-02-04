@@ -234,7 +234,7 @@ function useQuery() {
 
 function useContainer() {
   const [state, setState] = useAtom(modalState);
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (containerRef.current) {

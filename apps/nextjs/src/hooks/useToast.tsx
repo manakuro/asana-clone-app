@@ -6,7 +6,7 @@ type Props = ToastProps;
 
 export const useToast = () => {
   const toastChakraUi = useToastChakraUi();
-  const toastIdRef = useRef<ToastId | undefined>();
+  const toastIdRef = useRef<ToastId | undefined>(undefined);
 
   const close = useCallback(() => {
     if (!toastIdRef.current) return;

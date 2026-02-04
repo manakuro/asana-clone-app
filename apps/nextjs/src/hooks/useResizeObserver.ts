@@ -5,7 +5,7 @@ import type React from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 
 export const useResizeObserver = <T extends HTMLElement>(
-  target: React.RefObject<T> | T | null,
+  target: React.RefObject<T | null> | React.RefObject<T> | T | null,
   callback: UseResizeObserverCallback,
   options?: { skip?: boolean },
 ): ResizeObserver => {

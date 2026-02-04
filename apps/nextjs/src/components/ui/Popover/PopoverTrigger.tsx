@@ -11,7 +11,7 @@ export function PopoverTrigger(props: React.PropsWithChildren) {
 
   const children = React.cloneElement(props.children, {
     'aria-label': 'popover-trigger',
-  });
+  } as any);
 
   return <ChakraPopoverTrigger>{children}</ChakraPopoverTrigger>;
 }

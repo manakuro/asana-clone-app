@@ -30,7 +30,7 @@ export function MenuItem(props: Props) {
     const element = React.cloneElement(props.children, {
       p: '0.4rem 0.8rem',
       w: 'full',
-    });
+    } as Partial<Props>);
     return (
       <ChakraMenuItem {...rest} p={0}>
         {element}

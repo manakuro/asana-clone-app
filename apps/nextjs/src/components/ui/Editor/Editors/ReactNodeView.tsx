@@ -30,7 +30,7 @@ const ReactNodeViewContext = React.createContext<
 type TGetPos = boolean | (() => number);
 
 class ReactNodeView implements NodeView {
-  componentRef: React.RefObject<HTMLDivElement>;
+  componentRef: React.RefObject<HTMLDivElement | null>;
   dom?: HTMLElement;
   contentDOM: NodeView['contentDOM'];
   contentDOMWrapper?: HTMLElement | undefined;

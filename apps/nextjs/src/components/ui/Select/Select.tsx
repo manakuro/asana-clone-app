@@ -25,7 +25,7 @@ export function Select(props: React.PropsWithChildren<Props>) {
 
     return React.cloneElement(child, {
       onChange,
-    });
+    } as Partial<Props>);
   });
 
   return (
