@@ -8,7 +8,7 @@ import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
 
 export const ShareButton = memo(function ShareButton() {
   const { setIsOpen } = useShareWorkspaceModal();
-  const { isOpen, ref } = useTooltip();
+  const { isOpen, ref } = useTooltip<HTMLButtonElement>();
 
   const handleShareWorkspace = useCallback(() => {
     setIsOpen(true);

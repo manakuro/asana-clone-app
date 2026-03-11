@@ -17,7 +17,7 @@ type Props = {
 export const DueDate = memo(function DueDate(props: Props) {
   const { task, setTaskDueDate, resetTaskDueDate } = useTask(props.taskId);
   const { clickableHoverLightStyle } = useClickableHoverStyle();
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLButtonElement>();
   const hasDueDate = useMemo(() => !!task.dueDate, [task.dueDate]);
   const showResetIcon = useMemo(() => hasDueDate, [hasDueDate]);
 

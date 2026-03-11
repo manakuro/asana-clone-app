@@ -13,7 +13,7 @@ type Props = FlexProps;
 export const ShareButton = memo(function ShareButton(props: Props) {
   const { projectId } = useProjectsProjectId();
   const { onOpen, setProjectId, setShareTab } = useShareProjectModal();
-  const { isOpen, ref } = useTooltip();
+  const { isOpen, ref } = useTooltip<HTMLButtonElement>();
   const { workspace } = useWorkspace();
 
   const handleClick = useCallback(() => {

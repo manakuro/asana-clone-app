@@ -31,7 +31,7 @@ export const DatePickerWithInput = memo(function DatePickerWithInput(
   props: Props,
 ) {
   const { onSelect, dueDate, onDelete, buttonStyle, iconStyle } = props;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLButtonElement>();
   const [focused, setFocused] = useState(false);
   const hasDueDate = useMemo(() => !!dueDate, [dueDate]);
   const colorStyle = useMemo<ChakraProps>(

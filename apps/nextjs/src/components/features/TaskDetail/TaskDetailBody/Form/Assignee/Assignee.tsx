@@ -25,7 +25,7 @@ const focusedStyle: ButtonProps = {
 
 export const Assignee = memo(function Assignee(props: Props) {
   const { taskId } = props;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLButtonElement>();
   const [focused, setFocused] = useState(false);
   const { task } = useTask(taskId);
   const { teammate } = useTeammate(task.assigneeId);
