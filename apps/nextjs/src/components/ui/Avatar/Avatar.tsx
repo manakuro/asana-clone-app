@@ -3,6 +3,11 @@ import {
   type AvatarProps as ChakraAvatarProps,
 } from '@chakra-ui/react';
 
+export {
+  AvatarGroup,
+  type AvatarGroupProps,
+} from '@chakra-ui/react';
+
 type Props = ChakraAvatarProps;
 export type AvatarProps = Props;
 
