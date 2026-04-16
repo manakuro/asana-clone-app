@@ -1,12 +1,12 @@
 'use client';
 
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
 import { memo } from 'react';
 import { Navigation } from '@/components/features/Navigation';
 import { Flex } from '@/components/ui/Flex';
 
 export const LayoutDefault = memo(function LayoutDefault(
-  props: React.PropsWithChildren,
+  props: PropsWithChildren,
 ) {
   return (
     <Flex

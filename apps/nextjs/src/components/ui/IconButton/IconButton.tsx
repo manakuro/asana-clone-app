@@ -31,7 +31,6 @@ export const IconButton = forwardRef<HTMLButtonElement, Props>(
 
     return (
       <ChakraIconButton
-        as="div"
         cursor="pointer"
         minW={8}
         h={8}

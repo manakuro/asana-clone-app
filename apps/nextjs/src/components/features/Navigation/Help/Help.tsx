@@ -1,5 +1,4 @@
 import { Separator } from '@/components/features/Navigation/Separator';
-import { Button } from '@/components/ui/Button';
 import { Drawer } from '@/components/ui/Drawer';
 import { Flex } from '@/components/ui/Flex';
 import { Portal } from '@/components/ui/Portal';
@@ -19,11 +18,6 @@ export function Help() {
       }}
       placement="start"
     >
-      <Drawer.Trigger asChild>
-        <Button variant="outline" size="sm" top="1.25rem">
-          Open Drawer
-        </Button>
-      </Drawer.Trigger>
       <Portal>
         <Drawer.Backdrop />
         <Drawer.Positioner>
