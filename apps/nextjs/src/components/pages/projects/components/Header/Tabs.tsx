@@ -24,17 +24,17 @@ export const Tabs = memo(function Tabs() {
           <FavoriteIconButton projectId={projectId} />
         </Flex>
         <TabList>
-          <Tab>Overview</Tab>
-          <Tab>List</Tab>
-          <Tab>Board</Tab>
-          <Tab isDisabled cursor="auto !important">
+          <Tab value="overview">Overview</Tab>
+          <Tab value="list">List</Tab>
+          <Tab value="board">Board</Tab>
+          <Tab disabled cursor="auto !important" value="timeline">
             Timeline
           </Tab>
-          <Tab>Calendar</Tab>
-          <Tab isDisabled cursor="auto !important">
+          <Tab value="calendar">Calendar</Tab>
+          <Tab disabled cursor="auto !important" value="dashboard">
             Dashboard
           </Tab>
-          <Tab>Files</Tab>
+          <Tab value="files">Files</Tab>
         </TabList>
       </Flex>
     </Flex>

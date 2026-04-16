@@ -20,7 +20,7 @@ export const AddMemberListItem = memo(function AddMemberListItem() {
       alignItems="center"
       onClick={handleClick}
       cursor="pointer"
-      {...clickableHoverLightStyle}
+      css={clickableHoverLightStyle}
     >
       <TeammateAvatar teammateId="" size="sm" />
       <Flex

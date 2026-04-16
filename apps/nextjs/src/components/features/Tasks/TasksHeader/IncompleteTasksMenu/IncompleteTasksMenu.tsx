@@ -5,10 +5,9 @@ import {
   MenuSelectList,
 } from '@/components/features/Menus';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
-import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItemOption } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Text } from '@/components/ui/Text';
 import { useDisclosure } from '@/shared/chakra';
 import {
@@ -83,51 +82,48 @@ export const IncompleteTasksMenu = memo(function IncompleteTasksMenu(
   return (
     <MenuSelect<TaskListCompletedStatusCodeValue>
       onChange={handleChange}
-      placement="bottom-end"
+      positioning={{ placement: 'bottom-end' }}
     >
       {({ listStatus, onChange, onClose }) => (
         <>
           <MenuSelectButton
             variant="ghost"
             aria-label="Task list status"
-            as={Button}
-            leftIcon={<Icon icon="checkCircle" />}
             size="xs"
           >
+            <Icon icon="checkCircle" />
             {buttonText}
           </MenuSelectButton>
           <MenuSelectList
             defaultValue={taskListStatus.taskListCompletedStatus.toString()}
           >
-            <MenuItemOption value={TaskListCompletedStatusCode.Incomplete}>
+            <Menu.RadioItem value={TaskListCompletedStatusCode.Incomplete}>
               <Flex onMouseEnter={popoverDisclosure.onClose}>
                 Incomplete tasks
               </Flex>
-            </MenuItemOption>
-            <MenuItemOption>
-              <Flex onMouseEnter={popoverDisclosure.onOpen}>
-                <PopoverCompletedTasks
-                  isOpen={popoverDisclosure.isOpen}
-                  placement="left-start"
-                  onClose={() => {
-                    popoverDisclosure.onClose();
-                    onClose();
-                  }}
-                  listStatus={listStatus}
-                  onChange={onChange}
-                >
-                  <Flex flex={1}>
-                    <Text fontSize="sm" flex={1}>
-                      Completed tasks
-                    </Text>
-                    <Icon icon="chevronRight" />
-                  </Flex>
-                </PopoverCompletedTasks>
-              </Flex>
-            </MenuItemOption>
-            <MenuItemOption value={TaskListCompletedStatusCode.All}>
+            </Menu.RadioItem>
+            <Flex onMouseEnter={popoverDisclosure.onOpen}>
+              <PopoverCompletedTasks
+                open={popoverDisclosure.open}
+                positioning={{ placement: 'left-start' }}
+                onClose={() => {
+                  popoverDisclosure.onClose();
+                  onClose();
+                }}
+                listStatus={listStatus}
+                onChange={onChange}
+              >
+                <Flex flex={1}>
+                  <Text fontSize="sm" flex={1}>
+                    Completed tasks
+                  </Text>
+                  <Icon icon="chevronRight" />
+                </Flex>
+              </PopoverCompletedTasks>
+            </Flex>
+            <Menu.RadioItem value={TaskListCompletedStatusCode.All}>
               <Flex onMouseEnter={popoverDisclosure.onClose}>All tasks</Flex>
-            </MenuItemOption>
+            </Menu.RadioItem>
           </MenuSelectList>
         </>
       )}

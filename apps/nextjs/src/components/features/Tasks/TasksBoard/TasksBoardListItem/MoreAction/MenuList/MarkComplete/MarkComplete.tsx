@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useTask } from '@/store/entities/task';
 import { useTasksBoardListItemContext } from '../../../Provider';
 
@@ -20,12 +20,9 @@ export const MarkComplete = memo(function MarkComplete(props: Props) {
   }, [onToggleDone, onCloseMenu]);
 
   return (
-    <MenuItem
-      onMouseEnter={onMouseEnter}
-      icon={<Icon icon="checkCircle" color="text.muted" />}
-      onClick={handleClick}
-    >
+    <Menu.Item onMouseEnter={onMouseEnter} onClick={handleClick} value="">
+      <Icon icon="checkCircle" color="text.muted" />
       {task.completed ? 'Mark Incomplete' : 'Mark complete'}
-    </MenuItem>
+    </Menu.Item>
   );
 });

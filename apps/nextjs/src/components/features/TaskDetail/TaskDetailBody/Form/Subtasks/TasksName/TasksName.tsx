@@ -74,7 +74,7 @@ export const Component = memo(function Component(props: Props) {
           deleteTask={handleDeleteTask}
         />
         <Flex alignItems="center" ml="auto">
-          <Stack direction="row" spacing={2} alignItems="center">
+          <Stack direction="row" gap={2} alignItems="center">
             <RightItem>
               <DueDate taskId={props.taskId} />
             </RightItem>

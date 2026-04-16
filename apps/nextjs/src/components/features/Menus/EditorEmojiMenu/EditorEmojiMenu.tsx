@@ -1,20 +1,27 @@
-import { Modal } from '@/components/ui/Modal';
+import { Dialog } from '@/components/ui/Dialog';
+import { Portal } from '@/components/ui/Portal';
 import { MenuList } from './MenuList';
 import { useEditorEmojiMenu } from './useEditorEmojiMenu';
 
 export function EditorEmojiMenu() {
-  const { isOpen, onClose } = useEditorEmojiMenu();
+  const { open, onClose } = useEditorEmojiMenu();
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
+    <Dialog.Root
+      open={open}
+      onOpenChange={(e) => {
+        if (!e.open) {
+          onClose();
+        }
+      }}
       size="xs"
-      autoFocus={false}
       trapFocus={false}
       motionPreset="none"
     >
-      {isOpen && <MenuList />}
-    </Modal>
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>{open && <MenuList />}</Dialog.Positioner>
+      </Portal>
+    </Dialog.Root>
   );
 }

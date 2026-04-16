@@ -6,7 +6,7 @@ import type React from 'react';
 import { forwardRef } from 'react';
 import { type IconType, icons } from '@/shared/icons';
 
-type Props = ChakraIconProps & {
+type Props = Omit<ChakraIconProps, 'size'> & {
   icon: IconType;
   size?: Sizes;
   ref?: React.ForwardedRef<any>;
@@ -47,16 +47,12 @@ type Sizes = keyof typeof sizes;
 
 export const Icon = forwardRef<SVGSVGElement, Props>(function Icon(props, ref) {
   const { size, icon, ...iconProps } = props;
-  const iconComponent = icons[icon];
+  const IconComponent = icons[icon];
   const sizeStyle = sizes[size ?? 'md'];
 
   return (
-    <ChakraIcon
-      ref={ref}
-      as={iconComponent}
-      color="whiteAlpha"
-      {...sizeStyle}
-      {...iconProps}
-    />
+    <ChakraIcon ref={ref} color="whiteAlpha" {...sizeStyle} {...iconProps}>
+      <IconComponent />
+    </ChakraIcon>
   );
 });

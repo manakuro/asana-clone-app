@@ -70,7 +70,7 @@ export const ProjectChip = memo(function ProjectChip(props: Props) {
       _hover={{ bg: 'gray.100' }}
     >
       <ColorBox size="xs" color={projectBaseColor.color.color} />
-      <Text ml={2} fontSize="xs" noOfLines={1} color="text.base">
+      <Text ml={2} fontSize="xs" lineClamp={1} color="text.base">
         {project.name}
       </Text>
       {props.deletable && (

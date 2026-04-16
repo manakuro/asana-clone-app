@@ -1,13 +1,6 @@
 import { useCallback } from 'react';
-import {
-  Menu,
-  MenuButton,
-  MenuItemOption,
-  MenuList,
-  MenuOptionGroup,
-  type MenuProps,
-} from '@/components/ui/Menu';
-import { chakra } from '@/shared/chakra';
+import { Menu, type MenuRootProps } from '@/components/ui/Menu';
+import { Portal } from '@/components/ui/Portal';
 import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,
@@ -17,7 +10,7 @@ type Props = {
   onClose: () => void;
   listStatus?: TaskListCompletedStatusCodeValue;
   onChange: (listStatus: TaskListCompletedStatusCodeValue) => void;
-} & MenuProps;
+} & MenuRootProps;
 
 export function PopoverCompletedTasks(props: Props) {
   const handleChange = useCallback(
@@ -29,69 +22,57 @@ export function PopoverCompletedTasks(props: Props) {
   );
 
   return (
-    <Menu closeOnBlur={false} closeOnSelect={false} isLazy {...props}>
-      <MenuButton w="full" as={MenuButtonAs}>
+    <Menu.Root closeOnSelect={false} lazyMount {...props}>
+      <Menu.TriggerItem asChild w="full">
         {props.children}
-      </MenuButton>
-      <MenuList pointerEvents="auto" mr="30px">
-        <MenuOptionGroup
-          value={props.listStatus}
-          type="radio"
-          onChange={handleChange}
-        >
-          <MenuItemOption
-            value={TaskListCompletedStatusCode.Completed}
-            as="div"
-          >
-            All Completed Tasks
-          </MenuItemOption>
-          <MenuOptionGroup
-            value={props.listStatus}
-            title="Marked complete since:"
-            color="text.muted"
-            fontSize="xs"
-            onChange={handleChange}
-          >
-            <MenuItemOption
-              as="div"
-              value={TaskListCompletedStatusCode.CompletedToday}
+      </Menu.TriggerItem>
+      <Portal>
+        <Menu.Positioner>
+          <Menu.Content pointerEvents="auto" mr="30px">
+            <Menu.RadioItemGroup
+              value={props.listStatus}
+              onValueChange={(e) => handleChange(e.value)}
             >
-              Today
-            </MenuItemOption>
-            <MenuItemOption
-              as="div"
-              value={TaskListCompletedStatusCode.CompletedYesterday}
-            >
-              Yesterday
-            </MenuItemOption>
-            <MenuItemOption
-              as="div"
-              value={TaskListCompletedStatusCode.Completed_1Week}
-            >
-              1 week
-            </MenuItemOption>
-            <MenuItemOption
-              as="div"
-              value={TaskListCompletedStatusCode.Completed_2Weeks}
-            >
-              2 weeks
-            </MenuItemOption>
-            <MenuItemOption
-              as="div"
-              value={TaskListCompletedStatusCode.Completed_3Weeks}
-            >
-              3 weeks
-            </MenuItemOption>
-          </MenuOptionGroup>
-        </MenuOptionGroup>
-      </MenuList>
-    </Menu>
+              <Menu.RadioItem value={TaskListCompletedStatusCode.Completed}>
+                All Completed Tasks
+              </Menu.RadioItem>
+              <Menu.RadioItemGroup
+                value={props.listStatus}
+                title="Marked complete since:"
+                color="text.muted"
+                fontSize="xs"
+                onValueChange={(e) => handleChange(e.value)}
+              >
+                <Menu.RadioItem
+                  value={TaskListCompletedStatusCode.CompletedToday}
+                >
+                  Today
+                </Menu.RadioItem>
+                <Menu.RadioItem
+                  value={TaskListCompletedStatusCode.CompletedYesterday}
+                >
+                  Yesterday
+                </Menu.RadioItem>
+                <Menu.RadioItem
+                  value={TaskListCompletedStatusCode.Completed_1Week}
+                >
+                  1 week
+                </Menu.RadioItem>
+                <Menu.RadioItem
+                  value={TaskListCompletedStatusCode.Completed_2Weeks}
+                >
+                  2 weeks
+                </Menu.RadioItem>
+                <Menu.RadioItem
+                  value={TaskListCompletedStatusCode.Completed_3Weeks}
+                >
+                  3 weeks
+                </Menu.RadioItem>
+              </Menu.RadioItemGroup>
+            </Menu.RadioItemGroup>
+          </Menu.Content>
+        </Menu.Positioner>
+      </Portal>
+    </Menu.Root>
   );
 }
-
-// NOTE: Use custom component instead of `Box` because of styling issue with positioning menu item
-const MenuButtonAs = chakra('div', {
-  baseStyle: {
-    w: 'full',
-  },
-});

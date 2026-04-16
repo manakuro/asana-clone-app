@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback } from 'react';
-import { MenuItem } from './MenuItem';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   projectId: string;
@@ -12,7 +12,7 @@ export function DeleteProject(props: Props) {
   const { onClose, onMouseEnter } = props;
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
+    (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
       e.preventDefault();
       onClose();
@@ -21,8 +21,13 @@ export function DeleteProject(props: Props) {
   );
 
   return (
-    <MenuItem onMouseEnter={onMouseEnter} onClick={handleClick} isDisabled>
+    <Menu.Item
+      value=""
+      onMouseEnter={onMouseEnter}
+      onClick={handleClick}
+      disabled
+    >
       Delete Project
-    </MenuItem>
+    </Menu.Item>
   );
 }

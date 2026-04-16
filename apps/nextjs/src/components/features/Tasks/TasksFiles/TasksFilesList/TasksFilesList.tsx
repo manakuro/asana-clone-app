@@ -16,9 +16,9 @@ export const TasksFilesList = memo(function TasksFilesList() {
 
   return (
     <Flex flex={1} pb={4}>
-      <Stack maxW="90%" mx="auto" direction="row" spacing={8}>
+      <Stack maxW="90%" mx="auto" direction="row" gap={8}>
         {sections.map((ids) => (
-          <Stack spacing={8} key={ids.toString()}>
+          <Stack gap={8} key={ids.toString()}>
             {ids.map((id) => (
               <TasksFilesListItem taskFileId={id} key={id} />
             ))}

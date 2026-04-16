@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
 import { Button } from '@/components/ui/Button';
-import { Divider } from '@/components/ui/Divider';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';
+import { Separator } from '@/components/ui/Separator';
 import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';
 import { formatTaskFileCreatedAt } from '@/shared/date';
@@ -25,37 +25,30 @@ export const Header = memo(function Header() {
           {formattedCreateAt}
         </Text>
       </Flex>
-      <Stack direction="row" spacing={2} ml="auto" py={4} px={6}>
+      <Stack direction="row" gap={2} ml="auto" py={4} px={6}>
         <Link href={taskFile.src} download>
-          <Button
-            leftIcon={<Icon icon="download" />}
-            iconSpacing={2}
-            variant="ghost"
-            lightBg
-          >
+          <Button gap={2} variant="ghost" lightBg>
+            <Icon icon="download" />
             Download
           </Button>
         </Link>
         <ComingSoonTooltip>
-          <Button
-            leftIcon={<Icon icon="commentDots" />}
-            iconSpacing={2}
-            variant="ghost"
-            lightBg
-          >
+          <Button gap={2} variant="ghost" lightBg>
+            <Icon icon="commentDots" />
             Add Feedback
           </Button>
         </ComingSoonTooltip>
       </Stack>
-      <Divider orientation="vertical" />
+      <Separator orientation="vertical" />
       <Flex py={4} px={6} justifyContent="center" alignItems="center">
         <IconButton
-          icon={<Icon icon="x" size="lg" />}
           aria-label="close modal"
           variant="ghost"
           light
           onClick={onClose}
-        />
+        >
+          <Icon icon="x" size="lg" />
+        </IconButton>
       </Flex>
     </Flex>
   );

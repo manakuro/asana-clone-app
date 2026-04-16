@@ -14,10 +14,10 @@ export const CustomizeButton = memo(function CustomizeButton() {
     <Button
       variant="ghost"
       aria-label="Sort tasks"
-      leftIcon={<Icon icon="customize" />}
       size="xs"
       onClick={handleClick}
     >
+      <Icon icon="customize" />
       Customize
     </Button>
   );

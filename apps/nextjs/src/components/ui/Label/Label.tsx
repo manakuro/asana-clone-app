@@ -1,18 +1,10 @@
-import type { FormLabelProps } from '@chakra-ui/react';
-import styled from '@emotion/styled';
-import { type ChakraProps, chakra } from '@/shared/chakra';
+import type { ComponentProps } from 'react';
+import { chakra } from '@/shared/chakra';
 
-type Props = ChakraProps & FormLabelProps;
+type Props = ComponentProps<typeof chakra.label>;
 export type LabelProps = Props;
 
 export function Label(props: Props) {
-  return <StyledLabel {...props} />;
+  // biome-ignore lint/a11y/noLabelWithoutControl: label is associated with a form control
+  return <chakra.label display="flex" fontSize="sm" w="full" {...props} />;
 }
-
-const StyledLabel = chakra(styled.label``, {
-  baseStyle: {
-    display: 'flex',
-    fontSize: 'sm',
-    w: 'full',
-  },
-});

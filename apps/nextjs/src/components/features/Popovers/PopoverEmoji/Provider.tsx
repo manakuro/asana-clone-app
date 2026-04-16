@@ -3,7 +3,7 @@ import type { BaseEmoji } from '@/shared/emoji';
 import { createProvider } from '@/shared/react/createProvider';
 
 type ContextProps = {
-  isOpen: boolean;
+  open: boolean;
   emoji: BaseEmoji | null;
   onClose: (data?: BaseEmoji) => void;
   onOpen: () => Promise<BaseEmoji>;
@@ -13,7 +13,7 @@ type Props = {
   onChange?: (emoji?: BaseEmoji) => void;
 };
 const useValue = (props: Props): ContextProps => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [open, setIsOpen] = useState<boolean>(false);
   const [emoji, setEmoji] = useState<BaseEmoji | null>(null);
   const [callback, setCallback] = useState<(val?: BaseEmoji) => void>();
 
@@ -35,7 +35,7 @@ const useValue = (props: Props): ContextProps => {
   }, []);
 
   return {
-    isOpen,
+    open,
     emoji,
     onClose,
     onOpen,

@@ -6,7 +6,7 @@ import { useStrikethrough } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label'> & {
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Omit<TooltipProps, 'content'>;
 };
 
 export const Strikethrough = memo(function Strikethrough(props: Props) {
@@ -14,15 +14,16 @@ export const Strikethrough = memo(function Strikethrough(props: Props) {
   return (
     <BaseButton
       aria-label="strikethrough"
-      icon={<Icon icon="strikethrough" color="text.muted" />}
       action={action}
       {...props}
       tooltip={{
-        label: 'Strikethrough\n(⌘+⇧+S)',
+        content: 'Strikethrough\n(⌘+⇧+S)',
         'aria-label': 'Strikethrough',
         ...props.tooltip,
       }}
       isActive={isActive}
-    />
+    >
+      <Icon icon="strikethrough" color="text.muted" />
+    </BaseButton>
   );
 });

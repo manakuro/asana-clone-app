@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import type { ChakraProps } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 
-type Props = ChakraProps;
+type Props = SystemStyleObject;
 
 export const useDisabledStyle = (props?: Props) => {
-  const disabledStyle = useMemo<ChakraProps>(
+  const disabledStyle = useMemo<SystemStyleObject>(
     () => ({
       opacity: '0.4',
       cursor: 'default',

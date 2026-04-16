@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onClose: () => void;
@@ -11,8 +11,8 @@ export const DeleteProject = memo(function DeleteProject(props: Props) {
   const { onMouseEnter } = props;
 
   return (
-    <MenuItem onMouseEnter={onMouseEnter} color="alert" isDisabled>
+    <Menu.Item value="" onMouseEnter={onMouseEnter} color="alert" disabled>
       Delete project
-    </MenuItem>
+    </Menu.Item>
   );
 });

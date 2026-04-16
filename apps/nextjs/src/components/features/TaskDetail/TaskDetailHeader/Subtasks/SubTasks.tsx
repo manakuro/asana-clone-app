@@ -17,19 +17,22 @@ export const SubTasks = memo(function SubTasks(props: Props) {
 
   return (
     <Tooltip
-      hasArrow
-      label="Add a task to this task. SubTasks can have different assignees and due date"
+      showArrow
+      content="Add a task to this task. SubTasks can have different assignees and due date"
       aria-label="Subtasks button description"
       size="md"
-      textAlign="left"
+      contentProps={{
+        textAlign: 'left',
+      }}
     >
       <IconButton
         aria-label="Subtasks button"
-        icon={<Icon icon="subdirectoryRight" color="text.muted" />}
         variant="ghost"
         size="sm"
         onClick={handleAddSubtask}
-      />
+      >
+        <Icon icon="subdirectoryRight" color="text.muted" />
+      </IconButton>
     </Tooltip>
   );
 });

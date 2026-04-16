@@ -9,7 +9,7 @@ import { guide1Item } from './item';
 export function SeeMore() {
   return (
     <>
-      <Stack spacing={3}>
+      <Stack gap={3}>
         <Text fontSize="sm">{guide1Item.description}</Text>
         <Text fontSize="sm">
           There’s no wrong way to use our app but there are best practices and
@@ -17,7 +17,7 @@ export function SeeMore() {
         </Text>
       </Stack>
       <Section title="How information is organized">
-        <Stack spacing={3}>
+        <Stack gap={3}>
           <AspectRatio ratio={4 / 3}>
             <Box w="full" bg="gray.200" borderRadius="md" />
           </AspectRatio>
@@ -42,7 +42,7 @@ export function SeeMore() {
         </Stack>
       </Section>
       <Section title="Check fewer tools">
-        <Stack spacing={3}>
+        <Stack gap={3}>
           <AspectRatio ratio={4 / 3}>
             <Box w="full" bg="gray.200" borderRadius="md" />
           </AspectRatio>
@@ -53,7 +53,7 @@ export function SeeMore() {
         </Stack>
       </Section>
       <Section title="Integrate with your apps">
-        <Stack spacing={3}>
+        <Stack gap={3}>
           <AspectRatio ratio={4 / 3}>
             <Box w="full" bg="gray.200" borderRadius="md" />
           </AspectRatio>
@@ -66,7 +66,7 @@ export function SeeMore() {
               _hover={{
                 textDecoration: 'underline !important',
               }}
-              isExternal
+              target="_blank"
             >
               integrates
             </Link>{' '}

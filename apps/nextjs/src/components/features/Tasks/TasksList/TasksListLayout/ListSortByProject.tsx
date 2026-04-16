@@ -27,13 +27,14 @@ export const ListSortByProject: React.FC = memo(() => {
         <TasksListSectionGroupByProject projectId={id} key={id} />
       ))}
       <Flex>
-        <Flex alignItems="center" mt={6} pl={6} {...stickyStyle}>
+        <Flex alignItems="center" mt={6} pl={6} css={stickyStyle}>
           <IconButton
             aria-label="Task list expand button"
-            icon={<Icon icon={isExpanded ? 'chevronDown' : 'chevronRight'} />}
             variant="ghost"
             onClick={handleToggle}
-          />
+          >
+            <Icon icon={isExpanded ? 'chevronDown' : 'chevronRight'} />
+          </IconButton>
           <Box px={2} fontWeight="semibold">
             No Project
           </Box>

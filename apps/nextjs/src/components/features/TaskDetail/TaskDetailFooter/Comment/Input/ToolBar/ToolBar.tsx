@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/Button';
 import { AtMention, Emoji, Format } from '@/components/ui/Editor/ToolBar';
 import { Flex } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 import { useInputContext } from '../Provider';
 import { Attachment } from './Attachment';
 
@@ -17,7 +17,7 @@ export const ToolBar = memo(function ToolBar() {
       transition={transitions.base('height')}
       overflow="hidden"
     >
-      <Stack direction="row" spacing={1} alignItems="center">
+      <Stack direction="row" gap={1} alignItems="center">
         <Format />
         <AtMention />
         <Emoji />

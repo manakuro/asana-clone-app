@@ -10,7 +10,7 @@ const isOpenAtom = atom(false);
 export const useTaskDetailModal = () => {
   const { resetScrollId } = useTaskDetailResetScrollId();
   const { resetId } = useTaskDetailResetId();
-  const [isOpen, setIsOpen] = useAtom(isOpenAtom);
+  const [open, setIsOpen] = useAtom(isOpenAtom);
 
   const onClose = useCallback(() => {
     setIsOpen(false);
@@ -27,7 +27,7 @@ export const useTaskDetailModal = () => {
   );
 
   return {
-    isOpen,
+    open,
     onOpen,
     onClose,
   };

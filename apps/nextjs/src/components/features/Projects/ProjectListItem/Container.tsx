@@ -13,7 +13,7 @@ export function Container(props: Props) {
       borderColor="gray.200"
       py={3}
       px={2}
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
       {...props}
     />
   );

@@ -6,8 +6,8 @@ import {
   TaskDetailFooter,
   TaskDetailHeader,
 } from '@/components/features/TaskDetail';
-import { Divider } from '@/components/ui/Divider';
 import { Flex } from '@/components/ui/Flex';
+import { Separator } from '@/components/ui/Separator';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
@@ -65,8 +65,13 @@ export const Content = memo(function Content(props: Props) {
             mode="drawer"
           />
         </Flex>
-        <Divider />
-        <Flex {...drawerStyle.body} display="flex" flexDirection="column" p={0}>
+        <Separator />
+        <Flex
+          css={drawerStyle.body}
+          display="flex"
+          flexDirection="column"
+          p={0}
+        >
           <TaskDetailBody isMakePublic loading={props.loading} />
         </Flex>
         <Flex p={0}>

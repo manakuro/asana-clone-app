@@ -19,7 +19,7 @@ export const TaskName = memo(function TaskName(props: Props) {
 
   return (
     <Text
-      noOfLines={1}
+      lineClamp={1}
       fontSize="sm"
       ml={2}
       width="60%"

@@ -24,7 +24,7 @@ const items: TNavListItem[] = [
 ];
 export function Detail() {
   return (
-    <List w="full">
+    <List.Root w="full">
       {items.map((n) => (
         <NavListItem
           key={n.name}
@@ -35,6 +35,6 @@ export function Detail() {
           }}
         />
       ))}
-    </List>
+    </List.Root>
   );
 }

@@ -10,7 +10,7 @@ type Props<ListStatus> = {
 };
 
 export type UseMenuSelect<ListStatus> = {
-  isOpen: boolean;
+  open: boolean;
   onOpen: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onClose: () => void;
   onChange: (status: ListStatus) => void;
@@ -18,7 +18,7 @@ export type UseMenuSelect<ListStatus> = {
 };
 
 export const Context = createContext<UseMenuSelect<any>>({
-  isOpen: false,
+  open: false,
   onOpen: () => {},
   onClose: () => {},
   onChange: () => {},
@@ -56,7 +56,7 @@ export const useMenuSelect = <ListStatus,>(
   );
 
   return {
-    isOpen: disclosure.isOpen,
+    open: disclosure.open,
     onOpen,
     onClose,
     onChange,

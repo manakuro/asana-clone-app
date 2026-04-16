@@ -3,8 +3,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Menu, MenuButton } from '@/components/ui/Menu';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Menu } from '@/components/ui/Menu';
 import { useDisclosure } from '@/shared/chakra';
 import {
   useTasksBoardListItemContext,
@@ -17,16 +16,16 @@ type Props = {
 };
 
 export const MoreAction = memo(function MoreAction(props: Props) {
-  const { onClose, onOpen, isOpen } = useDisclosure();
+  const { onClose, onOpen, open } = useDisclosure();
   const { isHovering } = useTasksBoardListItemContext();
   const { inputFocused } = useTasksBoardListItemInputContext();
 
   const show = useMemo<boolean>(() => {
-    if (isOpen) return true;
+    if (open) return true;
     if (inputFocused) return false;
     if (isHovering) return true;
     return false;
-  }, [isHovering, isOpen, inputFocused]);
+  }, [isHovering, open, inputFocused]);
 
   const handleOpen = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -37,28 +36,25 @@ export const MoreAction = memo(function MoreAction(props: Props) {
   );
 
   return (
-    <PortalManager zIndex={1500}>
-      <Menu
-        placement="bottom-start"
-        closeOnBlur={false}
-        closeOnSelect={false}
-        isOpen={isOpen}
-        isLazy
-      >
-        <Flex position="absolute" top={2} right={2}>
-          <MenuButton
+    <Menu.Root
+      positioning={{ placement: 'bottom-start' }}
+      closeOnSelect={false}
+      open={open}
+      lazyMount
+    >
+      <Flex position="absolute" top={2} right={2}>
+        <Menu.Trigger asChild>
+          <IconButton
             aria-label="More actions"
-            as={IconButton}
-            icon={
-              <Icon icon="dotsHorizontalRounded" color="text.muted" ml="1px" />
-            }
             size="sm"
             onClick={handleOpen}
             display={show ? 'flex' : 'none'}
-          />
-        </Flex>
-        {isOpen && <MenuList onCloseMenu={onClose} taskId={props.taskId} />}
-      </Menu>
-    </PortalManager>
+          >
+            <Icon icon="dotsHorizontalRounded" color="text.muted" ml="1px" />
+          </IconButton>
+        </Menu.Trigger>
+      </Flex>
+      {open && <MenuList onCloseMenu={onClose} taskId={props.taskId} />}
+    </Menu.Root>
   );
 });

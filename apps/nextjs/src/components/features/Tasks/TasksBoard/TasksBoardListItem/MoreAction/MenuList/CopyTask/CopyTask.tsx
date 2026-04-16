@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
-import { useToast } from '@/hooks';
+import { Menu } from '@/components/ui/Menu';
+import { useToaster } from '@/hooks/useToaster';
 import { taskDetailURL } from '@/router';
 
 type Props = {
@@ -11,24 +11,25 @@ type Props = {
 };
 export const CopyTask = memo(function CopyTask(props: Props) {
   const { onMouseEnter, onCloseMenu } = props;
-  const { toast } = useToast();
+  const { toaster } = useToaster();
 
   const handleClick = useCallback(async () => {
     await navigator.clipboard.writeText(taskDetailURL(props.taskId));
-    toast({
+    toaster.success({
       description: 'The task link was copied to your clipboard.',
     });
     onCloseMenu();
-  }, [onCloseMenu, props.taskId, toast]);
+  }, [onCloseMenu, props.taskId, toaster.success]);
 
   return (
-    <MenuItem
+    <Menu.Item
       onMouseEnter={onMouseEnter}
-      icon={<Icon icon="link" color="text.muted" />}
       onClick={handleClick}
-      isDisabled
+      disabled
+      value=""
     >
+      <Icon icon="link" color="text.muted" />
       Copy task link
-    </MenuItem>
+    </Menu.Item>
   );
 });

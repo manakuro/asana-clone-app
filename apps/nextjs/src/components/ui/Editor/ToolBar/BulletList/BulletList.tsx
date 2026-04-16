@@ -6,7 +6,7 @@ import { useBulletList } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label'> & {
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Omit<TooltipProps, 'content'>;
 };
 
 export const BulletList = memo(function BulletList(props: Props) {
@@ -14,15 +14,16 @@ export const BulletList = memo(function BulletList(props: Props) {
   return (
     <BaseButton
       aria-label="underline"
-      icon={<Icon icon="listUl" color="text.muted" />}
       action={action}
       {...props}
       tooltip={{
-        label: 'Bullet List\n(⌘+⇧+8)',
+        content: 'Bullet List\n(⌘+⇧+8)',
         'aria-label': 'Bullet List',
         ...props.tooltip,
       }}
       isActive={isActive}
-    />
+    >
+      <Icon icon="listUl" color="text.muted" />
+    </BaseButton>
   );
 });

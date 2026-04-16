@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
-import { Modal, ModalOverlay } from '@/components/ui/Modal';
+import { Dialog } from '@/components/ui/Dialog';
+import { Portal } from '@/components/ui/Portal';
 import { Content } from './Content';
 import { useTaskDetailModal } from './useTaskDetailModal';
 
@@ -9,7 +10,7 @@ type Props = {
 };
 
 export const TaskDetailModal = memo(function TaskDetailModal(props: Props) {
-  const { isOpen, onClose } = useTaskDetailModal();
+  const { open, onClose } = useTaskDetailModal();
   const { loading } = useTaskDetail();
 
   const handleClose = useCallback(() => {
@@ -21,14 +22,22 @@ export const TaskDetailModal = memo(function TaskDetailModal(props: Props) {
   }, [onClose, props]);
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={handleClose}
-      size="4xl"
+    <Dialog.Root
+      open={open}
+      onOpenChange={(e) => {
+        if (!e.open) {
+          onClose();
+        }
+      }}
+      size="xl"
       scrollBehavior="inside"
     >
-      <ModalOverlay />
-      {isOpen && <Content loading={loading} onClose={handleClose} />}
-    </Modal>
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>
+          {open && <Content loading={loading} onClose={handleClose} />}
+        </Dialog.Positioner>
+      </Portal>
+    </Dialog.Root>
   );
 });

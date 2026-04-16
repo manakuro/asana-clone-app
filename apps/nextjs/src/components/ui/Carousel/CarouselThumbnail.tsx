@@ -20,7 +20,7 @@ export function CarouselThumbnail(props: PropsWithChildren) {
       px={4}
       pt={6}
       pb={8}
-      spacing={8}
+      gap={8}
       justify="center"
       alignItems="center"
       mx="auto"

@@ -4,7 +4,7 @@ import {
   MenuSelectButton,
   MenuSelectList,
 } from '@/components/features/Menus';
-import { MenuItemOption } from '@/components/ui/Menu';
+import { Menu as UIMenu } from '@/components/ui/Menu';
 import { useTask } from '@/store/entities/task';
 import { useTasksPriorities } from '@/store/entities/taskPriority';
 
@@ -30,7 +30,7 @@ export const Menu = memo(function Menu(props: Props) {
   return (
     <MenuSelect<string>
       onChange={handleChange}
-      placement="bottom-end"
+      positioning={{ placement: 'bottom-end' }}
       onOpened={onOpened}
       onClosed={onClosed}
     >
@@ -39,9 +39,10 @@ export const Menu = memo(function Menu(props: Props) {
       </MenuSelectButton>
       <MenuSelectList defaultValue={defaultValue}>
         {taskPriorities.map((t) => (
-          <MenuItemOption value={t.id} key={t.id}>
+          <UIMenu.RadioItem value={t.id} key={t.id}>
             {t.name}
-          </MenuItemOption>
+            <UIMenu.ItemIndicator />
+          </UIMenu.RadioItem>
         ))}
       </MenuSelectList>
     </MenuSelect>

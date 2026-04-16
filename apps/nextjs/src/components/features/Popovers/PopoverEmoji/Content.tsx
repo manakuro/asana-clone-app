@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Box } from '@/components/ui/Box';
-import { PopoverContent } from '@/components/ui/Popover';
+import { Popover } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
 import { type BaseEmoji, EmojiPicker } from '@/shared/emoji';
@@ -21,11 +21,13 @@ export const Content = memo(function Content() {
 
   return (
     <Portal>
-      <Box zIndex="popover" w="full" h="full" ref={ref}>
-        <PopoverContent boxShadow="none" border="none" w="auto">
-          <EmojiPicker onSelect={handleSelect} title="manato" />
-        </PopoverContent>
-      </Box>
+      <Popover.Positioner>
+        <Box zIndex="popover" w="full" h="full" ref={ref}>
+          <Popover.Content boxShadow="none" border="none" w="auto">
+            <EmojiPicker onSelect={handleSelect} title="manato" />
+          </Popover.Content>
+        </Box>
+      </Popover.Positioner>
     </Portal>
   );
 });

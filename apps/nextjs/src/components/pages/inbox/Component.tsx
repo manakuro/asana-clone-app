@@ -2,17 +2,18 @@
 
 import React, { memo, useCallback } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
+import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
-import { TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';
+import { TabPanel, Tabs } from '@/components/ui/Tabs';
 import { useRouter } from '@/router';
 import { Activity } from './components/Activity';
 import { Archive } from './components/Archive';
 import { Header } from './components/Header';
 import { Provider, useInboxPageContext } from './providers/Provider';
 
-const ACTIVITY_INDEX = 0 as const;
-const ARCHIVE_INDEX = 1 as const;
+const ACTIVITY_INDEX = 'activity' as const;
+const ARCHIVE_INDEX = 'archive' as const;
 
 type Index = typeof ACTIVITY_INDEX | typeof ARCHIVE_INDEX;
 
@@ -37,7 +38,7 @@ const WrappedComponent = memo(function WrappedInboxComponent() {
   }, [setLoadingTabContent]);
 
   const handleTabsChange = useCallback(
-    async (index: number) => {
+    async (index: string) => {
       switch (index as Index) {
         case ACTIVITY_INDEX: {
           setLoading();
@@ -59,11 +60,10 @@ const WrappedComponent = memo(function WrappedInboxComponent() {
 
   return (
     <Tabs
-      index={tabIndex}
-      onChange={handleTabsChange}
+      value={tabIndex}
+      onValueChange={(e) => handleTabsChange(e.value)}
       flex={1}
       display="flex"
-      isLazy
     >
       <Flex data-testid="Inbox" flex={1} flexDirection="column" maxW="full">
         <Head title="inbox" />
@@ -71,14 +71,14 @@ const WrappedComponent = memo(function WrappedInboxComponent() {
           <Header />
         </MainHeader>
         <Flex flex={1}>
-          <TabPanels>
-            <TabPanel>
+          <Box>
+            <TabPanel value="activity">
               <Activity />
             </TabPanel>
-            <TabPanel>
+            <TabPanel value="archive">
               <Archive />
             </TabPanel>
-          </TabPanels>
+          </Box>
         </Flex>
       </Flex>
     </Tabs>

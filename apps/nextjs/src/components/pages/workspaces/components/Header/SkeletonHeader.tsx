@@ -14,7 +14,7 @@ export const SkeletonHeader = memo(function SkeletonHeader() {
           <Flex alignItems="center">
             <Skeleton w="100px" h="16px" borderRadius="full" />
           </Flex>
-          <Stack direction="row" spacing={2} mt={3}>
+          <Stack direction="row" gap={2} mt={3}>
             <Skeleton w="53px" h="16px" borderRadius="full" />
             <Skeleton w="53px" h="16px" borderRadius="full" />
             <Skeleton w="33px" h="16px" borderRadius="full" />

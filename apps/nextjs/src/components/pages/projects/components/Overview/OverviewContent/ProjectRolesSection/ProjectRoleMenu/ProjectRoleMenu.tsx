@@ -1,7 +1,6 @@
 import { memo, type PropsWithChildren } from 'react';
 import { Box } from '@/components/ui/Box';
 import { Menu } from '@/components/ui/Menu';
-import { PortalManager } from '@/components/ui/PortalManager';
 import { useDisclosure } from '@/shared/chakra';
 import { MenuList } from './MenuList';
 import { ProjectRoleInputPopover } from './ProjectRoleInputPopover';
@@ -16,23 +15,21 @@ export const ProjectRoleMenu = memo(function ProjectRoleMenu(props: Props) {
 
   return (
     <ProjectRoleInputPopover
-      isOpen={disclosurePopover.isOpen}
+      open={disclosurePopover.open}
       onClose={disclosurePopover.onClose}
       projectId={props.projectId}
       projectTeammateId={props.projectTeammateId}
     >
-      <PortalManager zIndex={1500}>
-        <Box w="full">
-          <Menu placement="bottom-start" isLazy>
-            {props.children}
-            <MenuList
-              projectId={props.projectId}
-              projectTeammateId={props.projectTeammateId}
-              onOpenPopover={disclosurePopover.onOpen}
-            />
-          </Menu>
-        </Box>
-      </PortalManager>
+      <Box w="full">
+        <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
+          {props.children}
+          <MenuList
+            projectId={props.projectId}
+            projectTeammateId={props.projectTeammateId}
+            onOpenPopover={disclosurePopover.onOpen}
+          />
+        </Menu.Root>
+      </Box>
     </ProjectRoleInputPopover>
   );
 });

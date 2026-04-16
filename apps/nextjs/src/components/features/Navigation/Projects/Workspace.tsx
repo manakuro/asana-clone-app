@@ -1,5 +1,4 @@
 import { usePathname } from 'next/navigation';
-import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useInviteModal } from '@/components/features/Modals/InviteModal/useInviteModal';
 import { useNavigation } from '@/components/features/Navigation';
@@ -7,15 +6,7 @@ import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
-import {
-  MenuItem as AtomsMenuItem,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuGroup,
-  type MenuItemProps,
-  MenuList,
-} from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { NextLink } from '@/components/ui/NextLink';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
@@ -47,7 +38,7 @@ export const Workspace = memo(function Workspace() {
   }, [setIsOpen]);
 
   return (
-    <Menu placement="bottom-end">
+    <Menu.Root positioning={{ placement: 'bottom-end' }} lazyMount>
       <Flex
         p={2}
         px={PADDING_X}
@@ -57,49 +48,47 @@ export const Workspace = memo(function Workspace() {
       >
         <Flex flex={1}>
           {!!workspace.id && (
-            <NextLink
-              href={ROUTE_WORKSPACES_OVERVIEW.href.pathnameObj(workspace.id)}
-              passHref
-              legacyBehavior
-            >
-              <Link w="full">
+            <Link w="full" asChild>
+              <NextLink
+                href={ROUTE_WORKSPACES_OVERVIEW.href.pathnameObj(workspace.id)}
+              >
                 <Text fontSize="sm" flex={1}>
                   {name}
                 </Text>
-              </Link>
-            </NextLink>
+              </NextLink>
+            </Link>
           )}
         </Flex>
-        <MenuButton {...clickableHoverLightStyle}>
-          <Icon icon="plus" />
-        </MenuButton>
+        <Menu.Trigger asChild>
+          <Icon icon="plus" {...clickableHoverLightStyle} />
+        </Menu.Trigger>
       </Flex>
       <Portal>
-        <MenuList color="text.base">
-          <MenuGroup title="Create project">
-            <MenuItem icon={<Icon icon="layout" />} isDisabled>
-              Use a template
-            </MenuItem>
-            <MenuItem icon={<Icon icon="spreadsheet" />} isDisabled>
-              Import spreadsheet
-            </MenuItem>
-            <MenuItem icon={<Icon icon="fileBlank" />} isDisabled>
-              Blank project
-            </MenuItem>
-          </MenuGroup>
-          <MenuDivider />
-          <MenuItem
-            icon={<Icon icon="userPlus" />}
-            onClick={handleInvitePeople}
-          >
-            Invite people
-          </MenuItem>
-        </MenuList>
+        <Menu.Positioner>
+          <Menu.Content color="text.base">
+            <Menu.ItemGroup>
+              <Menu.ItemGroupLabel>Create project</Menu.ItemGroupLabel>
+              <Menu.Item value="0" disabled>
+                <Icon icon="layout" />
+                Use a template
+              </Menu.Item>
+              <Menu.Item value="1" disabled>
+                <Icon icon="spreadsheet" />
+                Import spreadsheet
+              </Menu.Item>
+              <Menu.Item value="2" disabled>
+                <Icon icon="fileBlank" />
+                Blank project
+              </Menu.Item>
+            </Menu.ItemGroup>
+            <Menu.Separator />
+            <Menu.Item value="3" onClick={handleInvitePeople}>
+              <Icon icon="userPlus" />
+              Invite people
+            </Menu.Item>
+          </Menu.Content>
+        </Menu.Positioner>
       </Portal>
-    </Menu>
+    </Menu.Root>
   );
 });
-
-const MenuItem: React.FC<MenuItemProps> = (props) => (
-  <AtomsMenuItem fontSize="sm" iconSpacing={2} {...props} />
-);

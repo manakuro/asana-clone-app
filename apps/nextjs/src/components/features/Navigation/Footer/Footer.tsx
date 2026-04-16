@@ -8,10 +8,10 @@ import { ResetToken } from './ResetToken';
 
 export const Footer = memo(function Footer() {
   return (
-    <List w={MAX_WIDTH}>
+    <List.Root w={MAX_WIDTH}>
       <InviteTeammates />
       <Help />
       {isDev() && <ResetToken />}
-    </List>
+    </List.Root>
   );
 });

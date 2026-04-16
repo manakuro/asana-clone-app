@@ -4,7 +4,7 @@ import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text, type TextProps } from '@/components/ui/Text';
 import { useWorkspace } from '@/store/entities/workspace';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 export const Workspace = memo(function Workspace() {
   const { workspace } = useWorkspace();

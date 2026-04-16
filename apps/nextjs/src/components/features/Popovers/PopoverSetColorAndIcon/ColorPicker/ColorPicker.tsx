@@ -24,7 +24,7 @@ export function ColorPicker(props: Props) {
   );
 
   return (
-    <Wrap p={6} spacing={1}>
+    <Wrap p={6} gap={1}>
       {projectBaseColorIds.map((id) => (
         <ColorPickerItem
           key={id}

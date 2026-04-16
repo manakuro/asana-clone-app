@@ -19,7 +19,7 @@ export const SkeletonBoardContent = memo(function SkeletonBoardContent(
             <Flex h="36px" alignItems="center">
               <Skeleton h={TEXT_HEIGHT} w="100px" borderRadius="full" />
             </Flex>
-            <Stack spacing={2}>
+            <Stack gap={2}>
               <Skeleton h={CARD_HEIGHT} w="full" borderRadius="md" />
               <Skeleton h={CARD_HEIGHT} w="full" borderRadius="md" />
             </Stack>

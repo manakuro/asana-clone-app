@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   value: string;
@@ -16,6 +16,12 @@ export const Option = memo(function Option(props: Props) {
   );
 
   return (
-    <MenuItem onClick={() => handleChange(props.value)}>{props.text}</MenuItem>
+    <Menu.RadioItem
+      value={props.value}
+      onClick={() => handleChange(props.value)}
+    >
+      {props.text}
+      <Menu.ItemIndicator />
+    </Menu.RadioItem>
   );
 });

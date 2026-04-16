@@ -2,7 +2,6 @@ import { memo, type PropsWithChildren, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
 import { useMainStyle } from '@/hooks';
-import type { ChakraProps } from '@/shared/chakra';
 import { AddButton } from './AddButton';
 import { MyAccountAvatar } from './MyAccountAvatar';
 import { SearchInput } from './SearchInput';
@@ -24,7 +23,7 @@ export const MainHeader = memo(function MainHeader(props: Props) {
       zIndex: 'sticky',
     };
   }, [sticky]);
-  const scrollingStyle = useMemo((): ChakraProps => {
+  const scrollingStyle = useMemo(() => {
     if (isScrolling) return { shadow: 'sm' };
     return {};
   }, [isScrolling]);
@@ -44,7 +43,7 @@ export const MainHeader = memo(function MainHeader(props: Props) {
         <Flex flex="0 0 auto" w="330px">
           <Stack
             w="full"
-            spacing={4}
+            gap={4}
             direction="row"
             alignItems="center"
             justifyContent="flex-end"

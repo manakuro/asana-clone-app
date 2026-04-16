@@ -21,16 +21,17 @@ export const Header = memo(function Header(props: Props) {
       maxW="40%"
       alignItems="center"
       pl={6}
-      {...stickyStyle}
+      css={stickyStyle}
       zIndex={(stickyStyle.zIndex as number) + 1}
       mt={1}
     >
       <IconButton
         aria-label="Task list expand button"
-        icon={<Icon icon={isExpanded ? 'chevronDown' : 'chevronRight'} />}
         variant="ghost"
         onClick={onToggle}
-      />
+      >
+        <Icon icon={isExpanded ? 'chevronDown' : 'chevronRight'} />
+      </IconButton>
       <TaskSectionName projectId={props.projectId} />
     </Flex>
   );

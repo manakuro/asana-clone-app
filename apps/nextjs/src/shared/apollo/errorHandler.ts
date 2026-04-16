@@ -1,5 +1,5 @@
 import type { ErrorResponse } from '@apollo/client/link/error';
-import { useStandaloneToast } from '@/hooks';
+import { toaster } from '@/chakra-ui/ui/toaster';
 
 let unauthorized = false;
 
@@ -35,15 +35,10 @@ export const graphqlErrorHandler = ({
 const handleUnauthorizedError = () => {
   if (unauthorized) return;
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  // biome-ignore lint/correctness/useHookAtTopLevel: used for error handling
-  const { toast } = useStandaloneToast();
-
-  toast({
+  toaster.error({
     title: 'An error occurred.',
     description:
       'Unable to connect user account. Reloading will be done automatically.',
-    status: 'error',
     duration: 1000000,
   });
   setTimeout(() => {

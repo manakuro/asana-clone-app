@@ -6,7 +6,7 @@ import {
   useProjectBaseColorText,
 } from '@/store/entities/projectBaseColor';
 import { useTask } from '@/store/entities/task';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = {
   taskId: string;

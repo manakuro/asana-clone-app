@@ -1,12 +1,8 @@
+import { CloseButton } from '@chakra-ui/react';
 import { memo, useCallback } from 'react';
-import { Divider } from '@/components/ui/Divider';
+import { Dialog } from '@/components/ui/Dialog';
 import { Flex } from '@/components/ui/Flex';
-import {
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-} from '@/components/ui/Modal';
+import { Separator } from '@/components/ui/Separator';
 import { Stack } from '@/components/ui/Stack';
 import { useProject, useProjectCommand } from '@/store/entities/project';
 import { Description } from './Description';
@@ -35,12 +31,11 @@ export const Content = memo(function Content(props: Props) {
   );
 
   return (
-    <ModalContent>
-      <ModalHeader>Project details</ModalHeader>
-      <ModalCloseButton />
-      <Divider />
-      <ModalBody py={4}>
-        <Stack spacing={6}>
+    <Dialog.Content>
+      <Dialog.Header>Project details</Dialog.Header>
+      <Separator />
+      <Dialog.Body py={4}>
+        <Stack gap={6}>
           <Flex flexDirection="column">
             <Flex flexDirection="column">
               <Label>Name</Label>
@@ -55,13 +50,16 @@ export const Content = memo(function Content(props: Props) {
               </Flex>
             </Flex>
           </Flex>
-          <Divider />
+          <Separator />
           <Flex flexDirection="column">
             <DescriptionTitle projectId={projectId} />
             <Description projectId={projectId} />
           </Flex>
         </Stack>
-      </ModalBody>
-    </ModalContent>
+      </Dialog.Body>
+      <Dialog.CloseTrigger asChild>
+        <CloseButton />
+      </Dialog.CloseTrigger>
+    </Dialog.Content>
   );
 });

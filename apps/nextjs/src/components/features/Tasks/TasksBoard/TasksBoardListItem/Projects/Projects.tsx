@@ -13,7 +13,7 @@ export const Projects = memo(function Projects(props: Props) {
   if (!projectIds.length) return null;
 
   return (
-    <Stack direction="row" spacing={2} mb={4}>
+    <Stack direction="row" gap={2} mb={4}>
       {projectIds.map((id) => (
         <ProjectChip projectId={id} key={id} />
       ))}

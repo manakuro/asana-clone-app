@@ -24,7 +24,7 @@ export const DashedBox = forwardRef<HTMLDivElement, Props>(
         flexDirection="column"
         ref={ref}
         {...props}
-        {...clickableHoverLightStyle}
+        css={clickableHoverLightStyle}
       />
     );
   },

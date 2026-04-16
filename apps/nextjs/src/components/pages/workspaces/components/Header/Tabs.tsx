@@ -18,11 +18,11 @@ export const Tabs = memo(function Tabs() {
           <FavoriteButton ml={2} />
         </Flex>
         <TabList>
-          <Tab>Overview</Tab>
-          <Tab isDisabled cursor="auto !important">
+          <Tab value="overview">Overview</Tab>
+          <Tab disabled cursor="auto !important" value="messages">
             Messages
           </Tab>
-          <Tab isDisabled cursor="auto !important">
+          <Tab disabled cursor="auto !important" value="calendar">
             Calendar
           </Tab>
         </TabList>

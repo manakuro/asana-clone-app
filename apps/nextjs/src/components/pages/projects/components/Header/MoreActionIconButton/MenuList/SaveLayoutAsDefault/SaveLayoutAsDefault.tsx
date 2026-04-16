@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onClose: () => void;
@@ -14,12 +14,9 @@ export const SaveLayoutAsDefault = memo(function SaveLayoutAsDefault(
   const { onMouseEnter } = props;
 
   return (
-    <MenuItem
-      onMouseEnter={onMouseEnter}
-      icon={<Icon icon="save" color="text.muted" />}
-      isDisabled
-    >
+    <Menu.Item value="" onMouseEnter={onMouseEnter} disabled>
+      <Icon icon="save" color="text.muted" />
       Save layout as default
-    </MenuItem>
+    </Menu.Item>
   );
 });

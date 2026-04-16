@@ -1,22 +1,10 @@
+import { useSlotRecipe } from '@chakra-ui/react';
 import { useMemo } from 'react';
-import { type ChakraProps, useStyleConfig } from '@/shared/chakra';
-
-type DrawerStyle = {
-  body: ChakraProps;
-  modal: ChakraProps;
-  closeButton: ChakraProps;
-  dialogContainer: ChakraProps;
-  footer: ChakraProps;
-  header: ChakraProps;
-  overlay: ChakraProps;
-};
 
 export const useDrawerStyle = () => {
-  const style = useStyleConfig('Drawer') as unknown as DrawerStyle;
+  const recipe = useSlotRecipe({ key: 'drawer' });
 
   return {
-    drawerStyle: useMemo((): DrawerStyle => {
-      return style;
-    }, [style]),
+    drawerStyle: useMemo(() => recipe(), [recipe]),
   };
 };

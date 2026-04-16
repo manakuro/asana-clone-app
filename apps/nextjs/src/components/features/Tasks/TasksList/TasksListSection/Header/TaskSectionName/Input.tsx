@@ -30,7 +30,7 @@ export const Input = memo(function Input(props: Props) {
       autoFocus
       fontSize="md"
       placeholder="New section"
-      variant="unstyled"
+      unstyled
       fontWeight="semibold"
       border="1px"
       borderColor="gray.300"

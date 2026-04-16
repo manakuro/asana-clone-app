@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback } from 'react';
 import { useProjectDetailModal } from '@/components/features/Modals';
-import { MenuItem } from './MenuItem';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   projectId: string;
@@ -14,7 +14,7 @@ export function EditProjectDetails(props: Props) {
   const { onOpen, setProjectId } = useProjectDetailModal();
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
+    (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
       e.preventDefault();
       onClose();
@@ -26,8 +26,8 @@ export function EditProjectDetails(props: Props) {
   );
 
   return (
-    <MenuItem onMouseEnter={onMouseEnter} onClick={handleClick}>
+    <Menu.Item value="" onMouseEnter={onMouseEnter} onClick={handleClick}>
       Edit project details
-    </MenuItem>
+    </Menu.Item>
   );
 }

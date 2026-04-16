@@ -41,7 +41,7 @@ type EmojiWithSkin = { [variant in EmojiSkin]: EmojiData };
 const isEmojiWithSkin = (data: any): data is EmojiWithSkin => !!data[1];
 
 type State = {
-  isOpen: boolean;
+  open: boolean;
   x: number;
   y: number;
   query: string;
@@ -51,7 +51,7 @@ type State = {
 };
 
 const modalState = atomWithReset<State>({
-  isOpen: false,
+  open: false,
   x: 0,
   y: 0,
   query: '',
@@ -69,7 +69,7 @@ let getQuery: () => string;
 let onArrowDown: () => void;
 let onArrowUp: () => void;
 let onEnter: () => void;
-let isOpen: boolean;
+let open: boolean;
 let getCurrentCaretPosition: () => { x: number; y: number } | null;
 
 type EmojiRef = Readonly<{ current: BaseEmoji | null }>;
@@ -192,15 +192,15 @@ function useDisclosure(props: { reset: () => void }) {
 
   onOpen = useCallback(() => {
     // Avoid recalculate the position while the modal is opening
-    const position = isOpen ? {} : getCurrentCaretPosition();
+    const position = open ? {} : getCurrentCaretPosition();
     if (!position) return;
 
-    isOpen = true;
+    open = true;
 
     return new Promise<void>((resolve) => {
       setState((s) => ({
         ...s,
-        isOpen: true,
+        open: true,
         callback: resolve as () => Promise<void>,
         ...position,
       }));
@@ -208,8 +208,8 @@ function useDisclosure(props: { reset: () => void }) {
   }, [setState]);
 
   onClose = useCallback(async () => {
-    isOpen = false;
-    setState((s) => ({ ...s, isOpen: false }));
+    open = false;
+    setState((s) => ({ ...s, open: false }));
     await state.callback();
 
     // Use setTimeout to prevent moving back to the initial position ({ top: 0, left: 0 }) before closing
@@ -278,5 +278,5 @@ export {
   onArrowDown as onEmojiArrowDown,
   onArrowUp as onEmojiArrowUp,
   onEnter as onEmojiEnter,
-  isOpen as isEmojiOpen,
+  open as isEmojiOpen,
 };

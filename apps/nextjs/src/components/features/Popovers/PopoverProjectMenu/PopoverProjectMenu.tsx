@@ -1,12 +1,12 @@
-import type React from 'react';
+import type { MouseEvent, PropsWithChildren } from 'react';
 import { useCallback } from 'react';
 import type { IconButtonProps } from '@/components/ui/IconButton';
-import { Menu, MenuButton, type MenuButtonProps } from '@/components/ui/Menu';
-import { type ChakraProps, useDisclosure } from '@/shared/chakra';
+import { Menu } from '@/components/ui/Menu';
+import { type SystemStyleObject, useDisclosure } from '@/shared/chakra';
 import { useProject } from '@/store/entities/project';
 import { MenuList } from './MenuList';
 
-type Props = MenuButtonProps & {
+type Props = {
   projectId: string;
   closeMenu?: boolean;
   addFavorite?: boolean;
@@ -18,13 +18,13 @@ type Props = MenuButtonProps & {
   copyProjectLink?: boolean;
   share?: boolean;
   iconButton?: IconButtonProps;
-  menuButtonStyle?: ChakraProps;
+  menuButtonStyle?: SystemStyleObject;
   onOpened?: () => void;
   onClosed?: () => void;
 };
 export type PopoverProjectMenuProps = Props;
 
-export function PopoverProjectMenu(props: Props) {
+export function PopoverProjectMenu(props: PropsWithChildren<Props>) {
   const {
     projectId,
     addFavorite,
@@ -41,7 +41,7 @@ export function PopoverProjectMenu(props: Props) {
     onClosed,
   } = props;
   const { project } = useProject(projectId);
-  const { onClose, onOpen, isOpen } = useDisclosure();
+  const { onClose, onOpen, open } = useDisclosure();
 
   const handleCloseMenu = useCallback(() => {
     onClose();
@@ -49,7 +49,7 @@ export function PopoverProjectMenu(props: Props) {
   }, [onClose, onClosed]);
 
   const handleOpen = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
+    (e: MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
       e.preventDefault();
       onOpen();
@@ -59,11 +59,11 @@ export function PopoverProjectMenu(props: Props) {
   );
 
   return (
-    <Menu closeOnBlur={false} closeOnSelect={false} isOpen={isOpen} isLazy>
-      <MenuButton onClick={handleOpen} {...iconButton} {...menuButtonStyle}>
+    <Menu.Root closeOnSelect={false} open={open} lazyMount>
+      <Menu.Trigger onClick={handleOpen} {...iconButton} {...menuButtonStyle}>
         {props.children}
-      </MenuButton>
-      {isOpen && (
+      </Menu.Trigger>
+      {open && (
         <MenuList
           project={project}
           onCloseMenu={handleCloseMenu}
@@ -77,6 +77,6 @@ export function PopoverProjectMenu(props: Props) {
           share={share}
         />
       )}
-    </Menu>
+    </Menu.Root>
   );
 }

@@ -6,7 +6,7 @@ import { useLink } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label'> & {
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Omit<TooltipProps, 'content'>;
 };
 
 export const Link = memo(function Link(props: Props) {
@@ -15,16 +15,17 @@ export const Link = memo(function Link(props: Props) {
   return (
     <BaseButton
       aria-label="link"
-      icon={<Icon icon="link" color="text.muted" />}
       isEnable={isEnable}
       action={action}
       {...props}
       tooltip={{
-        label: 'Link\n(⌘+b)',
+        content: 'Link\n(⌘+b)',
         'aria-label': 'Link',
         ...props.tooltip,
       }}
       isActive={isActive}
-    />
+    >
+      <Icon icon="link" color="text.muted" />
+    </BaseButton>
   );
 });

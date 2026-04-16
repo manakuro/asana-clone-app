@@ -12,7 +12,7 @@ export const SearchMenuListItem = memo(function SearchMenuListItem(
   props: Props,
 ) {
   const styles = useMenuStyle().item;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const { selectedIndex, setSelectedIndex } = useSearchMenuIndex();
 
   styles._hover = undefined;
@@ -29,8 +29,8 @@ export const SearchMenuListItem = memo(function SearchMenuListItem(
   return (
     <Flex
       ref={ref}
-      {...styles}
-      bg={selected ? styles._focus.bg : 'transparent'}
+      css={styles}
+      bg={selected ? styles._focus?.bg : 'transparent'}
       fontSize="sm"
       {...props}
     />

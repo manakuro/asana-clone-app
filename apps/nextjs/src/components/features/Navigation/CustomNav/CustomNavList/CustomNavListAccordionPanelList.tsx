@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
-import { List } from '@/components/ui/List';
+import { Flex } from '@/components/ui/Flex';
 
 export function CustomNavListAccordionPanelList(props: PropsWithChildren) {
-  return <List mb={2} {...props} />;
+  return <Flex flexDirection="column" mb={2} {...props} />;
 }

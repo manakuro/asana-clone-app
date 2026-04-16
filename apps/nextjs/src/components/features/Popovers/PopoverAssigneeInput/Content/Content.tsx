@@ -1,12 +1,5 @@
 import type { MouseEvent } from 'react';
-import {
-  PopoverBody,
-  PopoverCloseButton,
-  PopoverContent,
-  PopoverHeader,
-  type PopoverProps,
-} from '@/components/ui/Popover';
-import { Portal } from '@/components/ui/Portal';
+import { Popover } from '@/components/ui/Popover';
 import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';
 import { useClickOutside } from '@/hooks';
@@ -16,7 +9,7 @@ import { Input } from './Input';
 type Props = {
   taskId: string;
   onClose: () => void;
-} & PopoverProps;
+};
 
 export function Content(props: Props) {
   const { onClose, taskId } = props;
@@ -28,33 +21,31 @@ export function Content(props: Props) {
   });
 
   return (
-    <Portal>
-      <PopoverContent
-        w="400px"
-        ref={ref}
-        onClick={(e: MouseEvent) => e.stopPropagation()}
-      >
-        <PopoverHeader border="none">
-          <Text fontSize="xs" color="text.muted">
-            Assignee
+    <Popover.Content
+      w="400px"
+      ref={ref}
+      onClick={(e: MouseEvent) => e.stopPropagation()}
+    >
+      <Popover.CloseTrigger onClick={props.onClose} color="text.muted" />
+      <Popover.Header border="none">
+        <Text fontSize="xs" color="text.muted">
+          Assignee
+        </Text>
+      </Popover.Header>
+      <Popover.Body>
+        <Stack
+          gap={2}
+          direction="row"
+          alignItems="center"
+          justifyContent="flex-end"
+        >
+          <Input taskId={taskId} onClose={onClose} />
+          <Text as="span" fontSize="sm">
+            or
           </Text>
-        </PopoverHeader>
-        <PopoverCloseButton onClick={props.onClose} color="text.muted" />
-        <PopoverBody>
-          <Stack
-            spacing={2}
-            direction="row"
-            alignItems="center"
-            justifyContent="flex-end"
-          >
-            <Input taskId={taskId} onClose={onClose} />
-            <Text as="span" fontSize="sm">
-              or
-            </Text>
-            <AssignToMeButton taskId={taskId} onClose={onClose} />
-          </Stack>
-        </PopoverBody>
-      </PopoverContent>
-    </Portal>
+          <AssignToMeButton taskId={taskId} onClose={onClose} />
+        </Stack>
+      </Popover.Body>
+    </Popover.Content>
   );
 }

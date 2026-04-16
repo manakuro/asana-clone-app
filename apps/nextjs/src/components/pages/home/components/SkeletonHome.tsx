@@ -8,7 +8,7 @@ const TEXT_HEIGHT = '16px';
 export const SkeletonHome = memo(function SkeletonHome() {
   return (
     <Box w="840px" mx="auto" py={10}>
-      <Stack spacing={10}>
+      <Stack gap={10}>
         <Flex flex={1} flexDirection="column">
           <Flex
             h="37px"
@@ -17,7 +17,7 @@ export const SkeletonHome = memo(function SkeletonHome() {
             borderBottom="1px"
             borderColor="gray.200"
           />
-          <Stack spacing={4} py={4}>
+          <Stack gap={4} py={4}>
             <Skeleton h={TEXT_HEIGHT} w="80%" borderRadius="full" />
             <Skeleton h={TEXT_HEIGHT} w="60%" borderRadius="full" />
             <Skeleton h={TEXT_HEIGHT} w="50%" borderRadius="full" />
@@ -39,7 +39,7 @@ export const SkeletonHome = memo(function SkeletonHome() {
             borderColor="gray.200"
           />
           <Box py={4}>
-            <Stack direction="row" spacing={6}>
+            <Stack direction="row" gap={6}>
               <Skeleton borderRadius="3xl" w="120px" h="120px" pt={4} />
               <Skeleton borderRadius="3xl" w="120px" h="120px" pt={4} />
             </Stack>
@@ -54,7 +54,7 @@ export const SkeletonHome = memo(function SkeletonHome() {
             borderColor="gray.200"
           />
           <Box py={4}>
-            <Stack direction="row" spacing={6}>
+            <Stack direction="row" gap={6}>
               <Skeleton borderRadius="3xl" w="120px" h="120px" pt={4} />
               <Skeleton borderRadius="3xl" w="120px" h="120px" pt={4} />
             </Stack>

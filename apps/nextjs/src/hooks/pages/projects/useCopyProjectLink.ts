@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useToast } from '@/hooks';
+import { useToaster } from '@/hooks/useToaster';
 import { getProjectsURL } from '@/router/projects';
 
 type Props = {
@@ -7,14 +7,14 @@ type Props = {
 };
 export const useCopyProjectLink = (props: Props) => {
   const { projectId } = props;
-  const { toast } = useToast();
+  const { toaster } = useToaster();
 
   const copyProjectLink = useCallback(async () => {
     await navigator.clipboard.writeText(getProjectsURL(projectId));
-    toast({
+    toaster.success({
       description: 'The project link was copied to your clipboard.',
     });
-  }, [projectId, toast]);
+  }, [projectId, toaster.success]);
 
   return {
     copyProjectLink,

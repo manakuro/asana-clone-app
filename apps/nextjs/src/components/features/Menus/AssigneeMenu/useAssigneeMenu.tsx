@@ -8,7 +8,7 @@ const assigneeAtom = atom<any | null>(null);
 const assigneeSelectedIndexAtom = atom<number>(0);
 
 export const useAssigneeMenu = () => {
-  const [isOpen, setIsOpen] = useAtom(assigneeOpenAtom);
+  const [open, setIsOpen] = useAtom(assigneeOpenAtom);
   const [assignee, setAssignee] = useAtom(assigneeAtom);
   const [selectedIndex, setSelectedIndex] = useAtom(assigneeSelectedIndexAtom);
 
@@ -21,7 +21,7 @@ export const useAssigneeMenu = () => {
   }, [setIsOpen]);
 
   return {
-    isOpen,
+    open,
     onOpen,
     onClose,
     setAssignee,

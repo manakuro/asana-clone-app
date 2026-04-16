@@ -4,14 +4,14 @@ import { useCallback } from 'react';
 const openAtom = atom(false);
 
 export const useInviteModal = () => {
-  const [isOpen, setIsOpen] = useAtom(openAtom);
+  const [open, setIsOpen] = useAtom(openAtom);
 
   const onClose = useCallback(() => {
     setIsOpen(false);
   }, [setIsOpen]);
 
   return {
-    isOpen,
+    open,
     setIsOpen,
     onClose,
   };

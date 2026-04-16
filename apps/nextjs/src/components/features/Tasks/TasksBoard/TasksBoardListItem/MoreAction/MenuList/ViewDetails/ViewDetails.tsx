@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onMouseEnter: () => void;
@@ -14,13 +14,13 @@ export const ViewDetails = memo(function ViewDetails(props: Props) {
   const { onClose } = useTaskDetailDrawer();
   const { navigateToTaskDetail, navigateToTaskBoard, isTaskDetailURLById } =
     useTasksRouter();
-  const isOpen = useMemo(
+  const open = useMemo(
     () => isTaskDetailURLById(props.taskId),
     [isTaskDetailURLById, props.taskId],
   );
 
   const handleClick = useCallback(async () => {
-    if (isOpen) {
+    if (open) {
       await navigateToTaskBoard();
       await onClose();
     } else {
@@ -28,7 +28,7 @@ export const ViewDetails = memo(function ViewDetails(props: Props) {
     }
     onCloseMenu();
   }, [
-    isOpen,
+    open,
     navigateToTaskBoard,
     navigateToTaskDetail,
     onClose,
@@ -37,12 +37,9 @@ export const ViewDetails = memo(function ViewDetails(props: Props) {
   ]);
 
   return (
-    <MenuItem
-      onMouseEnter={onMouseEnter}
-      icon={<Icon icon="detail" color="text.muted" />}
-      onClick={handleClick}
-    >
-      {isOpen ? 'Close details' : 'View details'}
-    </MenuItem>
+    <Menu.Item onMouseEnter={onMouseEnter} onClick={handleClick} value="">
+      <Icon icon="detail" color="text.muted" />
+      {open ? 'Close details' : 'View details'}
+    </Menu.Item>
   );
 });

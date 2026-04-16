@@ -20,7 +20,7 @@ export const Task = memo(function Task(props: Props) {
         <CheckIcon completed={props.mention.completed} />
       </LeftContainer>
       <RightContainer>
-        <Text fontSize="sm" maxW="80%" noOfLines={1}>
+        <Text fontSize="sm" maxW="80%" lineClamp={1}>
           {props.mention.title}
         </Text>
         <Text ml={5} fontSize="xs" color="text.muted">

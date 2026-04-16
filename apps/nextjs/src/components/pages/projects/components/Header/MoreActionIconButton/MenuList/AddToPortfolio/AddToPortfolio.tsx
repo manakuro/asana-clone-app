@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onClose: () => void;
@@ -12,12 +12,9 @@ export const AddToPortfolio = memo(function AddToPortfolio(props: Props) {
   const { onMouseEnter } = props;
 
   return (
-    <MenuItem
-      onMouseEnter={onMouseEnter}
-      icon={<Icon icon="plus" color="text.muted" />}
-      isDisabled
-    >
+    <Menu.Item value="" onMouseEnter={onMouseEnter} disabled>
+      <Icon icon="plus" color="text.muted" />
       Add to Portfolio
-    </MenuItem>
+    </Menu.Item>
   );
 });

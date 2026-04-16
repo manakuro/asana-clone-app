@@ -1,8 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { Menu, MenuButton } from '@/components/ui/Menu';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Menu } from '@/components/ui/Menu';
 import { useClickableHoverStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { MenuList } from './MenuList';
@@ -14,10 +13,10 @@ type Props = {
 export const WorkspaceMenu = memo(function WorkspaceMenu(props: Props) {
   const { workspaceId } = props;
   const { clickableHoverLightStyle } = useClickableHoverStyle();
-  const { onClose, onOpen, isOpen } = useDisclosure();
+  const { onClose, onOpen, open } = useDisclosure();
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
+    (e: React.MouseEvent<SVGElement>) => {
       e.stopPropagation();
       e.preventDefault();
 
@@ -27,13 +26,20 @@ export const WorkspaceMenu = memo(function WorkspaceMenu(props: Props) {
   );
 
   return (
-    <PortalManager zIndex={1500}>
-      <Menu placement="bottom-start" isLazy isOpen={isOpen}>
-        <MenuButton {...clickableHoverLightStyle} onClick={handleClick}>
-          <Icon icon="dotsHorizontalRounded" color="white" />
-        </MenuButton>
-        {isOpen && <MenuList onClose={onClose} workspaceId={workspaceId} />}
-      </Menu>
-    </PortalManager>
+    <Menu.Root
+      positioning={{ placement: 'bottom-start' }}
+      lazyMount
+      open={open}
+    >
+      <Menu.Trigger asChild>
+        <Icon
+          icon="dotsHorizontalRounded"
+          color="white"
+          {...clickableHoverLightStyle}
+          onClick={handleClick}
+        />
+      </Menu.Trigger>
+      {open && <MenuList onClose={onClose} workspaceId={workspaceId} />}
+    </Menu.Root>
   );
 });

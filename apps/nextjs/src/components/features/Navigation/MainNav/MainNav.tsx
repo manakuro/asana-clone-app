@@ -9,12 +9,12 @@ import { Portfolios } from './Portfolios';
 
 export const MainNav = memo(function MainNav() {
   return (
-    <List w={MAX_WIDTH} mb={2}>
+    <List.Root w={MAX_WIDTH} mb={2}>
       <Home />
       <MyTasks />
       <Inbox />
       <Portfolios />
       <Goals />
-    </List>
+    </List.Root>
   );
 });

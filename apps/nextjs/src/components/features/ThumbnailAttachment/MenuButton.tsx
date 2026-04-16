@@ -3,13 +3,10 @@ import { useCallback, useMemo } from 'react';
 import { useThumbnailAttachmentContext } from '@/components/features/ThumbnailAttachment/Provider';
 import { Icon, type IconProps } from '@/components/ui/Icon';
 import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
-import {
-  MenuButton as AtomsMenuButton,
-  type MenuButtonProps,
-} from '@/components/ui/Menu';
-import { transitions } from '@/styles';
+import { Menu, type MenuTriggerProps } from '@/components/ui/Menu';
+import { transitions } from '@/styles/transitions';
 
-type Props = Omit<MenuButtonProps, 'children'> & {
+type Props = Omit<MenuTriggerProps, 'children'> & {
   light?: IconButtonProps['light'];
   color: IconProps['color'];
 };
@@ -25,20 +22,21 @@ export function MenuButton(props: Props) {
   }, []);
 
   return (
-    <AtomsMenuButton
-      aria-label="Attachment button"
-      as={IconButton}
-      icon={<Icon icon="chevronDown" color={props.color} />}
-      size="sm"
-      variant="ghost"
-      position="absolute"
-      top={4}
-      right={1}
-      zIndex="docked"
-      visibility={show ? 'visible' : 'hidden'}
-      transition={transitions.base('background')}
-      onClick={handleClick}
-      {...props}
-    />
+    <Menu.Trigger asChild {...props}>
+      <IconButton
+        aria-label="Attachment button"
+        size="sm"
+        variant="ghost"
+        position="absolute"
+        top={4}
+        right={1}
+        zIndex="docked"
+        visibility={show ? 'visible' : 'hidden'}
+        transition={transitions.base('background')}
+        onClick={handleClick}
+      >
+        <Icon icon="chevronDown" color={props.color} />
+      </IconButton>
+    </Menu.Trigger>
   );
 }

@@ -14,7 +14,7 @@ const fileViewerAtom = atomWithReset<State>({
 });
 
 export const useFileViewerModal = () => {
-  const [isOpen, setIsOpen] = useAtom(openAtom);
+  const [open, setIsOpen] = useAtom(openAtom);
   const [state, setState] = useAtom(fileViewerAtom);
   const resetState = useResetAtom(fileViewerAtom);
 
@@ -28,7 +28,7 @@ export const useFileViewerModal = () => {
   }, [setIsOpen]);
 
   return {
-    isOpen,
+    open,
     onOpen,
     onClose,
     ...state,

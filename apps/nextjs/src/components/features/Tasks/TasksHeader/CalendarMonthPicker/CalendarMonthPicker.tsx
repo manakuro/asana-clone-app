@@ -4,8 +4,7 @@ import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';
-import { Popover, PopoverTrigger } from '@/components/ui/Popover';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Popover } from '@/components/ui/Popover';
 import { Text } from '@/components/ui/Text';
 import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';
@@ -26,30 +25,29 @@ export const CalendarMonthPicker = memo(function CalendarMonthPicker(
   return (
     <Flex {...props} alignItems="center">
       <Text fontWeight="medium">{dateText}</Text>
-      <PortalManager zIndex={1500}>
-        <Popover
-          isOpen={popoverDisclosure.isOpen}
-          isLazy
-          closeOnBlur={false}
-          placement="bottom-start"
-        >
-          <PopoverTrigger>
-            <Link onClick={popoverDisclosure.onOpen}>
-              <IconButton
-                ml={1}
-                h={6}
-                aria-label="Pick month"
-                icon={<Icon icon="chevronDown" color="text.muted" />}
-                variant="ghost"
-                size="sm"
-              />
-            </Link>
-          </PopoverTrigger>
-          {popoverDisclosure.isOpen && (
-            <Content onClose={popoverDisclosure.onClose} />
-          )}
-        </Popover>
-      </PortalManager>
+      <Popover.Root
+        open={popoverDisclosure.open}
+        lazyMount
+        closeOnInteractOutside={false}
+        positioning={{ placement: 'bottom-start' }}
+      >
+        <Popover.Trigger asChild>
+          <Link onClick={popoverDisclosure.onOpen}>
+            <IconButton
+              ml={1}
+              h={6}
+              aria-label="Pick month"
+              variant="ghost"
+              size="sm"
+            >
+              <Icon icon="chevronDown" color="text.muted" />
+            </IconButton>
+          </Link>
+        </Popover.Trigger>
+        {popoverDisclosure.open && (
+          <Content onClose={popoverDisclosure.onClose} />
+        )}
+      </Popover.Root>
     </Flex>
   );
 });

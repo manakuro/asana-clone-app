@@ -6,12 +6,12 @@ import {
 } from '@/components/features/Menus/ProjectTeammateMenu';
 import type {
   PopoverContentProps,
-  PopoverProps,
+  PopoverRootProps,
 } from '@/components/ui/Popover';
 import type { Teammate } from '@/store/entities/teammate';
 import { Content } from './Content';
 
-type Props = PopoverProps & {
+type Props = PopoverRootProps & {
   onSelect: (val: Teammate) => void;
   queryText: string;
   onClose: () => void;
@@ -28,14 +28,14 @@ export const InviteCollaboratorMenu = memo(function InviteCollaboratorMenu(
     contentStyle,
     onSelect,
     onClose,
-    isOpen,
+    open,
     ...rest
   } = props;
 
   return (
-    <ProjectTeammateMenu isOpen={isOpen} {...rest}>
+    <ProjectTeammateMenu open={open} {...rest}>
       <ProjectTeammateMenuTrigger>{props.children}</ProjectTeammateMenuTrigger>
-      {isOpen && (
+      {open && (
         <ProjectTeammateMenuContent onClose={onClose} {...contentStyle}>
           <Content
             onSelect={onSelect}

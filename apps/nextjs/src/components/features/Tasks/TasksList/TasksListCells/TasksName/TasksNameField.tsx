@@ -136,7 +136,9 @@ export const TasksNameField = memo(function TasksNameField(props: Props) {
         {...style}
         position="absolute"
         top={0}
-        focusBorderColor="transparent"
+        css={{
+          '--focus-color': 'transparent',
+        }}
         placeholder={inputFocused ? 'Write a task name' : ''}
         onFocus={onInputFocus}
         onBlur={onInputBlur}

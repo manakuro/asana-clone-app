@@ -1,17 +1,12 @@
 import { useMemo } from 'react';
 import { useTasksListContentSticky } from '@/components/features/Tasks';
-import type { ChakraProps } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 import { createProvider } from '@/shared/react/createProvider';
 
 type ContextProps = {
   stickyStyle: StickyStyle;
 };
-type StickyStyle = Override<
-  ChakraProps,
-  {
-    zIndex?: number;
-  }
->;
+type StickyStyle = SystemStyleObject;
 
 const useValue = (): ContextProps => {
   const { isStickyVertical } = useTasksListContentSticky();

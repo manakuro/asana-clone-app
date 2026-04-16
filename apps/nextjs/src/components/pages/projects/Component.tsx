@@ -1,9 +1,10 @@
 import { usePathname } from 'next/navigation';
 import { memo, useCallback, useLayoutEffect, useMemo, useState } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
+import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
-import { TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';
+import { TabPanel, Tabs } from '@/components/ui/Tabs';
 import { usePrevious } from '@/hooks';
 import {
   isProjectsBoardURL,
@@ -29,13 +30,13 @@ type Props = {
   fetchTaskDetailQuery: (variables: { taskId: string }) => Promise<void>;
 };
 
-const OVERVIEW_INDEX = 0 as const;
-const LIST_INDEX = 1 as const;
-const BOARD_INDEX = 2 as const;
-const BOARD_TIMELINE = 3 as const;
-const CALENDAR_INDEX = 4 as const;
-const CALENDAR_DASHBOARD = 5 as const;
-const FILES_INDEX = 6 as const;
+const OVERVIEW_INDEX = 'overview' as const;
+const LIST_INDEX = 'list' as const;
+const BOARD_INDEX = 'board' as const;
+const BOARD_TIMELINE = 'timeline' as const;
+const CALENDAR_INDEX = 'calendar' as const;
+const CALENDAR_DASHBOARD = 'dashboard' as const;
+const FILES_INDEX = 'files' as const;
 type Index =
   | typeof OVERVIEW_INDEX
   | typeof LIST_INDEX
@@ -121,7 +122,7 @@ const WrappedComponent = memo(function WrappedComponent() {
   }, [navigateToProjectsCalendar, projectId]);
 
   const handleTabsChange = useCallback(
-    async (index: number) => {
+    async (index: string) => {
       switch (index as Index) {
         case OVERVIEW_INDEX: {
           setLoading();
@@ -170,11 +171,10 @@ const WrappedComponent = memo(function WrappedComponent() {
 
   return (
     <Tabs
-      index={tabIndex}
-      onChange={handleTabsChange}
+      value={tabIndex}
+      onValueChange={(e) => handleTabsChange(e.value)}
       flex={1}
       display="flex"
-      isLazy
     >
       <Flex data-testid="Projects" flex={1} flexDirection="column" maxW="full">
         <Head title="Projects" />
@@ -182,25 +182,25 @@ const WrappedComponent = memo(function WrappedComponent() {
           <Header loading={queryLoading} />
         </MainHeader>
         <Flex flex={1}>
-          <TabPanels>
-            <TabPanel>
+          <Box>
+            <TabPanel value="overview">
               <Overview />
             </TabPanel>
-            <TabPanel>
+            <TabPanel value="list">
               <List />
             </TabPanel>
-            <TabPanel>
+            <TabPanel value="board">
               <Board />
             </TabPanel>
-            <TabPanel />
-            <TabPanel>
+            <TabPanel value="timeline" />
+            <TabPanel value="calendar">
               <Calendar />
             </TabPanel>
-            <TabPanel />
-            <TabPanel>
+            <TabPanel value="dashboard" />
+            <TabPanel value="files">
               <Files />
             </TabPanel>
-          </TabPanels>
+          </Box>
         </Flex>
       </Flex>
     </Tabs>

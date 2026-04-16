@@ -21,7 +21,7 @@ export const Input = memo(function Input(props: Props) {
       return true;
     },
   });
-  const popoverDisclosure = useDisclosure({ defaultIsOpen: true });
+  const popoverDisclosure = useDisclosure({ defaultOpen: true });
   const [value, setValue] = useState<string>('');
 
   const handleChange = useCallback(
@@ -48,10 +48,10 @@ export const Input = memo(function Input(props: Props) {
 
   return (
     <AssigneeMenu
-      isOpen={popoverDisclosure.isOpen}
+      open={popoverDisclosure.open}
       onClose={popoverDisclosure.onClose}
       onSelect={handleSelect}
-      placement="bottom-start"
+      positioning={{ placement: 'bottom-start' }}
       queryText={value}
       contentStyle={{
         ml: '-45px',
@@ -60,7 +60,7 @@ export const Input = memo(function Input(props: Props) {
       <AtomsInput
         ref={ref}
         autoFocus
-        variant="unstyled"
+        unstyled
         fontSize="sm"
         placeholder="mana"
         onChange={handleChange}

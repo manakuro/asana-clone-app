@@ -1,4 +1,3 @@
-import type React from 'react';
 import { forwardRef, memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Provider } from './Provider';
@@ -14,8 +13,8 @@ export const TasksList = memo(function TasksList(props: Props) {
   );
 });
 
-const Component: React.FC<ComponentProps> = memo(
-  forwardRef((props, ref) => (
+const Component = memo(
+  forwardRef<HTMLDivElement, ComponentProps>((props, ref) => (
     <Flex flex={1} h="full" flexDirection="column" {...props} ref={ref} />
   )),
 );

@@ -1,9 +1,9 @@
 import { memo, useMemo } from 'react';
 import { useNavigation } from '@/components/features/Navigation';
 import { NavListItem } from '@/components/features/Navigation/NavListItem';
-import { AccordionIcon } from '@/components/ui/Accordion';
+import { Accordion } from '@/components/ui/Accordion';
 import { useDisabledStyle } from '@/hooks';
-import { Divider } from '../../Divider';
+import { Separator } from '../../Separator';
 import {
   CustomNavList,
   CustomNavListAccordion,
@@ -39,13 +39,13 @@ export const Favorites = memo(function Favorites() {
 
   return (
     <>
-      <Divider />
+      <Separator />
       <CustomNavList>
         <CustomNavListAccordion>
-          <CustomNavListAccordionItem>
+          <CustomNavListAccordionItem value="0">
             <CustomNavListAccordionButton>
               <CustomNavListHeader>{title}</CustomNavListHeader>
-              <AccordionIcon />
+              <Accordion.ItemIndicator />
             </CustomNavListAccordionButton>
             <CustomNavListAccordionPanel>
               <CustomNavListAccordionPanelList>
@@ -55,7 +55,7 @@ export const Favorites = memo(function Favorites() {
                   <NavListItem
                     item={listItem}
                     key={listItem.name}
-                    {...disabledStyle}
+                    css={disabledStyle}
                   />
                 ))}
               </CustomNavListAccordionPanelList>

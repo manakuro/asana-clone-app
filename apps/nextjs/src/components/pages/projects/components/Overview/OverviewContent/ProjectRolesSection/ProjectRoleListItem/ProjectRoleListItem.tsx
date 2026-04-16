@@ -41,7 +41,7 @@ export function ProjectRoleListItem(props: Props) {
               justifyContent="center"
               minW="1px"
             >
-              <Text fontSize="sm" fontWeight="medium" noOfLines={1}>
+              <Text fontSize="sm" fontWeight="medium" lineClamp={1}>
                 {teammate.name}
               </Text>
               <Text fontSize="xs" color="text.muted" mt={1}>

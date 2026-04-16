@@ -2,15 +2,13 @@ import { memo, useCallback } from 'react';
 import { useThumbnailAttachmentContext } from '@/components/features/ThumbnailAttachment/Provider';
 import { Link } from '@/components/ui/Link';
 import {
-  MenuItem,
-  MenuList,
-  type MenuProps,
+  type MenuRootProps,
   Menu as OrganismsMenu,
 } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { useTaskFile } from '@/store/entities/taskFile';
 
-type Props = MenuProps & {
+type Props = MenuRootProps & {
   taskFileId: string;
 };
 
@@ -28,24 +26,36 @@ export const Menu = memo(function Menu(props: Props) {
   }, [setThumbnailMenuOpened]);
 
   return (
-    <OrganismsMenu
-      onOpen={handleThumbnailMenuOpen}
-      onClose={handleThumbnailMenuClose}
+    <OrganismsMenu.Root
+      onOpenChange={(e) => {
+        if (e.open) {
+          handleThumbnailMenuOpen();
+        } else {
+          handleThumbnailMenuClose();
+        }
+      }}
       {...rest}
     >
       {props.children}
       <Portal>
-        <MenuList>
-          <MenuItem>
-            <Link href={taskFile.src} download>
-              Download taskFile
-            </Link>
-          </MenuItem>
-          <MenuItem onClick={onDelete} color="alert" isDisabled>
-            Delete task file
-          </MenuItem>
-        </MenuList>
+        <OrganismsMenu.Positioner>
+          <OrganismsMenu.Content>
+            <OrganismsMenu.Item value="">
+              <Link href={taskFile.src} download>
+                Download taskFile
+              </Link>
+            </OrganismsMenu.Item>
+            <OrganismsMenu.Item
+              onClick={onDelete}
+              color="alert"
+              disabled
+              value=""
+            >
+              Delete task file
+            </OrganismsMenu.Item>
+          </OrganismsMenu.Content>
+        </OrganismsMenu.Positioner>
       </Portal>
-    </OrganismsMenu>
+    </OrganismsMenu.Root>
   );
 });

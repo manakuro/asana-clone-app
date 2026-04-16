@@ -62,7 +62,7 @@ export const InvitedTeammateChip = memo(function InvitedTeammateChip(
       _hover={{ bg: 'gray.100' }}
     >
       <TeammateAvatar teammateId={teammate.id} size="xs" />
-      <Text ml={2} fontSize="xs" noOfLines={1} color="text.base">
+      <Text ml={2} fontSize="xs" lineClamp={1} color="text.base">
         {teammate.name}
       </Text>
       {props.deletable && (

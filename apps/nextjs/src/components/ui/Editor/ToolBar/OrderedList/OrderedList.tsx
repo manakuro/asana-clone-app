@@ -6,7 +6,7 @@ import { useOrderedList } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label'> & {
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Omit<TooltipProps, 'content'>;
 };
 
 export const OrderedList = memo(function OrderedList(props: Props) {
@@ -15,15 +15,16 @@ export const OrderedList = memo(function OrderedList(props: Props) {
   return (
     <BaseButton
       aria-label="ordered list"
-      icon={<Icon icon="listOl" color="text.muted" />}
       action={action}
       {...props}
       tooltip={{
-        label: 'Ordered List\n(⌘+⇧+7)',
+        content: 'Ordered List\n(⌘+⇧+7)',
         'aria-label': 'Ordered List',
         ...props.tooltip,
       }}
       isActive={isActive}
-    />
+    >
+      <Icon icon="listOl" color="text.muted" />
+    </BaseButton>
   );
 });

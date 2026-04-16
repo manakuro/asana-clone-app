@@ -9,19 +9,19 @@ export const AddTaskSection = memo(function AddTaskSection() {
   const { addTaskSection } = useTasksTaskSectionCommand();
   const { stickyStyle } = useTasksListContext();
 
-  const handleClick = useCallback(() => {
-    addTaskSection();
+  const handleClick = useCallback(async () => {
+    await addTaskSection();
   }, [addTaskSection]);
 
   return (
-    <Flex w={40} mt={4} pl={6} {...stickyStyle}>
+    <Flex w={40} mt={4} pl={6} css={stickyStyle}>
       <Button
-        leftIcon={<Icon icon="plus" />}
         colorScheme="teal"
         variant="ghost"
         onClick={handleClick}
         size="sm"
       >
+        <Icon icon="plus" />
         Add section
       </Button>
     </Flex>

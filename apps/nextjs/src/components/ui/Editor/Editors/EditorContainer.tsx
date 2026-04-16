@@ -2,7 +2,7 @@ import type { Node as ProsemirrorNode, Schema } from 'prosemirror-model';
 import type { Plugin } from 'prosemirror-state';
 import type { EditorProps } from 'prosemirror-view';
 import { type PropsWithChildren, useMemo } from 'react';
-import { ConditionalRender } from '@/components/ui/ConditionalRender';
+import { ClientOnly } from '@/components/ui/ClientOnly';
 import { useDebounce, usePrevious } from '@/hooks';
 import {
   createJSONTransformer,
@@ -33,7 +33,7 @@ export function EditorContainer(props: Props) {
   );
 
   return (
-    <ConditionalRender client>
+    <ClientOnly>
       <EditorProvider
         plugins={props.plugins}
         doc={initialDoc}
@@ -51,7 +51,7 @@ export function EditorContainer(props: Props) {
         </Container>
         <Portals />
       </EditorProvider>
-    </ConditionalRender>
+    </ClientOnly>
   );
 }
 

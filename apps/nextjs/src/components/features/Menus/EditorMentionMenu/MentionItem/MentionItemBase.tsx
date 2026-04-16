@@ -21,7 +21,7 @@ type Props = Override<
 export const MentionItemBase = memo(function MentionItemBase(props: Props) {
   const { onClick, ...rest } = props;
   const styles = useMenuStyle().item;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const { selectedIndex, setSelectedIndex } = useEditorMentionMenu();
 
   styles._hover = undefined;
@@ -42,8 +42,8 @@ export const MentionItemBase = memo(function MentionItemBase(props: Props) {
   return (
     <Flex
       ref={ref}
-      {...styles}
-      bg={selected ? styles._focus.bg : 'transparent'}
+      css={styles}
+      bg={selected ? styles._focus?.bg : 'transparent'}
       fontSize="sm"
       onClick={handleClick}
       {...rest}

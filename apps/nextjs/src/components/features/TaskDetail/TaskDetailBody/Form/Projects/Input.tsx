@@ -3,20 +3,18 @@ import { memo, useCallback, useState } from 'react';
 import { ProjectMenu } from '@/components/features/Menus';
 import { Flex } from '@/components/ui/Flex';
 import { Input as AtomsInput, type InputProps } from '@/components/ui/Input';
-import type { MenuListProps } from '@/components/ui/Menu';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useProjectTaskCommand } from '@/store/entities/projectTask';
 
 type Props = {
   onClose: () => void;
-  menuListStyle?: MenuListProps;
   taskId: string;
 } & InputProps;
 
 export const Input = memo(function Input(props: Props) {
-  const { onClose, menuListStyle: _, taskId, ...rest } = props;
-  const popoverDisclosure = useDisclosure({ defaultIsOpen: true });
+  const { onClose, taskId, ...rest } = props;
+  const popoverDisclosure = useDisclosure({ defaultOpen: true });
   const { addProjectTaskByTaskId } = useProjectTaskCommand();
   const { ref } = useClickOutside(onClose, {
     hasClickedOutside: (e, helpers) => {
@@ -49,10 +47,10 @@ export const Input = memo(function Input(props: Props) {
 
   return (
     <ProjectMenu
-      isOpen={popoverDisclosure.isOpen}
+      open={popoverDisclosure.open}
       onClose={popoverDisclosure.onClose}
       onSelect={handleSelect}
-      placement="bottom-start"
+      positioning={{ placement: 'bottom-start' }}
       queryText={value}
       immediate
     >

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onClose: () => void;
@@ -11,8 +11,8 @@ export const Archive = memo(function Archive(props: Props) {
   const { onMouseEnter } = props;
 
   return (
-    <MenuItem onMouseEnter={onMouseEnter} isDisabled>
+    <Menu.Item value="" onMouseEnter={onMouseEnter} disabled>
       Archive
-    </MenuItem>
+    </Menu.Item>
   );
 });

@@ -41,19 +41,14 @@ export const ProjectsSection = memo(function ProjectsSection() {
             <Grid templateColumns="repeat(4, 1fr)" gap={6}>
               <ProjectTileItemNew containerStyle={{ width: 'auto' }} />
               {projectIds.map((id) => (
-                <NextLink
-                  href={ROUTE_PROJECTS_LIST.href.pathnameObj(id)}
-                  key={id}
-                  passHref
-                  legacyBehavior
-                >
-                  <Link>
+                <Link key={id} asChild>
+                  <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(id)}>
                     <ProjectTileItem
                       projectId={id}
                       containerStyle={{ width: 'auto' }}
                     />
-                  </Link>
-                </NextLink>
+                  </NextLink>
+                </Link>
               ))}
             </Grid>
           </Box>
@@ -61,16 +56,11 @@ export const ProjectsSection = memo(function ProjectsSection() {
           <>
             <ProjectListItemNew />
             {projectIds.map((id) => (
-              <NextLink
-                href={ROUTE_PROJECTS_LIST.href.pathnameObj(id)}
-                key={id}
-                passHref
-                legacyBehavior
-              >
-                <Link>
+              <Link key={id}>
+                <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(id)}>
                   <ProjectListItem projectId={id} />
-                </Link>
-              </NextLink>
+                </NextLink>
+              </Link>
             ))}
           </>
         )}

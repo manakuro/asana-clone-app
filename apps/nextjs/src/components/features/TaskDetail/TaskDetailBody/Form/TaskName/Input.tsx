@@ -35,9 +35,11 @@ export const Input = memo(function Input(props: Props) {
         value={value}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        fontSize="2xl"
-        fontWeight="semibold"
-        minH="38px"
+        inputStyle={{
+          fontSize: '2xl',
+          fontWeight: 'semibold',
+          lineHeight: '38px',
+        }}
         placeholder="Write a task name"
       />
     </Flex>

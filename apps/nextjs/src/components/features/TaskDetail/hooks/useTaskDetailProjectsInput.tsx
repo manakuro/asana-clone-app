@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 const isOpenAtom = atom<boolean>(false);
 
 export const useTaskDetailProjectsInput = () => {
-  const [isOpen, setIsOpen] = useAtom(isOpenAtom);
+  const [open, setIsOpen] = useAtom(isOpenAtom);
 
   const onOpen = useCallback(() => {
     setIsOpen(true);
@@ -15,7 +15,7 @@ export const useTaskDetailProjectsInput = () => {
   }, [setIsOpen]);
 
   return {
-    isOpen,
+    open,
     onOpen,
     onClose,
   };

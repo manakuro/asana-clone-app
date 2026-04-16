@@ -1,21 +1,28 @@
 import { memo } from 'react';
-import { Modal } from '@/components/ui/Modal';
+import { Dialog } from '@/components/ui/Dialog';
+import { Portal } from '@/components/ui/Portal';
 import { MenuContent } from './MenuContent';
 import { useEditorMentionMenu } from './useEditorMentionMenu';
 
 export const EditorMentionMenu = memo(function EditorMentionMenu() {
-  const { isOpen, onClose } = useEditorMentionMenu();
+  const { open, onClose } = useEditorMentionMenu();
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
+    <Dialog.Root
+      open={open}
+      onOpenChange={(e) => {
+        if (!e.open) {
+          onClose();
+        }
+      }}
       size="xs"
-      autoFocus={false}
       trapFocus={false}
       motionPreset="none"
     >
-      {isOpen && <MenuContent />}
-    </Modal>
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>{open && <MenuContent />}</Dialog.Positioner>
+      </Portal>
+    </Dialog.Root>
   );
 });

@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { MenuList as AtomsMenuList, MenuDivider } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
@@ -64,68 +64,70 @@ export function MenuList(props: Props) {
 
   return (
     <Portal>
-      <AtomsMenuList ref={ref} zIndex={1}>
-        <EditProjectDetails
-          projectId={projectId}
-          onClose={handleCloseAll}
-          onMouseEnter={handleClose}
-        />
-        <SetColorAndIcon
-          projectId={projectId}
-          onClose={handleCloseAll}
-          onMouseEnter={handleOpenPopoverSetColorAndIcon}
-          isOpen={disclosureForPopoverSetColorAndIcon.isOpen}
-        />
-        <MenuDivider />
-        <CopyProjectLink
-          onClose={handleCloseAll}
-          onMouseEnter={handleClose}
-          projectId={projectId}
-        />
-        <SaveLayoutAsDefault
-          onClose={handleCloseAll}
-          onMouseEnter={handleClose}
-          projectId={projectId}
-        />
-        <Duplicate
-          onClose={handleCloseAll}
-          onMouseEnter={handleClose}
-          projectId={projectId}
-        />
-        <ConvertToTemplate
-          onClose={handleCloseAll}
-          onMouseEnter={handleClose}
-          projectId={projectId}
-        />
-        <AddToPortfolio
-          onClose={handleCloseAll}
-          onMouseEnter={handleClose}
-          projectId={projectId}
-        />
-        <MenuDivider />
-        <Import
-          onClose={handleCloseAll}
-          onMouseEnter={handleOpenPopoverImportActions}
-          isOpen={disclosureForPopoverImportActions.isOpen}
-          projectId={projectId}
-        />
-        <ExportAndPrint
-          onClose={handleCloseAll}
-          onMouseEnter={handleOpenPopoverExportAndPrintActions}
-          isOpen={disclosureForPopoverExportAndPrintActions.isOpen}
-          projectId={projectId}
-        />
-        <Archive
-          onClose={handleCloseAll}
-          onMouseEnter={handleClose}
-          projectId={projectId}
-        />
-        <DeleteProject
-          onClose={handleCloseAll}
-          onMouseEnter={handleClose}
-          projectId={projectId}
-        />
-      </AtomsMenuList>
+      <Menu.Positioner>
+        <Menu.Content ref={ref} zIndex={1}>
+          <EditProjectDetails
+            projectId={projectId}
+            onClose={handleCloseAll}
+            onMouseEnter={handleClose}
+          />
+          <SetColorAndIcon
+            projectId={projectId}
+            onClose={handleCloseAll}
+            onMouseEnter={handleOpenPopoverSetColorAndIcon}
+            open={disclosureForPopoverSetColorAndIcon.open}
+          />
+          <Menu.Separator />
+          <CopyProjectLink
+            onClose={handleCloseAll}
+            onMouseEnter={handleClose}
+            projectId={projectId}
+          />
+          <SaveLayoutAsDefault
+            onClose={handleCloseAll}
+            onMouseEnter={handleClose}
+            projectId={projectId}
+          />
+          <Duplicate
+            onClose={handleCloseAll}
+            onMouseEnter={handleClose}
+            projectId={projectId}
+          />
+          <ConvertToTemplate
+            onClose={handleCloseAll}
+            onMouseEnter={handleClose}
+            projectId={projectId}
+          />
+          <AddToPortfolio
+            onClose={handleCloseAll}
+            onMouseEnter={handleClose}
+            projectId={projectId}
+          />
+          <Menu.Separator />
+          <Import
+            onClose={handleCloseAll}
+            onMouseEnter={handleOpenPopoverImportActions}
+            open={disclosureForPopoverImportActions.open}
+            projectId={projectId}
+          />
+          <ExportAndPrint
+            onClose={handleCloseAll}
+            onMouseEnter={handleOpenPopoverExportAndPrintActions}
+            open={disclosureForPopoverExportAndPrintActions.open}
+            projectId={projectId}
+          />
+          <Archive
+            onClose={handleCloseAll}
+            onMouseEnter={handleClose}
+            projectId={projectId}
+          />
+          <DeleteProject
+            onClose={handleCloseAll}
+            onMouseEnter={handleClose}
+            projectId={projectId}
+          />
+        </Menu.Content>
+      </Menu.Positioner>
     </Portal>
   );
 }

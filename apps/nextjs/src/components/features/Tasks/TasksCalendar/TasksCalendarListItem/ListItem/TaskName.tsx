@@ -12,7 +12,7 @@ export const TaskName = memo(function TaskName(props: Props) {
 
   return (
     <Flex
-      noOfLines={2}
+      lineClamp={2}
       flex={1}
       ml={1}
       fontSize="xs"

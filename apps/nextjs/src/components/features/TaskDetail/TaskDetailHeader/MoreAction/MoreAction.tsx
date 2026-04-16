@@ -1,8 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Menu, MenuButton } from '@/components/ui/Menu';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Menu } from '@/components/ui/Menu';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useDisclosure } from '@/shared/chakra';
 import { MenuList } from './MenuList';
@@ -12,39 +11,38 @@ type Props = {
 };
 
 export const MoreAction = memo(function MoreAction(props: Props) {
-  const { onClose, onOpen, isOpen } = useDisclosure();
+  const { onClose, onOpen, open } = useDisclosure();
 
   const handleOpen = useCallback(() => {
     onOpen();
   }, [onOpen]);
 
   return (
-    <PortalManager zIndex={1500}>
-      <Menu
-        placement="bottom-end"
-        closeOnBlur={false}
-        closeOnSelect={false}
-        isOpen={isOpen}
-        isLazy
+    <Menu.Root
+      positioning={{ placement: 'bottom-end' }}
+      closeOnSelect={false}
+      open={open}
+      lazyMount
+    >
+      <Tooltip
+        showArrow
+        content="More actions"
+        aria-label="More actions button"
+        size="sm"
+        withIcon
       >
-        <Tooltip
-          hasArrow
-          label="More actions"
-          aria-label="More actions button"
-          size="sm"
-          withIcon
-        >
-          <MenuButton
+        <Menu.Trigger asChild>
+          <IconButton
             aria-label="More actions"
-            as={IconButton}
-            icon={<Icon icon="dotsHorizontalRounded" color="text.muted" />}
             variant="ghost"
             size="sm"
             onClick={handleOpen}
-          />
-        </Tooltip>
-        {isOpen && <MenuList onCloseMenu={onClose} taskId={props.taskId} />}
-      </Menu>
-    </PortalManager>
+          >
+            <Icon icon="dotsHorizontalRounded" color="text.muted" />
+          </IconButton>
+        </Menu.Trigger>
+      </Tooltip>
+      {open && <MenuList onCloseMenu={onClose} taskId={props.taskId} />}
+    </Menu.Root>
   );
 });

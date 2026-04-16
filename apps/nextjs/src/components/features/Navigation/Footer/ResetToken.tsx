@@ -1,11 +1,11 @@
 import type React from 'react';
 import { useCallback } from 'react';
-import { Divider } from '@/components/features/Navigation/Divider';
+import { Separator } from '@/components/features/Navigation/Separator';
 import { Icon } from '@/components/ui/Icon';
-import { ListItem } from '@/components/ui/List';
+import { List } from '@/components/ui/List';
 import { Text } from '@/components/ui/Text';
 import { setErrorToken } from '@/shared/apollo/client';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 import { PADDING_X } from '../Navigation';
 
 export const ResetToken: React.FC = () => {
@@ -15,8 +15,8 @@ export const ResetToken: React.FC = () => {
 
   return (
     <>
-      <Divider />
-      <ListItem
+      <Separator />
+      <List.Item
         display="flex"
         alignItems="center"
         px={PADDING_X}
@@ -30,7 +30,7 @@ export const ResetToken: React.FC = () => {
       >
         <Icon icon="help" color="primary" mr={PADDING_X} mt="-2px" />
         <Text fontSize="sm">Set error Token</Text>
-      </ListItem>
+      </List.Item>
     </>
   );
 };

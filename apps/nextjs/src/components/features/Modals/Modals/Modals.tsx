@@ -4,7 +4,6 @@ import {
   EditorMentionMenu,
 } from '@/components/features/Menus';
 import {
-  DuplicateTaskModal,
   EditorLinkModal,
   FileViewerModal,
   InviteModal,
@@ -26,7 +25,6 @@ export const Modals = memo(function Modals() {
       <EditorMentionMenu />
       <EditorEmojiMenu />
       <FileViewerModal />
-      <DuplicateTaskModal />
       <ShareProjectModal />
       <ProjectDetailModal />
     </>

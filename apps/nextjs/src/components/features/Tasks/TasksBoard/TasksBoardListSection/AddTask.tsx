@@ -19,12 +19,12 @@ export const AddTask = memo(function AddTask(props: Props) {
     <Button
       mt={2}
       onClick={handleClick}
-      leftIcon={<Icon icon="plus" />}
       variant="ghost"
       size="md"
       fontSize="sm"
       {...rest}
     >
+      <Icon icon="plus" />
       Add task
     </Button>
   );

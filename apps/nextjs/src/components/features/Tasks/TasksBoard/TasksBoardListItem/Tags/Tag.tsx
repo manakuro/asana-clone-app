@@ -14,8 +14,8 @@ export const Tag = memo(function Tag(props: Props) {
 
   return (
     <Tooltip
-      hasArrow
-      label={taskTag.tag.name}
+      showArrow
+      content={taskTag.tag.name}
       aria-label={taskTag.tag.name}
       withIcon
       openDelay={500}

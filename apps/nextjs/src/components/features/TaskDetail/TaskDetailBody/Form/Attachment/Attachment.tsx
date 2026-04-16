@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useFileViewerModal } from '@/components/features/Modals';
 import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
 import { Wrap, WrapItem } from '@/components/ui/Wrap';
-import { useToast } from '@/hooks';
+import { useToaster } from '@/hooks/useToaster';
 import {
   type TaskFile,
   useTaskFileIdsByTaskId,
@@ -16,7 +16,7 @@ type Props = {
 export const Attachment = memo(function Attachment(props: Props) {
   const { taskFileIds } = useTaskFileIdsByTaskId(props.taskId);
   const { onOpen, setState } = useFileViewerModal();
-  const { toast } = useToast();
+  const { toaster } = useToaster();
 
   const onOpenFileViewer = useCallback(
     (taskFileId: string) => {
@@ -31,15 +31,15 @@ export const Attachment = memo(function Attachment(props: Props) {
 
   const onDelete = useCallback(
     (taskFile: TaskFile) => {
-      toast({
+      toaster.success({
         description: `${taskFile.name} is deleted from this task`,
       });
     },
-    [toast],
+    [toaster.success],
   );
 
   return (
-    <Wrap spacing={3}>
+    <Wrap gap={3}>
       {taskFileIds.map((id) => (
         <WrapItem key={id}>
           <ThumbnailAttachment

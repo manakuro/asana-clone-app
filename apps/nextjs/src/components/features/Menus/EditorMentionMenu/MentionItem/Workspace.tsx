@@ -20,7 +20,7 @@ export const Workspace = memo(function Workspace(_props: Props) {
         <Icon icon="group" color="text.muted" />
       </LeftContainer>
       <RightContainer>
-        <Text fontSize="sm" w="80%" noOfLines={1}>
+        <Text fontSize="sm" w="80%" lineClamp={1}>
           {workspace.name}
         </Text>
       </RightContainer>

@@ -14,7 +14,7 @@ export const SkeletonDescription = memo(function SkeletonDescription() {
       bg="white"
       zIndex={1}
     >
-      <Stack spacing={4} flex={1}>
+      <Stack gap={4} flex={1}>
         <Skeleton h="16px" w="full" borderRadius="full" />
         <Skeleton h="16px" w="70%" borderRadius="full" />
         <Skeleton h="16px" w="60%" borderRadius="full" />

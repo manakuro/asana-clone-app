@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { CheckIcon as AtomsCheckIcon } from '@/components/ui/CheckIcon';
 import type { IconProps } from '@/components/ui/Icon';
-import type { ChakraProps } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 import { useProject } from '@/store/entities/project';
 import { useTask } from '@/store/entities/task';
 
@@ -25,7 +25,7 @@ export const CheckIcon = memo(function CheckIcon(props: Props) {
     [task, setTask],
   );
 
-  const colorStyle = useMemo((): ChakraProps => {
+  const colorStyle = useMemo((): SystemStyleObject => {
     if (!project.id) return {};
 
     return {

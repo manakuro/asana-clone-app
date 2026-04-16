@@ -18,7 +18,7 @@ type Props = {
 
 export const Header = memo(function Header(props: Props) {
   const { onToggle, isExpanded } = props;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const { indentedStyle } = useTasksListSectionContext();
   const { stickyStyle } = useTasksListContext();
 
@@ -30,18 +30,19 @@ export const Header = memo(function Header(props: Props) {
       ref={ref}
       px={6}
       {...indentedStyle}
-      {...stickyStyle}
+      css={stickyStyle}
       zIndex={(stickyStyle.zIndex as number) + 1}
     >
       <IconButton
         aria-label="Task list expand button"
-        icon={<Icon icon={isExpanded ? 'chevronDown' : 'chevronRight'} />}
         variant="ghost"
         onClick={onToggle}
-      />
+      >
+        <Icon icon={isExpanded ? 'chevronDown' : 'chevronRight'} />
+      </IconButton>
       <TaskSectionName taskSectionId={props.taskSectionId} />
       {isHovering && (
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" gap={1}>
           <AddTaskButton taskSectionId={props.taskSectionId} />
           <MoreAction />
         </Stack>

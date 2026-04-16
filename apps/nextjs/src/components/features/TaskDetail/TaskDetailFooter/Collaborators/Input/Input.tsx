@@ -1,3 +1,4 @@
+import { useSlotRecipe } from '@chakra-ui/react';
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { AssigneeChip } from '@/components/features/Chips';
@@ -7,11 +8,7 @@ import { Flex } from '@/components/ui/Flex';
 import { Input as AtomsInput } from '@/components/ui/Input';
 import { Wrap, WrapItem } from '@/components/ui/Wrap';
 import { useClickOutside } from '@/hooks';
-import {
-  type ChakraProps,
-  useDisclosure,
-  useStyleConfig,
-} from '@/shared/chakra';
+import { useDisclosure } from '@/shared/chakra';
 import {
   useTaskCollaboratorCommand,
   useTeammateIdsByTaskId,
@@ -27,11 +24,6 @@ export const Input: React.FC = () => {
   return <Component />;
 };
 
-type InputStyle = {
-  field: ChakraProps;
-  addon: ChakraProps;
-};
-
 const Component: React.FC = memo(() => {
   const { taskId } = useTaskDetail();
   const { teammateIds } = useTeammateIdsByTaskId(taskId);
@@ -44,7 +36,7 @@ const Component: React.FC = memo(() => {
       return true;
     },
   });
-  const style = useStyleConfig('Input') as InputStyle;
+  const recipe = useSlotRecipe({ key: 'field' });
 
   const popoverDisclosure = useDisclosure();
   const [value, setValue] = useState<string>('');
@@ -85,10 +77,10 @@ const Component: React.FC = memo(() => {
 
   return (
     <InviteCollaboratorMenu
-      isOpen={popoverDisclosure.isOpen}
+      open={popoverDisclosure.open}
       onClose={popoverDisclosure.onClose}
       onSelect={handleSelect}
-      placement="top-start"
+      positioning={{ placement: 'top-start' }}
       queryText={value}
     >
       <Flex
@@ -99,7 +91,7 @@ const Component: React.FC = memo(() => {
         bg="white"
         ml={2}
         alignItems="center"
-        {...style.field}
+        css={recipe().input}
         h="auto"
         maxH="none"
       >
@@ -116,9 +108,9 @@ const Component: React.FC = memo(() => {
               fontSize="sm"
               size="sm"
               placeholder="Name or email"
-              variant="unstyled"
               value={value}
               onChange={handleChange}
+              unstyled
             />
           </WrapItem>
         </Wrap>

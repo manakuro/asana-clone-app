@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Divider } from '@/components/ui/Divider';
 import { Flex } from '@/components/ui/Flex';
+import { Separator } from '@/components/ui/Separator';
 import { ProjectIcon } from './ProjectIcon';
 import { ProjectTeammates } from './ProjectTeammates';
 import { ShareButton } from './ShareButton';
@@ -22,7 +22,7 @@ export const Header = memo(function Header(props: Props) {
       <ProjectTeammates />
       <ShareButton ml={2} />
       <Flex mx={3} my={4}>
-        <Divider orientation="vertical" />
+        <Separator orientation="vertical" />
       </Flex>
     </Flex>
   );

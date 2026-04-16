@@ -3,12 +3,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { AssigneeMenu } from '@/components/features/Menus';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import {
-  Input as AtomsInput,
-  InputGroup,
-  InputRightElement,
-} from '@/components/ui/Input';
-import type { PopoverProps } from '@/components/ui/Popover';
+import { Input as AtomsInput, InputGroup } from '@/components/ui/Input';
 import { useClickableHoverStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useTask, useTaskCommand } from '@/store/entities/task';
@@ -17,7 +12,7 @@ import { type Teammate, useTeammate } from '@/store/entities/teammate';
 type Props = {
   taskId: string;
   onClose: () => void;
-} & PopoverProps;
+};
 
 export function Input(props: Props) {
   const { onClose, taskId } = props;
@@ -26,7 +21,7 @@ export function Input(props: Props) {
   const hasAssigned = useMemo(() => !!task.assigneeId, [task.assigneeId]);
   const { teammate } = useTeammate(task.assigneeId);
   const { clickableHoverLightStyle } = useClickableHoverStyle();
-  const popoverDisclosure = useDisclosure({ defaultIsOpen: true });
+  const popoverDisclosure = useDisclosure({ defaultOpen: true });
   const [value, setValue] = useState<string>('');
 
   const handleChange = useCallback(
@@ -61,14 +56,26 @@ export function Input(props: Props) {
 
   return (
     <AssigneeMenu
-      isOpen={popoverDisclosure.isOpen}
+      open={popoverDisclosure.open}
       onClose={popoverDisclosure.onClose}
       onSelect={handleSelect}
-      placement="bottom-start"
+      positioning={{ placement: 'bottom-start' }}
       queryText={value}
     >
       <Flex flex={1} alignItems="center">
-        <InputGroup>
+        <InputGroup
+          endElement={
+            hasAssigned && (
+              <Icon
+                icon="x"
+                color="text.muted"
+                size="sm"
+                css={clickableHoverLightStyle}
+                onClick={handleDelete}
+              />
+            )
+          }
+        >
           <AtomsInput
             autoFocus
             size="sm"
@@ -76,17 +83,6 @@ export function Input(props: Props) {
             onChange={handleChange}
             defaultValue={teammate.name}
           />
-          {hasAssigned && (
-            <InputRightElement h="full">
-              <Icon
-                icon="x"
-                color="text.muted"
-                size="sm"
-                {...clickableHoverLightStyle}
-                onClick={handleDelete}
-              />
-            </InputRightElement>
-          )}
         </InputGroup>
       </Flex>
     </AssigneeMenu>

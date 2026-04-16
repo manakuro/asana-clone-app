@@ -1,8 +1,7 @@
 import type { PropsWithChildren } from 'react';
-import { ConditionalRender } from '@/components/ui/ConditionalRender';
+import { ClientOnly } from '@/components/ui/ClientOnly';
 import { Flex } from '@/components/ui/Flex';
-import { Popover, PopoverTrigger } from '@/components/ui/Popover';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Popover } from '@/components/ui/Popover';
 import { Content } from './Content';
 import { Provider, usePopoverEmojiContext } from './Provider';
 
@@ -15,19 +14,20 @@ export function PopoverEmoji(props: PropsWithChildren) {
 }
 
 function Component(props: PropsWithChildren) {
-  const { isOpen } = usePopoverEmojiContext();
+  const { open } = usePopoverEmojiContext();
 
   return (
-    <ConditionalRender client>
-      <PortalManager zIndex={1500}>
-        <Popover isOpen={isOpen} placement="top-end" closeOnBlur={false}>
-          <PopoverTrigger>
-            {/*TODO: To fix an issue of duplicated trigger wrapper generated*/}
-            <Flex>{props.children}</Flex>
-          </PopoverTrigger>
-          {isOpen && <Content />}
-        </Popover>
-      </PortalManager>
-    </ConditionalRender>
+    <ClientOnly>
+      <Popover.Root
+        open={open}
+        positioning={{ placement: 'top-end' }}
+        closeOnInteractOutside={false}
+      >
+        <Popover.Trigger asChild>
+          <Flex>{props.children}</Flex>
+        </Popover.Trigger>
+        {open && <Content />}
+      </Popover.Root>
+    </ClientOnly>
   );
 }

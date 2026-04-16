@@ -17,17 +17,13 @@ export const InviteButton = memo(function InviteButton(props: Props) {
   return (
     <Flex alignItems="center" {...props}>
       <Tooltip
-        hasArrow
-        label="Manage team members"
+        showArrow
+        content="Manage team members"
         aria-label="A invite button description"
         openDelay={500}
       >
-        <Button
-          leftIcon={<Icon icon="userPlus" mt="1px" size="xs" />}
-          variant="outline"
-          size="xs"
-          onClick={handleClick}
-        >
+        <Button variant="outline" size="xs" onClick={handleClick}>
+          <Icon icon="userPlus" mt="1px" size="xs" />
           Invite
         </Button>
       </Tooltip>

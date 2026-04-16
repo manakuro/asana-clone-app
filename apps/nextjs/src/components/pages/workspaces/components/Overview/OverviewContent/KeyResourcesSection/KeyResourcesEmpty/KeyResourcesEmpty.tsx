@@ -26,7 +26,7 @@ export function KeyResourcesEmpty() {
           Align your team around a shared vision with a project brief and
           supporting resources.
         </Heading>
-        <Stack mt={2} spacing={2} direction="row">
+        <Stack mt={2} gap={2} direction="row">
           <ComingSoonTooltip>
             <Button colorScheme="teal" size="sm">
               Create project brief

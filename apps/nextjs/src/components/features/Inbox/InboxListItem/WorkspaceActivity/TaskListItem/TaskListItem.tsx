@@ -64,7 +64,7 @@ export const TaskListItem = memo(function TaskListItem(props: Props) {
           isTransitioning={isTransitioning}
           zIndex={1}
         />
-        <Stack direction="row" spacing={1} ml="auto" alignItems="center">
+        <Stack direction="row" gap={1} ml="auto" alignItems="center">
           <DueDate fontSize="xs" dueDate={task.dueDate} />
           <Like taskId={taskId} />
           <Feed taskId={taskId} />

@@ -24,8 +24,8 @@ export const FavoriteIconButton = memo(function FavoriteIconButton(
 
   return (
     <Tooltip
-      hasArrow
-      label="Starring adds favorites to your sidebar for easy access."
+      showArrow
+      content="Starring adds favorites to your sidebar for easy access."
       aria-label="Favorite project"
       size="md"
       withIcon

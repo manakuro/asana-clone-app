@@ -26,7 +26,7 @@ export function IconPicker(props: Props) {
   );
 
   return (
-    <Wrap p={6} spacing={1} overflowY="scroll" maxH={60}>
+    <Wrap p={6} gap={1} overflowY="scroll" maxH={60}>
       {projectIconIds.map((id) => (
         <IconPickerItem
           key={id}

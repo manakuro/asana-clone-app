@@ -1,4 +1,4 @@
 export {
   RadioGroup,
-  type RadioGroupProps,
+  type RadioGroupRootProps,
 } from '@chakra-ui/react';

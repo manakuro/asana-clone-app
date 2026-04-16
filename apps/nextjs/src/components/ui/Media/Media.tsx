@@ -1,4 +1,4 @@
-import { type BoxProps, Box as ChakraBox } from '@chakra-ui/react';
+import { Box, type BoxProps } from '@chakra-ui/react';
 
 type Props = BoxProps & {
   mobile?: boolean;
@@ -8,9 +8,9 @@ type Props = BoxProps & {
 export function Media({ pc, mobile, ...rest }: Props) {
   switch (true) {
     case Boolean(mobile):
-      return <ChakraBox display={{ base: 'block', md: 'none' }} {...rest} />;
+      return <Box display={{ base: 'block', md: 'none' }} {...rest} />;
     case Boolean(pc):
-      return <ChakraBox display={{ base: 'none', md: 'block' }} {...rest} />;
+      return <Box display={{ base: 'none', md: 'block' }} {...rest} />;
     default:
       return <>{rest.children}</>;
   }

@@ -1,19 +1,20 @@
 import { Flex } from '@/components/ui/Flex';
-import { FormControl, FormLabel } from '@/components/ui/Form';
+import { Field } from '@/components/ui/Form';
 import { Icon } from '@/components/ui/Icon';
-import { Switch, type SwitchProps } from '@/components/ui/Switch';
+import { Switch } from '@/components/ui/Switch';
 import { useClickableHoverStyle } from '@/hooks';
 
-type Props = SwitchProps & {
+type Props = {
   label: string;
+  isChecked: boolean;
+  onChange: (isChecked: boolean) => void;
 };
-export type CustomFieldProps = Props;
 
 export function CustomField(props: Props) {
   const { clickableHoverInputGrabbableStyle } = useClickableHoverStyle();
 
   return (
-    <FormControl>
+    <Field.Root>
       <Flex
         alignItems="center"
         px={1}
@@ -22,20 +23,26 @@ export function CustomField(props: Props) {
         borderRadius="md"
         borderColor="gray.200"
         boxShadow="md"
-        {...clickableHoverInputGrabbableStyle}
+        css={clickableHoverInputGrabbableStyle}
         cursor="grab"
       >
         <Icon icon="gridVertical" color="text.muted" size="sm" />
-        <FormLabel cursor="grab" ml={2} mb="0" flex={1} fontSize="sm">
+        <Field.Label cursor="grab" ml={2} mb="0" flex={1} fontSize="sm">
           {props.label}
-        </FormLabel>
-        <Switch
-          colorScheme="teal"
+        </Field.Label>
+        <Switch.Root
+          colorPalette="teal"
           size="sm"
-          onChange={props.onChange}
-          isChecked={props.isChecked}
-        />
+          onCheckedChange={(e) => props.onChange(e.checked)}
+          checked={props.isChecked}
+        >
+          <Switch.HiddenInput />
+          <Switch.Control>
+            <Switch.Thumb />
+          </Switch.Control>
+          <Switch.Label />
+        </Switch.Root>
       </Flex>
-    </FormControl>
+    </Field.Root>
   );
 }

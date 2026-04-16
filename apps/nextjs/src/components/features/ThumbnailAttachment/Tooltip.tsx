@@ -8,7 +8,7 @@ import { useDisclosure } from '@/shared/chakra';
 import { useTaskFile } from '@/store/entities/taskFile';
 import { useThumbnailAttachmentContext } from './Provider';
 
-type Props = Omit<TooltipProps, 'label' | 'size'> & {
+type Props = Omit<TooltipProps, 'content' | 'size'> & {
   taskFileId: string;
 };
 
@@ -30,9 +30,9 @@ export function Tooltip(props: Props) {
 
   return (
     <MoleculesTooltip
-      isOpen={tooltipDisclosure.isOpen}
-      hasArrow
-      label={taskFile.name}
+      open={tooltipDisclosure.open}
+      showArrow
+      content={taskFile.name}
       aria-label={taskFile.src}
       size="sm"
       {...rest}

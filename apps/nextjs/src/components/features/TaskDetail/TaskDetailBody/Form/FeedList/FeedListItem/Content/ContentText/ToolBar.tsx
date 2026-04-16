@@ -11,7 +11,7 @@ export const ToolBar = memo(function ToolBar() {
 
   return (
     <Flex marginTop="auto" h={9}>
-      <Stack direction="row" spacing={1} alignItems="center">
+      <Stack direction="row" gap={1} alignItems="center">
         <Format />
         <AtMention />
         <Emoji />

@@ -1,42 +1,46 @@
-import { Divider } from '@/components/features/Navigation/Divider';
-import {
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-} from '@/components/ui/Drawer';
+import { Separator } from '@/components/features/Navigation/Separator';
+import { Button } from '@/components/ui/Button';
+import { Drawer } from '@/components/ui/Drawer';
 import { Flex } from '@/components/ui/Flex';
+import { Portal } from '@/components/ui/Portal';
 import { Body } from './Body';
 import { Footer } from './Footer';
 import { useHelp } from './useHelp';
 
 export const HELP_CONTAINER_PADDING = 4;
 export function Help() {
-  const { isOpen, onClose } = useHelp();
+  const { open, setIsOpen } = useHelp();
 
   return (
-    <Drawer
-      isOpen={isOpen}
-      onClose={onClose}
-      placement="left"
-      isFullHeight
-      colorScheme="gray"
+    <Drawer.Root
+      open={open}
+      onOpenChange={(e) => {
+        setIsOpen(e.open);
+      }}
+      placement="start"
     >
-      <DrawerContent bg="gray.700" color="white">
-        <DrawerCloseButton top="1.25rem" />
-        <DrawerHeader fontSize="md" py={6} px={HELP_CONTAINER_PADDING}>
-          Getting started guide
-        </DrawerHeader>
-        <Divider />
-
-        <Flex flexDirection="column" h="full" overflowY="scroll">
-          <DrawerBody flex={1} display="flex" flexDirection="column" p={0}>
-            <Body />
-            <Footer />
-          </DrawerBody>
-        </Flex>
-      </DrawerContent>
-    </Drawer>
+      <Drawer.Trigger asChild>
+        <Button variant="outline" size="sm" top="1.25rem">
+          Open Drawer
+        </Button>
+      </Drawer.Trigger>
+      <Portal>
+        <Drawer.Backdrop />
+        <Drawer.Positioner>
+          <Drawer.Content bg="gray.700" color="white" height="100%">
+            <Drawer.Header fontSize="md" py={6} px={HELP_CONTAINER_PADDING}>
+              <Drawer.Title>Getting started guide</Drawer.Title>
+            </Drawer.Header>
+            <Separator />
+            <Flex flexDirection="column" h="full" overflowY="scroll">
+              <Drawer.Body flex={1} display="flex" flexDirection="column" p={0}>
+                <Body />
+                <Footer />
+              </Drawer.Body>
+            </Flex>
+          </Drawer.Content>
+        </Drawer.Positioner>
+      </Portal>
+    </Drawer.Root>
   );
 }

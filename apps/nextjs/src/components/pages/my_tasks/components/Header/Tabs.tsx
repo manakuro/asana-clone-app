@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/Flex';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Tab, TabList } from '@/components/ui/Tabs';
 
@@ -15,29 +15,29 @@ export const Tabs = memo(function Tabs() {
           <Heading as="h2" size="md" fontWeight="semibold">
             My Tasks
           </Heading>
-          <Menu placement="bottom-start">
-            <MenuButton
-              ml={1}
-              aria-label="expand button"
-              as={IconButton}
-              icon={<Icon icon="chevronDown" color="text.muted" />}
-              variant="ghost"
-            />
+          <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
+            <Menu.Trigger asChild>
+              <IconButton ml={1} aria-label="expand button" variant="ghost">
+                <Icon icon="chevronDown" color="text.muted" />
+              </IconButton>
+            </Menu.Trigger>
             <Portal>
-              <MenuList color="text.base">
-                <MenuItem>Sync to Calendar</MenuItem>
-                <MenuItem>Add tasks via Email</MenuItem>
-                <MenuItem>Export CSV</MenuItem>
-                <MenuItem>Print</MenuItem>
-              </MenuList>
+              <Menu.Positioner>
+                <Menu.Content color="text.base">
+                  <Menu.Item value="">Sync to Calendar</Menu.Item>
+                  <Menu.Item value="">Add tasks via Email</Menu.Item>
+                  <Menu.Item value="">Export CSV</Menu.Item>
+                  <Menu.Item value="">Print</Menu.Item>
+                </Menu.Content>
+              </Menu.Positioner>
             </Portal>
-          </Menu>
+          </Menu.Root>
         </Flex>
         <TabList>
-          <Tab>List</Tab>
-          <Tab>Board</Tab>
-          <Tab>Calendar</Tab>
-          <Tab>Files</Tab>
+          <Tab value="list">List</Tab>
+          <Tab value="board">Board</Tab>
+          <Tab value="calendar">Calendar</Tab>
+          <Tab value="files">Files</Tab>
         </TabList>
       </Flex>
     </Flex>

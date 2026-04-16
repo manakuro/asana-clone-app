@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTaskDetailProjectsInput } from '@/components/features/TaskDetail/hooks';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onMouseEnter: () => void;
@@ -21,13 +21,10 @@ export const AddToAnotherProject = memo(function AddToAnotherProject(
   }, [inputDisclosure, onClose]);
 
   return (
-    <MenuItem
-      onMouseEnter={onMouseEnter}
-      icon={<Icon icon="bookAdd" color="text.muted" />}
-      command="Tab+P"
-      onClick={handleClick}
-    >
+    <Menu.Item onMouseEnter={onMouseEnter} onClick={handleClick} value="">
+      <Icon icon="bookAdd" color="text.muted" />
       Add to another project
-    </MenuItem>
+      <Menu.ItemCommand>Tab+P</Menu.ItemCommand>
+    </Menu.Item>
   );
 });

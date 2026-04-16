@@ -1,4 +1,5 @@
-import { forwardRef, memo, useCallback, useMemo } from 'react';
+import type { SystemStyleObject } from '@chakra-ui/react';
+import { forwardRef, memo, type Ref, useCallback, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { pxToNum } from '@/shared/pxToNum';
 import { ColumnResizer } from './ColumnResizer';
@@ -9,8 +10,9 @@ type Props = {
   resizedMinW?: number;
   resizedMaxW?: number;
   onChangeSize?: (size: string) => void;
-  containerStyle?: FlexProps;
+  containerStyle?: SystemStyleObject;
   focused?: boolean;
+  ref?: Ref<HTMLDivElement>;
 } & FlexProps;
 export type TasksListCellProps = Props;
 
@@ -62,7 +64,7 @@ export const TasksListCell = memo(
       <Flex
         h="37px"
         mr="-1px"
-        {...containerStyle}
+        css={containerStyle}
         ref={ref}
         position={containerStyle?.position || 'relative'}
         _hover={{

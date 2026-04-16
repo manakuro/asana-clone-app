@@ -54,7 +54,7 @@ export const ListItemForProjectsPage = memo(function ListItemForProjectsPage(
         />
       )}
       <TaskName taskId={taskId} />
-      <Stack direction="row" spacing={1} ml={1} mr="auto">
+      <Stack direction="row" gap={1} ml={1} mr="auto">
         <Subtask taskId={taskId} />
       </Stack>
     </Container>

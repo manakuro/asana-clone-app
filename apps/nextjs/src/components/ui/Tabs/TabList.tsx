@@ -1,6 +1,6 @@
 import {
-  TabList as ChakraTabList,
-  type TabListProps as ChakraTabListProps,
+  type TabsListProps as ChakraTabListProps,
+  Tabs,
 } from '@chakra-ui/react';
 import { forwardRef } from 'react';
 
@@ -9,6 +9,6 @@ export type TabListProps = Props;
 
 export const TabList = forwardRef<HTMLDivElement, Props>(
   function TabList(props, ref) {
-    return <ChakraTabList borderBottom="none" {...props} ref={ref} />;
+    return <Tabs.List borderBottom="none" {...props} ref={ref} />;
   },
 );

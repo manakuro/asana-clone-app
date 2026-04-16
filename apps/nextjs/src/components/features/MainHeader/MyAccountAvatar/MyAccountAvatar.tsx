@@ -1,28 +1,24 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { MyAvatar } from '@/components/features/MyAvatar';
-import { Menu, MenuButton } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useDisclosure } from '@/shared/chakra';
 import { MenuList } from './MenuList';
 
 export const MyAccountAvatar = memo(function MyAccountAvatar() {
-  const { onClose, onOpen, isOpen } = useDisclosure();
-
-  const handleOpen = useCallback(() => {
-    onOpen();
-  }, [onOpen]);
+  const { onClose, setOpen, open } = useDisclosure();
 
   return (
-    <Menu
-      placement="bottom-end"
-      closeOnBlur={false}
+    <Menu.Root
+      positioning={{ placement: 'bottom-end' }}
       closeOnSelect={false}
-      isOpen={isOpen}
-      isLazy
+      open={open}
+      lazyMount
+      onOpenChange={(e) => setOpen(e.open)}
     >
-      <MenuButton onClick={handleOpen} cursor="pointer">
+      <Menu.Trigger asChild cursor="pointer">
         <MyAvatar size="sm" />
-      </MenuButton>
-      {isOpen && <MenuList onCloseMenu={onClose} />}
-    </Menu>
+      </Menu.Trigger>
+      {open && <MenuList onCloseMenu={onClose} />}
+    </Menu.Root>
   );
 });

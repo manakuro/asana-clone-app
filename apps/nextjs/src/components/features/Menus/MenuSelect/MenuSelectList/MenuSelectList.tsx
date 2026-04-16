@@ -4,8 +4,8 @@ import { Component, type ComponentProps } from './Component';
 type Props = ComponentProps;
 
 export function MenuSelectList(props: Props) {
-  const { isOpen } = useMenuSelectContext();
-  if (!isOpen) return null;
+  const { open } = useMenuSelectContext();
+  if (!open) return null;
 
   return <Component {...props} />;
 }

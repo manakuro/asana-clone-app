@@ -30,7 +30,7 @@ export const Selected = memo(function Selected(props: Props) {
   return (
     <Flex flexDirection="column">
       <Stack
-        spacing={1}
+        gap={1}
         direction="row"
         display="flex"
         alignItems="center"

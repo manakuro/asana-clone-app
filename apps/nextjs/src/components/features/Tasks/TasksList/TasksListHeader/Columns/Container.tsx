@@ -1,3 +1,4 @@
+import type { SystemStyleObject } from '@chakra-ui/react';
 import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 import { useTasksTaskColumn } from '@/components/features/Tasks/hooks';
@@ -13,7 +14,7 @@ type Props = {
   tasksTaskColumnId: string;
   isFirst?: boolean;
   clickable?: boolean;
-  containerStyle?: FlexProps;
+  containerStyle?: SystemStyleObject;
   menu?: boolean;
   onSort?: () => void;
 } & FlexProps;
@@ -35,13 +36,13 @@ export const Container = memo(function Container(props: Props) {
   const { sortedStyle } = useTasksListHeaderContext();
   const minW = useMemo(() => (isFirst ? 400 : 120), [isFirst]);
   const maxW = useMemo(() => (isFirst ? 800 : 280), [isFirst]);
-  const style = useMemo<FlexProps>(() => {
+  const style = useMemo<SystemStyleObject>(() => {
     return {
       ...(isFirst ? { pl: 0, borderLeft: 'none' } : {}),
       ...(clickable ? { cursor: 'pointer', ...clickableHoverStyle } : {}),
     };
   }, [clickable, clickableHoverStyle, isFirst]);
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
 
   const handleChangeSize = useCallback(
     async (size: string) => {
@@ -70,8 +71,10 @@ export const Container = memo(function Container(props: Props) {
         ...containerStyle,
       }}
       ref={ref}
-      {...style}
-      {...sortedStyle}
+      css={{
+        ...style,
+        ...sortedStyle,
+      }}
       {...rest}
     >
       {taskColumn.name}

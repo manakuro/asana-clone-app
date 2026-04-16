@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
-import { useToast } from '@/hooks';
+import { useToaster } from '@/hooks/useToaster';
 import { parseDescription } from '@/shared/prosemirror/convertDescription';
 import { createProvider } from '@/shared/react/createProvider';
 import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/taskFeed';
@@ -82,7 +82,7 @@ const useFeedOptionMenu = (props: Props) => {
   const { taskFeed, setTaskFeed } = useTaskFeed(props.taskFeedId);
   const { deleteTaskFeed, undeleteTaskFeed } = useTaskFeedCommand();
   const [isEdit, setIsEdit] = useState<boolean>(false);
-  const { toast } = useToast();
+  const { toaster } = useToaster();
 
   const onPin = useCallback(async () => {
     await setTaskFeed({ isPinned: true });
@@ -108,21 +108,24 @@ const useFeedOptionMenu = (props: Props) => {
       await undeleteTaskFeed(res);
     };
 
-    toast({
+    toaster.success({
       description: 'The comment was deleted',
-      undo: handleUndo,
+      action: {
+        label: 'Undo',
+        onClick: handleUndo,
+      },
       duration: 10000,
     });
-  }, [deleteTaskFeed, taskFeed.id, toast, undeleteTaskFeed]);
+  }, [deleteTaskFeed, taskFeed.id, undeleteTaskFeed, toaster.success]);
 
   const onCopyCommentLink = useCallback(async () => {
     await navigator.clipboard.writeText(
       getTasksDetailFeedURL({ taskId: props.taskId, taskFeedId: taskFeed.id }),
     );
-    toast({
+    toaster.success({
       description: 'The comment link was copied to your clipboard.',
     });
-  }, [getTasksDetailFeedURL, props.taskId, taskFeed.id, toast]);
+  }, [getTasksDetailFeedURL, props.taskId, taskFeed.id, toaster.success]);
 
   return {
     onPin,

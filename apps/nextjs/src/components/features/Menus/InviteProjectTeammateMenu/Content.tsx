@@ -9,13 +9,12 @@ import {
   SearchMenuLoading,
   SearchMenuRightContainer,
 } from '@/components/features/Menus/SearchMenu';
-import { Divider } from '@/components/ui/Divider';
 import { Icon } from '@/components/ui/Icon';
-import type { PopoverProps } from '@/components/ui/Popover';
+import { Menu } from '@/components/ui/Menu';
 import { Text } from '@/components/ui/Text';
 import type { Teammate } from '@/store/entities/teammate';
 
-type Props = PopoverProps & {
+type Props = {
   onSelect: (val: Teammate) => void;
   queryText: string;
   onClose: () => void;
@@ -38,7 +37,7 @@ export const Content = memo(function Content(props: Props) {
           index={i}
         />
       ))}
-      <Divider />
+      <Menu.Separator />
       <SearchMenuListItem index={teammates.length}>
         <SearchMenuLeftContainer>
           <Icon icon="userPlus" color="primary" />

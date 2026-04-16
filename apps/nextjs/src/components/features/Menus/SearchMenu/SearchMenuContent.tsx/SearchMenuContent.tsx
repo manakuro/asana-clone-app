@@ -1,18 +1,17 @@
-import { memo } from 'react';
+import { memo, type PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/Flex';
-import {
-  PopoverContent,
-  type PopoverContentProps,
-} from '@/components/ui/Popover';
+import { Popover, type PopoverContentProps } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
 import { useSearchMenuRef } from '../useSearchMenuRef';
 
-type Props = PopoverContentProps & {
+type Props = {
   onClose: () => void;
-};
+} & PopoverContentProps;
 
-export const SearchMenuContent = memo(function SearchMenuContent(props: Props) {
+export const SearchMenuContent = memo(function SearchMenuContent(
+  props: PropsWithChildren<Props>,
+) {
   const { onClose, children, ...rest } = props;
   const { ref } = useClickOutside<HTMLDivElement>(onClose, {
     hasClickedOutside: (e, helpers) => {
@@ -20,21 +19,25 @@ export const SearchMenuContent = memo(function SearchMenuContent(props: Props) {
       return true;
     },
   });
-  const { ref: containerRef } = useSearchMenuRef();
+  const { ref: containerRef } = useSearchMenuRef<HTMLDivElement>();
 
   return (
     <Portal>
-      <PopoverContent
-        className="focus-visible"
-        w="450px"
-        maxH={56}
-        ref={containerRef}
-        {...rest}
-      >
-        <Flex flexDirection="column" ref={ref}>
-          {children}
-        </Flex>
-      </PopoverContent>
+      <Popover.Positioner>
+        <Popover.Content
+          className="focus-visible"
+          w="450px"
+          maxH={56}
+          ref={containerRef}
+          {...rest}
+        >
+          <Popover.Body>
+            <Flex flexDirection="column" ref={ref}>
+              {children}
+            </Flex>
+          </Popover.Body>
+        </Popover.Content>
+      </Popover.Positioner>
     </Portal>
   );
 });

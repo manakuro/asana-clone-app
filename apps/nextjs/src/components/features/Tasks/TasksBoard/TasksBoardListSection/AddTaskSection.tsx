@@ -8,17 +8,13 @@ export const AddTaskSection = memo(function AddTaskSection() {
   const { addTaskSection } = useTasksTaskSectionCommand();
 
   const handleClick = useCallback(async () => {
-    addTaskSection();
+    await addTaskSection();
   }, [addTaskSection]);
 
   return (
     <Flex w={40} mt={3} ml={2}>
-      <Button
-        leftIcon={<Icon icon="plus" />}
-        variant="ghost"
-        onClick={handleClick}
-        size="sm"
-      >
+      <Button variant="ghost" onClick={handleClick} size="sm">
+        <Icon icon="plus" />
         Add section
       </Button>
     </Flex>

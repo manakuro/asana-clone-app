@@ -1,6 +1,10 @@
 import type { PropsWithChildren } from 'react';
-import { AccordionPanel } from '@/components/ui/Accordion';
+import { Accordion } from '@/components/ui/Accordion';
 
 export function CustomNavListAccordionPanel(props: PropsWithChildren) {
-  return <AccordionPanel p={0} {...props} />;
+  return (
+    <Accordion.ItemContent>
+      <Accordion.ItemBody p={0}>{props.children}</Accordion.ItemBody>
+    </Accordion.ItemContent>
+  );
 }

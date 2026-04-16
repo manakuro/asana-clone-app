@@ -14,14 +14,14 @@ export const ActionButtons = memo<Props>(function ActionButtons() {
     <Actions visibility={isHovering ? 'visible' : 'hidden'}>
       {isActivity && (
         <ArchiveButton
-          isDisabled
-          tooltipProps={{ label: 'Archive notification' }}
+          disabled
+          tooltipProps={{ content: 'Archive notification' }}
         />
       )}
       {isArchive && (
         <MoveToInboxButton
-          isDisabled
-          tooltipProps={{ label: 'Move to Inbox' }}
+          disabled
+          tooltipProps={{ content: 'Move to Inbox' }}
         />
       )}
     </Actions>

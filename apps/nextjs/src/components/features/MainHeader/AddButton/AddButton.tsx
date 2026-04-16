@@ -3,7 +3,7 @@ import { useInviteModal } from '@/components/features/Modals/InviteModal/useInvi
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import type { IconType } from '@/shared/icons';
@@ -16,30 +16,31 @@ export const AddButton = memo(function AddButton() {
   }, [inviteModal]);
 
   return (
-    <Menu placement="bottom-end" isLazy>
-      <MenuButton
-        aria-label="Add button"
-        borderRadius="full"
-        as={IconButton}
-        icon={<Icon icon="listPlus" />}
-      />
+    <Menu.Root positioning={{ placement: 'bottom-end' }} lazyMount>
+      <Menu.Trigger asChild>
+        <IconButton aria-label="Add button" borderRadius="full">
+          <Icon icon="listPlus" />
+        </IconButton>
+      </Menu.Trigger>
       <Portal>
-        <MenuList>
-          <MenuItem isDisabled>
-            <IconText icon="checkCircle">Task</IconText>
-          </MenuItem>
-          <MenuItem isDisabled>
-            <IconText icon="outlineProject">Project</IconText>
-          </MenuItem>
-          <MenuItem isDisabled>
-            <IconText icon="messageRoundedDots">Message</IconText>
-          </MenuItem>
-          <MenuItem onClick={handleInvite}>
-            <IconText icon="userPlus">Invite</IconText>
-          </MenuItem>
-        </MenuList>
+        <Menu.Positioner>
+          <Menu.Content>
+            <Menu.Item value="0" disabled>
+              <IconText icon="checkCircle">Task</IconText>
+            </Menu.Item>
+            <Menu.Item value="1" disabled>
+              <IconText icon="outlineProject">Project</IconText>
+            </Menu.Item>
+            <Menu.Item value="2" disabled>
+              <IconText icon="messageRoundedDots">Message</IconText>
+            </Menu.Item>
+            <Menu.Item value="3" onClick={handleInvite}>
+              <IconText icon="userPlus">Invite</IconText>
+            </Menu.Item>
+          </Menu.Content>
+        </Menu.Positioner>
       </Portal>
-    </Menu>
+    </Menu.Root>
   );
 });
 

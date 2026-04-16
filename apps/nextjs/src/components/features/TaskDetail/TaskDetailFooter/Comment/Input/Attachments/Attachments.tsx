@@ -23,7 +23,7 @@ export const Attachments = memo(function Attachments() {
   if (!taskFileIds.length && !uploadingFiles.length) return null;
 
   return (
-    <Wrap spacing={3} py={2}>
+    <Wrap gap={3} py={2}>
       {taskFileIds.map((id) => (
         <WrapItem key={id}>
           <ThumbnailAttachment

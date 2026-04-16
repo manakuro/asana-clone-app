@@ -10,13 +10,13 @@ export const AddSubtaskButton = memo(function AddSubtaskButton(props: Props) {
       mt={2}
       ml="-10px"
       aria-label="Add subtask"
-      leftIcon={<Icon icon="plus" />}
       variant="ghost"
       size="xs"
       fontWeight="medium"
       color="text.muted"
       {...props}
     >
+      <Icon icon="plus" />
       Add subtask
     </Button>
   );

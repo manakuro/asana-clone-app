@@ -10,7 +10,7 @@ export const TaskSectionName = memo(function TaskSectionName(props: Props) {
   const { project } = useProject(props.projectId);
 
   return (
-    <Box px={2} maxW={80} noOfLines={1} fontWeight="semibold">
+    <Box px={2} maxW={80} lineClamp={1} fontWeight="semibold">
       {project.name}
     </Box>
   );

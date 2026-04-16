@@ -9,12 +9,12 @@ import {
   ButtonGroup,
   type ButtonGroupProps,
 } from '@/components/ui/ButtonGroup';
-import { Divider } from '@/components/ui/Divider';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
-import type { ChakraProps } from '@/shared/chakra';
+import { Separator } from '@/components/ui/Separator';
+import type { SystemStyleObject } from '@/shared/chakra';
 
 type Props = ButtonGroupProps & {
   solid?: boolean;
@@ -35,7 +35,7 @@ export const AddTaskButton = memo(function AddTaskButton(props: Props) {
   const buttonGroupProps: ButtonGroupProps = solid
     ? { variant: 'solid', colorScheme: 'teal' }
     : { variant: 'outline' };
-  const iconStyle: ChakraProps = solid
+  const iconStyle: SystemStyleObject = solid
     ? { color: 'white' }
     : { color: 'text.muted' };
 
@@ -44,30 +44,28 @@ export const AddTaskButton = memo(function AddTaskButton(props: Props) {
   }, [addTaskSection]);
 
   return (
-    <ButtonGroup size="xs" isAttached {...buttonGroupProps} {...rest}>
-      <Button
-        mr="-px"
-        borderRightRadius="none"
-        leftIcon={<Icon icon="plus" {...iconStyle} />}
-        onClick={handleAddTask}
-      >
+    <ButtonGroup size="xs" attached {...buttonGroupProps} {...rest}>
+      <Button mr="-px" borderRightRadius="none" onClick={handleAddTask}>
+        <Icon icon="plus" {...iconStyle} />
         Add task
       </Button>
-      {props.solid && <Divider orientation="vertical" />}
-      <Menu placement="bottom-start">
-        <MenuButton
-          borderLeftRadius="none"
-          aria-label="Add to task"
-          h="auto"
-          as={IconButton}
-          icon={<Icon icon="chevronDown" {...iconStyle} />}
-        />
+      {props.solid && <Separator orientation="vertical" />}
+      <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
+        <Menu.Trigger asChild>
+          <IconButton borderLeftRadius="none" aria-label="Add to task" h="auto">
+            <Icon icon="chevronDown" {...iconStyle} />
+          </IconButton>
+        </Menu.Trigger>
         <Portal>
-          <MenuList color="text.base">
-            <MenuItem onClick={handleAddTaskSection}>Add section</MenuItem>
-          </MenuList>
+          <Menu.Positioner>
+            <Menu.Content color="text.base">
+              <Menu.Item onClick={handleAddTaskSection} value="">
+                Add section
+              </Menu.Item>
+            </Menu.Content>
+          </Menu.Positioner>
         </Portal>
-      </Menu>
+      </Menu.Root>
     </ButtonGroup>
   );
 });

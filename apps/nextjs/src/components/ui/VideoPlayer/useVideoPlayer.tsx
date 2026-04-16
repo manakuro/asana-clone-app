@@ -2,12 +2,12 @@ import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
 
 type State = {
-  isOpen: boolean;
+  open: boolean;
   src: string;
 };
 
 const videoAtom = atom<State>({
-  isOpen: false,
+  open: false,
   src: '',
 });
 
@@ -15,12 +15,12 @@ export const useVideoPlayer = () => {
   const [state, setState] = useAtom(videoAtom);
 
   const onClose = useCallback(() => {
-    setState((s) => ({ ...s, isOpen: false }));
+    setState((s) => ({ ...s, open: false }));
   }, [setState]);
 
   const setIsOpen = useCallback(
     (val: boolean) => {
-      setState((s) => ({ ...s, isOpen: val }));
+      setState((s) => ({ ...s, open: val }));
     },
     [setState],
   );

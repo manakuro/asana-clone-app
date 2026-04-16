@@ -2,11 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import {
-  PopoverContent,
-  PopoverHeader,
-  type PopoverProps,
-} from '@/components/ui/Popover';
+import { Popover } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle, useClickOutside } from '@/hooks';
@@ -14,7 +10,7 @@ import { dateFns } from '@/shared/dateFns';
 
 type Props = {
   onClose: () => void;
-} & PopoverProps;
+};
 
 export function Content(props: Props) {
   const { onClose } = props;
@@ -75,47 +71,51 @@ export function Content(props: Props) {
 
   return (
     <Portal>
-      <PopoverContent w="210px" maxW="210px" h="145px" ref={ref}>
-        <PopoverHeader>
-          <Flex>
-            <Icon
-              icon="chevronLeft"
-              color="text.muted"
-              onClick={handlePrevYear}
-              cursor="pointer"
-            />
-            <Text flex={1} fontSize="sm" textAlign="center">
-              {dateFns.format(date, 'y')}
-            </Text>
-            <Icon
-              icon="chevronRight"
-              color="text.muted"
-              onClick={handleNextYear}
-              cursor="pointer"
-            />
-          </Flex>
-        </PopoverHeader>
-        <Flex flexWrap="wrap" flex={1}>
-          {months.map((d) => (
-            <Flex
-              key={dateFns.formatISO(d, { representation: 'date' })}
-              fontSize="sm"
-              color="text.muted"
-              cursor="pointer"
-              textTransform="uppercase"
-              w="25%"
-              alignItems="center"
-              justifyContent="center"
-              position="relative"
-              onClick={() => handleClickMonth(d)}
-              {...clickableHoverTextStyle}
-              {...currentMonthStyle(d)}
-            >
-              {dateFns.format(d, 'MMM')}
+      <Popover.Positioner>
+        <Popover.Content w="210px" maxW="210px" h="145px" ref={ref}>
+          <Popover.Header>
+            <Flex>
+              <Icon
+                icon="chevronLeft"
+                color="text.muted"
+                onClick={handlePrevYear}
+                cursor="pointer"
+              />
+              <Text flex={1} fontSize="sm" textAlign="center">
+                {dateFns.format(date, 'y')}
+              </Text>
+              <Icon
+                icon="chevronRight"
+                color="text.muted"
+                onClick={handleNextYear}
+                cursor="pointer"
+              />
             </Flex>
-          ))}
-        </Flex>
-      </PopoverContent>
+          </Popover.Header>
+          <Popover.Body>
+            <Flex flexWrap="wrap" flex={1}>
+              {months.map((d) => (
+                <Flex
+                  key={dateFns.formatISO(d, { representation: 'date' })}
+                  fontSize="sm"
+                  color="text.muted"
+                  cursor="pointer"
+                  textTransform="uppercase"
+                  w="25%"
+                  alignItems="center"
+                  justifyContent="center"
+                  position="relative"
+                  onClick={() => handleClickMonth(d)}
+                  css={clickableHoverTextStyle}
+                  {...currentMonthStyle(d)}
+                >
+                  {dateFns.format(d, 'MMM')}
+                </Flex>
+              ))}
+            </Flex>
+          </Popover.Body>
+        </Popover.Content>
+      </Popover.Positioner>
     </Portal>
   );
 }

@@ -9,7 +9,7 @@ export function SkeletonTaskDetailBody(props: Props) {
     <Flex flexDirection="column" flex={1} {...props}>
       <Skeleton h="44px" />
 
-      <Stack direction="column" spacing={4} mt={4} px={6}>
+      <Stack direction="column" gap={4} mt={4} px={6}>
         <Skeleton h="16px" w="60%" borderRadius="full" />
         <Skeleton h="16px" w="50%" borderRadius="full" />
         <Skeleton h="16px" w="40%" borderRadius="full" />

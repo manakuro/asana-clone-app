@@ -1,11 +1,4 @@
-import {
-  Center as ChakraCenter,
-  type CenterProps as ChakraCenterProps,
+export {
+  Center,
+  type CenterProps,
 } from '@chakra-ui/react';
-
-type Props = ChakraCenterProps;
-export type CenterProps = Props;
-
-export function Center(props: Props) {
-  return <ChakraCenter {...props} />;
-}

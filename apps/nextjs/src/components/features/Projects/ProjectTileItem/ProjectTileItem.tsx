@@ -11,7 +11,7 @@ import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { useProjectIcon } from '@/store/entities/projectIcon';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 import { Container } from './Container';
 import { FavoriteButton } from './FavoriteButton';
 
@@ -64,16 +64,13 @@ export const ProjectTileItem = memo(function ProjectTileItem(props: Props) {
                 copyProjectLink
                 share
                 projectId={project.id}
-                iconButton={{
-                  as: IconButton,
-                  'aria-label': 'menu button',
-                  icon: <Icon icon="menu" size="xs" />,
-                  variant: 'ghost',
-                  light: true,
-                }}
                 onOpened={handlePopoverProjectMenuOpened}
                 onClosed={handlePopoverProjectMenuClosed}
-              />
+              >
+                <IconButton aria-label="menu button" variant="ghost" light>
+                  <Icon icon="menu" size="xs" />
+                </IconButton>
+              </PopoverProjectMenu>
             </Fade>
           </Flex>
 
@@ -92,8 +89,8 @@ export const ProjectTileItem = memo(function ProjectTileItem(props: Props) {
           {showTransition && (
             <Flex position="absolute" bottom={3}>
               <Fade in>
-                <AvatarGroup size="xs" max={2}>
-                  {teammateIds.map((id) => (
+                <AvatarGroup size="xs">
+                  {teammateIds.slice(0, 2).map((id) => (
                     <TeammateAvatar teammateId={id} key={id} />
                   ))}
                 </AvatarGroup>

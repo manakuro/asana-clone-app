@@ -37,7 +37,7 @@ export const TasksTags = memo(function TasksTags(props: Props) {
       }}
     >
       {!focused && (
-        <Stack direction="row" spacing={1} overflow="hidden">
+        <Stack direction="row" gap={1} overflow="hidden">
           {taskTagIds.map((id) => (
             <TagChip key={id} taskTagId={id} variant="button" />
           ))}

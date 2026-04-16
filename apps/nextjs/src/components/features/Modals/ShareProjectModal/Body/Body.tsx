@@ -1,7 +1,8 @@
 import { memo, useCallback, useState } from 'react';
+import { Box } from '@/components/ui/Box';
+import { Dialog } from '@/components/ui/Dialog';
 import { Flex } from '@/components/ui/Flex';
-import { ModalBody } from '@/components/ui/Modal';
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';
+import { Tab, TabList, TabPanel, Tabs } from '@/components/ui/Tabs';
 import { type Index, MEMBERS_INDEX, SHARE_INDEX } from '../types';
 import { useShareProjectModal } from '../useShareProjectModal';
 import { Members } from './Members';
@@ -24,7 +25,7 @@ export const Body = memo(function Body(props: Props) {
   }, []);
 
   const handleTabsChange = useCallback(
-    async (index: number) => {
+    async (index: string) => {
       switch (index as Index) {
         case SHARE_INDEX: {
           setLoading();
@@ -42,41 +43,40 @@ export const Body = memo(function Body(props: Props) {
   );
 
   return (
-    <ModalBody p={0}>
+    <Dialog.Body p={0}>
       <Tabs
-        index={tabIndex}
-        onChange={handleTabsChange}
+        value={tabIndex}
+        onValueChange={(e) => handleTabsChange(e.value)}
         flex={1}
         display="flex"
-        isLazy
       >
         <Flex flex={1} flexDirection="column">
           <Flex borderBottom="1px" borderColor="gray.200" px={6}>
             <TabList>
-              <Tab>Share</Tab>
-              <Tab>Members</Tab>
+              <Tab value="share">Share</Tab>
+              <Tab value="members">Members</Tab>
             </TabList>
           </Flex>
           <Flex flex={1} py={4} minH="300px" maxH="300px" overflow="scroll">
-            <TabPanels>
-              <TabPanel>
+            <Box>
+              <TabPanel value="share">
                 <Share
                   projectId={projectId}
                   loading={loadingTabContent}
                   onSetMembersTab={setMembersTab}
                 />
               </TabPanel>
-              <TabPanel>
+              <TabPanel value="members">
                 <Members
                   projectId={projectId}
                   loading={loadingTabContent}
                   onSetShareTab={setShareTab}
                 />
               </TabPanel>
-            </TabPanels>
+            </Box>
           </Flex>
         </Flex>
       </Tabs>
-    </ModalBody>
+    </Dialog.Body>
   );
 });

@@ -14,7 +14,7 @@ export const Content = memo(function Content(props: Props) {
   if (!taskIds.length) return null;
 
   return (
-    <Stack mt={2} spacing={2}>
+    <Stack mt={2} gap={2}>
       {taskIds.map((id) => (
         <ListItem key={id} taskId={id} />
       ))}

@@ -1,7 +1,6 @@
 import { memo, useCallback } from 'react';
-import { useDuplicateTaskModal } from '@/components/features/Modals';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onMouseEnter: () => void;
@@ -9,23 +8,21 @@ type Props = {
   taskId: string;
 };
 export const DuplicateTask = memo(function DuplicateTask(props: Props) {
-  const { onMouseEnter, onCloseMenu, taskId } = props;
-  const { onOpen, setTaskId } = useDuplicateTaskModal();
+  const { onMouseEnter, onCloseMenu } = props;
 
   const handleClick = useCallback(() => {
-    setTaskId(taskId);
-    onOpen();
     onCloseMenu();
-  }, [onCloseMenu, onOpen, setTaskId, taskId]);
+  }, [onCloseMenu]);
 
   return (
-    <MenuItem
+    <Menu.Item
       onMouseEnter={onMouseEnter}
-      icon={<Icon icon="copyAlt" color="text.muted" />}
       onClick={handleClick}
-      isDisabled
+      disabled
+      value=""
     >
+      <Icon icon="copyAlt" color="text.muted" />
       Duplicate task
-    </MenuItem>
+    </Menu.Item>
   );
 });

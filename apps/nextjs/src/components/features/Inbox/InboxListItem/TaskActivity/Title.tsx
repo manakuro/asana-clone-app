@@ -6,7 +6,7 @@ import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
 import { formatDueDate } from '@/shared/date';
 import { useTask } from '@/store/entities/task';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = FlexProps & {
   taskActivityId: string;

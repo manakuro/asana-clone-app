@@ -3,15 +3,15 @@ import { Flex } from '@/components/ui/Flex';
 import { useClickOutside } from '@/hooks';
 
 type Props = {
-  isOpen: boolean;
+  open: boolean;
   onClose: () => void;
 };
 
 export const ClickOutsideWrapper: React.FCWithChildren<Props> = (props) => {
-  const { onClose, children, isOpen } = props;
+  const { onClose, children, open } = props;
   const { ref } = useClickOutside<HTMLDivElement>(onClose);
 
-  if (!isOpen) return <>{children}</>;
+  if (!open) return <>{children}</>;
 
   return (
     <Flex flex={1} ref={ref}>

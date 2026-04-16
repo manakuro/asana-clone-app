@@ -42,7 +42,7 @@ export const Row = memo(function Row(props: Props) {
       borderColor="gray.200"
       position="relative"
       justifyContent="flex-end"
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
       {...containerStyle}
       {...rest}
     />

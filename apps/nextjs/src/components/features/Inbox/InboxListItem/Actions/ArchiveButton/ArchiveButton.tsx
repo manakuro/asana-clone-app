@@ -12,16 +12,17 @@ export const ArchiveButton = memo(function ArchiveButton(props: Props) {
   const handleClick = useCallback(() => {}, []);
 
   return (
-    <Tooltip hasArrow {...tooltipProps}>
+    <Tooltip showArrow {...tooltipProps}>
       <IconButton
         aria-label="Archive notifications"
-        icon={<Icon icon="trashAlt" color="text.muted" size="xs" />}
         variant="ghost"
         h={6}
         minW={6}
         {...rest}
         onClick={handleClick}
-      />
+      >
+        <Icon icon="trashAlt" color="text.muted" size="xs" />
+      </IconButton>
     </Tooltip>
   );
 });

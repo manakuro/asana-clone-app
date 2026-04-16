@@ -4,9 +4,8 @@ import {
   MenuSelectButton,
   MenuSelectList,
 } from '@/components/features/Menus';
-import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItemOption } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useProjectTask } from '@/store/entities/projectTask';
 import {
   useProjectsTaskSectionsByProjectId,
@@ -43,23 +42,20 @@ export const Section = memo(function Section(props: Props) {
   );
 
   return (
-    <MenuSelect onChange={handleChange} placement="bottom-start">
-      <MenuSelectButton
-        as={Button}
-        variant="ghost"
-        size="xs"
-        cursor="pointer"
-        rightIcon={
-          <Icon mt="1px" icon="chevronDown" color="text.muted" size="md" />
-        }
-      >
+    <MenuSelect
+      onChange={handleChange}
+      positioning={{ placement: 'bottom-start' }}
+    >
+      <MenuSelectButton variant="ghost" size="xs" cursor="pointer">
         {projectTaskSection.name}
+        <Icon mt="1px" icon="chevronDown" color="text.muted" size="md" />
       </MenuSelectButton>
       <MenuSelectList>
         {projectTaskSections.map((p) => (
-          <MenuItemOption value={p.id} key={p.id}>
+          <Menu.RadioItem value={p.id} key={p.id}>
             {p.name}
-          </MenuItemOption>
+            <Menu.ItemIndicator />
+          </Menu.RadioItem>
         ))}
       </MenuSelectList>
     </MenuSelect>

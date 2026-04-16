@@ -1,14 +1,14 @@
 import type React from 'react';
 import { Link } from '@/components/ui/Link';
-import { PopoverTrigger } from '@/components/ui/Popover';
+import { HoverCard } from '@/components/ui/Popover';
 import { useLinkStyle } from '@/hooks/styles';
 
 export const PopoverEditorLinkTrigger: React.FCWithChildren = (props) => {
   const { style } = useLinkStyle();
 
   return (
-    <PopoverTrigger>
+    <HoverCard.Trigger asChild>
       <Link {...style}>{props.children}</Link>
-    </PopoverTrigger>
+    </HoverCard.Trigger>
   );
 };

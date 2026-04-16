@@ -8,7 +8,7 @@ import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
 
 export const ShareButton = memo(function ShareButton() {
   const { setIsOpen } = useShareWorkspaceModal();
-  const { isOpen, ref } = useTooltip<HTMLButtonElement>();
+  const { open, ref } = useTooltip<HTMLButtonElement>();
 
   const handleShareWorkspace = useCallback(() => {
     setIsOpen(true);
@@ -17,19 +17,19 @@ export const ShareButton = memo(function ShareButton() {
   return (
     <Flex alignItems="center">
       <Tooltip
-        isOpen={isOpen}
-        hasArrow
-        label="Share this space with teammates to let them organize your work."
+        open={open}
+        showArrow
+        content="Share this space with teammates to let them organize your work."
         aria-label="A share button description"
         size="md"
       >
         <Button
           ref={ref}
-          leftIcon={<Icon icon="lockAlt" mt="-1px" size="xs" />}
           variant="outline"
           size="xs"
           onClick={handleShareWorkspace}
         >
+          <Icon icon="lockAlt" mt="-1px" size="xs" />
           Share
         </Button>
       </Tooltip>

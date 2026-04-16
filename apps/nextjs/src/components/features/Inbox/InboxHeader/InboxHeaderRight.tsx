@@ -11,7 +11,7 @@ export const InboxHeaderRight = memo(function InboxHeaderRight(props: Props) {
 
   return (
     <Flex ml="auto" {...rest}>
-      <Stack spacing={props.spacing ?? 4} direction="row">
+      <Stack gap={props.spacing ?? 4} direction="row">
         {children}
       </Stack>
     </Flex>

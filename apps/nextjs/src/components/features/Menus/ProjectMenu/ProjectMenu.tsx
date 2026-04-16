@@ -4,10 +4,10 @@ import {
   SearchMenuContent,
   SearchMenuTrigger,
 } from '@/components/features/Menus/SearchMenu';
-import type { PopoverProps } from '@/components/ui/Popover';
+import type { PopoverRootProps } from '@/components/ui/Popover';
 import { Content } from './Content';
 
-type Props = PopoverProps & {
+type Props = PopoverRootProps & {
   onSelect: (val: string) => void;
   queryText: string;
   onClose: () => void;
@@ -18,12 +18,12 @@ type Props = PopoverProps & {
 export const ProjectMenu = memo(function ProjectMenu(
   props: PropsWithChildren<Props>,
 ) {
-  const { onClosed, queryText, isOpen, onClose, immediate, ...rest } = props;
+  const { onClosed, queryText, open, onClose, immediate, ...rest } = props;
 
   return (
-    <SearchMenu isOpen={isOpen} {...rest}>
+    <SearchMenu open={open} {...rest}>
       <SearchMenuTrigger>{props.children}</SearchMenuTrigger>
-      {isOpen && (
+      {open && (
         <SearchMenuContent mr={-3} onClose={onClose}>
           <Content
             onClosed={onClosed}

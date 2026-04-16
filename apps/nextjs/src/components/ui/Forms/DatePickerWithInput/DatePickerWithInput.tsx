@@ -5,7 +5,7 @@ import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
 import { Flex } from '@/components/ui/Flex';
 import { Icon, type IconProps } from '@/components/ui/Icon';
 import { useHover } from '@/hooks/useHover';
-import type { ChakraProps } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 import { DeleteButton } from './DeleteButton';
 import { Input } from './Input';
 
@@ -34,7 +34,7 @@ export const DatePickerWithInput = memo(function DatePickerWithInput(
   const { ref, isHovering } = useHover<HTMLButtonElement>();
   const [focused, setFocused] = useState(false);
   const hasDueDate = useMemo(() => !!dueDate, [dueDate]);
-  const colorStyle = useMemo<ChakraProps>(
+  const colorStyle = useMemo<SystemStyleObject>(
     () => (hasDueDate ? { color: 'text.base' } : { color: 'text.muted' }),
     [hasDueDate],
   );

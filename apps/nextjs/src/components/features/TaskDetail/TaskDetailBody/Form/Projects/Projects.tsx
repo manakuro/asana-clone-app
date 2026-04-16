@@ -63,7 +63,7 @@ export const Projects = memo(function Projects(props: Props) {
                 onClick={inputDisclosure.onOpen}
               />
             ))}
-            {inputDisclosure.isOpen && (
+            {inputDisclosure.open && (
               <Flex flex={1}>
                 <Input onClose={inputDisclosure.onClose} taskId={taskId} />
               </Flex>
@@ -74,7 +74,7 @@ export const Projects = memo(function Projects(props: Props) {
             taskId={taskId}
             onClick={inputDisclosure.onOpen}
             onClose={inputDisclosure.onClose}
-            isOpen={inputDisclosure.isOpen}
+            open={inputDisclosure.open}
           />
         )}
       </Content>

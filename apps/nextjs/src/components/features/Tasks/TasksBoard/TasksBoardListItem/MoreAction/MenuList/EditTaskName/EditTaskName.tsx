@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useTasksBoardListItemInputContext } from '../../../Provider';
 
 type Props = {
@@ -17,12 +17,13 @@ export const EditTaskName = memo(function EditTaskName(props: Props) {
   }, [onCloseMenu, onInputSelect]);
 
   return (
-    <MenuItem
+    <Menu.Item
       onMouseEnter={onMouseEnter}
-      icon={<Icon icon="editAlt" color="text.muted" />}
       onClick={handleEditTaskName}
+      value=""
     >
+      <Icon icon="editAlt" color="text.muted" />
       Edit task name
-    </MenuItem>
+    </Menu.Item>
   );
 });

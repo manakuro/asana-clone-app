@@ -6,7 +6,7 @@ import { useIncreaseListIndent } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label' | 'isActive'> & {
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Omit<TooltipProps, 'content'>;
 };
 
 export const IncreaseListIndent = memo(function IncreaseListIndent(
@@ -17,15 +17,16 @@ export const IncreaseListIndent = memo(function IncreaseListIndent(
   return (
     <BaseButton
       aria-label="Increase list indent"
-      icon={<Icon icon="rightIndent" color="text.muted" />}
       isEnable={isEnable}
       action={action}
       {...props}
       tooltip={{
-        label: 'Increase list indent\n(⌘+[)',
+        content: 'Increase list indent\n(⌘+[)',
         'aria-label': 'Increase list indent',
         ...props.tooltip,
       }}
-    />
+    >
+      <Icon icon="rightIndent" color="text.muted" />
+    </BaseButton>
   );
 });

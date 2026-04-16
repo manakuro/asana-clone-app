@@ -48,8 +48,8 @@ export const ProjectListItem = memo(function ProjectListItem(props: Props) {
         </Flex>
       </Flex>
       <Flex alignItems="center">
-        <AvatarGroup size="xs" max={2} spacing={1} fontSize="xs">
-          {teammateIds.map((id) => (
+        <AvatarGroup size="xs" spaceX={1} fontSize="xs">
+          {teammateIds.slice(0, 2).map((id) => (
             <TeammateAvatar teammateId={id} key={id} />
           ))}
         </AvatarGroup>
@@ -59,14 +59,11 @@ export const ProjectListItem = memo(function ProjectListItem(props: Props) {
           copyProjectLink
           share
           projectId={project.id}
-          iconButton={{
-            as: IconButton,
-            'aria-label': 'menu button',
-            icon: <Icon icon="menu" size="xs" />,
-            variant: 'ghost',
-            ml: 2,
-          }}
-        />
+        >
+          <IconButton aria-label="menu button" variant="ghost" ml={2}>
+            <Icon icon="menu" size="xs" />
+          </IconButton>
+        </PopoverProjectMenu>
       </Flex>
     </Container>
   );

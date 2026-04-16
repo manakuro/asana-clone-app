@@ -6,15 +6,20 @@ import type React from 'react';
 import { forwardRef } from 'react';
 
 type Props = ChakraInputProps & {
-  ref?: React.MutableRefObject<any>;
+  ref?: React.RefObject<any>;
 };
 export type InputProps = Props;
 
 export const Input = forwardRef<HTMLInputElement, Props>(
   function Input(props, ref) {
-    return <ChakraInput focusBorderColor="none" ref={ref} {...props} />;
+    return (
+      <ChakraInput
+        css={{
+          '--focus-color': 'none',
+        }}
+        ref={ref}
+        {...props}
+      />
+    );
   },
 );
-
-// NOTE: Need an id to work styling properly
-// @see https://github.com/chakra-ui/chakra-ui/issues/2269

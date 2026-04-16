@@ -6,7 +6,7 @@ import { useDecreaseListIndent } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label' | 'isActive'> & {
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Omit<TooltipProps, 'content'>;
 };
 
 export const DecreaseListIndent = memo(function DecreaseListIndent(
@@ -17,15 +17,16 @@ export const DecreaseListIndent = memo(function DecreaseListIndent(
   return (
     <BaseButton
       aria-label="Decrease list indent"
-      icon={<Icon icon="leftIndent" color="text.muted" />}
       isEnable={isEnable}
       action={action}
       {...props}
       tooltip={{
-        label: 'Decrease list indent\n(⌘+])',
+        content: 'Decrease list indent\n(⌘+])',
         'aria-label': 'Decrease list indent',
         ...props.tooltip,
       }}
-    />
+    >
+      <Icon icon="leftIndent" color="text.muted" />
+    </BaseButton>
   );
 });

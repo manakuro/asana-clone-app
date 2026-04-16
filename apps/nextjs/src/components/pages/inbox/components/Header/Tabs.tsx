@@ -13,8 +13,8 @@ export const Tabs = memo(function Tabs() {
           </Heading>
         </Flex>
         <TabList>
-          <Tab>Activity</Tab>
-          <Tab>Archive</Tab>
+          <Tab value="activity">Activity</Tab>
+          <Tab value="archive">Archive</Tab>
         </TabList>
       </Flex>
     </Flex>

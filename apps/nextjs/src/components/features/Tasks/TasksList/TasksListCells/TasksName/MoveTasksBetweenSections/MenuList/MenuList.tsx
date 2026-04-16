@@ -6,7 +6,7 @@ import {
   useTasksTaskSectionByTaskId,
   useTasksTaskSections,
 } from '@/components/features/Tasks/hooks';
-import { MenuItemOption } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   taskId: string;
@@ -30,9 +30,10 @@ const Component: React.FC<ComponentProps> = memo<ComponentProps>((props) => {
   return (
     <MenuSelectList defaultValue={props.taskSectionId}>
       {props.taskSections.map((t) => (
-        <MenuItemOption value={t.id} key={t.id}>
+        <Menu.RadioItem value={t.id} key={t.id}>
           {t.name}
-        </MenuItemOption>
+          <Menu.ItemIndicator />
+        </Menu.RadioItem>
       ))}
     </MenuSelectList>
   );

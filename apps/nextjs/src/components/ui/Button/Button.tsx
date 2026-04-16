@@ -21,7 +21,6 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
     return (
       <ChakraButton
         minH={7}
-        iconSpacing={1}
         fontWeight="normal"
         outline="none; !important"
         {...style}

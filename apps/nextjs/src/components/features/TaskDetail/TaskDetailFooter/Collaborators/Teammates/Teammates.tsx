@@ -15,17 +15,18 @@ export const Teammates = memo(function Teammates() {
   if (isInputFocused) return null;
 
   return (
-    <Stack spacing={2} direction="row" alignItems="center" ml={4}>
+    <Stack gap={2} direction="row" alignItems="center" ml={4}>
       {teammateIds.map((id) => (
         <Teammate teammateId={id} key={id} />
       ))}
       <IconButton
         aria-label="add collaborators"
-        icon={<Icon icon="plus" color="text.muted" />}
         variant="ghost"
         size="sm"
         onClick={onInputFocus}
-      />
+      >
+        <Icon icon="plus" color="text.muted" />
+      </IconButton>
     </Stack>
   );
 });

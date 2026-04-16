@@ -1,40 +1,26 @@
 'use client';
 
-import { ChakraProvider } from '@chakra-ui/react';
 import { resetServerContext } from '@hello-pangea/dnd';
-import enLocale from 'date-fns/locale/en-US';
 import type { PropsWithChildren } from 'react';
-import { theme } from 'src/styles';
+import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
 import { Modals } from '@/components/features/Modals';
 import { GlobalQuery, Subscription } from '@/components/shared/app';
 import { Mobile } from '@/components/ui/Mobile';
 import { PageLoader } from '@/components/ui/PageLoader';
+import { Toaster } from '@/components/ui/Toast';
 import { AuthProvider, useAuthContext } from '@/providers/AuthProvider';
 import { ApolloProvider } from '@/shared/apollo/ApolloProvider';
-import {
-  AdapterDateFns,
-  LocalizationProvider,
-  MuiThemeProvider,
-  muiTheme,
-} from '@/shared/materialUI';
 
 resetServerContext();
 
 export function AppProvider({ children }: PropsWithChildren) {
   return (
     <AuthProvider>
-      <MuiThemeProvider theme={muiTheme}>
-        <ChakraProvider theme={theme} resetCSS>
-          <LocalizationProvider
-            dateAdapter={AdapterDateFns as any}
-            locale={enLocale}
-          >
-            <Mobile>
-              <Inner>{children}</Inner>
-            </Mobile>
-          </LocalizationProvider>
-        </ChakraProvider>
-      </MuiThemeProvider>
+      <ChakraProvider>
+        <Mobile>
+          <Inner>{children}</Inner>
+        </Mobile>
+      </ChakraProvider>
     </AuthProvider>
   );
 }
@@ -51,6 +37,7 @@ function Inner({ children }: PropsWithChildren) {
         <Subscription>
           {children}
           <Modals />
+          <Toaster />
         </Subscription>
       </GlobalQuery>
     </ApolloProvider>

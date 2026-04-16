@@ -24,18 +24,18 @@ export type Item = {
 };
 type Props = {
   item: Item;
-  isOpen: boolean;
+  open: boolean;
   onToggle: (id: number) => void;
   nextItem?: Item;
 };
 
 export const PADDING_X = 4;
 export function GuideListItem(props: Props) {
-  const { item, isOpen, onToggle, nextItem } = props;
+  const { item, open, onToggle, nextItem } = props;
 
   return (
     <>
-      {isOpen ? (
+      {open ? (
         <ListItemDetail
           item={item}
           nextItem={nextItem}

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ModalHeader } from '@/components/ui/Modal';
+import { Dialog } from '@/components/ui/Dialog';
 import { useProject } from '@/store/entities/project';
 
 type Props = {
@@ -9,5 +9,5 @@ type Props = {
 export const Header = memo(function Header(props: Props) {
   const { project } = useProject(props.projectId);
 
-  return <ModalHeader>Share {project.name}</ModalHeader>;
+  return <Dialog.Header>Share {project.name}</Dialog.Header>;
 });

@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onMouseEnter: () => void;
@@ -15,8 +15,13 @@ export const Print = memo(function Print(props: Props) {
   }, [onClose]);
 
   return (
-    <MenuItem onMouseEnter={onMouseEnter} onClick={handleClick} isDisabled>
+    <Menu.Item
+      onMouseEnter={onMouseEnter}
+      onClick={handleClick}
+      disabled
+      value=""
+    >
       Print
-    </MenuItem>
+    </Menu.Item>
   );
 });

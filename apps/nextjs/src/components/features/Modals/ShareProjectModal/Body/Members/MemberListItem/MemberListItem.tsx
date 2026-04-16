@@ -21,7 +21,7 @@ export const MemberListItem = memo(function MemberListItem(props: Props) {
       alignItems="center"
       h="50px"
       px={6}
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
       cursor="default"
     >
       <TeammateAvatar teammateId={teammateId} size="sm" />

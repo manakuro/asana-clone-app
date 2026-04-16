@@ -1,7 +1,7 @@
-import type React from 'react';
+import type { RefObject } from 'react';
 import { memo, useCallback } from 'react';
 import { Label } from '@/components/ui/Label';
-import { PopoverBody, PopoverContent } from '@/components/ui/Popover';
+import { Popover } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
 import {
@@ -12,14 +12,14 @@ import { useTeammate } from '@/store/entities/teammate';
 import { Form } from './Form';
 
 type Props = {
-  isOpen: boolean;
+  open: boolean;
   onClose: () => void;
   projectId: string;
   projectTeammateId: string;
-  initialFocusRef: React.MutableRefObject<HTMLInputElement | null>;
+  initialFocusRef: RefObject<HTMLInputElement | null>;
 };
 
-export const Content: React.FC<Props> = memo<Props>((props) => {
+export const Content = memo<Props>(function Content(props) {
   const { projectTeammateId, initialFocusRef, onClose } = props;
   const { projectTeammate, role } = useProjectTeammate(projectTeammateId);
   const { setProjectTeammateById } = useProjectTeammatesCommand();
@@ -37,19 +37,20 @@ export const Content: React.FC<Props> = memo<Props>((props) => {
 
   return (
     <Portal>
-      <PopoverContent ref={ref}>
-        <PopoverBody boxShadow="md" borderRadius="md">
-          <Label fontSize="xs" fontWeight="medium" color="text.muted">
-            What is {teammate.name}'s role on this project?
-          </Label>
-          <Form
-            onChange={handleChangeRole}
-            defaultValue={role}
-            initialFocusRef={initialFocusRef}
-          />
-        </PopoverBody>
-      </PopoverContent>
+      <Popover.Positioner>
+        <Popover.Content ref={ref}>
+          <Popover.Body boxShadow="md" borderRadius="md">
+            <Label fontSize="xs" fontWeight="medium" color="text.muted">
+              What is {teammate.name}'s role on this project?
+            </Label>
+            <Form
+              onChange={handleChangeRole}
+              defaultValue={role}
+              initialFocusRef={initialFocusRef}
+            />
+          </Popover.Body>
+        </Popover.Content>
+      </Popover.Positioner>
     </Portal>
   );
 });
-Content.displayName = 'Content';

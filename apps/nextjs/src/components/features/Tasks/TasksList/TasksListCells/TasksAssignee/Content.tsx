@@ -49,7 +49,7 @@ export const Content = memo(function Content(props: Props) {
       <>
         <Flex alignItems="center" maxW="inherit">
           <TeammateAvatar teammateId={task.assigneeId} size="xs" />
-          <Text fontSize="xs" ml={1} noOfLines={1}>
+          <Text fontSize="xs" ml={1} lineClamp={1}>
             {teammate.name}
           </Text>
         </Flex>

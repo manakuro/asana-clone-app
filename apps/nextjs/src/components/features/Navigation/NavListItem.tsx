@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Link, type LinkProps } from '@/components/ui/Link';
-import { ListItem, type ListItemProps } from '@/components/ui/List';
 import { NextLink } from '@/components/ui/NextLink';
 import { Text } from '@/components/ui/Text';
 import { useLinkHoverStyle } from '@/hooks';
@@ -14,13 +14,13 @@ type Props = {
   light?: boolean;
   linkStyle?: LinkProps;
   disabled?: boolean;
-} & ListItemProps;
+} & FlexProps;
 
 export const NavListItem = memo(function NavListItem(props: Props) {
   const { item, linkStyle, light: _, disabled, ...rest } = props;
   const { _hover, selectedStyle } = useLinkHoverStyle();
   const listItemStyle = useMemo(
-    (): ListItemProps => ({
+    (): FlexProps => ({
       ...(disabled
         ? { opacity: 0.6, pointerEvents: 'none', cursor: 'not-allowed' }
         : {}),
@@ -29,24 +29,25 @@ export const NavListItem = memo(function NavListItem(props: Props) {
   );
 
   return (
-    <ListItem {...listItemStyle} {...rest}>
-      <WithNextLink {...props}>
-        <Link
-          href={item.href}
-          isExternal={item.isExternal ?? false}
-          display="flex"
-          alignItems="center"
-          px={PADDING_X}
-          py={2}
-          _hover={_hover}
-          {...(item.isCurrentRoute?.() ? selectedStyle : {})}
-          {...linkStyle}
-        >
+    <Flex flexDirection="column" {...listItemStyle} {...rest}>
+      <Link
+        href={item.href}
+        target={item.isExternal ? '_blank' : undefined}
+        display="flex"
+        alignItems="center"
+        px={PADDING_X}
+        py={2}
+        _hover={_hover}
+        {...(item.isCurrentRoute?.() ? selectedStyle : {})}
+        {...linkStyle}
+        asChild={!item.isExternal}
+      >
+        <WithNextLink {...props}>
           <Icon icon={item.icon} mr={PADDING_X} mt="-2px" />
           <Text fontSize="sm">{item.name}</Text>
-        </Link>
-      </WithNextLink>
-    </ListItem>
+        </WithNextLink>
+      </Link>
+    </Flex>
   );
 });
 
@@ -54,8 +55,6 @@ function WithNextLink(props: Props) {
   return props.item.isExternal ? (
     props.children
   ) : (
-    <NextLink href={props.item.href as StaticRoutes} passHref legacyBehavior>
-      {props.children}
-    </NextLink>
+    <NextLink href={props.item.href as StaticRoutes}>{props.children}</NextLink>
   );
 }

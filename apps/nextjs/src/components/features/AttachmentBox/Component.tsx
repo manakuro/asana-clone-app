@@ -3,7 +3,7 @@ import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
 import { Text } from '@/components/ui/Text';
 import type { IconType } from '@/shared/icons';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 import { type Sizes, sizes } from './sizes';
 
 type Props = FlexProps & {
@@ -41,7 +41,7 @@ export function Component(props: Props) {
     >
       <Icon icon={icon} color="text.muted" size="2xl" />
       <Flex ml={4} flexDirection="column" flex={1} minW={0}>
-        <Text fontSize="sm" noOfLines={1}>
+        <Text fontSize="sm" lineClamp={1}>
           {name}
         </Text>
         <Flex>

@@ -57,10 +57,10 @@ export const InviteForm = memo(function InviteForm(props: Props) {
   return (
     <>
       <InviteProjectTeammateMenu
-        isOpen={popoverDisclosure.isOpen}
+        open={popoverDisclosure.open}
         onClose={popoverDisclosure.onClose}
         onSelect={handleSelect}
-        placement="bottom-start"
+        positioning={{ placement: 'bottom-start' }}
         queryText={value}
       >
         <Flex>
@@ -75,8 +75,8 @@ export const InviteForm = memo(function InviteForm(props: Props) {
         </Flex>
       </InviteProjectTeammateMenu>
       <Flex alignItems="center">
-        <AvatarGroup size="xs" max={3} spacing={1} fontSize="xs">
-          {teammateIds.map((id) => (
+        <AvatarGroup size="xs" spaceX={1} fontSize="xs">
+          {teammateIds.slice(0, 3).map((id) => (
             <TeammateAvatar teammateId={id} key={id} />
           ))}
         </AvatarGroup>

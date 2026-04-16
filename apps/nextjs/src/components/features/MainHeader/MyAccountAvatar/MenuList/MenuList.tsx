@@ -2,11 +2,7 @@ import { useCallback } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
-import {
-  MenuList as AtomsMenuList,
-  MenuDivider,
-  MenuItem,
-} from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import { useClickOutside } from '@/hooks/useClickOutside';
@@ -18,12 +14,12 @@ type Props = {
 };
 
 export function MenuList(props: Props) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
   const { ref } = useClickOutside<HTMLDivElement>(() => {
     handleCloseAll();
   });
 
-  const handleOpen = useCallback(() => {
+  const _handleOpen = useCallback(() => {
     onOpen();
   }, [onOpen]);
 
@@ -38,18 +34,18 @@ export function MenuList(props: Props) {
 
   return (
     <Portal>
-      <AtomsMenuList ref={ref}>
-        <MenuItem onMouseEnter={handleClose} isDisabled>
-          My workspace
-        </MenuItem>
-        <MenuDivider />
-        <MenuItem onMouseEnter={handleClose} isDisabled>
-          Admin Console
-        </MenuItem>
-        <MenuItem onMouseEnter={handleOpen}>
+      <Menu.Positioner>
+        <Menu.Content ref={ref}>
+          <Menu.Item value="0" onMouseEnter={handleClose} disabled>
+            My workspace
+          </Menu.Item>
+          <Menu.Separator />
+          <Menu.Item value="1" onMouseEnter={handleClose} disabled>
+            Admin Console
+          </Menu.Item>
           <PopoverMore
-            isOpen={isOpen}
-            placement="left"
+            open={open}
+            positioning={{ placement: 'left' }}
             onClose={handleCloseAll}
           >
             <Flex flex={1}>
@@ -59,17 +55,17 @@ export function MenuList(props: Props) {
               <Icon icon="chevronRight" />
             </Flex>
           </PopoverMore>
-        </MenuItem>
-        <MenuDivider />
-        <MenuItem onMouseEnter={handleClose} link>
-          <Link fontSize="sm" isExternal href="https://google.com">
-            Privacy Policy
-          </Link>
-        </MenuItem>
-        <MenuItem onMouseEnter={handleClose} isDisabled>
-          Logout
-        </MenuItem>
-      </AtomsMenuList>
+          <Menu.Separator />
+          <Menu.Item value="3" onMouseEnter={handleClose} asChild>
+            <Link fontSize="sm" target="_blank" href="https://google.com">
+              Privacy Policy
+            </Link>
+          </Menu.Item>
+          <Menu.Item value="4" onMouseEnter={handleClose} disabled>
+            Logout
+          </Menu.Item>
+        </Menu.Content>
+      </Menu.Positioner>
     </Portal>
   );
 }

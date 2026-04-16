@@ -13,8 +13,8 @@ export const AddTask = memo(function AddTask(props: Props) {
   const { clickableHoverStyle } = useClickableHoverStyle();
   const { stickyStyle } = useTasksListContext();
 
-  const handleClick = useCallback(() => {
-    addTask({ taskSectionId: props.taskSectionId });
+  const handleClick = useCallback(async () => {
+    await addTask({ taskSectionId: props.taskSectionId });
   }, [addTask, props.taskSectionId]);
 
   return (
@@ -25,10 +25,10 @@ export const AddTask = memo(function AddTask(props: Props) {
       color="text.muted"
       alignItems="center"
       flex={1}
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
       onClick={handleClick}
     >
-      <Flex {...stickyStyle} pl="68px" bg="inherit">
+      <Flex css={stickyStyle} pl="68px" bg="inherit">
         Add task...
       </Flex>
     </Flex>

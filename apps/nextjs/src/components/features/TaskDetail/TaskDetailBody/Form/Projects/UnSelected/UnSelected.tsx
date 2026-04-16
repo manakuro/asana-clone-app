@@ -8,15 +8,15 @@ type Props = {
   taskId: string;
   onClick: () => void;
   onClose: () => void;
-  isOpen: boolean;
+  open: boolean;
 };
 
 export const UnSelected = memo(function UnSelected(props: Props) {
-  const { isOpen, onClose, taskId, onClick } = props;
+  const { open, onClose, taskId, onClick } = props;
 
   return (
     <Flex flex={1}>
-      {isOpen ? (
+      {open ? (
         <Input onClose={onClose} taskId={taskId} />
       ) : (
         <Button

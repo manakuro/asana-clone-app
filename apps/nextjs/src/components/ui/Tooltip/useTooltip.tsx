@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const useTooltip = <T extends HTMLElement>(props: Props = {}) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
   const { ref, isHovering } = useHover<T>();
   const { mountedRef } = useMountedRef();
 
@@ -30,7 +30,7 @@ export const useTooltip = <T extends HTMLElement>(props: Props = {}) => {
 
   return {
     ref,
-    isOpen,
+    open,
     onClose,
     onOpen,
   };

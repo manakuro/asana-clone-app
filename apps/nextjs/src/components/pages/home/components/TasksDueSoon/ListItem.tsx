@@ -38,7 +38,7 @@ export const ListItem = memo(function ListItem(props: Props) {
   const handleClick = useCallback(
     async (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
-      await navigateToHomeDetail(taskId);
+      navigateToHomeDetail(taskId);
     },
     [navigateToHomeDetail, taskId],
   );
@@ -61,23 +61,23 @@ export const ListItem = memo(function ListItem(props: Props) {
       h={10}
       onClick={handleClick}
       aria-label="task due soon"
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
     >
       <Flex alignItems="center" flex={1}>
         <CheckIcon completed={task.completed} onClick={handleToggleDone} />
-        <Text fontSize="sm" ml={2} noOfLines={1}>
+        <Text fontSize="sm" ml={2} lineClamp={1}>
           {task.name}
         </Text>
       </Flex>
       <Flex flex="0 0 auto" alignItems="center" justifyContent="flex-end">
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" gap={2}>
           {projectIds.map((id) => (
             <ProjectChip
               variant="badge"
               projectId={id}
               key={id}
               badgeProps={{
-                noOfLines: 1,
+                lineClamp: 1,
                 maxW: 20,
               }}
             />

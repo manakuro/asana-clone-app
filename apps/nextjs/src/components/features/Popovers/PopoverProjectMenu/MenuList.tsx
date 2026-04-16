@@ -3,7 +3,7 @@ import { PopoverSetColorAndIcon } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import { MenuList as AtomsMenuList, MenuDivider } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import { useClickOutside } from '@/hooks/useClickOutside';
@@ -16,7 +16,6 @@ import { DeleteProject } from './DeleteProject';
 import { DuplicateProject } from './DuplicateProject';
 import { EditProjectDetails } from './EditProjectDetails';
 import { Favorite } from './Favorite';
-import { MenuItem } from './MenuItem';
 import { Share } from './Share';
 
 type Props = {
@@ -33,7 +32,7 @@ type Props = {
 };
 
 export function MenuList(props: Props) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
   const { ref } = useClickOutside<HTMLDivElement>(() => {
     onClose();
     props.onCloseMenu();
@@ -52,82 +51,83 @@ export function MenuList(props: Props) {
 
   return (
     <Portal>
-      <AtomsMenuList color="text.base" ref={ref}>
-        <MenuItem
-          icon={
-            <ColorBox
-              size="md"
-              color={projectBaseColor.color.color}
-              mt="-1px"
-            />
-          }
-          onMouseEnter={handleOpen}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <PopoverSetColorAndIcon
-            project={props.project}
-            isOpen={isOpen}
-            placement="right-end"
+      <Menu.Positioner>
+        <Menu.Content color="text.base" ref={ref}>
+          <Menu.Item
+            onMouseEnter={handleOpen}
+            onClick={(e) => e.stopPropagation()}
+            value=""
           >
-            <Flex>
-              <Text fontSize="sm" flex={1}>
-                Set Color & icon
-              </Text>
-              <Icon icon="chevronRight" />
-            </Flex>
-          </PopoverSetColorAndIcon>
-        </MenuItem>
-        <MenuDivider />
-        {props.addFavorite && (
-          <Favorite
-            onClose={props.onCloseMenu}
-            projectId={props.project.id}
-            onMouseEnter={handleClose}
-          />
-        )}
-        {props.editProjectDetails && (
-          <EditProjectDetails
-            onClose={props.onCloseMenu}
-            onMouseEnter={handleClose}
-            projectId={props.project.id}
-          />
-        )}
-        {props.copyProjectLink && (
-          <CopyProjectLink
-            onClose={props.onCloseMenu}
-            onMouseEnter={handleClose}
-            projectId={props.project.id}
-          />
-        )}
-        {props.share && (
-          <Share
-            onClose={props.onCloseMenu}
-            onMouseEnter={handleClose}
-            projectId={props.project.id}
-          />
-        )}
-        {props.duplicateProject && (
-          <DuplicateProject
-            onClose={props.onCloseMenu}
-            onMouseEnter={handleClose}
-            projectId={props.project.id}
-          />
-        )}
-        {props.archiveProject && (
-          <ArchiveProject
-            onClose={props.onCloseMenu}
-            onMouseEnter={handleClose}
-            projectId={props.project.id}
-          />
-        )}
-        {props.deleteProject && (
-          <DeleteProject
-            onClose={props.onCloseMenu}
-            onMouseEnter={handleClose}
-            projectId={props.project.id}
-          />
-        )}
-      </AtomsMenuList>
+            <PopoverSetColorAndIcon
+              project={props.project}
+              open={open}
+              positioning={{ placement: 'right-end' }}
+            >
+              <Flex>
+                <ColorBox
+                  size="md"
+                  color={projectBaseColor.color.color}
+                  mt="-1px"
+                />
+                <Text fontSize="sm" flex={1}>
+                  Set Color & icon
+                </Text>
+                <Icon icon="chevronRight" />
+              </Flex>
+            </PopoverSetColorAndIcon>
+          </Menu.Item>
+          <Menu.Separator />
+          {props.addFavorite && (
+            <Favorite
+              onClose={props.onCloseMenu}
+              projectId={props.project.id}
+              onMouseEnter={handleClose}
+            />
+          )}
+          {props.editProjectDetails && (
+            <EditProjectDetails
+              onClose={props.onCloseMenu}
+              onMouseEnter={handleClose}
+              projectId={props.project.id}
+            />
+          )}
+          {props.copyProjectLink && (
+            <CopyProjectLink
+              onClose={props.onCloseMenu}
+              onMouseEnter={handleClose}
+              projectId={props.project.id}
+            />
+          )}
+          {props.share && (
+            <Share
+              onClose={props.onCloseMenu}
+              onMouseEnter={handleClose}
+              projectId={props.project.id}
+            />
+          )}
+          {props.duplicateProject && (
+            <DuplicateProject
+              onClose={props.onCloseMenu}
+              onMouseEnter={handleClose}
+              projectId={props.project.id}
+            />
+          )}
+          {props.archiveProject && (
+            <ArchiveProject
+              onClose={props.onCloseMenu}
+              onMouseEnter={handleClose}
+              projectId={props.project.id}
+            />
+          )}
+          {props.deleteProject && (
+            <DeleteProject
+              onClose={props.onCloseMenu}
+              onMouseEnter={handleClose}
+              projectId={props.project.id}
+            />
+          )}
+        </Menu.Content>
+      </Menu.Positioner>
     </Portal>
   );
 }

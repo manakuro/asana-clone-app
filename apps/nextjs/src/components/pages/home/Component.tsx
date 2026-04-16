@@ -37,7 +37,7 @@ export const Component = memo<Props>(function Component(props) {
           <SkeletonHome />
         ) : (
           <Content>
-            <Stack spacing={10} w="full">
+            <Stack gap={10} w="full">
               <TasksDueSoon />
               <FavoriteProjects />
               <RecentProjects />

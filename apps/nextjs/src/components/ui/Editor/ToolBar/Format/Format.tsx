@@ -3,8 +3,7 @@ import { useEditorStateContext } from '@/components/ui/Editor/Editors';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';
-import { Popover, PopoverTrigger } from '@/components/ui/Popover';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Popover } from '@/components/ui/Popover';
 import { useDisclosure } from '@/shared/chakra';
 import {
   useBold,
@@ -50,27 +49,26 @@ export const Format = memo(function Format() {
   }, [popoverDisclosure]);
 
   return (
-    <PortalManager zIndex={1500}>
-      <Popover
-        isOpen={popoverDisclosure.isOpen}
-        placement="top"
-        isLazy
-        closeOnBlur={false}
-      >
-        <PopoverTrigger>
-          <Link onClick={popoverDisclosure.onOpen}>
-            <IconButton
-              aria-label="format"
-              icon={<Icon icon="textFormat" color="text.muted" />}
-              variant="ghost"
-              size="sm"
-              colorScheme="teal"
-              isActive={isActive}
-            />
-          </Link>
-        </PopoverTrigger>
-        {popoverDisclosure.isOpen && <Content onClose={handleClose} />}
-      </Popover>
-    </PortalManager>
+    <Popover.Root
+      open={popoverDisclosure.open}
+      positioning={{ placement: 'top' }}
+      lazyMount
+      closeOnInteractOutside={false}
+    >
+      <Popover.Trigger asChild>
+        <Link onClick={popoverDisclosure.onOpen}>
+          <IconButton
+            aria-label="format"
+            variant="ghost"
+            size="sm"
+            colorScheme="teal"
+            data-active={isActive}
+          >
+            <Icon icon="textFormat" color="text.muted" />
+          </IconButton>
+        </Link>
+      </Popover.Trigger>
+      {popoverDisclosure.open && <Content onClose={handleClose} />}
+    </Popover.Root>
   );
 });

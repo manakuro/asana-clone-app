@@ -36,7 +36,7 @@ export function Detail(props: Props) {
 
   return (
     <Flex p={PADDING_X} flexDirection="column">
-      {disclosure.isOpen ? (
+      {disclosure.open ? (
         <>
           {seeMoreComponent}
           {nextItem && (
@@ -61,7 +61,7 @@ export function Detail(props: Props) {
         </>
       ) : (
         <>
-          <Text fontSize="sm" noOfLines={3}>
+          <Text fontSize="sm" lineClamp={3}>
             {item.description}
           </Text>
           <Box>

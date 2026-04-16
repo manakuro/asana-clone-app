@@ -17,9 +17,11 @@ export const Input = memo(function Input(props: Props) {
         value={value}
         onChange={onChange}
         onKeyDown={onKeyDown}
-        fontSize="md"
-        fontWeight="medium"
-        minH="38px"
+        inputStyle={{
+          fontSize: 'md',
+          fontWeight: 'medium',
+          minHeight: '38px',
+        }}
         placeholder="How we'll collaborate"
         noBorder
       />

@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useProjectTeammate } from '@/store/entities/projectTeammate';
 
 type Props = {
@@ -21,5 +21,9 @@ export const AddRole = memo(function AddRole(props: Props) {
     onOpenPopover();
   }, [onOpenPopover]);
 
-  return <MenuItem onClick={handleClick}>{text}</MenuItem>;
+  return (
+    <Menu.Item value="" onClick={handleClick}>
+      {text}
+    </Menu.Item>
+  );
 });

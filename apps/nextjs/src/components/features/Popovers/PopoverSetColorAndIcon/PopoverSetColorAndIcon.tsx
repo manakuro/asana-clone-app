@@ -1,13 +1,8 @@
 import type { PropsWithChildren } from 'react';
-import { Divider } from '@/components/ui/Divider';
 import { Link } from '@/components/ui/Link';
-import {
-  Popover,
-  PopoverBody,
-  PopoverContent,
-  type PopoverProps,
-  PopoverTrigger,
-} from '@/components/ui/Popover';
+import { Popover, type PopoverRootProps } from '@/components/ui/Popover';
+import { Portal } from '@/components/ui/Portal';
+import { Separator } from '@/components/ui/Separator';
 import type { Project } from '@/store/entities/project';
 import { ColorPicker } from './ColorPicker';
 import { IconPicker } from './IconPicker';
@@ -15,7 +10,7 @@ import { Setting } from './Setting';
 
 type Props = {
   project: Project;
-} & PopoverProps;
+} & PopoverRootProps;
 
 const COLOR_BOX_WIDTH = 20;
 const COLOR_BOX_PADDING = 4;
@@ -28,32 +23,36 @@ const WIDTH = `${
 }px`;
 export function PopoverSetColorAndIcon(props: PropsWithChildren<Props>) {
   return (
-    <Popover
-      isOpen={props.isOpen}
-      isLazy
-      placement={props.placement}
-      closeOnBlur={false}
+    <Popover.Root
+      open={props.open}
+      lazyMount
+      positioning={props.positioning}
+      closeOnInteractOutside={false}
     >
-      <PopoverTrigger>
+      <Popover.Trigger>
         <Link>{props.children}</Link>
-      </PopoverTrigger>
-      <PopoverContent w={WIDTH} ml="5px" pointerEvents="auto">
-        <PopoverBody p={0}>
-          <ColorPicker
-            currentProjectBaseColorId={props.project.projectBaseColorId}
-            projectId={props.project.id}
-          />
-          <Divider />
-          <IconPicker
-            projectId={props.project.id}
-            currentProjectIconId={props.project.projectIconId}
-            currentProjectLightColorId={props.project.projectLightColorId}
-            currentProjectBaseColorId={props.project.projectBaseColorId}
-          />
-          <Divider />
-          <Setting isSetForEveryone />
-        </PopoverBody>
-      </PopoverContent>
-    </Popover>
+      </Popover.Trigger>
+      <Portal>
+        <Popover.Positioner>
+          <Popover.Content w={WIDTH} ml="5px" pointerEvents="auto">
+            <Popover.Body p={0}>
+              <ColorPicker
+                currentProjectBaseColorId={props.project.projectBaseColorId}
+                projectId={props.project.id}
+              />
+              <Separator />
+              <IconPicker
+                projectId={props.project.id}
+                currentProjectIconId={props.project.projectIconId}
+                currentProjectLightColorId={props.project.projectLightColorId}
+                currentProjectBaseColorId={props.project.projectBaseColorId}
+              />
+              <Separator />
+              <Setting isSetForEveryone />
+            </Popover.Body>
+          </Popover.Content>
+        </Popover.Positioner>
+      </Portal>
+    </Popover.Root>
   );
 }

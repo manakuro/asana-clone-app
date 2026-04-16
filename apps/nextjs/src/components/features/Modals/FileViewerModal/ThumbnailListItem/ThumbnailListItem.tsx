@@ -3,7 +3,7 @@ import { Center } from '@/components/ui/Center';
 import { Icon } from '@/components/ui/Icon';
 import { Image } from '@/components/ui/Image';
 import { FileTypeCode } from '@/graphql/enums';
-import type { ChakraProps } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 import { getTaskFileIcon, useTaskFile } from '@/store/entities/taskFile';
 import { Container } from './Container';
 
@@ -14,7 +14,7 @@ type Props = {
 export function ThumbnailListItem(props: Props) {
   const { taskFileId } = props;
   const { taskFile } = useTaskFile(taskFileId);
-  const style = useMemo<ChakraProps>(
+  const style = useMemo<SystemStyleObject>(
     () => ({
       bg: 'gray.50',
       borderRadius: 'md',

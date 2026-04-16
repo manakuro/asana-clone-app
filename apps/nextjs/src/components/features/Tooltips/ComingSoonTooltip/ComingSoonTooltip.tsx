@@ -4,8 +4,8 @@ import { Tooltip } from '@/components/ui/Tooltip';
 export function ComingSoonTooltip(props: PropsWithChildren) {
   return (
     <Tooltip
-      hasArrow
-      label={'This feature has not been implemented yet.\n Coming soon.'}
+      showArrow
+      content={'This feature has not been implemented yet.\n Coming soon.'}
       aria-label="This feature has not been implemented yet. Coming soon!"
       size="md"
       withIcon

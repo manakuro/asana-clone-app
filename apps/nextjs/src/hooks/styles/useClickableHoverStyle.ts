@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import type { ChakraProps } from '@/shared/chakra';
-import { transitions } from '@/styles';
+import type { SystemStyleObject } from '@/shared/chakra';
+import { transitions } from '@/styles/transitions';
 
 export const useClickableHoverStyle = () => {
-  const defaultStyle = useMemo<ChakraProps>(
+  const defaultStyle = useMemo<SystemStyleObject>(
     () => ({
       _hover: {
         bg: 'gray.50',
@@ -13,7 +13,7 @@ export const useClickableHoverStyle = () => {
     }),
     [],
   );
-  const lightStyle = useMemo<ChakraProps>(
+  const lightStyle = useMemo<SystemStyleObject>(
     () => ({
       opacity: 0.7,
       _hover: {
@@ -25,7 +25,7 @@ export const useClickableHoverStyle = () => {
     [],
   );
 
-  const inputGrabbableStyle = useMemo<ChakraProps>(
+  const inputGrabbableStyle = useMemo<SystemStyleObject>(
     () => ({
       _hover: {
         borderColor: 'gray.300',
@@ -37,7 +37,7 @@ export const useClickableHoverStyle = () => {
     [],
   );
 
-  const textStyle = useMemo<ChakraProps>(
+  const textStyle = useMemo<SystemStyleObject>(
     () => ({
       _hover: { color: 'teal.300' },
       transition: transitions.base(),

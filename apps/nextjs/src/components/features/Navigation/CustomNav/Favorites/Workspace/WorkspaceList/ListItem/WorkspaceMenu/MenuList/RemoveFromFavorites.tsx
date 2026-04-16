@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useFavoriteWorkspaceIdsCommand } from '@/store/entities/favoriteWorkspaceIds';
 
 type Props = {
@@ -16,5 +16,9 @@ export function RemoveFromFavorites(props: Props) {
     setFavoriteWorkspaceId(workspaceId);
   }, [onClose, workspaceId, setFavoriteWorkspaceId]);
 
-  return <MenuItem onClick={handleClick}>Remove from Favorites</MenuItem>;
+  return (
+    <Menu.Item value="0" onClick={handleClick}>
+      Remove from Favorites
+    </Menu.Item>
+  );
 }

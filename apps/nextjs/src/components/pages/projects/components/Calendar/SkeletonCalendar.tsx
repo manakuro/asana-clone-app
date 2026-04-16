@@ -44,7 +44,7 @@ export const SkeletonCalendar = memo(function SkeletonCalendar(props: Props) {
           bg="white"
         />
         <TasksCalendarContent bg="gray.50">
-          <Stack spacing={4} direction="row" p={2}>
+          <Stack gap={4} direction="row" p={2}>
             {[...new Array(3)]
               .map((_, i) => i + 1)
               .map((v) => (

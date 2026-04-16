@@ -1,9 +1,9 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
 import { DatePicker } from '@/components/ui/DatePicker';
-import { Divider } from '@/components/ui/Divider';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { PopoverBody, type PopoverProps } from '@/components/ui/Popover';
+import { Popover } from '@/components/ui/Popover';
+import { Separator } from '@/components/ui/Separator';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';
@@ -16,7 +16,7 @@ type Props = {
   onCloseMenu: () => void;
   time?: string;
   includeDueTime?: boolean;
-} & PopoverProps;
+};
 
 const MIN_DATE = dateFns.addYears(new Date(), -1);
 const MAX_DATE = dateFns.addYears(new Date(), 1);
@@ -38,7 +38,7 @@ export const Body = memo(function Body(props: Props) {
     },
     [onChange],
   );
-  const optionContainerStyle: FlexProps = dueTimeDisclosure.isOpen
+  const optionContainerStyle: FlexProps = dueTimeDisclosure.open
     ? { flexDirection: 'column' }
     : { flexDirection: 'row' };
 
@@ -47,7 +47,7 @@ export const Body = memo(function Body(props: Props) {
   }, [dueTimeDisclosure]);
 
   return (
-    <PopoverBody p={4} ref={ref} onClick={(e) => e.stopPropagation()}>
+    <Popover.Body p={4} ref={ref} onClick={(e) => e.stopPropagation()}>
       <DatePicker
         value={value}
         onChange={(newValue) => {
@@ -59,12 +59,12 @@ export const Body = memo(function Body(props: Props) {
       />
       {
         <>
-          <Divider />
+          <Separator />
           <Flex mt={2} {...optionContainerStyle} cursor="auto">
             {includeDueTime && (
               <DueTime
                 onClick={handleDueTimeClick}
-                isEditing={dueTimeDisclosure.isOpen}
+                isEditing={dueTimeDisclosure.open}
                 time={props.time}
               />
             )}
@@ -72,7 +72,7 @@ export const Body = memo(function Body(props: Props) {
               variant="ghost"
               size="sm"
               ml="auto"
-              mt={dueTimeDisclosure.isOpen ? 3 : 0}
+              mt={dueTimeDisclosure.open ? 3 : 0}
               onClick={onClear}
             >
               Clear
@@ -80,6 +80,6 @@ export const Body = memo(function Body(props: Props) {
           </Flex>
         </>
       }
-    </PopoverBody>
+    </Popover.Body>
   );
 });

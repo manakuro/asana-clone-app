@@ -1,5 +1,4 @@
 import { useParams } from 'next/navigation';
-import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
 import { useHover } from '@/hooks/useHover';
@@ -8,23 +7,13 @@ import { createProvider } from '@/shared/react/createProvider';
 import { useTask } from '@/store/entities/task';
 import { useTaskListCompletedStatus } from '@/store/entities/taskListCompletedStatus';
 
-type ContextProps = {
-  selected: boolean;
-  isHovering: boolean;
-  ref: React.MutableRefObject<HTMLElement | null>;
-  isOpening: boolean;
-  onOpening: () => void;
-  onClosing: () => void;
-  onToggleDone: () => Promise<void>;
-};
-
 type Props = {
   taskId: string;
 };
 
-const useValue = (props: Props): ContextProps => {
+const useValue = (props: Props) => {
   const [selected, setSelected] = useState<boolean>(false);
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const [isOpening, setIsOpening] = useState(true);
   const { task, setTask } = useTask(props.taskId);
   const { taskListStatus } = useTasksTaskListStatus();

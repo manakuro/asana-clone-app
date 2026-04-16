@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onMouseEnter: () => void;
@@ -15,13 +15,14 @@ export const OpenInNewTab = memo(function OpenInNewTab(props: Props) {
   }, [onCloseMenu]);
 
   return (
-    <MenuItem
+    <Menu.Item
       onMouseEnter={onMouseEnter}
-      icon={<Icon icon="linkExternal" color="text.muted" />}
       onClick={handleClick}
-      isDisabled
+      disabled
+      value=""
     >
+      <Icon icon="linkExternal" color="text.muted" />
       Open in new tab
-    </MenuItem>
+    </Menu.Item>
   );
 });

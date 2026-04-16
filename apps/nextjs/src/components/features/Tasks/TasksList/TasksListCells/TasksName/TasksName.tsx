@@ -117,7 +117,7 @@ const Component = memo(function Component(props: Props) {
         focusedBorder
         flex={1}
       />
-      <Stack direction="row" spacing={1} ml={1} mr="auto">
+      <Stack direction="row" gap={1} ml={1} mr="auto">
         <TaskParentName />
         <Like />
         <Feed />

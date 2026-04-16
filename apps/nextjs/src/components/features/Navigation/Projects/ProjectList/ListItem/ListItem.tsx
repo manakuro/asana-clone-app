@@ -6,6 +6,7 @@ import { PopoverProjectMenu } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';
 import { Text } from '@/components/ui/Text';
@@ -33,18 +34,15 @@ export const ListItem = memo(function ListItem(props: Props) {
   );
 
   return (
-    <NextLink
-      href={ROUTE_PROJECTS_LIST.href.pathnameObj(projectId)}
-      passHref
-      legacyBehavior
+    <Link
+      w="full"
+      p={2}
+      px={PADDING_X}
+      _hover={_hover}
+      {...(selected ? selectedStyle : {})}
+      asChild
     >
-      <Link
-        w="full"
-        p={2}
-        px={PADDING_X}
-        _hover={_hover}
-        {...(selected ? selectedStyle : {})}
-      >
+      <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(projectId)}>
         <Flex alignItems="center">
           {isExpanded ? (
             <Flex alignItems="center" flex={1}>
@@ -66,12 +64,13 @@ export const ListItem = memo(function ListItem(props: Props) {
             archiveProject
             deleteProject
             projectId={props.projectId}
-            menuButtonStyle={{ ...clickableHoverLightStyle }}
           >
-            <Icon icon="dotsHorizontalRounded" />
+            <IconButton {...clickableHoverLightStyle}>
+              <Icon icon="dotsHorizontalRounded" />
+            </IconButton>
           </PopoverProjectMenu>
         </Flex>
-      </Link>
-    </NextLink>
+      </NextLink>
+    </Link>
   );
 });

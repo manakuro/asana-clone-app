@@ -21,7 +21,7 @@ export const Input = memo(function Input(props: Props) {
       return true;
     },
   });
-  const popoverDisclosure = useDisclosure({ defaultIsOpen: true });
+  const popoverDisclosure = useDisclosure({ defaultOpen: true });
   const [value, setValue] = useState<string>(formatDueDateInput(dueDate));
 
   const handleChange = useCallback(
@@ -57,13 +57,13 @@ export const Input = memo(function Input(props: Props) {
       date={dueDate}
       onChange={handleSelect}
       onClear={handleClear}
-      defaultIsOpen
+      defaultOpen
       includeDueTime={false}
     >
       <AtomsInput
         ref={ref}
         autoFocus
-        variant="unstyled"
+        unstyled
         fontSize="sm"
         onChange={handleChange}
         value={value}

@@ -1,11 +1,7 @@
 import { useCallback } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import {
-  MenuList as AtomsMenuList,
-  MenuDivider,
-  MenuItem,
-} from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import { useClickOutside } from '@/hooks/useClickOutside';
@@ -21,12 +17,12 @@ type Props = {
 };
 
 export function MenuList(props: Props) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
   const { ref } = useClickOutside<HTMLDivElement>(() => {
     handleCloseAll();
   });
 
-  const handleOpen = useCallback(() => {
+  const _handleOpen = useCallback(() => {
     onOpen();
   }, [onOpen]);
 
@@ -41,65 +37,51 @@ export function MenuList(props: Props) {
 
   return (
     <Portal>
-      <AtomsMenuList ref={ref} zIndex={1}>
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="fullscreenOutline" color="text.muted" />}
-          command="Tab+X"
-          isDisabled
-        >
-          Full screen
-        </MenuItem>
-        <AddToAnotherProject
-          onMouseEnter={handleClose}
-          taskId={props.taskId}
-          onClose={handleCloseAll}
-        />
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="squareRounded" color="text.muted" />}
-          isDisabled
-        >
-          Mark as Milestone
-        </MenuItem>
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="beenHere" color="text.muted" />}
-          isDisabled
-        >
-          Mark as Approval
-        </MenuItem>
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="gitPullRequest" color="text.muted" />}
-          isDisabled
-        >
-          Make dependent
-        </MenuItem>
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="tag" color="text.muted" />}
-          command="Tab+T"
-          isDisabled
-        >
-          Add tags
-        </MenuItem>
-        <MenuDivider />
-        <MenuItem onMouseEnter={handleClose} isDisabled>
-          Duplicate task
-        </MenuItem>
-        <MenuItem onMouseEnter={handleClose} command="⌘+Tab+N" isDisabled>
-          Create follow-up task
-        </MenuItem>
-        <Print
-          onMouseEnter={handleClose}
-          taskId={props.taskId}
-          onClose={handleCloseAll}
-        />
-        <MenuItem onMouseEnter={handleOpen}>
+      <Menu.Positioner>
+        <Menu.Content ref={ref} zIndex={1}>
+          <Menu.Item onMouseEnter={handleClose} disabled value="">
+            <Icon icon="fullscreenOutline" color="text.muted" />
+            Full screen
+            <Menu.ItemCommand>Tab+X</Menu.ItemCommand>
+          </Menu.Item>
+          <AddToAnotherProject
+            onMouseEnter={handleClose}
+            taskId={props.taskId}
+            onClose={handleCloseAll}
+          />
+          <Menu.Item onMouseEnter={handleClose} disabled value="">
+            <Icon icon="squareRounded" color="text.muted" />
+            Mark as Milestone
+          </Menu.Item>
+          <Menu.Item onMouseEnter={handleClose} disabled value="">
+            <Icon icon="beenHere" color="text.muted" />
+            Mark as Approval
+          </Menu.Item>
+          <Menu.Item onMouseEnter={handleClose} disabled value="">
+            <Icon icon="gitPullRequest" color="text.muted" />
+            Make dependent
+          </Menu.Item>
+          <Menu.Item onMouseEnter={handleClose} disabled value="">
+            <Icon icon="tag" color="text.muted" />
+            Add tags
+            <Menu.ItemCommand>Tab+T</Menu.ItemCommand>
+          </Menu.Item>
+          <Menu.Separator />
+          <Menu.Item onMouseEnter={handleClose} disabled value="">
+            Duplicate task
+          </Menu.Item>
+          <Menu.Item onMouseEnter={handleClose} disabled value="">
+            Create follow-up task
+            <Menu.ItemCommand>⌘+Tab+N</Menu.ItemCommand>
+          </Menu.Item>
+          <Print
+            onMouseEnter={handleClose}
+            taskId={props.taskId}
+            onClose={handleCloseAll}
+          />
           <PopoverAdvancedActions
-            isOpen={isOpen}
-            placement="left"
+            open={open}
+            positioning={{ placement: 'left' }}
             onClose={handleCloseAll}
           >
             <Flex flex={1}>
@@ -109,14 +91,14 @@ export function MenuList(props: Props) {
               <Icon icon="chevronRight" />
             </Flex>
           </PopoverAdvancedActions>
-        </MenuItem>
-        <MenuDivider />
-        <DeleteTask
-          onMouseEnter={handleClose}
-          taskId={props.taskId}
-          onClose={handleCloseAll}
-        />
-      </AtomsMenuList>
+          <Menu.Separator />
+          <DeleteTask
+            onMouseEnter={handleClose}
+            taskId={props.taskId}
+            onClose={handleCloseAll}
+          />
+        </Menu.Content>
+      </Menu.Positioner>
     </Portal>
   );
 }

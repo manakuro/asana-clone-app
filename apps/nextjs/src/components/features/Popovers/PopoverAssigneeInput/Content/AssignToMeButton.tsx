@@ -1,13 +1,12 @@
 import { useCallback } from 'react';
 import { Button } from '@/components/ui/Button';
-import type { PopoverProps } from '@/components/ui/Popover';
 import { useMe } from '@/store/entities/me';
 import { useTaskCommand } from '@/store/entities/task';
 
 type Props = {
   taskId: string;
   onClose: () => void;
-} & PopoverProps;
+};
 
 export function AssignToMeButton(props: Props) {
   const { onClose, taskId } = props;

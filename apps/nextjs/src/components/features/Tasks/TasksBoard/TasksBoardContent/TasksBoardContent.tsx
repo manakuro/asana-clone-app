@@ -5,24 +5,24 @@ import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useMainStyle, usePrevious } from '@/hooks';
 import { useBreakpointValue } from '@/shared/chakra';
 import { isHTMLElement } from '@/shared/isHTMLElement';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = FlexProps;
 
 const maxH = 72 + 40;
 export const TasksBoardContent = memo(function TasksBoardContent(props: Props) {
   const { maxW } = useMainStyle();
-  const { isOpen, taskId } = useTaskDetailDrawer();
+  const { open, taskId } = useTaskDetailDrawer();
   const { getTasksBoardListSectionElementByTaskId } =
     useTasksBoardListSectionElement();
   const ref = useRef<HTMLDivElement | null>(null);
   const [style, setStyle] = useState<FlexProps>();
-  const prevIsOpen = usePrevious(isOpen);
+  const prevIsOpen = usePrevious(open);
   const margin =
     useBreakpointValue({ base: 220, '2xl': 700 }, { fallback: 'base' }) ?? 0;
 
   useEffect(() => {
-    if (!isOpen) {
+    if (!open) {
       setStyle({});
       return;
     }
@@ -48,7 +48,7 @@ export const TasksBoardContent = memo(function TasksBoardContent(props: Props) {
     }, 500);
   }, [
     getTasksBoardListSectionElementByTaskId,
-    isOpen,
+    open,
     margin,
     prevIsOpen,
     taskId,

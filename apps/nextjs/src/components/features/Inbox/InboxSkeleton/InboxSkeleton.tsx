@@ -53,7 +53,7 @@ export function InboxSkeleton() {
                           w="86px"
                           borderRadius="full"
                         />
-                        <Stack spacing={2} mt={3}>
+                        <Stack gap={2} mt={3}>
                           <Skeleton
                             h={TEXT_HEIGHT}
                             w="80%"
@@ -93,7 +93,7 @@ export function InboxSkeleton() {
           <Flex flexDirection="column" flex={1}>
             <Skeleton h="44px" opacity={0.3} />
 
-            <Stack direction="column" spacing={4} mt={4} px={6}>
+            <Stack direction="column" gap={4} mt={4} px={6}>
               <Skeleton h={TEXT_HEIGHT} w="60%" borderRadius="full" />
               <Skeleton h={TEXT_HEIGHT} w="50%" borderRadius="full" />
               <Skeleton h={TEXT_HEIGHT} w="40%" borderRadius="full" />

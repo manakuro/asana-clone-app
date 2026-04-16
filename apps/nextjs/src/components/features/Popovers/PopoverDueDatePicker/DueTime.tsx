@@ -24,17 +24,18 @@ export function DueTime(props: Props) {
   if (!props.isEditing) {
     return (
       <Tooltip
-        hasArrow
-        label="Add due time"
+        showArrow
+        content="Add due time"
         aria-label="A due time description"
         size="sm"
       >
         <IconButton
           aria-label="due time"
           onClick={props.onClick}
-          icon={<Icon icon="time" color="text.muted" />}
           variant="ghost"
-        />
+        >
+          <Icon icon="time" color="text.muted" />
+        </IconButton>
       </Tooltip>
     );
   }

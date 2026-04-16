@@ -1,4 +1,4 @@
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = {
   light?: boolean;

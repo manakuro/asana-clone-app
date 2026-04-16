@@ -1,15 +1,17 @@
+import type { TooltipContentProps } from '@chakra-ui/react';
+import type React from 'react';
+import { forwardRef } from 'react';
 import {
   Tooltip as ChakraTooltip,
   type TooltipProps as ChakraTooltipProps,
-} from '@chakra-ui/react';
-import type React from 'react';
-import { forwardRef } from 'react';
+} from 'src/chakra-ui/ui/tooltip';
 import { Flex } from '@/components/ui/Flex';
 
 type Props = ChakraTooltipProps & {
   withIcon?: boolean;
   size?: Sizes;
   ref?: React.ForwardedRef<any>;
+  contentProps?: TooltipContentProps;
 };
 export type TooltipProps = Props;
 
@@ -28,9 +30,9 @@ type Sizes = keyof typeof sizes;
 
 export const Tooltip = forwardRef<HTMLDivElement, Props>(
   function Tooltip(props, ref) {
-    const { size, withIcon, ...rest } = props;
+    const { size, withIcon, contentProps, ...rest } = props;
     const sizeStyle = size ? sizes[size as Sizes] : {};
-    const tooltipProps: ChakraTooltipProps = {
+    const tooltipContentProps: TooltipContentProps = {
       py: 2,
       px: 4,
       borderRadius: 'md',
@@ -39,14 +41,14 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
       bg: 'gray.800',
       fontSize: 'xs',
       ...sizeStyle,
-      ...rest,
+      ...contentProps,
     };
 
     if (withIcon) {
       // NOTE: Need to wrap Icon with span
       // @see https://github.com/chakra-ui/chakra-ui/issues/2869
       return (
-        <ChakraTooltip {...tooltipProps} ref={ref}>
+        <ChakraTooltip contentProps={tooltipContentProps} ref={ref} {...rest}>
           <Flex as="span" alignItems="center">
             {props.children}
           </Flex>
@@ -54,7 +56,8 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
       );
     }
 
-    return <ChakraTooltip {...tooltipProps} ref={ref} />;
+    return (
+      <ChakraTooltip contentProps={tooltipContentProps} ref={ref} {...rest} />
+    );
   },
 );
-(Tooltip as any).id = 'Tooltip';

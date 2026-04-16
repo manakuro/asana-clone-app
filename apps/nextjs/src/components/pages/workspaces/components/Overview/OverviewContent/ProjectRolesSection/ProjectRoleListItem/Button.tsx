@@ -1,24 +1,28 @@
 import { forwardRef } from 'react';
-import { Button as AtomsButton } from '@/components/ui/Button';
-import { MenuButton, type MenuButtonProps } from '@/components/ui/Menu';
+import {
+  Button as AtomsButton,
+  type ButtonProps,
+} from '@/components/ui/Button';
+import { Menu } from '@/components/ui/Menu';
 
-export const Button = forwardRef<HTMLButtonElement, MenuButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(props, ref) {
     return (
-      <MenuButton
-        ref={ref}
-        cursor="pointer"
-        as={AtomsButton}
-        variant="ghost"
-        size="sm"
-        border="1px"
-        borderColor="transparent"
-        px={2}
-        h="56px"
-        w="full"
-      >
-        {props.children}
-      </MenuButton>
+      <Menu.Trigger asChild>
+        <AtomsButton
+          ref={ref}
+          cursor="pointer"
+          variant="ghost"
+          size="sm"
+          border="1px"
+          borderColor="transparent"
+          px={2}
+          h="56px"
+          w="full"
+        >
+          {props.children}
+        </AtomsButton>
+      </Menu.Trigger>
     );
   },
 );

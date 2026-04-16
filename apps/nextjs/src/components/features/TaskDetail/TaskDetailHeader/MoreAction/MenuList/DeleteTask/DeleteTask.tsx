@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
-import { useToast } from '@/hooks';
+import { Menu } from '@/components/ui/Menu';
+import { useToaster } from '@/hooks/useToaster';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 
 type Props = {
@@ -13,7 +13,7 @@ export const DeleteTask = memo(function DeleteTask(props: Props) {
   const { onMouseEnter, taskId, onClose } = props;
   const { task } = useTask(props.taskId);
   const { deleteTask, undeleteTask } = useTaskCommand();
-  const { toast } = useToast();
+  const { toaster } = useToaster();
 
   const handleUndo = useCallback(async () => {
     await undeleteTask({ taskId });
@@ -22,21 +22,25 @@ export const DeleteTask = memo(function DeleteTask(props: Props) {
   const handleClick = useCallback(async () => {
     onClose();
     await deleteTask({ taskId });
-    toast({
+    toaster.success({
       description: `${task.name} was deleted`,
-      undo: handleUndo,
+      action: {
+        label: 'Undo',
+        onClick: handleUndo,
+      },
       duration: 10000,
     });
-  }, [onClose, deleteTask, taskId, toast, task.name, handleUndo]);
+  }, [onClose, deleteTask, taskId, toaster.success, task.name, handleUndo]);
 
   return (
-    <MenuItem
+    <Menu.Item
       onMouseEnter={onMouseEnter}
       color="alert"
-      command="Tab+Del"
       onClick={handleClick}
+      value=""
     >
       Delete task
-    </MenuItem>
+      <Menu.ItemCommand>Tab+Del</Menu.ItemCommand>
+    </Menu.Item>
   );
 });

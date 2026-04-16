@@ -16,8 +16,8 @@ export const Icon = memo(function Icon(props: Props) {
   if (hasAnyoneLiked) {
     return (
       <Tooltip
-        hasArrow
-        label={label}
+        showArrow
+        content={label}
         aria-label="The number of likes of this feed"
         size="sm"
         withIcon

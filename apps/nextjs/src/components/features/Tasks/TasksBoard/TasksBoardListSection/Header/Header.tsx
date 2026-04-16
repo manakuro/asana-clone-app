@@ -13,7 +13,7 @@ export const Header = memo(function Header(props: Props) {
   return (
     <Flex h="36px" alignItems="center">
       <TaskSectionName taskSectionId={props.taskSectionId} />
-      <Stack direction="row" spacing={1} ml="auto">
+      <Stack direction="row" gap={1} ml="auto">
         <AddTaskButton taskSectionId={props.taskSectionId} />
         <MoreAction />
       </Stack>

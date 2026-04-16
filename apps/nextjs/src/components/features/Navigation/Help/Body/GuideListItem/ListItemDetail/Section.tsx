@@ -1,7 +1,7 @@
 import type React from 'react';
 import { Box } from '@/components/ui/Box';
-import { Divider } from '@/components/ui/Divider';
 import { Heading } from '@/components/ui/Heading';
+import { Separator } from '@/components/ui/Separator';
 
 type Props = {
   title?: string;
@@ -10,7 +10,7 @@ type Props = {
 export const Section: React.FCWithChildren<Props> = (props) => {
   return (
     <Box mt={4}>
-      <Divider />
+      <Separator />
       {props.title && (
         <Heading as="h4" size="sm" my={4}>
           {props.title}
