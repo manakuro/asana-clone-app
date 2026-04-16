@@ -44,15 +44,11 @@ export const TasksDueSoon = memo(function TasksDueSoon() {
                   >
                     <Icon icon="help" size="xs" color="gray.500" mt="-1px" />
                   </Tooltip>
-                  <NextLink
-                    href={ROUTE_MY_TASKS_LIST.href.pathname()}
-                    passHref
-                    legacyBehavior
-                  >
-                    <Link {...style} fontSize="xs" ml={1}>
+                  <Link {...style} fontSize="xs" ml={1} asChild>
+                    <NextLink href={ROUTE_MY_TASKS_LIST.href.pathname()}>
                       See all my tasks
-                    </Link>
-                  </NextLink>
+                    </NextLink>
+                  </Link>
                 </Flex>
               </Flex>
 

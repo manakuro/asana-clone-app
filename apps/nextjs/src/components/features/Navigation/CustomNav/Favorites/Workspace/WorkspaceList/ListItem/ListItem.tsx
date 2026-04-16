@@ -22,18 +22,15 @@ export const ListItem = memo(function ListItem() {
   );
 
   return (
-    <NextLink
-      href={ROUTE_WORKSPACES_OVERVIEW.href.pathnameObj(workspace.id)}
-      passHref
-      legacyBehavior
+    <Link
+      w="full"
+      p={2}
+      px={PADDING_X}
+      _hover={_hover}
+      {...(selected ? selectedStyle : {})}
+      asChild
     >
-      <Link
-        w="full"
-        p={2}
-        px={PADDING_X}
-        _hover={_hover}
-        {...(selected ? selectedStyle : {})}
-      >
+      <NextLink href={ROUTE_WORKSPACES_OVERVIEW.href.pathnameObj(workspace.id)}>
         <Flex alignItems="center">
           {isExpanded ? (
             <Flex alignItems="center" flex={1}>
@@ -51,7 +48,7 @@ export const ListItem = memo(function ListItem() {
           )}
           <WorkspaceMenu workspaceId={workspace.id} />
         </Flex>
-      </Link>
-    </NextLink>
+      </NextLink>
+    </Link>
   );
 });
