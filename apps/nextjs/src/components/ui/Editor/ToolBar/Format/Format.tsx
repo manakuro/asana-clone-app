@@ -61,7 +61,7 @@ export const Format = memo(function Format() {
             aria-label="format"
             variant="ghost"
             size="sm"
-            colorScheme="teal"
+            colorPalette="teal"
             data-active={isActive}
           >
             <Icon icon="textFormat" color="text.muted" />

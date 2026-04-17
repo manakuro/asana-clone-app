@@ -23,7 +23,7 @@ export const ToolBar = memo(function ToolBar() {
         <Emoji />
         <Attachment />
       </Stack>
-      <Button colorScheme="teal" ml="auto" size="sm" onClick={onSave}>
+      <Button colorPalette="teal" ml="auto" size="sm" onClick={onSave}>
         Comment
       </Button>
     </Flex>

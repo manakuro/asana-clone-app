@@ -47,7 +47,7 @@ export function InviteModal() {
               </Stack>
             </Dialog.Body>
             <Dialog.Footer>
-              <Button colorScheme="teal" onClick={() => {}} disabled>
+              <Button colorPalette="teal" onClick={() => {}} disabled>
                 Invite
               </Button>
             </Dialog.Footer>

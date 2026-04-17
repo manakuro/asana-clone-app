@@ -31,7 +31,9 @@ export const Help: React.FC = () => {
         onClick={handleClick}
       >
         <Icon icon="help" color="primary" mr={PADDING_X} mt="-2px" />
-        <Text fontSize="sm">Help & getting started</Text>
+        <Text fontSize="sm" color="fg">
+          Help & getting started
+        </Text>
       </List.Item>
     </>
   );

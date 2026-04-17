@@ -34,7 +34,7 @@ export function BaseButton(props: Props) {
       <IconButton
         variant="ghost"
         size="sm"
-        colorScheme="teal"
+        colorPalette="teal"
         onMouseDown={handleMouseDown}
         {...rest}
         data-active={isActive?.(state) ?? false}

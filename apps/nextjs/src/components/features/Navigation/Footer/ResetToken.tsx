@@ -29,7 +29,9 @@ export const ResetToken: React.FC = () => {
         onClick={handleClick}
       >
         <Icon icon="help" color="primary" mr={PADDING_X} mt="-2px" />
-        <Text fontSize="sm">Set error Token</Text>
+        <Text fontSize="sm" color="fg">
+          Set error Token
+        </Text>
       </List.Item>
     </>
   );

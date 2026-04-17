@@ -54,7 +54,7 @@ export function ShareWorkspaceModal() {
                     </MoreLink>
                   </Container>
                   <Button
-                    colorScheme="teal"
+                    colorPalette="teal"
                     onClick={() => {}}
                     size="sm"
                     disabled

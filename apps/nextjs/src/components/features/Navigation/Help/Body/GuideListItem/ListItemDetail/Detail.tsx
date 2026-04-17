@@ -49,7 +49,7 @@ export function Detail(props: Props) {
               </Text>
               <Button
                 fontSize="sm"
-                colorScheme="teal"
+                colorPalette="teal"
                 w="full"
                 onClick={handleContinue}
                 mt={3}

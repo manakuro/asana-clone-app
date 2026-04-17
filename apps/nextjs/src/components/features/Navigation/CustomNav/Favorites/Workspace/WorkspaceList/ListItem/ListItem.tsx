@@ -31,7 +31,7 @@ export const ListItem = memo(function ListItem() {
       asChild
     >
       <NextLink href={ROUTE_WORKSPACES_OVERVIEW.href.pathnameObj(workspace.id)}>
-        <Flex alignItems="center">
+        <Flex alignItems="center" flex={1}>
           {isExpanded ? (
             <Flex alignItems="center" flex={1}>
               <Icon icon="group" size="sm" color="text.muted" />

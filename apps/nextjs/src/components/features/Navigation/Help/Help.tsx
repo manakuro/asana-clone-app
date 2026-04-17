@@ -1,4 +1,4 @@
-import { Separator } from '@/components/features/Navigation/Separator';
+import { DarkMode } from '@/chakra-ui/ui/color-mode';
 import { Drawer } from '@/components/ui/Drawer';
 import { Flex } from '@/components/ui/Flex';
 import { Portal } from '@/components/ui/Portal';
@@ -19,20 +19,25 @@ export function Help() {
       placement="start"
     >
       <Portal>
-        <Drawer.Backdrop />
         <Drawer.Positioner>
-          <Drawer.Content bg="gray.700" color="white" height="100%">
-            <Drawer.Header fontSize="md" py={6} px={HELP_CONTAINER_PADDING}>
-              <Drawer.Title>Getting started guide</Drawer.Title>
-            </Drawer.Header>
-            <Separator />
-            <Flex flexDirection="column" h="full" overflowY="scroll">
-              <Drawer.Body flex={1} display="flex" flexDirection="column" p={0}>
-                <Body />
-                <Footer />
-              </Drawer.Body>
-            </Flex>
-          </Drawer.Content>
+          <DarkMode>
+            <Drawer.Content bg="gray.800" color="white" height="100%">
+              <Drawer.Header fontSize="md" py={6} px={HELP_CONTAINER_PADDING}>
+                <Drawer.Title>Getting started guide</Drawer.Title>
+              </Drawer.Header>
+              <Flex flexDirection="column" h="full" overflowY="scroll">
+                <Drawer.Body
+                  flex={1}
+                  display="flex"
+                  flexDirection="column"
+                  p={0}
+                >
+                  <Body />
+                  <Footer />
+                </Drawer.Body>
+              </Flex>
+            </Drawer.Content>
+          </DarkMode>
         </Drawer.Positioner>
       </Portal>
     </Drawer.Root>

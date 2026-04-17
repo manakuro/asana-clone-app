@@ -12,7 +12,7 @@ export function PageLoader(props: Props) {
       left={0}
       w="100vw"
       h="100vh"
-      bg="gray.700"
+      bg="gray.800"
       zIndex="tooltip"
       flexDirection="column"
       {...props}

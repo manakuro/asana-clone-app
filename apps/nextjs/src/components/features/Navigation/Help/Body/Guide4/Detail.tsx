@@ -30,7 +30,7 @@ export function Detail() {
           key={n.name}
           item={n}
           light
-          linkStyle={{
+          linkProps={{
             borderRadius: 'md',
           }}
         />

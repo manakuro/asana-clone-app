@@ -21,7 +21,6 @@ export const system = createSystem(defaultConfig, {
       height: '100%',
       fontFamily: 'var(--font-roboto)',
       overflow: 'hidden',
-      color: 'gray.700',
     },
     a: {
       _hover: {

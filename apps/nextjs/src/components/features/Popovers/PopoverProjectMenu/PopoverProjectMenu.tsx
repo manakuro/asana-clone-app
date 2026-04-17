@@ -60,7 +60,12 @@ export function PopoverProjectMenu(props: PropsWithChildren<Props>) {
 
   return (
     <Menu.Root closeOnSelect={false} open={open} lazyMount>
-      <Menu.Trigger onClick={handleOpen} {...iconButton} {...menuButtonStyle}>
+      <Menu.Trigger
+        asChild
+        onClick={handleOpen}
+        {...iconButton}
+        {...menuButtonStyle}
+      >
         {props.children}
       </Menu.Trigger>
       {open && (

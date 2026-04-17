@@ -6,7 +6,6 @@ import { PopoverProjectMenu } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';
 import { Text } from '@/components/ui/Text';
@@ -43,7 +42,7 @@ export const ListItem = memo(function ListItem(props: Props) {
       asChild
     >
       <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(projectId)}>
-        <Flex alignItems="center">
+        <Flex alignItems="center" flex={1}>
           {isExpanded ? (
             <Flex alignItems="center" flex={1}>
               <ColorBox size="xs" color={projectBaseColor.color.color} />
@@ -65,9 +64,7 @@ export const ListItem = memo(function ListItem(props: Props) {
             deleteProject
             projectId={props.projectId}
           >
-            <IconButton {...clickableHoverLightStyle}>
-              <Icon icon="dotsHorizontalRounded" />
-            </IconButton>
+            <Icon icon="dotsHorizontalRounded" {...clickableHoverLightStyle} />
           </PopoverProjectMenu>
         </Flex>
       </NextLink>

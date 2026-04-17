@@ -31,7 +31,9 @@ export const InviteTeammates: React.FC = () => {
         onClick={handleClick}
       >
         <Icon icon="userPlus" color="primary" mr={PADDING_X} mt="-2px" />
-        <Text fontSize="sm">Invite teammates</Text>
+        <Text fontSize="sm" color="fg">
+          Invite teammates
+        </Text>
       </List.Item>
     </>
   );

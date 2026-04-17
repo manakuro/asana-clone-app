@@ -39,7 +39,7 @@ export const ListItem = memo(function ListItem(props: Props) {
       asChild
     >
       <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(projectId)}>
-        <Flex alignItems="center">
+        <Flex alignItems="center" flex={1}>
           {isExpanded ? (
             <Flex alignItems="center" flex={1}>
               <ColorBox size="xs" ml={1} color={projectBaseColor.color.color} />

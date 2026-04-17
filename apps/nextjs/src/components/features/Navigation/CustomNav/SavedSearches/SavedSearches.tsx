@@ -2,6 +2,7 @@ import { memo, useMemo } from 'react';
 import { useNavigation } from '@/components/features/Navigation';
 import { NavListItem } from '@/components/features/Navigation/NavListItem';
 import { Accordion } from '@/components/ui/Accordion';
+import { List } from '@/components/ui/List';
 import { useDisabledStyle } from '@/hooks';
 import { Separator } from '../../Separator';
 import {
@@ -45,13 +46,17 @@ export const SavedSearches = memo(function SavedSearches() {
             </CustomNavListAccordionButton>
             <CustomNavListAccordionPanel>
               <CustomNavListAccordionPanelList>
-                {listItems.map((listItem) => (
-                  <NavListItem
-                    item={listItem}
-                    key={listItem.href}
-                    css={disabledStyle}
-                  />
-                ))}
+                <List.Root>
+                  {listItems.map((listItem) => (
+                    <NavListItem
+                      item={listItem}
+                      key={listItem.href}
+                      linkProps={{
+                        css: disabledStyle,
+                      }}
+                    />
+                  ))}
+                </List.Root>
               </CustomNavListAccordionPanelList>
             </CustomNavListAccordionPanel>
           </CustomNavListAccordionItem>

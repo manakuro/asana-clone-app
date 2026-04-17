@@ -16,7 +16,7 @@ export const AddTaskSection = memo(function AddTaskSection() {
   return (
     <Flex w={40} mt={4} pl={6} css={stickyStyle}>
       <Button
-        colorScheme="teal"
+        colorPalette="teal"
         variant="ghost"
         onClick={handleClick}
         size="sm"

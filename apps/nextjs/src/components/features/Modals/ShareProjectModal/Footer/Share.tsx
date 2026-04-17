@@ -27,7 +27,7 @@ export const Share = memo(function Share() {
       <Separator />
       <Dialog.Footer>
         {hasInvitedTeammates ? (
-          <Button onClick={handleSend} colorScheme="teal" size="sm" mr="auto">
+          <Button onClick={handleSend} colorPalette="teal" size="sm" mr="auto">
             Send
           </Button>
         ) : (

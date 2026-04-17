@@ -18,7 +18,7 @@ export const Complete = memo(function Complete(props: Props) {
   if (task.completed)
     return (
       <Button
-        colorScheme="teal"
+        colorPalette="teal"
         variant="outline"
         data-active={true}
         size="xs"
@@ -31,7 +31,7 @@ export const Complete = memo(function Complete(props: Props) {
 
   return (
     <Button
-      colorScheme="teal"
+      colorPalette="teal"
       variant="outline"
       size="xs"
       onClick={handleToggleComplete}

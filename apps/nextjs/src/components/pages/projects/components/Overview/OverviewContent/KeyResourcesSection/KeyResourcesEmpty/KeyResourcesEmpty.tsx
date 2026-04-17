@@ -28,7 +28,7 @@ export function KeyResourcesEmpty() {
         </Heading>
         <Stack mt={2} gap={2} direction="row">
           <ComingSoonTooltip>
-            <Button colorScheme="teal" size="sm">
+            <Button colorPalette="teal" size="sm">
               Create project brief
             </Button>
           </ComingSoonTooltip>
