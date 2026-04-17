@@ -14,7 +14,7 @@ export const guide1Item: Item = {
   },
   iconDone: {
     name: 'checkCircleFilled',
-    color: 'teal.200',
+    color: 'teal.400',
   },
   done: true,
   time: '2 min read',

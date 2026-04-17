@@ -51,7 +51,7 @@ export const Icon = forwardRef<SVGSVGElement, Props>(function Icon(props, ref) {
   const sizeStyle = sizes[size ?? 'md'];
 
   return (
-    <ChakraIcon ref={ref} color="white" {...sizeStyle} {...iconProps}>
+    <ChakraIcon ref={ref} color="fg" {...sizeStyle} {...iconProps}>
       <IconComponent />
     </ChakraIcon>
   );

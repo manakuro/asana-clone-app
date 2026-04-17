@@ -10,12 +10,6 @@ export const system = createSystem(defaultConfig, {
       focusRingStyle: 'none',
       focusRing: 'none',
     },
-    '*::selection': {
-      backgroundColor: 'blue.200',
-      _dark: {
-        backgroundColor: 'cyan.800',
-      },
-    },
     'html, body': {
       width: '100%',
       height: '100%',

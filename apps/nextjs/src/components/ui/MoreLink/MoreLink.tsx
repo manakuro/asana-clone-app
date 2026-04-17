@@ -1,14 +1,13 @@
 import { Text, type TextProps } from '@/components/ui/Text';
 
 type Props = TextProps;
-export type MoreLinkProps = Props;
 
 export function MoreLink(props: Props) {
   return (
     <Text
       as="span"
       fontSize="xs"
-      color="link"
+      color="cyan.500"
       cursor="pointer"
       _hover={{
         textDecoration: 'underline !important',
