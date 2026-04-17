@@ -68,7 +68,7 @@ export const ProjectTileItem = memo(function ProjectTileItem(props: Props) {
                 onClosed={handlePopoverProjectMenuClosed}
               >
                 <IconButton aria-label="menu button" variant="ghost" light>
-                  <Icon icon="menu" size="xs" />
+                  <Icon icon="menu" size="xs" color="white" />
                 </IconButton>
               </PopoverProjectMenu>
             </Fade>
@@ -83,7 +83,11 @@ export const ProjectTileItem = memo(function ProjectTileItem(props: Props) {
             transition={transitions.base()}
             position="relative"
           >
-            <Icon size="3xl" icon={projectIcon.icon.icon as IconType} />
+            <Icon
+              size="3xl"
+              color="white"
+              icon={projectIcon.icon.icon as IconType}
+            />
           </Flex>
 
           {showTransition && (
