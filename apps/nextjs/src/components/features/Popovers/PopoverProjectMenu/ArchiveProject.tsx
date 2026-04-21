@@ -4,29 +4,20 @@ import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   projectId: string;
-  onClose: () => void;
-  onMouseEnter: () => void;
 };
 
 export function ArchiveProject(props: Props) {
-  const { onClose, onMouseEnter } = props;
-
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
       e.preventDefault();
-      onClose();
+      console.log(props.projectId);
     },
-    [onClose],
+    [props.projectId],
   );
 
   return (
-    <Menu.Item
-      value=""
-      onMouseEnter={onMouseEnter}
-      onClick={handleClick}
-      disabled
-    >
+    <Menu.Item value="Archive Project" onClick={handleClick} disabled>
       Archive Project
     </Menu.Item>
   );

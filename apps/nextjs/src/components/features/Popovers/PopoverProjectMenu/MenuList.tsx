@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { PopoverSetColorAndIcon } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
@@ -6,8 +5,6 @@ import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
-import { useClickOutside } from '@/hooks/useClickOutside';
-import { useDisclosure } from '@/shared/chakra';
 import type { Project } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { ArchiveProject } from './ArchiveProject';
@@ -20,7 +17,6 @@ import { Share } from './Share';
 
 type Props = {
   project: Project;
-  onCloseMenu: () => void;
   addFavorite?: boolean;
   removeFavorite?: boolean;
   duplicateProject?: boolean;
@@ -32,44 +28,26 @@ type Props = {
 };
 
 export function MenuList(props: Props) {
-  const { open, onOpen, onClose } = useDisclosure();
-  const { ref } = useClickOutside<HTMLDivElement>(() => {
-    onClose();
-    props.onCloseMenu();
-  });
   const { projectBaseColor } = useProjectBaseColor(
     props.project.projectBaseColorId,
   );
 
-  const handleOpen = useCallback(() => {
-    onOpen();
-  }, [onOpen]);
-
-  const handleClose = useCallback(() => {
-    onClose();
-  }, [onClose]);
-
   return (
     <Portal>
       <Menu.Positioner>
-        <Menu.Content color="text.base" ref={ref}>
-          <Menu.Item
-            onMouseEnter={handleOpen}
-            onClick={(e) => e.stopPropagation()}
-            value=""
-          >
+        <Menu.Content color="text.base">
+          <Menu.Item value="Set Color & icon" closeOnSelect={false}>
             <PopoverSetColorAndIcon
               project={props.project}
-              open={open}
               positioning={{ placement: 'right-end' }}
             >
-              <Flex>
+              <Flex alignItems="center">
                 <ColorBox
                   size="md"
                   color={projectBaseColor.color.color}
                   mt="-1px"
                 />
-                <Text fontSize="sm" flex={1}>
+                <Text fontSize="sm" flex={1} ml={2}>
                   Set Color & icon
                 </Text>
                 <Icon icon="chevronRight" />
@@ -77,54 +55,22 @@ export function MenuList(props: Props) {
             </PopoverSetColorAndIcon>
           </Menu.Item>
           <Menu.Separator />
-          {props.addFavorite && (
-            <Favorite
-              onClose={props.onCloseMenu}
-              projectId={props.project.id}
-              onMouseEnter={handleClose}
-            />
-          )}
+          {props.addFavorite && <Favorite projectId={props.project.id} />}
           {props.editProjectDetails && (
-            <EditProjectDetails
-              onClose={props.onCloseMenu}
-              onMouseEnter={handleClose}
-              projectId={props.project.id}
-            />
+            <EditProjectDetails projectId={props.project.id} />
           )}
           {props.copyProjectLink && (
-            <CopyProjectLink
-              onClose={props.onCloseMenu}
-              onMouseEnter={handleClose}
-              projectId={props.project.id}
-            />
+            <CopyProjectLink projectId={props.project.id} />
           )}
-          {props.share && (
-            <Share
-              onClose={props.onCloseMenu}
-              onMouseEnter={handleClose}
-              projectId={props.project.id}
-            />
-          )}
+          {props.share && <Share projectId={props.project.id} />}
           {props.duplicateProject && (
-            <DuplicateProject
-              onClose={props.onCloseMenu}
-              onMouseEnter={handleClose}
-              projectId={props.project.id}
-            />
+            <DuplicateProject projectId={props.project.id} />
           )}
           {props.archiveProject && (
-            <ArchiveProject
-              onClose={props.onCloseMenu}
-              onMouseEnter={handleClose}
-              projectId={props.project.id}
-            />
+            <ArchiveProject projectId={props.project.id} />
           )}
           {props.deleteProject && (
-            <DeleteProject
-              onClose={props.onCloseMenu}
-              onMouseEnter={handleClose}
-              projectId={props.project.id}
-            />
+            <DeleteProject projectId={props.project.id} />
           )}
         </Menu.Content>
       </Menu.Positioner>

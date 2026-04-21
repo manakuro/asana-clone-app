@@ -67,7 +67,12 @@ export const ProjectTileItem = memo(function ProjectTileItem(props: Props) {
                 onOpened={handlePopoverProjectMenuOpened}
                 onClosed={handlePopoverProjectMenuClosed}
               >
-                <IconButton aria-label="menu button" variant="ghost" light>
+                <IconButton
+                  aria-label="menu button"
+                  variant="ghost"
+                  light
+                  _open={{ bg: 'navigation.selected' }}
+                >
                   <Icon icon="menu" size="xs" color="white" />
                 </IconButton>
               </PopoverProjectMenu>

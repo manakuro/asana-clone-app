@@ -1,2 +1,2 @@
-export { HoverCard } from '@chakra-ui/react';
+export { HoverCard, type HoverCardRootProps } from '@chakra-ui/react';
 export * from './Popover';

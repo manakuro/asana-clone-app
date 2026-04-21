@@ -1,8 +1,7 @@
-import type { MouseEvent, PropsWithChildren } from 'react';
-import { useCallback } from 'react';
+import type { PropsWithChildren } from 'react';
 import type { IconButtonProps } from '@/components/ui/IconButton';
 import { Menu } from '@/components/ui/Menu';
-import { type SystemStyleObject, useDisclosure } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 import { useProject } from '@/store/entities/project';
 import { MenuList } from './MenuList';
 
@@ -41,47 +40,32 @@ export function PopoverProjectMenu(props: PropsWithChildren<Props>) {
     onClosed,
   } = props;
   const { project } = useProject(projectId);
-  const { onClose, onOpen, open } = useDisclosure();
-
-  const handleCloseMenu = useCallback(() => {
-    onClose();
-    onClosed?.();
-  }, [onClose, onClosed]);
-
-  const handleOpen = useCallback(
-    (e: MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
-      e.preventDefault();
-      onOpen();
-      onOpened?.();
-    },
-    [onOpen, onOpened],
-  );
 
   return (
-    <Menu.Root closeOnSelect={false} open={open} lazyMount>
-      <Menu.Trigger
-        asChild
-        onClick={handleOpen}
-        {...iconButton}
-        {...menuButtonStyle}
-      >
+    <Menu.Root
+      lazyMount
+      onOpenChange={(e) => {
+        if (e.open) {
+          onOpened?.();
+        } else {
+          onClosed?.();
+        }
+      }}
+    >
+      <Menu.Trigger asChild {...iconButton} {...menuButtonStyle}>
         {props.children}
       </Menu.Trigger>
-      {open && (
-        <MenuList
-          project={project}
-          onCloseMenu={handleCloseMenu}
-          addFavorite={addFavorite}
-          removeFavorite={removeFavorite}
-          duplicateProject={duplicateProject}
-          archiveProject={archiveProject}
-          deleteProject={deleteProject}
-          editProjectDetails={editProjectDetails}
-          copyProjectLink={copyProjectLink}
-          share={share}
-        />
-      )}
+      <MenuList
+        project={project}
+        addFavorite={addFavorite}
+        removeFavorite={removeFavorite}
+        duplicateProject={duplicateProject}
+        archiveProject={archiveProject}
+        deleteProject={deleteProject}
+        editProjectDetails={editProjectDetails}
+        copyProjectLink={copyProjectLink}
+        share={share}
+      />
     </Menu.Root>
   );
 }
