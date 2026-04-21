@@ -3,26 +3,27 @@ import { PopoverProfile } from '@/components/features/Popovers';
 import { Avatar, type AvatarProps } from '@/components/ui/Avatar';
 import { useMe } from '@/store/entities/me';
 
-type Props = AvatarProps;
+type Props = AvatarProps & {
+  showProfile?: boolean;
+};
 
 export const MyAvatar = memo(function MyAvatar(props: Props) {
   const { me } = useMe();
+  const { showProfile, ...rest } = props;
 
-  return (
-    <PopoverProfile
-      profile={{
-        name: me.name,
-        image: me.image,
-        email: me.email,
-      }}
-    >
-      <Avatar
-        name={me.name}
-        src={me.image}
-        cursor="pointer"
-        bg="teal.200"
-        {...props}
-      />
-    </PopoverProfile>
-  );
+  if (showProfile ?? true) {
+    return (
+      <PopoverProfile
+        profile={{
+          name: me.name,
+          image: me.image,
+          email: me.email,
+        }}
+      >
+        <Avatar name={me.name} src={me.image} cursor="pointer" {...rest} />
+      </PopoverProfile>
+    );
+  }
+
+  return <Avatar name={me.name} src={me.image} cursor="pointer" {...rest} />;
 });

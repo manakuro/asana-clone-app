@@ -14,14 +14,10 @@ type Props = {
 };
 
 export function MenuList(props: Props) {
-  const { open, onOpen, onClose } = useDisclosure();
+  const { open, onClose } = useDisclosure();
   const { ref } = useClickOutside<HTMLDivElement>(() => {
     handleCloseAll();
   });
-
-  const _handleOpen = useCallback(() => {
-    onOpen();
-  }, [onOpen]);
 
   const handleClose = useCallback(() => {
     onClose();

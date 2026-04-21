@@ -12,7 +12,7 @@ export function TeammateAvatar(props: Props) {
   const { teammate } = useTeammate(teammateId);
 
   if (!teammateId) {
-    return <Avatar name="" src="" bg="teal.200" border="none" {...rest} />;
+    return <Avatar {...rest} />;
   }
 
   if (!(showProfile ?? true)) {
@@ -20,8 +20,7 @@ export function TeammateAvatar(props: Props) {
       <Avatar
         name={teammate.name}
         src={teammate.image}
-        bg="teal.200"
-        border="none"
+        colorPalette="teal"
         {...rest}
       />
     );
@@ -38,8 +37,7 @@ export function TeammateAvatar(props: Props) {
       <Avatar
         name={teammate.name}
         src={teammate.image}
-        bg="teal.200"
-        border="none"
+        colorPalette="teal"
         {...rest}
       />
     </PopoverProfile>

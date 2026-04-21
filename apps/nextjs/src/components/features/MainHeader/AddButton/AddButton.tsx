@@ -18,7 +18,11 @@ export const AddButton = memo(function AddButton() {
   return (
     <Menu.Root positioning={{ placement: 'bottom-end' }} lazyMount>
       <Menu.Trigger asChild>
-        <IconButton aria-label="Add button" borderRadius="full">
+        <IconButton
+          aria-label="Add button"
+          borderRadius="full"
+          variant="subtle"
+        >
           <Icon icon="listPlus" />
         </IconButton>
       </Menu.Trigger>

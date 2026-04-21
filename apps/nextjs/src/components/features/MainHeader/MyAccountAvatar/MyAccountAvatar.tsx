@@ -16,9 +16,9 @@ export const MyAccountAvatar = memo(function MyAccountAvatar() {
       onOpenChange={(e) => setOpen(e.open)}
     >
       <Menu.Trigger asChild cursor="pointer">
-        <MyAvatar size="sm" />
+        <MyAvatar size="sm" showProfile={false} />
       </Menu.Trigger>
-      {open && <MenuList onCloseMenu={onClose} />}
+      <MenuList onCloseMenu={onClose} />
     </Menu.Root>
   );
 });

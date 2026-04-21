@@ -12,5 +12,5 @@ type Props = ChakraAvatarProps;
 export type AvatarProps = Props;
 
 export function Avatar(props: Props) {
-  return <ChakraAvatar border="none" bg="teal.200" {...props} />;
+  return <ChakraAvatar colorPalette="teal" {...props} />;
 }

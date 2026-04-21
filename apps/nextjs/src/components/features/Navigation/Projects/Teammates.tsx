@@ -25,7 +25,7 @@ export const Teammates = memo(function Teammates() {
         <TeammateAvatar
           teammateId=""
           size="xs"
-          bg="teal.200"
+          colorPalette="gray"
           {...clickableHoverLightStyle}
           onClick={handleInvitePeople}
         />
