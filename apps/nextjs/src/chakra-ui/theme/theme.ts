@@ -1,5 +1,4 @@
 import { createSystem, defaultConfig } from '@chakra-ui/react';
-import { dueDatePickerCustomStyle } from '@/components/features/Popovers/PopoverDueDatePicker/dueDatePickerCustomStyle';
 import { pdfViewerCustomStyle } from '@/components/ui/PdfViewer/pdfViewerCustomStyle';
 import { proseMirrorStyle } from '@/shared/prosemirror/style';
 
@@ -22,7 +21,6 @@ export const system = createSystem(defaultConfig, {
       },
     },
     ...proseMirrorStyle(),
-    ...dueDatePickerCustomStyle(),
     ...pdfViewerCustomStyle(),
   },
   theme: {

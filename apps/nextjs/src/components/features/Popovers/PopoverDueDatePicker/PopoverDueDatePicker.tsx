@@ -1,4 +1,4 @@
-import type { MouseEvent, PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { useCallback } from 'react';
 import { Link } from '@/components/ui/Link';
 import { Popover, type PopoverRootProps } from '@/components/ui/Popover';
@@ -25,14 +25,10 @@ export function PopoverDueDatePicker(props: PropsWithChildren<Props>) {
   });
   const closeOnChange = props.closeOnChange ?? true;
 
-  const handleOpen = useCallback(
-    (e: MouseEvent<HTMLElement>) => {
-      e.stopPropagation();
-      popoverDisclosure.onOpen();
-      props.onOpened?.();
-    },
-    [popoverDisclosure, props],
-  );
+  const handleOpen = useCallback(() => {
+    popoverDisclosure.onOpen();
+    props.onOpened?.();
+  }, [popoverDisclosure, props]);
 
   const handleClose = useCallback(() => {
     popoverDisclosure.onClose();
@@ -57,21 +53,21 @@ export function PopoverDueDatePicker(props: PropsWithChildren<Props>) {
     <Popover.Root
       open={popoverDisclosure.open}
       lazyMount
-      closeOnInteractOutside={false}
       autoFocus={false}
+      onOpenChange={(e) => {
+        if (e.open) {
+          handleOpen();
+        } else {
+          handleClose();
+          props.onClosed?.();
+        }
+      }}
     >
-      <Popover.Trigger asChild>
-        <Link {...props.linkStyle} onClick={handleOpen}>
-          {props.children}
-        </Link>
+      <Popover.Trigger asChild onClick={(e) => e.stopPropagation()}>
+        <Link {...props.linkStyle}>{props.children}</Link>
       </Popover.Trigger>
       <Portal>
-        <Popover.Positioner
-          w="276px"
-          minH="280px"
-          className="PopoverDueDatePicker"
-          pointerEvents="auto"
-        >
+        <Popover.Positioner>
           <Popover.Content>
             {popoverDisclosure.open && (
               <Body

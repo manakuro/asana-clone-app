@@ -53,11 +53,18 @@ export function DatePicker(props: Props) {
       min={min}
       max={max}
       locale="en-US"
+      colorPalette="teal"
     >
-      <ChakraDatePicker.Content>
+      <ChakraDatePicker.Content unstyled>
         <ChakraDatePicker.View view="day">
           <ChakraDatePicker.Header />
-          <ChakraDatePicker.DayTable />
+          <ChakraDatePicker.DayTable
+            css={{
+              '& [data-part="table-cell-trigger"]': {
+                cursor: 'pointer',
+              },
+            }}
+          />
         </ChakraDatePicker.View>
         <ChakraDatePicker.View view="month">
           <ChakraDatePicker.Header />
