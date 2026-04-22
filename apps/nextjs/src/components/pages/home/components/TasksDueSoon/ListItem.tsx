@@ -56,6 +56,7 @@ export const ListItem = memo(function ListItem(props: Props) {
       border="1px"
       borderColor="gray.200"
       borderRadius="md"
+      borderStyle="solid"
       px={4}
       py={2}
       h={10}
@@ -77,7 +78,7 @@ export const ListItem = memo(function ListItem(props: Props) {
               projectId={id}
               key={id}
               badgeProps={{
-                lineClamp: 1,
+                truncate: true,
                 maxW: 20,
               }}
             />

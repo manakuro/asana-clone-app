@@ -12,9 +12,7 @@ export function Badge(props: Props) {
       px={3}
       textTransform="none"
       borderRadius="full"
-      style={{
-        display: 'inline-block',
-      }}
+      display="inline-block"
       {...props}
     />
   );
