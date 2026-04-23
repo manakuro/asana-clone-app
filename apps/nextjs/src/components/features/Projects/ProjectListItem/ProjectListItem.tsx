@@ -34,12 +34,15 @@ export const ProjectListItem = memo(function ProjectListItem(props: Props) {
         w={12}
         h={12}
         bg={projectBaseColor.color.color}
-        color="white"
         justifyContent="center"
         alignItems="center"
         flexDirection="column"
       >
-        <Icon size="md" icon={projectIcon.icon.icon as IconType} />
+        <Icon
+          size="md"
+          icon={projectIcon.icon.icon as IconType}
+          color="white"
+        />
       </Flex>
       <Flex ml={3} flex={1} alignItems="flex-start">
         <Flex alignItems="center">
@@ -52,6 +55,12 @@ export const ProjectListItem = memo(function ProjectListItem(props: Props) {
           {teammateIds.slice(0, 2).map((id) => (
             <TeammateAvatar teammateId={id} key={id} />
           ))}
+          {teammateIds.length > 2 && (
+            <TeammateAvatar
+              teammateId=""
+              fallback={`+${teammateIds.length - 2}`}
+            />
+          )}
         </AvatarGroup>
         <PopoverProjectMenu
           addFavorite

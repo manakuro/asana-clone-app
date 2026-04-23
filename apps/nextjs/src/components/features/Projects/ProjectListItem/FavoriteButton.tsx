@@ -22,7 +22,6 @@ export const FavoriteButton = memo(function FavoriteButton(props: Props) {
       isFavorite={isFavorite}
       setFavorite={setFavoriteProjectId}
       unstyled
-      display="flex"
       {...clickableHoverLightStyle}
     />
   );
