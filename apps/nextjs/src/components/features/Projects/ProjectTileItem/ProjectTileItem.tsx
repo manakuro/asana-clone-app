@@ -102,6 +102,12 @@ export const ProjectTileItem = memo(function ProjectTileItem(props: Props) {
                   {teammateIds.slice(0, 2).map((id) => (
                     <TeammateAvatar teammateId={id} key={id} />
                   ))}
+                  {teammateIds.length > 2 && (
+                    <TeammateAvatar
+                      teammateId=""
+                      fallback={`+${teammateIds.length - 2}`}
+                    />
+                  )}
                 </AvatarGroup>
               </Fade>
             </Flex>
