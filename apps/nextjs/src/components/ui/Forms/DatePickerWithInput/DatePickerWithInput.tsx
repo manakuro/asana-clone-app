@@ -1,5 +1,4 @@
 import { memo, useCallback, useMemo, useState } from 'react';
-import { Box } from '@/components/ui/Box';
 import { Button, type ButtonProps } from '@/components/ui/Button';
 import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
 import { Flex } from '@/components/ui/Flex';
@@ -53,7 +52,6 @@ export const DatePickerWithInput = memo(function DatePickerWithInput(
 
   return (
     <Button
-      as={Box}
       variant="ghost"
       size="sm"
       ref={ref}
