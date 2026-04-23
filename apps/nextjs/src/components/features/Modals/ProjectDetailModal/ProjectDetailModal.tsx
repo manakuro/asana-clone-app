@@ -15,12 +15,12 @@ export const ProjectDetailModal = memo(function ProjectDetailModal() {
           onClose();
         }
       }}
-      size="xl"
+      size="lg"
     >
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          {open && <Content projectId={projectId} />}
+          <Content projectId={projectId} />
         </Dialog.Positioner>
       </Portal>
     </Dialog.Root>
