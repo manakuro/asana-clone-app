@@ -21,9 +21,11 @@ func (r *favoriteProjectRepository) Delete(ctx context.Context, input model.Dele
 		return nil, model.NewDBError(err)
 	}
 
-	err = r.client.
+	_, err = r.client.
 		FavoriteProject.
-		DeleteOneID(deleted.ID).
+		Delete().
+		Where(favoriteproject.ProjectID(input.ProjectID)).
+		Where(favoriteproject.TeammateID(input.TeammateID)).
 		Exec(ctx)
 	if err != nil {
 		return nil, model.NewDBError(err)
