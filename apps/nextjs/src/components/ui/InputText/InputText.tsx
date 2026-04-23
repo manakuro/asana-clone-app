@@ -75,10 +75,7 @@ export const InputText = memo(function InputText(props: Props) {
       <Textarea
         ref={textareaRef}
         p={0}
-        css={{
-          ...style,
-          '--focus-color': 'transparent',
-        }}
+        {...style}
         {...inputStyle}
         resize="none"
         onChange={onChange}
