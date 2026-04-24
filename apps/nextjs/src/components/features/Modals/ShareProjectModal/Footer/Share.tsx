@@ -17,10 +17,8 @@ export const Share = memo(function Share() {
   }, [onClose]);
 
   const handleCopyProjectLink = useCallback(async () => {
-    onClose();
-
     await copyProjectLink();
-  }, [copyProjectLink, onClose]);
+  }, [copyProjectLink]);
 
   return (
     <>

@@ -1,5 +1,4 @@
 import { memo, useCallback, useState } from 'react';
-import { Box } from '@/components/ui/Box';
 import { Dialog } from '@/components/ui/Dialog';
 import { Flex } from '@/components/ui/Flex';
 import { Tab, TabList, TabPanel, Tabs } from '@/components/ui/Tabs';
@@ -58,7 +57,7 @@ export const Body = memo(function Body(props: Props) {
             </TabList>
           </Flex>
           <Flex flex={1} py={4} minH="300px" maxH="300px" overflow="scroll">
-            <Box>
+            <Flex flex={1}>
               <TabPanel value="share">
                 <Share
                   projectId={projectId}
@@ -73,7 +72,7 @@ export const Body = memo(function Body(props: Props) {
                   onSetShareTab={setShareTab}
                 />
               </TabPanel>
-            </Box>
+            </Flex>
           </Flex>
         </Flex>
       </Tabs>

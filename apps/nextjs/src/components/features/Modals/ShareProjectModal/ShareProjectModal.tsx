@@ -18,15 +18,15 @@ export const ShareProjectModal = memo(function ShareProjectModal() {
           onClose();
         }
       }}
-      size="xl"
+      size="lg"
     >
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
           <Dialog.Content>
-            {open && <Header projectId={projectId} />}
-            {open && <Body projectId={projectId} />}
-            {open && <Footer />}
+            <Header projectId={projectId} />
+            <Body projectId={projectId} />
+            <Footer />
             <Dialog.CloseTrigger asChild>
               <CloseButton />
             </Dialog.CloseTrigger>

@@ -3,14 +3,16 @@ import { Button } from '@/components/ui/Button';
 import { Dialog } from '@/components/ui/Dialog';
 import { Icon } from '@/components/ui/Icon';
 import { Separator } from '@/components/ui/Separator';
+import { useCopyProjectLink } from '@/hooks/pages/projects';
 import { useShareProjectModal } from '../useShareProjectModal';
 
 export const Members = memo(function Members() {
-  const { onClose } = useShareProjectModal();
+  const { projectId } = useShareProjectModal();
+  const { copyProjectLink } = useCopyProjectLink({ projectId });
 
-  const handleCopyProjectLink = useCallback(() => {
-    onClose();
-  }, [onClose]);
+  const handleCopyProjectLink = useCallback(async () => {
+    await copyProjectLink();
+  }, [copyProjectLink]);
 
   return (
     <>

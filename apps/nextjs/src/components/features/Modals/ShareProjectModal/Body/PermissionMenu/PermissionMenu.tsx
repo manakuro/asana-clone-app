@@ -74,6 +74,8 @@ export const PermissionMenu = memo(function PermissionMenu() {
               bg: 'gray.100',
             }}
             fontWeight="medium"
+            flexDirection="column"
+            alignItems="flex-start"
           >
             {item.text}
             <Flex fontSize="xs" fontWeight="normal" color="text.muted">

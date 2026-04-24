@@ -2,7 +2,6 @@ import type React from 'react';
 import { memo, useCallback } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Badge } from '@/components/ui/Badge';
-import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
@@ -51,7 +50,6 @@ export const InvitedTeammateChip = memo(function InvitedTeammateChip(
 
   return (
     <Button
-      as={Box}
       size="xs"
       border="1px"
       borderColor="transparent"
@@ -59,9 +57,9 @@ export const InvitedTeammateChip = memo(function InvitedTeammateChip(
       borderRadius="full"
       minH={6}
       h={6}
-      _hover={{ bg: 'gray.100' }}
+      variant="subtle"
     >
-      <TeammateAvatar teammateId={teammate.id} size="xs" />
+      <TeammateAvatar teammateId={teammate.id} w={6} h={6} />
       <Text ml={2} fontSize="xs" lineClamp={1} color="text.base">
         {teammate.name}
       </Text>
