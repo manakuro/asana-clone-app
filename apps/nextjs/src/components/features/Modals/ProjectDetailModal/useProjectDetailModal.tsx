@@ -13,8 +13,7 @@ export const useProjectDetailModal = () => {
 
   const onClose = useCallback(() => {
     setIsOpen(false);
-    resetProjectId();
-  }, [resetProjectId, setIsOpen]);
+  }, [setIsOpen]);
 
   const onOpen = useCallback(() => {
     setIsOpen(true);
@@ -26,5 +25,6 @@ export const useProjectDetailModal = () => {
     onClose,
     projectId,
     setProjectId,
+    resetProjectId,
   };
 };
