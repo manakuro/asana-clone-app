@@ -24,6 +24,19 @@ export const system = createSystem(defaultConfig, {
     ...pdfViewerCustomStyle(),
   },
   theme: {
+    slotRecipes: {
+      dialog: {
+        base: {
+          content: {
+            _closed: { animation: 'none' },
+          },
+          backdrop: {
+            _closed: { animation: 'none' },
+          },
+        },
+        slots: [],
+      },
+    },
     tokens: {
       cursor: {
         checkbox: { value: 'pointer' },
@@ -101,3 +114,7 @@ export const system = createSystem(defaultConfig, {
     },
   },
 });
+
+if (process.env.NODE_ENV === 'development') {
+  console.log(system);
+}
