@@ -17,7 +17,7 @@ export const SkeletonOverview = memo<Props>(function SkeletonList(props) {
         boxShadow="sm"
         borderBottom={1}
         borderStyle="solid"
-        borderColor="gray.200"
+        borderColor="border"
         alignItems="center"
       >
         <TasksHeaderRight ml="auto">

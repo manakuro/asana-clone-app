@@ -41,7 +41,8 @@ export const Content: React.FC = memo(() => {
       top={`${top}px !important`}
       borderTop="1px"
       borderLeft="1px"
-      borderColor="gray.200"
+      borderColor="border"
+      borderStyle="solid"
       boxShadow="none"
     >
       <Drawer.CloseTrigger asChild>

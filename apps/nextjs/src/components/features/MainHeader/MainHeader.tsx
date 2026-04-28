@@ -35,7 +35,8 @@ export const MainHeader = memo(function MainHeader(props: Props) {
         h="72px"
         px={paddingX}
         borderBottom="1px"
-        borderColor="gray.200"
+        borderColor="border"
+        borderStyle="solid"
       >
         <Flex flex="1 1 auto" flexDirection="column" justifyContent="center">
           {props.children}

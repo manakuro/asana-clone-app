@@ -52,7 +52,7 @@ const Component = memo(function Component() {
           h="40px"
           borderBottom={1}
           borderStyle="solid"
-          borderColor="gray.200"
+          borderColor="border"
           alignItems="center"
         >
           <TasksHeaderLeft>

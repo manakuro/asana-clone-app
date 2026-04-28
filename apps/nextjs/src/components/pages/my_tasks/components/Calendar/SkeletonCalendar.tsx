@@ -20,7 +20,7 @@ export const SkeletonCalendar = memo(function SkeletonCalendar(props: Props) {
         boxShadow="sm"
         borderBottom={1}
         borderStyle="solid"
-        borderColor="gray.200"
+        borderColor="border"
         alignItems="center"
       >
         <TasksHeaderLeft>
@@ -40,7 +40,7 @@ export const SkeletonCalendar = memo(function SkeletonCalendar(props: Props) {
           h={6}
           borderBottom={1}
           borderStyle="solid"
-          borderColor="gray.200"
+          borderColor="border"
           bg="white"
         />
         <TasksCalendarContent bg="gray.50">

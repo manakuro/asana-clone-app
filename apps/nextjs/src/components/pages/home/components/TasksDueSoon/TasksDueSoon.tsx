@@ -23,7 +23,13 @@ export const TasksDueSoon = memo(function TasksDueSoon() {
         <Accordion.ItemContext>
           {({ expanded }) => (
             <>
-              <Flex py={1} px={2} borderBottom="1px" borderColor="gray.200">
+              <Flex
+                py={1}
+                px={2}
+                borderBottom="1px"
+                borderColor="border"
+                borderStyle="solid"
+              >
                 <Accordion.ItemTrigger p={0} _hover={{ bg: 'none' }} w="auto">
                   {expanded ? (
                     <Icon icon="chevronDown" mt="1px" />

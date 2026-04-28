@@ -86,7 +86,7 @@ const Component: React.FC = memo(() => {
       <Flex
         ref={ref}
         border={1}
-        borderColor="gray.200"
+        borderColor="border"
         borderStyle="solid"
         bg="white"
         ml={2}

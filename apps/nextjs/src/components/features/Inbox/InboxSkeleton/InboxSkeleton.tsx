@@ -44,7 +44,7 @@ export function InboxSkeleton() {
                       pb={2}
                       borderBottom="1px"
                       borderStyle="solid"
-                      borderColor="gray.200"
+                      borderColor="border"
                       h="122px"
                     >
                       <Flex flexDirection="column" py={4} flex={1}>
@@ -82,7 +82,7 @@ export function InboxSkeleton() {
         <Flex
           borderLeft="1px"
           borderStyle="solid"
-          borderColor="gray.200"
+          borderColor="border"
           flex={1}
           flexDirection="column"
         >

@@ -35,7 +35,8 @@ export function AttachmentUploadingBox(props: Props) {
     <Flex
       borderRadius="lg"
       border="1px"
-      borderColor="gray.200"
+      borderColor="border"
+      borderStyle="solid"
       alignItems="center"
       transition={transitions.base()}
       p={4}

@@ -10,7 +10,8 @@ export function Container(props: Props) {
     <Flex
       w="full"
       borderBottom="1px"
-      borderColor="gray.200"
+      borderColor="border"
+      borderStyle="solid"
       py={3}
       px={2}
       css={clickableHoverStyle}

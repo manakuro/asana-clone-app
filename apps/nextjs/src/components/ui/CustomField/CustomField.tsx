@@ -21,7 +21,8 @@ export function CustomField(props: Props) {
         py={2}
         border="1px"
         borderRadius="md"
-        borderColor="gray.200"
+        borderColor="border"
+        borderStyle="solid"
         boxShadow="md"
         css={clickableHoverInputGrabbableStyle}
         cursor="grab"

@@ -56,7 +56,7 @@ export const ProjectsSection = memo(function ProjectsSection() {
           <>
             <ProjectListItemNew />
             {projectIds.map((id) => (
-              <Link key={id}>
+              <Link key={id} asChild>
                 <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(id)}>
                   <ProjectListItem projectId={id} />
                 </NextLink>

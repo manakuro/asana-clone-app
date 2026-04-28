@@ -50,7 +50,7 @@ const Component: React.FC<Props> = memo<Props>((props) => {
       bg="white"
       border={1}
       borderStyle="solid"
-      borderColor="gray.200"
+      borderColor="border"
       borderRadius="md"
       mt={2}
       _hover={{

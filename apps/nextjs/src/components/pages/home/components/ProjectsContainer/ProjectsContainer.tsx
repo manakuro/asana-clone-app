@@ -39,7 +39,8 @@ export const ProjectsContainer = memo(function ProjectsContainer(props: Props) {
                 py={1}
                 px={PADDING_X}
                 borderBottom="1px"
-                borderColor="gray.200"
+                borderColor="border"
+                borderStyle="solid"
               >
                 <Accordion.ItemTrigger p={0} _hover={{ bg: 'none' }} w="auto">
                   {expanded ? (

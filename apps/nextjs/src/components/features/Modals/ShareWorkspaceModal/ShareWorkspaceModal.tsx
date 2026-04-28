@@ -36,7 +36,8 @@ export function ShareWorkspaceModal() {
               <Flex
                 mt={3}
                 border="1px"
-                borderColor="gray.200"
+                borderColor="border"
+                borderStyle="solid"
                 borderRadius="sm"
                 p={4}
               >

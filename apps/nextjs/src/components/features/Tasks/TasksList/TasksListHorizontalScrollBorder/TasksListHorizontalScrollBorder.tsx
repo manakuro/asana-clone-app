@@ -57,7 +57,7 @@ export const TasksListHorizontalScrollBorder = memo(
         pointerEvents="none"
         borderRight="1px"
         borderStyle="solid"
-        borderColor="gray.200"
+        borderColor="border"
         bg="none"
         opacity={opacity}
         {...scrollingStyle}

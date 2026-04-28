@@ -12,7 +12,7 @@ export function KeyResourcesEmpty() {
       mt={2}
       border="1px"
       borderStyle="solid"
-      borderColor="gray.200"
+      borderColor="border"
       borderRadius="md"
       p={4}
       alignItems="center"

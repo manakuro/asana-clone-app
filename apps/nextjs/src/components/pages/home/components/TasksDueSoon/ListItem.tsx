@@ -54,7 +54,7 @@ export const ListItem = memo(function ListItem(props: Props) {
   return (
     <Flex
       border="1px"
-      borderColor="gray.200"
+      borderColor="border"
       borderRadius="md"
       borderStyle="solid"
       px={4}

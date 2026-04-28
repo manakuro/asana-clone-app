@@ -20,7 +20,7 @@ export const TasksCalendarListHeader = memo(function TasksCalendarListHeader(
       h={6}
       borderBottom={1}
       borderStyle="solid"
-      borderColor="gray.200"
+      borderColor="border"
       bg="white"
       {...props}
     >

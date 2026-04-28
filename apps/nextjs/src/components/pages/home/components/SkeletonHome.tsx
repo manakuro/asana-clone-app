@@ -15,7 +15,8 @@ export const SkeletonHome = memo(function SkeletonHome() {
             py={1}
             px={2}
             borderBottom="1px"
-            borderColor="gray.200"
+            borderColor="border"
+            borderStyle="solid"
           />
           <Stack gap={4} py={4}>
             <Skeleton h={TEXT_HEIGHT} w="80%" borderRadius="full" />
@@ -36,7 +37,8 @@ export const SkeletonHome = memo(function SkeletonHome() {
             py={1}
             px={2}
             borderBottom="1px"
-            borderColor="gray.200"
+            borderColor="border"
+            borderStyle="solid"
           />
           <Box py={4}>
             <Stack direction="row" gap={6}>
@@ -51,7 +53,7 @@ export const SkeletonHome = memo(function SkeletonHome() {
             py={1}
             px={2}
             borderBottom="1px"
-            borderColor="gray.200"
+            borderColor="border"
           />
           <Box py={4}>
             <Stack direction="row" gap={6}>

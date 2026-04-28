@@ -16,7 +16,7 @@ export const InboxHeader = memo(function InboxHeader(props: Props) {
       bg="white"
       borderBottom="1px"
       borderStyle="solid"
-      borderColor="gray.200"
+      borderColor="border"
       {...props}
     />
   );

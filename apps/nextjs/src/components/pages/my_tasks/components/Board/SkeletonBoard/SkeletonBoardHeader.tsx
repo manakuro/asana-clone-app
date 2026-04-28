@@ -15,7 +15,7 @@ export const SkeletonBoardHeader = memo(function SkeletonBoardHeader(
       boxShadow="sm"
       borderBottom={1}
       borderStyle="solid"
-      borderColor="gray.200"
+      borderColor="border"
       alignItems="center"
       {...props}
     >
