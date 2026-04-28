@@ -1,7 +1,6 @@
 import { usePathname } from 'next/navigation';
 import { memo, useCallback, useState } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
-import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
 import { TabPanel, Tabs } from '@/components/ui/Tabs';
@@ -107,13 +106,13 @@ const WrappedComponent = memo(function WrappedComponent() {
           <Header loading={loadingQuery} />
         </MainHeader>
         <Flex flex={1}>
-          <Box>
+          <Flex flex={1}>
             <TabPanel value="overview">
               <Overview />
             </TabPanel>
             <TabPanel value="messages" />
             <TabPanel value="calendar" />
-          </Box>
+          </Flex>
         </Flex>
       </Flex>
     </Tabs>

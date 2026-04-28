@@ -6,7 +6,7 @@ type Props = {
   projectId: string;
 };
 
-export function DuplicateProject(props: Props) {
+export function DuplicateProject(_props: Props) {
   const handleClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     e.preventDefault();

@@ -2,7 +2,6 @@
 
 import React, { memo, useCallback } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
-import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
 import { TabPanel, Tabs } from '@/components/ui/Tabs';
@@ -71,14 +70,14 @@ const WrappedComponent = memo(function WrappedInboxComponent() {
           <Header />
         </MainHeader>
         <Flex flex={1}>
-          <Box>
+          <Flex flex={1}>
             <TabPanel value="activity">
               <Activity />
             </TabPanel>
             <TabPanel value="archive">
               <Archive />
             </TabPanel>
-          </Box>
+          </Flex>
         </Flex>
       </Flex>
     </Tabs>
