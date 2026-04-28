@@ -36,6 +36,24 @@ export const system = createSystem(defaultConfig, {
         },
         slots: [],
       },
+      tabs: {
+        base: {
+          list: {
+            minHeight: '31px',
+          },
+        },
+        variants: {
+          size: {
+            xs: {
+              trigger: {
+                fontSize: 'sm',
+                py: 1,
+              },
+            },
+          },
+        },
+        slots: [],
+      },
     },
     tokens: {
       cursor: {

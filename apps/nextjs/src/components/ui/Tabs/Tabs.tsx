@@ -9,6 +9,6 @@ export type TabsProps = Props;
 
 export const Tabs = forwardRef<HTMLDivElement, Props>(
   function Tabs(props, ref) {
-    return <ChakraTabs.Root size="sm" lazyMount {...props} ref={ref} />;
+    return <ChakraTabs.Root size="xs" lazyMount {...props} ref={ref} />;
   },
 );

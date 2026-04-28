@@ -12,7 +12,7 @@ export const Tabs = memo(function Tabs() {
     <Flex ml={4} mt={3} flex={1}>
       <Flex alignItems="flex-start" flexDirection="column">
         <Flex alignItems="center">
-          <Heading as="h2" size="md" fontWeight="semibold">
+          <Heading as="h2" size="lg" fontWeight="semibold">
             My Tasks
           </Heading>
           <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
@@ -33,7 +33,7 @@ export const Tabs = memo(function Tabs() {
             </Portal>
           </Menu.Root>
         </Flex>
-        <TabList>
+        <TabList bottom="2px">
           <Tab value="list">List</Tab>
           <Tab value="board">Board</Tab>
           <Tab value="calendar">Calendar</Tab>

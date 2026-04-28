@@ -16,14 +16,14 @@ export const Tabs = memo(function Tabs() {
     <Flex ml={4} mt={3} flex={1}>
       <Flex alignItems="flex-start" flexDirection="column">
         <Flex alignItems="center">
-          <Heading as="h2" size="md" fontWeight="semibold">
+          <Heading as="h2" size="lg" fontWeight="semibold">
             {project.name}
           </Heading>
           <MoreActionIconButton projectId={projectId} />
           <ProjectDetailIconButton projectId={projectId} />
           <FavoriteIconButton projectId={projectId} />
         </Flex>
-        <TabList>
+        <TabList bottom="-1px">
           <Tab value="overview">Overview</Tab>
           <Tab value="list">List</Tab>
           <Tab value="board">Board</Tab>

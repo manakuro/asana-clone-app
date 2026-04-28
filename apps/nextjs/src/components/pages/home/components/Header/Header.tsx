@@ -8,7 +8,7 @@ export const Header = memo(function Header() {
 
   return (
     <MainHeader sticky isScrolling={isScrolling}>
-      <Heading as="h2" size="md" fontWeight="semibold">
+      <Heading as="h2" size="lg" fontWeight="semibold">
         Home
       </Heading>
     </MainHeader>
