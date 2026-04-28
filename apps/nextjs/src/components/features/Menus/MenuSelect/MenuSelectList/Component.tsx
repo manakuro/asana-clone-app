@@ -6,7 +6,6 @@ import {
   type MenuRadioItemGroupProps,
 } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
-import { useClickOutside } from '@/hooks/useClickOutside';
 import { useMenuSelectContext } from '../useMenuSelect';
 
 type Props = MenuRadioItemGroupProps & {
@@ -16,10 +15,7 @@ export type ComponentProps = Props;
 
 export function Component(props: Props) {
   const { menuListProps, ...rest } = props;
-  const { onChange, onClose, listStatus } = useMenuSelectContext();
-  const { ref } = useClickOutside<HTMLDivElement>(onClose, {
-    hasClickedOutside: () => true,
-  });
+  const { onChange, listStatus } = useMenuSelectContext();
 
   const handleChange = useCallback(
     (listStatus: string | string[] | undefined) => {
@@ -38,11 +34,7 @@ export function Component(props: Props) {
   return (
     <Portal>
       <Menu.Positioner>
-        <Menu.Content
-          ref={ref}
-          onClick={handleClickMenuList}
-          {...menuListProps}
-        >
+        <Menu.Content onClick={handleClickMenuList} {...menuListProps}>
           <Menu.RadioItemGroup
             value={listStatus as unknown as string}
             onValueChange={(e) => handleChange(e.value)}

@@ -22,7 +22,18 @@ export const MenuSelect = <ListStatus,>(props: Props<ListStatus>) => {
 
   return (
     <Context.Provider value={useMenuSelectResult}>
-      <Menu.Root open={useMenuSelectResult.open} lazyMount {...rest}>
+      <Menu.Root
+        open={useMenuSelectResult.open}
+        onOpenChange={(e) => {
+          if (e.open) {
+            useMenuSelectResult.onOpen();
+          } else {
+            useMenuSelectResult.onClose();
+          }
+        }}
+        lazyMount
+        {...rest}
+      >
         {runIfFn(props.children, useMenuSelectResult)}
       </Menu.Root>
     </Context.Provider>
