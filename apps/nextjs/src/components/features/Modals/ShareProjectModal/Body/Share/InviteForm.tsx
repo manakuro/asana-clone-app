@@ -26,7 +26,7 @@ export const InviteForm = memo(function InviteForm(props: Props) {
   const teammateText = useMemo(() => {
     const teammatesNames =
       teammateIds.length > 2
-        ? [firstTeammate.name, `${teammateIds.length} others`]
+        ? [firstTeammate.name, `${teammateIds.length - 1} others`]
         : [firstTeammate.name];
 
     return teammatesNames.join(' and ');
