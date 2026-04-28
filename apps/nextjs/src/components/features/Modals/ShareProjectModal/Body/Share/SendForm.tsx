@@ -56,7 +56,7 @@ export const SendForm = memo(function SendForm(props: Props) {
       >
         <Flex
           border={1}
-          borderColor="gray.300"
+          borderColor="border"
           borderStyle="solid"
           px={2}
           bg="white"
@@ -80,7 +80,6 @@ export const SendForm = memo(function SendForm(props: Props) {
                 autoFocus
                 fontSize="sm"
                 unstyled
-                color="text.base"
                 value={value}
                 onChange={handleChange}
               />

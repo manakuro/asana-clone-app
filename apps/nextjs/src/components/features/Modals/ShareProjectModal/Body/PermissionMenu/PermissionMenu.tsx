@@ -52,12 +52,7 @@ export const PermissionMenu = memo(function PermissionMenu() {
       onChange={handleChange}
       positioning={{ placement: 'bottom-start' }}
     >
-      <MenuSelectButton
-        variant="ghost"
-        size="sm"
-        fontSize="xs"
-        fontWeight="medium"
-      >
+      <MenuSelectButton variant="ghost" size="xs" fontWeight="medium">
         {buttonText}
         <Icon icon="chevronDown" />
       </MenuSelectButton>

@@ -50,7 +50,12 @@ export const Body = memo(function Body(props: Props) {
         display="flex"
       >
         <Flex flex={1} flexDirection="column">
-          <Flex borderBottom="1px" borderColor="gray.200" px={6}>
+          <Flex
+            borderBottom="1px"
+            borderStyle="solid"
+            borderColor="border"
+            px={6}
+          >
             <TabList>
               <Tab value="share">Share</Tab>
               <Tab value="members">Members</Tab>

@@ -77,10 +77,10 @@ export const system = createSystem(defaultConfig, {
     semanticTokens: {
       colors: {
         primary: {
-          value: '{colors.teal.400}',
+          value: '{colors.teal.solid}',
         },
         alert: {
-          value: '{colors.red.400}',
+          value: '{colors.red.solid}',
         },
         text: {
           base: {

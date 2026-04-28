@@ -16,6 +16,12 @@ export const Tab = forwardRef<HTMLButtonElement, Props>(
         {...(props.disabled ? {} : clickableHoverLightStyle)}
         fontWeight="medium"
         {...props}
+        _selected={{
+          opacity: 1,
+          _before: {
+            bg: 'teal.solid',
+          },
+        }}
         ref={ref}
       />
     );

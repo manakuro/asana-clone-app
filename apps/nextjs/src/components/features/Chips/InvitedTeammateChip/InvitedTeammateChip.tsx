@@ -60,7 +60,7 @@ export const InvitedTeammateChip = memo(function InvitedTeammateChip(
       variant="subtle"
     >
       <TeammateAvatar teammateId={teammate.id} w={6} h={6} />
-      <Text ml={2} fontSize="xs" lineClamp={1} color="text.base">
+      <Text ml={2} fontSize="xs" lineClamp={1}>
         {teammate.name}
       </Text>
       {props.deletable && (
