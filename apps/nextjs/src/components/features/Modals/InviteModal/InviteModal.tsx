@@ -19,7 +19,7 @@ export function InviteModal() {
           onClose();
         }
       }}
-      size="xl"
+      size="lg"
     >
       <Portal>
         <Dialog.Backdrop />
