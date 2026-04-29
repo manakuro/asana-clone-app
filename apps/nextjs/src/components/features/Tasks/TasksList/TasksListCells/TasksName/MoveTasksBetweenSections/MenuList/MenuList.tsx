@@ -1,4 +1,3 @@
-import type React from 'react';
 import { memo } from 'react';
 import { MenuSelectList } from '@/components/features/Menus';
 import {
@@ -21,14 +20,13 @@ export const MenuList = memo(function MenuList(props: Props) {
   );
 });
 
-// TODO: Pass `taskSections` instead of `useTaskSection` because MenuItemOption has issue when its wrapped
 type ComponentProps = {
   taskSections: TaskSection[];
   taskSectionId: string;
 };
-const Component: React.FC<ComponentProps> = memo<ComponentProps>((props) => {
+const Component = memo<ComponentProps>((props) => {
   return (
-    <MenuSelectList defaultValue={props.taskSectionId}>
+    <MenuSelectList value={props.taskSectionId}>
       {props.taskSections.map((t) => (
         <Menu.RadioItem value={t.id} key={t.id}>
           {t.name}

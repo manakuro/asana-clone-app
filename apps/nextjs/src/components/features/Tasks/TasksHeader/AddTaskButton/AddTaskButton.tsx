@@ -57,8 +57,8 @@ export const AddTaskButton = memo(function AddTaskButton(props: Props) {
       </ButtonGroup>
       <Portal>
         <Menu.Positioner>
-          <Menu.Content color="text.base">
-            <Menu.Item onClick={handleAddTaskSection} value="">
+          <Menu.Content>
+            <Menu.Item onClick={handleAddTaskSection} value="Add section">
               Add section
             </Menu.Item>
           </Menu.Content>
