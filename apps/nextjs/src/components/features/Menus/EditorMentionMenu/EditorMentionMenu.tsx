@@ -20,7 +20,6 @@ export const EditorMentionMenu = memo(function EditorMentionMenu() {
       motionPreset="none"
     >
       <Portal>
-        <Dialog.Backdrop />
         <Dialog.Positioner>{open && <MenuContent />}</Dialog.Positioner>
       </Portal>
     </Dialog.Root>

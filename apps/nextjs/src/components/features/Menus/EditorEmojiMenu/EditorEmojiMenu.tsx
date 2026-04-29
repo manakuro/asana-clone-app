@@ -19,7 +19,6 @@ export function EditorEmojiMenu() {
       motionPreset="none"
     >
       <Portal>
-        <Dialog.Backdrop />
         <Dialog.Positioner>{open && <MenuList />}</Dialog.Positioner>
       </Portal>
     </Dialog.Root>
