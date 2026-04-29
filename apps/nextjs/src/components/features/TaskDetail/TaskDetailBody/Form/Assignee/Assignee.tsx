@@ -1,6 +1,5 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import { Box } from '@/components/ui/Box';
 import { Button, type ButtonProps } from '@/components/ui/Button';
 import { Text, type TextProps } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
@@ -52,7 +51,6 @@ export const Assignee = memo(function Assignee(props: Props) {
       <Label>Assignee</Label>
       <Content>
         <Button
-          as={Box}
           variant="ghost"
           size="sm"
           ref={ref}

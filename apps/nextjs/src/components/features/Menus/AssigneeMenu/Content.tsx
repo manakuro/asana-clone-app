@@ -10,7 +10,7 @@ import {
   SearchMenuRightContainer,
 } from '@/components/features/Menus/SearchMenu';
 import { Icon } from '@/components/ui/Icon';
-import { Menu } from '@/components/ui/Menu';
+import { Separator } from '@/components/ui/Separator';
 import { Text } from '@/components/ui/Text';
 import type { Teammate } from '@/store/entities/teammate';
 
@@ -39,7 +39,7 @@ export const Content = memo(function Content(props: Props) {
           index={i}
         />
       ))}
-      <Menu.Separator />
+      <Separator />
       <SearchMenuListItem index={teammates.length}>
         <SearchMenuLeftContainer>
           <Icon icon="userPlus" color="primary" />
@@ -50,7 +50,7 @@ export const Content = memo(function Content(props: Props) {
           </Text>
         </SearchMenuRightContainer>
       </SearchMenuListItem>
-      <Menu.Separator />
+      <Separator />
       <SearchMenuListItem index={teammates.length + 1}>
         <SearchMenuLeftContainer>
           <Icon icon="plus" color="primary" />
