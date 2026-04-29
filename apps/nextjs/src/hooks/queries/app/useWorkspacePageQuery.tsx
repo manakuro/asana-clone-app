@@ -4,7 +4,10 @@ import { useMountedRef } from '@/hooks';
 import { useWorkspaceResponse } from '@/store/app/workspace';
 
 export const useWorkspacePageQuery = () => {
-  const queryResult = useQuery();
+  const queryResult = useQuery({
+    fetchPolicy: 'no-cache',
+    notifyOnNetworkStatusChange: true,
+  });
   const [loading, setLoading] = useState(queryResult.loading);
   const { setWorkspace } = useWorkspaceResponse();
   const { mountedRef } = useMountedRef();
@@ -23,7 +26,6 @@ export const useWorkspacePageQuery = () => {
   }, [loading, mountedRef, queryResult.data, setWorkspace]);
 
   return {
-    refetch: queryResult.refetch,
     loading,
   };
 };
