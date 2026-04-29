@@ -1,9 +1,10 @@
 import { memo, type PropsWithChildren, useCallback } from 'react';
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
+import { Button } from '@/components/ui/Button';
 import { Menu as UIMenu } from '@/components/ui/Menu';
 import { useTask } from '@/store/entities/task';
 import { useTasksPriorities } from '@/store/entities/taskPriority';
@@ -34,9 +35,9 @@ export const Menu = memo(function Menu(props: Props) {
       onOpened={onOpened}
       onClosed={onClosed}
     >
-      <MenuSelectButton flex={1} h="full">
-        {props.children}
-      </MenuSelectButton>
+      <MenuSelectTrigger flex={1} h="full">
+        <Button>{props.children}</Button>
+      </MenuSelectTrigger>
       <MenuSelectList defaultValue={defaultValue}>
         {taskPriorities.map((t) => (
           <UIMenu.RadioItem value={t.id} key={t.id}>

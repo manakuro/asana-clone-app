@@ -1,9 +1,10 @@
 import { memo, useCallback, useMemo } from 'react';
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
+import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
@@ -52,10 +53,12 @@ export const PermissionMenu = memo(function PermissionMenu() {
       onChange={handleChange}
       positioning={{ placement: 'bottom-start' }}
     >
-      <MenuSelectButton variant="ghost" size="xs" fontWeight="medium">
-        {buttonText}
-        <Icon icon="chevronDown" />
-      </MenuSelectButton>
+      <MenuSelectTrigger>
+        <Button variant="ghost" size="xs" fontWeight="medium">
+          {buttonText}
+          <Icon icon="chevronDown" />
+        </Button>
+      </MenuSelectTrigger>
       <MenuSelectList
         defaultValue={status.toString()}
         menuListProps={{ maxW: '250px' }}

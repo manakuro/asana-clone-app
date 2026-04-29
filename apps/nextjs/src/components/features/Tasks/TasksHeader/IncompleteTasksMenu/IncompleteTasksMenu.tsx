@@ -1,10 +1,11 @@
 import { memo, useCallback, useMemo } from 'react';
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
+import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
@@ -86,14 +87,12 @@ export const IncompleteTasksMenu = memo(function IncompleteTasksMenu(
     >
       {({ listStatus, onChange, onClose }) => (
         <>
-          <MenuSelectButton
-            variant="ghost"
-            aria-label="Task list status"
-            size="xs"
-          >
-            <Icon icon="checkCircle" />
-            {buttonText}
-          </MenuSelectButton>
+          <MenuSelectTrigger>
+            <Button variant="ghost" aria-label="Task list status" size="xs">
+              <Icon icon="checkCircle" />
+              {buttonText}
+            </Button>
+          </MenuSelectTrigger>
           <MenuSelectList
             defaultValue={taskListStatus.taskListCompletedStatus.toString()}
           >

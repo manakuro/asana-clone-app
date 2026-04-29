@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { MenuSelect, MenuSelectButton } from '@/components/features/Menus';
+import { MenuSelect, MenuSelectTrigger } from '@/components/features/Menus';
 import { useTasksTask } from '@/components/features/Tasks/hooks';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
@@ -43,13 +43,15 @@ export const MoveTasksBetweenSections = memo(function MoveTasksBetweenSections(
             withIcon
             contentProps={{ display: open ? 'none' : 'block' }}
           >
-            <MenuSelectButton as={IconButton}>
-              <Icon
-                icon="moveVertical"
-                color="text.muted"
-                {...clickableHoverLightStyle}
-              />
-            </MenuSelectButton>
+            <MenuSelectTrigger>
+              <IconButton unstyled>
+                <Icon
+                  icon="moveVertical"
+                  color="text.muted"
+                  {...clickableHoverLightStyle}
+                />
+              </IconButton>
+            </MenuSelectTrigger>
           </Tooltip>
           {open && <MenuList taskId={props.taskId} />}
         </>

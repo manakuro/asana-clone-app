@@ -1,9 +1,10 @@
 import { memo, useCallback } from 'react';
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
+import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import { useProjectTask } from '@/store/entities/projectTask';
@@ -46,10 +47,12 @@ export const Section = memo(function Section(props: Props) {
       onChange={handleChange}
       positioning={{ placement: 'bottom-start' }}
     >
-      <MenuSelectButton variant="ghost" size="xs" cursor="pointer">
-        {projectTaskSection.name}
-        <Icon mt="1px" icon="chevronDown" color="text.muted" size="md" />
-      </MenuSelectButton>
+      <MenuSelectTrigger>
+        <Button variant="ghost" size="xs" cursor="pointer">
+          {projectTaskSection.name}
+          <Icon mt="1px" icon="chevronDown" color="text.muted" size="md" />
+        </Button>
+      </MenuSelectTrigger>
       <MenuSelectList>
         {projectTaskSections.map((p) => (
           <Menu.RadioItem value={p.id} key={p.id}>

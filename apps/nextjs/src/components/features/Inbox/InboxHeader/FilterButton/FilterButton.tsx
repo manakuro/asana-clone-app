@@ -1,9 +1,10 @@
 import { memo, useCallback, useMemo } from 'react';
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
+import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import type { SystemStyleObject } from '@/shared/chakra';
@@ -71,15 +72,17 @@ export const FilterButton = memo(function FilterButton() {
       onChange={handleChange}
       positioning={{ placement: 'bottom-start' }}
     >
-      <MenuSelectButton
-        variant="ghost"
-        aria-label="Sort tasks"
-        size="xs"
-        {...buttonStyle}
-      >
-        <Icon icon="filter" />
-        Filter{text}
-      </MenuSelectButton>
+      <MenuSelectTrigger>
+        <Button
+          variant="ghost"
+          aria-label="Sort tasks"
+          size="xs"
+          {...buttonStyle}
+        >
+          <Icon icon="filter" />
+          Filter{text}
+        </Button>
+      </MenuSelectTrigger>
       <MenuSelectList defaultValue={filterStatus.toString()}>
         {items.map((item, _i) => (
           <Menu.RadioItem

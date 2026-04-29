@@ -1,8 +1,9 @@
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
+import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import type { TaskListSortStatusCodeValue } from '@/store/entities/taskListSortStatus';
@@ -27,10 +28,12 @@ export const SortMenu = <T extends TaskListSortStatusCodeValue>(
       onChange={onChange}
       positioning={{ placement: 'bottom-end' }}
     >
-      <MenuSelectButton variant="ghost" aria-label="Sort tasks" size="xs">
-        <Icon icon="sort" />
-        Sort{text}
-      </MenuSelectButton>
+      <MenuSelectTrigger>
+        <Button variant="ghost" aria-label="Sort tasks" size="xs">
+          <Icon icon="sort" />
+          Sort{text}
+        </Button>
+      </MenuSelectTrigger>
       <MenuSelectList defaultValue={defaultValue}>
         {items.map((item, _i) => (
           <Menu.RadioItem
