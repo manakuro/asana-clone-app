@@ -21,6 +21,7 @@ export const TasksNameCell: React.FC<Props> = memo(
         fontSize="sm"
         cursor="pointer"
         borderLeft="none"
+        borderLeftWidth="0"
         onClick={props.onClick}
         hover
         justifyContent="flex-end"
