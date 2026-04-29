@@ -36,11 +36,11 @@ export const Container = memo(function Container(props: Props) {
   const { sortedStyle } = useTasksListHeaderContext();
   const minW = useMemo(() => (isFirst ? 400 : 120), [isFirst]);
   const maxW = useMemo(() => (isFirst ? 800 : 280), [isFirst]);
-  const style = useMemo<SystemStyleObject>(() => {
+  const style = useMemo(() => {
     return {
       ...(isFirst ? { pl: 0, borderLeft: 'none' } : {}),
       ...(clickable ? { cursor: 'pointer', ...clickableHoverStyle } : {}),
-    };
+    } as FlexProps;
   }, [clickable, clickableHoverStyle, isFirst]);
   const { ref, isHovering } = useHover<HTMLDivElement>();
 
@@ -71,10 +71,8 @@ export const Container = memo(function Container(props: Props) {
         ...containerStyle,
       }}
       ref={ref}
-      css={{
-        ...style,
-        ...sortedStyle,
-      }}
+      {...style}
+      {...sortedStyle}
       {...rest}
     >
       {taskColumn.name}
