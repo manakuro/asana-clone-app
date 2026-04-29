@@ -52,7 +52,9 @@ export function Container(props: Props) {
         handlePopoverProjectMenuOpened,
         handlePopoverProjectMenuClosed,
       })}
-      <Text mt={2}>{name}</Text>
+      <Text mt={2} textAlign="center">
+        {name}
+      </Text>
     </Flex>
   );
 }

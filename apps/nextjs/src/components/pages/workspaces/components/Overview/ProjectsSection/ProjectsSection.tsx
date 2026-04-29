@@ -11,9 +11,6 @@ import {
 import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
 import { Grid } from '@/components/ui/Grid';
-import { Link } from '@/components/ui/Link';
-import { NextLink } from '@/components/ui/NextLink';
-import { ROUTE_PROJECTS_LIST } from '@/router';
 import { useProjectIds } from '@/store/entities/project';
 import {
   OverviewSectionHeader,
@@ -41,14 +38,11 @@ export const ProjectsSection = memo(function ProjectsSection() {
             <Grid templateColumns="repeat(4, 1fr)" gap={6}>
               <ProjectTileItemNew containerStyle={{ width: 'auto' }} />
               {projectIds.map((id) => (
-                <Link key={id} asChild>
-                  <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(id)}>
-                    <ProjectTileItem
-                      projectId={id}
-                      containerStyle={{ width: 'auto' }}
-                    />
-                  </NextLink>
-                </Link>
+                <ProjectTileItem
+                  key={id}
+                  projectId={id}
+                  containerStyle={{ width: 'auto' }}
+                />
               ))}
             </Grid>
           </Box>
@@ -56,11 +50,7 @@ export const ProjectsSection = memo(function ProjectsSection() {
           <>
             <ProjectListItemNew />
             {projectIds.map((id) => (
-              <Link key={id} asChild>
-                <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(id)}>
-                  <ProjectListItem projectId={id} />
-                </NextLink>
-              </Link>
+              <ProjectListItem projectId={id} key={id} />
             ))}
           </>
         )}
