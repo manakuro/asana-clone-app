@@ -71,6 +71,7 @@ export const FilterButton = memo(function FilterButton() {
     <MenuSelect<ToString<InboxListFilterStatuses>>
       onChange={handleChange}
       positioning={{ placement: 'bottom-start' }}
+      listStatus={filterStatus as unknown as ToString<InboxListFilterStatuses>}
     >
       <MenuSelectTrigger>
         <Button
@@ -83,7 +84,7 @@ export const FilterButton = memo(function FilterButton() {
           Filter{text}
         </Button>
       </MenuSelectTrigger>
-      <MenuSelectList defaultValue={filterStatus.toString()}>
+      <MenuSelectList>
         {items.map((item, _i) => (
           <Menu.RadioItem
             value={item.value.toString()}
