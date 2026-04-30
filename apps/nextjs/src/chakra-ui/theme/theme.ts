@@ -54,6 +54,14 @@ export const system = createSystem(defaultConfig, {
         },
         slots: [],
       },
+      menu: {
+        base: {
+          item: {
+            cursor: 'pointer',
+          },
+        },
+        slots: [],
+      },
     },
     tokens: {
       cursor: {
