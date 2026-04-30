@@ -17,7 +17,6 @@ import { useWorkspace } from '@/store/entities/workspace';
 import {
   initialState,
   projectTaskByTaskIdAndProjectIdState,
-  projectTaskByTaskIdState,
   projectTaskState,
 } from '../atom';
 import type { ProjectTask, ProjectTaskResponse } from '../type';
@@ -325,53 +324,11 @@ export const useProjectTaskCommand = () => {
     ),
   );
 
-  const deleteProjectTaskByTaskId = useAtomCallback(
-    useCallback(
-      async (get, _set, input: { taskId: string }) => {
-        const projectTask = get(projectTaskByTaskIdState(input.taskId));
-
-        resetProjectTask(projectTask.id);
-
-        const restore = () => {
-          setProjectTaskResponse([projectTask as ProjectTaskResponse], {
-            includeTask: false,
-          });
-        };
-
-        try {
-          const res = await deleteProjectTaskMutation({
-            variables: {
-              input: {
-                id: projectTask.id,
-                workspaceId: workspace.id,
-                requestId: PROJECT_TASK_DELETED_SUBSCRIPTION_REQUEST_ID,
-              },
-            },
-          });
-
-          if (res.errors) {
-            restore();
-          }
-        } catch (e) {
-          restore();
-          throw e;
-        }
-      },
-      [
-        deleteProjectTaskMutation,
-        resetProjectTask,
-        setProjectTaskResponse,
-        workspace.id,
-      ],
-    ),
-  );
-
   return {
     addProjectTask,
     addProjectTaskByTaskId,
     setProjectTaskByTaskId,
     setProjectTask,
-    deleteProjectTaskByTaskId,
     deleteProjectTask,
   };
 };

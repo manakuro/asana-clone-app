@@ -8,8 +8,9 @@ import { Wrap, WrapItem } from '@/components/ui/Wrap';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import {
-  useProjectIdsByTaskId,
+  useGetProjectTask,
   useProjectTaskCommand,
+  useProjectTaskIdsByTaskId,
 } from '@/store/entities/projectTask';
 
 type Props = {
@@ -22,9 +23,9 @@ const HEIGHT = '37px';
 export const Input = memo(function Input(props: Props) {
   const { taskId, onClose } = props;
   const popoverDisclosure = useDisclosure();
-  const { projectIds } = useProjectIdsByTaskId(taskId);
-  const { addProjectTaskByTaskId, deleteProjectTaskByTaskId } =
-    useProjectTaskCommand();
+  const { projectTaskIds } = useProjectTaskIdsByTaskId(props.taskId);
+  const { getProjectTask } = useGetProjectTask();
+  const { addProjectTaskByTaskId, deleteProjectTask } = useProjectTaskCommand();
   const { ref } = useClickOutside<HTMLDivElement>(onClose, {
     hasClickedOutside: (e, helper) => {
       if (helper.isContainInPopoverContent(e)) return false;
@@ -33,9 +34,12 @@ export const Input = memo(function Input(props: Props) {
   });
   const [value, setValue] = useState<string>('');
 
-  const handleDelete = useCallback(async () => {
-    await deleteProjectTaskByTaskId({ taskId });
-  }, [deleteProjectTaskByTaskId, taskId]);
+  const handleDelete = useCallback(
+    async (projectTaskId: string) => {
+      await deleteProjectTask({ id: projectTaskId });
+    },
+    [deleteProjectTask],
+  );
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,16 +87,20 @@ export const Input = memo(function Input(props: Props) {
         w="300px"
       >
         <Wrap minH={HEIGHT} py={2} justifyItems="center" display="flex">
-          {projectIds.map((id) => (
-            <WrapItem key={id}>
-              <ProjectChip
-                variant="button"
-                projectId={id}
-                deletable
-                onDelete={handleDelete}
-              />
-            </WrapItem>
-          ))}
+          {projectTaskIds.map((id) => {
+            const projectTask = getProjectTask(id);
+
+            return (
+              <WrapItem key={id}>
+                <ProjectChip
+                  variant="button"
+                  projectId={projectTask.projectId}
+                  deletable
+                  onDelete={() => handleDelete(projectTask.id)}
+                />
+              </WrapItem>
+            );
+          })}
           <WrapItem>
             <AtomsInput
               autoFocus
