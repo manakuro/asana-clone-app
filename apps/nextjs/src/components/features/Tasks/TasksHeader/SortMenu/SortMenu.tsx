@@ -15,18 +15,19 @@ type Props<T extends TaskListSortStatusCodeValue> = {
   }[];
   onChange: (status: T) => void;
   text: string;
-  defaultValue: string;
+  value: string;
 };
 
 export const SortMenu = <T extends TaskListSortStatusCodeValue>(
   props: Props<T>,
 ) => {
-  const { items, onChange, text, defaultValue } = props;
+  const { items, onChange, text, value } = props;
 
   return (
     <MenuSelect<T>
       onChange={onChange}
       positioning={{ placement: 'bottom-end' }}
+      listStatus={value as T}
     >
       <MenuSelectTrigger>
         <Button variant="ghost" aria-label="Sort tasks" size="xs">
@@ -34,7 +35,7 @@ export const SortMenu = <T extends TaskListSortStatusCodeValue>(
           Sort{text}
         </Button>
       </MenuSelectTrigger>
-      <MenuSelectList defaultValue={defaultValue}>
+      <MenuSelectList>
         {items.map((item, _i) => (
           <Menu.RadioItem
             value={item.value.toString()}
