@@ -7,66 +7,73 @@ import {
 } from '@/store/entities/taskListCompletedStatus';
 
 type Props = {
-  onClose: () => void;
   listStatus?: TaskListCompletedStatusCodeValue;
   onChange: (listStatus: TaskListCompletedStatusCodeValue) => void;
 } & MenuRootProps;
 
-export function PopoverCompletedTasks(props: Props) {
+export function PopoverCompletedTasks({
+  listStatus,
+  onChange,
+  children,
+  ...rest
+}: Props) {
   const handleChange = useCallback(
     (listStatus?: string | string[]) => {
-      props.onChange(listStatus as TaskListCompletedStatusCodeValue);
-      props.onClose();
+      onChange(listStatus as TaskListCompletedStatusCodeValue);
     },
-    [props],
+    [onChange],
   );
 
   return (
-    <Menu.Root closeOnSelect={false} lazyMount {...props}>
-      <Menu.TriggerItem asChild w="full">
-        {props.children}
-      </Menu.TriggerItem>
+    <Menu.Root lazyMount {...rest}>
+      <Menu.TriggerItem asChild>{children}</Menu.TriggerItem>
       <Portal>
         <Menu.Positioner>
-          <Menu.Content pointerEvents="auto" mr="30px">
+          <Menu.Content animation="none">
             <Menu.RadioItemGroup
-              value={props.listStatus}
+              value={listStatus}
               onValueChange={(e) => handleChange(e.value)}
             >
               <Menu.RadioItem value={TaskListCompletedStatusCode.Completed}>
                 All Completed Tasks
+                <Menu.ItemIndicator />
               </Menu.RadioItem>
               <Menu.RadioItemGroup
-                value={props.listStatus}
-                title="Marked complete since:"
-                color="text.muted"
-                fontSize="xs"
+                value={listStatus}
                 onValueChange={(e) => handleChange(e.value)}
               >
+                <Menu.ItemGroupLabel fontWeight="semibold">
+                  Marked complete since:
+                </Menu.ItemGroupLabel>
                 <Menu.RadioItem
                   value={TaskListCompletedStatusCode.CompletedToday}
                 >
                   Today
+                  <Menu.ItemIndicator />
                 </Menu.RadioItem>
                 <Menu.RadioItem
                   value={TaskListCompletedStatusCode.CompletedYesterday}
                 >
                   Yesterday
+                  <Menu.ItemIndicator />
                 </Menu.RadioItem>
                 <Menu.RadioItem
                   value={TaskListCompletedStatusCode.Completed_1Week}
                 >
                   1 week
+                  <Menu.ItemIndicator />
                 </Menu.RadioItem>
                 <Menu.RadioItem
                   value={TaskListCompletedStatusCode.Completed_2Weeks}
                 >
                   2 weeks
+                  <Menu.ItemIndicator />
                 </Menu.RadioItem>
                 <Menu.RadioItem
                   value={TaskListCompletedStatusCode.Completed_3Weeks}
                 >
                   3 weeks
+                  <Menu.ItemIndicator />
                 </Menu.RadioItem>
               </Menu.RadioItemGroup>
             </Menu.RadioItemGroup>

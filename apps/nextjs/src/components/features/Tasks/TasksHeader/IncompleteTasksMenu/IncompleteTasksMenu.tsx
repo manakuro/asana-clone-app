@@ -10,7 +10,6 @@ import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import { Text } from '@/components/ui/Text';
-import { useDisclosure } from '@/shared/chakra';
 import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,
@@ -39,7 +38,6 @@ export const IncompleteTasksMenu = memo(function IncompleteTasksMenu(
     isTaskListCompletedYesterday,
     isTaskListCompletedAll,
   } = useTaskListCompletedStatus();
-  const popoverDisclosure = useDisclosure();
 
   const handleChange = useCallback(
     (status: TaskListCompletedStatusCodeValue) => {
@@ -84,8 +82,9 @@ export const IncompleteTasksMenu = memo(function IncompleteTasksMenu(
     <MenuSelect<TaskListCompletedStatusCodeValue>
       onChange={handleChange}
       positioning={{ placement: 'bottom-end' }}
+      listStatus={taskListStatus.taskListCompletedStatus}
     >
-      {({ listStatus, onChange, onClose }) => (
+      {({ listStatus, onChange }) => (
         <>
           <MenuSelectTrigger>
             <Button variant="ghost" aria-label="Task list status" size="xs">
@@ -93,35 +92,22 @@ export const IncompleteTasksMenu = memo(function IncompleteTasksMenu(
               {buttonText}
             </Button>
           </MenuSelectTrigger>
-          <MenuSelectList
-            defaultValue={taskListStatus.taskListCompletedStatus.toString()}
-          >
+          <MenuSelectList>
             <Menu.RadioItem value={TaskListCompletedStatusCode.Incomplete}>
-              <Flex onMouseEnter={popoverDisclosure.onClose}>
-                Incomplete tasks
-              </Flex>
+              Incomplete tasks
+              <Menu.ItemIndicator />
             </Menu.RadioItem>
-            <Flex onMouseEnter={popoverDisclosure.onOpen}>
-              <PopoverCompletedTasks
-                open={popoverDisclosure.open}
-                positioning={{ placement: 'left-start' }}
-                onClose={() => {
-                  popoverDisclosure.onClose();
-                  onClose();
-                }}
-                listStatus={listStatus}
-                onChange={onChange}
-              >
-                <Flex flex={1}>
-                  <Text fontSize="sm" flex={1}>
-                    Completed tasks
-                  </Text>
-                  <Icon icon="chevronRight" />
-                </Flex>
-              </PopoverCompletedTasks>
-            </Flex>
+            <PopoverCompletedTasks listStatus={listStatus} onChange={onChange}>
+              <Flex flex={1} pl={8}>
+                <Text fontSize="sm" flex={1}>
+                  Completed tasks
+                </Text>
+                <Icon icon="chevronRight" />
+              </Flex>
+            </PopoverCompletedTasks>
             <Menu.RadioItem value={TaskListCompletedStatusCode.All}>
-              <Flex onMouseEnter={popoverDisclosure.onClose}>All tasks</Flex>
+              All tasks
+              <Menu.ItemIndicator />
             </Menu.RadioItem>
           </MenuSelectList>
         </>
