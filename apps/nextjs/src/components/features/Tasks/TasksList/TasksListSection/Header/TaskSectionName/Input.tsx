@@ -28,6 +28,13 @@ export const Input = memo(function Input(props: Props) {
     <AtomsInput
       ref={ref}
       autoFocus
+      onBlur={() => {
+        // Refocus the input to prevent losing focus when clicking outside,
+        // as the useClickOutside hook will handle the actual blur behavior.
+        if (ref.current) {
+          ref.current.focus();
+        }
+      }}
       fontSize="md"
       placeholder="New section"
       unstyled
