@@ -7,7 +7,6 @@ import {
 } from '@/components/features/Tasks/hooks';
 import { useTasksListSectionContext } from '@/components/features/Tasks/TasksList/TasksListSection/Provider';
 import { Menu } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
 import { Tooltip } from '@/components/ui/Tooltip';
 
 export const MenuList = memo(function MenuList() {
@@ -41,31 +40,33 @@ export const MenuList = memo(function MenuList() {
   }, [deleteTaskSection, hasTasks, onOpen, setModalState, taskSectionId]);
 
   return (
-    <Portal>
-      <Menu.Positioner>
-        <Menu.Content>
-          <Menu.Item onClick={handleRenameSection} value="">
-            Rename section
-          </Menu.Item>
-          {deleteSectionDisabled ? (
-            <Tooltip
-              showArrow
-              content={message}
-              aria-label={message}
-              size="md"
-              withIcon
-            >
-              <Menu.Item disabled value="">
-                Delete section
-              </Menu.Item>
-            </Tooltip>
-          ) : (
-            <Menu.Item onClick={handleDeleteSection} color="alert" value="">
+    <Menu.Positioner>
+      <Menu.Content>
+        <Menu.Item onClick={handleRenameSection} value="Rename section">
+          Rename section
+        </Menu.Item>
+        {deleteSectionDisabled ? (
+          <Tooltip
+            showArrow
+            content={message}
+            aria-label={message}
+            size="md"
+            withIcon
+          >
+            <Menu.Item disabled value="Delete section">
               Delete section
             </Menu.Item>
-          )}
-        </Menu.Content>
-      </Menu.Positioner>
-    </Portal>
+          </Tooltip>
+        ) : (
+          <Menu.Item
+            onClick={handleDeleteSection}
+            color="alert"
+            value="Delete section"
+          >
+            Delete section
+          </Menu.Item>
+        )}
+      </Menu.Content>
+    </Menu.Positioner>
   );
 });
