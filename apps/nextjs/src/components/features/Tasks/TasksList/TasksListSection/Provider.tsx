@@ -2,21 +2,12 @@ import { useCallback, useMemo, useState } from 'react';
 import type { FlexProps } from '@/components/ui/Flex';
 import { createProvider } from '@/shared/react/createProvider';
 
-type ContextProps = {
-  focused: boolean;
-  onFocusInput: () => void;
-  onUnfocusInput: () => void;
-  taskSectionId: string;
-  indented?: boolean;
-  indentedStyle: FlexProps;
-};
-
 type Props = {
   taskSectionId: string;
   indented?: boolean;
 };
 
-const useValue = (props: Props): ContextProps => {
+const useValue = (props: Props) => {
   const [focused, setFocused] = useState(false);
 
   const onFocusInput = useCallback(() => {

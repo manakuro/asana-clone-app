@@ -33,7 +33,10 @@ export const Input = memo(function Input(props: Props) {
       unstyled
       fontWeight="semibold"
       border="1px"
-      borderColor="gray.300"
+      borderColor="border.emphasized"
+      borderStyle="solid"
+      borderRadius="md"
+      w="full"
       px={2}
       maxW={80}
       {...rest}
