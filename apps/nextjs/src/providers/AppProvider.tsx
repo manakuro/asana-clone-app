@@ -1,6 +1,5 @@
 'use client';
 
-import { resetServerContext } from '@hello-pangea/dnd';
 import type { PropsWithChildren } from 'react';
 import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
 import { Modals } from '@/components/features/Modals';
@@ -10,8 +9,6 @@ import { PageLoader } from '@/components/ui/PageLoader';
 import { Toaster } from '@/components/ui/Toast';
 import { AuthProvider, useAuthContext } from '@/providers/AuthProvider';
 import { ApolloProvider } from '@/shared/apollo/ApolloProvider';
-
-resetServerContext();
 
 export function AppProvider({ children }: PropsWithChildren) {
   return (

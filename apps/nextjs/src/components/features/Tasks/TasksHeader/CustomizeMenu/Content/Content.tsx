@@ -1,6 +1,5 @@
 import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import { usePathname } from 'next/navigation';
-import type React from 'react';
 import { memo, useEffect, useMemo } from 'react';
 import { Separator } from '@/components/features/Navigation/Separator';
 import { useTasksTaskColumnCustomizable } from '@/components/features/Tasks/hooks';
@@ -19,7 +18,7 @@ const HEADER_HEIGHT = 72;
 const TASKS_HEADER_HEIGHT = 60;
 const TASKS_HEADER_BOARD_HEIGHT = 40;
 
-export const Content: React.FC = memo(() => {
+export const Content = memo(function Content() {
   const { onClose } = useCustomizeMenu();
   const { tasksTaskColumnIds, setTaskColumnOrder } =
     useTasksTaskColumnCustomizable();

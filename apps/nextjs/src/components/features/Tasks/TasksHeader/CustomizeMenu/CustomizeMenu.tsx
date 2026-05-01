@@ -14,7 +14,6 @@ export const CustomizeMenu: React.FC = () => {
       placement="end"
     >
       <Portal>
-        <Drawer.Backdrop />
         <Drawer.Positioner>
           <Content />
         </Drawer.Positioner>

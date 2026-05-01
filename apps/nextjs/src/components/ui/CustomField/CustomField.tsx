@@ -26,6 +26,7 @@ export function CustomField(props: Props) {
         boxShadow="md"
         css={clickableHoverInputGrabbableStyle}
         cursor="grab"
+        w="full"
       >
         <Icon icon="gridVertical" color="text.muted" size="sm" />
         <Field.Label cursor="grab" ml={2} mb="0" flex={1} fontSize="sm">
