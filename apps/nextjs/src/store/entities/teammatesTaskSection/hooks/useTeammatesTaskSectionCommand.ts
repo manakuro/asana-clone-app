@@ -1,4 +1,4 @@
-import { useAtomCallback } from 'jotai/utils';
+import { RESET, useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
   useCreateTeammateTaskSectionMutation,
@@ -74,7 +74,7 @@ export const useTeammatesTaskSectionCommand = () => {
         });
 
         const restore = () => {
-          set(teammatesTaskSectionState(id), initialState());
+          set(teammatesTaskSectionState(id), RESET);
         };
 
         try {
@@ -96,7 +96,7 @@ export const useTeammatesTaskSectionCommand = () => {
           const addedTeammateTaskSection = res.data?.createTeammateTaskSection;
           if (!addedTeammateTaskSection) return '';
 
-          set(teammatesTaskSectionState(id), initialState());
+          set(teammatesTaskSectionState(id), RESET);
           setTeammatesTaskSections([
             {
               ...addedTeammateTaskSection,
