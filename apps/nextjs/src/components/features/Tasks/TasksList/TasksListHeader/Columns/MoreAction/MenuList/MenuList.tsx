@@ -32,25 +32,25 @@ export const MenuList = memo(function MenuList(props: Props) {
     <Menu.Positioner>
       <Menu.Content color="text.base">
         {props.onSort && (
-          <Menu.Item onClick={handleSortBy} value="Sort by">
+          <Menu.Item onSelect={handleSortBy} value="Sort by">
             Sort by
           </Menu.Item>
         )}
         <Menu.Item
-          onClick={handleMoveLeft}
+          onSelect={handleMoveLeft}
           disabled={props.disabledMoveLeft}
           value="Move left"
         >
           Move left
         </Menu.Item>
         <Menu.Item
-          onClick={handleMoveRight}
+          onSelect={handleMoveRight}
           disabled={props.disabledMoveRight}
           value="Move right"
         >
           Move right
         </Menu.Item>
-        <Menu.Item onClick={handleHideColumn} value="Hide column">
+        <Menu.Item onSelect={handleHideColumn} value="Hide column">
           Hide column
         </Menu.Item>
       </Menu.Content>
