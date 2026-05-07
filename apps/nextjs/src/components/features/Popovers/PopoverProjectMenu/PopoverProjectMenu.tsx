@@ -51,7 +51,7 @@ export function PopoverProjectMenu(props: PropsWithChildren<Props>) {
         }
       }}
     >
-      <Menu.Trigger {...iconButton} {...menuButtonStyle}>
+      <Menu.Trigger asChild {...iconButton} {...menuButtonStyle}>
         {props.children}
       </Menu.Trigger>
       <MenuList

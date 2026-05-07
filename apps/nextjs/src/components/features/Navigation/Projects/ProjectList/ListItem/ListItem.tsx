@@ -7,6 +7,7 @@ import { Box } from '@/components/ui/Box';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';
 import { Text } from '@/components/ui/Text';
@@ -75,10 +76,12 @@ export const ListItem = memo(function ListItem(props: Props) {
               deleteProject
               projectId={props.projectId}
             >
-              <Icon
-                icon="dotsHorizontalRounded"
-                {...clickableHoverLightStyle}
-              />
+              <IconButton unstyled>
+                <Icon
+                  icon="dotsHorizontalRounded"
+                  {...clickableHoverLightStyle}
+                />
+              </IconButton>
             </PopoverProjectMenu>
           </Box>
         </Flex>
