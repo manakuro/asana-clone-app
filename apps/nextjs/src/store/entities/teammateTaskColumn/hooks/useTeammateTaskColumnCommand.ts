@@ -55,7 +55,10 @@ export const useTeammateTaskColumnCommand = () => {
     useCallback(
       async (get, _set, ids: string[]) => {
         const prev = get(teammateTaskColumnsState);
-        const prevIds = prev.map((p) => p.id);
+        const prevIds = prev
+          .filter((t) => !t.disabled)
+          .toSorted((a, b) => (a.order > b.order ? 1 : -1))
+          .map((p) => p.id);
 
         if (JSON.stringify(prevIds) === JSON.stringify(ids)) return;
 
