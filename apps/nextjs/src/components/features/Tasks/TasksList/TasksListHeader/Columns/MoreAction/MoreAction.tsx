@@ -26,14 +26,26 @@ export const MoreAction = memo(function MoreAction(props: Props) {
   }, [setTasksTaskColumn]);
 
   const handleMoveRight = useCallback(async () => {
+    props.onClosed?.();
     const currentIndex = tasksTaskColumnIds.indexOf(tasksTaskColumnId);
     await setTaskColumnOrder(currentIndex, currentIndex + 1);
-  }, [setTaskColumnOrder, tasksTaskColumnId, tasksTaskColumnIds]);
+  }, [
+    setTaskColumnOrder,
+    tasksTaskColumnId,
+    tasksTaskColumnIds,
+    props.onClosed,
+  ]);
 
   const handleMoveLeft = useCallback(async () => {
+    props.onClosed?.();
     const currentIndex = tasksTaskColumnIds.indexOf(tasksTaskColumnId);
     await setTaskColumnOrder(currentIndex, currentIndex - 1);
-  }, [setTaskColumnOrder, tasksTaskColumnId, tasksTaskColumnIds]);
+  }, [
+    setTaskColumnOrder,
+    tasksTaskColumnId,
+    tasksTaskColumnIds,
+    props.onClosed,
+  ]);
 
   const disabledMoveLeft = useMemo(
     () => !canMoveLeft(tasksTaskColumnId),
