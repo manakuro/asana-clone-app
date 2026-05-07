@@ -3,6 +3,7 @@ import { memo, useMemo } from 'react';
 import { useNavigation } from '@/components/features/Navigation';
 import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { PopoverProjectMenu } from '@/components/features/Popovers';
+import { Box } from '@/components/ui/Box';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
@@ -57,15 +58,29 @@ export const ListItem = memo(function ListItem(props: Props) {
               </Text>
             </Flex>
           )}
-          <PopoverProjectMenu
-            addFavorite
-            duplicateProject
-            archiveProject
-            deleteProject
-            projectId={props.projectId}
+          <Box
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            }}
+            onPointerDown={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            }}
           >
-            <Icon icon="dotsHorizontalRounded" {...clickableHoverLightStyle} />
-          </PopoverProjectMenu>
+            <PopoverProjectMenu
+              addFavorite
+              duplicateProject
+              archiveProject
+              deleteProject
+              projectId={props.projectId}
+            >
+              <Icon
+                icon="dotsHorizontalRounded"
+                {...clickableHoverLightStyle}
+              />
+            </PopoverProjectMenu>
+          </Box>
         </Flex>
       </NextLink>
     </Link>

@@ -21,7 +21,6 @@ type Props = {
   onOpened?: () => void;
   onClosed?: () => void;
 };
-export type PopoverProjectMenuProps = Props;
 
 export function PopoverProjectMenu(props: PropsWithChildren<Props>) {
   const {
@@ -52,7 +51,7 @@ export function PopoverProjectMenu(props: PropsWithChildren<Props>) {
         }
       }}
     >
-      <Menu.Trigger asChild {...iconButton} {...menuButtonStyle}>
+      <Menu.Trigger {...iconButton} {...menuButtonStyle}>
         {props.children}
       </Menu.Trigger>
       <MenuList
