@@ -21,7 +21,7 @@ export function ShareWorkspaceModal() {
           onClose();
         }
       }}
-      size="xl"
+      size="lg"
     >
       <Portal>
         <Dialog.Backdrop />
