@@ -7,7 +7,7 @@ export const EditComment = memo(function EditComment() {
   if (!hasText) return null;
 
   return (
-    <Menu.Item value="" onClick={onEdit}>
+    <Menu.Item value="Edit comment" onSelect={onEdit}>
       Edit comment
     </Menu.Item>
   );

@@ -7,13 +7,13 @@ export const Pin = memo(function Pin() {
 
   if (taskFeed.isPinned)
     return (
-      <Menu.Item value="" onClick={onUnpin}>
+      <Menu.Item value="Unpin from top" onSelect={onUnpin}>
         Unpin from top
       </Menu.Item>
     );
 
   return (
-    <Menu.Item value="" onClick={onPin}>
+    <Menu.Item value="Pin to top" onSelect={onPin}>
       Pin to top
     </Menu.Item>
   );

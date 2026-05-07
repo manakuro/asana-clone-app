@@ -7,7 +7,7 @@ export const DeleteComment = memo(function DeleteComment() {
   if (!hasText) return null;
 
   return (
-    <Menu.Item value="" color="alert" onClick={onDelete}>
+    <Menu.Item value="Delete comment" color="alert" onSelect={onDelete}>
       Delete comment
     </Menu.Item>
   );

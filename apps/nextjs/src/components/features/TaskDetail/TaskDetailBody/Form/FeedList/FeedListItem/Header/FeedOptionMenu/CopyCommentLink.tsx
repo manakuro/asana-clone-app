@@ -7,7 +7,7 @@ export const CopyCommentLink = memo(function CopyCommentLink() {
   if (!hasText) return null;
 
   return (
-    <Menu.Item value="" onClick={onCopyCommentLink}>
+    <Menu.Item value="Copy comment link" onSelect={onCopyCommentLink}>
       Copy comment link
     </Menu.Item>
   );

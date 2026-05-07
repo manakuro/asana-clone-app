@@ -7,7 +7,7 @@ export const DeleteStory = memo(function DeleteStory() {
   if (hasText || !hasTaskFile) return null;
 
   return (
-    <Menu.Item value="" color="alert">
+    <Menu.Item value="Delete story" color="alert">
       Delete Story
     </Menu.Item>
   );
