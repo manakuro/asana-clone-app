@@ -50,7 +50,7 @@ export const MoreAction = memo(function MoreAction(props: Props) {
       positioning={{ placement: 'bottom-start' }}
       lazyMount
       onOpenChange={(e) => {
-        if (!e.open) {
+        if (e.open) {
           props.onOpened?.();
         } else {
           props.onClosed?.();
