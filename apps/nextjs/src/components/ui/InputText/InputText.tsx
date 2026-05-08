@@ -45,6 +45,7 @@ export const InputText = memo(function InputText(props: Props) {
       color: 'text.base',
       border: '1px',
       borderColor: 'transparent',
+      borderStyle: 'solid',
       borderRadius: 'md',
       paddingLeft: noBorder ? 0 : 2,
       paddingRight: noBorder ? 0 : 2,
@@ -53,6 +54,9 @@ export const InputText = memo(function InputText(props: Props) {
       },
       _focus: {
         borderColor: noBorder ? 'transparent' : 'gray.600',
+        _hover: {
+          borderColor: noBorder ? 'transparent' : 'gray.600',
+        },
       },
       overflowWrap: 'anywhere',
       ...(autoFocus ? { borderColor: 'gray.600' } : {}),
