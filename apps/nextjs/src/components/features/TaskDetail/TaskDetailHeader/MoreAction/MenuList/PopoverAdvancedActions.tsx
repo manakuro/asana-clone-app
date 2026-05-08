@@ -1,8 +1,6 @@
 import { Menu, type MenuRootProps } from '@/components/ui/Menu';
 
-type Props = {
-  onClose: () => void;
-} & MenuRootProps;
+type Props = MenuRootProps;
 
 export function PopoverAdvancedActions(props: Props) {
   return (

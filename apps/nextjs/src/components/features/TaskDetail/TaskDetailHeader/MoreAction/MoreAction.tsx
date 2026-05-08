@@ -1,9 +1,8 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Menu } from '@/components/ui/Menu';
 import { Tooltip } from '@/components/ui/Tooltip';
-import { useDisclosure } from '@/shared/chakra';
 import { MenuList } from './MenuList';
 
 type Props = {
@@ -11,17 +10,10 @@ type Props = {
 };
 
 export const MoreAction = memo(function MoreAction(props: Props) {
-  const { onClose, onOpen, open } = useDisclosure();
-
-  const handleOpen = useCallback(() => {
-    onOpen();
-  }, [onOpen]);
-
   return (
     <Menu.Root
       positioning={{ placement: 'bottom-end' }}
       closeOnSelect={false}
-      open={open}
       lazyMount
     >
       <Tooltip
@@ -32,17 +24,12 @@ export const MoreAction = memo(function MoreAction(props: Props) {
         withIcon
       >
         <Menu.Trigger asChild>
-          <IconButton
-            aria-label="More actions"
-            variant="ghost"
-            size="sm"
-            onClick={handleOpen}
-          >
+          <IconButton aria-label="More actions" variant="ghost" size="sm">
             <Icon icon="dotsHorizontalRounded" color="text.muted" />
           </IconButton>
         </Menu.Trigger>
       </Tooltip>
-      {open && <MenuList onCloseMenu={onClose} taskId={props.taskId} />}
+      <MenuList taskId={props.taskId} />
     </Menu.Root>
   );
 });

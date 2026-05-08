@@ -1,9 +1,7 @@
 import { memo, type PropsWithChildren } from 'react';
-import { Flex } from '@/components/ui/Flex';
 import type { FileUploaderParams } from '@/components/ui/Form/FileUploader';
 import { Menu } from '@/components/ui/Menu';
 import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
-import { useDisclosure } from '@/shared/chakra';
 import { MenuList } from './MenuList';
 
 type Props = PropsWithChildren<{
@@ -13,10 +11,8 @@ type Props = PropsWithChildren<{
 }>;
 
 export const AttachmentMenu = memo(function AttachmentMenu(props: Props) {
-  const menuDisclosure = useDisclosure();
-
   return (
-    <Menu.Root lazyMount open={menuDisclosure.open}>
+    <Menu.Root lazyMount>
       <Tooltip
         showArrow
         content={props.label}
@@ -24,11 +20,9 @@ export const AttachmentMenu = memo(function AttachmentMenu(props: Props) {
         {...props.tooltip}
         withIcon
       >
-        <Flex onClick={menuDisclosure.onOpen}>{props.children}</Flex>
+        {props.children}
       </Tooltip>
-      {menuDisclosure.open && (
-        <MenuList onUpload={props.onUpload} onClose={menuDisclosure.onClose} />
-      )}
+      <MenuList onUpload={props.onUpload} />
     </Menu.Root>
   );
 });

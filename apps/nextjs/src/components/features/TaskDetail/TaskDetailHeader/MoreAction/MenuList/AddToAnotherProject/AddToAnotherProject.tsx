@@ -3,25 +3,15 @@ import { useTaskDetailProjectsInput } from '@/components/features/TaskDetail/hoo
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 
-type Props = {
-  onMouseEnter: () => void;
-  onClose: () => void;
-  taskId: string;
-};
-
-export const AddToAnotherProject = memo(function AddToAnotherProject(
-  props: Props,
-) {
-  const { onMouseEnter, onClose } = props;
+export const AddToAnotherProject = memo(function AddToAnotherProject() {
   const inputDisclosure = useTaskDetailProjectsInput();
 
   const handleClick = useCallback(async () => {
-    onClose();
     inputDisclosure.onOpen();
-  }, [inputDisclosure, onClose]);
+  }, [inputDisclosure]);
 
   return (
-    <Menu.Item onMouseEnter={onMouseEnter} onClick={handleClick} value="">
+    <Menu.Item onSelect={handleClick} value="Add to another project">
       <Icon icon="bookAdd" color="text.muted" />
       Add to another project
       <Menu.ItemCommand>Tab+P</Menu.ItemCommand>
