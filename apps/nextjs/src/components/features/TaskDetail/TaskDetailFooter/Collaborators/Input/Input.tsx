@@ -24,7 +24,7 @@ export const Input: React.FC = () => {
   return <Component />;
 };
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const { taskId } = useTaskDetail();
   const { teammateIds } = useTeammateIdsByTaskId(taskId);
   const { addTaskCollaboratorByTeammate, deleteTaskCollaboratorByTeammate } =
@@ -88,12 +88,14 @@ const Component: React.FC = memo(() => {
         border={1}
         borderColor="border"
         borderStyle="solid"
+        borderRadius="md"
         bg="white"
         ml={2}
         alignItems="center"
-        css={recipe().input}
+        px={4}
         h="auto"
         maxH="none"
+        flex={1}
       >
         <Wrap py={teammateIds.length ? 2 : 0}>
           {teammateIds.map((id) => (
