@@ -97,26 +97,32 @@ export const useClickOutside = <T extends HTMLElement>(
   };
 };
 
+// Chakra UI v3 uses data-scope and data-part attributes, along with role attributes
 const isContainInMenuList = (e: Event) =>
-  Array.from(document.querySelectorAll("[aria-label='menu-list']")).some((q) =>
-    q.contains(e.target as Node),
-  );
-const isContainInModalContent = (e: Event) =>
-  Array.from(document.querySelectorAll("[aria-label='modal-content']")).some(
-    (q) => q.contains(e.target as Node),
-  ) ||
   Array.from(
-    document.querySelectorAll('.chakra-modal__content-container'),
+    document.querySelectorAll(
+      '[role="menu"], [data-scope="menu"][data-part="content"]',
+    ),
   ).some((q) => q.contains(e.target as Node));
+
+const isContainInModalContent = (e: Event) =>
+  Array.from(
+    document.querySelectorAll(
+      '[role="dialog"], [data-scope="dialog"][data-part="content"]',
+    ),
+  ).some((q) => q.contains(e.target as Node));
+
 const isContainInPopoverContent = (e: Event) =>
-  Array.from(document.querySelectorAll("[aria-label='popover-content']")).some(
-    (q) => q.contains(e.target as Node),
-  );
+  Array.from(
+    document.querySelectorAll('[data-scope="popover"][data-part="content"]'),
+  ).some((q) => q.contains(e.target as Node));
+
 const isContainInToastContent = (e: Event) =>
-  Array.from(document.querySelectorAll("[aria-label='toast-content']")).some(
-    (q) => q.contains(e.target as Node),
-  );
+  Array.from(
+    document.querySelectorAll('[data-scope="toast"][data-part="root"]'),
+  ).some((q) => q.contains(e.target as Node));
+
 const isContainInPopoverTrigger = (e: Event) =>
-  Array.from(document.querySelectorAll("[aria-label='popover-trigger']")).some(
-    (q) => q.contains(e.target as Node),
-  );
+  Array.from(
+    document.querySelectorAll('[data-scope="popover"][data-part="trigger"]'),
+  ).some((q) => q.contains(e.target as Node));
