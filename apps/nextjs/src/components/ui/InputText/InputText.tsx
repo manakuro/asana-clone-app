@@ -42,7 +42,7 @@ export const InputText = memo(function InputText(props: Props) {
       h: 'full',
       minH: inputStyle?.minH || 'auto',
       m: 0,
-      color: 'text.base',
+      color: 'fg',
       border: '1px',
       borderColor: 'transparent',
       borderStyle: 'solid',

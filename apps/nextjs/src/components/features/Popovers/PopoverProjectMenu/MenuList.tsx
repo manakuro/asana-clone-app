@@ -35,7 +35,7 @@ export function MenuList(props: Props) {
   return (
     <Portal>
       <Menu.Positioner>
-        <Menu.Content color="text.base">
+        <Menu.Content color="fg">
           <Menu.Item value="Set Color & icon" closeOnSelect={false}>
             <PopoverSetColorAndIcon
               project={props.project}

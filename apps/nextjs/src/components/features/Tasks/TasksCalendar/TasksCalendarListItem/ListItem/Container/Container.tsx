@@ -27,7 +27,7 @@ export const Container = memo(
       if (!project.id)
         return {
           bg: 'white',
-          color: 'text.base',
+          color: 'fg',
           borderColor: 'gray.300',
           _hover: { borderColor: 'cyan.400', boxShadow: 'md' },
         };

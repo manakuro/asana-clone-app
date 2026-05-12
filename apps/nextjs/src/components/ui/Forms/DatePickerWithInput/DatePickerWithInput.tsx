@@ -34,7 +34,7 @@ export const DatePickerWithInput = memo(function DatePickerWithInput(
   const [focused, setFocused] = useState(false);
   const hasDueDate = useMemo(() => !!dueDate, [dueDate]);
   const colorStyle = useMemo<SystemStyleObject>(
-    () => (hasDueDate ? { color: 'text.base' } : { color: 'fg.muted' }),
+    () => (hasDueDate ? { color: 'fg' } : { color: 'fg.muted' }),
     [hasDueDate],
   );
   const fallback = useMemo(

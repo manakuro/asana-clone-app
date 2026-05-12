@@ -108,11 +108,6 @@ export const system = createSystem(defaultConfig, {
         alert: {
           value: '{colors.red.solid}',
         },
-        text: {
-          base: {
-            value: '{colors.gray.700}',
-          },
-        },
         navigation: {
           hover: {
             dark: {

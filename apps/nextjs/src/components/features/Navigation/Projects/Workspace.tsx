@@ -65,7 +65,7 @@ export const Workspace = memo(function Workspace() {
       </Flex>
       <Portal>
         <Menu.Positioner>
-          <Menu.Content color="text.base">
+          <Menu.Content color="fg">
             <Menu.ItemGroup>
               <Menu.ItemGroupLabel>Create project</Menu.ItemGroupLabel>
               <Menu.Item value="0" disabled>

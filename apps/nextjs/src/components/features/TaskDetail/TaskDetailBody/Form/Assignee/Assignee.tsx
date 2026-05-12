@@ -34,7 +34,7 @@ export const Assignee = memo(function Assignee(props: Props) {
     [isAssigned, teammate.name],
   );
   const nameStyle = useMemo<TextProps>(
-    () => (isAssigned ? { color: 'text.base' } : { color: 'fg.muted' }),
+    () => (isAssigned ? { color: 'fg' } : { color: 'fg.muted' }),
     [isAssigned],
   );
 

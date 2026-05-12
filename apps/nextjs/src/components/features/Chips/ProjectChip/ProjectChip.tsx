@@ -69,7 +69,7 @@ export const ProjectChip = memo(function ProjectChip(props: Props) {
       variant="subtle"
     >
       <ColorBox size="xs" color={projectBaseColor.color.color} />
-      <Text ml={2} fontSize="xs" lineClamp={1} color="text.base">
+      <Text ml={2} fontSize="xs" lineClamp={1} color="fg">
         {project.name}
       </Text>
       {props.deletable && (

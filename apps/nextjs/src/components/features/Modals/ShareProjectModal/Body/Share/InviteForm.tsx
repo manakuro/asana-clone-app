@@ -68,7 +68,7 @@ export const InviteForm = memo(function InviteForm(props: Props) {
             autoFocus
             placeholder="Add project members by name or email..."
             fontSize="sm"
-            color="text.base"
+            color="fg"
             value={value}
             onChange={handleChange}
           />

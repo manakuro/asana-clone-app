@@ -30,7 +30,7 @@ export const MenuList = memo(function MenuList(props: Props) {
 
   return (
     <Menu.Positioner>
-      <Menu.Content color="text.base">
+      <Menu.Content color="fg">
         {props.onSort && (
           <Menu.Item onSelect={handleSortBy} value="Sort by">
             Sort by

@@ -112,7 +112,7 @@ export const Input = memo(function Input(props: Props) {
               fontSize="sm"
               size="sm"
               unstyled
-              color="text.base"
+              color="fg"
               value={value}
               onChange={handleChange}
             />

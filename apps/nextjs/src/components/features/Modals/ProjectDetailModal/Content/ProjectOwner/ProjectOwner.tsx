@@ -34,7 +34,7 @@ export const ProjectOwner = memo(function ProjectOwner(props: Props) {
     [hasOwner, teammate.name],
   );
   const nameStyle = useMemo<TextProps>(
-    () => (hasOwner ? { color: 'text.base' } : { color: 'fg.muted' }),
+    () => (hasOwner ? { color: 'fg' } : { color: 'fg.muted' }),
     [hasOwner],
   );
 
