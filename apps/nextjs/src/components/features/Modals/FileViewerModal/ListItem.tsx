@@ -45,5 +45,4 @@ export function ListItem(props: Props) {
       );
     }
   }
-  return null;
 }

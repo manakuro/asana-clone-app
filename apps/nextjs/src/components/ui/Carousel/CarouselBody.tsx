@@ -1,22 +1,25 @@
-import React, { type PropsWithChildren, useEffect } from 'react';
+import type { PropsWithChildren, ReactElement } from 'react';
+import { Children, cloneElement, isValidElement, useEffect } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { useCarouselContext } from './Provider';
 
-export function CarouselBody(props: PropsWithChildren) {
+export function CarouselBody({ children }: PropsWithChildren) {
   const { setCount } = useCarouselContext();
-  const count = React.Children.toArray(props.children).filter(
-    (c) => (c as any).type.displayName === 'CarouselItem',
+  const count = Children.toArray(children).filter(
+    (c) => !!(c as ReactElement).key,
   ).length;
 
-  const children = React.Children.map(props.children, (child, index) => {
-    if (!React.isValidElement(child)) {
+  const elements = Children.map(children, (child, index) => {
+    if (!isValidElement(child)) {
       console.warn('Provide React element under Carousel component');
       return null;
     }
 
-    return React.cloneElement(child, {
+    return cloneElement(child, {
       index,
-    } as { index: number });
+    } as {
+      index?: number;
+    });
   });
 
   useEffect(() => {
@@ -25,7 +28,7 @@ export function CarouselBody(props: PropsWithChildren) {
 
   return (
     <Flex flex="1" position="relative" height="100%">
-      {children}
+      {elements}
     </Flex>
   );
 }

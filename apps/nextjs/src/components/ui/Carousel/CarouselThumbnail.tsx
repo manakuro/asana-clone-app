@@ -1,34 +1,44 @@
-import React, { type PropsWithChildren } from 'react';
-import { Wrap } from '@/components/ui/Wrap';
+import type { PropsWithChildren } from 'react';
+import { Children, cloneElement, isValidElement } from 'react';
+import { Flex } from '@/components/ui/Flex';
+import { Wrap, type WrapProps } from '@/components/ui/Wrap';
 
-export function CarouselThumbnail(props: PropsWithChildren) {
-  const children = React.Children.map(props.children, (child, index) => {
-    if (!React.isValidElement(child)) {
+type Props = WrapProps;
+
+export function CarouselThumbnail({
+  children,
+  ...props
+}: PropsWithChildren<Props>) {
+  const elements = Children.map(children, (child, index) => {
+    if (!isValidElement(child)) {
       console.warn('Provide React element under Carousel component');
       return null;
     }
 
-    return React.cloneElement(child, {
+    return cloneElement(child, {
       index,
-    } as { index: number });
+    } as {
+      index?: number;
+    });
   });
 
   return (
-    <Wrap
+    <Flex
       position="absolute"
       bottom="-1px"
-      px={4}
-      pt={6}
-      pb={8}
-      gap={8}
-      justify="center"
+      px={{ base: 0, md: 4 }}
+      pt={{ base: 6 }}
+      pb={{ base: 8 }}
+      width="100%"
       alignItems="center"
-      mx="auto"
-      w="100%"
+      justifyContent="center"
       zIndex="tooltip"
       bg="bg.emphasized"
+      {...props}
     >
-      {children}
-    </Wrap>
+      <Wrap gap={8} alignItems="center" mx="auto">
+        {elements}
+      </Wrap>
+    </Flex>
   );
 }

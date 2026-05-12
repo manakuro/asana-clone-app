@@ -26,9 +26,9 @@ export function CarouselRightChevron() {
       h="100%"
       justifyContent="center"
       alignItems="center"
-      zIndex="skipLink"
+      zIndex="skipNav"
     >
-      <IconButton onClick={handleClick} aria-label="next" variant="ghost" light>
+      <IconButton onClick={handleClick} aria-label="next" variant="ghost">
         <Icon icon="chevronRight" size="2xl" />
       </IconButton>
     </Flex>

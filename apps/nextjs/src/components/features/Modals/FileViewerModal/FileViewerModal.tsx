@@ -17,7 +17,6 @@ export function FileViewerModal() {
       size="full"
     >
       <Portal>
-        <Dialog.Backdrop />
         <Dialog.Positioner>
           <DarkMode>
             <Dialog.Content

@@ -30,6 +30,7 @@ export function CarouselThumbnailItem(props: PropsWithChildren<Props>) {
       {...clickableHoverLightStyle}
       opacity={show ? 1 : 0.5}
       borderRadius="md"
+      cursor="pointer"
       onClick={handleClick}
     >
       <AspectRatio w={16} ratio={4 / 3}>
