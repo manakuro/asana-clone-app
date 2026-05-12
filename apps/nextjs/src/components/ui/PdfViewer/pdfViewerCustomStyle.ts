@@ -1,5 +1,5 @@
 export const pdfViewerCustomStyle = () => ({
-  '.pdfViewer .rpv-core-inner-page': {
+  '.pdfViewer .pdfSlickViewer': {
     background: 'transparent !important',
   },
 });
