@@ -106,7 +106,7 @@ export const system = createSystem(defaultConfig, {
           value: '{colors.teal.solid}',
         },
         alert: {
-          value: '{colors.red.solid}',
+          value: '{colors.fg.error}',
         },
         navigation: {
           hover: {
