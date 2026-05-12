@@ -1,5 +1,4 @@
 import type { PropsWithChildren } from 'react';
-import { Children, cloneElement, isValidElement } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Wrap, type WrapProps } from '@/components/ui/Wrap';
 
@@ -9,19 +8,6 @@ export function CarouselThumbnail({
   children,
   ...props
 }: PropsWithChildren<Props>) {
-  const elements = Children.map(children, (child, index) => {
-    if (!isValidElement(child)) {
-      console.warn('Provide React element under Carousel component');
-      return null;
-    }
-
-    return cloneElement(child, {
-      index,
-    } as {
-      index?: number;
-    });
-  });
-
   return (
     <Flex
       position="absolute"
@@ -37,7 +23,7 @@ export function CarouselThumbnail({
       {...props}
     >
       <Wrap gap={8} alignItems="center" mx="auto">
-        {elements}
+        {children}
       </Wrap>
     </Flex>
   );
