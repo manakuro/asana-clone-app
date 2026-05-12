@@ -5,7 +5,6 @@ import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';
-import { Separator } from '@/components/ui/Separator';
 import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';
 import { formatTaskFileCreatedAt } from '@/shared/date';
@@ -18,7 +17,7 @@ export const Header = memo(function Header() {
   const formattedCreateAt = formatTaskFileCreatedAt(taskFile.createdAt);
 
   return (
-    <Flex h="full">
+    <Flex h="full" flex={1}>
       <Flex flexDirection="column" py={4} px={6}>
         <Text fontSize="md">{taskFile.name}</Text>
         <Text fontSize="sm" color="fg.muted">
@@ -39,7 +38,6 @@ export const Header = memo(function Header() {
           </Button>
         </ComingSoonTooltip>
       </Stack>
-      <Separator orientation="vertical" />
       <Flex py={4} px={6} justifyContent="center" alignItems="center">
         <IconButton
           aria-label="close modal"

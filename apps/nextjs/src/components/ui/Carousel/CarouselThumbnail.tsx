@@ -26,7 +26,7 @@ export function CarouselThumbnail(props: PropsWithChildren) {
       mx="auto"
       w="100%"
       zIndex="tooltip"
-      bg="gray.700"
+      bg="bg.emphasized"
     >
       {children}
     </Wrap>
