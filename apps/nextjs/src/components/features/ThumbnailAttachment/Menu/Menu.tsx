@@ -40,7 +40,7 @@ export const Menu = memo(function Menu(props: Props) {
       <Portal>
         <OrganismsMenu.Positioner>
           <OrganismsMenu.Content>
-            <OrganismsMenu.Item value="">
+            <OrganismsMenu.Item value="Download taskFile">
               <Link href={taskFile.src} download>
                 Download taskFile
               </Link>
@@ -49,7 +49,7 @@ export const Menu = memo(function Menu(props: Props) {
               onClick={onDelete}
               color="alert"
               disabled
-              value=""
+              value="Delete task file"
             >
               Delete task file
             </OrganismsMenu.Item>
