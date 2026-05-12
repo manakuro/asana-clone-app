@@ -11,7 +11,7 @@ export function PdfViewerComponent(props: Props) {
   const { fileUrl } = props;
 
   const { viewerRef, PDFSlickViewer, usePDFSlickStore } = usePDFSlick(fileUrl, {
-    scaleValue: 'page-fit',
+    scaleValue: 'page-width',
   });
 
   return (
