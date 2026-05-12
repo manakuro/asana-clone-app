@@ -26,9 +26,9 @@ export function Content(props: Props) {
       ref={ref}
       onClick={(e: MouseEvent) => e.stopPropagation()}
     >
-      <Popover.CloseTrigger onClick={props.onClose} color="text.muted" />
+      <Popover.CloseTrigger onClick={props.onClose} color="fg.muted" />
       <Popover.Header border="none">
-        <Text fontSize="xs" color="text.muted">
+        <Text fontSize="xs" color="fg.muted">
           Assignee
         </Text>
       </Popover.Header>

@@ -34,7 +34,7 @@ export function DueTime(props: Props) {
           onClick={props.onClick}
           variant="ghost"
         >
-          <Icon icon="time" color="text.muted" />
+          <Icon icon="time" color="fg.muted" />
         </IconButton>
       </Tooltip>
     );
@@ -43,7 +43,7 @@ export function DueTime(props: Props) {
   return (
     <Flex>
       <Flex alignItems="center" flex={1}>
-        <Icon icon="time" color="text.muted" />
+        <Icon icon="time" color="fg.muted" />
         <Text ml={2} fontSize="xs">
           Due time
         </Text>
@@ -59,7 +59,7 @@ export function DueTime(props: Props) {
             <Option key={s.text} value={s.value} text={s.text} />
           ))}
         </Select>
-        <Icon {...clickableHoverStyle} ml={1} icon="x" color="text.muted" />
+        <Icon {...clickableHoverStyle} ml={1} icon="x" color="fg.muted" />
       </Flex>
     </Flex>
   );

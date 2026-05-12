@@ -59,7 +59,7 @@ export const MoreAction = memo(function MoreAction(props: Props) {
     >
       <Menu.Trigger asChild>
         <IconButton aria-label="More actions" variant="ghost" size="sm">
-          <Icon icon="chevronDown" color="text.muted" />
+          <Icon icon="chevronDown" color="fg.muted" />
         </IconButton>
       </Menu.Trigger>
       <MenuList

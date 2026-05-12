@@ -21,10 +21,10 @@ export function Feed(props: Props) {
 
   return (
     <Flex alignItems="center" justifyContent="center" h={5}>
-      <Text fontSize="xs" color="text.muted">
+      <Text fontSize="xs" color="fg.muted">
         {size}
       </Text>
-      <AtomsIcon icon="messageRounded" color="text.muted" ml={1} />
+      <AtomsIcon icon="messageRounded" color="fg.muted" ml={1} />
     </Flex>
   );
 }

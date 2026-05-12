@@ -67,7 +67,7 @@ export const TasksFilesListItem = memo(function TasksFilesListItem(
       {...rest}
     >
       <Flex p={4} alignItems="center">
-        <Icon icon={icon} color="text.muted" size="2xl" />
+        <Icon icon={icon} color="fg.muted" size="2xl" />
         <Flex ml={4} flexDirection="column" flex={1} minW={0}>
           <Text fontSize="sm" lineClamp={1}>
             {taskFile.name}
@@ -75,7 +75,7 @@ export const TasksFilesListItem = memo(function TasksFilesListItem(
           <Flex>
             <Link
               fontSize="xs"
-              color="text.muted"
+              color="fg.muted"
               hover
               onClick={handleOpenTaskDetail}
             >

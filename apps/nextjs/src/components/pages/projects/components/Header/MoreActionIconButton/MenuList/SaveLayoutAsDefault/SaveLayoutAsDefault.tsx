@@ -15,7 +15,7 @@ export const SaveLayoutAsDefault = memo(function SaveLayoutAsDefault(
 
   return (
     <Menu.Item value="" onMouseEnter={onMouseEnter} disabled>
-      <Icon icon="save" color="text.muted" />
+      <Icon icon="save" color="fg.muted" />
       Save layout as default
     </Menu.Item>
   );

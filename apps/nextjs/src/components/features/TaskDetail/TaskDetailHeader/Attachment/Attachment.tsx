@@ -12,7 +12,7 @@ export const Attachment = memo(function Attachment() {
     >
       <Menu.Trigger asChild>
         <IconButton aria-label="Attachment button" size="sm" variant="ghost">
-          <Icon icon="attach" color="text.muted" />
+          <Icon icon="attach" color="fg.muted" />
         </IconButton>
       </Menu.Trigger>
     </AttachmentMenu>

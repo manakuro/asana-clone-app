@@ -18,12 +18,7 @@ export const LeaveTask = memo(() => {
         aria-label="A leave task button description"
         size="md"
       >
-        <Button
-          variant="ghost"
-          size="xs"
-          fontWeight="medium"
-          color="text.muted"
-        >
+        <Button variant="ghost" size="xs" fontWeight="medium" color="fg.muted">
           <Icon icon="bell" mt="-1px" size="xs" />
           Leave task
         </Button>

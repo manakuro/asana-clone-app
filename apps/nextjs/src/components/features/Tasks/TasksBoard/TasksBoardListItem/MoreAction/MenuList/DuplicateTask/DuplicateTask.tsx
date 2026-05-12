@@ -21,7 +21,7 @@ export const DuplicateTask = memo(function DuplicateTask(props: Props) {
       disabled
       value=""
     >
-      <Icon icon="copyAlt" color="text.muted" />
+      <Icon icon="copyAlt" color="fg.muted" />
       Duplicate task
     </Menu.Item>
   );

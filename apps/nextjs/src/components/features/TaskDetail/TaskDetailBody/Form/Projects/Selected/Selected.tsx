@@ -50,7 +50,7 @@ export const Selected = memo(function Selected(props: Props) {
           cursor="pointer"
           onClick={handleDelete}
         >
-          <Icon icon="x" color="text.muted" />
+          <Icon icon="x" color="fg.muted" />
         </Button>
         <Button
           as={Box}
@@ -59,7 +59,7 @@ export const Selected = memo(function Selected(props: Props) {
           cursor="pointer"
           onClick={onClick}
         >
-          <Icon icon="plus" color="text.muted" />
+          <Icon icon="plus" color="fg.muted" />
         </Button>
       </Stack>
     </Flex>

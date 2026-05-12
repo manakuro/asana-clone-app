@@ -31,18 +31,12 @@ export const Image = memo(function Image(props: Props) {
         maxW="240px"
         cursor="pointer"
       />
-      <Text
-        as="span"
-        fontSize="xs"
-        fontWeight="medium"
-        color="text.muted"
-        mt={1}
-      >
+      <Text as="span" fontSize="xs" fontWeight="medium" color="fg.muted" mt={1}>
         {taskFile.name}・
         <Link
           href={taskFile.src}
           fontSize="xs"
-          color="text.muted"
+          color="fg.muted"
           download
           hover
           onClick={(e) => e.stopPropagation()}

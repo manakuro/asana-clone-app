@@ -61,7 +61,7 @@ export const TaskDetailHeader = memo(function TaskDetailHeader(props: Props) {
               onClick={onClose}
               size="sm"
             >
-              <Icon icon={closeIcon} color="text.muted" />
+              <Icon icon={closeIcon} color="fg.muted" />
             </IconButton>
           )}
         </Stack>

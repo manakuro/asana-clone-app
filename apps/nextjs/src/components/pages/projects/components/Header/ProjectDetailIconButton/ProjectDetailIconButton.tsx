@@ -27,7 +27,7 @@ export const ProjectDetailIconButton = memo(function ProjectDetailIconButton(
       w={6}
       onClick={handleClick}
     >
-      <Icon icon="infoCircle" color="text.muted" size="xs" />
+      <Icon icon="infoCircle" color="fg.muted" size="xs" />
     </IconButton>
   );
 });

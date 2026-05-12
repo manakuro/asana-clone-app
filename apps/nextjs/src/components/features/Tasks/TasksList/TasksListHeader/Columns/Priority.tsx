@@ -37,7 +37,7 @@ export const Priority = memo(function Priority(props: Props) {
       menu
     >
       {isSortedByPriority(taskListStatus.taskListSortStatus) && (
-        <Icon icon="arrowDownAlt" color="text.muted" />
+        <Icon icon="arrowDownAlt" color="fg.muted" />
       )}
     </Container>
   );

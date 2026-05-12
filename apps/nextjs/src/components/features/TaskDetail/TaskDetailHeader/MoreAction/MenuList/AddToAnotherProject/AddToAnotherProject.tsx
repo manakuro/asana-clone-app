@@ -12,7 +12,7 @@ export const AddToAnotherProject = memo(function AddToAnotherProject() {
 
   return (
     <Menu.Item onSelect={handleClick} value="Add to another project">
-      <Icon icon="bookAdd" color="text.muted" />
+      <Icon icon="bookAdd" color="fg.muted" />
       Add to another project
       <Menu.ItemCommand>Tab+P</Menu.ItemCommand>
     </Menu.Item>

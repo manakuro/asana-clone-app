@@ -28,7 +28,7 @@ export const CopyTask = memo(function CopyTask(props: Props) {
       disabled
       value=""
     >
-      <Icon icon="link" color="text.muted" />
+      <Icon icon="link" color="fg.muted" />
       Copy task link
     </Menu.Item>
   );

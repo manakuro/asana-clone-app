@@ -40,7 +40,7 @@ export const ParentTask = memo(function ParentTask(props: Props) {
         >
           {parentTask.name}
         </Text>
-        <Icon icon="chevronRight" color="text.muted" size="sm" mt={1} />
+        <Icon icon="chevronRight" color="fg.muted" size="sm" mt={1} />
       </Tooltip>
     </Flex>
   );

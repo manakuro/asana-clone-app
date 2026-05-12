@@ -16,8 +16,8 @@ export const TaskParentName = memo(function TaskParentName() {
 
   return (
     <Flex alignItems="center" ml={2}>
-      <Icon icon="chevronLeft" color="text.muted" size="xs" />
-      <Text fontSize="xs" color="text.muted" lineClamp={1} maxW="100px">
+      <Icon icon="chevronLeft" color="fg.muted" size="xs" />
+      <Text fontSize="xs" color="fg.muted" lineClamp={1} maxW="100px">
         {taskParent.name}
       </Text>
     </Flex>

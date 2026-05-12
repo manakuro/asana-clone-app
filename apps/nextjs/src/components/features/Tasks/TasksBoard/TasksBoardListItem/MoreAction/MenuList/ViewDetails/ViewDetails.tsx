@@ -38,7 +38,7 @@ export const ViewDetails = memo(function ViewDetails(props: Props) {
 
   return (
     <Menu.Item onMouseEnter={onMouseEnter} onClick={handleClick} value="">
-      <Icon icon="detail" color="text.muted" />
+      <Icon icon="detail" color="fg.muted" />
       {open ? 'Close details' : 'View details'}
     </Menu.Item>
   );

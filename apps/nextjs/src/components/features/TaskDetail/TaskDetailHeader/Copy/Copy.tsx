@@ -16,7 +16,7 @@ export const Copy = memo(function Copy(_props: Props) {
       size="sm"
     >
       <IconButton aria-label="Copy button" variant="ghost" size="sm" disabled>
-        <Icon icon="copyAlt" color="text.muted" />
+        <Icon icon="copyAlt" color="fg.muted" />
       </IconButton>
     </Tooltip>
   );

@@ -40,7 +40,7 @@ export const Content = memo<Props>(function Content(props) {
       <Popover.Positioner>
         <Popover.Content ref={ref}>
           <Popover.Body boxShadow="md" borderRadius="md">
-            <Label fontSize="xs" fontWeight="medium" color="text.muted">
+            <Label fontSize="xs" fontWeight="medium" color="fg.muted">
               What is {teammate.name}'s role on this project?
             </Label>
             <Form

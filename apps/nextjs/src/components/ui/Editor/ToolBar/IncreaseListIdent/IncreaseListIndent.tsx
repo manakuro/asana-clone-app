@@ -26,7 +26,7 @@ export const IncreaseListIndent = memo(function IncreaseListIndent(
         ...props.tooltip,
       }}
     >
-      <Icon icon="rightIndent" color="text.muted" />
+      <Icon icon="rightIndent" color="fg.muted" />
     </BaseButton>
   );
 });

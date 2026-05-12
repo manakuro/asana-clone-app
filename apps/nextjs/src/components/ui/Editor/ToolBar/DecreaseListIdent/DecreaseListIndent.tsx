@@ -26,7 +26,7 @@ export const DecreaseListIndent = memo(function DecreaseListIndent(
         ...props.tooltip,
       }}
     >
-      <Icon icon="leftIndent" color="text.muted" />
+      <Icon icon="leftIndent" color="fg.muted" />
     </BaseButton>
   );
 });

@@ -42,8 +42,8 @@ export function ShareWorkspaceModal() {
                 p={4}
               >
                 <Flex alignItems="center" flex={1}>
-                  <Icon icon="lockAlt" color="text.muted" />
-                  <Container fontSize="xs" color="text.muted" ml={0}>
+                  <Icon icon="lockAlt" color="fg.muted" />
+                  <Container fontSize="xs" color="fg.muted" ml={0}>
                     This view is private to only you. Adding teammates will
                     allow them to view, edit, and organize your work. They will
                     only be able to see tasks they already have access to.{' '}

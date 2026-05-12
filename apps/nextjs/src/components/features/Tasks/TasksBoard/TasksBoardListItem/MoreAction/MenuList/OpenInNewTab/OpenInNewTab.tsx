@@ -21,7 +21,7 @@ export const OpenInNewTab = memo(function OpenInNewTab(props: Props) {
       disabled
       value=""
     >
-      <Icon icon="linkExternal" color="text.muted" />
+      <Icon icon="linkExternal" color="fg.muted" />
       Open in new tab
     </Menu.Item>
   );

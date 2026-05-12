@@ -37,7 +37,7 @@ export const Projects = memo(function Projects(props: Props) {
       menu
     >
       {isSortedByProject(taskListStatus.taskListSortStatus) && (
-        <Icon icon="arrowDownAlt" color="text.muted" />
+        <Icon icon="arrowDownAlt" color="fg.muted" />
       )}
     </Container>
   );

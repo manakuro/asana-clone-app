@@ -39,7 +39,7 @@ export const DueDate = memo(function DueDate(props: Props) {
         {!hasDueDate && (
           <Icon
             icon="calendarAlt"
-            color="text.muted"
+            color="fg.muted"
             visibility={isHovering ? 'visible' : 'hidden'}
             {...clickableHoverLightStyle}
           />

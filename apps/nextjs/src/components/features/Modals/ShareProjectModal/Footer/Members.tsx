@@ -19,7 +19,7 @@ export const Members = memo(function Members() {
       <Separator />
       <Dialog.Footer>
         <Button onClick={handleCopyProjectLink} variant="outline" size="xs">
-          <Icon icon="link" color="text.muted" />
+          <Icon icon="link" color="fg.muted" />
           Copy project link
         </Button>
       </Dialog.Footer>

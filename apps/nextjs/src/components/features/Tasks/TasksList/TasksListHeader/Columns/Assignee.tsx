@@ -37,7 +37,7 @@ export const Assignee = memo(function Assignee(props: Props) {
       menu
     >
       {isSortedByAssignee(taskListStatus.taskListSortStatus) && (
-        <Icon icon="arrowDownAlt" color="text.muted" />
+        <Icon icon="arrowDownAlt" color="fg.muted" />
       )}
     </Container>
   );

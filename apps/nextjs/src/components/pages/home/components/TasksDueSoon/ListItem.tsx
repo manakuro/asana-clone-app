@@ -93,12 +93,12 @@ export const ListItem = memo(function ListItem(props: Props) {
           <DueDate
             ml={2}
             fontSize="xs"
-            color="text.muted"
+            color="fg.muted"
             textAlign="right"
             dueDate={task.dueDate}
           >
             {task.dueTime && (
-              <Text as="span" fontSize="xs" color="text.muted" ml={1}>
+              <Text as="span" fontSize="xs" color="fg.muted" ml={1}>
                 {formatDueTime(task.dueTime)}
               </Text>
             )}

@@ -17,7 +17,7 @@ export const Workspace = memo(function Workspace() {
         {`${workspace.name} `}
       </PopoverEditorLinkTrigger>
       <PopoverEditorLinkContent>
-        <Icon icon="group" color="text.muted" />
+        <Icon icon="group" color="fg.muted" />
         <PopoverEditorLinkText>{workspace.name}</PopoverEditorLinkText>
       </PopoverEditorLinkContent>
     </PopoverEditorLink>

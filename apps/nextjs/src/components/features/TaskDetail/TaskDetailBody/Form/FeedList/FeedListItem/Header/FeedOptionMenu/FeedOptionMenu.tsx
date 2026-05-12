@@ -18,7 +18,7 @@ export const FeedOptionMenu = memo(function FeedOptionMenu() {
     <Menu.Root lazyMount positioning={{ placement: 'bottom-end' }}>
       <Menu.Trigger asChild>
         <IconButton aria-label="Feed option menu" size="sm" variant="ghost">
-          <Icon icon="chevronDown" color="text.muted" />
+          <Icon icon="chevronDown" color="fg.muted" />
         </IconButton>
       </Menu.Trigger>
       <Portal>

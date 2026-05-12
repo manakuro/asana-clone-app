@@ -50,7 +50,7 @@ export const MoreAction = memo(function MoreAction(props: Props) {
             onClick={handleOpen}
             display={show ? 'flex' : 'none'}
           >
-            <Icon icon="dotsHorizontalRounded" color="text.muted" ml="1px" />
+            <Icon icon="dotsHorizontalRounded" color="fg.muted" ml="1px" />
           </IconButton>
         </Menu.Trigger>
       </Flex>

@@ -16,7 +16,7 @@ export function Link(props: React.PropsWithChildren) {
     <PopoverEditorLink>
       <PopoverEditorLinkTrigger>{props.children}</PopoverEditorLinkTrigger>
       <PopoverEditorLinkContent>
-        <Icon icon="linkExternal" color="text.muted" size="sm" />
+        <Icon icon="linkExternal" color="fg.muted" size="sm" />
         <PopoverEditorLinkText>
           <AtomsLink
             href={context.node?.attrs.href}

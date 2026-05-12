@@ -25,7 +25,7 @@ const generateTitle = (
     case Boolean(hasTaskFile): {
       return (
         <Flex flex={1} alignItems="center">
-          <Icon icon="attach" color="text.muted" />
+          <Icon icon="attach" color="fg.muted" />
           <Text ml={1}>attached</Text>
         </Flex>
       );

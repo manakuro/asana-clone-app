@@ -25,7 +25,7 @@ export const Teammates = memo(function Teammates() {
         size="sm"
         onClick={onInputFocus}
       >
-        <Icon icon="plus" color="text.muted" />
+        <Icon icon="plus" color="fg.muted" />
       </IconButton>
     </Stack>
   );

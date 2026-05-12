@@ -76,7 +76,7 @@ export const PermissionMenu = memo(function PermissionMenu() {
             alignItems="flex-start"
           >
             {item.text}
-            <Flex fontSize="xs" fontWeight="normal" color="text.muted">
+            <Flex fontSize="xs" fontWeight="normal" color="fg.muted">
               {item.subText}
             </Flex>
             <Menu.ItemIndicator />

@@ -34,7 +34,7 @@ export const DeleteButton = memo(function DeleteButton(props: Props) {
       <Icon
         mt="1px"
         icon="x"
-        color="text.muted"
+        color="fg.muted"
         size="sm"
         {...clickableHoverLightStyle}
         onClick={handleClick}

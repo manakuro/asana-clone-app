@@ -28,7 +28,7 @@ export const ProjectListMenu = memo(function ProjectListMenu(props: Props) {
     <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
       <Menu.Trigger asChild>
         <IconButton aria-label="list icon" variant="ghost">
-          <Icon icon="table" color="text.muted" size="sm" />
+          <Icon icon="table" color="fg.muted" size="sm" />
         </IconButton>
       </Menu.Trigger>
       <Portal>

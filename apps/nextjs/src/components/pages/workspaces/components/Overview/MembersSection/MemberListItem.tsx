@@ -25,7 +25,7 @@ export const MemberListItem: React.FC<Props> = memo<Props>((props) => {
         <Text fontSize="sm" fontWeight="medium" lineClamp={1}>
           {teammate.name}
         </Text>
-        <Text fontSize="xs" color="text.muted">
+        <Text fontSize="xs" color="fg.muted">
           {teammate.email}
         </Text>
       </Flex>

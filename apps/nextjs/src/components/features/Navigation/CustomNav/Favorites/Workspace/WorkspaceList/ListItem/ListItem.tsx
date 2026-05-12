@@ -34,7 +34,7 @@ export const ListItem = memo(function ListItem() {
         <Flex alignItems="center" flex={1}>
           {isExpanded ? (
             <Flex alignItems="center" flex={1}>
-              <Icon icon="group" size="sm" color="text.muted" />
+              <Icon icon="group" size="sm" color="fg.muted" />
               <Text fontSize="sm" flex={1} ml={2}>
                 {workspace.name}
               </Text>

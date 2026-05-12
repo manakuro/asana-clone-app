@@ -18,7 +18,7 @@ export const Tabs = memo(function Tabs() {
           <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
             <Menu.Trigger asChild>
               <IconButton ml={1} aria-label="expand button" variant="ghost">
-                <Icon icon="chevronDown" color="text.muted" />
+                <Icon icon="chevronDown" color="fg.muted" />
               </IconButton>
             </Menu.Trigger>
             <Portal>

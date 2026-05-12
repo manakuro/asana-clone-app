@@ -22,7 +22,7 @@ export const EditTaskName = memo(function EditTaskName(props: Props) {
       onClick={handleEditTaskName}
       value=""
     >
-      <Icon icon="editAlt" color="text.muted" />
+      <Icon icon="editAlt" color="fg.muted" />
       Edit task name
     </Menu.Item>
   );

@@ -47,7 +47,7 @@ export const MoveTasksBetweenSections = memo(function MoveTasksBetweenSections(
               <IconButton unstyled>
                 <Icon
                   icon="moveVertical"
-                  color="text.muted"
+                  color="fg.muted"
                   {...clickableHoverLightStyle}
                 />
               </IconButton>

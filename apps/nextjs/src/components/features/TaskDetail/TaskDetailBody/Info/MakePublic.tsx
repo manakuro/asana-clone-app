@@ -13,7 +13,7 @@ export function MakePublic() {
       alignItems="center"
       fontSize="sm"
     >
-      <Icon icon="lockAlt" color="text.muted" />
+      <Icon icon="lockAlt" color="fg.muted" />
       <Text fontSize="sm" flex={1} ml={2}>
         This task is visible to its collaborators and members to My workspace
       </Text>

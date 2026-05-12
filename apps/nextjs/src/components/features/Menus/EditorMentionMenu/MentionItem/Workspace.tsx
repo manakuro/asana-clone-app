@@ -17,7 +17,7 @@ export const Workspace = memo(function Workspace(_props: Props) {
   return (
     <Flex alignItems="center" flex={1}>
       <LeftContainer>
-        <Icon icon="group" color="text.muted" />
+        <Icon icon="group" color="fg.muted" />
       </LeftContainer>
       <RightContainer>
         <Text fontSize="sm" w="80%" lineClamp={1}>

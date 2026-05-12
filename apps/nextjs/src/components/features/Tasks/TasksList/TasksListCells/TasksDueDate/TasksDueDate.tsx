@@ -62,7 +62,7 @@ export const TasksDueDate = memo(function TasksDueDate(props: Props) {
           {showCalendarIcon && (
             <Icon
               icon="calendarAlt"
-              color="text.muted"
+              color="fg.muted"
               {...clickableHoverLightStyle}
             />
           )}
@@ -72,7 +72,7 @@ export const TasksDueDate = memo(function TasksDueDate(props: Props) {
               ml="auto"
               mt="1px"
               icon="x"
-              color="text.muted"
+              color="fg.muted"
               size="sm"
               {...clickableHoverLightStyle}
               onClick={handleReset}

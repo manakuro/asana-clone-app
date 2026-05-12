@@ -19,11 +19,11 @@ export const AddCoverImage = memo(function AddCoverImage(props: Props) {
       onClose={onClose}
     >
       <Flex flex={1}>
-        <Icon icon="photoAlbum" size="sm" color="text.muted" mt="2px" />
+        <Icon icon="photoAlbum" size="sm" color="fg.muted" mt="2px" />
         <Text fontSize="sm" flex={1} ml={2}>
           Add cover image
         </Text>
-        <Icon icon="chevronRight" color="text.muted" />
+        <Icon icon="chevronRight" color="fg.muted" />
       </Flex>
     </PopoverAddCoverImageActions>
   );

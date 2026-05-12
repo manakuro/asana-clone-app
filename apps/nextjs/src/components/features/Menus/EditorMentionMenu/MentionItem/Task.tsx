@@ -23,7 +23,7 @@ export const Task = memo(function Task(props: Props) {
         <Text fontSize="sm" maxW="80%" lineClamp={1}>
           {props.mention.title}
         </Text>
-        <Text ml={5} fontSize="xs" color="text.muted">
+        <Text ml={5} fontSize="xs" color="fg.muted">
           {project.name}
         </Text>
       </RightContainer>

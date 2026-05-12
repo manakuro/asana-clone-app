@@ -23,7 +23,7 @@ export const BulletList = memo(function BulletList(props: Props) {
       }}
       isActive={isActive}
     >
-      <Icon icon="listUl" color="text.muted" />
+      <Icon icon="listUl" color="fg.muted" />
     </BaseButton>
   );
 });

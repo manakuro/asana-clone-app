@@ -55,7 +55,7 @@ export const AssigneeIconMenu = memo(function AssigneeIconMenu(props: Props) {
             visibility={showIcon ? 'visible' : 'hidden'}
             pointerEvents={showIcon ? 'auto' : 'none'}
             icon="user"
-            color="text.muted"
+            color="fg.muted"
             {...clickableHoverLightStyle}
           />
         </Tooltip>

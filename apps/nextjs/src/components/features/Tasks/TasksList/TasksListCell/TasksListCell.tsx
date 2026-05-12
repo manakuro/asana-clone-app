@@ -80,7 +80,7 @@ export const TasksListCell = memo(
           borderColor="border"
           alignItems="center"
           fontSize="xs"
-          color="text.muted"
+          color="fg.muted"
           py={0}
           px={2}
           {...cellStyle}

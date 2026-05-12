@@ -68,7 +68,7 @@ export function Input(props: Props) {
             hasAssigned && (
               <Icon
                 icon="x"
-                color="text.muted"
+                color="fg.muted"
                 size="sm"
                 css={clickableHoverLightStyle}
                 onClick={handleDelete}

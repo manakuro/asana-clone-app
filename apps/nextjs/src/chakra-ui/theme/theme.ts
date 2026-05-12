@@ -112,9 +112,6 @@ export const system = createSystem(defaultConfig, {
           base: {
             value: '{colors.gray.700}',
           },
-          muted: {
-            value: '{colors.gray.500}',
-          },
         },
         navigation: {
           hover: {

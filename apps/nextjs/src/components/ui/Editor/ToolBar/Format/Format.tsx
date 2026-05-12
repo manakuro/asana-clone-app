@@ -64,7 +64,7 @@ export const Format = memo(function Format() {
             colorPalette="teal"
             data-active={isActive}
           >
-            <Icon icon="textFormat" color="text.muted" />
+            <Icon icon="textFormat" color="fg.muted" />
           </IconButton>
         </Link>
       </Popover.Trigger>

@@ -31,7 +31,7 @@ export const Component = memo(function Component(props: Props) {
     >
       <Icon
         icon={isSubtaskExpanded ? 'chevronDown' : 'chevronRight'}
-        color="text.muted"
+        color="fg.muted"
         size="sm"
       />
     </IconButton>

@@ -35,7 +35,7 @@ export const MoreActionIconButton = memo(function MoreActionIconButton(
           h={6}
           w={6}
         >
-          <Icon icon="chevronDown" color="text.muted" />
+          <Icon icon="chevronDown" color="fg.muted" />
         </IconButton>
       </Menu.Trigger>
       {open && <MenuList onCloseMenu={onClose} projectId={projectId} />}

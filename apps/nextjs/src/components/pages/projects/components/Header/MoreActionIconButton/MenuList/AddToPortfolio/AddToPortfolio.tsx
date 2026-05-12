@@ -13,7 +13,7 @@ export const AddToPortfolio = memo(function AddToPortfolio(props: Props) {
 
   return (
     <Menu.Item value="" onMouseEnter={onMouseEnter} disabled>
-      <Icon icon="plus" color="text.muted" />
+      <Icon icon="plus" color="fg.muted" />
       Add to Portfolio
     </Menu.Item>
   );

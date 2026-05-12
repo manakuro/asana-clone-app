@@ -15,7 +15,7 @@ export const AtMention = memo(function AtMention() {
         'aria-label': 'At-Mention',
       }}
     >
-      <Icon icon="at" color="text.muted" />
+      <Icon icon="at" color="fg.muted" />
     </BaseButton>
   );
 });

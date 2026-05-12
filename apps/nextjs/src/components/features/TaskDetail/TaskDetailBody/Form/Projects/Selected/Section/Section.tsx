@@ -50,7 +50,7 @@ export const Section = memo(function Section(props: Props) {
       <MenuSelectTrigger>
         <Button variant="ghost" size="xs" cursor="pointer">
           {projectTaskSection.name}
-          <Icon mt="1px" icon="chevronDown" color="text.muted" size="md" />
+          <Icon mt="1px" icon="chevronDown" color="fg.muted" size="md" />
         </Button>
       </MenuSelectTrigger>
       <MenuSelectList>

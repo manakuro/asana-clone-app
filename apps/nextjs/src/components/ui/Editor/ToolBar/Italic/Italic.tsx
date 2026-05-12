@@ -24,7 +24,7 @@ export const Italic = memo(function Italic(props: Props) {
       }}
       isActive={isActive}
     >
-      <Icon icon="italic" color="text.muted" />
+      <Icon icon="italic" color="fg.muted" />
     </BaseButton>
   );
 });

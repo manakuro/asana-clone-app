@@ -13,7 +13,7 @@ export const ConvertToTemplate = memo(function ConvertToTemplate(props: Props) {
 
   return (
     <Menu.Item value="" onMouseEnter={onMouseEnter} disabled>
-      <Icon icon="layout" color="text.muted" />
+      <Icon icon="layout" color="fg.muted" />
       Convert to template
     </Menu.Item>
   );

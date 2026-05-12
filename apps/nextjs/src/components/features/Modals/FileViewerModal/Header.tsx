@@ -21,7 +21,7 @@ export const Header = memo(function Header() {
     <Flex h="full">
       <Flex flexDirection="column" py={4} px={6}>
         <Text fontSize="md">{taskFile.name}</Text>
-        <Text fontSize="sm" color="text.muted">
+        <Text fontSize="sm" color="fg.muted">
           {formattedCreateAt}
         </Text>
       </Flex>

@@ -27,7 +27,7 @@ export const CopyProjectLink = memo(function CopyProjectLink(props: Props) {
 
   return (
     <Menu.Item value="" onMouseEnter={onMouseEnter} onClick={handleClick}>
-      <Icon icon="link" color="text.muted" />
+      <Icon icon="link" color="fg.muted" />
       Copy project link
     </Menu.Item>
   );

@@ -13,7 +13,7 @@ export const Duplicate = memo(function Duplicate(props: Props) {
 
   return (
     <Menu.Item value="" onMouseEnter={onMouseEnter} disabled>
-      <Icon icon="copyAlt" color="text.muted" />
+      <Icon icon="copyAlt" color="fg.muted" />
       Duplicate
     </Menu.Item>
   );

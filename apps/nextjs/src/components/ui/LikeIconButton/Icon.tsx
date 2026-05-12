@@ -32,5 +32,5 @@ export const Icon = memo(function Icon(props: Props) {
     );
   }
 
-  return <AtomsIcon icon="outlineLike" color="text.muted" />;
+  return <AtomsIcon icon="outlineLike" color="fg.muted" />;
 });

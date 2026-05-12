@@ -64,7 +64,7 @@ export const TagChip = memo(function TagChip(props: Props) {
           ml={1}
           mt="1px"
           icon="x"
-          color="text.muted"
+          color="fg.muted"
           size="sm"
           {...clickableHoverLightStyle}
           onClick={handleDelete}

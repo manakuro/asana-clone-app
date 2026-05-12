@@ -36,7 +36,7 @@ export const AddTaskButton = memo(function AddTaskButton(props: Props) {
     : { variant: 'outline' };
   const iconStyle: SystemStyleObject = solid
     ? { color: 'white' }
-    : { color: 'text.muted' };
+    : { color: 'fg.muted' };
 
   const handleAddTaskSection = useCallback(async () => {
     await addTaskSection();

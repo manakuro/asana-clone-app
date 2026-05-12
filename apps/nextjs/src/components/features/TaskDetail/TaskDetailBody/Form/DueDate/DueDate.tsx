@@ -59,14 +59,14 @@ export const DueDate = memo(function DueDate(props: Props) {
             borderColor="transparent"
             cursor="pointer"
           >
-            <Icon icon="calendar" color="text.muted" size="xl" />
+            <Icon icon="calendar" color="fg.muted" size="xl" />
             <AtomsDueDate ml={2} fontSize="xs" dueDate={task.dueDate} />
             {showResetIcon && (
               <Icon
                 ml={2}
                 mt="1px"
                 icon="x"
-                color="text.muted"
+                color="fg.muted"
                 size="sm"
                 visibility={isHovering ? 'visible' : 'hidden'}
                 {...clickableHoverLightStyle}

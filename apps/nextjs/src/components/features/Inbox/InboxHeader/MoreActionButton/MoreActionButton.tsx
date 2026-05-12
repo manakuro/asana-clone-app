@@ -14,7 +14,7 @@ export const MoreActionButton = memo(function MoreActionButton() {
           size="sm"
           h="28px"
         >
-          <Icon icon="dotsHorizontalRounded" color="text.muted" />
+          <Icon icon="dotsHorizontalRounded" color="fg.muted" />
         </IconButton>
       </Menu.Trigger>
       <MenuList />

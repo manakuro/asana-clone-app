@@ -31,7 +31,7 @@ export const SubTasks = memo(function SubTasks(props: Props) {
         size="sm"
         onClick={handleAddSubtask}
       >
-        <Icon icon="subdirectoryRight" color="text.muted" />
+        <Icon icon="subdirectoryRight" color="fg.muted" />
       </IconButton>
     </Tooltip>
   );

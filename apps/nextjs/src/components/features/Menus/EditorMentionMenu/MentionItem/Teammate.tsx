@@ -27,7 +27,7 @@ export const Teammate = memo(function Teammate(props: Props) {
       </LeftContainer>
       <RightContainer>
         <Text fontSize="sm">{teammate.name}</Text>
-        <Text ml={5} fontSize="xs" color="text.muted">
+        <Text ml={5} fontSize="xs" color="fg.muted">
           {teammate.email}
         </Text>
       </RightContainer>

@@ -19,7 +19,7 @@ export const Workspace = memo(function Workspace() {
   return (
     <Flex flex={1}>
       <Flex alignItems="center" ml="2px">
-        <Icon icon="group" size="xs" color="text.muted" />
+        <Icon icon="group" size="xs" color="fg.muted" />
         <Text
           fontSize="xs"
           ml={1}

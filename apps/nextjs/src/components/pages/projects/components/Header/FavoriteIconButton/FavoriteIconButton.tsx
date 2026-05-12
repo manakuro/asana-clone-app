@@ -39,7 +39,7 @@ export const FavoriteIconButton = memo(function FavoriteIconButton(
         w={6}
         iconStyle={{
           favorite: { color: projectBaseColor.color.color },
-          none: { color: 'text.muted' },
+          none: { color: 'fg.muted' },
         }}
       />
     </Tooltip>

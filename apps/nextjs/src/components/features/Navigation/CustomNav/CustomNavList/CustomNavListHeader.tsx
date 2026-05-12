@@ -10,7 +10,7 @@ export const CustomNavListHeader = memo(function CustomNavListHeader(
     <Heading
       as="h4"
       size="xs"
-      color="text.muted"
+      color="fg.muted"
       flex="1"
       textAlign="left"
       {...props}

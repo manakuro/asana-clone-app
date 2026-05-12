@@ -24,7 +24,7 @@ export const OrderedList = memo(function OrderedList(props: Props) {
       }}
       isActive={isActive}
     >
-      <Icon icon="listOl" color="text.muted" />
+      <Icon icon="listOl" color="fg.muted" />
     </BaseButton>
   );
 });

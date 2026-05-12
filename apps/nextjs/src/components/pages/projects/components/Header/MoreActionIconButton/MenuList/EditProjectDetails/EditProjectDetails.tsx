@@ -30,7 +30,7 @@ export const EditProjectDetails = memo(function EditProjectDetails(
 
   return (
     <Menu.Item value="" onMouseEnter={onMouseEnter} onClick={handleClick}>
-      <Icon icon="pencil" color="text.muted" />
+      <Icon icon="pencil" color="fg.muted" />
       Edit Project details
     </Menu.Item>
   );

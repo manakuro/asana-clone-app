@@ -21,7 +21,7 @@ export const MarkComplete = memo(function MarkComplete(props: Props) {
 
   return (
     <Menu.Item onMouseEnter={onMouseEnter} onClick={handleClick} value="">
-      <Icon icon="checkCircle" color="text.muted" />
+      <Icon icon="checkCircle" color="fg.muted" />
       {task.completed ? 'Mark Incomplete' : 'Mark complete'}
     </Menu.Item>
   );

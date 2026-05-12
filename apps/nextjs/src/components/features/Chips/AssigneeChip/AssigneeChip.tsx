@@ -56,7 +56,7 @@ export const AssigneeChip = memo(function AssigneeChip(props: Props) {
           ml={2}
           mt="1px"
           icon="x"
-          color="text.muted"
+          color="fg.muted"
           size="sm"
           {...clickableHoverLightStyle}
           onClick={handleDelete}

@@ -25,7 +25,7 @@ export const Component = memo(function Component() {
           'aria-label': 'Emoji',
         }}
       >
-        <Icon icon="emojiHappy" color="text.muted" />
+        <Icon icon="emojiHappy" color="fg.muted" />
       </BaseButton>
     </PopoverEmoji>
   );

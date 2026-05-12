@@ -31,7 +31,7 @@ export const DeleteButton = memo(function DeleteButton(props: Props) {
       ml={2}
       mt="1px"
       icon="x"
-      color="text.muted"
+      color="fg.muted"
       size="sm"
       visibility={isHovering ? 'visible' : 'hidden'}
       {...clickableHoverLightStyle}

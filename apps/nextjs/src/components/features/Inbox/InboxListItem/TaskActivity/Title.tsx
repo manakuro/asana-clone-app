@@ -28,7 +28,7 @@ export const Title = memo<Props>(function Title(props) {
   return (
     <Flex flex={1} mt={1}>
       <Flex alignItems="center">
-        <Icon icon="calendarAlt" color="text.muted" />
+        <Icon icon="calendarAlt" color="fg.muted" />
         <Link
           mt="2px"
           fontSize="md"

@@ -21,7 +21,7 @@ export const MoveToInboxButton = memo(function MoveToInboxButton(props: Props) {
         {...rest}
         onClick={handleClick}
       >
-        <Icon icon="arrowLeftAlt" color="text.muted" size="xs" />
+        <Icon icon="arrowLeftAlt" color="fg.muted" size="xs" />
       </IconButton>
     </Tooltip>
   );

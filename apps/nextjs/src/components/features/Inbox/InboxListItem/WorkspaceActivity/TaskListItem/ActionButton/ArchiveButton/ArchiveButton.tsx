@@ -21,7 +21,7 @@ export const ArchiveButton = memo(function ArchiveButton(props: Props) {
         onClick={handleClick}
         disabled
       >
-        <Icon icon="trashAlt" color="text.muted" size="xs" />
+        <Icon icon="trashAlt" color="fg.muted" size="xs" />
       </IconButton>
     </Tooltip>
   );

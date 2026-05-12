@@ -40,7 +40,7 @@ export const CalendarMonthPicker = memo(function CalendarMonthPicker(
               variant="ghost"
               size="sm"
             >
-              <Icon icon="chevronDown" color="text.muted" />
+              <Icon icon="chevronDown" color="fg.muted" />
             </IconButton>
           </Link>
         </Popover.Trigger>

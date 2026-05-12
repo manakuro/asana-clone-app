@@ -56,7 +56,7 @@ export const TasksPriority = memo(function TasksPriority(props: Props) {
               ml="auto"
               mt="1px"
               icon="chevronDown"
-              color="text.muted"
+              color="fg.muted"
               size="sm"
             />
           )}

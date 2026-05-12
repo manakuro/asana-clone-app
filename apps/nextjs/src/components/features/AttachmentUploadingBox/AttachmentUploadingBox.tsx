@@ -43,7 +43,7 @@ export function AttachmentUploadingBox(props: Props) {
       {...sizeStyle}
       {...rest}
     >
-      <Icon icon="fileBlank" color="text.muted" size="2xl" />
+      <Icon icon="fileBlank" color="fg.muted" size="2xl" />
       <Flex
         ml={4}
         flexDirection="column"

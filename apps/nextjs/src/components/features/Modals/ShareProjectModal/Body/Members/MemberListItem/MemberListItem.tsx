@@ -29,7 +29,7 @@ export const MemberListItem = memo(function MemberListItem(props: Props) {
         <Text fontWeight="medium" fontSize="xs">
           {teammate.name}
         </Text>
-        <Text fontSize="xs" color="text.muted">
+        <Text fontSize="xs" color="fg.muted">
           {teammate.email}
         </Text>
       </Flex>

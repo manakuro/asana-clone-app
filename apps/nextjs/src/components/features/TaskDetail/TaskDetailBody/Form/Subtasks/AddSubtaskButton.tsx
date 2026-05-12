@@ -13,7 +13,7 @@ export const AddSubtaskButton = memo(function AddSubtaskButton(props: Props) {
       variant="ghost"
       size="xs"
       fontWeight="medium"
-      color="text.muted"
+      color="fg.muted"
       {...props}
     >
       <Icon icon="plus" />

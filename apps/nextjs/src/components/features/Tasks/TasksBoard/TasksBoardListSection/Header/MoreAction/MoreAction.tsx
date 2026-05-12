@@ -9,7 +9,7 @@ export const MoreAction = memo(function MoreAction() {
     <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
       <Menu.Trigger asChild>
         <IconButton aria-label="More actions" variant="ghost" size="sm">
-          <Icon icon="dotsHorizontalRounded" color="text.muted" />
+          <Icon icon="dotsHorizontalRounded" color="fg.muted" />
         </IconButton>
       </Menu.Trigger>
       <MenuList />

@@ -44,7 +44,7 @@ export function ProjectRoleListItem(props: Props) {
               <Text fontSize="sm" fontWeight="medium" lineClamp={1}>
                 {teammate.name}
               </Text>
-              <Text fontSize="xs" color="text.muted" mt={1}>
+              <Text fontSize="xs" color="fg.muted" mt={1}>
                 {roleText}
               </Text>
             </Flex>
@@ -56,7 +56,7 @@ export function ProjectRoleListItem(props: Props) {
                 justifyContent="center"
                 alignItems="center"
               >
-                <Icon icon="chevronDown" color="text.muted" />
+                <Icon icon="chevronDown" color="fg.muted" />
               </Flex>
             )}
           </Flex>

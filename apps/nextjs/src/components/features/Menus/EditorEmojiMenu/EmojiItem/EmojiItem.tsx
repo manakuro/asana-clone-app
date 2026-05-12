@@ -43,7 +43,7 @@ export const EmojiItem = memo(function EmojiItem(props: Props) {
       onClick={handleClick}
     >
       <Text fontSize="sm">{props.emoji.native}</Text>
-      <Text ml={2} fontSize="sm" color="text.muted">
+      <Text ml={2} fontSize="sm" color="fg.muted">
         {props.emoji.colons}
       </Text>
     </Flex>

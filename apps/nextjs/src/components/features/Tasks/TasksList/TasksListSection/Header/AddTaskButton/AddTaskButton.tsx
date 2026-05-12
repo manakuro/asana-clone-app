@@ -29,7 +29,7 @@ export const AddTaskButton = memo(function AddTaskButton(props: Props) {
         size="sm"
         onClick={handleClick}
       >
-        <Icon icon="plus" color="text.muted" />
+        <Icon icon="plus" color="fg.muted" />
       </IconButton>
     </Tooltip>
   );

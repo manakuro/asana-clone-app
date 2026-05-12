@@ -62,7 +62,7 @@ export const DueDate = memo(function DueDate(props: Props) {
             visibility={showIcon ? 'visible' : 'hidden'}
             pointerEvents={showIcon ? 'auto' : 'none'}
             icon="calendarAlt"
-            color="text.muted"
+            color="fg.muted"
             {...clickableHoverLightStyle}
           />
         </Tooltip>

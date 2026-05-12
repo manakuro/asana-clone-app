@@ -129,10 +129,10 @@ const Component = memo(function Component(props: Props) {
           onClosed={onMarkMenuClosed}
           taskId={props.taskId}
         />
-        <Text fontSize="xs" color="text.muted" ml={2}>
+        <Text fontSize="xs" color="fg.muted" ml={2}>
           Details
         </Text>
-        <Icon icon="chevronRight" color="text.muted" mt="1px" />
+        <Icon icon="chevronRight" color="fg.muted" mt="1px" />
       </TasksNameRightContainer>
     </TasksNameCell>
   );

@@ -77,7 +77,7 @@ export function Content(props: Props) {
             <Flex>
               <Icon
                 icon="chevronLeft"
-                color="text.muted"
+                color="fg.muted"
                 onClick={handlePrevYear}
                 cursor="pointer"
               />
@@ -86,7 +86,7 @@ export function Content(props: Props) {
               </Text>
               <Icon
                 icon="chevronRight"
-                color="text.muted"
+                color="fg.muted"
                 onClick={handleNextYear}
                 cursor="pointer"
               />
@@ -98,7 +98,7 @@ export function Content(props: Props) {
                 <Flex
                   key={dateFns.formatISO(d, { representation: 'date' })}
                   fontSize="sm"
-                  color="text.muted"
+                  color="fg.muted"
                   cursor="pointer"
                   textTransform="uppercase"
                   w="25%"

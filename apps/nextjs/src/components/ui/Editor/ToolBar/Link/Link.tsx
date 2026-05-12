@@ -25,7 +25,7 @@ export const Link = memo(function Link(props: Props) {
       }}
       isActive={isActive}
     >
-      <Icon icon="link" color="text.muted" />
+      <Icon icon="link" color="fg.muted" />
     </BaseButton>
   );
 });

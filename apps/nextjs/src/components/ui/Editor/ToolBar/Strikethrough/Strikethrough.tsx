@@ -23,7 +23,7 @@ export const Strikethrough = memo(function Strikethrough(props: Props) {
       }}
       isActive={isActive}
     >
-      <Icon icon="strikethrough" color="text.muted" />
+      <Icon icon="strikethrough" color="fg.muted" />
     </BaseButton>
   );
 });

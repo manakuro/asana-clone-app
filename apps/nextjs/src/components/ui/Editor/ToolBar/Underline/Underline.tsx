@@ -23,7 +23,7 @@ export const Underline = memo(function Underline(props: Props) {
       }}
       isActive={isActive}
     >
-      <Icon icon="underline" color="text.muted" />
+      <Icon icon="underline" color="fg.muted" />
     </BaseButton>
   );
 });

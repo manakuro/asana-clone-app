@@ -24,7 +24,7 @@ export const Bold = memo(function Bold(props: Props) {
       }}
       isActive={isActive}
     >
-      <Icon icon="bold" color="text.muted" />
+      <Icon icon="bold" color="fg.muted" />
     </BaseButton>
   );
 });

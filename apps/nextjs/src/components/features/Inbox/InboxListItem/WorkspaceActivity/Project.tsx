@@ -21,7 +21,7 @@ export const Project = memo(function Project(props: Props) {
   return (
     <Flex flex={1} mt={1}>
       <Flex alignItems="center">
-        <Icon icon="outlineProject" color="text.muted" />
+        <Icon icon="outlineProject" color="fg.muted" />
         <Link
           mt="2px"
           fontSize="md"

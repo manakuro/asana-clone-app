@@ -31,7 +31,7 @@ export const FavoriteButton = memo(function FavoriteButton(props: Props) {
         h={6}
         w={6}
         iconStyle={{
-          none: { color: 'text.muted' },
+          none: { color: 'fg.muted' },
         }}
         {...props}
       />

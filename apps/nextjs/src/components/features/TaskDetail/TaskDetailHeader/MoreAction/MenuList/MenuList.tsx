@@ -16,25 +16,25 @@ export function MenuList(props: Props) {
     <Menu.Positioner>
       <Menu.Content zIndex={1}>
         <Menu.Item disabled value="Full screen">
-          <Icon icon="fullscreenOutline" color="text.muted" />
+          <Icon icon="fullscreenOutline" color="fg.muted" />
           Full screen
           <Menu.ItemCommand>Tab+X</Menu.ItemCommand>
         </Menu.Item>
         <AddToAnotherProject />
         <Menu.Item disabled value="Mark as Milestone">
-          <Icon icon="squareRounded" color="text.muted" />
+          <Icon icon="squareRounded" color="fg.muted" />
           Mark as Milestone
         </Menu.Item>
         <Menu.Item disabled value="Mark as Approval">
-          <Icon icon="beenHere" color="text.muted" />
+          <Icon icon="beenHere" color="fg.muted" />
           Mark as Approval
         </Menu.Item>
         <Menu.Item disabled value="Make dependent">
-          <Icon icon="gitPullRequest" color="text.muted" />
+          <Icon icon="gitPullRequest" color="fg.muted" />
           Make dependent
         </Menu.Item>
         <Menu.Item disabled value="Add tags">
-          <Icon icon="tag" color="text.muted" />
+          <Icon icon="tag" color="fg.muted" />
           Add tags
           <Menu.ItemCommand>Tab+T</Menu.ItemCommand>
         </Menu.Item>
