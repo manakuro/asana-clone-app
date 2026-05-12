@@ -31,7 +31,12 @@ export const Header = memo(function Header() {
             Download
           </Button>
         </Link>
-        <ComingSoonTooltip>
+        <ComingSoonTooltip
+          contentProps={{
+            bg: 'bg',
+            color: 'fg',
+          }}
+        >
           <Button gap={2} variant="ghost" lightBg>
             <Icon icon="commentDots" />
             Add Feedback

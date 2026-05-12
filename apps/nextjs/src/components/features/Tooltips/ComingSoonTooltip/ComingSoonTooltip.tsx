@@ -1,16 +1,16 @@
 import type { PropsWithChildren } from 'react';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
 
-export function ComingSoonTooltip(props: PropsWithChildren) {
+type Props = Omit<TooltipProps, 'content'>;
+
+export function ComingSoonTooltip(props: PropsWithChildren<Props>) {
   return (
     <Tooltip
-      showArrow
       content={'This feature has not been implemented yet.\n Coming soon.'}
       aria-label="This feature has not been implemented yet. Coming soon!"
       size="md"
       withIcon
-    >
-      {props.children}
-    </Tooltip>
+      {...props}
+    />
   );
 }

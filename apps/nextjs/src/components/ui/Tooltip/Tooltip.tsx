@@ -38,7 +38,7 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
       borderRadius: 'md',
       textAlign: 'center',
       color: 'white',
-      bg: 'gray.800',
+      bg: 'gray.fg',
       fontSize: 'xs',
       ...sizeStyle,
       ...contentProps,
@@ -48,7 +48,12 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
       // NOTE: Need to wrap Icon with span
       // @see https://github.com/chakra-ui/chakra-ui/issues/2869
       return (
-        <ChakraTooltip contentProps={tooltipContentProps} ref={ref} {...rest}>
+        <ChakraTooltip
+          contentProps={tooltipContentProps}
+          ref={ref}
+          {...rest}
+          showArrow={false}
+        >
           <Flex as="span" alignItems="center">
             {props.children}
           </Flex>
@@ -57,7 +62,12 @@ export const Tooltip = forwardRef<HTMLDivElement, Props>(
     }
 
     return (
-      <ChakraTooltip contentProps={tooltipContentProps} ref={ref} {...rest} />
+      <ChakraTooltip
+        contentProps={tooltipContentProps}
+        ref={ref}
+        {...rest}
+        showArrow={false}
+      />
     );
   },
 );

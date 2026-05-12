@@ -8,11 +8,14 @@ type Props = {
 export const Container: React.FCWithChildren<Props> = (props) => {
   return (
     <Tooltip
-      showArrow
       content={props.label}
       aria-label="Attachment file name"
       size="sm"
       withIcon
+      contentProps={{
+        color: 'fg',
+        bg: 'bg',
+      }}
     >
       {props.children}
     </Tooltip>
