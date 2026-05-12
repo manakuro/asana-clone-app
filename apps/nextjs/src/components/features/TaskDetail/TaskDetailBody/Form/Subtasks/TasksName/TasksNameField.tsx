@@ -67,7 +67,7 @@ export const TasksNameField = memo(function TasksNameField(props: Props) {
     let val: InputProps = {
       ml: 1,
       fontSize: 'sm',
-      color: 'text.base',
+      color: 'fg',
       minH: 5,
       h: 5,
       paddingInlineStart: 2,
