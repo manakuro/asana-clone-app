@@ -10,6 +10,7 @@ type Props = {
   isTaskDetailURL: (params: Params, pathname: string | null) => boolean;
   getTaskDetailId: (params: Params, pathname: string | null) => string;
   fetchQuery: (variables: { taskId: string }) => Promise<void>;
+  tabContentLoading: boolean;
 };
 
 export const useTasksListDetail = (props: Props) => {
@@ -37,6 +38,7 @@ export const useTasksListDetail = (props: Props) => {
   const { taskId, setId, setLoading } = useTaskDetail();
 
   useEffect(() => {
+    if (props.tabContentLoading) return;
     if (!isTaskDetailURL(params, pathname)) return;
 
     const newId = getTaskDetailId(params, pathname);
@@ -61,6 +63,7 @@ export const useTasksListDetail = (props: Props) => {
     setLoading,
     isTaskDetailURL,
     getTaskDetailId,
+    props.tabContentLoading,
   ]);
 
   return {

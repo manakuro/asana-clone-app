@@ -35,6 +35,7 @@ const Component = memo(function Component() {
     isTaskDetailURL: isMyTasksDetailURL,
     getTaskDetailId: getMyTasksDetailId,
     fetchQuery: fetchTaskDetailQuery,
+    tabContentLoading,
   });
 
   if (tabContentLoading) return <SkeletonCalendar />;

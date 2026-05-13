@@ -37,6 +37,7 @@ const Component = memo(function Component() {
     isTaskDetailURL: isProjectsDetailURL,
     getTaskDetailId: getProjectsDetailId,
     fetchQuery: fetchTaskDetailQuery,
+    tabContentLoading,
   });
 
   const backToPage = useCallback(async () => {
