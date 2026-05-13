@@ -207,6 +207,8 @@ const WrappedComponent = memo(function WrappedComponent() {
       onValueChange={(e) => handleTabsChange(e.value)}
       flex={1}
       display="flex"
+      lazyMount
+      unmountOnExit
     >
       <Flex data-testid="MyTasks" flex={1} flexDirection="column">
         <Head title="My Tasks" />

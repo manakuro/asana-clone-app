@@ -5,7 +5,6 @@ import {
 import { forwardRef } from 'react';
 
 type Props = ChakraTabsProps;
-export type TabsProps = Props;
 
 export const Tabs = forwardRef<HTMLDivElement, Props>(
   function Tabs(props, ref) {
