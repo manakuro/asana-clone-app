@@ -138,7 +138,7 @@ const WrappedComponent = memo(function WrappedComponent() {
           setLoading();
           setTabIndex(FILES_INDEX);
           setTabStatus('Files');
-          await navigateToMyTasksFiles();
+          navigateToMyTasksFiles();
           break;
         }
       }

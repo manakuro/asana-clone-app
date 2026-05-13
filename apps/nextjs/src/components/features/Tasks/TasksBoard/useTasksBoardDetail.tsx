@@ -40,7 +40,7 @@ export const useTasksBoardDetail = (props: Props) => {
 
     const newId = getTaskDetailId(params, pathname);
     if (taskId === newId) return;
-    console.log('render!');
+    console.log('useTasksBoardDetail!', params, pathname);
 
     setLoading(true);
     setId(newId);
