@@ -48,7 +48,7 @@ export function Component() {
           onClose();
         }
       }}
-      size="xl"
+      size="lg"
     >
       <Portal>
         <Dialog.Backdrop />
@@ -71,6 +71,7 @@ export function Component() {
                   <RadioGroup.Root
                     onValueChange={(e) => setValue(e.value as string)}
                     value={value}
+                    colorPalette="teal"
                   >
                     <Stack>
                       <RadioGroup.Item value="1">
@@ -94,8 +95,10 @@ export function Component() {
             </Dialog.Body>
             <Separator />
             <Dialog.Footer>
-              <Button onClick={onClose}>Cancel</Button>
-              <Button ml={2} colorScheme="red" onClick={handleDelete}>
+              <Button onClick={onClose} variant="outline">
+                Cancel
+              </Button>
+              <Button ml={2} colorPalette="red" onClick={handleDelete}>
                 Delete section
               </Button>
             </Dialog.Footer>
