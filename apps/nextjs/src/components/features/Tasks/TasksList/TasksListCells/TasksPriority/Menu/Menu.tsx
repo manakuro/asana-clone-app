@@ -4,7 +4,6 @@ import {
   MenuSelectList,
   MenuSelectTrigger,
 } from '@/components/features/Menus';
-import { Button } from '@/components/ui/Button';
 import { Menu as UIMenu } from '@/components/ui/Menu';
 import { useTask } from '@/store/entities/task';
 import { useTasksPriorities } from '@/store/entities/taskPriority';
@@ -18,7 +17,6 @@ type Props = PropsWithChildren<{
 export const Menu = memo(function Menu(props: Props) {
   const { taskId, onOpened, onClosed } = props;
   const { task, setTask } = useTask(taskId);
-  const defaultValue = task.taskPriorityId;
   const { taskPriorities } = useTasksPriorities();
 
   const handleChange = useCallback(
@@ -34,11 +32,12 @@ export const Menu = memo(function Menu(props: Props) {
       positioning={{ placement: 'bottom-end' }}
       onOpened={onOpened}
       onClosed={onClosed}
+      listStatus={task.taskPriorityId}
     >
       <MenuSelectTrigger flex={1} h="full">
-        <Button>{props.children}</Button>
+        {props.children}
       </MenuSelectTrigger>
-      <MenuSelectList defaultValue={defaultValue}>
+      <MenuSelectList>
         {taskPriorities.map((t) => (
           <UIMenu.RadioItem value={t.id} key={t.id}>
             {t.name}

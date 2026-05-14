@@ -50,7 +50,10 @@ export const TasksPriority = memo(function TasksPriority(props: Props) {
     >
       <Menu taskId={taskId} onOpened={handleOpened} onClosed={handleClosed}>
         <Flex h="full" flex={1} alignItems="center">
-          <PriorityChip taskPriorityId={task.taskPriorityId} />
+          <PriorityChip
+            taskPriorityId={task.taskPriorityId}
+            disableStopPropagation
+          />
           {showMenuIcon && (
             <Icon
               ml="auto"
