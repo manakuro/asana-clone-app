@@ -35,9 +35,20 @@ export function Content(props: Props) {
     return dateFns.eachMonthOfInterval({ start, end });
   }, [date]);
 
-  const currentMonth = useCallback(
+  const selectedMonth = useCallback(
     (d: Date) => dateFns.isSameMonth(date, d),
     [date],
+  );
+  const currentMonth = useCallback((d: Date) => {
+    return dateFns.isSameMonth(new Date(), d);
+  }, []);
+  const variant = useCallback(
+    (d: Date) => {
+      if (selectedMonth(d)) return 'solid';
+      if (currentMonth(d)) return 'outline';
+      return 'ghost';
+    },
+    [currentMonth, selectedMonth],
   );
 
   const handleClickMonth = useCallback(
@@ -91,7 +102,7 @@ export function Content(props: Props) {
                   justifyContent="center"
                   position="relative"
                   onClick={() => handleClickMonth(d)}
-                  variant={currentMonth(d) ? 'solid' : 'ghost'}
+                  variant={variant(d)}
                   colorPalette="teal"
                 >
                   {dateFns.format(d, 'MMM')}
