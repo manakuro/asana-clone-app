@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
+import { Grid } from '@/components/ui/Grid';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Popover } from '@/components/ui/Popover';
@@ -79,14 +80,13 @@ export function Content(props: Props) {
             </Flex>
           </Popover.Header>
           <Popover.Body>
-            <Flex flexWrap="wrap" flex={1} gap={2}>
+            <Grid templateColumns="repeat(4, 1fr)" gap={2}>
               {months.map((d) => (
                 <Button
                   key={dateFns.formatISO(d, { representation: 'date' })}
                   fontSize="sm"
                   cursor="pointer"
                   textTransform="uppercase"
-                  w="calc(25% - 8px)"
                   alignItems="center"
                   justifyContent="center"
                   position="relative"
@@ -97,7 +97,7 @@ export function Content(props: Props) {
                   {dateFns.format(d, 'MMM')}
                 </Button>
               ))}
-            </Flex>
+            </Grid>
           </Popover.Body>
         </Popover.Content>
       </Popover.Positioner>
