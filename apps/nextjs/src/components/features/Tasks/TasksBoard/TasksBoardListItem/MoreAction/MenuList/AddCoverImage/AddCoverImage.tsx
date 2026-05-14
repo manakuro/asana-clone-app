@@ -4,20 +4,9 @@ import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { PopoverAddCoverImageActions } from './PopoverAddCoverImageActions';
 
-type Props = {
-  open: boolean;
-  onOpen: () => void;
-  onClose: () => void;
-};
-export const AddCoverImage = memo(function AddCoverImage(props: Props) {
-  const { onClose, open } = props;
-
+export const AddCoverImage = memo(function AddCoverImage() {
   return (
-    <PopoverAddCoverImageActions
-      open={open}
-      positioning={{ placement: 'right' }}
-      onClose={onClose}
-    >
+    <PopoverAddCoverImageActions positioning={{ placement: 'right' }}>
       <Flex flex={1}>
         <Icon icon="photoAlbum" size="sm" color="fg.muted" mt="2px" />
         <Text fontSize="sm" flex={1} ml={2}>

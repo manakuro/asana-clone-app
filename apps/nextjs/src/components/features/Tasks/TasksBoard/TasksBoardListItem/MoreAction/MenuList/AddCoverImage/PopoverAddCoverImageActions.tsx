@@ -5,7 +5,6 @@ import { useMenuStyle } from '@/hooks';
 
 type Props = {
   onUpload?: (files: FileUploaderParams) => void;
-  onClose: () => void;
 } & MenuRootProps;
 
 export function PopoverAddCoverImageActions(props: Props) {
@@ -21,20 +20,19 @@ export function PopoverAddCoverImageActions(props: Props) {
               css={itemStyle}
               id="attach-file-from-your-computer"
               onUpload={props.onUpload}
-              onUploaded={props.onClose}
             >
               Your computer
             </FileUploader>
-            <Menu.Item disabled value="">
+            <Menu.Item disabled value="Dropbox">
               Dropbox
             </Menu.Item>
-            <Menu.Item disabled value="">
+            <Menu.Item disabled value="Google Drive">
               Google Drive
             </Menu.Item>
-            <Menu.Item disabled value="">
+            <Menu.Item disabled value="Box">
               Box
             </Menu.Item>
-            <Menu.Item disabled value="">
+            <Menu.Item disabled value="OneDrive/SharePoint">
               OneDrive/SharePoint
             </Menu.Item>
           </Menu.Content>

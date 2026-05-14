@@ -5,12 +5,9 @@ import { useToaster } from '@/hooks/useToaster';
 import { taskDetailURL } from '@/router';
 
 type Props = {
-  onMouseEnter: () => void;
-  onCloseMenu: () => void;
   taskId: string;
 };
 export const CopyTask = memo(function CopyTask(props: Props) {
-  const { onMouseEnter, onCloseMenu } = props;
   const { toaster } = useToaster();
 
   const handleClick = useCallback(async () => {
@@ -18,16 +15,10 @@ export const CopyTask = memo(function CopyTask(props: Props) {
     toaster.success({
       description: 'The task link was copied to your clipboard.',
     });
-    onCloseMenu();
-  }, [onCloseMenu, props.taskId, toaster.success]);
+  }, [props.taskId, toaster.success]);
 
   return (
-    <Menu.Item
-      onMouseEnter={onMouseEnter}
-      onClick={handleClick}
-      disabled
-      value=""
-    >
+    <Menu.Item onSelect={handleClick} value="Copy task link">
       <Icon icon="link" color="fg.muted" />
       Copy task link
     </Menu.Item>

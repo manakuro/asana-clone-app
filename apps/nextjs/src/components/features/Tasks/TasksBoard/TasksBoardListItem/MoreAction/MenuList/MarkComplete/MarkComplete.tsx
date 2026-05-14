@@ -5,22 +5,18 @@ import { useTask } from '@/store/entities/task';
 import { useTasksBoardListItemContext } from '../../../Provider';
 
 type Props = {
-  onMouseEnter: () => void;
-  onCloseMenu: () => void;
   taskId: string;
 };
 export const MarkComplete = memo(function MarkComplete(props: Props) {
   const { task } = useTask(props.taskId);
   const { onToggleDone } = useTasksBoardListItemContext();
-  const { onMouseEnter, onCloseMenu } = props;
 
   const handleClick = useCallback(async () => {
     onToggleDone();
-    onCloseMenu();
-  }, [onToggleDone, onCloseMenu]);
+  }, [onToggleDone]);
 
   return (
-    <Menu.Item onMouseEnter={onMouseEnter} onClick={handleClick} value="">
+    <Menu.Item onSelect={handleClick} value="Mark complete or incomplete">
       <Icon icon="checkCircle" color="fg.muted" />
       {task.completed ? 'Mark Incomplete' : 'Mark complete'}
     </Menu.Item>

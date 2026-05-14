@@ -5,12 +5,10 @@ import { useToaster } from '@/hooks/useToaster';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 
 type Props = {
-  onMouseEnter: () => void;
   taskId: string;
 };
 export const DeleteTask = memo(function DeleteTask(props: Props) {
-  // TODO: Fix `Can't perform a React state update on an unmounted component ...` error.
-  const { onMouseEnter, taskId } = props;
+  const { taskId } = props;
   const { task } = useTask(props.taskId);
   const { deleteTask, undeleteTask } = useTaskCommand();
   const { toaster } = useToaster();
@@ -32,12 +30,7 @@ export const DeleteTask = memo(function DeleteTask(props: Props) {
   }, [deleteTask, taskId, toaster.success, task.name, handleUndo]);
 
   return (
-    <Menu.Item
-      onMouseEnter={onMouseEnter}
-      color="alert"
-      onClick={handleClick}
-      value=""
-    >
+    <Menu.Item color="alert" onSelect={handleClick} value="Delete task">
       <Icon icon="trash" color="alert" />
       Delete task
     </Menu.Item>

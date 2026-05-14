@@ -1,5 +1,4 @@
-import type React from 'react';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
@@ -27,34 +26,33 @@ export const MoreAction = memo(function MoreAction(props: Props) {
     return false;
   }, [isHovering, open, inputFocused]);
 
-  const handleOpen = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
-      onOpen();
-    },
-    [onOpen],
-  );
-
   return (
     <Menu.Root
       positioning={{ placement: 'bottom-start' }}
-      closeOnSelect={false}
       open={open}
+      onOpenChange={(e) => {
+        if (e.open) {
+          onOpen();
+        } else {
+          onClose();
+        }
+      }}
       lazyMount
     >
       <Flex position="absolute" top={2} right={2}>
         <Menu.Trigger asChild>
           <IconButton
             aria-label="More actions"
+            variant="ghost"
             size="sm"
-            onClick={handleOpen}
             display={show ? 'flex' : 'none'}
+            onClick={(e) => e.stopPropagation()}
           >
             <Icon icon="dotsHorizontalRounded" color="fg.muted" ml="1px" />
           </IconButton>
         </Menu.Trigger>
       </Flex>
-      {open && <MenuList onCloseMenu={onClose} taskId={props.taskId} />}
+      <MenuList taskId={props.taskId} />
     </Menu.Root>
   );
 });

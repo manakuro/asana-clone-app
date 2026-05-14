@@ -1,26 +1,10 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 
-type Props = {
-  onMouseEnter: () => void;
-  onCloseMenu: () => void;
-  taskId: string;
-};
-export const DuplicateTask = memo(function DuplicateTask(props: Props) {
-  const { onMouseEnter, onCloseMenu } = props;
-
-  const handleClick = useCallback(() => {
-    onCloseMenu();
-  }, [onCloseMenu]);
-
+export const DuplicateTask = memo(function DuplicateTask() {
   return (
-    <Menu.Item
-      onMouseEnter={onMouseEnter}
-      onClick={handleClick}
-      disabled
-      value=""
-    >
+    <Menu.Item disabled value="Duplicate task">
       <Icon icon="copyAlt" color="fg.muted" />
       Duplicate task
     </Menu.Item>

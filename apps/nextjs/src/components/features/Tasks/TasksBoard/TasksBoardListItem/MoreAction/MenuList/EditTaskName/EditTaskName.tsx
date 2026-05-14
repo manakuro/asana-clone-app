@@ -3,25 +3,15 @@ import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import { useTasksBoardListItemInputContext } from '../../../Provider';
 
-type Props = {
-  onMouseEnter: () => void;
-  onCloseMenu: () => void;
-};
-export const EditTaskName = memo(function EditTaskName(props: Props) {
+export const EditTaskName = memo(function EditTaskName() {
   const { onInputSelect } = useTasksBoardListItemInputContext();
-  const { onMouseEnter, onCloseMenu } = props;
 
   const handleEditTaskName = useCallback(() => {
     onInputSelect();
-    onCloseMenu();
-  }, [onCloseMenu, onInputSelect]);
+  }, [onInputSelect]);
 
   return (
-    <Menu.Item
-      onMouseEnter={onMouseEnter}
-      onClick={handleEditTaskName}
-      value=""
-    >
+    <Menu.Item onSelect={handleEditTaskName} value="Edit task name">
       <Icon icon="editAlt" color="fg.muted" />
       Edit task name
     </Menu.Item>
