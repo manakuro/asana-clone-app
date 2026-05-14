@@ -1,5 +1,4 @@
 import type { PropsWithChildren } from 'react';
-import { Link } from '@/components/ui/Link';
 import { HoverCard, type HoverCardRootProps } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { Separator } from '@/components/ui/Separator';
@@ -29,9 +28,7 @@ export function PopoverSetColorAndIcon(props: PropsWithChildren<Props>) {
       openDelay={200}
       closeDelay={50}
     >
-      <HoverCard.Trigger asChild>
-        <Link>{props.children}</Link>
-      </HoverCard.Trigger>
+      <HoverCard.Trigger asChild>{props.children}</HoverCard.Trigger>
       <Portal>
         <HoverCard.Positioner>
           <HoverCard.Content w={WIDTH} ml="5px" pointerEvents="auto" p={0}>

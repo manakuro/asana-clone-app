@@ -36,24 +36,22 @@ export function MenuList(props: Props) {
     <Portal>
       <Menu.Positioner>
         <Menu.Content color="fg">
-          <Menu.Item value="Set Color & icon" closeOnSelect={false}>
-            <PopoverSetColorAndIcon
-              project={props.project}
-              positioning={{ placement: 'right-end' }}
-            >
-              <Flex alignItems="center">
-                <ColorBox
-                  size="md"
-                  color={projectBaseColor.color.color}
-                  mt="-1px"
-                />
-                <Text fontSize="sm" flex={1} ml={2}>
-                  Set Color & icon
-                </Text>
-                <Icon icon="chevronRight" />
-              </Flex>
-            </PopoverSetColorAndIcon>
-          </Menu.Item>
+          <PopoverSetColorAndIcon
+            project={props.project}
+            positioning={{ placement: 'right-end' }}
+          >
+            <Flex alignItems="center" px="1.5" py={2} cursor="pointer">
+              <ColorBox
+                size="md"
+                color={projectBaseColor.color.color}
+                mt="-1px"
+              />
+              <Text fontSize="sm" flex={1} ml={2}>
+                Set Color & icon
+              </Text>
+              <Icon icon="chevronRight" />
+            </Flex>
+          </PopoverSetColorAndIcon>
           <Menu.Separator />
           {props.addFavorite && <Favorite projectId={props.project.id} />}
           {props.editProjectDetails && (

@@ -1,8 +1,6 @@
 import { Menu, type MenuRootProps } from '@/components/ui/Menu';
 
-type Props = {
-  onClose: () => void;
-} & MenuRootProps;
+type Props = MenuRootProps;
 
 export function PopoverImportActions(props: Props) {
   return (
@@ -10,10 +8,10 @@ export function PopoverImportActions(props: Props) {
       <Menu.TriggerItem w="full">{props.children}</Menu.TriggerItem>
       <Menu.Positioner>
         <Menu.Content pointerEvents="auto" ml="5px">
-          <Menu.Item value="" disabled>
+          <Menu.Item value="CSV" disabled>
             CSV
           </Menu.Item>
-          <Menu.Item value="" disabled>
+          <Menu.Item value="Email" disabled>
             Email
           </Menu.Item>
         </Menu.Content>

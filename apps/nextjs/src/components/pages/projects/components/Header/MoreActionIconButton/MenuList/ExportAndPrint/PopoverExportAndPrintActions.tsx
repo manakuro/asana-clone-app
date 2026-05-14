@@ -1,8 +1,6 @@
 import { Menu, type MenuRootProps } from '@/components/ui/Menu';
 
-type Props = {
-  onClose: () => void;
-} & MenuRootProps;
+type Props = MenuRootProps;
 
 export function PopoverExportAndPrintActions(props: Props) {
   return (
@@ -10,16 +8,16 @@ export function PopoverExportAndPrintActions(props: Props) {
       <Menu.TriggerItem w="full">{props.children}</Menu.TriggerItem>
       <Menu.Positioner>
         <Menu.Content pointerEvents="auto" ml="5px">
-          <Menu.Item value="" disabled>
+          <Menu.Item value="Sync to calendar" disabled>
             Sync to calendar
           </Menu.Item>
-          <Menu.Item value="" disabled>
+          <Menu.Item value="CSV" disabled>
             CSV
           </Menu.Item>
-          <Menu.Item value="" disabled>
+          <Menu.Item value="JSON" disabled>
             JSON
           </Menu.Item>
-          <Menu.Item value="" disabled>
+          <Menu.Item value="Print" disabled>
             Print
           </Menu.Item>
         </Menu.Content>

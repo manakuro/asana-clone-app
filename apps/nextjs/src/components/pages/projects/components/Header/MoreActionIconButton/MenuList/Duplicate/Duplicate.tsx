@@ -2,17 +2,9 @@ import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 
-type Props = {
-  onClose: () => void;
-  onMouseEnter: () => void;
-  projectId: string;
-};
-
-export const Duplicate = memo(function Duplicate(props: Props) {
-  const { onMouseEnter } = props;
-
+export const Duplicate = memo(function Duplicate() {
   return (
-    <Menu.Item value="" onMouseEnter={onMouseEnter} disabled>
+    <Menu.Item value="Duplicate" disabled>
       <Icon icon="copyAlt" color="fg.muted" />
       Duplicate
     </Menu.Item>

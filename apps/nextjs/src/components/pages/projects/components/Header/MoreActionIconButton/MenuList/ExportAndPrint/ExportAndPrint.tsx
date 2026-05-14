@@ -1,26 +1,12 @@
 import { memo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-
 import { Text } from '@/components/ui/Text';
 import { PopoverExportAndPrintActions } from './PopoverExportAndPrintActions';
 
-type Props = {
-  onClose: () => void;
-  onMouseEnter: () => void;
-  open: boolean;
-  projectId: string;
-};
-
-export const ExportAndPrint = memo(function ExportAndPrint(props: Props) {
-  const { open, onClose } = props;
-
+export const ExportAndPrint = memo(function ExportAndPrint() {
   return (
-    <PopoverExportAndPrintActions
-      open={open}
-      positioning={{ placement: 'right' }}
-      onClose={onClose}
-    >
+    <PopoverExportAndPrintActions positioning={{ placement: 'right' }}>
       <Flex flex={1}>
         <Text fontSize="sm" flex={1}>
           Export/Print

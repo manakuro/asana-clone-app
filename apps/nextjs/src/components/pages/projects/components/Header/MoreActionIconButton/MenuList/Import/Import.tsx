@@ -4,22 +4,9 @@ import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { PopoverImportActions } from './PopoverImportActions';
 
-type Props = {
-  onClose: () => void;
-  onMouseEnter: () => void;
-  open: boolean;
-  projectId: string;
-};
-
-export const Import = memo(function Import(props: Props) {
-  const { open, onClose } = props;
-
+export const Import = memo(function Import() {
   return (
-    <PopoverImportActions
-      open={open}
-      positioning={{ placement: 'right' }}
-      onClose={onClose}
-    >
+    <PopoverImportActions positioning={{ placement: 'right' }}>
       <Flex flex={1}>
         <Text fontSize="sm" flex={1}>
           Import
