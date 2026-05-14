@@ -15,10 +15,7 @@ export const TaskDetailModal = memo(function TaskDetailModal(props: Props) {
 
   const handleClose = useCallback(() => {
     props.backToPage();
-    // Execute onClose after the pathname changes to detect URL params.
-    setTimeout(() => {
-      onClose();
-    }, 100);
+    onClose();
   }, [onClose, props]);
 
   return (
@@ -35,7 +32,7 @@ export const TaskDetailModal = memo(function TaskDetailModal(props: Props) {
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          {open && <Content loading={loading} onClose={handleClose} />}
+          <Content loading={loading} onClose={handleClose} />
         </Dialog.Positioner>
       </Portal>
     </Dialog.Root>
