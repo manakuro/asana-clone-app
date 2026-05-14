@@ -23,11 +23,19 @@ export const Tabs = memo(function Tabs() {
             </Menu.Trigger>
             <Portal>
               <Menu.Positioner>
-                <Menu.Content color="fg">
-                  <Menu.Item value="">Sync to Calendar</Menu.Item>
-                  <Menu.Item value="">Add tasks via Email</Menu.Item>
-                  <Menu.Item value="">Export CSV</Menu.Item>
-                  <Menu.Item value="">Print</Menu.Item>
+                <Menu.Content>
+                  <Menu.Item value="Sync to Calendar" disabled>
+                    Sync to Calendar
+                  </Menu.Item>
+                  <Menu.Item value="Add tasks via Email" disabled>
+                    Add tasks via Email
+                  </Menu.Item>
+                  <Menu.Item value="Export CSV" disabled>
+                    Export CSV
+                  </Menu.Item>
+                  <Menu.Item value="Print" disabled>
+                    Print
+                  </Menu.Item>
                 </Menu.Content>
               </Menu.Positioner>
             </Portal>
