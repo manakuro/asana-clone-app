@@ -34,10 +34,14 @@ export const MenuList = memo(function MenuList() {
     <Portal>
       <Menu.Positioner>
         <Menu.Content>
-          <Menu.Item onClick={handleRenameSection} value="">
+          <Menu.Item onClick={handleRenameSection} value="Rename section">
             Rename section
           </Menu.Item>
-          <Menu.Item onClick={handleDeleteSection} color="alert" value="">
+          <Menu.Item
+            onClick={handleDeleteSection}
+            color="alert"
+            value="Delete section"
+          >
             Delete section
           </Menu.Item>
         </Menu.Content>

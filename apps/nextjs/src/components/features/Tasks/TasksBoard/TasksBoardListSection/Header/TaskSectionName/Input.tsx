@@ -33,12 +33,19 @@ export const Input = memo(function Input(props: Props) {
       unstyled
       fontWeight="semibold"
       border="1px"
-      borderColor="gray.300"
+      borderColor="border"
+      borderStyle="solid"
+      borderRadius="md"
       px={2}
       maxW={80}
       bg="white"
       {...rest}
       onChange={handleChange}
+      onBlur={() => {
+        if (ref.current) {
+          ref.current.focus();
+        }
+      }}
       value={value}
     />
   );

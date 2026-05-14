@@ -53,6 +53,7 @@ export const TaskSectionName = memo(function TaskSectionName(props: Props) {
       fontWeight="semibold"
       border="1px"
       borderColor="transparent"
+      borderStyle="solid"
       onClick={handleClick}
       cursor="pointer"
     >
