@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Button } from '@/components/ui/Button';
+import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { Popover } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
-import { useClickableHoverStyle, useClickOutside } from '@/hooks';
+import { useClickOutside } from '@/hooks';
 import { dateFns } from '@/shared/dateFns';
 
 type Props = {
@@ -32,27 +34,8 @@ export function Content(props: Props) {
     return dateFns.eachMonthOfInterval({ start, end });
   }, [date]);
 
-  const { clickableHoverTextStyle } = useClickableHoverStyle();
-
-  const currentMonthStyle = useCallback(
-    (val: Date): FlexProps => {
-      if (dateFns.isSameMonth(date, val))
-        return {
-          _after: {
-            bg: 'primary',
-            bottom: 1,
-            content: '""',
-            height: '2px',
-            left: 3,
-            position: 'absolute',
-            right: 3,
-            color: 'primary',
-          },
-          fontWeight: 'bold',
-        };
-
-      return {};
-    },
+  const currentMonth = useCallback(
+    (d: Date) => dateFns.isSameMonth(date, d),
     [date],
   );
 
@@ -72,45 +55,47 @@ export function Content(props: Props) {
   return (
     <Portal>
       <Popover.Positioner>
-        <Popover.Content w="210px" maxW="210px" h="145px" ref={ref}>
+        <Popover.Content ref={ref}>
           <Popover.Header>
-            <Flex>
-              <Icon
-                icon="chevronLeft"
-                color="fg.muted"
+            <Flex alignItems="center">
+              <IconButton
                 onClick={handlePrevYear}
                 cursor="pointer"
-              />
+                variant="ghost"
+              >
+                <Icon icon="chevronLeft" color="fg.muted" />
+              </IconButton>
+
               <Text flex={1} fontSize="sm" textAlign="center">
                 {dateFns.format(date, 'y')}
               </Text>
-              <Icon
-                icon="chevronRight"
-                color="fg.muted"
+              <IconButton
                 onClick={handleNextYear}
                 cursor="pointer"
-              />
+                variant="ghost"
+              >
+                <Icon icon="chevronRight" color="fg.muted" />
+              </IconButton>
             </Flex>
           </Popover.Header>
           <Popover.Body>
-            <Flex flexWrap="wrap" flex={1}>
+            <Flex flexWrap="wrap" flex={1} gap={2}>
               {months.map((d) => (
-                <Flex
+                <Button
                   key={dateFns.formatISO(d, { representation: 'date' })}
                   fontSize="sm"
-                  color="fg.muted"
                   cursor="pointer"
                   textTransform="uppercase"
-                  w="25%"
+                  w="calc(25% - 8px)"
                   alignItems="center"
                   justifyContent="center"
                   position="relative"
                   onClick={() => handleClickMonth(d)}
-                  css={clickableHoverTextStyle}
-                  {...currentMonthStyle(d)}
+                  variant={currentMonth(d) ? 'solid' : 'ghost'}
+                  colorPalette="teal"
                 >
                   {dateFns.format(d, 'MMM')}
-                </Flex>
+                </Button>
               ))}
             </Flex>
           </Popover.Body>

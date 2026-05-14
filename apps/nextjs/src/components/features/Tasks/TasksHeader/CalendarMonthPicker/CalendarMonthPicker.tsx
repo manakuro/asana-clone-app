@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';
@@ -10,11 +10,7 @@ import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';
 import { Content } from './Content';
 
-type Props = FlexProps;
-
-export const CalendarMonthPicker = memo(function CalendarMonthPicker(
-  props: Props,
-) {
+export const CalendarMonthPicker = memo(function CalendarMonthPicker() {
   const { currentDate } = useTasksCalendarContext();
   const dateText = useMemo(() => {
     return dateFns.format(currentDate, 'MMMM y');
@@ -23,7 +19,7 @@ export const CalendarMonthPicker = memo(function CalendarMonthPicker(
   const popoverDisclosure = useDisclosure();
 
   return (
-    <Flex {...props} alignItems="center">
+    <Flex alignItems="center">
       <Text fontWeight="medium">{dateText}</Text>
       <Popover.Root
         open={popoverDisclosure.open}
@@ -44,9 +40,7 @@ export const CalendarMonthPicker = memo(function CalendarMonthPicker(
             </IconButton>
           </Link>
         </Popover.Trigger>
-        {popoverDisclosure.open && (
-          <Content onClose={popoverDisclosure.onClose} />
-        )}
+        <Content onClose={popoverDisclosure.onClose} />
       </Popover.Root>
     </Flex>
   );
