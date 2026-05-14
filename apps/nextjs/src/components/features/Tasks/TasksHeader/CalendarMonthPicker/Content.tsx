@@ -5,19 +5,13 @@ import { Flex } from '@/components/ui/Flex';
 import { Grid } from '@/components/ui/Grid';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Popover } from '@/components/ui/Popover';
+import { Popover, usePopoverContext } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
-import { useClickOutside } from '@/hooks';
 import { dateFns } from '@/shared/dateFns';
 
-type Props = {
-  onClose: () => void;
-};
-
-export function Content(props: Props) {
-  const { onClose } = props;
-  const { ref } = useClickOutside<HTMLDivElement>(onClose);
+export function Content() {
+  const { setOpen } = usePopoverContext();
   const { currentDate, setMonth, scrollToDate } = useTasksCalendarContext();
   const [date, setDate] = useState<Date>(currentDate);
 
@@ -54,10 +48,10 @@ export function Content(props: Props) {
   const handleClickMonth = useCallback(
     (date: Date) => {
       setMonth(date);
-      onClose();
+      setOpen(false);
       scrollToDate(date);
     },
-    [setMonth, onClose, scrollToDate],
+    [setMonth, setOpen, scrollToDate],
   );
 
   useEffect(() => {
@@ -67,7 +61,7 @@ export function Content(props: Props) {
   return (
     <Portal>
       <Popover.Positioner>
-        <Popover.Content ref={ref}>
+        <Popover.Content>
           <Popover.Header>
             <Flex alignItems="center">
               <IconButton
