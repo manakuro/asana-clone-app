@@ -18,10 +18,13 @@ export const ViewDetails = memo(function ViewDetails(props: Props) {
 
   const handleClick = useCallback(async () => {
     if (open) {
-      await navigateToTaskBoard();
-      await onClose();
+      navigateToTaskBoard();
+      // Execute onClose after the pathname changes to detect URL params.
+      setTimeout(() => {
+        onClose();
+      }, 100);
     } else {
-      await navigateToTaskDetail(props.taskId);
+      navigateToTaskDetail(props.taskId);
     }
   }, [open, navigateToTaskBoard, navigateToTaskDetail, onClose, props.taskId]);
 

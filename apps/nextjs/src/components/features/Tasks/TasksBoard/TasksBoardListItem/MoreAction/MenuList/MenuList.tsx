@@ -23,7 +23,7 @@ export const MenuList = memo(function MenuList(props: Props) {
   return (
     <Portal>
       <Menu.Positioner>
-        <Menu.Content zIndex={1} onClick={stopPropagation}>
+        <Menu.Content zIndex="tooltip" onClick={stopPropagation}>
           <EditTaskName />
           <AddCoverImage />
           <Menu.Separator />

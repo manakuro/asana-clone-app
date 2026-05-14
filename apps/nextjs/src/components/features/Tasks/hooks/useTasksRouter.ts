@@ -15,7 +15,7 @@ import { useTasksContext } from '../TasksProvider';
 
 type Result = {
   navigateToTaskDetail: (taskId: string, options?: Options) => void;
-  navigateToTaskBoard: (options?: Options) => Promise<void>;
+  navigateToTaskBoard: (options?: Options) => void;
   isTaskDetailURLById: (taskId: string) => boolean;
   getTasksDetailFeedURL: (props: {
     taskId: string;
@@ -69,7 +69,7 @@ export const useTasksRouter = (): Result => {
   );
 
   const navigateToTaskBoard = useCallback(
-    async (options?: Options) => {
+    (options?: Options) => {
       if (isMyTasksPage) {
         navigateToMyTasksBoard(options);
         return;
