@@ -174,6 +174,8 @@ const WrappedComponent = memo(function WrappedComponent() {
       onValueChange={(e) => handleTabsChange(e.value)}
       flex={1}
       display="flex"
+      lazyMount
+      unmountOnExit
     >
       <Flex data-testid="Projects" flex={1} flexDirection="column" maxW="full">
         <Head title="Projects" />
