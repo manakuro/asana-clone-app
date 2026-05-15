@@ -21,6 +21,9 @@ export function ProjectRoleInputPopover(props: PropsWithChildren<Props>) {
       positioning={{ placement: 'bottom-start' }}
       open={open}
       initialFocusEl={() => initialFocusRef.current}
+      onOpenChange={(e) => {
+        if (!e.open) onClose();
+      }}
       {...rest}
     >
       <Popover.Trigger asChild>
