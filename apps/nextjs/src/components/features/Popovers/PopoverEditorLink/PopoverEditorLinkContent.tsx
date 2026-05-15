@@ -7,11 +7,9 @@ export const PopoverEditorLinkContent: React.FCWithChildren = (props) => {
   return (
     <Portal>
       <HoverCard.Positioner>
-        <HoverCard.Content contentEditable={false}>
-          <Flex boxShadow="md" borderRadius="md">
-            <Flex fontSize="sm" alignItems="center" userSelect="none">
-              {props.children}
-            </Flex>
+        <HoverCard.Content contentEditable={false} px={4} py={3}>
+          <Flex fontSize="sm" alignItems="center" userSelect="none">
+            {props.children}
           </Flex>
         </HoverCard.Content>
       </HoverCard.Positioner>
