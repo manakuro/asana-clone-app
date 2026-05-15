@@ -15,10 +15,18 @@ export function PopoverMore(props: Props) {
       <Portal>
         <Menu.Positioner>
           <Menu.Content animation="none">
-            <Menu.Item value="" onClick={handleCreateNewWorkspace} disabled>
+            <Menu.Item
+              value="Create New Workspace"
+              onSelect={handleCreateNewWorkspace}
+              disabled
+            >
               Create New Workspace
             </Menu.Item>
-            <Menu.Item value="" onClick={handleRemoveMe} disabled>
+            <Menu.Item
+              value="Remove me from this Workspace"
+              onSelect={handleRemoveMe}
+              disabled
+            >
               Remove me from this Workspace
             </Menu.Item>
           </Menu.Content>

@@ -11,8 +11,8 @@ export const RemoveFromProject = memo(function RemoveFromProject(_: Props) {
 
   return (
     <Menu.Item
-      value=""
-      onClick={handleRemoveFromProject}
+      value="Remove from Project"
+      onSelect={handleRemoveFromProject}
       color="alert"
       disabled
     >

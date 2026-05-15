@@ -7,7 +7,7 @@ export const MenuList = memo(function MenuList() {
     <Portal>
       <Menu.Positioner>
         <Menu.Content>
-          <Menu.Item disabled value="">
+          <Menu.Item disabled value="Save layout as default">
             Save layout as default
           </Menu.Item>
         </Menu.Content>

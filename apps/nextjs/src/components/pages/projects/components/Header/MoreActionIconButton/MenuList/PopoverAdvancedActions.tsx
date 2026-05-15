@@ -14,9 +14,11 @@ export function PopoverAdvancedActions(props: Props) {
       <Portal></Portal>
       <Menu.Positioner>
         <Menu.Content pointerEvents="auto" mr="5px">
-          <Menu.Item value="">Make a subtask of</Menu.Item>
-          <Menu.Item value="">Convert to a project</Menu.Item>
-          <Menu.Item value="">
+          <Menu.Item value="Make a subtask of">Make a subtask of</Menu.Item>
+          <Menu.Item value="Convert to a project">
+            Convert to a project
+          </Menu.Item>
+          <Menu.Item value="Merge duplicate tasks">
             Merge duplicate tasks
             <Menu.ItemCommand>⇧+Tab+D</Menu.ItemCommand>
           </Menu.Item>

@@ -34,14 +34,18 @@ export const SetProjectOwner = memo(function SetProjectOwner(props: Props) {
 
   if (isOwner) {
     return (
-      <Menu.Item value="" onClick={handleRemoveAsProjectOwner} color="alert">
+      <Menu.Item
+        value="Remove as Project Owner"
+        onSelect={handleRemoveAsProjectOwner}
+        color="alert"
+      >
         Remove as Project Owner
       </Menu.Item>
     );
   }
 
   return (
-    <Menu.Item value="" onClick={handleSetAsProjectOwner}>
+    <Menu.Item value="Set as Project Owner" onSelect={handleSetAsProjectOwner}>
       Set as Project Owner
     </Menu.Item>
   );

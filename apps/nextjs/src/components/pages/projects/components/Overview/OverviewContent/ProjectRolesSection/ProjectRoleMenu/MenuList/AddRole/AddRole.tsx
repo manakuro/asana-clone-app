@@ -22,7 +22,7 @@ export const AddRole = memo(function AddRole(props: Props) {
   }, [onOpenPopover]);
 
   return (
-    <Menu.Item value="" onClick={handleClick}>
+    <Menu.Item value={text} onSelect={handleClick}>
       {text}
     </Menu.Item>
   );
