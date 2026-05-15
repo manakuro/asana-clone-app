@@ -4,6 +4,12 @@ export const proseMirrorStyle = () => ({
     marginRight: 0,
     paddingLeft: '32px',
   },
+  '.ProseMirror ul': {
+    listStyleType: 'initial !important',
+  },
+  '.ProseMirror ol': {
+    listStyleType: 'decimal !important',
+  },
   '.ProseMirror li': {
     listStyleType: 'inherit !important',
   },
