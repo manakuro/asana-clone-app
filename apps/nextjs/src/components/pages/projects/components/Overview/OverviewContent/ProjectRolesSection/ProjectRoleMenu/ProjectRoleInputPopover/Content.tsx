@@ -3,7 +3,6 @@ import { memo, useCallback } from 'react';
 import { Label } from '@/components/ui/Label';
 import { Popover } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
-import { useClickOutside } from '@/hooks';
 import {
   useProjectTeammate,
   useProjectTeammatesCommand,
@@ -12,7 +11,6 @@ import { useTeammate } from '@/store/entities/teammate';
 import { Form } from './Form';
 
 type Props = {
-  open: boolean;
   onClose: () => void;
   projectId: string;
   projectTeammateId: string;
@@ -25,8 +23,6 @@ export const Content = memo(function Content(props: Props) {
   const { setProjectTeammateById } = useProjectTeammatesCommand();
   const { teammate } = useTeammate(projectTeammate.teammateId);
 
-  const { ref } = useClickOutside<HTMLDivElement>(onClose);
-
   const handleChangeRole = useCallback(
     async (value: string) => {
       await setProjectTeammateById({ role: value, id: projectTeammate.id });
@@ -38,7 +34,7 @@ export const Content = memo(function Content(props: Props) {
   return (
     <Portal>
       <Popover.Positioner>
-        <Popover.Content ref={ref}>
+        <Popover.Content>
           <Popover.Body boxShadow="md" borderRadius="md">
             <Label fontSize="xs" fontWeight="medium" color="fg.muted">
               What is {teammate.name}'s role on this project?

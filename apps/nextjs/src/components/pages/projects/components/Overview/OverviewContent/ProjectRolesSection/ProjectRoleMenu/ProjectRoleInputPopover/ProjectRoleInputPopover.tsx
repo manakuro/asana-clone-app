@@ -26,15 +26,12 @@ export function ProjectRoleInputPopover(props: PropsWithChildren<Props>) {
       <Popover.Trigger asChild>
         <Flex>{children}</Flex>
       </Popover.Trigger>
-      {open && (
-        <Content
-          open={open}
-          onClose={onClose}
-          projectId={projectId}
-          projectTeammateId={projectTeammateId}
-          initialFocusRef={initialFocusRef}
-        />
-      )}
+      <Content
+        onClose={onClose}
+        projectId={projectId}
+        projectTeammateId={projectTeammateId}
+        initialFocusRef={initialFocusRef}
+      />
     </Popover.Root>
   );
 }
