@@ -100,24 +100,24 @@ const WrappedComponent = memo(function WrappedComponent() {
     }, 200);
   }, [endTabContentLoading, startTabContentLoading]);
 
-  const navigateToOverview = useCallback(async () => {
-    await navigateToProjectsOverview(projectId);
+  const navigateToOverview = useCallback(() => {
+    navigateToProjectsOverview(projectId);
   }, [navigateToProjectsOverview, projectId]);
 
-  const navigateToFiles = useCallback(async () => {
-    await navigateToProjectsFiles(projectId);
+  const navigateToFiles = useCallback(() => {
+    navigateToProjectsFiles(projectId);
   }, [navigateToProjectsFiles, projectId]);
 
-  const navigateToList = useCallback(async () => {
-    await navigateToProjectsList(projectId);
+  const navigateToList = useCallback(() => {
+    navigateToProjectsList(projectId);
   }, [navigateToProjectsList, projectId]);
 
-  const navigateToBoard = useCallback(async () => {
-    await navigateToProjectsBoard(projectId);
+  const navigateToBoard = useCallback(() => {
+    navigateToProjectsBoard(projectId);
   }, [navigateToProjectsBoard, projectId]);
 
-  const navigateToCalendar = useCallback(async () => {
-    await navigateToProjectsCalendar(projectId);
+  const navigateToCalendar = useCallback(() => {
+    navigateToProjectsCalendar(projectId);
   }, [navigateToProjectsCalendar, projectId]);
 
   const handleTabsChange = useCallback(
@@ -126,32 +126,32 @@ const WrappedComponent = memo(function WrappedComponent() {
         case OVERVIEW_INDEX: {
           setLoading();
           setTabIndex(OVERVIEW_INDEX);
-          await navigateToOverview();
+          navigateToOverview();
           break;
         }
         case LIST_INDEX: {
           setLoading();
           setTabIndex(LIST_INDEX);
-          await navigateToList();
+          navigateToList();
           break;
         }
         case BOARD_INDEX: {
           if (isSorted('project')) sortBy(TaskListSortStatusCode.None);
           setLoading();
           setTabIndex(BOARD_INDEX);
-          await navigateToBoard();
+          navigateToBoard();
           break;
         }
         case CALENDAR_INDEX: {
           setLoading();
           setTabIndex(CALENDAR_INDEX);
-          await navigateToCalendar();
+          navigateToCalendar();
           break;
         }
         case FILES_INDEX: {
           setLoading();
           setTabIndex(FILES_INDEX);
-          await navigateToFiles();
+          navigateToFiles();
           break;
         }
       }
