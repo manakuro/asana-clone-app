@@ -13,6 +13,7 @@ export const Button = forwardRef<HTMLButtonElement, PropsWithChildren>(
           size="sm"
           border="1px"
           borderColor="transparent"
+          borderStyle="solid"
           px={2}
           h="56px"
           w="full"

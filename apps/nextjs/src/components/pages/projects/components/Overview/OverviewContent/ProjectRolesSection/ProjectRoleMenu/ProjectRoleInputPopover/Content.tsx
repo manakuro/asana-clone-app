@@ -16,7 +16,7 @@ type Props = {
   onClose: () => void;
   projectId: string;
   projectTeammateId: string;
-  initialFocusRef: React.MutableRefObject<HTMLInputElement | null>;
+  initialFocusRef: React.Ref<HTMLInputElement | null>;
 };
 
 export const Content = memo(function Content(props: Props) {

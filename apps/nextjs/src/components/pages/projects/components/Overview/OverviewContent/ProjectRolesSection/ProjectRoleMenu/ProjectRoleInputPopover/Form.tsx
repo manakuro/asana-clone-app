@@ -6,7 +6,7 @@ import { Input as AtomsInput } from '@/components/ui/Input';
 
 type Props = {
   defaultValue: string;
-  initialFocusRef: React.MutableRefObject<HTMLInputElement | null>;
+  initialFocusRef: React.Ref<HTMLInputElement | null>;
   onChange: (value: string) => void;
 };
 
