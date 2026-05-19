@@ -114,7 +114,9 @@ const isContainInModalContent = (e: Event) =>
 
 const isContainInPopoverContent = (e: Event) =>
   Array.from(
-    document.querySelectorAll('[data-scope="popover"][data-part="content"]'),
+    document.querySelectorAll(
+      '[data-scope="popover"][data-part="content"], [data-scope="hover-card"][data-part="content"]',
+    ),
   ).some((q) => q.contains(e.target as Node));
 
 const isContainInToastContent = (e: Event) =>
