@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { Dialog } from '@/components/ui/Dialog';
 import { Portal } from '@/components/ui/Portal';
@@ -17,6 +17,12 @@ export const TaskDetailModal = memo(function TaskDetailModal(props: Props) {
     props.backToPage();
     onClose();
   }, [onClose, props]);
+
+  useEffect(() => {
+    return () => {
+      onClose();
+    };
+  }, [onClose]);
 
   return (
     <Dialog.Root
