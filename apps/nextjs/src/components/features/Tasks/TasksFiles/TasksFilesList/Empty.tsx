@@ -1,5 +1,6 @@
 import NextImage from 'next/image';
 import { memo } from 'react';
+import emtpyImage from '@/assets/images/key_resources_1.svg';
 import { Flex } from '@/components/ui/Flex';
 import { Image } from '@/components/ui/Image';
 import { Stack } from '@/components/ui/Stack';
@@ -10,13 +11,8 @@ export const Empty = memo(function Empty() {
     <Flex flex={1} pb={4}>
       <Stack maxW="50%" mx="auto" gap={8}>
         <Flex justifyContent="center" alignItems="center">
-          <Image asChild>
-            <NextImage
-              width={300}
-              height={212.5}
-              src="/images/key_resources_1.svg"
-              alt="Picture of empty files"
-            />
+          <Image asChild w="300px">
+            <NextImage src={emtpyImage} alt="Picture of empty files" />
           </Image>
         </Flex>
         <Text>
