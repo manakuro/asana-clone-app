@@ -108,7 +108,7 @@ const isContainInMenuList = (e: Event) =>
 const isContainInModalContent = (e: Event) =>
   Array.from(
     document.querySelectorAll(
-      '[role="dialog"], [data-scope="dialog"][data-part="content"]',
+      '[role="dialog"], [data-scope="dialog"][data-part="content"], [data-scope="dialog"][data-part="positioner"]',
     ),
   ).some((q) => q.contains(e.target as Node));
 

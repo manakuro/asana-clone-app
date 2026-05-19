@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useCallback } from 'react';
+import { Button } from '@/components/ui/Button';
 import { Dialog } from '@/components/ui/Dialog';
 import { Input } from '@/components/ui/Input';
 import { Stack } from '@/components/ui/Stack';
@@ -26,8 +27,8 @@ export function EditorLinkModal() {
         if (!e) onClose();
       }}
       size="xs"
+      closeOnInteractOutside={false}
     >
-      <Dialog.Backdrop />
       <Dialog.Positioner>
         <Dialog.Content
           position="fixed"
@@ -36,14 +37,17 @@ export function EditorLinkModal() {
           mb={0}
           mt={0}
         >
-          <Dialog.Body>
-            <Stack gap={2}>
+          <Dialog.Body p={2}>
+            <Stack gap={2} direction="row" alignItems="center">
               <Input
                 value={input.url}
                 onChange={(e) => handleInput(e, 'url')}
                 placeholder="Add URL"
                 size="sm"
               />
+              <Button variant="outline" onClick={onClose} size="sm">
+                Save
+              </Button>
             </Stack>
           </Dialog.Body>
         </Dialog.Content>
