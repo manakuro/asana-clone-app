@@ -7,6 +7,9 @@ import {
 } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { useReactNodeView } from '@/components/ui/Editor/Editors/ReactNodeView';
+import { Link } from '@/components/ui/Link';
+import { NextLink } from '@/components/ui/NextLink';
+import { ROUTE_PROJECTS_LIST } from '@/router';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
@@ -22,7 +25,13 @@ export const Project = memo(function Project() {
       <PopoverEditorLinkTrigger>{`${project.name} `}</PopoverEditorLinkTrigger>
       <PopoverEditorLinkContent>
         <ColorBox size="sm" color={projectBaseColor.color.color} />
-        <PopoverEditorLinkText>{project.name}</PopoverEditorLinkText>
+        <PopoverEditorLinkText>
+          <Link asChild>
+            <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(project.id)}>
+              {project.name}
+            </NextLink>
+          </Link>
+        </PopoverEditorLinkText>
       </PopoverEditorLinkContent>
     </PopoverEditorLink>
   );
