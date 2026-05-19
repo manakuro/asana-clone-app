@@ -19,9 +19,6 @@
     "enabled": true,
     "rules": {
       "recommended": true,
-      "correctness": {
-        "noUnusedImports": "error"
-      },
       "complexity": {
         "noForEach": "off"
       },

@@ -15,7 +15,10 @@
     "rules": {
       "recommended": true,
       "correctness": {
-        "noUnusedImports": "error"
+        "noUnusedImports": {
+          "fix": "safe",
+          "level": "error"
+        }
       }
     }
   },
