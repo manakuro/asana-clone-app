@@ -26,7 +26,11 @@ export const Project = memo(function Project() {
       <PopoverEditorLinkContent>
         <ColorBox size="sm" color={projectBaseColor.color.color} />
         <PopoverEditorLinkText>
-          <Link asChild>
+          <Link
+            asChild
+            color="cyan.400"
+            _hover={{ textDecoration: 'underline' }}
+          >
             <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(project.id)}>
               {project.name}
             </NextLink>

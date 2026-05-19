@@ -22,7 +22,11 @@ export const Workspace = memo(function Workspace() {
       <PopoverEditorLinkContent>
         <Icon icon="group" color="fg.muted" />
         <PopoverEditorLinkText>
-          <Link asChild>
+          <Link
+            asChild
+            color="cyan.400"
+            _hover={{ textDecoration: 'underline' }}
+          >
             <NextLink
               href={ROUTE_WORKSPACES_OVERVIEW.href.pathnameObj(workspace.id)}
             >
