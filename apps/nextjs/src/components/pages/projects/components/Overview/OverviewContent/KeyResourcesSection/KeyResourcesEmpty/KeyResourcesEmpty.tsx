@@ -1,3 +1,5 @@
+import NextImage from 'next/image';
+import image from '@/assets/images/key_resources_2.svg';
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
@@ -19,7 +21,9 @@ export function KeyResourcesEmpty() {
       justifyContent="center"
     >
       <Flex minW="160px" minH="160px" w="160px" h="160px">
-        <Image w="full" src="/images/key_resources_2.svg" />
+        <Image w="full" asChild>
+          <NextImage src={image} alt="Picture of the key resources" />
+        </Image>
       </Flex>
       <Flex ml={4} flexDirection="column">
         <Heading as="h6" size="xs">
