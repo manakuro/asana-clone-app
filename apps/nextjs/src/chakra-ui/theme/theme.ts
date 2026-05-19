@@ -15,11 +15,6 @@ export const system = createSystem(defaultConfig, {
       fontFamily: 'var(--font-roboto)',
       overflow: 'hidden',
     },
-    a: {
-      _hover: {
-        textDecoration: 'none !important',
-      },
-    },
     ...proseMirrorStyle(),
     ...pdfViewerCustomStyle(),
   },

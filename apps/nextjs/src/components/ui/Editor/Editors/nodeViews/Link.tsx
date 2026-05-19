@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
 import {
   PopoverEditorLink,
   PopoverEditorLinkContent,
@@ -9,7 +9,7 @@ import { Icon } from '@/components/ui/Icon';
 import { Link as AtomsLink } from '@/components/ui/Link';
 import { useReactNodeView } from '../ReactNodeView';
 
-export function Link(props: React.PropsWithChildren) {
+export function Link(props: PropsWithChildren) {
   const context = useReactNodeView();
 
   return (
@@ -22,6 +22,8 @@ export function Link(props: React.PropsWithChildren) {
             href={context.node?.attrs.href}
             target="_blank"
             rel="noopener noreferrer"
+            color="cyan.400"
+            _hover={{ textDecoration: 'underline' }}
           >
             {context.node?.attrs.href}
           </AtomsLink>

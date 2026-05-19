@@ -20,6 +20,6 @@ export const Link = forwardRef<HTMLAnchorElement, Props>(
       [hover],
     );
 
-    return <ChakraLink {...style} {...rest} ref={ref} />;
+    return <ChakraLink textDecoration="none" {...style} {...rest} ref={ref} />;
   },
 );
