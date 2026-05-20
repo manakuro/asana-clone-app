@@ -1,4 +1,4 @@
-import { setupWorker } from 'msw';
+import { setupWorker } from 'msw/browser';
 import { handlers as mutationHandlers } from './mutations/handlers';
 import { handlers as queryHandlers } from './queries/handlers';
 

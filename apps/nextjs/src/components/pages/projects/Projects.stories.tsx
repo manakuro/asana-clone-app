@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { userEvent, within } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { userEvent, within } from 'storybook/test';
 import { LayoutDefault } from '@/components/ui/Layout';
 import { Container as Page } from './Container';
 
-const meta: Meta<typeof Page> = {
+const meta = {
   title: 'Pages/Projects',
   component: Page,
   parameters: {
@@ -27,7 +27,7 @@ const meta: Meta<typeof Page> = {
       </LayoutDefault>
     ),
   ],
-};
+} satisfies Meta<typeof Page>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
