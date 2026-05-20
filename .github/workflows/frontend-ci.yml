@@ -32,6 +32,8 @@ jobs:
       - name: Run install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
+        env:
+          SAFE_CHAIN_NPM_MINIMUM_PACKAGE_AGE_EXCLUSIONS: 'lru-cache'
       - name: Run codegen
         run: pnpm --filter nextjs codegen:ci
       - name: Run lint
