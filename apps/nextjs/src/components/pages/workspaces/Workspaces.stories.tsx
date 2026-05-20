@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { LayoutDefault } from '@/components/ui/Layout';
 import { Container as Page } from './Container';
 
-const meta: Meta<typeof Page> = {
+const meta = {
   title: 'Pages/Workspaces',
   component: Page,
   parameters: {
@@ -22,7 +22,7 @@ const meta: Meta<typeof Page> = {
       </LayoutDefault>
     ),
   ],
-};
+} satisfies Meta<typeof Page>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
