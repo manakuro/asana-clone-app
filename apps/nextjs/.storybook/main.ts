@@ -9,7 +9,11 @@ const config: StorybookConfig = {
     name: getAbsolutePath('@storybook/nextjs-vite'),
     options: {},
   },
-  addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
+  addons: [
+    getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-vitest'),
+  ],
 };
 
 export default config;

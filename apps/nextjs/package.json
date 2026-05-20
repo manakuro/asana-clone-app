@@ -19,6 +19,7 @@
     "lint:fix": "biome check --write --unsafe src",
     "test": "vitest",
     "test:ci": "vitest --maxWorkers=1",
+    "test:storybook": "vitest --project=storybook",
     "tsc": "tsc",
     "tsc:scripts": "tsc --p ./scripts/",
     "codegen": "pnpm codegen:download && graphql-codegen --config codegen.ts",
@@ -152,7 +153,11 @@
     "vitest": "4.1.6",
     "yargs": "^17.6.2",
     "@storybook/nextjs-vite": "10.4.0",
-    "vite": "8.0.13"
+    "vite": "8.0.13",
+    "@storybook/addon-vitest": "10.4.0",
+    "playwright": "^1.60.0",
+    "@vitest/browser-playwright": "4.1.6",
+    "@vitest/coverage-v8": "4.1.6"
   },
   "config": {
     "commitizen": {
