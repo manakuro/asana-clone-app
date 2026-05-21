@@ -15,13 +15,14 @@ export default defineConfig({
   },
   test: {
     projects: [
-      // Unit tests: Pure functions (no React, no MSW)
+      // Unit tests: Pure functions and single components (no MSW)
       {
         extends: true,
         test: {
           name: 'unit',
-          environment: 'node',
+          environment: 'happy-dom',
           globals: true,
+          setupFiles: ['vitest/setup.ts'],
           include: ['src/**/*.test.ts?(x)'],
           exclude: ['src/**/*.integration.test.tsx'],
           mockReset: true,
