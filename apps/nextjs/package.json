@@ -19,6 +19,7 @@
     "lint:fix": "biome check --write --unsafe src",
     "test": "vitest",
     "test:ci": "vitest --maxWorkers=1",
+    "test:unit": "vitest --project=unit",
     "test:storybook": "vitest --project=storybook",
     "tsc": "tsc",
     "tsc:scripts": "tsc --p ./scripts/",
