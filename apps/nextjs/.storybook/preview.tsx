@@ -6,7 +6,9 @@ import { handlers as queryHandlers } from '../src/mocks/queries/handlers';
 import { dateFns } from '../src/shared/dateFns';
 import { Provider } from '../src/storybook/Provider';
 
-initialize();
+initialize({
+  quiet: true,
+});
 
 const preview = {
   parameters: {
