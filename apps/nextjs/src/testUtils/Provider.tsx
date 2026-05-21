@@ -23,12 +23,7 @@ export const Provider: React.FCWithChildren = (props) => {
 };
 
 function ApolloProvider({ children }: PropsWithChildren) {
-  // biome-ignore lint/correctness/useExhaustiveDependencies: used for memoization
-  const client = useMemo(
-    () => createApolloClient({ idToken: '' }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+  const client = useMemo(() => createApolloClient({ idToken: '' }), []);
 
   return <ApolloProviderLibs client={client}>{children}</ApolloProviderLibs>;
 }

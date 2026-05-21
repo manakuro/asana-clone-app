@@ -1,4 +1,3 @@
-import { useSlotRecipe } from '@chakra-ui/react';
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { AssigneeChip } from '@/components/features/Chips';
@@ -36,7 +35,6 @@ const Component = memo(function Component() {
       return true;
     },
   });
-  const recipe = useSlotRecipe({ key: 'field' });
 
   const popoverDisclosure = useDisclosure();
   const [value, setValue] = useState<string>('');
