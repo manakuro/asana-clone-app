@@ -128,6 +128,6 @@ export const system = createSystem(defaultConfig, {
   },
 });
 
-if (process.env.NODE_ENV === 'development') {
-  console.log(system);
-}
+// if (process.env.NODE_ENV === 'development') {
+//   console.log(system);
+// }

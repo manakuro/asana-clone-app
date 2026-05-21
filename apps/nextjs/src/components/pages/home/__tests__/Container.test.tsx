@@ -10,8 +10,7 @@ import {
 } from '@/testUtils/mock/setup';
 import { Container } from '../Container';
 
-// TODO: fix test
-describe.skip('pages/Home', () => {
+describe('pages/Home', () => {
   startServer();
   closeServer();
   resetServer();
