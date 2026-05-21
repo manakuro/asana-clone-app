@@ -7,7 +7,12 @@ import { defineConfig } from 'vitest/config';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
+// Test Configuration:
+// | Project     | Pattern                    | Environment | Purpose                                    |
+// |-------------|----------------------------|-------------|--------------------------------------------|
+// | unit        | *.test.ts, *.test.tsx      | happy-dom   | Pure functions and single components       |
+// | integration | *.integration.test.tsx     | happy-dom   | Component behavior tests with MSW          |
+// | storybook   | *.stories.tsx              | browser     | UI visual/interaction tests                |
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -29,7 +34,7 @@ export default defineConfig({
           restoreMocks: true,
         },
       },
-      // Integration tests: React components with MSW
+      // Integration tests: Component behavior tests with MSW
       {
         extends: true,
         test: {
