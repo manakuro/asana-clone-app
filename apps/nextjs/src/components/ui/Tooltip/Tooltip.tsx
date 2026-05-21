@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import {
   Tooltip as ChakraTooltip,
   type TooltipProps as ChakraTooltipProps,
-} from 'src/chakra-ui/ui/tooltip';
+} from '@/chakra-ui/ui/tooltip';
 import { Flex } from '@/components/ui/Flex';
 
 type Props = ChakraTooltipProps & {
