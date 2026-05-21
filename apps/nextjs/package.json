@@ -20,6 +20,7 @@
     "test": "vitest",
     "test:ci": "vitest --maxWorkers=1",
     "test:unit": "vitest --project=unit",
+    "test:integration": "vitest --project=integration",
     "test:storybook": "vitest --project=storybook",
     "tsc": "tsc",
     "tsc:scripts": "tsc --p ./scripts/",

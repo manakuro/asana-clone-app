@@ -15,18 +15,33 @@ export default defineConfig({
   },
   test: {
     projects: [
+      // Unit tests: Pure functions (no React, no MSW)
       {
         extends: true,
         test: {
           name: 'unit',
-          environment: 'happy-dom',
+          environment: 'node',
           globals: true,
-          setupFiles: ['vitest/setup.ts'],
-          include: ['**/src/**/?(*.)+(spec|test).[jt]s?(x)'],
+          include: ['src/**/*.test.ts?(x)'],
+          exclude: ['src/**/*.integration.test.tsx'],
           mockReset: true,
           restoreMocks: true,
         },
       },
+      // Integration tests: React components with MSW
+      {
+        extends: true,
+        test: {
+          name: 'integration',
+          environment: 'happy-dom',
+          globals: true,
+          setupFiles: ['vitest/setup.ts'],
+          include: ['src/**/*.integration.test.tsx'],
+          mockReset: true,
+          restoreMocks: true,
+        },
+      },
+      // Storybook tests: UI visual/interaction tests
       {
         extends: true,
         plugins: [
