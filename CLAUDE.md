@@ -29,11 +29,15 @@ An Asana clone application built as a monorepo with real-time communication usin
 - `pnpm start` - Start production server on port 8080
 - `pnpm lint` - Run Biome linting on src/ directory
 - `pnpm lint:fix` - Fix linting with Biome (includes unsafe fixes)
-- `pnpm test` - Run Vitest tests
 - `pnpm tsc` - TypeScript compilation check
 - `pnpm codegen` - Generate GraphQL types and hooks
 - `pnpm codegen:watch` - Watch mode for GraphQL codegen
+
+### Testing (apps/nextjs/)
+- `pnpm test` - Run Vitest tests (unit + integration)
+- `pnpm test:ci` - Run tests in CI mode
 - `pnpm storybook` - Start Storybook on port 6006
+- For guidelines on what goes where, see the `/testing` skill (apps/nextjs only)
 
 ### Backend (apps/api/)
 Use Makefile commands:

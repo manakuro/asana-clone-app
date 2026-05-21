@@ -8,11 +8,16 @@ import { defineConfig } from 'vitest/config';
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Test Configuration:
-// | Project     | Pattern                    | Environment | Purpose                                    |
-// |-------------|----------------------------|-------------|--------------------------------------------|
-// | unit        | *.test.ts, *.test.tsx      | happy-dom   | Pure functions and single components       |
-// | integration | *.integration.test.tsx     | happy-dom   | Component behavior tests with MSW          |
-// | storybook   | *.stories.tsx              | browser     | UI visual/interaction tests                |
+// | Project     | Pattern                        | Environment | Purpose                                                          |
+// |-------------|--------------------------------|-------------|------------------------------------------------------------------|
+// | unit        | *.test.ts, *.test.tsx          | happy-dom   | Pure logic: utility functions, custom hooks, data transforms     |
+// | integration | *.integration.test.tsx         | happy-dom   | User flows across components with MSW (async, routing, auth)     |
+// | storybook   | *.stories.tsx                  | browser     | Visual states, a11y, and interaction tests per component         |
+//
+// Guideline:
+// - unit        → no UI involved; test fails? tell the engineer.
+// - integration → MSW-mocked API + multi-component flow; test fails? tell the engineer.
+// - storybook   → each visual state (loading/error/empty/success) + a11y; test fails? tell the designer.
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -20,7 +25,6 @@ export default defineConfig({
   },
   test: {
     projects: [
-      // Unit tests: Pure functions and single components (no MSW)
       {
         extends: true,
         test: {
@@ -34,7 +38,6 @@ export default defineConfig({
           restoreMocks: true,
         },
       },
-      // Integration tests: Component behavior tests with MSW
       {
         extends: true,
         test: {
@@ -47,7 +50,6 @@ export default defineConfig({
           restoreMocks: true,
         },
       },
-      // Storybook tests: UI visual/interaction tests
       {
         extends: true,
         plugins: [
