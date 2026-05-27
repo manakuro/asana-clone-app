@@ -1,9 +1,13 @@
-import { from } from '@apollo/client';
+import { ApolloLink } from '@apollo/client/core';
+import { RemoveTypenameFromVariablesLink } from '@apollo/client/link/remove-typename';
 import { createErrorLink } from './createErrorLink';
 import { type CreateHttpProps, createHttpLink } from './createHttpLink';
-import { removeTypeName } from './removeTypename';
 
 export type CreateLinkProps = CreateHttpProps;
 export const createLink = (props: CreateLinkProps) => {
-  return from([removeTypeName, createErrorLink(), createHttpLink(props)]);
+  return ApolloLink.from([
+    new RemoveTypenameFromVariablesLink(),
+    createErrorLink(),
+    createHttpLink(props),
+  ]);
 };

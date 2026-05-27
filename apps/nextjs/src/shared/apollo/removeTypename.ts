@@ -1,4 +1,4 @@
-import { ApolloLink } from '@apollo/client';
+import { ApolloLink } from '@apollo/client/core';
 
 const omitTypename = (key: string, value: any) =>
   key === '__typename' ? undefined : value;
@@ -10,7 +10,5 @@ export const removeTypeName = new ApolloLink((operation, forward) => {
       omitTypename,
     );
   }
-  return forward(operation).map((data) => {
-    return data;
-  });
+  return forward(operation);
 });

@@ -1,6 +1,7 @@
+import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
-import { useFavoriteWorkspaceIdsUpdatedSubscription as useSubscription } from '@/graphql/hooks';
+import { FavoriteWorkspaceIdsUpdatedDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import type { FavoriteWorkspaceIdsUpdatedSubscriptionResponse as Response } from '../type';
@@ -28,22 +29,15 @@ export const useFavoriteWorkspaceIdsUpdatedSubscription = (props: Props) => {
     [setFavoriteWorkspaceIds],
   );
 
-  useSubscription({
+  useSubscription(FavoriteWorkspaceIdsUpdatedDocument, {
     variables: {
       teammateId: props.teammateId,
       requestId: FAVORITE_WORKSPACE_IDS_UPDATED_SUBSCRIPTION_REQUEST_ID,
     },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
+    onData: ({ data }) => {
+      if (isEqual(data.data, previousData?.data)) return;
 
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
+      if (data.data) setBySubscription(data.data);
       previousData = data;
     },
     skip: !props.teammateId,

@@ -19,13 +19,10 @@ export const data = (
                 color: 'gray.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
           {
             node: {
@@ -36,13 +33,10 @@ export const data = (
                 color: 'red.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
           {
             node: {
@@ -53,13 +47,10 @@ export const data = (
                 color: 'orange.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
           {
             node: {
@@ -70,13 +61,10 @@ export const data = (
                 color: 'yellow.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
           {
             node: {
@@ -87,13 +75,10 @@ export const data = (
                 color: 'green.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
           {
             node: {
@@ -104,13 +89,10 @@ export const data = (
                 color: 'teal.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
           {
             node: {
@@ -121,13 +103,10 @@ export const data = (
                 color: 'blue.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
           {
             node: {
@@ -138,13 +117,10 @@ export const data = (
                 color: 'cyan.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
           {
             node: {
@@ -155,13 +131,10 @@ export const data = (
                 color: 'purple.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
           {
             node: {
@@ -172,16 +145,12 @@ export const data = (
                 color: 'pink.200',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Color',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectLightColor',
             },
-            __typename: 'ProjectLightColorEdge',
           },
         ],
-        __typename: 'ProjectLightColorConnection',
       },
     },
     (options || {}) as Query,

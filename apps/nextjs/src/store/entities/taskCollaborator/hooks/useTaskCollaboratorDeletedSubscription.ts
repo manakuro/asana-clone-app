@@ -1,7 +1,8 @@
+import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { useTaskCollaboratorDeletedSubscription as useSubscription } from '@/graphql/hooks';
+import { TaskCollaboratorDeletedDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import type { TaskCollaboratorDeletedSubscriptionResponse as Response } from '../type';
@@ -21,22 +22,15 @@ export const useTaskCollaboratorDeletedSubscription = (props: Props) => {
     () => !props.workspaceId,
     [props.workspaceId],
   );
-  const subscriptionResult = useSubscription({
+  const subscriptionResult = useSubscription(TaskCollaboratorDeletedDocument, {
     variables: {
       workspaceId: props.workspaceId,
       requestId: TASK_COLLABORATOR_DELETED_SUBSCRIPTION_REQUEST_ID,
     },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
+    onData: ({ data }) => {
+      if (isEqual(data.data, previousData?.data)) return;
 
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
+      if (data.data) setBySubscription(data.data);
       previousData = data;
     },
     skip: skipSubscription,

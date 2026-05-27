@@ -1,7 +1,8 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
-import { useUpdateTaskFeedMutation } from '@/graphql/hooks';
+import { UpdateTaskFeedDocument } from '@/graphql/hooks';
 import { useWorkspace } from '@/store/entities/workspace';
 import { taskFeedState } from '../atom';
 import type { TaskFeed } from '../type';
@@ -14,7 +15,7 @@ export const useTaskFeed = (taskFeedId: string) => {
   );
   const { upsert } = useUpsert();
   const { workspace } = useWorkspace();
-  const [updateTaskFeedMutation] = useUpdateTaskFeedMutation();
+  const [updateTaskFeedMutation] = useMutation(UpdateTaskFeedDocument);
 
   const setTaskFeed = useAtomCallback(
     useCallback(
@@ -36,7 +37,7 @@ export const useTaskFeed = (taskFeedId: string) => {
           },
         });
 
-        if (res.errors) {
+        if (res.error) {
           upsert(prev);
         }
       },

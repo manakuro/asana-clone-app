@@ -1,6 +1,7 @@
+import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { useTaskTagDeletedSubscription as useSubscription } from '@/graphql/hooks';
+import { TaskTagDeletedDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import type { TaskTagDeletedSubscriptionResponse as Response } from '../type';
@@ -20,22 +21,15 @@ export const useTaskTagDeletedSubscription = (props: Props) => {
     () => !props.workspaceId,
     [props.workspaceId],
   );
-  useSubscription({
+  useSubscription(TaskTagDeletedDocument, {
     variables: {
       workspaceId: props.workspaceId,
       requestId: TASK_TAG_DELETED_SUBSCRIPTION_REQUEST_ID,
     },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
+    onData: ({ data }) => {
+      if (isEqual(data.data, previousData?.data)) return;
 
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
+      if (data.data) setBySubscription(data.data);
       previousData = data;
     },
     skip: skipSubscription,

@@ -1,10 +1,6 @@
 import type { TestUsersQuery } from '@/graphql/types';
 
 export type {
-  TestUsersLazyQueryHookResult,
-  TestUsersQueryHookResult,
-} from '@/graphql/hooks';
-export type {
   TestUsersQuery,
   TestUsersQueryVariables,
 } from '@/graphql/types';

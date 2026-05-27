@@ -1,5 +1,6 @@
-import { useMemo } from 'react';
-import { useFavoriteWorkspaceIdsQuery as useQuery } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useEffect, useMemo } from 'react';
+import { FavoriteWorkspaceIdsDocument } from '@/graphql/hooks';
 import { useFavoriteWorkspaceIdsResponse } from '@/store/entities/favoriteWorkspaceIds';
 import { useMe } from '@/store/entities/me';
 import { useWorkspace } from '@/store/entities/workspace';
@@ -10,16 +11,19 @@ export const useFavoriteWorkspaceIdsQuery = () => {
   const skip = useMemo(() => !me.id || !workspace.id, [me.id, workspace.id]);
   const { setFavoriteWorkspaceIds } = useFavoriteWorkspaceIdsResponse();
 
-  const queryResult = useQuery({
+  const queryResult = useQuery(FavoriteWorkspaceIdsDocument, {
     variables: {
       teammateId: me.id,
       workspaceId: workspace.id,
     },
     skip,
-    onCompleted: (data) => {
-      setFavoriteWorkspaceIds(data.favoriteWorkspaceIds);
-    },
   });
+
+  useEffect(() => {
+    if (!queryResult.data) return;
+
+    setFavoriteWorkspaceIds(queryResult.data.favoriteWorkspaceIds);
+  }, [queryResult.data, setFavoriteWorkspaceIds]);
 
   return {
     refetch: queryResult.refetch,

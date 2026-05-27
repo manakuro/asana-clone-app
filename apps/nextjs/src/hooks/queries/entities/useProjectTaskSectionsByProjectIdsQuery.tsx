@@ -1,5 +1,6 @@
+import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo, useState } from 'react';
-import { useProjectTaskSectionsQuery as useQuery } from '@/graphql/hooks';
+import { ProjectTaskSectionsDocument } from '@/graphql/hooks';
 import type { ProjectTaskSectionsQuery } from '@/graphql/types';
 import type { ProjectTaskSectionResponse } from '@/graphql/types/projectTaskSections';
 import { useMountedRef } from '@/hooks';
@@ -11,7 +12,7 @@ export const useProjectTaskSectionsByProjectIdsQuery = (
 ) => {
   const skip = useMemo(() => !projectIds.length, [projectIds.length]);
 
-  const queryResult = useQuery({
+  const queryResult = useQuery(ProjectTaskSectionsDocument, {
     variables: {
       where: {
         projectIDIn: projectIds,

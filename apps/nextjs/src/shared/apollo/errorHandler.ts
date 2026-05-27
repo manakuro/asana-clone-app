@@ -1,4 +1,5 @@
-import type { ErrorResponse } from '@apollo/client/link/error';
+import { CombinedGraphQLErrors, ServerError } from '@apollo/client';
+import type { ErrorLink } from '@apollo/client/link/error';
 import { toaster } from '@/chakra-ui/ui/toaster';
 
 let unauthorized = false;
@@ -14,22 +15,21 @@ export const websocketErrorHandler = async (errors: Error[]) => {
 
 // For graphql
 export const graphqlErrorHandler = ({
-  graphQLErrors,
-  networkError,
-}: ErrorResponse) => {
-  console.log('graphQLErrors: ', graphQLErrors);
-  if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }) => {
+  error,
+}: ErrorLink.ErrorHandlerOptions) => {
+  if (CombinedGraphQLErrors.is(error)) {
+    error.errors.forEach(({ message, locations, path }) => {
       console.log(
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
       );
     });
+  }
 
-  if ((networkError as any)?.statusCode === 401) {
+  if (ServerError.is(error) && error?.statusCode === 401) {
     handleUnauthorizedError();
   }
 
-  if (networkError) console.log(`[Network error]: ${networkError}`);
+  if (ServerError.is(error)) console.log(`[Network error]: ${error.message}`);
 };
 
 const handleUnauthorizedError = () => {

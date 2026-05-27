@@ -1,10 +1,11 @@
+import { useMutation } from '@apollo/client/react';
 import { RESET, useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useCreateProjectTaskByTaskIdMutation,
-  useCreateProjectTaskMutation,
-  useDeleteProjectTaskMutation,
-  useUpdateProjectTaskMutation,
+  CreateProjectTaskByTaskIdDocument,
+  CreateProjectTaskDocument,
+  DeleteProjectTaskDocument,
+  UpdateProjectTaskDocument,
 } from '@/graphql/hooks';
 import { uuid } from '@/shared/uuid';
 import { useMe } from '@/store/entities/me';
@@ -36,11 +37,12 @@ type AddProjectTaskInput = Partial<ProjectTask> & {
 
 export const useProjectTaskCommand = () => {
   const { addTask } = useTaskCommand();
-  const [createProjectTaskMutation] = useCreateProjectTaskMutation();
-  const [createProjectTaskByTaskIdMutation] =
-    useCreateProjectTaskByTaskIdMutation();
-  const [updateProjectTaskMutation] = useUpdateProjectTaskMutation();
-  const [deleteProjectTaskMutation] = useDeleteProjectTaskMutation();
+  const [createProjectTaskMutation] = useMutation(CreateProjectTaskDocument);
+  const [createProjectTaskByTaskIdMutation] = useMutation(
+    CreateProjectTaskByTaskIdDocument,
+  );
+  const [updateProjectTaskMutation] = useMutation(UpdateProjectTaskDocument);
+  const [deleteProjectTaskMutation] = useMutation(DeleteProjectTaskDocument);
 
   const { me } = useMe();
   const { workspace } = useWorkspace();
@@ -80,7 +82,7 @@ export const useProjectTaskCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
@@ -120,7 +122,7 @@ export const useProjectTaskCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
@@ -181,7 +183,7 @@ export const useProjectTaskCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return '';
           }
@@ -256,7 +258,7 @@ export const useProjectTaskCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return '';
           }
@@ -307,7 +309,7 @@ export const useProjectTaskCommand = () => {
             },
           });
 
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {

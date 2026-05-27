@@ -1,6 +1,7 @@
+import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
-import { useTaskAssignedSubscription as useSubscription } from '@/graphql/hooks';
+import { TaskAssignedDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import type { TaskAssignedSubscriptionResponse } from '@/store/entities/task';
@@ -28,22 +29,15 @@ export const useTaskAssignedSubscription = (props: Props) => {
     [setTeammateTask],
   );
 
-  useSubscription({
+  useSubscription(TaskAssignedDocument, {
     variables: {
       workspaceId: props.workspaceId,
       requestId: TASK_ASSIGNED_SUBSCRIPTION_REQUEST_ID,
     },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
+    onData: ({ data }) => {
+      if (isEqual(data.data, previousData?.data)) return;
 
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
+      if (data.data) setBySubscription(data.data);
       previousData = data;
     },
   });

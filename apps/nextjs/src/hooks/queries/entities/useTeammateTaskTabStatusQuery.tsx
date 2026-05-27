@@ -1,13 +1,14 @@
+import { useQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useEffect } from 'react';
-import { useTeammateTaskTabStatusQuery as useQuery } from '@/graphql/hooks';
+import { TeammateTaskTabStatusDocument } from '@/graphql/hooks';
 import { useMountedRef } from '@/hooks';
 import { useTeammateTaskTabStatusResponse } from '@/store/entities/teammateTaskTabStatus';
 
 const loadingAtom = atom<boolean>(true);
 
 export const useTeammateTaskTabStatusQuery = () => {
-  const queryResult = useQuery();
+  const queryResult = useQuery(TeammateTaskTabStatusDocument);
   const { setTeammateTaskTabStatus } = useTeammateTaskTabStatusResponse();
   const [loading, setLoading] = useAtom(loadingAtom);
   const { mountedRef } = useMountedRef();

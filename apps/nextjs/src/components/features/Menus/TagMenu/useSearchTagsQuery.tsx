@@ -1,6 +1,7 @@
+import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { useTagsLazyQuery } from '@/graphql/hooks';
+import { TagsDocument } from '@/graphql/hooks';
 import type { TagResponse, TagsQuery } from '@/graphql/types/tag';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import { useWorkspace } from '@/store/entities/workspace';
@@ -15,7 +16,7 @@ type Props = {
 };
 export const useSearchTagsQuery = () => {
   const [state, setState] = useAtom(searchTagsQueryAtom);
-  const [refetchQuery] = useTagsLazyQuery();
+  const [refetchQuery] = useLazyQuery(TagsDocument);
   const { workspace } = useWorkspace();
 
   const refetch = useCallback(

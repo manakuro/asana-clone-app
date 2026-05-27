@@ -1,7 +1,8 @@
+import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { useTeammateTaskSectionDeletedAndDeleteTasksSubscription as useSubscription } from '@/graphql/hooks';
+import { TeammateTaskSectionDeletedAndDeleteTasksDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import { useResetTeammateTask } from '@/store/entities/teammateTask';
@@ -27,28 +28,6 @@ export const useTeammateTaskSectionDeletedAndDeleteTasksSubscription = (
     () => !props.workspaceId,
     [props.workspaceId],
   );
-  const subscriptionResult = useSubscription({
-    variables: {
-      workspaceId: props.workspaceId,
-      teammateId: props.teammateId,
-      requestId:
-        TEAMMATE_TASK_SECTION_DELETED_AND_DELETE_TASKS_SUBSCRIPTION_REQUEST_ID,
-    },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
-
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
-      previousData = data;
-    },
-    skip: skipSubscription,
-  });
 
   const setBySubscription = useAtomCallback(
     useCallback(
@@ -65,6 +44,25 @@ export const useTeammateTaskSectionDeletedAndDeleteTasksSubscription = (
       },
       [resetTeammateTaskSection, resetTeammateTasks],
     ),
+  );
+
+  const subscriptionResult = useSubscription(
+    TeammateTaskSectionDeletedAndDeleteTasksDocument,
+    {
+      variables: {
+        workspaceId: props.workspaceId,
+        teammateId: props.teammateId,
+        requestId:
+          TEAMMATE_TASK_SECTION_DELETED_AND_DELETE_TASKS_SUBSCRIPTION_REQUEST_ID,
+      },
+      onData: ({ data }) => {
+        if (isEqual(data.data, previousData?.data)) return;
+
+        if (data.data) setBySubscription(data.data);
+        previousData = data;
+      },
+      skip: skipSubscription,
+    },
   );
 
   return {

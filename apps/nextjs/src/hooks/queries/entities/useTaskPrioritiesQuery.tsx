@@ -1,4 +1,6 @@
-import { useTaskPrioritiesQuery as useQuery } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useEffect } from 'react';
+import { TaskPrioritiesDocument } from '@/graphql/hooks';
 import type { TaskPrioritiesQuery } from '@/graphql/types/taskPriorities';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import {
@@ -9,17 +11,20 @@ import {
 export const useTaskPrioritiesQuery = () => {
   const { setTaskPriorities } = useTaskPriorityResponse();
 
-  const queryResult = useQuery({
+  const queryResult = useQuery(TaskPrioritiesDocument, {
     fetchPolicy: 'cache-first',
-    onCompleted: (data) => {
-      const taskPriorities = getNodesFromEdges<
-        TaskPriority,
-        TaskPrioritiesQuery['taskPriorities']
-      >(data.taskPriorities);
-
-      setTaskPriorities(taskPriorities);
-    },
   });
+
+  useEffect(() => {
+    if (!queryResult.data) return;
+
+    const taskPriorities = getNodesFromEdges<
+      TaskPriority,
+      TaskPrioritiesQuery['taskPriorities']
+    >(queryResult.data.taskPriorities);
+
+    setTaskPriorities(taskPriorities);
+  }, [queryResult.data, setTaskPriorities]);
 
   return {
     refetch: queryResult.refetch,

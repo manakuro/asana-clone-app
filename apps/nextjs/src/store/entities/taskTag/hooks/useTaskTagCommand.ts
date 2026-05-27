@@ -1,9 +1,7 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import {
-  useCreateTaskTagMutation,
-  useDeleteTaskTagMutation,
-} from '@/graphql/hooks';
+import { CreateTaskTagDocument, DeleteTaskTagDocument } from '@/graphql/hooks';
 import { uuid } from '@/shared/uuid';
 import type { Tag } from '@/store/entities/tag';
 import {
@@ -18,8 +16,8 @@ import { TASK_TAG_DELETED_SUBSCRIPTION_REQUEST_ID } from './useTaskTagDeletedSub
 import { useTaskTagResponse } from './useTaskTagResponse';
 
 export const useTaskTagCommand = () => {
-  const [createTaskTagMutation] = useCreateTaskTagMutation();
-  const [deleteTaskTagMutation] = useDeleteTaskTagMutation();
+  const [createTaskTagMutation] = useMutation(CreateTaskTagDocument);
+  const [deleteTaskTagMutation] = useMutation(DeleteTaskTagDocument);
   const { setTaskTag } = useTaskTagResponse();
   const { resetTaskTag } = useResetTaskTag();
   const { workspace } = useWorkspace();
@@ -60,7 +58,7 @@ export const useTaskTagCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return;
           }
@@ -100,7 +98,7 @@ export const useTaskTagCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return;
           }

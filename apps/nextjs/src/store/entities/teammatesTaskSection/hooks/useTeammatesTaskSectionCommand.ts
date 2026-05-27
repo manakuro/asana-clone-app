@@ -1,12 +1,13 @@
+import { useMutation } from '@apollo/client/react';
 import { RESET, useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useCreateTeammateTaskSectionMutation,
-  useDeleteTeammateTaskSectionAndDeleteTasksMutation,
-  useDeleteTeammateTaskSectionAndKeepTasksMutation,
-  useDeleteTeammateTaskSectionMutation,
-  useUndeleteTeammateTaskSectionAndDeleteTasksMutation,
-  useUndeleteTeammateTaskSectionAndKeepTasksMutation,
+  CreateTeammateTaskSectionDocument,
+  DeleteTeammateTaskSectionAndDeleteTasksDocument,
+  DeleteTeammateTaskSectionAndKeepTasksDocument,
+  DeleteTeammateTaskSectionDocument,
+  UndeleteTeammateTaskSectionAndDeleteTasksDocument,
+  UndeleteTeammateTaskSectionAndKeepTasksDocument,
 } from '@/graphql/hooks';
 import { uuid } from '@/shared/uuid';
 import { useMe } from '@/store/entities/me';
@@ -39,25 +40,31 @@ export const useTeammatesTaskSectionCommand = () => {
   const { upsert } = useUpsert();
   const { me } = useMe();
   const { workspace } = useWorkspace();
-  const [createTeammateTaskSectionMutation] =
-    useCreateTeammateTaskSectionMutation();
+  const [createTeammateTaskSectionMutation] = useMutation(
+    CreateTeammateTaskSectionDocument,
+  );
   const { setTeammatesTaskSections } = useTeammatesTaskSectionResponse();
   const { resetTeammateTaskSection } = useResetTeammateTaskSection();
 
-  const [deleteTeammateTaskSectionAndKeepTasksMutation] =
-    useDeleteTeammateTaskSectionAndKeepTasksMutation();
+  const [deleteTeammateTaskSectionAndKeepTasksMutation] = useMutation(
+    DeleteTeammateTaskSectionAndKeepTasksDocument,
+  );
 
-  const [deleteTeammateTaskSectionAndDeleteTasksMutation] =
-    useDeleteTeammateTaskSectionAndDeleteTasksMutation();
+  const [deleteTeammateTaskSectionAndDeleteTasksMutation] = useMutation(
+    DeleteTeammateTaskSectionAndDeleteTasksDocument,
+  );
 
-  const [deleteTeammateTaskSectionMutation] =
-    useDeleteTeammateTaskSectionMutation();
+  const [deleteTeammateTaskSectionMutation] = useMutation(
+    DeleteTeammateTaskSectionDocument,
+  );
 
-  const [undeleteTeammateTaskSectionAndKeepTasksMutation] =
-    useUndeleteTeammateTaskSectionAndKeepTasksMutation();
+  const [undeleteTeammateTaskSectionAndKeepTasksMutation] = useMutation(
+    UndeleteTeammateTaskSectionAndKeepTasksDocument,
+  );
 
-  const [undeleteTeammateTaskSectionAndDeleteTasksMutation] =
-    useUndeleteTeammateTaskSectionAndDeleteTasksMutation();
+  const [undeleteTeammateTaskSectionAndDeleteTasksMutation] = useMutation(
+    UndeleteTeammateTaskSectionAndDeleteTasksDocument,
+  );
 
   const { setTeammateTask } = useTeammateTaskResponse();
   const { resetTeammateTasks } = useResetTeammateTask();
@@ -88,7 +95,7 @@ export const useTeammatesTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return '';
           }
@@ -144,7 +151,7 @@ export const useTeammatesTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return;
           }
@@ -204,7 +211,7 @@ export const useTeammatesTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return;
           }
@@ -247,7 +254,7 @@ export const useTeammatesTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
@@ -291,7 +298,7 @@ export const useTeammatesTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             return;
           }
 
@@ -361,7 +368,7 @@ export const useTeammatesTaskSectionCommand = () => {
             },
           },
         });
-        if (res.errors) return;
+        if (res.error) return;
 
         const data = res.data?.undeleteTeammateTaskSectionAndDeleteTasks;
         if (!data) return;

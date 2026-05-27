@@ -1,7 +1,8 @@
+import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { useTeammateTaskSectionUndeletedAndDeleteTasksSubscription as useSubscription } from '@/graphql/hooks';
+import { TeammateTaskSectionUndeletedAndDeleteTasksDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import { useTeammatesTaskSectionResponse } from '@/store/entities/teammatesTaskSection';
@@ -25,28 +26,6 @@ export const useTeammateTaskSectionUndeletedAndDeleteTasksSubscription = (
     () => !props.workspaceId,
     [props.workspaceId],
   );
-  const subscriptionResult = useSubscription({
-    variables: {
-      workspaceId: props.workspaceId,
-      teammateId: props.teammateId,
-      requestId:
-        TEAMMATE_TASK_SECTION_UNDELETED_AND_DELETE_TASKS_SUBSCRIPTION_REQUEST_ID,
-    },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
-
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
-      previousData = data;
-    },
-    skip: skipSubscription,
-  });
 
   const setBySubscription = useAtomCallback(
     useCallback(
@@ -61,6 +40,25 @@ export const useTeammateTaskSectionUndeletedAndDeleteTasksSubscription = (
       },
       [setTeammatesTaskSections],
     ),
+  );
+
+  const subscriptionResult = useSubscription(
+    TeammateTaskSectionUndeletedAndDeleteTasksDocument,
+    {
+      variables: {
+        workspaceId: props.workspaceId,
+        teammateId: props.teammateId,
+        requestId:
+          TEAMMATE_TASK_SECTION_UNDELETED_AND_DELETE_TASKS_SUBSCRIPTION_REQUEST_ID,
+      },
+      onData: ({ data }) => {
+        if (isEqual(data.data, previousData?.data)) return;
+
+        if (data.data) setBySubscription(data.data);
+        previousData = data;
+      },
+      skip: skipSubscription,
+    },
   );
 
   return {

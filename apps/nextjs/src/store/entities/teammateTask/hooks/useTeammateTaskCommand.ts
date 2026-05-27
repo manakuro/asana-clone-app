@@ -1,8 +1,9 @@
+import { useMutation } from '@apollo/client/react';
 import { RESET, useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useCreateTeammateTaskMutation,
-  useUpdateTeammateTaskMutation,
+  CreateTeammateTaskDocument,
+  UpdateTeammateTaskDocument,
 } from '@/graphql/hooks';
 import { uuid } from '@/shared/uuid';
 import { useMe } from '@/store/entities/me';
@@ -26,8 +27,8 @@ export const useTeammateTaskCommand = () => {
   const { me } = useMe();
   const { workspace } = useWorkspace();
   const { addTask } = useTaskCommand();
-  const [createTeammateTaskMutation] = useCreateTeammateTaskMutation();
-  const [updateTeammateTaskMutation] = useUpdateTeammateTaskMutation();
+  const [createTeammateTaskMutation] = useMutation(CreateTeammateTaskDocument);
+  const [updateTeammateTaskMutation] = useMutation(UpdateTeammateTaskDocument);
   const { setTeammateTask } = useTeammateTaskResponse();
 
   const setTeammateTaskByTaskId = useAtomCallback(
@@ -52,7 +53,7 @@ export const useTeammateTaskCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             set(teammateTaskState(prev.id), prev);
           }
         } catch (e) {
@@ -105,7 +106,7 @@ export const useTeammateTaskCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return '';
           }

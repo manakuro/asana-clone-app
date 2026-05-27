@@ -5,59 +5,32 @@ const config: CodegenConfig = {
   documents: ['./src/graphql/**/*.js', './src/graphql/**/*.gql'],
   generates: {
     './src/graphql/types/index.ts': {
-      plugins: [
-        {
-          add: {
-            content: '/* eslint-disable @typescript-eslint/no-redeclare */',
-          },
-        },
-        'typescript',
-        'typescript-operations',
-      ],
+      plugins: ['typescript-operations'],
       config: {
         enumsAsConst: true,
       },
     },
 
     './src/graphql/enums/index.ts': {
-      plugins: [
-        {
-          add: {
-            content: '/* eslint-disable @typescript-eslint/no-redeclare */',
-          },
-        },
-        'typescript',
-      ],
+      plugins: ['typescript'],
       config: {
         enumsAsConst: true,
-        typesPrefix: '__SHOULD_NOT_USE__',
         enumPrefix: false,
       },
     },
 
     './src/graphql/hooks/index.ts': {
-      plugins: ['typescript-react-apollo'],
+      plugins: ['typescript-operations', 'typed-document-node'],
       config: {
-        withComponent: false,
-        withHOC: false,
-        withHooks: true,
-        apolloClientVersion: 3,
-        reactApolloVersion: 3,
-        importOperationTypesFrom: "import('../types')",
+        importSchemaTypesFrom: './src/graphql/types/index.ts',
+        nonOptionalTypename: true,
+        skipTypeNameForRoot: true,
       },
     },
 
     // For mock
     './src/graphql/types/index.mock.ts': {
-      plugins: [
-        {
-          add: {
-            content: '/* eslint-disable @typescript-eslint/no-redeclare */',
-          },
-        },
-        'typescript',
-        'typescript-operations',
-      ],
+      plugins: ['typescript-operations'],
       config: {
         enumsAsConst: true,
         skipTypename: false,
@@ -68,6 +41,7 @@ const config: CodegenConfig = {
     scalars: {
       Time: 'string',
       Cursor: 'string',
+      Map: 'object',
     },
     skipTypename: true,
     preResolveTypes: true,

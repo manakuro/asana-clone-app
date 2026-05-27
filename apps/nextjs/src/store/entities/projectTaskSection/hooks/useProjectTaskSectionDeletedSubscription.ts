@@ -1,7 +1,8 @@
+import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { useProjectTaskSectionDeletedSubscription as useSubscription } from '@/graphql/hooks';
+import { ProjectTaskSectionDeletedDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import type { ProjectTaskSectionDeletedSubscriptionResponse as Response } from '../type';
@@ -21,26 +22,22 @@ export const useProjectTaskSectionDeletedSubscription = (props: Props) => {
     () => !props.workspaceId,
     [props.workspaceId],
   );
-  const subscriptionResult = useSubscription({
-    variables: {
-      workspaceId: props.workspaceId,
-      requestId: PROJECT_TASK_SECTION_DELETED_SUBSCRIPTION_REQUEST_ID,
-    },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
+  const subscriptionResult = useSubscription(
+    ProjectTaskSectionDeletedDocument,
+    {
+      variables: {
+        workspaceId: props.workspaceId,
+        requestId: PROJECT_TASK_SECTION_DELETED_SUBSCRIPTION_REQUEST_ID,
+      },
+      onData: ({ data }) => {
+        if (isEqual(data.data, previousData?.data)) return;
 
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
-      previousData = data;
+        if (data.data) setBySubscription(data.data);
+        previousData = data;
+      },
+      skip: skipSubscription,
     },
-    skip: skipSubscription,
-  });
+  );
 
   const setBySubscription = useAtomCallback(
     useCallback(

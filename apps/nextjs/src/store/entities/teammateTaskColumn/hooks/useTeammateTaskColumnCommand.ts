@@ -1,8 +1,9 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useUpdateTeammateTaskColumnMutation,
-  useUpdateTeammateTaskColumnOrderMutation,
+  UpdateTeammateTaskColumnDocument,
+  UpdateTeammateTaskColumnOrderDocument,
 } from '@/graphql/hooks';
 import { teammateTaskColumnState, teammateTaskColumnsState } from '../atom';
 import type { TeammateTaskColumn } from '../type';
@@ -10,10 +11,12 @@ import { useUpsert } from './useUpsert';
 
 export const useTeammateTaskColumnCommand = () => {
   const { upsert } = useUpsert();
-  const [updateTeammateTaskColumnMutation] =
-    useUpdateTeammateTaskColumnMutation();
-  const [updateTeammateTaskColumnOrderMutation] =
-    useUpdateTeammateTaskColumnOrderMutation();
+  const [updateTeammateTaskColumnMutation] = useMutation(
+    UpdateTeammateTaskColumnDocument,
+  );
+  const [updateTeammateTaskColumnOrderMutation] = useMutation(
+    UpdateTeammateTaskColumnOrderDocument,
+  );
 
   const setTeammateTaskColumn = useAtomCallback(
     useCallback(
@@ -39,7 +42,7 @@ export const useTeammateTaskColumnCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
@@ -86,7 +89,7 @@ export const useTeammateTaskColumnCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {

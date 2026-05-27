@@ -1,6 +1,7 @@
+import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { useWorkspaceTeammatesLazyQuery } from '@/graphql/hooks';
+import { WorkspaceTeammatesDocument } from '@/graphql/hooks';
 import type {
   WorkspaceTeammateResponse,
   WorkspaceTeammatesQuery,
@@ -18,7 +19,7 @@ type Props = {
 };
 export const useSearchWorkspaceTeammatesQuery = () => {
   const [state, setState] = useAtom(queryAtom);
-  const [refetchQuery] = useWorkspaceTeammatesLazyQuery();
+  const [refetchQuery] = useLazyQuery(WorkspaceTeammatesDocument);
 
   const refetch = useCallback(
     async (props: Props) => {

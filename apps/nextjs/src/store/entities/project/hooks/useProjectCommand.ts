@@ -1,6 +1,7 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { useUpdateProjectMutation } from '@/graphql/hooks';
+import { UpdateProjectDocument } from '@/graphql/hooks';
 import type { UpdateProjectInput } from '@/graphql/types';
 import {
   formatDueTimeToLocalTimezone,
@@ -15,7 +16,7 @@ import { PROJECT_UPDATED_SUBSCRIPTION_REQUEST_ID } from './useProjectUpdatedSubs
 import { useUpsert } from './useUpsert';
 
 export const useProjectCommand = () => {
-  const [updateProjectMutation] = useUpdateProjectMutation();
+  const [updateProjectMutation] = useMutation(UpdateProjectDocument);
   const { setHasDescriptionUpdated } = useSetHasDescriptionUpdated();
   const { workspace } = useWorkspace();
   const { upsert } = useUpsert();
@@ -44,7 +45,7 @@ export const useProjectCommand = () => {
               }),
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (err) {

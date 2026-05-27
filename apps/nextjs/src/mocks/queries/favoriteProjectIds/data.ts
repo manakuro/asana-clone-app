@@ -12,7 +12,6 @@ export const data = (
         '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
         '0AG01GK0BWAWW1RDQ0KJJENA0ET1A',
       ],
-      __typename: 'Query',
     },
     (options || {}) as Query,
     {

@@ -1,8 +1,9 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useUpdateProjectTeammateMutation,
-  useUpdateProjectTeammateOwnerMutation,
+  UpdateProjectTeammateDocument,
+  UpdateProjectTeammateOwnerDocument,
 } from '@/graphql/hooks';
 import { useWorkspace } from '@/store/entities/workspace';
 import {
@@ -16,10 +17,13 @@ import { useUpsert } from './useUpsert';
 
 export const useProjectTeammatesCommand = () => {
   const { upsert } = useUpsert();
-  const [updateProjectTeammateOwnerMutation] =
-    useUpdateProjectTeammateOwnerMutation();
+  const [updateProjectTeammateOwnerMutation] = useMutation(
+    UpdateProjectTeammateOwnerDocument,
+  );
 
-  const [updateProjectTeammateMutation] = useUpdateProjectTeammateMutation();
+  const [updateProjectTeammateMutation] = useMutation(
+    UpdateProjectTeammateDocument,
+  );
 
   const { workspace } = useWorkspace();
   const { setProjectsTeammates } = useProjectTeammateResponse();
@@ -48,7 +52,7 @@ export const useProjectTeammatesCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
@@ -113,7 +117,7 @@ export const useProjectTeammatesCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return;
           }

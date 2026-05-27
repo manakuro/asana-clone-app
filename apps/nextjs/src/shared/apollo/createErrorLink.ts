@@ -1,7 +1,7 @@
-import { onError } from '@apollo/client/link/error';
+import { ErrorLink } from '@apollo/client/link/error';
 import { graphqlErrorHandler } from '@/shared/apollo/errorHandler';
 
 export const createErrorLink = () =>
-  onError((error) => {
-    graphqlErrorHandler(error);
+  new ErrorLink((options) => {
+    graphqlErrorHandler(options);
   });

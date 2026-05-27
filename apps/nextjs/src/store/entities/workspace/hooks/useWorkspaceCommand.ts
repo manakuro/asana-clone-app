@@ -1,14 +1,16 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { useUpdateWorkspaceMutation } from '@/graphql/hooks';
+import { UpdateWorkspaceDocument } from '@/graphql/hooks';
 import { workspaceState } from '../atom';
 import type { Workspace } from '../type';
 import { useUpsert } from './useUpsert';
 import { WORKSPACE_UPDATED_SUBSCRIPTION_REQUEST_ID } from './useWorkspaceUpdatedSubscription';
 
 export const useWorkspaceCommand = () => {
-  const [updateWorkspaceMutation, { loading: updating }] =
-    useUpdateWorkspaceMutation();
+  const [updateWorkspaceMutation, { loading: updating }] = useMutation(
+    UpdateWorkspaceDocument,
+  );
 
   const { upsert } = useUpsert();
 
@@ -37,7 +39,7 @@ export const useWorkspaceCommand = () => {
             },
           });
 
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {

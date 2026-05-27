@@ -1,7 +1,7 @@
+import { useLazyQuery } from '@apollo/client/react';
 import { useCallback, useState } from 'react';
-import { useHomeTaskDetailPageLazyQuery as useQuery } from '@/graphql/hooks';
+import { HomeTaskDetailPageDocument } from '@/graphql/hooks';
 import type { HomeTaskDetailPageQueryVariables as Variables } from '@/graphql/types/app/home';
-import { useMountedRef } from '@/hooks';
 import { useTeammateTaskResponse } from '@/store/entities/teammateTask';
 
 export type UseHomeTaskDetailPageQueryResult = {
@@ -13,17 +13,10 @@ export const useHomeTaskDetailPageQuery =
   (): UseHomeTaskDetailPageQueryResult => {
     const [loading, setLoading] = useState(true);
     const { setTeammateTask } = useTeammateTaskResponse();
-    const { mountedRef } = useMountedRef();
 
-    const [refetchQuery] = useQuery({
+    const [refetchQuery] = useLazyQuery(HomeTaskDetailPageDocument, {
       notifyOnNetworkStatusChange: true,
       fetchPolicy: 'no-cache',
-      onCompleted: (data) => {
-        if (!mountedRef.current) return;
-
-        if (data.teammateTask) setTeammateTask([data.teammateTask]);
-        endLoading();
-      },
     });
 
     const startLoading = useCallback(() => {
@@ -38,12 +31,16 @@ export const useHomeTaskDetailPageQuery =
       async (variables: Variables) => {
         startLoading();
         setTimeout(async () => {
-          await refetchQuery({
+          const result = await refetchQuery({
             variables: variables,
           });
+          if (result.data?.teammateTask) {
+            setTeammateTask([result.data.teammateTask]);
+          }
+          endLoading();
         });
       },
-      [refetchQuery, startLoading],
+      [refetchQuery, startLoading, endLoading, setTeammateTask],
     );
 
     return {

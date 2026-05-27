@@ -1,7 +1,8 @@
+import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { useTaskFeedLikeCreatedSubscription as useSubscription } from '@/graphql/hooks';
+import { TaskFeedLikeCreatedDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import type { TaskFeedLikeCreatedSubscriptionResponse as Response } from '../type';
@@ -22,22 +23,15 @@ export const useTaskFeedLikeCreatedSubscription = (props: Props) => {
 
   const { setTaskFeedLikes } = useTaskFeedLikeResponse();
 
-  useSubscription({
+  useSubscription(TaskFeedLikeCreatedDocument, {
     variables: {
       workspaceId: props.workspaceId,
       requestId: TASK_FEED_LIKE_CREATED_SUBSCRIPTION_REQUEST_ID,
     },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
+    onData: ({ data }) => {
+      if (isEqual(data.data, previousData?.data)) return;
 
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
+      if (data.data) setBySubscription(data.data);
       previousData = data;
     },
     skip: skipSubscription,

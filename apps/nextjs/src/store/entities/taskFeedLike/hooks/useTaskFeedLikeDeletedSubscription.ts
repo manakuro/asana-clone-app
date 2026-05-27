@@ -1,7 +1,8 @@
+import { useSubscription } from '@apollo/client/react';
 import { RESET, useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { useTaskFeedLikeDeletedSubscription as useSubscription } from '@/graphql/hooks';
+import { TaskFeedLikeDeletedDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import { taskFeedLikeState } from '@/store/entities/taskFeedLike';
@@ -20,22 +21,15 @@ export const useTaskFeedLikeDeletedSubscription = (props: Props) => {
     return !props.workspaceId;
   }, [props.workspaceId]);
 
-  useSubscription({
+  useSubscription(TaskFeedLikeDeletedDocument, {
     variables: {
       workspaceId: props.workspaceId,
       requestId: TASK_FEED_LIKE_DELETED_SUBSCRIPTION_REQUEST_ID,
     },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
+    onData: ({ data }) => {
+      if (isEqual(data.data, previousData?.data)) return;
 
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
+      if (data.data) setBySubscription(data.data);
       previousData = data;
     },
     skip: skipSubscription,

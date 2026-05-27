@@ -1,4 +1,6 @@
-import { useProjectLightColorsQuery as useQuery } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useEffect } from 'react';
+import { ProjectLightColorsDocument } from '@/graphql/hooks';
 import type { ProjectLightColorsQuery } from '@/graphql/types/projectLightColors';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import {
@@ -9,16 +11,18 @@ import {
 export const useProjectLightColorsQuery = () => {
   const { setProjectLightColors } = useProjectLightColorsResponse();
 
-  const queryResult = useQuery({
-    onCompleted: (data) => {
-      const projectBaseColors = getNodesFromEdges<
-        ProjectLightColorResponse,
-        ProjectLightColorsQuery['projectLightColors']
-      >(data.projectLightColors);
+  const queryResult = useQuery(ProjectLightColorsDocument);
 
-      setProjectLightColors(projectBaseColors);
-    },
-  });
+  useEffect(() => {
+    if (!queryResult.data) return;
+
+    const projectBaseColors = getNodesFromEdges<
+      ProjectLightColorResponse,
+      ProjectLightColorsQuery['projectLightColors']
+    >(queryResult.data.projectLightColors);
+
+    setProjectLightColors(projectBaseColors);
+  }, [queryResult.data, setProjectLightColors]);
 
   return {
     refetch: queryResult.refetch,

@@ -1,6 +1,7 @@
+import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { useProjectsLazyQuery } from '@/graphql/hooks';
+import { ProjectsDocument } from '@/graphql/hooks';
 import type { ProjectResponse, ProjectsQuery } from '@/graphql/types/project';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import type { Project } from '@/store/entities/project';
@@ -19,7 +20,7 @@ type Props = {
 };
 export const useSearchProjectsQuery = () => {
   const [state, setState] = useAtom(searchProjectsQueryAtom);
-  const [refetchQuery] = useProjectsLazyQuery();
+  const [refetchQuery] = useLazyQuery(ProjectsDocument);
   const { workspace } = useWorkspace();
 
   const refetch = useCallback(

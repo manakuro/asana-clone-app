@@ -15,7 +15,6 @@ export const data = (
         name: 'Manato Kuroda',
         createdAt: '2022-11-29T09:16:39+09:00',
         updatedAt: '2022-11-29T09:16:39+09:00',
-        __typename: 'Me',
       },
     },
     (options || {}) as Query,

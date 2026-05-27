@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
-import { useInboxArchivePageQuery as useQuery } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { InboxArchivePageDocument } from '@/graphql/hooks';
 import { useMountedRef } from '@/hooks';
 import { useArchiveResponse } from '@/store/app/inbox/archive';
 import { useWorkspace } from '@/store/entities/workspace';
@@ -11,18 +12,12 @@ export const useInboxArchivePageQuery = () => {
   const { setArchive } = useArchiveResponse();
   const { mountedRef } = useMountedRef();
 
-  const { refetch: refetchQuery } = useQuery({
+  const { data, refetch: refetchQuery } = useQuery(InboxArchivePageDocument, {
     variables: {
       workspaceId: workspace.id,
     },
     fetchPolicy: 'no-cache',
     notifyOnNetworkStatusChange: true,
-    onCompleted: (data) => {
-      if (!mountedRef.current) return;
-
-      setArchive(data);
-      endLoading();
-    },
     skip,
   });
 
@@ -33,6 +28,14 @@ export const useInboxArchivePageQuery = () => {
   const endLoading = useCallback(() => {
     setLoading(false);
   }, []);
+
+  useEffect(() => {
+    if (!mountedRef.current) return;
+    if (!data) return;
+
+    setArchive(data);
+    endLoading();
+  }, [data, setArchive, endLoading, mountedRef]);
 
   const refetch = useCallback(async () => {
     startLoading();

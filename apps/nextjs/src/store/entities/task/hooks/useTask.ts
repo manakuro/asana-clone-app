@@ -1,7 +1,8 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
-import { useUpdateTaskMutation } from '@/graphql/hooks';
+import { UpdateTaskDocument } from '@/graphql/hooks';
 import {
   formatDueTimeToLocalTimezone,
   formatDueTimeToServerTimezone,
@@ -20,7 +21,7 @@ export const useTask = (taskId: string) => {
   const { workspace } = useWorkspace();
 
   const { upsert } = useUpsert();
-  const [updateTaskMutation] = useUpdateTaskMutation();
+  const [updateTaskMutation] = useMutation(UpdateTaskDocument);
   const { hasDescriptionUpdated } = useHasDescriptionUpdatedValue({
     taskId,
   });
@@ -44,7 +45,7 @@ export const useTask = (taskId: string) => {
             },
           });
 
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {

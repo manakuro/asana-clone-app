@@ -28,7 +28,6 @@ export const data = (
         createdBy: '0AC01GK0BWAQM2G89ZEQW6TVYJC17',
         createdAt: '2022-11-29T09:16:39+09:00',
         updatedAt: '2022-11-29T09:16:39+09:00',
-        __typename: 'Workspace',
       },
     },
     (options || {}) as Query,

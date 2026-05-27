@@ -1,8 +1,9 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useCreateFavoriteProjectMutation,
-  useDeleteFavoriteProjectMutation,
+  CreateFavoriteProjectDocument,
+  DeleteFavoriteProjectDocument,
 } from '@/graphql/hooks';
 import { useMe } from '@/store/entities/me';
 import { favoriteProjectIdsState } from '../atom';
@@ -11,8 +12,12 @@ import { useUpsert } from './useUpsert';
 
 export const useFavoriteProjectIdsCommand = () => {
   const { me } = useMe();
-  const [createFavoriteProjectMutation] = useCreateFavoriteProjectMutation();
-  const [deleteFavoriteProjectMutation] = useDeleteFavoriteProjectMutation();
+  const [createFavoriteProjectMutation] = useMutation(
+    CreateFavoriteProjectDocument,
+  );
+  const [deleteFavoriteProjectMutation] = useMutation(
+    DeleteFavoriteProjectDocument,
+  );
   const { upsert } = useUpsert();
 
   const deleteFavoriteProjectId = useAtomCallback(
@@ -36,7 +41,7 @@ export const useFavoriteProjectIdsCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
@@ -69,7 +74,7 @@ export const useFavoriteProjectIdsCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
