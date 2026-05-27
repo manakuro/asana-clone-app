@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
-import type { EditorDescription } from '@/graphql/enums';
+import type { DescriptionFragmentFragment } from '@/graphql/types';
 import { useToaster } from '@/hooks/useToaster';
 import { parseDescription } from '@/shared/prosemirror/convertDescription';
 import { createProvider } from '@/shared/react/createProvider';
@@ -47,7 +47,8 @@ const useValue = (props: Props) => {
 
   const hasTaskFile = useMemo(() => !!taskFileIds.length, [taskFileIds]);
   const hasText = useMemo(
-    () => !!(taskFeed.description as EditorDescription).content.length,
+    () =>
+      !!(taskFeed.description as DescriptionFragmentFragment).content.length,
     [taskFeed.description],
   );
   return {

@@ -6,9 +6,6 @@ const config: CodegenConfig = {
   generates: {
     './src/graphql/types/index.ts': {
       plugins: ['typescript-operations'],
-      config: {
-        enumsAsConst: true,
-      },
     },
 
     './src/graphql/enums/index.ts': {
@@ -16,6 +13,7 @@ const config: CodegenConfig = {
       config: {
         enumsAsConst: true,
         enumPrefix: false,
+        onlyEnums: true,
       },
     },
 
@@ -44,7 +42,6 @@ const config: CodegenConfig = {
       Map: 'object',
     },
     skipTypename: true,
-    preResolveTypes: true,
     maybeValue: 'T | null',
     avoidOptionals: {
       field: true,
