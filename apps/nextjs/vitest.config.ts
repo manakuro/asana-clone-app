@@ -59,6 +59,27 @@ export default defineConfig({
             configDir: path.join(dirname, '.storybook'),
           }),
         ],
+        optimizeDeps: {
+          include: [
+            'graphql',
+            '@apollo/client',
+            '@apollo/client/react',
+            'mockdate',
+            'msw-storybook-addon',
+            'deepmerge',
+            'react-icons',
+            'react-icons/ai',
+            'react-icons/bi',
+            'react-icons/bs',
+            'react-icons/fc',
+            'react-icons/fi',
+            'react-icons/hi',
+            'react-icons/io5',
+            'react-icons/md',
+            'react-icons/ri',
+            'react-icons/vsc',
+          ],
+        },
         test: {
           name: 'storybook',
           browser: {
