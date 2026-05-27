@@ -11,9 +11,7 @@ import {
 export const useTaskPrioritiesQuery = () => {
   const { setTaskPriorities } = useTaskPriorityResponse();
 
-  const queryResult = useQuery(TaskPrioritiesDocument, {
-    fetchPolicy: 'cache-first',
-  });
+  const queryResult = useQuery(TaskPrioritiesDocument);
 
   useEffect(() => {
     if (!queryResult.data) return;
