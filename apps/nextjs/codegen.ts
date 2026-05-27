@@ -29,10 +29,6 @@ const config: CodegenConfig = {
     // For mock
     './src/graphql/types/index.mock.ts': {
       plugins: ['typescript-operations'],
-      config: {
-        enumsAsConst: true,
-        skipTypename: false,
-      },
     },
   },
   config: {
