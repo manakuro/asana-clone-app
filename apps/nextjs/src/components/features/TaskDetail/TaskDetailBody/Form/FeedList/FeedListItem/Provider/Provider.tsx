@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import type { DescriptionFragmentFragment } from '@/graphql/types';
@@ -15,13 +15,13 @@ type Props = {
   taskId: string;
   isPinned?: boolean;
 };
-export const Provider: React.FCWithChildren<Props> = (props) => {
+export function Provider(props: PropsWithChildren<Props>) {
   return (
     <ProviderBase {...props}>
       <ProviderContainer {...props}>{props.children}</ProviderContainer>
     </ProviderBase>
   );
-};
+}
 
 const useValue = (props: Props) => {
   const { taskFeed } = useTaskFeed(props.taskFeedId);
