@@ -58,7 +58,7 @@
     "focus-visible": "^5.2.0",
     "formik": "^2.2.9",
     "graphql": "16.14.0",
-    "graphql-ws": "^6.0.8",
+    "subscriptions-transport-ws": "0.11.0",
     "jotai": "^2.12.5",
     "lodash-es": "4.17.23",
     "next": "16.2.6",
