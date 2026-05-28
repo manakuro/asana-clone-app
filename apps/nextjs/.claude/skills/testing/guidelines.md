@@ -7,7 +7,7 @@
 //
 // | Project     | Pattern                    | Environment | Purpose                                                      |
 // |-------------|----------------------------|-------------|--------------------------------------------------------------|
-// | unit        | *.test.ts, *.test.tsx      | happy-dom   | Pure logic: utility functions, custom hooks, data transforms |
+// | unit        | *.unit.test.ts(x)          | happy-dom   | Pure logic: utility functions, custom hooks, data transforms |
 // | integration | *.integration.test.tsx     | happy-dom   | User flows across components with MSW (async, routing, auth) |
 // | storybook   | *.stories.tsx              | browser     | Visual states, a11y, and interaction tests per component     |
 //
@@ -31,7 +31,7 @@
 - The logic would be the same regardless of how it renders
 
 ```ts
-// src/lib/formatPrice.test.ts
+// src/lib/formatPrice.unit.test.ts
 import { formatPrice } from './formatPrice'
 
 test('formats JPY without decimal', () => {
@@ -40,7 +40,7 @@ test('formats JPY without decimal', () => {
 ```
 
 ```ts
-// src/hooks/useDebounce.test.ts
+// src/hooks/useDebounce.unit.test.ts
 import { renderHook, act } from '@testing-library/react'
 import { useDebounce } from './useDebounce'
 

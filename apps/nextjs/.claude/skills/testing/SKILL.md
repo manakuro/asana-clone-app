@@ -15,7 +15,7 @@ See `guidelines.md` for the full decision rules and examples.
 
 | Project     | Pattern                    | Environment | Purpose                                        |
 |-------------|----------------------------|-------------|------------------------------------------------|
-| unit        | `*.test.ts(x)`             | happy-dom   | Pure logic: utils, hooks, data transforms      |
+| unit        | `*.unit.test.ts(x)`        | happy-dom   | Pure logic: utils, hooks, data transforms      |
 | integration | `*.integration.test.tsx`   | happy-dom   | User flows across components with MSW          |
 | storybook   | `*.stories.tsx`            | browser     | Visual states, a11y, interaction per component |
 
@@ -28,7 +28,7 @@ See `guidelines.md` for the full decision rules and examples.
 ## File placement in this package
 
 - Unit / integration tests → co-located with the component:
-  `src/components/Button/Button.test.tsx`
+  `src/components/Button/Button.unit.test.tsx`
 - Stories → co-located with the component:
   `src/components/Button/Button.stories.tsx`
 - MSW handlers → `src/mocks/handlers/`
