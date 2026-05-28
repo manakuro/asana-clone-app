@@ -8,6 +8,22 @@ import { Provider } from '../src/storybook/Provider';
 
 initialize({
   quiet: true,
+  onUnhandledRequest: ({ method, url }) => {
+    const parsedUrl = new URL(url);
+    if (parsedUrl.pathname.match(/\.(png|jpg|jpeg|gif|svg|ico|webp)$/)) {
+      return;
+    }
+    if (
+      parsedUrl.hostname === 'fonts.googleapis.com' ||
+      parsedUrl.hostname === 'fonts.gstatic.com'
+    ) {
+      return;
+    }
+    if (parsedUrl.pathname.includes('virtual:next-image')) {
+      return;
+    }
+    console.warn(`[MSW] Unhandled ${method} request to ${url}`);
+  },
 });
 
 const preview = {
@@ -36,7 +52,7 @@ const preview = {
   },
   loaders: [mswLoader],
   decorators: [
-    (Story, { parameters }) => {
+    (Story: any, { parameters }: any) => {
       const date = parameters.mockDate ?? '2022-11-29T09:16:39+09:00';
 
       mockdate.set(date);
@@ -46,7 +62,7 @@ const preview = {
 
       return createElement(Story);
     },
-    (Story) => createElement(Provider, null, createElement(Story)),
+    (Story: any) => createElement(Provider, null, createElement(Story)),
   ],
 };
 
