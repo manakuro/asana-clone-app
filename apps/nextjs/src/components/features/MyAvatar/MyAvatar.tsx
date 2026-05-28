@@ -11,6 +11,10 @@ export const MyAvatar = memo(function MyAvatar(props: Props) {
   const { me } = useMe();
   const { showProfile, ...rest } = props;
 
+  if (!me.id) {
+    return <Avatar />;
+  }
+
   if (showProfile ?? true) {
     return (
       <PopoverProfile
