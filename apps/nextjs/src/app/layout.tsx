@@ -26,7 +26,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html lang="en" className={roboto.className} suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/png" href="/icon/icon-192x192.png" />
         <link
