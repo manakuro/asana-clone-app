@@ -7,7 +7,7 @@ import { forwardRef } from 'react';
 import { type IconType, icons } from '@/shared/icons';
 
 type Props = Omit<ChakraIconProps, 'size'> & {
-  icon: IconType;
+  icon: IconType | null;
   size?: Sizes;
   ref?: React.ForwardedRef<any>;
 };
@@ -47,8 +47,15 @@ type Sizes = keyof typeof sizes;
 
 export const Icon = forwardRef<SVGSVGElement, Props>(function Icon(props, ref) {
   const { size, icon, ...iconProps } = props;
+  if (!icon) return null;
+
   const IconComponent = icons[icon];
   const sizeStyle = sizes[size ?? 'md'];
+
+  if (!IconComponent) {
+    console.warn('icon does not exist: ', props);
+    return null;
+  }
 
   return (
     <ChakraIcon ref={ref} color="fg" {...sizeStyle} {...iconProps}>
