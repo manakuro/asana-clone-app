@@ -22,6 +22,9 @@ initialize({
     if (parsedUrl.pathname.includes('virtual:next-image')) {
       return;
     }
+    if (parsedUrl.pathname.startsWith('/src/')) {
+      return;
+    }
     console.warn(`[MSW] Unhandled ${method} request to ${url}`);
   },
 });
