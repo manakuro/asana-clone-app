@@ -1,5 +1,3 @@
-import { isDev } from '@/shared/environment';
-
 export const config = {
   APP_ENV: process.env.NEXT_PUBLIC_APP_ENV as string,
   API_URL: process.env.NEXT_PUBLIC_API_URL as string,
@@ -17,9 +15,3 @@ export const config = {
   FIREBASE_MEASUREMENT_ID: process.env
     .NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID as string,
 } as const;
-
-if (isDev() && process.env.NODE_ENV !== 'test') {
-  console.groupCollapsed('config');
-  console.log(config);
-  console.groupEnd();
-}
