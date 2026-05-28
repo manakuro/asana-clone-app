@@ -56,8 +56,6 @@ export const useClickOutside = <T extends HTMLElement>(
   const removeEventListener = useCallback(() => {
     if (skip) return;
 
-    console.log('Unsubscribe!!');
-
     if (window.PointerEvent) {
       document.removeEventListener('pointerdown', handleEvent);
     } else {
@@ -75,7 +73,6 @@ export const useClickOutside = <T extends HTMLElement>(
       document.addEventListener('mousedown', handleEvent);
       document.addEventListener('touchstart', handleEvent);
     }
-    console.log('Subscribe!!');
 
     return () => {
       removeEventListener();
