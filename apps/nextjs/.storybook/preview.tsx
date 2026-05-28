@@ -16,9 +16,14 @@ console.warn = (...args) => {
 if (typeof window !== 'undefined') {
   window.addEventListener('unhandledrejection', (event) => {
     console.error('[Unhandled Rejection]', {
-      reason: event.reason,
-      stack: event.reason?.stack,
       message: event.reason?.message,
+      name: event.reason?.name,
+      stack: event.reason?.stack,
+      reason: event.reason,
+      reasonType: typeof event.reason,
+      reasonString: String(event.reason),
+      isTrusted: event.isTrusted,
+      promise: event.promise,
     });
   });
 }
