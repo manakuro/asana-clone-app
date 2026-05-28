@@ -13,6 +13,16 @@ console.warn = (...args) => {
   originalWarn(...args);
 };
 
+if (typeof window !== 'undefined') {
+  window.addEventListener('unhandledrejection', (event) => {
+    console.error('[Unhandled Rejection]', {
+      reason: event.reason,
+      stack: event.reason?.stack,
+      message: event.reason?.message,
+    });
+  });
+}
+
 initialize({
   quiet: true,
   onUnhandledRequest: ({ method, url }) => {
