@@ -76,6 +76,7 @@ export default defineConfig({
             'react-icons/io',
             'react-icons/md',
             'react-icons/ti',
+            'react-icons/lu',
           ],
         },
         test: {
