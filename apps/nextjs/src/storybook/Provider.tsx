@@ -31,11 +31,7 @@ export const Provider: React.FCWithChildren = (props) => {
 };
 
 const ApolloProvider: React.FCWithChildren = (props) => {
-  const client = useMemo(
-    () => createApolloClient({ idToken: 'token' }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+  const client = useMemo(() => createApolloClient({ idToken: 'token' }), []);
 
   return (
     <ApolloProviderLibs client={client}>{props.children}</ApolloProviderLibs>
