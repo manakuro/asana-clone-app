@@ -12,7 +12,7 @@ export const MyAvatar = memo(function MyAvatar(props: Props) {
   const { showProfile, ...rest } = props;
 
   if (!me.id) {
-    return <Avatar />;
+    return <Avatar {...rest} />;
   }
 
   if (showProfile ?? true) {
