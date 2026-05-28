@@ -18,7 +18,7 @@
     "lint": "biome check src",
     "lint:fix": "biome check --write --unsafe src",
     "test": "vitest",
-    "test:ci": "vitest --maxWorkers=1",
+    "test:ci": "vitest",
     "test:unit": "vitest --project=unit",
     "test:integration": "vitest --project=integration",
     "test:storybook": "vitest --project=storybook",
