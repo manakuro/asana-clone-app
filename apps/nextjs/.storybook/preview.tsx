@@ -14,20 +14,20 @@ console.warn = (...args) => {
 };
 
 // TODO: Handle unhandled rejections in CI
-if (typeof window !== 'undefined') {
-  window.addEventListener('unhandledrejection', (event) => {
-    console.error('[Unhandled Rejection]', {
-      message: event.reason?.message,
-      name: event.reason?.name,
-      stack: event.reason?.stack,
-      reason: event.reason,
-      reasonType: typeof event.reason,
-      reasonString: String(event.reason),
-      isTrusted: event.isTrusted,
-      promise: event.promise,
-    });
-  });
-}
+// if (typeof window !== 'undefined') {
+//   window.addEventListener('unhandledrejection', (event) => {
+//     console.error('[Unhandled Rejection]', {
+//       message: event.reason?.message,
+//       name: event.reason?.name,
+//       stack: event.reason?.stack,
+//       reason: event.reason,
+//       reasonType: typeof event.reason,
+//       reasonString: String(event.reason),
+//       isTrusted: event.isTrusted,
+//       promise: event.promise,
+//     });
+//   });
+// }
 
 initialize({
   quiet: true,
