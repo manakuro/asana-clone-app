@@ -13,6 +13,7 @@ console.warn = (...args) => {
   originalWarn(...args);
 };
 
+// TODO: Handle unhandled rejections in Storybook
 if (typeof window !== 'undefined') {
   window.addEventListener('unhandledrejection', (event) => {
     console.error('[Unhandled Rejection]', {
