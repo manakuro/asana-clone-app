@@ -1,7 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import type { IconButtonProps } from '@/components/ui/IconButton';
 import { Menu } from '@/components/ui/Menu';
-import type { SystemStyleObject } from '@/shared/chakra';
 import { useProject } from '@/store/entities/project';
 import { MenuList } from './MenuList';
 
@@ -16,8 +14,6 @@ type Props = {
   editProjectDetails?: boolean;
   copyProjectLink?: boolean;
   share?: boolean;
-  iconButton?: IconButtonProps;
-  menuButtonStyle?: SystemStyleObject;
   onOpened?: () => void;
   onClosed?: () => void;
 };
@@ -33,8 +29,6 @@ export function PopoverProjectMenu(props: PropsWithChildren<Props>) {
     editProjectDetails,
     copyProjectLink,
     share,
-    iconButton,
-    menuButtonStyle,
     onOpened,
     onClosed,
   } = props;
@@ -51,9 +45,7 @@ export function PopoverProjectMenu(props: PropsWithChildren<Props>) {
         }
       }}
     >
-      <Menu.Trigger asChild {...iconButton} {...menuButtonStyle}>
-        {props.children}
-      </Menu.Trigger>
+      <Menu.Trigger asChild>{props.children}</Menu.Trigger>
       <MenuList
         project={project}
         addFavorite={addFavorite}
