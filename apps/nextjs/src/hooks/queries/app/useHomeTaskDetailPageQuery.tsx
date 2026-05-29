@@ -30,15 +30,17 @@ export const useHomeTaskDetailPageQuery =
     const refetch = useCallback(
       async (variables: Variables) => {
         startLoading();
-        setTimeout(async () => {
-          const result = await refetchQuery({
-            variables: variables,
-          });
+        try {
+          const result = await refetchQuery({ variables });
           if (result.data?.teammateTask) {
             setTeammateTask([result.data.teammateTask]);
           }
+        } catch (e) {
+          if (e instanceof Error && e.name === 'AbortError') return;
+          throw e;
+        } finally {
           endLoading();
-        });
+        }
       },
       [refetchQuery, startLoading, endLoading, setTeammateTask],
     );

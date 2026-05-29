@@ -35,23 +35,21 @@ export const useProjectsTaskDetailPageQuery =
     const refetch = useCallback(
       async (variables: Variables) => {
         startLoading();
-        setTimeout(async () => {
-          const result = await refetchQuery({
-            variables: variables,
-          });
-          if (result.data?.projectTask) {
-            setProjectTask(
-              [result.data.projectTask as unknown as ProjectTaskResponse],
-              {
-                includeTask: false,
-              },
-            );
-          }
-          if (result.data?.task) {
-            setTasksFromResponse([result.data.task]);
-          }
-          endLoading();
+        const result = await refetchQuery({
+          variables: variables,
         });
+        if (result.data?.projectTask) {
+          setProjectTask(
+            [result.data.projectTask as unknown as ProjectTaskResponse],
+            {
+              includeTask: false,
+            },
+          );
+        }
+        if (result.data?.task) {
+          setTasksFromResponse([result.data.task]);
+        }
+        endLoading();
       },
       [
         refetchQuery,

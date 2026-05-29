@@ -39,9 +39,7 @@ export const useInboxArchivePageQuery = () => {
 
   const refetch = useCallback(async () => {
     startLoading();
-    setTimeout(async () => {
-      await refetchQuery();
-    });
+    await refetchQuery();
   }, [refetchQuery, startLoading]);
 
   return {

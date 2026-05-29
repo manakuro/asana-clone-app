@@ -30,15 +30,13 @@ export const useMyTasksDetailPageQuery =
     const refetch = useCallback(
       async (variables: Variables) => {
         startLoading();
-        setTimeout(async () => {
-          const result = await refetchQuery({
-            variables: variables,
-          });
-          if (result.data?.teammateTask) {
-            setTeammateTask([result.data.teammateTask]);
-          }
-          endLoading();
+        const result = await refetchQuery({
+          variables: variables,
         });
+        if (result.data?.teammateTask) {
+          setTeammateTask([result.data.teammateTask]);
+        }
+        endLoading();
       },
       [refetchQuery, startLoading, endLoading, setTeammateTask],
     );

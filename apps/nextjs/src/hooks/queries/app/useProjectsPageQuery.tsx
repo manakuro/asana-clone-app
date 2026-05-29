@@ -43,9 +43,7 @@ export const useProjectsPageQuery = (props: Props) => {
   const refetch = useCallback(
     async (variables: Variables) => {
       startLoading();
-      setTimeout(async () => {
-        await refetchQuery(variables);
-      });
+      await refetchQuery(variables);
     },
     [refetchQuery, startLoading],
   );
