@@ -20,10 +20,10 @@ export function Feed() {
   const { navigateToTaskDetail } = useTasksRouter();
 
   const handleClick = useCallback(
-    async (e: React.MouseEvent<HTMLButtonElement>) => {
+    (e: React.MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
       setScrollId(FEED_LIST_CONTAINER_ID);
-      await navigateToTaskDetail(taskId);
+      navigateToTaskDetail(taskId);
     },
     [navigateToTaskDetail, setScrollId, taskId],
   );
