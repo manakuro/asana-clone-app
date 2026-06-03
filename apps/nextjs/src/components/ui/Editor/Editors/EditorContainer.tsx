@@ -11,7 +11,7 @@ import {
 import { EditorProvider, useEditorStateContext } from './EdiorProvider';
 import { Portals } from './Portals';
 
-type Props = PropsWithChildren<{
+export type EditorContainerProps = {
   schema: Schema;
   plugins: Plugin[];
   initialValue: string;
@@ -19,35 +19,47 @@ type Props = PropsWithChildren<{
   debounce: number;
   forceUpdate?: number;
   resetView?: number;
-}> &
-  EditorProps;
+  editable?: EditorProps['editable'];
+};
 
-export function EditorContainer(props: Props) {
-  const transformer = useMemo<ProsemirrorTransformer>(
-    () => createJSONTransformer(props.schema),
-    [props.schema],
+type Props = PropsWithChildren<EditorContainerProps>;
+
+export function EditorContainer({
+  schema,
+  plugins,
+  initialValue,
+  onChange,
+  debounce,
+  forceUpdate,
+  resetView,
+  editable,
+  children,
+}: Props) {
+  const transformer = useMemo<ProsemirrorTransformer<string>>(
+    () => createJSONTransformer(schema),
+    [schema],
   );
   const initialDoc = useMemo<ProsemirrorNode>(
-    () => transformer.parse(props.initialValue),
-    [props.initialValue, transformer],
+    () => transformer.parse(initialValue),
+    [initialValue, transformer],
   );
 
   return (
     <ClientOnly>
       <EditorProvider
-        plugins={props.plugins}
+        plugins={plugins}
         doc={initialDoc}
-        editable={props.editable}
-        forceUpdate={props.forceUpdate}
-        resetView={props.resetView}
+        editable={editable}
+        forceUpdate={forceUpdate}
+        resetView={resetView}
       >
         <Container
           transformer={transformer}
-          debounce={props.debounce}
-          onChange={props.onChange}
-          initialValue={props.initialValue}
+          debounce={debounce}
+          onChange={onChange}
+          initialValue={initialValue}
         >
-          {props.children}
+          {children}
         </Container>
         <Portals />
       </EditorProvider>
@@ -61,23 +73,28 @@ type ContainerProps<P> = {
   debounce: number;
   initialValue: string;
 };
-export const Container = <P,>(props: PropsWithChildren<ContainerProps<P>>) => {
+export function Container<P>({
+  onChange,
+  transformer,
+  children,
+  debounce,
+}: PropsWithChildren<ContainerProps<P>>) {
   const state = useEditorStateContext();
-  const prevStateDoc = usePrevious<ProsemirrorNode<any>>(state.doc);
+  const prevStateDoc = usePrevious<ProsemirrorNode>(state.doc);
 
   useDebounce(
     state.doc,
     (val) => {
-      const serializedValue = props.transformer.serialize(val);
+      const serializedValue = transformer.serialize(val);
       if (
         prevStateDoc &&
-        serializedValue === props.transformer.serialize(prevStateDoc)
+        serializedValue === transformer.serialize(prevStateDoc)
       )
         return;
-      props.onChange?.(serializedValue);
+      onChange?.(serializedValue);
     },
-    props.debounce,
+    debounce,
   );
 
-  return <>{props.children}</>;
-};
+  return <>{children}</>;
+}

@@ -1,53 +1,44 @@
 import type { Suggester } from 'prosemirror-suggest';
 import {
   getEmoji,
-  onEmojiArrowDown as onArrowDown,
-  onEmojiArrowUp as onArrowUp,
+  isEmojiOpen,
   onEmojiClose as onClose,
-  onEmojiEnter as onEnter,
   onEmojiOpen as onOpen,
   setEmojiQuery as setQuery,
 } from '@/components/features/Menus/EditorEmojiMenu';
 
+let updating = false;
+
 export const suggestEmoji: Suggester = {
-  noDecorations: true,
+  disableDecorations: true,
   char: ':',
   name: 'emoji-suggestion',
-  keyBindings: {
-    ArrowDown: (params) => {
-      params.event.preventDefault();
-
-      onArrowDown();
-    },
-    ArrowUp: (params) => {
-      params.event.preventDefault();
-
-      onArrowUp();
-    },
-    Enter: (params) => {
-      params.event.preventDefault();
-      onEnter();
-      return true;
-    },
-  },
   onChange: async (params) => {
-    setQuery(params.queryText.full);
+    // Close the modal when the suggestion character(`:`) is deleted.
+    if (params.exitReason && isEmojiOpen) {
+      onClose();
+      return;
+    }
+
+    if (updating) return;
+
+    updating = true;
+    setQuery(params.query.full);
     await onOpen();
-    params.command();
-  },
 
-  createCommand: (params) => {
-    return () => {
-      if (!getEmoji()) return;
+    if (!getEmoji()) {
+      updating = false;
+    }
 
-      const emoji = `${getEmoji()?.native}  `;
-      const state = params.view.state;
-      const { from, end: to } = params.match.range;
-      const { tr } = state;
-      params.view.dispatch(tr.insertText(emoji, from, to));
-    };
-  },
-  onExit: () => {
+    const emoji = `${getEmoji()?.native} `;
+    console.log(emoji, getEmoji());
+    const state = params.view.state;
+    const { from, to } = params.range;
+    const { tr } = state;
+    params.view.dispatch(tr.insertText(emoji, from, to));
+
     onClose();
+
+    updating = false;
   },
 };

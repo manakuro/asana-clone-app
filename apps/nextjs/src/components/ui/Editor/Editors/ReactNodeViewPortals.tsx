@@ -1,4 +1,6 @@
-import React, {
+import {
+  createContext,
+  type FC,
   type PropsWithChildren,
   useCallback,
   useContext,
@@ -8,17 +10,17 @@ import shortid from 'shortid';
 import { uniqBy } from '@/shared/utils';
 
 type Portal = {
-  Component: React.FC;
+  Component: FC;
   container: HTMLElement;
   key: string;
 };
-const ReactNodeViewPortalsContext = React.createContext<Portal[]>([]);
+const ReactNodeViewPortalsContext = createContext<Portal[]>([]);
 
 export type PortalHandlers = {
-  createPortal: (portal: { Component: any; container: any }) => void;
+  createPortal: (portal: { Component: FC; container: HTMLElement }) => void;
   removePortal: (container: HTMLElement) => void;
 };
-const ReactNodeViewCreatePortalContext = React.createContext<PortalHandlers>({
+const ReactNodeViewCreatePortalContext = createContext<PortalHandlers>({
   createPortal: () => {},
   removePortal: () => {},
 });
@@ -32,7 +34,7 @@ export function ReactNodeViewPortalsProvider(props: PropsWithChildren) {
   );
 
   const createPortal = useCallback(
-    ({ container, Component }: { Component: any; container: any }) => {
+    ({ container, Component }: { Component: FC; container: HTMLElement }) => {
       const newVal: Portal = {
         container,
         Component,

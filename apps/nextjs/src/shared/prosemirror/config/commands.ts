@@ -1,14 +1,10 @@
-import {
-  type Command,
-  setBlockType,
-  toggleMark,
-  wrapIn,
-} from 'prosemirror-commands';
+import { setBlockType, toggleMark, wrapIn } from 'prosemirror-commands';
 import {
   liftListItem,
   sinkListItem,
   splitListItem,
 } from 'prosemirror-schema-list';
+import type { Command } from 'prosemirror-state';
 import {
   insertNodeOfType,
   isMarkActive,
@@ -18,8 +14,6 @@ import {
 } from '../commands';
 
 import { schema } from './schema';
-
-// marks
 
 export const toggleMarkBold = toggleMark(schema.marks.bold);
 export const toggleMarkItalic = toggleMark(schema.marks.italic);
@@ -46,8 +40,6 @@ export const toggleLink: Command = (state, dispatch) => {
   return true;
 };
 
-// nodes
-
 export const setBlockTypeParagraph = setBlockType(schema.nodes.paragraph);
 export const setBlockTypeCodeBlock = setBlockType(schema.nodes.codeBlock);
 
@@ -65,7 +57,7 @@ export const setListTypeOrdered = setListTypeOrWrapInList(schema.nodes.list, {
 });
 
 export const liftListItemCommand = liftListItem(schema.nodes.listItem);
-export const sinkListItemCommand = sinkListItem(schema.nodes.listItem); // TODO: same list type
+export const sinkListItemCommand = sinkListItem(schema.nodes.listItem);
 export const splitListItemCommand = splitListItem(schema.nodes.listItem);
 
 export const insertNodeLineBreak = insertNodeOfType(schema.nodes.lineBreak);

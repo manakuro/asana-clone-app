@@ -1,4 +1,5 @@
-import { type Command, toggleMark } from 'prosemirror-commands';
+import { toggleMark } from 'prosemirror-commands';
+import type { Command } from 'prosemirror-state';
 import { useCallback, useMemo } from 'react';
 import { useEditorLinkModal } from '@/components/features/Modals';
 import { isMarkActive } from '@/shared/prosemirror/commands';

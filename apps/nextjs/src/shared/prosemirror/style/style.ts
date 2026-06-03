@@ -5,10 +5,13 @@ export const proseMirrorStyle = () => ({
     paddingLeft: '32px',
   },
   '.ProseMirror ul': {
-    listStyleType: 'initial !important',
+    listStyleType: 'disc !important',
   },
   '.ProseMirror ol': {
     listStyleType: 'decimal !important',
+  },
+  '.ProseMirror ul ul': {
+    listStyleType: 'circle !important',
   },
   '.ProseMirror li': {
     listStyleType: 'inherit !important',
