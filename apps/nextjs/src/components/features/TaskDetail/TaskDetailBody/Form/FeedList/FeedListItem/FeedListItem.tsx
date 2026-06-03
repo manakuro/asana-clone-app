@@ -1,4 +1,3 @@
-import type React from 'react';
 import { memo } from 'react';
 import { Container } from './Container';
 import { Content } from './Content';
@@ -19,7 +18,7 @@ export const FeedListItem = memo(function FeedListItem(props: Props) {
   );
 });
 
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   return (
     <Container>
       <Header />

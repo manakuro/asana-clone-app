@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import type { DescriptionFragmentFragment } from '@/graphql/types';
@@ -148,7 +148,7 @@ const useEditor = (
     setIsEdit,
     isEdit,
   }: {
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsEdit: Dispatch<SetStateAction<boolean>>;
     isEdit: boolean;
   },
 ) => {

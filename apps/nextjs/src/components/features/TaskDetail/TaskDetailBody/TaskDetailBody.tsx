@@ -8,7 +8,7 @@ import { Flex } from '@/components/ui/Flex';
 import { Form } from './Form';
 import { Info } from './Info';
 import { SkeletonTaskDetailBody } from './SkeletonTaskDetailBody';
-import { useTaskDetailBody } from './useTaskDetailBody';
+import { useTaskDetailBodyRef } from './useTaskDetailBodyRef';
 
 type Props = {
   isMakePublic?: boolean;
@@ -16,7 +16,7 @@ type Props = {
 };
 
 export const TaskDetailBody = memo(function TaskDetailBody(props: Props) {
-  const { ref } = useTaskDetailBody();
+  const { ref } = useTaskDetailBodyRef({ loading: props.loading ?? false });
   const { resetScrollId } = useTaskDetailResetScrollId();
   const { scrollId, taskId } = useTaskDetail();
 
