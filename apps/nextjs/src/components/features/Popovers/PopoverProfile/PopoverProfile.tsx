@@ -1,4 +1,5 @@
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
+
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
@@ -16,9 +17,12 @@ type Props = {
     image: string;
     email: string;
   };
+  portal?: boolean;
 };
 
-export const PopoverProfile: React.FCWithChildren<Props> = (props) => {
+export function PopoverProfile(props: PropsWithChildren<Props>) {
+  const portal = props.portal ?? true;
+
   return (
     <HoverCard.Root lazyMount>
       <HoverCard.Trigger asChild>
@@ -26,7 +30,7 @@ export const PopoverProfile: React.FCWithChildren<Props> = (props) => {
           {props.children}
         </Box>
       </HoverCard.Trigger>
-      <Portal>
+      <Portal disabled={!portal}>
         <HoverCard.Positioner>
           <HoverCard.Content
             w={56}
@@ -83,4 +87,4 @@ export const PopoverProfile: React.FCWithChildren<Props> = (props) => {
       </Portal>
     </HoverCard.Root>
   );
-};
+}

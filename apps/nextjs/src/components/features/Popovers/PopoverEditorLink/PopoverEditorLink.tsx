@@ -1,7 +1,8 @@
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
+
 import { HoverCard } from '@/components/ui/Popover';
 
-export const PopoverEditorLink: React.FCWithChildren = (props) => {
+export function PopoverEditorLink(props: PropsWithChildren) {
   return (
     <HoverCard.Root
       lazyMount
@@ -11,4 +12,4 @@ export const PopoverEditorLink: React.FCWithChildren = (props) => {
       {props.children}
     </HoverCard.Root>
   );
-};
+}
