@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { Presence } from '@/components/ui/Presence';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
@@ -24,12 +24,6 @@ export const TaskDetailDrawer = memo(function TaskDetailDrawer(props: Props) {
       onClose();
     }, 100);
   }, [backToPage, onClose]);
-
-  useEffect(() => {
-    return () => {
-      onClose();
-    };
-  }, [onClose]);
 
   return (
     <Presence
