@@ -21,6 +21,7 @@ export const Editor = memo(function Editor(props: Props) {
       plugins={pluginsProp}
       initialValue={props.initialValue}
       editable={props.editable}
+      resetView={props.resetView}
     >
       {props.children}
     </EditorContainer>
