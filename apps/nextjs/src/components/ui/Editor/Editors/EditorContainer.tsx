@@ -17,8 +17,6 @@ export type EditorContainerProps = {
   initialValue: string;
   onChange?: (value: string) => void;
   debounce: number;
-  forceUpdate?: number;
-  resetView?: number;
   editable?: EditorProps['editable'];
 };
 
@@ -30,8 +28,6 @@ export function EditorContainer({
   initialValue,
   onChange,
   debounce,
-  forceUpdate,
-  resetView,
   editable,
   children,
 }: Props) {
@@ -46,13 +42,7 @@ export function EditorContainer({
 
   return (
     <ClientOnly>
-      <EditorProvider
-        plugins={plugins}
-        doc={initialDoc}
-        editable={editable}
-        forceUpdate={forceUpdate}
-        resetView={resetView}
-      >
+      <EditorProvider plugins={plugins} doc={initialDoc} editable={editable}>
         <Container
           transformer={transformer}
           debounce={debounce}

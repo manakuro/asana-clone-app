@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/Editor';
 import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
 import {
@@ -25,12 +25,11 @@ export const Description = memo(function Description(props: Props) {
 });
 
 const DescriptionHandler = memo(function DescriptionHandler(props: Props) {
-  const { task, setTask, hasDescriptionUpdated } = useTask(props.taskId);
+  const { task, setTask } = useTask(props.taskId);
   const initialValue = useMemo(
     () => stringifyDescription(task.description),
     [task.description],
   );
-  const [resetView, setResetView] = useState<number>(1);
 
   const handleChange = useCallback(
     async (val: string) => {
@@ -45,27 +44,15 @@ const DescriptionHandler = memo(function DescriptionHandler(props: Props) {
     [setTask, task.description],
   );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: to reset view
-  useEffect(() => {
-    setResetView((s) => s + 1);
-  }, [hasDescriptionUpdated]);
-
-  return (
-    <Component
-      onChange={handleChange}
-      initialValue={initialValue}
-      resetView={resetView}
-    />
-  );
+  return <Component onChange={handleChange} initialValue={initialValue} />;
 });
 
 type ComponentProps = {
   onChange: (val: string) => void;
   initialValue: string;
-  resetView: number;
 };
 const Component = memo(function Component(props: ComponentProps) {
-  const { onChange, initialValue, resetView } = props;
+  const { onChange, initialValue } = props;
 
   const handleChange = useCallback(
     (val: string) => {
@@ -79,11 +66,7 @@ const Component = memo(function Component(props: ComponentProps) {
       <Label>Description</Label>
       <Content>
         <Container>
-          <Editor
-            onChange={handleChange}
-            initialValue={initialValue}
-            resetView={resetView}
-          >
+          <Editor onChange={handleChange} initialValue={initialValue}>
             <EditorContent />
             <Placeholder />
             <ToolBar />

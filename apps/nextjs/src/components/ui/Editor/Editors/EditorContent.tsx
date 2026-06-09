@@ -1,44 +1,24 @@
-import {
-  type CSSProperties,
-  memo,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from 'react';
-import { Box } from '@/components/ui/Box';
+import { type CSSProperties, memo, useEffect, useLayoutEffect } from 'react';
 import { useEditorViewContext } from '@/components/ui/Editor/Editors/EdiorProvider';
 import 'prosemirror-view/style/prosemirror.css';
 
 type Props = {
   style?: CSSProperties;
-  onRendered?: () => void;
 };
 
 export const EditorContent = memo(function EditorContent(props: Props) {
-  const { style, onRendered } = props;
+  const { style } = props;
   const view = useEditorViewContext();
-  const ref = useRef<HTMLDivElement | null>(null);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: used for rendering view
   useLayoutEffect(() => {
-    const current = ref.current;
-    if (current && view) {
+    if (view) {
       if (style) {
         Object.keys(style).forEach((k: any) => {
           (view.dom as HTMLElement).style[k] = (style as any)[k];
         });
       }
-
-      current.appendChild(view.dom);
-      onRendered?.();
     }
-    return () => {
-      if (current && view) {
-        current.removeChild(view.dom);
-      }
-    };
-    /* eslint react-hooks/exhaustive-deps: off */
-  }, [view]);
+  }, [view, style]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -49,5 +29,5 @@ export const EditorContent = memo(function EditorContent(props: Props) {
     }, 300);
   }, [view]);
 
-  return <Box ref={ref} />;
+  return null;
 });

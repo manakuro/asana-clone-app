@@ -2,7 +2,14 @@ import type { Node } from 'prosemirror-model';
 import { DOMSerializer } from 'prosemirror-model';
 import type { Decoration, EditorView, NodeView } from 'prosemirror-view';
 import type { FC, PropsWithChildren, RefObject } from 'react';
-import { createContext, createRef, useContext, useEffect, useRef } from 'react';
+import {
+  createContext,
+  createRef,
+  useContext,
+  useEffect,
+  useReducer,
+  useRef,
+} from 'react';
 import {
   entries,
   isDomNodeOutputSpec,
@@ -39,8 +46,13 @@ class ReactNodeView implements NodeView {
   view: EditorView;
   getPos: TGetPos;
   decorations: readonly Decoration[];
-  onCreatePortal: (portal: { Component: FC; container: HTMLElement }) => void;
-  onRemovePortal: (container: HTMLElement) => void;
+  onCreatePortal: PortalHandlers['createPortal'];
+  onRemovePortal: PortalHandlers['removePortal'];
+
+  private nodeRef: { current: Node };
+  private decorationsRef: { current: readonly Decoration[] };
+  private forceUpdateRef: { current: (() => void) | null };
+  private readonly StableComponent: FC<PropsWithChildren>;
 
   constructor(
     node: Node,
@@ -59,6 +71,54 @@ class ReactNodeView implements NodeView {
     this.componentRef = createRef();
     this.onCreatePortal = onCreatePortal;
     this.onRemovePortal = onRemovePortal;
+
+    this.nodeRef = { current: node };
+    this.decorationsRef = { current: decorations };
+    this.forceUpdateRef = { current: null };
+
+    this.StableComponent = this.createComponent();
+  }
+
+  private createComponent(): FC<PropsWithChildren> {
+    const Component = (props: PropsWithChildren) => {
+      const componentRef = useRef<HTMLDivElement>(null);
+
+      const [, forceUpdate] = useReducer((x: number) => x + 1, 0);
+      useEffect(() => {
+        this.forceUpdateRef.current = forceUpdate;
+        return () => {
+          this.forceUpdateRef.current = null;
+        };
+      }, []);
+
+      useEffect(() => {
+        const componentDOM = componentRef.current;
+        if (componentDOM && this.contentDOM && !this.node.isLeaf) {
+          componentDOM.firstChild?.appendChild(this.contentDOM);
+        }
+      }, []);
+
+      const NodeView = this.component;
+
+      return (
+        <span ref={componentRef} className="ProseMirror__reactComponent">
+          {/* 改修: node/decorations は ref 経由で常に最新値を参照 */}
+          <ReactNodeViewContext.Provider
+            value={{
+              node: this.nodeRef.current,
+              view: this.view,
+              getPos: this.getPos,
+              decorations: this.decorationsRef.current,
+            }}
+          >
+            <NodeView {...props} />
+          </ReactNodeViewContext.Provider>
+        </span>
+      );
+    };
+
+    Component.displayName = `ReactNodeView(${this.component.displayName ?? this.component.name})`;
+    return Component;
   }
 
   init() {
@@ -74,7 +134,16 @@ class ReactNodeView implements NodeView {
       this.dom.append(this.contentDOMWrapper);
     }
     this.setDomAttributes(this.node, this.dom);
-    this.renderPortal();
+
+    console.log(
+      '[ReactNodeView.init] onCreatePortal called',
+      this.node.type.name,
+    );
+
+    this.onCreatePortal({
+      Component: this.StableComponent,
+      container: this.dom,
+    });
 
     return this;
   }
@@ -93,39 +162,6 @@ class ReactNodeView implements NodeView {
     return { wrapper, contentDOM };
   }
 
-  renderPortal() {
-    const Component = (props: PropsWithChildren) => {
-      const componentRef = useRef<HTMLDivElement>(null);
-
-      useEffect(() => {
-        const componentDOM = componentRef.current;
-        if (!!componentDOM && !!this.contentDOM) {
-          if (!this.node.isLeaf) {
-            componentDOM.firstChild?.appendChild(this.contentDOM);
-          }
-        }
-      }, []);
-
-      const NodeView = this.component;
-      return (
-        <span ref={componentRef} className="ProseMirror__reactComponent">
-          <ReactNodeViewContext.Provider
-            value={{
-              node: this.node,
-              view: this.view,
-              getPos: this.getPos,
-              decorations: this.decorations,
-            }}
-          >
-            <NodeView {...props} />
-          </ReactNodeViewContext.Provider>
-        </span>
-      );
-    };
-
-    return this.onCreatePortal({ Component, container: this.dom });
-  }
-
   update(node: Node) {
     if (!isNodeOfType({ types: this.node.type, node })) return false;
     if (this.node === node) return true;
@@ -135,7 +171,13 @@ class ReactNodeView implements NodeView {
     }
 
     this.node = node;
-    this.renderPortal();
+
+    this.nodeRef.current = node;
+    console.log(
+      '[ReactNodeView.update] forceUpdate called',
+      this.node.type.name,
+    );
+    this.forceUpdateRef.current?.();
 
     return true;
   }
@@ -162,6 +204,7 @@ class ReactNodeView implements NodeView {
   }
 
   destroy() {
+    this.forceUpdateRef.current = null;
     const dom = this.dom as HTMLElement;
     this.onRemovePortal(dom);
     this.dom = undefined;
@@ -191,4 +234,5 @@ export const createReactNodeView = (props: CreateReactNodeViewProps) => {
   );
   return reactNodeView.init();
 };
+
 export const useReactNodeView = () => useContext(ReactNodeViewContext);

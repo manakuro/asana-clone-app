@@ -8,13 +8,14 @@ import { Link } from './Link';
 import { Mention } from './Mention';
 
 export const generateView = (props: {
+  place: HTMLElement | null;
   state: EditorState;
   createPortal: PortalHandlers['createPortal'];
   removePortal: PortalHandlers['removePortal'];
   setState: Dispatch<SetStateAction<EditorState>>;
   editable: EditorProps['editable'];
 }) => {
-  const view = new EditorView(null, {
+  const view = new EditorView(props.place, {
     state: props.state,
     editable: props.editable,
     nodeViews: {

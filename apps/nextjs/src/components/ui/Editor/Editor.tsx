@@ -1,18 +1,15 @@
-import { memo, type PropsWithChildren, useMemo } from 'react';
+import { memo, type PropsWithChildren } from 'react';
 import { plugins, schema } from '@/shared/prosemirror/config';
 import { EditorContainer, type EditorContainerProps } from './Editors';
 
 type Props = PropsWithChildren<{
   initialValue: string;
-  forceUpdate?: number;
   onChange?: (val: string) => void;
-  resetView?: number;
   editable?: EditorContainerProps['editable'];
 }>;
 
+const pluginsProp = plugins();
 export const Editor = memo(function Editor(props: Props) {
-  const pluginsProp = useMemo(() => plugins(), []);
-
   return (
     <EditorContainer
       onChange={props.onChange}
@@ -21,7 +18,6 @@ export const Editor = memo(function Editor(props: Props) {
       plugins={pluginsProp}
       initialValue={props.initialValue}
       editable={props.editable}
-      resetView={props.resetView}
     >
       {props.children}
     </EditorContainer>

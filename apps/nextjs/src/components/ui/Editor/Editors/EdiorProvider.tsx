@@ -1,12 +1,12 @@
 import type { Node as ProsemirrorNode } from 'prosemirror-model';
 import { EditorState, type Plugin } from 'prosemirror-state';
 import type { EditorProps, EditorView } from 'prosemirror-view';
-import type { PropsWithChildren } from 'react';
 import {
   createContext,
-  useCallback,
+  type PropsWithChildren,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 import { generateView } from './nodeViews/generateView';
@@ -30,8 +30,6 @@ export const useEditorViewContext = () => useContext(EditorViewContext);
 type Props = {
   doc?: ProsemirrorNode;
   plugins?: Plugin[];
-  forceUpdate?: number;
-  resetView?: number;
 } & EditorProps;
 export function EditorProvider(props: PropsWithChildren<Props>) {
   return (
@@ -49,41 +47,41 @@ const generateState = (props: Parameters<typeof EditorState.create>[0]) => {
 };
 
 function Provider(props: PropsWithChildren<Props>) {
-  const { createPortal, removePortal } = useReactNodeViewCreatePortal();
+  const { createPortal, removePortal, setPortals } =
+    useReactNodeViewCreatePortal();
   const [state, setState] = useState(
-    generateState({
-      doc: props.doc,
-      plugins: props.plugins,
-    }),
+    generateState({ doc: props.doc, plugins: props.plugins }),
   );
   const [view, setView] = useState<EditorView | null>(null);
-
-  const resetView = useCallback(() => {
-    setView(
-      generateView({
-        state: generateState({
-          doc: props.doc,
-          plugins: props.plugins,
-        }),
-        setState,
-        createPortal,
-        removePortal,
-        editable: props.editable,
-      }),
-    );
-  }, [props.doc, props.plugins, props.editable, createPortal, removePortal]);
+  const viewRef = useRef<EditorView | null>(null);
+  const editorRef = useRef<HTMLDivElement | null>(null);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Avoid unnecessary rendering.
   useEffect(() => {
-    resetView();
-    /* eslint react-hooks/exhaustive-deps: off */
+    if (!editorRef.current) return;
+
+    const newView = generateView({
+      place: editorRef.current,
+      state,
+      setState,
+      createPortal,
+      removePortal,
+      editable: props.editable,
+    });
+    viewRef.current = newView;
+    setView(newView);
+
+    return () => {
+      setPortals([]);
+      viewRef.current?.destroy();
+      viewRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!viewRef.current) return;
+    viewRef.current.setProps({ editable: props.editable });
   }, [props.editable]);
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Avoid unnecessary rendering.
-  useEffect(() => {
-    resetView();
-    /* eslint react-hooks/exhaustive-deps: off */
-  }, [props.resetView]);
 
   return (
     <EditorStateContext.Provider value={state}>

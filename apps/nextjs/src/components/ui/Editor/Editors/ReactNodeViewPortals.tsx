@@ -4,6 +4,8 @@ import {
   type PropsWithChildren,
   useCallback,
   useContext,
+  useMemo,
+  useRef,
   useState,
 } from 'react';
 import shortid from 'shortid';
@@ -14,62 +16,73 @@ type Portal = {
   container: HTMLElement;
   key: string;
 };
+
 const ReactNodeViewPortalsContext = createContext<Portal[]>([]);
 
 export type PortalHandlers = {
   createPortal: (portal: { Component: FC; container: HTMLElement }) => void;
   removePortal: (container: HTMLElement) => void;
+  setPortals: (portals: Portal[]) => void;
 };
+
 const ReactNodeViewCreatePortalContext = createContext<PortalHandlers>({
   createPortal: () => {},
   removePortal: () => {},
+  setPortals: () => {},
 });
 
-export function ReactNodeViewPortalsProvider(props: PropsWithChildren) {
-  const [portals, setPortals] = useState<Portal[]>([]);
+type PortalsProviderProps = PropsWithChildren;
 
-  const findPortal = useCallback(
-    (container: HTMLElement) => portals.find((p) => p.container === container),
-    [portals],
+export function ReactNodeViewPortalsProvider({
+  children,
+}: PortalsProviderProps) {
+  const [portals, setPortals] = useState<Portal[]>([]);
+  const portalsRef = useRef(portals);
+  portalsRef.current = portals;
+
+  console.log(
+    '[ReactNodeViewPortalsProvider] render, portals.length=',
+    portals.length,
   );
 
   const createPortal = useCallback(
     ({ container, Component }: { Component: FC; container: HTMLElement }) => {
-      const newVal: Portal = {
-        container,
-        Component,
-        key: findPortal(container)?.key ?? shortid(),
-      };
+      console.log('[createPortal] called', container);
       setPortals((prev) => {
-        return uniqBy([...prev, newVal], 'container').map((p) => {
-          if (p.container === newVal.container) {
-            return {
-              ...p,
-              ...newVal,
-            };
-          }
-          return p;
-        });
+        const existing = prev.find((p) => p.container === container);
+
+        if (existing?.Component === Component) return prev;
+
+        const newVal: Portal = {
+          container,
+          Component,
+          key: existing?.key ?? shortid(),
+        };
+
+        const next = uniqBy([...prev, newVal], 'container').map((p) =>
+          p.container === newVal.container ? { ...p, ...newVal } : p,
+        );
+
+        portalsRef.current = next;
+        return next;
       });
     },
-    [findPortal],
+    [],
   );
 
   const removePortal = useCallback((container: HTMLElement) => {
-    setPortals((prev) => {
-      return prev.filter((p) => p.container !== container);
-    });
+    setPortals((prev) => prev.filter((p) => p.container !== container));
   }, []);
+
+  const handlers = useMemo(
+    () => ({ createPortal, removePortal, setPortals }),
+    [createPortal, removePortal],
+  );
 
   return (
     <ReactNodeViewPortalsContext.Provider value={portals}>
-      <ReactNodeViewCreatePortalContext.Provider
-        value={{
-          createPortal,
-          removePortal,
-        }}
-      >
-        {props.children}
+      <ReactNodeViewCreatePortalContext.Provider value={handlers}>
+        {children}
       </ReactNodeViewCreatePortalContext.Provider>
     </ReactNodeViewPortalsContext.Provider>
   );
