@@ -86,6 +86,7 @@ function Provider(props: PropsWithChildren<Props>) {
   return (
     <EditorStateContext.Provider value={state}>
       <EditorViewContext.Provider value={view}>
+        <div ref={editorRef} />
         {props.children}
       </EditorViewContext.Provider>
     </EditorStateContext.Provider>
