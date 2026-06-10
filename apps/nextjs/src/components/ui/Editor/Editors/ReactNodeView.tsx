@@ -102,7 +102,6 @@ class ReactNodeView implements NodeView {
 
       return (
         <span ref={componentRef} className="ProseMirror__reactComponent">
-          {/* 改修: node/decorations は ref 経由で常に最新値を参照 */}
           <ReactNodeViewContext.Provider
             value={{
               node: this.nodeRef.current,

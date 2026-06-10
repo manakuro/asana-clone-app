@@ -40,14 +40,8 @@ export function ReactNodeViewPortalsProvider({
   const portalsRef = useRef(portals);
   portalsRef.current = portals;
 
-  console.log(
-    '[ReactNodeViewPortalsProvider] render, portals.length=',
-    portals.length,
-  );
-
   const createPortal = useCallback(
     ({ container, Component }: { Component: FC; container: HTMLElement }) => {
-      console.log('[createPortal] called', container);
       setPortals((prev) => {
         const existing = prev.find((p) => p.container === container);
 
@@ -58,11 +52,9 @@ export function ReactNodeViewPortalsProvider({
           Component,
           key: existing?.key ?? shortid(),
         };
-
         const next = uniqBy([...prev, newVal], 'container').map((p) =>
           p.container === newVal.container ? { ...p, ...newVal } : p,
         );
-
         portalsRef.current = next;
         return next;
       });
