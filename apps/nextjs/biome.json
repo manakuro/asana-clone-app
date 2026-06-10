@@ -12,7 +12,8 @@
       "!**/src/graphql/enums/index.ts",
       "!**/src/graphql/types/index.ts",
       "!**/src/graphql/types/index.mock.ts",
-      "!**/src/graphql/__schema__.graphql"
+      "!**/src/graphql/__schema__.graphql",
+      "!next-env.d.ts"
     ]
   },
   "linter": {
