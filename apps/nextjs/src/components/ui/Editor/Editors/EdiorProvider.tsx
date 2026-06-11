@@ -68,7 +68,6 @@ function Provider({ ref, ...props }: PropsWithChildren<Props>) {
     ref,
     () => ({
       setEditable: (editable: () => boolean) => {
-        console.log('setEditable: ', editable());
         viewRef.current?.setProps({ editable });
       },
     }),
