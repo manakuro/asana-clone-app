@@ -10,8 +10,6 @@ import {
 } from '@/components/features/Menus/EditorMentionMenu';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 
-let updating = false;
-
 export const MENTION_CHAR = '@';
 export const suggestMention: Suggester = {
   disableDecorations: true,
@@ -24,15 +22,18 @@ export const suggestMention: Suggester = {
       return;
     }
 
-    if (updating) return;
-
-    updating = true;
-
     setQuery(params.query.full);
-    await onOpen();
+
+    await onOpen({
+      onOpened: () => {
+        setTimeout(() => {
+          params.view.dom.focus();
+        });
+      },
+    });
 
     if (!getMentionId()) {
-      updating = false;
+      return;
     }
 
     const state = params.view.state;
@@ -45,6 +46,5 @@ export const suggestMention: Suggester = {
     params.view.dispatch(tr);
 
     onClose();
-    updating = false;
   },
 };

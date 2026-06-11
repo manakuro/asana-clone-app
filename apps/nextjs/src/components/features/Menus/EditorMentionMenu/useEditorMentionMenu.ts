@@ -30,7 +30,7 @@ const modalState = atomWithReset<State>({
 
 // NOTE: Export functions in order to execute inside prosemirror's plugins
 // @see src/shared/prosemirror/config/plugins.ts
-let onOpen: () => Promise<void> | void;
+let onOpen: (options?: { onOpened?: () => void }) => Promise<void> | void;
 let onClose: () => void;
 let setQuery: (query: string) => void;
 let getQuery: () => string;
@@ -169,21 +169,27 @@ function useDisclosure(props: { reset: () => void }) {
     return position;
   }, []);
 
-  onOpen = useCallback(() => {
-    // Avoid recalculate the position while the modal is opening
-    const position = open ? {} : getCurrentCaretPosition();
-    if (!position) return;
+  onOpen = useCallback(
+    (options?: { onOpened?: () => void }) => {
+      // Avoid recalculate the position while the modal is opening
+      const position = open ? {} : getCurrentCaretPosition();
+      if (!position) return;
 
-    open = true;
-    return new Promise<void>((resolve) => {
-      setState((s) => ({
-        ...s,
-        open: true,
-        callback: resolve as () => Promise<void>,
-        ...position,
-      }));
-    });
-  }, [setState]);
+      open = true;
+      return new Promise<void>((resolve) => {
+        setState((s) => ({
+          ...s,
+          open: true,
+          callback: resolve as () => Promise<void>,
+          ...position,
+        }));
+        if (options?.onOpened) {
+          options.onOpened();
+        }
+      });
+    },
+    [setState],
+  );
 
   onClose = useCallback(async () => {
     open = false;

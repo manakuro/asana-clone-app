@@ -7,8 +7,6 @@ import {
   setEmojiQuery as setQuery,
 } from '@/components/features/Menus/EditorEmojiMenu';
 
-let updating = false;
-
 export const suggestEmoji: Suggester = {
   disableDecorations: true,
   char: ':',
@@ -20,14 +18,18 @@ export const suggestEmoji: Suggester = {
       return;
     }
 
-    if (updating) return;
-
-    updating = true;
     setQuery(params.query.full);
-    await onOpen();
+
+    await onOpen({
+      onOpened: () => {
+        setTimeout(() => {
+          params.view.dom.focus();
+        });
+      },
+    });
 
     if (!getEmoji()) {
-      updating = false;
+      return;
     }
 
     const emoji = `${getEmoji()?.native} `;
@@ -38,7 +40,5 @@ export const suggestEmoji: Suggester = {
     params.view.dispatch(tr.insertText(emoji, from, to));
 
     onClose();
-
-    updating = false;
   },
 };
