@@ -66,6 +66,9 @@ let onOpen: () => Promise<void> | void;
 let onClose: () => void;
 let setQuery: (query: string) => void;
 let getQuery: () => string;
+let onArrowDown: () => void;
+let onArrowUp: () => void;
+let onEnter: () => void;
 let open: boolean;
 let getCurrentCaretPosition: () => { x: number; y: number } | null;
 
@@ -110,10 +113,7 @@ export const useEditorEmojiMenu = () => {
 
   const { containerRef } = useContainer();
   useQuery();
-  const { onArrowDown, onArrowUp, onEnter } = useOnKeyBindings({
-    emojis,
-    setValue,
-  });
+  useOnKeyBindings({ emojis, setValue });
   useDisclosure({ reset });
 
   return {
@@ -124,9 +124,6 @@ export const useEditorEmojiMenu = () => {
     emojis,
     setSelectedIndex,
     containerRef,
-    onArrowUp,
-    onArrowDown,
-    onEnter,
   };
 };
 
@@ -149,7 +146,7 @@ function useOnKeyBindings(props: {
     [state.containerRef],
   );
 
-  const onArrowDown = useCallback(() => {
+  onArrowDown = useCallback(() => {
     const selectedIndex = state.selectedIndex + 1;
     if (selectedIndex > props.emojis.length) {
       setState((s) => ({ ...s, selectedIndex: 0 }));
@@ -161,7 +158,7 @@ function useOnKeyBindings(props: {
     scrollTo(selectedIndex);
   }, [props.emojis, scrollTo, setState, state.selectedIndex]);
 
-  const onArrowUp = useCallback(() => {
+  onArrowUp = useCallback(() => {
     const selectedIndex = state.selectedIndex - 1;
     if (selectedIndex < 0) {
       setState((s) => ({ ...s, selectedIndex: props.emojis.length }));
@@ -173,15 +170,13 @@ function useOnKeyBindings(props: {
     scrollTo(-selectedIndex);
   }, [props.emojis.length, scrollTo, setState, state.selectedIndex]);
 
-  const onEnter = useCallback(() => {
+  onEnter = useCallback(() => {
     const emoji = props.emojis.find((_, i) => i === state.selectedIndex);
 
     if (!emoji) return;
 
     props.setValue(emoji);
   }, [props, state.selectedIndex]);
-
-  return { onArrowDown, onArrowUp, onEnter };
 }
 
 function useDisclosure(props: { reset: () => void }) {
@@ -280,5 +275,8 @@ export {
   onClose as onEmojiClose,
   setQuery as setEmojiQuery,
   getQuery as getEmojiQuery,
+  onArrowDown as onEmojiArrowDown,
+  onArrowUp as onEmojiArrowUp,
+  onEnter as onEmojiEnter,
   open as isEmojiOpen,
 };

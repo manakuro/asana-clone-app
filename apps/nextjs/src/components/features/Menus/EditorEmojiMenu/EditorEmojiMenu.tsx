@@ -15,7 +15,7 @@ export function EditorEmojiMenu() {
         }
       }}
       size="xs"
-      scrollBehavior="inside"
+      trapFocus={false}
       motionPreset="none"
     >
       <Portal>
