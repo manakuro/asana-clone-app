@@ -1,14 +1,18 @@
 import type { Node as ProsemirrorNode, Schema } from 'prosemirror-model';
 import type { Plugin } from 'prosemirror-state';
 import type { EditorProps } from 'prosemirror-view';
-import { type PropsWithChildren, useMemo } from 'react';
+import { type PropsWithChildren, type Ref, useMemo } from 'react';
 import { ClientOnly } from '@/components/ui/ClientOnly';
 import { useDebounce, usePrevious } from '@/hooks';
 import {
   createJSONTransformer,
   type ProsemirrorTransformer,
 } from '@/shared/prosemirror/transformers';
-import { EditorProvider, useEditorStateContext } from './EdiorProvider';
+import {
+  type EditorHandle,
+  EditorProvider,
+  useEditorStateContext,
+} from './EdiorProvider';
 import { Portals } from './Portals';
 
 export type EditorContainerProps = {
@@ -18,11 +22,13 @@ export type EditorContainerProps = {
   onChange?: (value: string) => void;
   debounce: number;
   editable?: EditorProps['editable'];
+  ref?: Ref<EditorHandle>;
 };
 
 type Props = PropsWithChildren<EditorContainerProps>;
 
 export function EditorContainer({
+  ref,
   schema,
   plugins,
   initialValue,
@@ -42,7 +48,12 @@ export function EditorContainer({
 
   return (
     <ClientOnly>
-      <EditorProvider plugins={plugins} doc={initialDoc} editable={editable}>
+      <EditorProvider
+        ref={ref}
+        plugins={plugins}
+        doc={initialDoc}
+        editable={editable}
+      >
         <Container
           transformer={transformer}
           debounce={debounce}

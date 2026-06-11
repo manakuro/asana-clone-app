@@ -1,5 +1,9 @@
-import { memo, useMemo } from 'react';
-import { Editor, EditorContent } from '@/components/ui/Editor';
+import { memo, useEffect, useMemo, useRef } from 'react';
+import {
+  Editor,
+  EditorContent,
+  type EditorHandle,
+} from '@/components/ui/Editor';
 import { stringifyDescription } from '@/shared/prosemirror/convertDescription';
 import { useTaskFeedListItemContext } from '../../Provider';
 import { Container } from './Container';
@@ -12,6 +16,11 @@ export const ContentText = memo(function ContentText() {
     () => stringifyDescription(taskFeed.description),
     [taskFeed.description],
   );
+  const editorRef = useRef<EditorHandle>(null);
+
+  useEffect(() => {
+    editorRef.current?.setEditable(editable);
+  }, [editable]);
 
   return (
     <Container>
@@ -19,6 +28,7 @@ export const ContentText = memo(function ContentText() {
         initialValue={value}
         editable={editable}
         onChange={onChangeDescription}
+        ref={editorRef}
       >
         <EditorContent />
         <ToolBar />

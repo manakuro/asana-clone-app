@@ -4,8 +4,10 @@ import type { EditorProps, EditorView } from 'prosemirror-view';
 import {
   createContext,
   type PropsWithChildren,
+  type Ref,
   useContext,
   useEffect,
+  useImperativeHandle,
   useRef,
   useState,
 } from 'react';
@@ -27,14 +29,20 @@ export const useEditorStateContext = (): EditorState => {
 
 export const useEditorViewContext = () => useContext(EditorViewContext);
 
+export type EditorHandle = {
+  setEditable: (editable: () => boolean) => void;
+};
+
 type Props = {
   doc?: ProsemirrorNode;
   plugins?: Plugin[];
+  ref?: Ref<EditorHandle>;
 } & EditorProps;
-export function EditorProvider(props: PropsWithChildren<Props>) {
+
+export function EditorProvider({ ref, ...props }: PropsWithChildren<Props>) {
   return (
     <ReactNodeViewPortalsProvider>
-      <Provider {...props} />
+      <Provider ref={ref} {...props} />
     </ReactNodeViewPortalsProvider>
   );
 }
@@ -46,7 +54,7 @@ const generateState = (props: Parameters<typeof EditorState.create>[0]) => {
   });
 };
 
-function Provider(props: PropsWithChildren<Props>) {
+function Provider({ ref, ...props }: PropsWithChildren<Props>) {
   const { createPortal, removePortal, setPortals } =
     useReactNodeViewCreatePortal();
   const [state, setState] = useState(
@@ -55,6 +63,17 @@ function Provider(props: PropsWithChildren<Props>) {
   const [view, setView] = useState<EditorView | null>(null);
   const viewRef = useRef<EditorView | null>(null);
   const editorRef = useRef<HTMLDivElement | null>(null);
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      setEditable: (editable: () => boolean) => {
+        console.log('setEditable: ', editable());
+        viewRef.current?.setProps({ editable });
+      },
+    }),
+    [],
+  );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Avoid unnecessary rendering.
   useEffect(() => {
@@ -77,11 +96,6 @@ function Provider(props: PropsWithChildren<Props>) {
       viewRef.current = null;
     };
   }, []);
-
-  useEffect(() => {
-    if (!viewRef.current) return;
-    viewRef.current.setProps({ editable: props.editable });
-  }, [props.editable]);
 
   return (
     <EditorStateContext.Provider value={state}>
