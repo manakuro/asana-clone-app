@@ -34,9 +34,6 @@ let onOpen: () => Promise<void> | void;
 let onClose: () => void;
 let setQuery: (query: string) => void;
 let getQuery: () => string;
-let onArrowDown: () => void;
-let onArrowUp: () => void;
-let onEnter: () => void;
 let open: boolean;
 let getCurrentCaretPosition: () => { x: number; y: number } | null;
 
@@ -88,7 +85,10 @@ export const useEditorMentionMenu = () => {
   );
 
   const { containerRef } = useContainer();
-  useOnKeyBindings({ mentions, setValue });
+  const { onArrowDown, onArrowUp, onEnter } = useOnKeyBindings({
+    mentions,
+    setValue,
+  });
   useQuery();
   useDisclosure({ reset });
 
@@ -102,6 +102,9 @@ export const useEditorMentionMenu = () => {
     mentions,
     setSelectedIndex,
     containerRef,
+    onArrowDown,
+    onArrowUp,
+    onEnter,
   };
 };
 
@@ -124,7 +127,7 @@ function useOnKeyBindings(props: {
     [state.containerRef],
   );
 
-  onArrowDown = useCallback(() => {
+  const onArrowDown = useCallback(() => {
     const selectedIndex = state.selectedIndex + 1;
     if (selectedIndex > props.mentions.length) {
       setState((s) => ({ ...s, selectedIndex: 0 }));
@@ -136,7 +139,7 @@ function useOnKeyBindings(props: {
     scrollTo(selectedIndex);
   }, [props.mentions.length, scrollTo, setState, state.selectedIndex]);
 
-  onArrowUp = useCallback(() => {
+  const onArrowUp = useCallback(() => {
     const selectedIndex = state.selectedIndex - 1;
     if (selectedIndex < 0) {
       setState((s) => ({ ...s, selectedIndex: props.mentions.length }));
@@ -148,7 +151,7 @@ function useOnKeyBindings(props: {
     scrollTo(-selectedIndex);
   }, [props.mentions.length, scrollTo, setState, state.selectedIndex]);
 
-  onEnter = useCallback(() => {
+  const onEnter = useCallback(() => {
     const mention = props.mentions.find((_, i) => i === state.selectedIndex);
 
     // Do nothing when it is entered without selecting an item
@@ -156,6 +159,8 @@ function useOnKeyBindings(props: {
 
     props.setValue({ id: mention.id, type: mention.type });
   }, [props, state.selectedIndex]);
+
+  return { onArrowDown, onArrowUp, onEnter };
 }
 
 function useDisclosure(props: { reset: () => void }) {
@@ -251,8 +256,5 @@ export {
   onClose as onMentionClose,
   setQuery as setMentionQuery,
   getQuery as getMentionQuery,
-  onArrowDown as onMentionArrowDown,
-  onArrowUp as onMentionArrowUp,
-  onEnter as onMentionEnter,
   open as isMentionOpen,
 };

@@ -26,7 +26,6 @@ import {
   toggleMarkUnderline,
   wrapInBlockquote,
 } from '../config/commands';
-import { ArrowDown, ArrowUp, Enter, Escape } from '../plugins/suggestions/keys';
 
 export const listKeys = (): Plugin =>
   keymap({
@@ -46,10 +45,6 @@ export const editorKeys = (): Plugin =>
     'Alt-ArrowUp': joinUp,
     'Alt-ArrowDown': joinDown,
     'Mod-BracketLeft': lift,
-    Escape,
-    Enter,
-    ArrowUp,
-    ArrowDown,
     'Shift-Mod-8': setListTypeBullet,
     'Shift-Mod-7': setListTypeOrdered,
     'Mod-b': toggleMarkBold,

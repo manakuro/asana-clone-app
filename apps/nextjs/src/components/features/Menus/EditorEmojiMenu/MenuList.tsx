@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { type KeyboardEvent, useCallback } from 'react';
 import { Dialog } from '@/components/ui/Dialog';
 import { useMenuStyle } from '@/hooks';
 import type { BaseEmoji } from '@/shared/emoji';
@@ -6,7 +6,16 @@ import { EmojiItem } from './EmojiItem';
 import { useEditorEmojiMenu } from './useEditorEmojiMenu';
 
 export function MenuList() {
-  const { emojis, x, y, setValue, containerRef } = useEditorEmojiMenu();
+  const {
+    emojis,
+    x,
+    y,
+    setValue,
+    containerRef,
+    onArrowDown,
+    onArrowUp,
+    onEnter,
+  } = useEditorEmojiMenu();
   const menuStyles = useMenuStyle();
 
   const handleClick = useCallback(
@@ -14,6 +23,26 @@ export function MenuList() {
       setValue(val);
     },
     [setValue],
+  );
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'ArrowDown':
+          e.preventDefault();
+          onArrowDown();
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          onArrowUp();
+          break;
+        case 'Enter':
+          e.preventDefault();
+          onEnter();
+          break;
+      }
+    },
+    [onArrowDown, onArrowUp, onEnter],
   );
 
   return (
@@ -24,9 +53,8 @@ export function MenuList() {
       mb={0}
       mt={0}
       maxW="450px"
-      maxH={56}
-      overflowY="scroll"
       ref={containerRef}
+      onKeyDown={handleKeyDown}
     >
       <Dialog.Body w="full" px={0} css={menuStyles.content}>
         {emojis.map((e, i) => (

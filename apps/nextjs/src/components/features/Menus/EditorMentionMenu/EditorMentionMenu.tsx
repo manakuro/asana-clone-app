@@ -16,8 +16,8 @@ export const EditorMentionMenu = memo(function EditorMentionMenu() {
         }
       }}
       size="xs"
-      trapFocus={false}
       motionPreset="none"
+      scrollBehavior="inside"
     >
       <Portal>
         <Dialog.Positioner>{open && <MenuContent />}</Dialog.Positioner>
