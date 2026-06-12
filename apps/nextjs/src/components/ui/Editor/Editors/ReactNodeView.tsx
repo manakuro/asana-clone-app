@@ -134,11 +134,6 @@ class ReactNodeView implements NodeView {
     }
     this.setDomAttributes(this.node, this.dom);
 
-    console.log(
-      '[ReactNodeView.init] onCreatePortal called',
-      this.node.type.name,
-    );
-
     this.onCreatePortal({
       Component: this.StableComponent,
       container: this.dom,
