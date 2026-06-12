@@ -25,8 +25,6 @@ export const TaskDetailDrawer = memo(function TaskDetailDrawer(props: Props) {
     }, 100);
   }, [backToPage, onClose]);
 
-  console.log('open: ', open);
-
   return (
     <Presence
       ref={ref}
