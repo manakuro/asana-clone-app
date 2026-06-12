@@ -1,5 +1,5 @@
 import { useParams, usePathname } from 'next/navigation';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksListBody } from '@/components/features/Tasks';
@@ -34,21 +34,26 @@ export const useTasksListDetail = (props: Props) => {
       },
       [getTasksListBodyElement],
     );
-  const { onOpen } = useTaskDetailDrawer();
+  const { onOpen, open } = useTaskDetailDrawer();
   const { taskId, setId, setLoading } = useTaskDetail();
+  const openRef = useRef<boolean>(false);
+  openRef.current = open;
+
+  const taskIdRef = useRef<string | null>(null);
+  taskIdRef.current = taskId;
 
   useEffect(() => {
     if (props.tabContentLoading) return;
     if (!isTaskDetailURL(params, pathname)) return;
 
     const newId = getTaskDetailId(params, pathname);
-    if (taskId === newId) return;
+    if (openRef.current && taskIdRef.current === newId) return;
     console.log('useTasksListDetail!: ', newId);
 
     setLoading(true);
-    setId(newId);
     onOpen(() => {
       setTimeout(async () => {
+        setId(newId);
         await fetchQuery({ taskId: newId });
         setLoading(false);
       }, 200);
@@ -59,7 +64,6 @@ export const useTasksListDetail = (props: Props) => {
     onOpen,
     fetchQuery,
     setId,
-    taskId,
     setLoading,
     isTaskDetailURL,
     getTaskDetailId,

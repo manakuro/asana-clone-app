@@ -1,5 +1,5 @@
 import { useParams, usePathname } from 'next/navigation';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksBoardListItemElement } from '@/components/features/Tasks/TasksBoard/TasksBoardListItem';
@@ -34,20 +34,26 @@ export const useTasksBoardDetail = (props: Props) => {
       },
       [className],
     );
-  const { onOpen } = useTaskDetailDrawer();
+  const { onOpen, open } = useTaskDetailDrawer();
+
+  const openRef = useRef<boolean>(false);
+  openRef.current = open;
+
+  const taskIdRef = useRef<string | null>(null);
+  taskIdRef.current = taskId;
 
   useEffect(() => {
     if (props.tabContentLoading) return;
     if (!isTaskDetailURL(params, pathname)) return;
 
     const newId = getTaskDetailId(params, pathname);
-    if (taskId === newId) return;
-    console.log('useTasksBoardDetail!', params, pathname);
+    if (openRef.current && taskIdRef.current === newId) return;
+    console.log('useTasksBoardDetail!', newId);
 
     setLoading(true);
-    setId(newId);
     onOpen(() => {
       setTimeout(async () => {
+        setId(newId);
         await fetchQuery({ taskId: newId });
         setLoading(false);
       }, 200);
@@ -57,7 +63,6 @@ export const useTasksBoardDetail = (props: Props) => {
     pathname,
     onOpen,
     setId,
-    taskId,
     setLoading,
     isTaskDetailURL,
     getTaskDetailId,

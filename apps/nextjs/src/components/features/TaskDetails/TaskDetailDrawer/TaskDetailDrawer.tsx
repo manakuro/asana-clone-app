@@ -18,12 +18,9 @@ export const TaskDetailDrawer = memo(function TaskDetailDrawer(props: Props) {
   const { ref } = useTaskDetailDrawerRef();
 
   const handleClose = useCallback(() => {
+    onClose();
     backToPage();
-    // Execute onClose after the pathname changes to detect URL params.
-    setTimeout(() => {
-      onClose();
-    }, 100);
-  }, [backToPage, onClose]);
+  }, [onClose, backToPage]);
 
   return (
     <Presence
@@ -43,7 +40,6 @@ export const TaskDetailDrawer = memo(function TaskDetailDrawer(props: Props) {
       zIndex={1400}
       overflowY="scroll"
       pointerEvents="auto"
-      unmountOnExit
     >
       {open && (
         <Content
