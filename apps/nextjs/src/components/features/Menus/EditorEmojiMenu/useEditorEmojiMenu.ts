@@ -12,9 +12,6 @@ import {
 } from '@/shared/emoji';
 import { getCaretPosition } from '@/shared/getCaretPosition';
 
-const _key = (str: string) =>
-  `src/components/organisms/Menus/EditorEmojiMenu/useEditorEmojiMenu/${str}`;
-
 const DEFAULT_EMOJIS = [
   'grinning',
   'laughing',
