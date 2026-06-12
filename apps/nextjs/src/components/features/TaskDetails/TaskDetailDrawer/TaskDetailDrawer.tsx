@@ -25,6 +25,8 @@ export const TaskDetailDrawer = memo(function TaskDetailDrawer(props: Props) {
     }, 100);
   }, [backToPage, onClose]);
 
+  console.log('open: ', open);
+
   return (
     <Presence
       ref={ref}
@@ -43,6 +45,7 @@ export const TaskDetailDrawer = memo(function TaskDetailDrawer(props: Props) {
       zIndex={1400}
       overflowY="scroll"
       pointerEvents="auto"
+      unmountOnExit
     >
       {open && (
         <Content
