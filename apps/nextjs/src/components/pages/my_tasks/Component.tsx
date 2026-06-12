@@ -93,8 +93,7 @@ const WrappedComponent = memo(function WrappedComponent() {
   const { isTabStatus, teammateTaskTabStatus } = useTeammateTaskTabStatus();
   const { setTabStatus } = useTeammateTaskTabStatusCommand();
   const { isSorted, sortBy } = useMyTasksTaskListStatus();
-  const { queryLoading, startTabContentLoading, endTabContentLoading } =
-    useMyTasksContext();
+  const { queryLoading, startTabContentTransition } = useMyTasksContext();
   const [tabIndex, setTabIndex] = React.useState<Index>(
     mapURLtoTabStatus({
       pathname,
@@ -102,43 +101,40 @@ const WrappedComponent = memo(function WrappedComponent() {
     }),
   );
 
-  const setLoading = useCallback(() => {
-    startTabContentLoading();
-    setTimeout(() => {
-      endTabContentLoading();
-    }, 200);
-  }, [startTabContentLoading, endTabContentLoading]);
-
   const handleTabsChange = useCallback(
     async (index: string) => {
       switch (index as Index) {
         case TASKS_INDEX: {
-          setLoading();
           setTabIndex(TASKS_INDEX);
-          setTabStatus('List');
-          navigateToMyTasksList();
+          startTabContentTransition(() => {
+            setTabStatus('List');
+            navigateToMyTasksList();
+          });
           break;
         }
         case BOARD_INDEX: {
           if (isSorted('project')) sortBy(TaskListSortStatusCode.None);
-          setLoading();
           setTabIndex(BOARD_INDEX);
-          setTabStatus('Board');
-          navigateToMyTasksBoard();
+          startTabContentTransition(() => {
+            setTabStatus('Board');
+            navigateToMyTasksBoard();
+          });
           break;
         }
         case CALENDAR_INDEX: {
-          setLoading();
           setTabIndex(CALENDAR_INDEX);
-          setTabStatus('Calendar');
-          navigateToMyTasksCalendar();
+          startTabContentTransition(() => {
+            setTabStatus('Calendar');
+            navigateToMyTasksCalendar();
+          });
           break;
         }
         case FILES_INDEX: {
-          setLoading();
           setTabIndex(FILES_INDEX);
-          setTabStatus('Files');
-          navigateToMyTasksFiles();
+          startTabContentTransition(() => {
+            setTabStatus('Files');
+            navigateToMyTasksFiles();
+          });
           break;
         }
       }
@@ -151,7 +147,7 @@ const WrappedComponent = memo(function WrappedComponent() {
       navigateToMyTasksFiles,
       sortBy,
       setTabStatus,
-      setLoading,
+      startTabContentTransition,
     ],
   );
 
