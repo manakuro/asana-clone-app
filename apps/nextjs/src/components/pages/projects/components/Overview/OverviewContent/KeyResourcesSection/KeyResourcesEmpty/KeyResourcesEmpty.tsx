@@ -1,3 +1,5 @@
+import NextImage from 'next/image';
+import image from '@/assets/images/key_resources_2.svg';
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
@@ -12,23 +14,25 @@ export function KeyResourcesEmpty() {
       mt={2}
       border="1px"
       borderStyle="solid"
-      borderColor="gray.200"
+      borderColor="border"
       borderRadius="md"
       p={4}
       alignItems="center"
       justifyContent="center"
     >
       <Flex minW="160px" minH="160px" w="160px" h="160px">
-        <Image w="full" src="/images/key_resources_2.svg" />
+        <Image w="full" asChild>
+          <NextImage src={image} alt="Picture of the key resources" />
+        </Image>
       </Flex>
       <Flex ml={4} flexDirection="column">
         <Heading as="h6" size="xs">
           Align your team around a shared vision with a project brief and
           supporting resources.
         </Heading>
-        <Stack mt={2} spacing={2} direction="row">
+        <Stack mt={2} gap={2} direction="row">
           <ComingSoonTooltip>
-            <Button colorScheme="teal" size="sm">
+            <Button colorPalette="teal" size="sm">
               Create project brief
             </Button>
           </ComingSoonTooltip>

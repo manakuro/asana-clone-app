@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/Editor';
 import { Flex } from '@/components/ui/Flex';
 import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
@@ -6,11 +6,7 @@ import {
   parseDescription,
   stringifyDescription,
 } from '@/shared/prosemirror/convertDescription';
-import {
-  useHasDescriptionUpdatedValue,
-  useProject,
-  useProjectCommand,
-} from '@/store/entities/project';
+import { useProject, useProjectCommand } from '@/store/entities/project';
 import { Container } from './Container';
 import { Placeholder } from './Placeholder';
 import { Provider } from './Provider';
@@ -36,10 +32,6 @@ const DescriptionHandler = memo(function DescriptionHandler(props: Props) {
     () => stringifyDescription(project.description),
     [project.description],
   );
-  const { hasDescriptionUpdated } = useHasDescriptionUpdatedValue({
-    projectId,
-  });
-  const [resetView, setResetView] = useState<number>(1);
 
   const handleChange = useCallback(
     async (val: string) => {
@@ -51,27 +43,15 @@ const DescriptionHandler = memo(function DescriptionHandler(props: Props) {
     [project.description, setProject, projectId],
   );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: used for resetting view
-  useEffect(() => {
-    setResetView((s) => s + 1);
-  }, [hasDescriptionUpdated]);
-
-  return (
-    <Component
-      onChange={handleChange}
-      initialValue={initialValue}
-      resetView={resetView}
-    />
-  );
+  return <Component onChange={handleChange} initialValue={initialValue} />;
 });
 
 type ComponentProps = {
   onChange: (val: string) => void;
   initialValue: string;
-  resetView: number;
 };
 const Component = memo(function Component(props: ComponentProps) {
-  const { onChange, initialValue, resetView } = props;
+  const { onChange, initialValue } = props;
 
   const handleChange = useCallback(
     (val: string) => {
@@ -83,11 +63,7 @@ const Component = memo(function Component(props: ComponentProps) {
 
   return (
     <Container>
-      <Editor
-        onChange={handleChange}
-        initialValue={initialValue}
-        resetView={resetView}
-      >
+      <Editor onChange={handleChange} initialValue={initialValue}>
         <Flex flex={1} flexDirection="column">
           <EditorContent style={{ minHeight: '80px' }} />
           <Placeholder />

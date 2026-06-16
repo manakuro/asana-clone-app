@@ -1,7 +1,6 @@
+export {
+  HoverCard,
+  type HoverCardRootProps,
+  usePopoverContext,
+} from '@chakra-ui/react';
 export * from './Popover';
-export * from './PopoverArrow';
-export * from './PopoverBody';
-export * from './PopoverCloseButton';
-export * from './PopoverContent';
-export * from './PopoverHeader';
-export * from './PopoverTrigger';

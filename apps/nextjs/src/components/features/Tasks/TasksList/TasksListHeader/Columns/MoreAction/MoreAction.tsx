@@ -3,11 +3,9 @@ import {
   useTasksTaskColumn,
   useTasksTaskColumnIds,
 } from '@/components/features/Tasks/hooks';
-import { Box } from '@/components/ui/Box';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Menu, MenuButton } from '@/components/ui/Menu';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Menu } from '@/components/ui/Menu';
 import { MenuList } from './MenuList';
 
 type Props = {
@@ -48,31 +46,30 @@ export const MoreAction = memo(function MoreAction(props: Props) {
   );
 
   return (
-    <PortalManager zIndex={1500}>
-      <Box>
-        <Menu
-          placement="bottom-start"
-          isLazy
-          onOpen={props.onOpened}
-          onClose={props.onClosed}
-        >
-          <MenuButton
-            aria-label="More actions"
-            as={IconButton}
-            icon={<Icon icon="chevronDown" color="text.muted" />}
-            variant="ghost"
-            size="sm"
-          />
-          <MenuList
-            onSort={props.onSort}
-            onMoveRight={handleMoveRight}
-            onMoveLeft={handleMoveLeft}
-            onHideColumn={handleHideColumn}
-            disabledMoveLeft={disabledMoveLeft}
-            disabledMoveRight={disabledMoveRight}
-          />
-        </Menu>
-      </Box>
-    </PortalManager>
+    <Menu.Root
+      positioning={{ placement: 'bottom-start' }}
+      lazyMount
+      onOpenChange={(e) => {
+        if (e.open) {
+          props.onOpened?.();
+        } else {
+          props.onClosed?.();
+        }
+      }}
+    >
+      <Menu.Trigger asChild>
+        <IconButton aria-label="More actions" variant="ghost" size="sm">
+          <Icon icon="chevronDown" color="fg.muted" />
+        </IconButton>
+      </Menu.Trigger>
+      <MenuList
+        onSort={props.onSort}
+        onMoveRight={handleMoveRight}
+        onMoveLeft={handleMoveLeft}
+        onHideColumn={handleHideColumn}
+        disabledMoveLeft={disabledMoveLeft}
+        disabledMoveRight={disabledMoveRight}
+      />
+    </Menu.Root>
   );
 });

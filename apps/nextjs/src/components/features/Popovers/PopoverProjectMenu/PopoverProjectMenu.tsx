@@ -1,12 +1,9 @@
-import type React from 'react';
-import { useCallback } from 'react';
-import type { IconButtonProps } from '@/components/ui/IconButton';
-import { Menu, MenuButton, type MenuButtonProps } from '@/components/ui/Menu';
-import { type ChakraProps, useDisclosure } from '@/shared/chakra';
+import type { PropsWithChildren } from 'react';
+import { Menu } from '@/components/ui/Menu';
 import { useProject } from '@/store/entities/project';
 import { MenuList } from './MenuList';
 
-type Props = MenuButtonProps & {
+type Props = {
   projectId: string;
   closeMenu?: boolean;
   addFavorite?: boolean;
@@ -17,14 +14,11 @@ type Props = MenuButtonProps & {
   editProjectDetails?: boolean;
   copyProjectLink?: boolean;
   share?: boolean;
-  iconButton?: IconButtonProps;
-  menuButtonStyle?: ChakraProps;
   onOpened?: () => void;
   onClosed?: () => void;
 };
-export type PopoverProjectMenuProps = Props;
 
-export function PopoverProjectMenu(props: Props) {
+export function PopoverProjectMenu(props: PropsWithChildren<Props>) {
   const {
     projectId,
     addFavorite,
@@ -35,48 +29,34 @@ export function PopoverProjectMenu(props: Props) {
     editProjectDetails,
     copyProjectLink,
     share,
-    iconButton,
-    menuButtonStyle,
     onOpened,
     onClosed,
   } = props;
   const { project } = useProject(projectId);
-  const { onClose, onOpen, isOpen } = useDisclosure();
-
-  const handleCloseMenu = useCallback(() => {
-    onClose();
-    onClosed?.();
-  }, [onClose, onClosed]);
-
-  const handleOpen = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
-      e.preventDefault();
-      onOpen();
-      onOpened?.();
-    },
-    [onOpen, onOpened],
-  );
 
   return (
-    <Menu closeOnBlur={false} closeOnSelect={false} isOpen={isOpen} isLazy>
-      <MenuButton onClick={handleOpen} {...iconButton} {...menuButtonStyle}>
-        {props.children}
-      </MenuButton>
-      {isOpen && (
-        <MenuList
-          project={project}
-          onCloseMenu={handleCloseMenu}
-          addFavorite={addFavorite}
-          removeFavorite={removeFavorite}
-          duplicateProject={duplicateProject}
-          archiveProject={archiveProject}
-          deleteProject={deleteProject}
-          editProjectDetails={editProjectDetails}
-          copyProjectLink={copyProjectLink}
-          share={share}
-        />
-      )}
-    </Menu>
+    <Menu.Root
+      lazyMount
+      onOpenChange={(e) => {
+        if (e.open) {
+          onOpened?.();
+        } else {
+          onClosed?.();
+        }
+      }}
+    >
+      <Menu.Trigger asChild>{props.children}</Menu.Trigger>
+      <MenuList
+        project={project}
+        addFavorite={addFavorite}
+        removeFavorite={removeFavorite}
+        duplicateProject={duplicateProject}
+        archiveProject={archiveProject}
+        deleteProject={deleteProject}
+        editProjectDetails={editProjectDetails}
+        copyProjectLink={copyProjectLink}
+        share={share}
+      />
+    </Menu.Root>
   );
 }

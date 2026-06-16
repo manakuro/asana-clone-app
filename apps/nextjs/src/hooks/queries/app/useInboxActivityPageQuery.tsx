@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
-import { useInboxActivityPageQuery as useQuery } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useEffect, useMemo, useState } from 'react';
+import { InboxActivityPageDocument } from '@/graphql/hooks';
 import { useMountedRef } from '@/hooks';
 import { useActivityResponse } from '@/store/app/inbox/activity';
 import { useWorkspace } from '@/store/entities/workspace';
@@ -11,38 +12,24 @@ export const useInboxActivityPageQuery = () => {
   const { setActivity } = useActivityResponse();
   const { mountedRef } = useMountedRef();
 
-  const { refetch: refetchQuery } = useQuery({
+  const { data } = useQuery(InboxActivityPageDocument, {
     variables: {
       workspaceId: workspace.id,
     },
     fetchPolicy: 'no-cache',
     notifyOnNetworkStatusChange: true,
-    onCompleted: (data) => {
-      if (!mountedRef.current) return;
-
-      setActivity(data);
-      endLoading();
-    },
     skip,
   });
 
-  const startLoading = useCallback(() => {
-    setLoading(true);
-  }, []);
+  useEffect(() => {
+    if (!mountedRef.current) return;
+    if (!data) return;
 
-  const endLoading = useCallback(() => {
+    setActivity(data);
     setLoading(false);
-  }, []);
-
-  const refetch = useCallback(async () => {
-    startLoading();
-    setTimeout(async () => {
-      await refetchQuery();
-    });
-  }, [refetchQuery, startLoading]);
+  }, [data, mountedRef.current, setActivity]);
 
   return {
     loading,
-    refetch,
   };
 };

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Menu, MenuButton, MenuGroup, MenuList } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { useTaskFeedListItemContext } from '../../Provider';
 import { CopyCommentLink } from './CopyCommentLink';
@@ -15,25 +15,25 @@ export const FeedOptionMenu = memo(function FeedOptionMenu() {
   if (!showFeedOptionMenu) return null;
 
   return (
-    <Menu isLazy lazyBehavior="keepMounted" placement="bottom-end">
-      <MenuButton
-        aria-label="Feed option menu"
-        as={IconButton}
-        icon={<Icon icon="chevronDown" color="text.muted" />}
-        size="sm"
-        variant="ghost"
-      />
+    <Menu.Root lazyMount positioning={{ placement: 'bottom-end' }}>
+      <Menu.Trigger asChild>
+        <IconButton aria-label="Feed option menu" size="sm" variant="ghost">
+          <Icon icon="chevronDown" color="fg.muted" />
+        </IconButton>
+      </Menu.Trigger>
       <Portal>
-        <MenuList>
-          <MenuGroup>
-            <Pin />
-            <EditComment />
-            <DeleteComment />
-            <DeleteStory />
-            <CopyCommentLink />
-          </MenuGroup>
-        </MenuList>
+        <Menu.Positioner>
+          <Menu.Content>
+            <Menu.ItemGroup>
+              <Pin />
+              <EditComment />
+              <DeleteComment />
+              <DeleteStory />
+              <CopyCommentLink />
+            </Menu.ItemGroup>
+          </Menu.Content>
+        </Menu.Positioner>
       </Portal>
-    </Menu>
+    </Menu.Root>
   );
 });

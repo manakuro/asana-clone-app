@@ -6,5 +6,3 @@ export * from './useKeyPress';
 export * from './useMountedRef';
 export * from './usePrevious';
 export * from './useResponsive';
-export * from './useStandaloneToast';
-export * from './useToast';

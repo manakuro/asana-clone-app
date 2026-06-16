@@ -28,7 +28,7 @@ export const AssigneeItem = memo(function AssigneeItem(props: Props) {
       </LeftContainer>
       <RightContainer>
         <Text fontSize="sm">mana</Text>
-        <Text ml={5} fontSize="xs" color="text.muted">
+        <Text ml={5} fontSize="xs" color="fg.muted">
           {teammate.email}
         </Text>
       </RightContainer>

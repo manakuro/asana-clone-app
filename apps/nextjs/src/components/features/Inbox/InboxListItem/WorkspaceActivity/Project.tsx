@@ -4,7 +4,7 @@ import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
 import { useProject } from '@/store/entities/project';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = FlexProps & {
   projectId: string;
@@ -21,7 +21,7 @@ export const Project = memo(function Project(props: Props) {
   return (
     <Flex flex={1} mt={1}>
       <Flex alignItems="center">
-        <Icon icon="outlineProject" color="text.muted" />
+        <Icon icon="outlineProject" color="fg.muted" />
         <Link
           mt="2px"
           fontSize="md"

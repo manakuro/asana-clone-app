@@ -56,7 +56,7 @@ export const TagChip = memo(function TagChip(props: Props) {
         bg: taskTag.tag.color.color,
       }}
     >
-      <Text fontSize="xs" noOfLines={1} color="text.base">
+      <Text fontSize="xs" lineClamp={1} color="fg">
         {taskTag.tag.name}
       </Text>
       {props.deletable && (
@@ -64,7 +64,7 @@ export const TagChip = memo(function TagChip(props: Props) {
           ml={1}
           mt="1px"
           icon="x"
-          color="text.muted"
+          color="fg.muted"
           size="sm"
           {...clickableHoverLightStyle}
           onClick={handleDelete}

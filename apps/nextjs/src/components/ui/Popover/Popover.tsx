@@ -1,4 +1,5 @@
 export {
   Popover,
-  type PopoverProps,
+  type PopoverContentProps,
+  type PopoverRootProps,
 } from '@chakra-ui/react';

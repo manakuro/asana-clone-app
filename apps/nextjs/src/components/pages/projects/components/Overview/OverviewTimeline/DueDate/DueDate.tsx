@@ -12,7 +12,7 @@ export const DueDate = memo(function DueDate(props: Props) {
   const { timelineBorderStyle } = useTimelineStyle();
 
   return (
-    <Flex position="relative" pb={8} {...timelineBorderStyle}>
+    <Flex position="relative" pb={8} css={timelineBorderStyle}>
       <ProjectDueDate
         projectId={projectId}
         buttonStyle={{ ml: '-15px' }}

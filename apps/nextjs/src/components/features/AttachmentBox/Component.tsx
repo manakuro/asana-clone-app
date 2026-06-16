@@ -3,7 +3,7 @@ import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
 import { Text } from '@/components/ui/Text';
 import type { IconType } from '@/shared/icons';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 import { type Sizes, sizes } from './sizes';
 
 type Props = FlexProps & {
@@ -39,18 +39,18 @@ export function Component(props: Props) {
       {...sizeStyle}
       {...rest}
     >
-      <Icon icon={icon} color="text.muted" size="2xl" />
+      <Icon icon={icon} color="fg.muted" size="2xl" />
       <Flex ml={4} flexDirection="column" flex={1} minW={0}>
-        <Text fontSize="sm" noOfLines={1}>
+        <Text fontSize="sm" lineClamp={1}>
           {name}
         </Text>
         <Flex>
-          <Text as="span" fontSize="xs" color="text.muted">
+          <Text as="span" fontSize="xs" color="fg.muted">
             {fileName}・
             <Link
               href={src}
               fontSize="xs"
-              color="text.muted"
+              color="fg.muted"
               download
               hover
               onClick={(e) => e.stopPropagation()}

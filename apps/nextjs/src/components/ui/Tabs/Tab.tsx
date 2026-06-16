@@ -1,25 +1,27 @@
-import {
-  Tab as ChakraTab,
-  type TabProps as ChakraTabProps,
-} from '@chakra-ui/react';
+import { Tabs, type TabsTriggerProps } from '@chakra-ui/react';
 import { forwardRef } from 'react';
 import { useClickableHoverStyle } from '@/hooks';
 
-type Props = ChakraTabProps;
-export type TabProps = Props;
+type Props = TabsTriggerProps;
 
 export const Tab = forwardRef<HTMLButtonElement, Props>(
   function Tab(props, ref) {
     const { clickableHoverLightStyle } = useClickableHoverStyle();
 
     return (
-      <ChakraTab
+      <Tabs.Trigger
         px={0}
         mr={4}
         mb={0}
-        {...(props.isDisabled ? {} : clickableHoverLightStyle)}
+        {...(props.disabled ? {} : clickableHoverLightStyle)}
         fontWeight="medium"
         {...props}
+        _selected={{
+          opacity: 1,
+          _before: {
+            bg: 'teal.solid',
+          },
+        }}
         ref={ref}
       />
     );

@@ -1,7 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Badge, type BadgeProps } from '@/components/ui/Badge';
-import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Icon } from '@/components/ui/Icon';
@@ -59,7 +58,6 @@ export const ProjectChip = memo(function ProjectChip(props: Props) {
 
   return (
     <Button
-      as={Box}
       size="xs"
       border="1px"
       borderColor="transparent"
@@ -68,9 +66,10 @@ export const ProjectChip = memo(function ProjectChip(props: Props) {
       minH={5}
       h={5}
       _hover={{ bg: 'gray.100' }}
+      variant="subtle"
     >
       <ColorBox size="xs" color={projectBaseColor.color.color} />
-      <Text ml={2} fontSize="xs" noOfLines={1} color="text.base">
+      <Text ml={2} fontSize="xs" lineClamp={1} color="fg">
         {project.name}
       </Text>
       {props.deletable && (
@@ -78,7 +77,7 @@ export const ProjectChip = memo(function ProjectChip(props: Props) {
           ml={1}
           mt="1px"
           icon="x"
-          color="text.muted"
+          color="fg.muted"
           size="sm"
           {...clickableHoverLightStyle}
           onClick={handleDelete}

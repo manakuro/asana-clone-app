@@ -10,7 +10,7 @@ type Props = FlexProps & {
 
 export const ListItem = memo(function ListItem(props: Props) {
   const styles = useMenuStyle().item;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const { selectedIndex, setSelectedIndex } = useAssigneeMenu();
 
   styles._hover = undefined;
@@ -27,10 +27,10 @@ export const ListItem = memo(function ListItem(props: Props) {
   return (
     <Flex
       ref={ref}
-      bg={selected ? styles._focus.bg : 'transparent'}
+      bg={selected ? styles._focus?.bg : 'transparent'}
       fontSize="sm"
       alignItems="center"
-      {...styles}
+      css={styles}
       {...props}
     />
   );

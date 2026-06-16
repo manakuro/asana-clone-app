@@ -32,7 +32,7 @@ export function ProjectRoleListItem(props: Props) {
         projectTeammateId={projectTeammateId}
       >
         <Button>
-          <Flex alignItems="center" textAlign="left">
+          <Flex alignItems="center" textAlign="left" flex={1}>
             <TeammateAvatar teammateId={teammate.id} size="sm" />
             <Flex
               flex={1}
@@ -41,24 +41,23 @@ export function ProjectRoleListItem(props: Props) {
               justifyContent="center"
               minW="1px"
             >
-              <Text fontSize="sm" fontWeight="medium" noOfLines={1}>
+              <Text fontSize="sm" fontWeight="medium" lineClamp={1}>
                 {teammate.name}
               </Text>
-              <Text fontSize="xs" color="text.muted" mt={1}>
+              <Text fontSize="xs" color="fg.muted" mt={1}>
                 {roleText}
               </Text>
             </Flex>
-            {isHovering && (
-              <Flex
-                ml="auto"
-                w={4}
-                h="full"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Icon icon="chevronDown" color="text.muted" />
-              </Flex>
-            )}
+            <Flex
+              visibility={isHovering ? 'visible' : 'hidden'}
+              ml="auto"
+              w={4}
+              h="full"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Icon icon="chevronDown" color="fg.muted" />
+            </Flex>
           </Flex>
         </Button>
       </ProjectRoleMenu>

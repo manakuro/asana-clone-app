@@ -67,7 +67,7 @@ export const TasksNameField = memo(function TasksNameField(props: Props) {
     let val: InputProps = {
       ml: 1,
       fontSize: 'sm',
-      color: 'text.base',
+      color: 'fg',
       minH: 5,
       h: 5,
       paddingInlineStart: 2,
@@ -110,7 +110,9 @@ export const TasksNameField = memo(function TasksNameField(props: Props) {
         {...style}
         position="absolute"
         top={0}
-        focusBorderColor="transparent"
+        css={{
+          '--focus-color': 'transparent',
+        }}
         placeholder={inputFocused ? 'Write a task name' : ''}
         onFocus={onInputFocus}
         onBlur={onInputBlur}

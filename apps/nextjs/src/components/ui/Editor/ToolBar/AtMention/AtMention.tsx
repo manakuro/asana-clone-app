@@ -9,12 +9,13 @@ export const AtMention = memo(function AtMention() {
   return (
     <BaseButton
       aria-label="At mention"
-      icon={<Icon icon="at" color="text.muted" />}
       action={action}
       tooltip={{
-        label: 'At-Mention',
+        content: 'At-Mention',
         'aria-label': 'At-Mention',
       }}
-    />
+    >
+      <Icon icon="at" color="fg.muted" />
+    </BaseButton>
   );
 });

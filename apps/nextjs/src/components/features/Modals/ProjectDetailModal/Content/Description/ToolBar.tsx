@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { Divider } from '@/components/ui/Divider';
 import {
   AtMention,
   Bold,
@@ -13,6 +12,7 @@ import {
   Strikethrough,
   Underline,
 } from '@/components/ui/Editor/ToolBar';
+import { Separator } from '@/components/ui/Separator';
 import { Stack } from '@/components/ui/Stack';
 import { useDescriptionContext } from './Provider';
 
@@ -23,7 +23,7 @@ export const ToolBar = memo(function ToolBar() {
     <Stack
       flex={1}
       direction="row"
-      spacing={0}
+      gap={0}
       minH={8}
       alignItems="center"
       bg="white"
@@ -40,7 +40,7 @@ export const ToolBar = memo(function ToolBar() {
           <IncreaseListIndent />
           <DecreaseListIndent />
           <Link />
-          <Divider orientation="vertical" borderColor="gray.400" h={5} />
+          <Separator orientation="vertical" borderColor="gray.400" h={5} />
           <AtMention />
           <Emoji />
         </>

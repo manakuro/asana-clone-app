@@ -1,8 +1,9 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useCreateFavoriteWorkspaceMutation,
-  useDeleteFavoriteWorkspaceMutation,
+  CreateFavoriteWorkspaceDocument,
+  DeleteFavoriteWorkspaceDocument,
 } from '@/graphql/hooks';
 import { useMe } from '@/store/entities/me';
 import { favoriteWorkspaceIdsState } from '../atom';
@@ -14,10 +15,12 @@ import { useUpsert } from './useUpsert';
 
 export const useFavoriteWorkspaceIdsCommand = () => {
   const { me } = useMe();
-  const [createFavoriteWorkspaceMutation] =
-    useCreateFavoriteWorkspaceMutation();
-  const [deleteFavoriteWorkspaceMutation] =
-    useDeleteFavoriteWorkspaceMutation();
+  const [createFavoriteWorkspaceMutation] = useMutation(
+    CreateFavoriteWorkspaceDocument,
+  );
+  const [deleteFavoriteWorkspaceMutation] = useMutation(
+    DeleteFavoriteWorkspaceDocument,
+  );
   const { upsert } = useUpsert();
 
   useFavoriteWorkspaceIdsUpdatedSubscription({
@@ -47,7 +50,7 @@ export const useFavoriteWorkspaceIdsCommand = () => {
             },
           });
 
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
@@ -82,7 +85,7 @@ export const useFavoriteWorkspaceIdsCommand = () => {
             },
           });
 
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {

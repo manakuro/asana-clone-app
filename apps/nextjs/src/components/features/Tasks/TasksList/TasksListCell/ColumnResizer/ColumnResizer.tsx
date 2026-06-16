@@ -13,7 +13,7 @@ type Props = Omit<FlexProps, 'onChange'> & {
 export function ColumnResizer(props: Props) {
   const { onChange, resizedMinW, resizedMaxW, ...rest } = props;
   const [dragging, setDragging] = useState<boolean>(false);
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const [height, setHeight] = useState<number>(0);
   const [top, setTop] = useState<number>(0);
   const [left, setLeft] = useState<number>(0);

@@ -38,12 +38,12 @@ export const TasksBoardListItemForProjectsPage: React.FC<Props> = memo<Props>(
         {/*cover image here*/}
         <Projects projectIds={projectIds} />
         <TasksName taskId={props.taskId} />
-        <Stack spacing={2} direction="row" mt={4} alignItems="center">
+        <Stack gap={2} direction="row" mt={4} alignItems="center">
           <Priority taskId={props.taskId} />
           <Tags taskId={props.taskId} />
         </Stack>
         <Flex mt={4} alignItems="center">
-          <Stack spacing={2} direction="row">
+          <Stack gap={2} direction="row">
             <Assignee taskId={props.taskId} />
             <DueDate taskId={props.taskId} />
           </Stack>

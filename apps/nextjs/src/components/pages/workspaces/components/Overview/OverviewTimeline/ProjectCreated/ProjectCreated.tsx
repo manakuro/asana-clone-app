@@ -20,7 +20,7 @@ export const ProjectCreated = memo(function ProjectCreated(props: Props) {
   return (
     <Flex position="relative">
       <Flex flexDirection="column">
-        <Icon icon="outlineProject" color="text.muted" size="xl" ml="-1px" />
+        <Icon icon="outlineProject" color="fg.muted" size="xl" ml="-1px" />
       </Flex>
       <Flex flexDirection="column" ml={2} mb={8}>
         <Heading as="h5" size="sm">
@@ -30,7 +30,7 @@ export const ProjectCreated = memo(function ProjectCreated(props: Props) {
           <Text fontSize="xs" fontWeight="bold">
             {name}
           </Text>
-          <Text ml={2} fontSize="xs" color="text.muted">
+          <Text ml={2} fontSize="xs" color="fg.muted">
             {formatCreatedAt(project.createdAt)}
           </Text>
         </Flex>

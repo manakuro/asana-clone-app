@@ -3,7 +3,7 @@ import { memo, useMemo } from 'react';
 import { Box } from '@/components/ui/Box';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Textarea, type TextareaProps } from '@/components/ui/Textarea';
-import type { ChakraProps } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 
 type Props = {
   value: string;
@@ -17,7 +17,8 @@ type Props = {
   placeholder?: string;
   textareaRef?: React.ForwardedRef<any>;
   noBorder?: boolean;
-} & ChakraProps;
+  inputStyle?: SystemStyleObject;
+};
 
 export const InputText = memo(function InputText(props: Props) {
   const {
@@ -32,18 +33,19 @@ export const InputText = memo(function InputText(props: Props) {
     autoFocus,
     textareaRef,
     noBorder,
-    ...rest
+    inputStyle,
   } = props;
 
-  const style = useMemo<ChakraProps>(
+  const style = useMemo<SystemStyleObject>(
     () => ({
       w: 'full',
       h: 'full',
-      minH: props.minH || 'auto',
+      minH: inputStyle?.minH || 'auto',
       m: 0,
-      color: 'text.base',
+      color: 'fg',
       border: '1px',
       borderColor: 'transparent',
+      borderStyle: 'solid',
       borderRadius: 'md',
       paddingLeft: noBorder ? 0 : 2,
       paddingRight: noBorder ? 0 : 2,
@@ -52,11 +54,14 @@ export const InputText = memo(function InputText(props: Props) {
       },
       _focus: {
         borderColor: noBorder ? 'transparent' : 'gray.600',
+        _hover: {
+          borderColor: noBorder ? 'transparent' : 'gray.600',
+        },
       },
       overflowWrap: 'anywhere',
       ...(autoFocus ? { borderColor: 'gray.600' } : {}),
     }),
-    [props.minH, noBorder, autoFocus],
+    [inputStyle?.minH, noBorder, autoFocus],
   );
 
   return (
@@ -64,7 +69,7 @@ export const InputText = memo(function InputText(props: Props) {
       flex={1}
       position="relative"
       onClick={onClick}
-      {...rest}
+      {...(inputStyle as FlexProps)}
       {...containerStyle}
       w="full"
     >
@@ -75,7 +80,7 @@ export const InputText = memo(function InputText(props: Props) {
         ref={textareaRef}
         p={0}
         {...style}
-        {...rest}
+        {...inputStyle}
         resize="none"
         onChange={onChange}
         onKeyDown={onKeyDown}
@@ -85,7 +90,6 @@ export const InputText = memo(function InputText(props: Props) {
         position="absolute"
         top={0}
         left={0}
-        focusBorderColor="transparent"
         value={value}
         placeholder={placeholder}
         _focusVisible={{

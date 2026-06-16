@@ -9,7 +9,7 @@ import { useSubtasksNameContext } from './Provider';
 type Props = TasksListCellProps;
 
 export const TasksNameCell: React.FC<Props> = memo(
-  forwardRef((props, ref) => {
+  forwardRef<HTMLDivElement, Props>((props, ref) => {
     const { cellStyle } = useSubtasksNameContext();
 
     const { containerStyle: cellStyleContainerStyle, ...cellStyleRest } =

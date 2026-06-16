@@ -1,14 +1,19 @@
-import { useMeQuery as useMeQueryApollo } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useEffect } from 'react';
+import { MeDocument } from '@/graphql/hooks';
 import { initialMeState, useMeResponse } from '@/store/entities/me';
 
 export const useMeQuery = () => {
   const { setMe } = useMeResponse();
-  const queryResult = useMeQueryApollo({
+  const queryResult = useQuery(MeDocument, {
     fetchPolicy: 'cache-first',
-    onCompleted: (data) => {
-      setMe(data.me || initialMeState());
-    },
   });
+
+  useEffect(() => {
+    if (!queryResult.data) return;
+
+    setMe(queryResult.data.me || initialMeState());
+  }, [queryResult.data, setMe]);
 
   return {
     refetch: queryResult.refetch,

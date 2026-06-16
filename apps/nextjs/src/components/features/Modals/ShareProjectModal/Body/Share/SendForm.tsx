@@ -48,15 +48,15 @@ export const SendForm = memo(function SendForm(props: Props) {
   return (
     <>
       <InviteProjectTeammateMenu
-        isOpen={popoverDisclosure.isOpen}
+        open={popoverDisclosure.open}
         onClose={popoverDisclosure.onClose}
         onSelect={handleSelect}
-        placement="bottom-start"
+        positioning={{ placement: 'bottom-start' }}
         queryText={value}
       >
         <Flex
           border={1}
-          borderColor="gray.300"
+          borderColor="border"
           borderStyle="solid"
           px={2}
           bg="white"
@@ -79,8 +79,7 @@ export const SendForm = memo(function SendForm(props: Props) {
                 h="full"
                 autoFocus
                 fontSize="sm"
-                variant="unstyled"
-                color="text.base"
+                unstyled
                 value={value}
                 onChange={handleChange}
               />

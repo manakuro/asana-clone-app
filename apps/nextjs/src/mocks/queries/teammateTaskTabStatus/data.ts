@@ -15,7 +15,6 @@ export const data = (
         statusCode: 'LIST',
         createdAt: '2022-11-29T09:16:40+09:00',
         updatedAt: '2022-11-29T09:16:40+09:00',
-        __typename: 'TeammateTaskTabStatus',
       },
     },
     (options || {}) as Query,

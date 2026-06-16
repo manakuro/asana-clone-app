@@ -41,13 +41,12 @@ export const AssigneeIconMenu = memo(function AssigneeIconMenu(props: Props) {
         <TeammateAvatar
           teammateId={teammate.id}
           size="xs"
-          ignoreFallback
           showProfile={showProfile}
         />
       ) : (
         <Tooltip
-          hasArrow
-          label="Assign this task"
+          showArrow
+          content="Assign this task"
           aria-label="Assign this task"
           size="sm"
           withIcon
@@ -56,7 +55,7 @@ export const AssigneeIconMenu = memo(function AssigneeIconMenu(props: Props) {
             visibility={showIcon ? 'visible' : 'hidden'}
             pointerEvents={showIcon ? 'auto' : 'none'}
             icon="user"
-            color="text.muted"
+            color="fg.muted"
             {...clickableHoverLightStyle}
           />
         </Tooltip>

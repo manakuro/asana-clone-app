@@ -17,7 +17,7 @@ type Props = {
 export const DueDate = memo(function DueDate(props: Props) {
   const { task, setTaskDueDate, resetTaskDueDate } = useTask(props.taskId);
   const { clickableHoverLightStyle } = useClickableHoverStyle();
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLButtonElement>();
   const hasDueDate = useMemo(() => !!task.dueDate, [task.dueDate]);
   const showResetIcon = useMemo(() => hasDueDate, [hasDueDate]);
 
@@ -59,14 +59,14 @@ export const DueDate = memo(function DueDate(props: Props) {
             borderColor="transparent"
             cursor="pointer"
           >
-            <Icon icon="calendar" color="text.muted" size="xl" />
+            <Icon icon="calendar" color="fg.muted" size="xl" />
             <AtomsDueDate ml={2} fontSize="xs" dueDate={task.dueDate} />
             {showResetIcon && (
               <Icon
                 ml={2}
                 mt="1px"
                 icon="x"
-                color="text.muted"
+                color="fg.muted"
                 size="sm"
                 visibility={isHovering ? 'visible' : 'hidden'}
                 {...clickableHoverLightStyle}

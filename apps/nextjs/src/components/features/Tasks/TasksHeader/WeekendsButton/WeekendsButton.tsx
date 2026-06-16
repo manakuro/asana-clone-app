@@ -4,11 +4,8 @@ import { Icon } from '@/components/ui/Icon';
 
 export const WeekendsButton = memo(function WeekendsButton() {
   return (
-    <Button
-      variant="ghost"
-      leftIcon={<Icon icon="calendarAlt" color="text.muted" />}
-      size="xs"
-    >
+    <Button variant="ghost" size="xs">
+      <Icon icon="calendarAlt" color="fg.muted" />
       Weekends: On
     </Button>
   );

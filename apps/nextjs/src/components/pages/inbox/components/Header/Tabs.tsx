@@ -8,13 +8,13 @@ export const Tabs = memo(function Tabs() {
     <Flex mt={3} flex={1}>
       <Flex alignItems="flex-start" flexDirection="column">
         <Flex alignItems="center">
-          <Heading as="h2" size="md" fontWeight="semibold">
+          <Heading as="h2" size="lg" fontWeight="semibold">
             Inbox
           </Heading>
         </Flex>
-        <TabList>
-          <Tab>Activity</Tab>
-          <Tab>Archive</Tab>
+        <TabList bottom="-1px">
+          <Tab value="activity">Activity</Tab>
+          <Tab value="archive">Archive</Tab>
         </TabList>
       </Flex>
     </Flex>

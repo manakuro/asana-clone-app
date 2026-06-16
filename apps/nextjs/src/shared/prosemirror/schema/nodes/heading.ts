@@ -1,7 +1,5 @@
 import type { NodeSpec } from 'prosemirror-model';
 
-// from prosemirror-schema-basic
-
 export const heading: NodeSpec = {
   attrs: {
     level: { default: 1 },

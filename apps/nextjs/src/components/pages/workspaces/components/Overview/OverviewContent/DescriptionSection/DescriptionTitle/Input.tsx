@@ -18,9 +18,11 @@ export const Input: React.FC<Props> = memo<Props>((props) => {
         value={value}
         onChange={onChange}
         onKeyDown={onKeyDown}
-        fontSize="xl"
-        fontWeight="bold"
-        minH="38px"
+        inputStyle={{
+          fontSize: 'xl',
+          fontWeight: 'bold',
+          minH: '38px',
+        }}
         placeholder="How we'll collaborate"
         noBorder
       />

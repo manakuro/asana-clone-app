@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Icon, type IconProps } from '@/components/ui/Icon';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = {
   completed: boolean;

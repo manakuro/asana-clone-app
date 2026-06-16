@@ -12,9 +12,6 @@ import {
 } from '@/shared/emoji';
 import { getCaretPosition } from '@/shared/getCaretPosition';
 
-const _key = (str: string) =>
-  `src/components/organisms/Menus/EditorEmojiMenu/useEditorEmojiMenu/${str}`;
-
 const DEFAULT_EMOJIS = [
   'grinning',
   'laughing',
@@ -41,7 +38,7 @@ type EmojiWithSkin = { [variant in EmojiSkin]: EmojiData };
 const isEmojiWithSkin = (data: any): data is EmojiWithSkin => !!data[1];
 
 type State = {
-  isOpen: boolean;
+  open: boolean;
   x: number;
   y: number;
   query: string;
@@ -51,7 +48,7 @@ type State = {
 };
 
 const modalState = atomWithReset<State>({
-  isOpen: false,
+  open: false,
   x: 0,
   y: 0,
   query: '',
@@ -62,14 +59,14 @@ const modalState = atomWithReset<State>({
 
 // NOTE: Export functions in order to execute inside prosemirror's plugins
 // @see src/shared/prosemirror/config/plugins.ts
-let onOpen: () => Promise<void> | void;
+let onOpen: (options?: { onOpened?: () => void }) => Promise<void> | void;
 let onClose: () => void;
 let setQuery: (query: string) => void;
 let getQuery: () => string;
 let onArrowDown: () => void;
 let onArrowUp: () => void;
 let onEnter: () => void;
-let isOpen: boolean;
+let open: boolean;
 let getCurrentCaretPosition: () => { x: number; y: number } | null;
 
 type EmojiRef = Readonly<{ current: BaseEmoji | null }>;
@@ -190,26 +187,31 @@ function useDisclosure(props: { reset: () => void }) {
     return position;
   }, []);
 
-  onOpen = useCallback(() => {
-    // Avoid recalculate the position while the modal is opening
-    const position = isOpen ? {} : getCurrentCaretPosition();
-    if (!position) return;
+  onOpen = useCallback(
+    (options?: { onOpened?: () => void }) => {
+      // Avoid recalculate the position while the modal is opening
+      const position = open ? {} : getCurrentCaretPosition();
+      if (!position) return;
 
-    isOpen = true;
-
-    return new Promise<void>((resolve) => {
-      setState((s) => ({
-        ...s,
-        isOpen: true,
-        callback: resolve as () => Promise<void>,
-        ...position,
-      }));
-    });
-  }, [setState]);
+      open = true;
+      return new Promise<void>((resolve) => {
+        setState((s) => ({
+          ...s,
+          open: true,
+          callback: resolve as () => Promise<void>,
+          ...position,
+        }));
+        if (options?.onOpened) {
+          options.onOpened();
+        }
+      });
+    },
+    [setState],
+  );
 
   onClose = useCallback(async () => {
-    isOpen = false;
-    setState((s) => ({ ...s, isOpen: false }));
+    open = false;
+    setState((s) => ({ ...s, open: false }));
     await state.callback();
 
     // Use setTimeout to prevent moving back to the initial position ({ top: 0, left: 0 }) before closing
@@ -234,7 +236,7 @@ function useQuery() {
 
 function useContainer() {
   const [state, setState] = useAtom(modalState);
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -278,5 +280,5 @@ export {
   onArrowDown as onEmojiArrowDown,
   onArrowUp as onEmojiArrowUp,
   onEnter as onEmojiEnter,
-  isOpen as isEmojiOpen,
+  open as isEmojiOpen,
 };

@@ -27,7 +27,7 @@ An Asana clone application built as a monorepo featuring:
 - **Additional**: ProseMirror (rich text editor), React DnD, Storybook
 
 ### Development Tools
-- **Package Manager**: pnpm 10.28.1
+- **Package Manager**: pnpm 10.33.4
 - **Monorepo**: Turborepo 2.4.4
 - **Node Version**: 24.13.0
 - **Git Hooks**: Lefthook 1.10.10

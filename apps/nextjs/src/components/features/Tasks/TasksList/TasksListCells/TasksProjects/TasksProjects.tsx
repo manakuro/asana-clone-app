@@ -37,7 +37,7 @@ export const TasksProjects = memo(function TasksProjects(props: Props) {
       }}
     >
       {!focused && (
-        <Stack direction="row" spacing={1} overflow="hidden">
+        <Stack direction="row" gap={1} overflow="hidden">
           {projectTaskIds.map((id) => (
             <ListItem projectTaskId={id} key={id} />
           ))}

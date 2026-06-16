@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   projectId: string;
@@ -10,8 +10,13 @@ export const RemoveFromProject = memo(function RemoveFromProject(_: Props) {
   const handleRemoveFromProject = useCallback(() => {}, []);
 
   return (
-    <MenuItem onClick={handleRemoveFromProject} color="alert" isDisabled>
+    <Menu.Item
+      value="Remove from Project"
+      onSelect={handleRemoveFromProject}
+      color="alert"
+      disabled
+    >
       Remove from Project
-    </MenuItem>
+    </Menu.Item>
   );
 });

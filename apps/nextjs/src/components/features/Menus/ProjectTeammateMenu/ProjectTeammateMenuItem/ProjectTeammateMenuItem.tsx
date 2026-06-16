@@ -36,7 +36,7 @@ export const ProjectTeammateMenuItem = memo(function ProjectTeammateMenuItem(
       </SearchMenuLeftContainer>
       <SearchMenuRightContainer>
         <Text fontSize="sm">{teammate.name}</Text>
-        <Text ml={5} fontSize="xs" color="text.muted">
+        <Text ml={5} fontSize="xs" color="fg.muted">
           {teammate.email}
         </Text>
       </SearchMenuRightContainer>

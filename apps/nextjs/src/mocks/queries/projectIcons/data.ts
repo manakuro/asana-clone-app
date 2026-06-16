@@ -19,13 +19,10 @@ export const data = (
                 icon: 'play',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -36,13 +33,10 @@ export const data = (
                 icon: 'home',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -53,13 +47,10 @@ export const data = (
                 icon: 'moon',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -70,13 +61,10 @@ export const data = (
                 icon: 'sun',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -87,13 +75,10 @@ export const data = (
                 icon: 'menu',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -104,13 +89,10 @@ export const data = (
                 icon: 'codeAlt',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -121,13 +103,10 @@ export const data = (
                 icon: 'rocket',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -138,13 +117,10 @@ export const data = (
                 icon: 'idCard',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -155,13 +131,10 @@ export const data = (
                 icon: 'trashAlt',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -172,13 +145,10 @@ export const data = (
                 icon: 'task',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -189,13 +159,10 @@ export const data = (
                 icon: 'bell',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -206,13 +173,10 @@ export const data = (
                 icon: 'notification',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -223,13 +187,10 @@ export const data = (
                 icon: 'barChart',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -240,13 +201,10 @@ export const data = (
                 icon: 'bookOpen',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -257,13 +215,10 @@ export const data = (
                 icon: 'layerPlus',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -274,13 +229,10 @@ export const data = (
                 icon: 'mobile',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -291,13 +243,10 @@ export const data = (
                 icon: 'movie',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -308,13 +257,10 @@ export const data = (
                 icon: 'shapePolygon',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -325,13 +271,10 @@ export const data = (
                 icon: 'spreadsheet',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
           {
             node: {
@@ -342,16 +285,12 @@ export const data = (
                 icon: 'layout',
                 createdAt: '2022-11-29T09:16:39+09:00',
                 updatedAt: '2022-11-29T09:16:39+09:00',
-                __typename: 'Icon',
               },
               createdAt: '2022-11-29T09:16:39+09:00',
               updatedAt: '2022-11-29T09:16:39+09:00',
-              __typename: 'ProjectIcon',
             },
-            __typename: 'ProjectIconEdge',
           },
         ],
-        __typename: 'ProjectIconConnection',
       },
     },
     (options || {}) as Query,

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useNavigation } from '@/components/features/Navigation';
-import { Divider } from '@/components/features/Navigation/Divider';
+import { Separator } from '@/components/features/Navigation/Separator';
 import { Flex } from '@/components/ui/Flex';
 import { ProjectList } from './ProjectList';
 import { Teammates } from './Teammates';
@@ -11,7 +11,7 @@ export const Projects = memo(function Projects() {
 
   return (
     <>
-      <Divider />
+      <Separator />
       <Flex flexDirection="column" flex={1}>
         <Workspace />
         {isExpanded && <Teammates />}

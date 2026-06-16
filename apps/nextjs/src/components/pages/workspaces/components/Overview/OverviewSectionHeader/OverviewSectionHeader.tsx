@@ -7,7 +7,7 @@ export function OverviewSectionHeader(props: Props) {
     <Flex
       py={2}
       borderBottom="2px"
-      borderColor="gray.200"
+      borderColor="border"
       borderStyle="solid"
       alignItems="center"
       h="50px"

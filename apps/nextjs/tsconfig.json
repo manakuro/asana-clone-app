@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["dom", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -14,8 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "rootDir": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -24,9 +24,16 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "types": ["vitest/globals", "node"]
   },
-  "types": ["vitest/globals"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    ".storybook/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }

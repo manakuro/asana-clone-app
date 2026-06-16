@@ -6,7 +6,7 @@ import { useUnderline } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label'> & {
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Omit<TooltipProps, 'content'>;
 };
 
 export const Underline = memo(function Underline(props: Props) {
@@ -14,15 +14,16 @@ export const Underline = memo(function Underline(props: Props) {
   return (
     <BaseButton
       aria-label="underline"
-      icon={<Icon icon="underline" color="text.muted" />}
       action={action}
       {...props}
       tooltip={{
-        label: 'Underline\n(⌘+u)',
+        content: 'Underline\n(⌘+u)',
         'aria-label': 'Underline',
         ...props.tooltip,
       }}
       isActive={isActive}
-    />
+    >
+      <Icon icon="underline" color="fg.muted" />
+    </BaseButton>
   );
 });

@@ -1,5 +1,4 @@
 export * from './DeleteTaskSectionModal';
-export * from './DuplicateTaskModal';
 export * from './EditorLinkModal';
 export * from './FileViewerModal';
 export * from './InviteModal';

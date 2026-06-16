@@ -1,32 +1,20 @@
+import { useSlotRecipe } from '@chakra-ui/react';
 import { useMemo } from 'react';
-import { type ChakraProps, useStyleConfig } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 
 type MenuStyle = {
-  list: ChakraProps;
-  item: Override<
-    ChakraProps,
-    {
-      _focus: {
-        bg: ChakraProps['bg'];
-      };
-    }
-  >;
+  content: SystemStyleObject;
+  item: SystemStyleObject;
 };
 
 export const useMenuStyle = () => {
-  const menuStyles = useStyleConfig('Menu') as MenuStyle;
+  const recipe = useSlotRecipe({ key: 'menu' });
 
   return useMemo((): MenuStyle => {
     return {
-      list: {
-        __css: {
-          ...menuStyles.list,
-        },
-      },
+      content: recipe().content,
       item: {
-        __css: {
-          ...menuStyles.item,
-        },
+        ...recipe().item,
         display: 'flex',
         flex: 1,
         cursor: 'pointer',
@@ -38,5 +26,5 @@ export const useMenuStyle = () => {
         },
       },
     };
-  }, [menuStyles]);
+  }, [recipe]);
 };

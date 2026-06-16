@@ -5,6 +5,7 @@ import { Stack } from '@/components/ui/Stack';
 import { useBreakpointValue } from '@/shared/chakra';
 import { splitByNumber } from '@/shared/utils';
 import { TasksFilesListItem } from '../TasksFilesListItem';
+import { Empty } from './Empty';
 
 export const TasksFilesList = memo(function TasksFilesList() {
   const { taskFileIds } = useTasksTaskFiles();
@@ -14,11 +15,15 @@ export const TasksFilesList = memo(function TasksFilesList() {
     [taskFileIds, splitNum],
   );
 
+  if (!taskFileIds.length) {
+    return <Empty />;
+  }
+
   return (
     <Flex flex={1} pb={4}>
-      <Stack maxW="90%" mx="auto" direction="row" spacing={8}>
+      <Stack maxW="90%" mx="auto" direction="row" gap={8}>
         {sections.map((ids) => (
-          <Stack spacing={8} key={ids.toString()}>
+          <Stack gap={8} key={ids.toString()}>
             {ids.map((id) => (
               <TasksFilesListItem taskFileId={id} key={id} />
             ))}

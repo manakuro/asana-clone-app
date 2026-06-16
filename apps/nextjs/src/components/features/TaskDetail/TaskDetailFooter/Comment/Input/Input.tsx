@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/Editor';
 import { Flex } from '@/components/ui/Flex';
 import { getDefaultDescription } from '@/shared/prosemirror/getDefaultDescription';
@@ -19,22 +19,12 @@ export function Input() {
 }
 
 const Component = memo(function Component() {
-  const { onChangeDescription, taskFeed } = useInputContext();
-  const [resetView, setResetView] = useState<number>(1);
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: to reset view
-  useEffect(() => {
-    setResetView((s) => s + 1);
-  }, [taskFeed.id]);
+  const { onChangeDescription } = useInputContext();
 
   return (
     <Flex ml={2} flex={1}>
       <Container>
-        <Editor
-          onChange={onChangeDescription}
-          initialValue={initialValue}
-          resetView={resetView}
-        >
+        <Editor onChange={onChangeDescription} initialValue={initialValue}>
           <EditorContent />
           <Placeholder />
           <Attachments />

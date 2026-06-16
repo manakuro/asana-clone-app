@@ -1,14 +1,21 @@
-import {
-  Fade as ChakraFade,
-  type FadeProps as ChakraFadeProps,
-} from '@chakra-ui/react';
-import { forwardRef } from 'react';
+import { Presence } from '@chakra-ui/react';
+import type { PropsWithChildren } from 'react';
 
-type Props = ChakraFadeProps;
-export type FadeProps = Props;
+type Props = {
+  in?: boolean;
+};
 
-export const Fade = forwardRef<HTMLDivElement, Props>(
-  function Fade(props, ref) {
-    return <ChakraFade {...props} ref={ref} />;
-  },
-);
+export function Fade(props: PropsWithChildren<Props>) {
+  return (
+    <Presence
+      present={props.in}
+      animationName={{
+        _open: 'fade-in',
+        _closed: 'fade-out',
+      }}
+      animationDuration="0.3s"
+    >
+      {props.children}
+    </Presence>
+  );
+}

@@ -16,7 +16,7 @@ export const Header = memo(function Header() {
       <TeammateAvatar teammateId={teammate.id} size="xs" />
       <Title />
       <CreateAt />
-      <Stack direction="row" ml="auto" spacing={2}>
+      <Stack direction="row" ml="auto" gap={2}>
         <Like />
         <FeedOptionMenu />
       </Stack>

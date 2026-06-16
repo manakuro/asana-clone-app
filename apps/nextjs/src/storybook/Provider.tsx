@@ -1,8 +1,7 @@
-import { ApolloProvider as ApolloProviderLibs } from '@apollo/client';
-import { ChakraProvider } from '@chakra-ui/react';
-import enLocale from 'date-fns/locale/en-US';
+import { ApolloProvider as ApolloProviderLibs } from '@apollo/client/react';
 import type React from 'react';
 import { useMemo } from 'react';
+import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
 import { Modals } from '@/components/features/Modals';
 import {
   useFavoriteProjectIdsQuery,
@@ -17,40 +16,22 @@ import {
   useWorkspaceQuery,
 } from '@/hooks/queries/entities';
 import { createApolloClient } from '@/shared/apollo/client';
-import {
-  AdapterDateFns,
-  LocalizationProvider,
-  MuiThemeProvider,
-  muiTheme,
-} from '@/shared/materialUI';
-import { theme } from '@/styles';
 
 export const Provider: React.FCWithChildren = (props) => {
   return (
-    <MuiThemeProvider theme={muiTheme}>
-      <ChakraProvider theme={theme} resetCSS>
-        <LocalizationProvider
-          dateAdapter={AdapterDateFns as any}
-          locale={enLocale}
-        >
-          <ApolloProvider>
-            <GlobalQuery>
-              {props.children}
-              <Modals />
-            </GlobalQuery>
-          </ApolloProvider>
-        </LocalizationProvider>
-      </ChakraProvider>
-    </MuiThemeProvider>
+    <ChakraProvider>
+      <ApolloProvider>
+        <GlobalQuery>
+          {props.children}
+          <Modals />
+        </GlobalQuery>
+      </ApolloProvider>
+    </ChakraProvider>
   );
 };
 
 const ApolloProvider: React.FCWithChildren = (props) => {
-  const client = useMemo(
-    () => createApolloClient({ idToken: 'token' }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+  const client = useMemo(() => createApolloClient({ idToken: 'token' }), []);
 
   return (
     <ApolloProviderLibs client={client}>{props.children}</ApolloProviderLibs>

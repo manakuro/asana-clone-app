@@ -1,8 +1,9 @@
+import type { SystemStyleObject } from '@chakra-ui/react';
 import { type ReactElement, useCallback, useState } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = {
   name: string;
@@ -13,13 +14,13 @@ type Props = {
   }): ReactElement;
 } & Omit<FlexProps, 'children'>;
 
-const focusedStyle: FlexProps = {
+const focusedStyle: SystemStyleObject = {
   bg: 'gray.50',
   transform: 'translate(0, -5px)',
 };
 export function Container(props: Props) {
   const { children, name, ...rest } = props;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const [focused, setFocused] = useState(false);
 
   const handlePopoverProjectMenuOpened = useCallback(() => {
@@ -43,7 +44,7 @@ export function Container(props: Props) {
       cursor="pointer"
       flexDirection="column"
       ref={ref}
-      {...(focused ? focusedStyle : {})}
+      css={focused ? focusedStyle : {}}
       {...rest}
     >
       {children({
@@ -51,7 +52,9 @@ export function Container(props: Props) {
         handlePopoverProjectMenuOpened,
         handlePopoverProjectMenuClosed,
       })}
-      <Text mt={2}>{name}</Text>
+      <Text mt={2} textAlign="center">
+        {name}
+      </Text>
     </Flex>
   );
 }

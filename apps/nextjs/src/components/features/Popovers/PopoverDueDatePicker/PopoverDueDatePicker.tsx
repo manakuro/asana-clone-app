@@ -1,15 +1,9 @@
-import type { MouseEvent, PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { useCallback } from 'react';
 import { Link } from '@/components/ui/Link';
-import {
-  Popover,
-  PopoverContent,
-  type PopoverProps,
-  PopoverTrigger,
-} from '@/components/ui/Popover';
+import { Popover, type PopoverRootProps } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
-import { PortalManager } from '@/components/ui/PortalManager';
-import { type ChakraProps, useDisclosure } from '@/shared/chakra';
+import { type SystemStyleObject, useDisclosure } from '@/shared/chakra';
 import { Body } from './Body';
 
 type Props = {
@@ -19,26 +13,22 @@ type Props = {
   time?: string;
   onOpened?: () => void;
   onClosed?: () => void;
-  linkStyle?: ChakraProps;
+  linkStyle?: SystemStyleObject;
   closeOnChange?: boolean;
-  defaultIsOpen?: boolean;
+  defaultOpen?: boolean;
   includeDueTime?: boolean;
-} & PopoverProps;
+} & PopoverRootProps;
 
 export function PopoverDueDatePicker(props: PropsWithChildren<Props>) {
   const popoverDisclosure = useDisclosure({
-    defaultIsOpen: props.defaultIsOpen,
+    defaultOpen: props.defaultOpen,
   });
   const closeOnChange = props.closeOnChange ?? true;
 
-  const handleOpen = useCallback(
-    (e: MouseEvent<HTMLElement>) => {
-      e.stopPropagation();
-      popoverDisclosure.onOpen();
-      props.onOpened?.();
-    },
-    [popoverDisclosure, props],
-  );
+  const handleOpen = useCallback(() => {
+    popoverDisclosure.onOpen();
+    props.onOpened?.();
+  }, [popoverDisclosure, props]);
 
   const handleClose = useCallback(() => {
     popoverDisclosure.onClose();
@@ -60,28 +50,26 @@ export function PopoverDueDatePicker(props: PropsWithChildren<Props>) {
   }, [closeOnChange, popoverDisclosure, props]);
 
   return (
-    <PortalManager zIndex={1500}>
-      <Popover
-        isOpen={popoverDisclosure.isOpen}
-        isLazy
-        lazyBehavior="keepMounted"
-        closeOnBlur={false}
-        autoFocus={false}
-        returnFocusOnClose={false}
-      >
-        <PopoverTrigger>
-          <Link {...props.linkStyle} onClick={handleOpen}>
-            {props.children}
-          </Link>
-        </PopoverTrigger>
-        <Portal>
-          <PopoverContent
-            w="276px"
-            minH="280px"
-            className="PopoverDueDatePicker"
-            pointerEvents="auto"
-          >
-            {popoverDisclosure.isOpen && (
+    <Popover.Root
+      open={popoverDisclosure.open}
+      lazyMount
+      autoFocus={false}
+      onOpenChange={(e) => {
+        if (e.open) {
+          handleOpen();
+        } else {
+          handleClose();
+          props.onClosed?.();
+        }
+      }}
+    >
+      <Popover.Trigger asChild onClick={(e) => e.stopPropagation()}>
+        <Link {...props.linkStyle}>{props.children}</Link>
+      </Popover.Trigger>
+      <Portal>
+        <Popover.Positioner>
+          <Popover.Content>
+            {popoverDisclosure.open && (
               <Body
                 date={props.date}
                 onChange={handleChange}
@@ -91,9 +79,9 @@ export function PopoverDueDatePicker(props: PropsWithChildren<Props>) {
                 includeDueTime={props.includeDueTime}
               />
             )}
-          </PopoverContent>
-        </Portal>
-      </Popover>
-    </PortalManager>
+          </Popover.Content>
+        </Popover.Positioner>
+      </Portal>
+    </Popover.Root>
   );
 }

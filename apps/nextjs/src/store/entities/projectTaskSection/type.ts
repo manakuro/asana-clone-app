@@ -10,7 +10,6 @@ export type {
   ProjectTaskSectionUndeletedAndDeleteTasksSubscriptionResponse,
   ProjectTaskSectionUndeletedAndKeepTasksSubscriptionResponse,
   ProjectTaskSectionUpdatedSubscriptionResponse,
-  UpdateTaskSectionInput,
 } from '@/graphql/types/projectTaskSection';
 
 export type ProjectTaskSectionResponse = Response & {

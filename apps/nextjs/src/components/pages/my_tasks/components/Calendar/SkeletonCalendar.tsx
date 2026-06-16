@@ -20,7 +20,7 @@ export const SkeletonCalendar = memo(function SkeletonCalendar(props: Props) {
         boxShadow="sm"
         borderBottom={1}
         borderStyle="solid"
-        borderColor="gray.200"
+        borderColor="border"
         alignItems="center"
       >
         <TasksHeaderLeft>
@@ -35,16 +35,16 @@ export const SkeletonCalendar = memo(function SkeletonCalendar(props: Props) {
         <Flex
           flexShrink={0}
           fontSize="xs"
-          color="text.muted"
+          color="fg.muted"
           fontWeight="medium"
           h={6}
           borderBottom={1}
           borderStyle="solid"
-          borderColor="gray.200"
+          borderColor="border"
           bg="white"
         />
         <TasksCalendarContent bg="gray.50">
-          <Stack spacing={4} direction="row" p={2}>
+          <Stack gap={4} direction="row" p={2}>
             {[...new Array(3)]
               .map((_, i) => i + 1)
               .map((v) => (

@@ -6,7 +6,7 @@ import {
   useProjectBaseColorText,
 } from '@/store/entities/projectBaseColor';
 import { useTask } from '@/store/entities/task';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = {
   taskId: string;
@@ -27,7 +27,7 @@ export const Container = memo(
       if (!project.id)
         return {
           bg: 'white',
-          color: 'text.base',
+          color: 'fg',
           borderColor: 'gray.300',
           _hover: { borderColor: 'cyan.400', boxShadow: 'md' },
         };

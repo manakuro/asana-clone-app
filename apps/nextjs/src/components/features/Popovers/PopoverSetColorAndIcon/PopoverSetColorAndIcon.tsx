@@ -1,13 +1,7 @@
 import type { PropsWithChildren } from 'react';
-import { Divider } from '@/components/ui/Divider';
-import { Link } from '@/components/ui/Link';
-import {
-  Popover,
-  PopoverBody,
-  PopoverContent,
-  type PopoverProps,
-  PopoverTrigger,
-} from '@/components/ui/Popover';
+import { HoverCard, type HoverCardRootProps } from '@/components/ui/Popover';
+import { Portal } from '@/components/ui/Portal';
+import { Separator } from '@/components/ui/Separator';
 import type { Project } from '@/store/entities/project';
 import { ColorPicker } from './ColorPicker';
 import { IconPicker } from './IconPicker';
@@ -15,7 +9,7 @@ import { Setting } from './Setting';
 
 type Props = {
   project: Project;
-} & PopoverProps;
+} & HoverCardRootProps;
 
 const COLOR_BOX_WIDTH = 20;
 const COLOR_BOX_PADDING = 4;
@@ -28,32 +22,32 @@ const WIDTH = `${
 }px`;
 export function PopoverSetColorAndIcon(props: PropsWithChildren<Props>) {
   return (
-    <Popover
-      isOpen={props.isOpen}
-      isLazy
-      placement={props.placement}
-      closeOnBlur={false}
+    <HoverCard.Root
+      lazyMount
+      positioning={props.positioning}
+      openDelay={200}
+      closeDelay={50}
     >
-      <PopoverTrigger>
-        <Link>{props.children}</Link>
-      </PopoverTrigger>
-      <PopoverContent w={WIDTH} ml="5px" pointerEvents="auto">
-        <PopoverBody p={0}>
-          <ColorPicker
-            currentProjectBaseColorId={props.project.projectBaseColorId}
-            projectId={props.project.id}
-          />
-          <Divider />
-          <IconPicker
-            projectId={props.project.id}
-            currentProjectIconId={props.project.projectIconId}
-            currentProjectLightColorId={props.project.projectLightColorId}
-            currentProjectBaseColorId={props.project.projectBaseColorId}
-          />
-          <Divider />
-          <Setting isSetForEveryone />
-        </PopoverBody>
-      </PopoverContent>
-    </Popover>
+      <HoverCard.Trigger asChild>{props.children}</HoverCard.Trigger>
+      <Portal>
+        <HoverCard.Positioner>
+          <HoverCard.Content w={WIDTH} ml="5px" pointerEvents="auto" p={0}>
+            <ColorPicker
+              currentProjectBaseColorId={props.project.projectBaseColorId}
+              projectId={props.project.id}
+            />
+            <Separator />
+            <IconPicker
+              projectId={props.project.id}
+              currentProjectIconId={props.project.projectIconId}
+              currentProjectLightColorId={props.project.projectLightColorId}
+              currentProjectBaseColorId={props.project.projectBaseColorId}
+            />
+            <Separator />
+            <Setting isSetForEveryone />
+          </HoverCard.Content>
+        </HoverCard.Positioner>
+      </Portal>
+    </HoverCard.Root>
   );
 }

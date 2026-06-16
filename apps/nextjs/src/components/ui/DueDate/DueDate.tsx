@@ -27,7 +27,7 @@ export function DueDate(props: Props) {
   }, [isBeforeDate]);
 
   return (
-    <Text color="text.muted" {...style} {...rest}>
+    <Text color="fg.muted" {...style} {...rest}>
       {hadDueDate ? formatDueDate(dueDate) : fallback}
       {rest.children}
     </Text>

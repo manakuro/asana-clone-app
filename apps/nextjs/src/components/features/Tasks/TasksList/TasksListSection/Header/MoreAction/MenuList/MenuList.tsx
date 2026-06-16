@@ -6,7 +6,7 @@ import {
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
 import { useTasksListSectionContext } from '@/components/features/Tasks/TasksList/TasksListSection/Provider';
-import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Tooltip } from '@/components/ui/Tooltip';
 
 export const MenuList = memo(function MenuList() {
@@ -40,23 +40,33 @@ export const MenuList = memo(function MenuList() {
   }, [deleteTaskSection, hasTasks, onOpen, setModalState, taskSectionId]);
 
   return (
-    <AtomsMenuList>
-      <MenuItem onClick={handleRenameSection}>Rename section</MenuItem>
-      {deleteSectionDisabled ? (
-        <Tooltip
-          hasArrow
-          label={message}
-          aria-label={message}
-          size="md"
-          withIcon
-        >
-          <MenuItem isDisabled>Delete section</MenuItem>
-        </Tooltip>
-      ) : (
-        <MenuItem onClick={handleDeleteSection} color="alert">
-          Delete section
-        </MenuItem>
-      )}
-    </AtomsMenuList>
+    <Menu.Positioner>
+      <Menu.Content>
+        <Menu.Item onClick={handleRenameSection} value="Rename section">
+          Rename section
+        </Menu.Item>
+        {deleteSectionDisabled ? (
+          <Tooltip
+            showArrow
+            content={message}
+            aria-label={message}
+            size="md"
+            withIcon
+          >
+            <Menu.Item disabled value="Delete section">
+              Delete section
+            </Menu.Item>
+          </Tooltip>
+        ) : (
+          <Menu.Item
+            onClick={handleDeleteSection}
+            color="alert"
+            value="Delete section"
+          >
+            Delete section
+          </Menu.Item>
+        )}
+      </Menu.Content>
+    </Menu.Positioner>
   );
 });

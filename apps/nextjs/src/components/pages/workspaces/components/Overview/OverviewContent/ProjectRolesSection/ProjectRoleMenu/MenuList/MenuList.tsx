@@ -1,5 +1,6 @@
 import { memo } from 'react';
-import { MenuList as AtomsMenuList } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
+import { Portal } from '@/components/ui/Portal';
 import { AddRole } from './AddRole';
 import { RemoveFromProject } from './RemoveFromProject';
 import { SetProjectOwner } from './SetProjectOwner';
@@ -14,17 +15,21 @@ export const MenuList = memo(function MenuList(props: Props) {
   const { projectId, projectTeammateId, onOpenPopover } = props;
 
   return (
-    <AtomsMenuList>
-      <AddRole
-        projectId={projectId}
-        projectTeammateId={projectTeammateId}
-        onOpenPopover={onOpenPopover}
-      />
-      <SetProjectOwner
-        projectId={projectId}
-        projectTeammateId={projectTeammateId}
-      />
-      <RemoveFromProject />
-    </AtomsMenuList>
+    <Portal>
+      <Menu.Positioner>
+        <Menu.Content>
+          <AddRole
+            projectId={projectId}
+            projectTeammateId={projectTeammateId}
+            onOpenPopover={onOpenPopover}
+          />
+          <SetProjectOwner
+            projectId={projectId}
+            projectTeammateId={projectTeammateId}
+          />
+          <RemoveFromProject />
+        </Menu.Content>
+      </Menu.Positioner>
+    </Portal>
   );
 });

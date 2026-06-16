@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import type { ChakraProps } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 
-type Props = ChakraProps;
+type Props = SystemStyleObject;
 
 export const useLinkStyle = (props?: Props) => {
-  const style = useMemo<ChakraProps>(
+  const style = useMemo<SystemStyleObject>(
     () => ({
       color: 'cyan.400',
       cursor: 'pointer',
@@ -17,7 +17,7 @@ export const useLinkStyle = (props?: Props) => {
     [props],
   );
 
-  const styleHover = useMemo<ChakraProps>(
+  const styleHover = useMemo<SystemStyleObject>(
     () => ({
       cursor: 'pointer',
       _hover: {

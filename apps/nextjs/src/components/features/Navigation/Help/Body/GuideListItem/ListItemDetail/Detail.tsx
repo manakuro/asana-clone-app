@@ -36,7 +36,7 @@ export function Detail(props: Props) {
 
   return (
     <Flex p={PADDING_X} flexDirection="column">
-      {disclosure.isOpen ? (
+      {disclosure.open ? (
         <>
           {seeMoreComponent}
           {nextItem && (
@@ -49,7 +49,7 @@ export function Detail(props: Props) {
               </Text>
               <Button
                 fontSize="sm"
-                colorScheme="teal"
+                colorPalette="teal"
                 w="full"
                 onClick={handleContinue}
                 mt={3}
@@ -61,13 +61,13 @@ export function Detail(props: Props) {
         </>
       ) : (
         <>
-          <Text fontSize="sm" noOfLines={3}>
+          <Text fontSize="sm" lineClamp={3}>
             {item.description}
           </Text>
           <Box>
             <MoreLink onClick={disclosure.onOpen}>See more</MoreLink>
           </Box>
-          <Text fontSize="xs" color="text.muted" mt={2} textAlign="right">
+          <Text fontSize="xs" color="fg.muted" mt={2} textAlign="right">
             {item.time}
           </Text>
         </>

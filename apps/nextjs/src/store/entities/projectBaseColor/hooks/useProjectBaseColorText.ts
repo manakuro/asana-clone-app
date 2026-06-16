@@ -5,11 +5,11 @@ const TEXT_COLORS = {
   'gray.400': 'white',
   'red.400': 'white',
   'orange.400': 'white',
-  'yellow.400': 'text.base',
+  'yellow.400': 'fg.muted',
   'green.400': 'white',
   'teal.400': 'white',
   'blue.400': 'white',
-  'cyan.400': 'text.base',
+  'cyan.400': 'fg.muted',
   'purple.400': 'white',
   'pink.400': 'white',
 } as const;

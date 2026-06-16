@@ -16,7 +16,6 @@ export const blockquote: NodeSpec = {
   parseDOM: [
     {
       tag: 'blockquote',
-      // @ts-expect-error
       getAttrs: (element: HTMLElement) => ({
         cite: element.getAttribute('cite'),
       }),

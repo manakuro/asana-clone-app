@@ -1,22 +1,10 @@
-import { memo, useCallback } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { memo } from 'react';
+import { Menu } from '@/components/ui/Menu';
 
-type Props = {
-  onMouseEnter: () => void;
-  onClose: () => void;
-  taskId: string;
-};
-
-export const Print = memo(function Print(props: Props) {
-  const { onMouseEnter, onClose } = props;
-
-  const handleClick = useCallback(async () => {
-    onClose();
-  }, [onClose]);
-
+export const Print = memo(function Print() {
   return (
-    <MenuItem onMouseEnter={onMouseEnter} onClick={handleClick} isDisabled>
+    <Menu.Item disabled value="Print">
       Print
-    </MenuItem>
+    </Menu.Item>
   );
 });

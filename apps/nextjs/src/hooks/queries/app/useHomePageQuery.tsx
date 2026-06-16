@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
-import { useHomePageQuery as useQuery } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useEffect, useMemo, useState } from 'react';
+import { HomePageDocument } from '@/graphql/hooks';
 import { useMountedRef } from '@/hooks';
 import { useHomeResponse } from '@/store/app/home';
 import { useMe } from '@/store/entities/me';
@@ -13,39 +14,25 @@ export const useHomePageQuery = () => {
   const { setHome } = useHomeResponse();
   const { mountedRef } = useMountedRef();
 
-  const { refetch: refetchQuery } = useQuery({
+  const { data } = useQuery(HomePageDocument, {
     variables: {
       teammateId: me.id,
       workspaceId: workspace.id,
     },
     fetchPolicy: 'no-cache',
     notifyOnNetworkStatusChange: true,
-    onCompleted: (data) => {
-      if (!mountedRef.current) return;
-
-      setHome(data);
-      endLoading();
-    },
     skip,
   });
 
-  const startLoading = useCallback(() => {
-    setLoading(true);
-  }, []);
+  useEffect(() => {
+    if (!mountedRef.current) return;
+    if (!data) return;
 
-  const endLoading = useCallback(() => {
+    setHome(data);
     setLoading(false);
-  }, []);
-
-  const refetch = useCallback(async () => {
-    startLoading();
-    setTimeout(async () => {
-      await refetchQuery();
-    });
-  }, [refetchQuery, startLoading]);
+  }, [data, setHome, mountedRef]);
 
   return {
     loading,
-    refetch,
   };
 };

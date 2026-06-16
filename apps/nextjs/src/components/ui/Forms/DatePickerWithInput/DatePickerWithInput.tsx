@@ -1,11 +1,10 @@
 import { memo, useCallback, useMemo, useState } from 'react';
-import { Box } from '@/components/ui/Box';
 import { Button, type ButtonProps } from '@/components/ui/Button';
 import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
 import { Flex } from '@/components/ui/Flex';
 import { Icon, type IconProps } from '@/components/ui/Icon';
 import { useHover } from '@/hooks/useHover';
-import type { ChakraProps } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/shared/chakra';
 import { DeleteButton } from './DeleteButton';
 import { Input } from './Input';
 
@@ -31,11 +30,11 @@ export const DatePickerWithInput = memo(function DatePickerWithInput(
   props: Props,
 ) {
   const { onSelect, dueDate, onDelete, buttonStyle, iconStyle } = props;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLButtonElement>();
   const [focused, setFocused] = useState(false);
   const hasDueDate = useMemo(() => !!dueDate, [dueDate]);
-  const colorStyle = useMemo<ChakraProps>(
-    () => (hasDueDate ? { color: 'text.base' } : { color: 'text.muted' }),
+  const colorStyle = useMemo<SystemStyleObject>(
+    () => (hasDueDate ? { color: 'fg' } : { color: 'fg.muted' }),
     [hasDueDate],
   );
   const fallback = useMemo(
@@ -53,7 +52,6 @@ export const DatePickerWithInput = memo(function DatePickerWithInput(
 
   return (
     <Button
-      as={Box}
       variant="ghost"
       size="sm"
       ref={ref}

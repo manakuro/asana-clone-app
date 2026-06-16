@@ -1,12 +1,13 @@
+import { useMutation } from '@apollo/client/react';
 import { RESET, useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useCreateProjectTaskSectionMutation,
-  useDeleteProjectTaskSectionAndDeleteTasksMutation,
-  useDeleteProjectTaskSectionAndKeepTasksMutation,
-  useDeleteProjectTaskSectionMutation,
-  useUndeleteProjectTaskSectionAndDeleteTasksMutation,
-  useUndeleteProjectTaskSectionAndKeepTasksMutation,
+  CreateProjectTaskSectionDocument,
+  DeleteProjectTaskSectionAndDeleteTasksDocument,
+  DeleteProjectTaskSectionAndKeepTasksDocument,
+  DeleteProjectTaskSectionDocument,
+  UndeleteProjectTaskSectionAndDeleteTasksDocument,
+  UndeleteProjectTaskSectionAndKeepTasksDocument,
 } from '@/graphql/hooks';
 import { uuid } from '@/shared/uuid';
 import {
@@ -33,27 +34,33 @@ import { useUpsert } from './useUpsert';
 
 export const useProjectTaskSectionCommand = () => {
   const { upsert } = useUpsert();
-  const [createProjectTaskSectionMutation] =
-    useCreateProjectTaskSectionMutation();
+  const [createProjectTaskSectionMutation] = useMutation(
+    CreateProjectTaskSectionDocument,
+  );
   const { workspace } = useWorkspace();
   const { setProjectTask } = useProjectTaskResponse();
   const { setProjectsTaskSections } = useProjectTaskSectionResponse();
   const { resetProjectTasks } = useResetProjectTask();
 
-  const [deleteProjectTaskSectionAndKeepTasksMutation] =
-    useDeleteProjectTaskSectionAndKeepTasksMutation();
+  const [deleteProjectTaskSectionAndKeepTasksMutation] = useMutation(
+    DeleteProjectTaskSectionAndKeepTasksDocument,
+  );
 
-  const [deleteProjectTaskSectionAndDeleteTasksMutation] =
-    useDeleteProjectTaskSectionAndDeleteTasksMutation();
+  const [deleteProjectTaskSectionAndDeleteTasksMutation] = useMutation(
+    DeleteProjectTaskSectionAndDeleteTasksDocument,
+  );
 
-  const [deleteProjectTaskSectionMutation] =
-    useDeleteProjectTaskSectionMutation();
+  const [deleteProjectTaskSectionMutation] = useMutation(
+    DeleteProjectTaskSectionDocument,
+  );
 
-  const [undeleteProjectTaskSectionAndKeepTasksMutation] =
-    useUndeleteProjectTaskSectionAndKeepTasksMutation();
+  const [undeleteProjectTaskSectionAndKeepTasksMutation] = useMutation(
+    UndeleteProjectTaskSectionAndKeepTasksDocument,
+  );
 
-  const [undeleteProjectTaskSectionAndDeleteTasksMutation] =
-    useUndeleteProjectTaskSectionAndDeleteTasksMutation();
+  const [undeleteProjectTaskSectionAndDeleteTasksMutation] = useMutation(
+    UndeleteProjectTaskSectionAndDeleteTasksDocument,
+  );
 
   const addProjectsTaskSection = useAtomCallback(
     useCallback(
@@ -80,7 +87,7 @@ export const useProjectTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return '';
           }
@@ -134,7 +141,7 @@ export const useProjectTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return null;
           }
@@ -192,7 +199,7 @@ export const useProjectTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return null;
           }
@@ -233,7 +240,7 @@ export const useProjectTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
@@ -272,7 +279,7 @@ export const useProjectTaskSectionCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             return;
           }
 
@@ -333,7 +340,7 @@ export const useProjectTaskSectionCommand = () => {
             },
           },
         });
-        if (res.errors) {
+        if (res.error) {
           return;
         }
 

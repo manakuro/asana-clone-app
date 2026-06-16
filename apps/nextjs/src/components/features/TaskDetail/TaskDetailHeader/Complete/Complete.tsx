@@ -18,25 +18,25 @@ export const Complete = memo(function Complete(props: Props) {
   if (task.completed)
     return (
       <Button
-        leftIcon={<CheckIcon completed mt="0.75px" />}
-        colorScheme="teal"
+        colorPalette="teal"
         variant="outline"
-        isActive
+        data-active={true}
         size="xs"
         onClick={handleToggleComplete}
       >
+        <CheckIcon completed mt="0.75px" />
         Completed
       </Button>
     );
 
   return (
     <Button
-      leftIcon={<CheckIcon completed={false} mt="0.75px" />}
-      colorScheme="teal"
+      colorPalette="teal"
       variant="outline"
       size="xs"
       onClick={handleToggleComplete}
     >
+      <CheckIcon completed={false} mt="0.75px" />
       Mark complete
     </Button>
   );

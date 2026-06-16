@@ -1,16 +1,11 @@
 import { useMemo } from 'react';
 import { useTasksListContentVerticalScroll } from '@/components/features/Tasks';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
-import type { ChakraProps } from '@/shared/chakra';
+import type { FlexProps } from '@/components/ui/Flex';
 import { createProvider } from '@/shared/react/createProvider';
 import { useTaskListSortStatus } from '@/store/entities/taskListSortStatus';
 
-type ContextProps = {
-  sortedStyle: ChakraProps;
-  scrollingStyle: ChakraProps;
-};
-
-const useValue = (): ContextProps => {
+const useValue = () => {
   const { taskListStatus } = useTasksTaskListStatus();
   const {
     isSortedByProject,
@@ -21,7 +16,7 @@ const useValue = (): ContextProps => {
   } = useTaskListSortStatus();
   const { isScrolling } = useTasksListContentVerticalScroll();
 
-  const sortedStyle = useMemo((): ChakraProps => {
+  const sortedStyle = useMemo((): FlexProps => {
     if (
       !isSortedByNone(taskListStatus.taskListSortStatus) &&
       !isSortedByProject(taskListStatus.taskListSortStatus) &&
@@ -42,7 +37,7 @@ const useValue = (): ContextProps => {
     taskListStatus.taskListSortStatus,
   ]);
 
-  const scrollingStyle = useMemo((): ChakraProps => {
+  const scrollingStyle = useMemo((): FlexProps => {
     if (isScrolling) return { shadow: 'sm' };
     return {};
   }, [isScrolling]);

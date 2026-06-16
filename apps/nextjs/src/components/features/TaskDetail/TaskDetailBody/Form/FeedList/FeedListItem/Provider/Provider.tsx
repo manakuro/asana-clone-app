@@ -1,7 +1,8 @@
-import type React from 'react';
+import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
-import { useToast } from '@/hooks';
+import type { DescriptionFragmentFragment } from '@/graphql/types';
+import { useToaster } from '@/hooks/useToaster';
 import { parseDescription } from '@/shared/prosemirror/convertDescription';
 import { createProvider } from '@/shared/react/createProvider';
 import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/taskFeed';
@@ -14,13 +15,13 @@ type Props = {
   taskId: string;
   isPinned?: boolean;
 };
-export const Provider: React.FCWithChildren<Props> = (props) => {
+export function Provider(props: PropsWithChildren<Props>) {
   return (
     <ProviderBase {...props}>
       <ProviderContainer {...props}>{props.children}</ProviderContainer>
     </ProviderBase>
   );
-};
+}
 
 const useValue = (props: Props) => {
   const { taskFeed } = useTaskFeed(props.taskFeedId);
@@ -46,7 +47,8 @@ const useValue = (props: Props) => {
 
   const hasTaskFile = useMemo(() => !!taskFileIds.length, [taskFileIds]);
   const hasText = useMemo(
-    () => !!taskFeed.description.content.length,
+    () =>
+      !!(taskFeed.description as DescriptionFragmentFragment).content.length,
     [taskFeed.description],
   );
   return {
@@ -82,7 +84,7 @@ const useFeedOptionMenu = (props: Props) => {
   const { taskFeed, setTaskFeed } = useTaskFeed(props.taskFeedId);
   const { deleteTaskFeed, undeleteTaskFeed } = useTaskFeedCommand();
   const [isEdit, setIsEdit] = useState<boolean>(false);
-  const { toast } = useToast();
+  const { toaster } = useToaster();
 
   const onPin = useCallback(async () => {
     await setTaskFeed({ isPinned: true });
@@ -108,21 +110,24 @@ const useFeedOptionMenu = (props: Props) => {
       await undeleteTaskFeed(res);
     };
 
-    toast({
+    toaster.success({
       description: 'The comment was deleted',
-      undo: handleUndo,
+      action: {
+        label: 'Undo',
+        onClick: handleUndo,
+      },
       duration: 10000,
     });
-  }, [deleteTaskFeed, taskFeed.id, toast, undeleteTaskFeed]);
+  }, [deleteTaskFeed, taskFeed.id, undeleteTaskFeed, toaster.success]);
 
   const onCopyCommentLink = useCallback(async () => {
     await navigator.clipboard.writeText(
       getTasksDetailFeedURL({ taskId: props.taskId, taskFeedId: taskFeed.id }),
     );
-    toast({
+    toaster.success({
       description: 'The comment link was copied to your clipboard.',
     });
-  }, [getTasksDetailFeedURL, props.taskId, taskFeed.id, toast]);
+  }, [getTasksDetailFeedURL, props.taskId, taskFeed.id, toaster.success]);
 
   return {
     onPin,
@@ -143,7 +148,7 @@ const useEditor = (
     setIsEdit,
     isEdit,
   }: {
-    setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsEdit: Dispatch<SetStateAction<boolean>>;
     isEdit: boolean;
   },
 ) => {

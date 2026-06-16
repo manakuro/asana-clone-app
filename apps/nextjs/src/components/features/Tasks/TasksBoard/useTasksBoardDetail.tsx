@@ -1,5 +1,5 @@
 import { useParams, usePathname } from 'next/navigation';
-import { useCallback, useEffect } from 'react';
+import { startTransition, useCallback, useEffect, useRef } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksBoardListItemElement } from '@/components/features/Tasks/TasksBoard/TasksBoardListItem';
@@ -11,6 +11,7 @@ type Props = {
   isTaskDetailURL: (params: Params, pathname: string | null) => boolean;
   getTaskDetailId: (params: Params, pathname: string | null) => string;
   fetchQuery: (variables: { taskId: string }) => Promise<void>;
+  tabContentLoading: boolean;
 };
 
 export const useTasksBoardDetail = (props: Props) => {
@@ -33,33 +34,57 @@ export const useTasksBoardDetail = (props: Props) => {
       },
       [className],
     );
-  const { onOpen } = useTaskDetailDrawer();
+  const { onOpen, open } = useTaskDetailDrawer();
+
+  const openRef = useRef<boolean>(false);
+  openRef.current = open;
+
+  const taskIdRef = useRef<string | null>(null);
+  taskIdRef.current = taskId;
 
   useEffect(() => {
+    if (props.tabContentLoading) return;
     if (!isTaskDetailURL(params, pathname)) return;
 
     const newId = getTaskDetailId(params, pathname);
-    if (taskId === newId) return;
-    console.log('render!');
+    if (openRef.current && taskIdRef.current === newId) return;
+    console.log('useTasksBoardDetail!', newId);
 
-    setLoading(true);
+    onOpen();
     setId(newId);
-    onOpen(() => {
-      setTimeout(async () => {
-        await fetchQuery({ taskId: newId });
+
+    let loadingShown = false;
+    let cancelled = false;
+
+    const timer = setTimeout(() => {
+      if (!cancelled) {
+        loadingShown = true;
+        setLoading(true);
+      }
+    }, 300);
+
+    startTransition(async () => {
+      await fetchQuery({ taskId: newId });
+      clearTimeout(timer);
+      if (!cancelled && loadingShown) {
         setLoading(false);
-      }, 200);
+      }
     });
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
   }, [
     params,
     pathname,
     onOpen,
     setId,
-    taskId,
     setLoading,
     isTaskDetailURL,
     getTaskDetailId,
     fetchQuery,
+    props.tabContentLoading,
   ]);
 
   return {

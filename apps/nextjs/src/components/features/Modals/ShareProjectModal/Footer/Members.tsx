@@ -1,30 +1,28 @@
 import { memo, useCallback } from 'react';
 import { Button } from '@/components/ui/Button';
-import { Divider } from '@/components/ui/Divider';
+import { Dialog } from '@/components/ui/Dialog';
 import { Icon } from '@/components/ui/Icon';
-import { ModalFooter } from '@/components/ui/Modal';
+import { Separator } from '@/components/ui/Separator';
+import { useCopyProjectLink } from '@/hooks/pages/projects';
 import { useShareProjectModal } from '../useShareProjectModal';
 
 export const Members = memo(function Members() {
-  const { onClose } = useShareProjectModal();
+  const { projectId } = useShareProjectModal();
+  const { copyProjectLink } = useCopyProjectLink({ projectId });
 
-  const handleCopyProjectLink = useCallback(() => {
-    onClose();
-  }, [onClose]);
+  const handleCopyProjectLink = useCallback(async () => {
+    await copyProjectLink();
+  }, [copyProjectLink]);
 
   return (
     <>
-      <Divider />
-      <ModalFooter>
-        <Button
-          onClick={handleCopyProjectLink}
-          variant="outline"
-          leftIcon={<Icon icon="link" color="text.muted" />}
-          size="xs"
-        >
+      <Separator />
+      <Dialog.Footer>
+        <Button onClick={handleCopyProjectLink} variant="outline" size="xs">
+          <Icon icon="link" color="fg.muted" />
           Copy project link
         </Button>
-      </ModalFooter>
+      </Dialog.Footer>
     </>
   );
 });

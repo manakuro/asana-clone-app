@@ -22,20 +22,21 @@ export const Header = memo(function Header() {
       ml={isExpanded ? 0 : '-3px'}
     >
       {isExpanded && (
-        <NextLink href={ROUTE_HOME.href.pathname()} passHref legacyBehavior>
-          <Link mr="auto">
+        <Link mr="auto" asChild>
+          <NextLink href={ROUTE_HOME.href.pathname()}>
             <Logo />
-          </Link>
-        </NextLink>
+          </NextLink>
+        </Link>
       )}
       <IconButton
         mr={-2}
         onClick={toggleMenu}
         aria-label="expand button"
-        icon={<Icon icon="menu" />}
         variant="ghost"
         light
-      />
+      >
+        <Icon icon="menu" />
+      </IconButton>
     </Flex>
   );
 });

@@ -9,7 +9,7 @@ export const TasksNameGrabIcon = memo(function TasksNameGrabIcon(props: Props) {
   return (
     <Icon
       icon="gridVertical"
-      color="text.muted"
+      color="fg.muted"
       size="sm"
       visibility={showIcon ? 'visible' : 'hidden'}
       cursor="grab"

@@ -1,38 +1,42 @@
-import { Divider } from '@/components/ui/Divider';
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalHeader,
-} from '@/components/ui/Modal';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { DarkMode } from '@/chakra-ui/ui/color-mode';
+import { Dialog } from '@/components/ui/Dialog';
+import { Portal } from '@/components/ui/Portal';
 import { Body } from './Body';
 import { Header } from './Header';
 import { useFileViewerModal } from './useFileViewerModal';
 
 export function FileViewerModal() {
-  const { isOpen, onClose } = useFileViewerModal();
+  const { open, onClose } = useFileViewerModal();
 
   return (
-    <PortalManager zIndex={1800}>
-      <Modal isOpen={isOpen} onClose={onClose} size="full">
-        <ModalContent
-          bg="gray.700"
-          color="white"
-          w="100vw"
-          h="100vh"
-          m={0}
-          borderRadius="none"
-        >
-          <ModalHeader p={0}>
-            <Header />
-          </ModalHeader>
-          <Divider />
-          <ModalBody pb={0} zIndex="tooltip">
-            {isOpen && <Body />}
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    </PortalManager>
+    <Dialog.Root
+      open={open}
+      onOpenChange={(e) => {
+        if (!e.open) onClose();
+      }}
+      size="full"
+    >
+      <Portal>
+        <Dialog.Positioner>
+          <DarkMode>
+            <Dialog.Content
+              bg="bg.emphasized"
+              color="white"
+              w="100vw"
+              h="100vh"
+              m={0}
+              borderRadius="none"
+            >
+              <Dialog.Header p={0}>
+                <Header />
+              </Dialog.Header>
+              <Dialog.Body pb={0} zIndex="tooltip">
+                <Body />
+              </Dialog.Body>
+            </Dialog.Content>
+          </DarkMode>
+        </Dialog.Positioner>
+      </Portal>
+    </Dialog.Root>
   );
 }

@@ -1,24 +1,23 @@
 import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Menu, MenuButton } from '@/components/ui/Menu';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Menu } from '@/components/ui/Menu';
 import { MenuList } from './MenuList';
 
 export const MoreActionButton = memo(function MoreActionButton() {
   return (
-    <PortalManager zIndex={1500}>
-      <Menu placement="bottom-start" isLazy>
-        <MenuButton
+    <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
+      <Menu.Trigger asChild>
+        <IconButton
           aria-label="More actions"
-          as={IconButton}
-          icon={<Icon icon="dotsHorizontalRounded" color="text.muted" />}
           variant="ghost"
           size="sm"
           h="28px"
-        />
-        <MenuList />
-      </Menu>
-    </PortalManager>
+        >
+          <Icon icon="dotsHorizontalRounded" color="fg.muted" />
+        </IconButton>
+      </Menu.Trigger>
+      <MenuList />
+    </Menu.Root>
   );
 });

@@ -1,15 +1,15 @@
 import { memo } from 'react';
-import { ModalBody, ModalContent } from '@/components/ui/Modal';
+import { Dialog } from '@/components/ui/Dialog';
 import { useMenuStyle } from '@/hooks';
 import { MenuList } from './MenuList';
 import { useEditorMentionMenu } from './useEditorMentionMenu';
 
 export const MenuContent = memo(function MenuContent() {
   const { x, y, containerRef } = useEditorMentionMenu();
-  const menuStyles = useMenuStyle().list;
+  const menuStyles = useMenuStyle().content;
 
   return (
-    <ModalContent
+    <Dialog.Content
       position="fixed"
       top={y}
       left={x}
@@ -20,9 +20,9 @@ export const MenuContent = memo(function MenuContent() {
       overflowY="scroll"
       ref={containerRef}
     >
-      <ModalBody w="full" px={0} {...menuStyles}>
+      <Dialog.Body w="full" px={0} css={menuStyles}>
         <MenuList />
-      </ModalBody>
-    </ModalContent>
+      </Dialog.Body>
+    </Dialog.Content>
   );
 });

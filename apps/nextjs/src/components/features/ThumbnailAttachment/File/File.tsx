@@ -23,7 +23,7 @@ export function File(props: Props) {
           isHovering={isHovering}
         />
         <Menu taskFileId={taskFileId}>
-          <MenuButton color="text.muted" />
+          <MenuButton color="fg.muted" />
         </Menu>
       </Container>
     </Tooltip>

@@ -1,6 +1,7 @@
+import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
-import { useMemo } from 'react';
-import { useTeammateTaskUpdatedSubscription as useSubscription } from '@/graphql/hooks';
+import { useCallback, useMemo } from 'react';
+import { TeammateTaskUpdatedDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import type { TeammateTaskUpdatedSubscriptionResponse as Response } from '../type';
@@ -21,43 +22,40 @@ export const useTeammateTaskUpdatedSubscription = (props: Props) => {
     () => !props.teammateId || !props.workspaceId,
     [props.teammateId, props.workspaceId],
   );
-  const subscriptionResult = useSubscription({
+
+  const setBySubscription = useCallback(
+    (response: Response) => {
+      const created = response.teammateTaskUpdated;
+
+      if (isDev()) console.log('Teammate Task updated!');
+
+      setTeammateTask([
+        {
+          ...created,
+          task: {
+            ...created.task,
+            isNew: false,
+          },
+        },
+      ]);
+    },
+    [setTeammateTask],
+  );
+
+  const subscriptionResult = useSubscription(TeammateTaskUpdatedDocument, {
     variables: {
       teammateId: props.teammateId,
       workspaceId: props.workspaceId,
       requestId: TEAMMATE_TASK_UPDATED_SUBSCRIPTION_REQUEST_ID,
     },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
+    onData: ({ data }) => {
+      if (isEqual(data.data, previousData?.data)) return;
 
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
+      if (data.data) setBySubscription(data.data);
       previousData = data;
     },
     skip: skipSubscription,
   });
-
-  const setBySubscription = (response: Response) => {
-    const created = response.teammateTaskUpdated;
-
-    if (isDev()) console.log('Teammate Task updated!');
-
-    setTeammateTask([
-      {
-        ...created,
-        task: {
-          ...created.task,
-          isNew: false,
-        },
-      },
-    ]);
-  };
 
   return {
     subscriptionResult,

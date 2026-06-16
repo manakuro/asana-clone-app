@@ -1,57 +1,24 @@
-import { useCallback } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
-import {
-  MenuList as AtomsMenuList,
-  MenuDivider,
-  MenuItem,
-} from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
-import { useClickOutside } from '@/hooks/useClickOutside';
-import { useDisclosure } from '@/shared/chakra';
 import { PopoverMore } from './PopoverMore';
 
-type Props = {
-  onCloseMenu: () => void;
-};
-
-export function MenuList(props: Props) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const { ref } = useClickOutside<HTMLDivElement>(() => {
-    handleCloseAll();
-  });
-
-  const handleOpen = useCallback(() => {
-    onOpen();
-  }, [onOpen]);
-
-  const handleClose = useCallback(() => {
-    onClose();
-  }, [onClose]);
-
-  const handleCloseAll = useCallback(() => {
-    onClose();
-    props.onCloseMenu();
-  }, [onClose, props]);
-
+export function MenuList() {
   return (
     <Portal>
-      <AtomsMenuList ref={ref}>
-        <MenuItem onMouseEnter={handleClose} isDisabled>
-          My workspace
-        </MenuItem>
-        <MenuDivider />
-        <MenuItem onMouseEnter={handleClose} isDisabled>
-          Admin Console
-        </MenuItem>
-        <MenuItem onMouseEnter={handleOpen}>
-          <PopoverMore
-            isOpen={isOpen}
-            placement="left"
-            onClose={handleCloseAll}
-          >
+      <Menu.Positioner>
+        <Menu.Content>
+          <Menu.Item value="0" disabled>
+            My workspace
+          </Menu.Item>
+          <Menu.Separator />
+          <Menu.Item value="1" disabled>
+            Admin Console
+          </Menu.Item>
+          <PopoverMore>
             <Flex flex={1}>
               <Text fontSize="sm" flex={1}>
                 More
@@ -59,17 +26,17 @@ export function MenuList(props: Props) {
               <Icon icon="chevronRight" />
             </Flex>
           </PopoverMore>
-        </MenuItem>
-        <MenuDivider />
-        <MenuItem onMouseEnter={handleClose} link>
-          <Link fontSize="sm" isExternal href="https://google.com">
-            Privacy Policy
-          </Link>
-        </MenuItem>
-        <MenuItem onMouseEnter={handleClose} isDisabled>
-          Logout
-        </MenuItem>
-      </AtomsMenuList>
+          <Menu.Separator />
+          <Menu.Item value="3" asChild>
+            <Link fontSize="sm" target="_blank" href="https://google.com">
+              Privacy Policy
+            </Link>
+          </Menu.Item>
+          <Menu.Item value="4" disabled>
+            Logout
+          </Menu.Item>
+        </Menu.Content>
+      </Menu.Positioner>
     </Portal>
   );
 }

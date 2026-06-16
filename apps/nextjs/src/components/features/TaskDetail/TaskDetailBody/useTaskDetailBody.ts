@@ -1,22 +1,9 @@
-import { atom, useAtom } from 'jotai';
-import { useEffect, useRef } from 'react';
-
-type State = HTMLElement | null;
-
-const refAtom = atom<State>(null);
+import { useTaskDetailBodyRef } from './useTaskDetailBodyRef';
 
 export const useTaskDetailBody = () => {
-  const ref = useRef<HTMLElement | null>(null);
-  const [state, setState] = useAtom(refAtom);
-
-  useEffect(() => {
-    if (ref.current) {
-      setState(ref.current);
-    }
-  }, [setState]);
+  const { taskDetailBodyDom } = useTaskDetailBodyRef();
 
   return {
-    ref,
-    taskDetailBodyDom: state,
+    taskDetailBodyDom,
   };
 };

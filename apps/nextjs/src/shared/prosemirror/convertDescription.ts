@@ -11,7 +11,9 @@ export const parseDescription = <T extends object>(val: string): T => {
   }
 };
 
-export const stringifyDescription = <T extends object>(val: T): string => {
+export const stringifyDescription = <T extends object>(
+  val: T | null,
+): string => {
   try {
     return val ? JSON.stringify(val) : JSON.stringify(getDefaultDescription());
   } catch (e) {

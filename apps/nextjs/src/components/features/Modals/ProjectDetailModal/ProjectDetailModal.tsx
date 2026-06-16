@@ -1,15 +1,28 @@
 import { memo } from 'react';
-import { Modal, ModalOverlay } from '@/components/ui/Modal';
+import { Dialog } from '@/components/ui/Dialog';
+import { Portal } from '@/components/ui/Portal';
 import { Content } from './Content';
 import { useProjectDetailModal } from './useProjectDetailModal';
 
 export const ProjectDetailModal = memo(function ProjectDetailModal() {
-  const { isOpen, onClose, projectId } = useProjectDetailModal();
+  const { open, onClose, projectId } = useProjectDetailModal();
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="xl">
-      <ModalOverlay />
-      {isOpen && <Content projectId={projectId} />}
-    </Modal>
+    <Dialog.Root
+      open={open}
+      onOpenChange={(e) => {
+        if (!e.open) {
+          onClose();
+        }
+      }}
+      size="lg"
+    >
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>
+          <Content projectId={projectId} />
+        </Dialog.Positioner>
+      </Portal>
+    </Dialog.Root>
   );
 });

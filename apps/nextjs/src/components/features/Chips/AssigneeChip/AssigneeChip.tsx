@@ -2,7 +2,6 @@ import type React from 'react';
 import { memo, useCallback } from 'react';
 import { PopoverProfile } from '@/components/features/Popovers';
 import { Avatar } from '@/components/ui/Avatar';
-import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
@@ -36,12 +35,12 @@ export const AssigneeChip = memo(function AssigneeChip(props: Props) {
       }}
     >
       <Button
-        as={Box}
-        size="sm"
+        size="xs"
         border="1px"
         borderColor="transparent"
         cursor="pointer"
         borderRadius="full"
+        variant="subtle"
       >
         <Avatar
           name={teammate.name}
@@ -57,7 +56,7 @@ export const AssigneeChip = memo(function AssigneeChip(props: Props) {
           ml={2}
           mt="1px"
           icon="x"
-          color="text.muted"
+          color="fg.muted"
           size="sm"
           {...clickableHoverLightStyle}
           onClick={handleDelete}

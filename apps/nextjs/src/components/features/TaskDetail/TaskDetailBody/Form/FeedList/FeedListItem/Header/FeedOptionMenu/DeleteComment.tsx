@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useTaskFeedListItemContext } from '../../Provider';
 
 export const DeleteComment = memo(function DeleteComment() {
@@ -7,8 +7,8 @@ export const DeleteComment = memo(function DeleteComment() {
   if (!hasText) return null;
 
   return (
-    <MenuItem color="alert" onClick={onDelete}>
+    <Menu.Item value="Delete comment" color="alert" onSelect={onDelete}>
       Delete comment
-    </MenuItem>
+    </Menu.Item>
   );
 });

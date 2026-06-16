@@ -1,9 +1,10 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useCreateTaskFeedMutation,
-  useDeleteTaskFeedMutation,
-  useUndeleteTaskFeedMutation,
+  CreateTaskFeedDocument,
+  DeleteTaskFeedDocument,
+  UndeleteTaskFeedDocument,
 } from '@/graphql/hooks';
 import { uuid } from '@/shared/uuid';
 import { useTaskFeedLikeResponse } from '@/store/entities/taskFeedLike';
@@ -20,9 +21,9 @@ import { useUpsert } from './useUpsert';
 export const useTaskFeedCommand = () => {
   const { upsert } = useUpsert();
   const { workspace } = useWorkspace();
-  const [createTaskFeedMutation] = useCreateTaskFeedMutation();
-  const [deleteTaskFeedMutation] = useDeleteTaskFeedMutation();
-  const [undeleteTaskFeedMutation] = useUndeleteTaskFeedMutation();
+  const [createTaskFeedMutation] = useMutation(CreateTaskFeedDocument);
+  const [deleteTaskFeedMutation] = useMutation(DeleteTaskFeedDocument);
+  const [undeleteTaskFeedMutation] = useMutation(UndeleteTaskFeedDocument);
 
   const { resetTaskFeed } = useResetTaskFeed();
   const { setTaskFeed } = useTaskFeedResponse();
@@ -60,7 +61,7 @@ export const useTaskFeedCommand = () => {
                 },
               },
             });
-            if (res.errors) {
+            if (res.error) {
               restore();
               return;
             }
@@ -109,7 +110,7 @@ export const useTaskFeedCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             setTaskFeed([prev]);
             return;
           }
@@ -145,7 +146,7 @@ export const useTaskFeedCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return;
           }

@@ -32,6 +32,22 @@ jobs:
       - name: Run install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
+        env:
+          SAFE_CHAIN_NPM_MINIMUM_PACKAGE_AGE_EXCLUSIONS: 'lru-cache'
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: playwright_cache_id
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            playwright-${{ runner.os }}-
+      - name: Install Playwright browsers
+        if: steps.playwright_cache_id.outputs.cache-hit != 'true'
+        run: pnpm --filter nextjs exec playwright install --with-deps chromium
+      - name: Install Playwright system dependencies
+        if: steps.playwright_cache_id.outputs.cache-hit == 'true'
+        run: pnpm --filter nextjs exec playwright install-deps chromium
       - name: Run codegen
         run: pnpm --filter nextjs codegen:ci
       - name: Run lint

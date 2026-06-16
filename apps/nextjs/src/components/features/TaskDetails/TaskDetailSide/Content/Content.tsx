@@ -18,7 +18,8 @@ export const Content = memo(function Content(props: Props) {
     <Flex
       flex={1}
       borderLeft="1px"
-      borderColor="gray.200"
+      borderColor="border"
+      borderStyle="solid"
       boxShadow="none"
       w="full"
       maxH={`calc(100vh - ${TOP}px)`}
@@ -32,7 +33,7 @@ export const Content = memo(function Content(props: Props) {
             loading={props.loading}
             borderBottom="1px"
             borderStyle="solid"
-            borderColor="gray.200"
+            borderColor="border"
           />
         </Flex>
         <Flex

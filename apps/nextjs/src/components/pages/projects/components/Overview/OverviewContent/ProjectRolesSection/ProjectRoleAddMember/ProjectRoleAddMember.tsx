@@ -30,7 +30,7 @@ export function ProjectRoleAddMember(props: Props) {
           justifyContent="center"
           minW="1px"
         >
-          <Text fontSize="sm" fontWeight="medium" color="text.muted">
+          <Text fontSize="sm" fontWeight="medium" color="fg.muted">
             Add member
           </Text>
         </Flex>

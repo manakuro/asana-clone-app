@@ -1,28 +1,20 @@
 import type React from 'react';
 import { useCallback } from 'react';
-import { MenuItem } from './MenuItem';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   projectId: string;
-  onClose: () => void;
-  onMouseEnter: () => void;
 };
 
-export function DuplicateProject(props: Props) {
-  const { onClose, onMouseEnter } = props;
-
-  const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
-      e.preventDefault();
-      onClose();
-    },
-    [onClose],
-  );
+export function DuplicateProject(_props: Props) {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
+  }, []);
 
   return (
-    <MenuItem onMouseEnter={onMouseEnter} onClick={handleClick} isDisabled>
+    <Menu.Item value="Duplicate Project" onClick={handleClick} disabled>
       Duplicate Project
-    </MenuItem>
+    </Menu.Item>
   );
 }

@@ -32,7 +32,7 @@ export const Form: React.FC<Props> = memo<Props>((props) => {
         size="sm"
         autoFocus
       />
-      <Button ml={2} colorScheme="teal" size="sm" onClick={handleDone}>
+      <Button ml={2} colorPalette="teal" size="sm" onClick={handleDone}>
         Done
       </Button>
     </Flex>

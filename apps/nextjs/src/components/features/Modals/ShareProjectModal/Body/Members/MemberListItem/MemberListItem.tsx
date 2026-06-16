@@ -21,7 +21,7 @@ export const MemberListItem = memo(function MemberListItem(props: Props) {
       alignItems="center"
       h="50px"
       px={6}
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
       cursor="default"
     >
       <TeammateAvatar teammateId={teammateId} size="sm" />
@@ -29,7 +29,7 @@ export const MemberListItem = memo(function MemberListItem(props: Props) {
         <Text fontWeight="medium" fontSize="xs">
           {teammate.name}
         </Text>
-        <Text fontSize="xs" color="text.muted">
+        <Text fontSize="xs" color="fg.muted">
           {teammate.email}
         </Text>
       </Flex>

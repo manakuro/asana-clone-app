@@ -1,23 +1,12 @@
 import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
-type Props = {
-  onClose: () => void;
-  onMouseEnter: () => void;
-  projectId: string;
-};
-
-export const ConvertToTemplate = memo(function ConvertToTemplate(props: Props) {
-  const { onMouseEnter } = props;
-
+export const ConvertToTemplate = memo(function ConvertToTemplate() {
   return (
-    <MenuItem
-      onMouseEnter={onMouseEnter}
-      icon={<Icon icon="layout" color="text.muted" />}
-      isDisabled
-    >
+    <Menu.Item value="Convert to template" disabled>
+      <Icon icon="layout" color="fg.muted" />
       Convert to template
-    </MenuItem>
+    </Menu.Item>
   );
 });

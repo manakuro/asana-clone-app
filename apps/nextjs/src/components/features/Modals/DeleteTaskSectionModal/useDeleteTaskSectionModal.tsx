@@ -6,7 +6,7 @@ import {
   useTasksTaskSection,
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
-import { useToast } from '@/hooks';
+import { useToaster } from '@/hooks/useToaster';
 
 const openAtom = atom(false);
 
@@ -18,10 +18,10 @@ const modalAtom = atomWithReset<ModalState>({
 });
 
 export const useDeleteTaskSectionModal = () => {
-  const [isOpen, setIsOpen] = useAtom(openAtom);
+  const [open, setIsOpen] = useAtom(openAtom);
   const [state, setState] = useAtom(modalAtom);
   const resetState = useResetAtom(modalAtom);
-  const { toast } = useToast();
+  const { toaster } = useToaster();
   const {
     deleteTaskSectionAndDeleteTasks,
     deleteTaskSectionAndKeepTasks,
@@ -53,10 +53,13 @@ export const useDeleteTaskSectionModal = () => {
     const res = await deleteTaskSectionAndKeepTasks(state.taskSectionId);
     if (!res) return;
 
-    toast({
+    toaster.success({
       description: `${taskSection.name} was deleted and its tasks are being moved.`,
-      undo: async () => {
-        await undeleteTaskSectionAndKeepTasks(res);
+      action: {
+        label: 'Undo',
+        onClick: async () => {
+          await undeleteTaskSectionAndKeepTasks(res);
+        },
       },
       duration: 10000,
     });
@@ -65,10 +68,10 @@ export const useDeleteTaskSectionModal = () => {
     setIsOpen,
     deleteTaskSectionAndKeepTasks,
     state.taskSectionId,
-    toast,
     taskSection.name,
     resetState,
     undeleteTaskSectionAndKeepTasks,
+    toaster.success,
   ]);
 
   const onDeleteAndDeleteTask = useCallback(async () => {
@@ -76,10 +79,13 @@ export const useDeleteTaskSectionModal = () => {
     const res = await deleteTaskSectionAndDeleteTasks(state.taskSectionId);
     if (!res) return;
 
-    toast({
+    toaster.success({
       description: `${taskSection.name} was deleted and its tasks are being deleted.`,
-      undo: async () => {
-        await undeleteTaskSectionAndDeleteTasks(res);
+      action: {
+        label: 'Undo',
+        onClick: async () => {
+          await undeleteTaskSectionAndDeleteTasks(res);
+        },
       },
       duration: 10000,
     });
@@ -90,12 +96,12 @@ export const useDeleteTaskSectionModal = () => {
     setIsOpen,
     state.taskSectionId,
     taskSection.name,
-    toast,
     undeleteTaskSectionAndDeleteTasks,
+    toaster.success,
   ]);
 
   return {
-    isOpen,
+    open,
     onClose,
     onOpen,
     setModalState,

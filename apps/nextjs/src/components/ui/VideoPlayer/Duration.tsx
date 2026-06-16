@@ -1,14 +1,23 @@
-import styled from '@emotion/styled';
-import { type ChakraProps, chakra } from '@/shared/chakra';
+import type { ComponentProps } from 'react';
+import { chakra } from '@/shared/chakra';
+
+type TimeProps = ComponentProps<typeof chakra.time>;
 
 type Props = {
   seconds: number;
-} & ChakraProps;
+} & TimeProps;
 export function Duration(props: Props) {
   return (
-    <Time {...props} dateTime={`P${Math.round(props.seconds)}S`}>
+    <chakra.time
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      fontSize="xs"
+      {...props}
+      dateTime={`P${Math.round(props.seconds)}S`}
+    >
       {format(props.seconds)}
-    </Time>
+    </chakra.time>
   );
 }
 
@@ -24,16 +33,3 @@ const format = (seconds: number) => {
 };
 
 const pad = (str: number) => `0${str}`.slice(-2);
-
-const Time = chakra(
-  styled.time`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `,
-  {
-    baseStyle: {
-      fontSize: 'xs',
-    },
-  },
-);

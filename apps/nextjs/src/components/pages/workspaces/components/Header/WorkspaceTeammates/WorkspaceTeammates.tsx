@@ -11,8 +11,8 @@ export const WorkspaceTeammates = memo(function WorkspaceTeammates() {
 
   return (
     <Flex alignItems="center">
-      <AvatarGroup size="xs" max={3} fontSize="xs" spacing={-1}>
-        {teammateIds.map((id) => (
+      <AvatarGroup size="xs" fontSize="xs" spaceX={-1}>
+        {teammateIds.slice(0, 3).map((id) => (
           <TeammateAvatar teammateId={id} key={id} showProfile={false} />
         ))}
       </AvatarGroup>

@@ -49,10 +49,11 @@ export const TaskSectionName = memo(function TaskSectionName(props: Props) {
     <Box
       px={2}
       maxW={80}
-      noOfLines={1}
+      lineClamp={1}
       fontWeight="semibold"
       border="1px"
       borderColor="transparent"
+      borderStyle="solid"
       onClick={handleClick}
       cursor="pointer"
     >

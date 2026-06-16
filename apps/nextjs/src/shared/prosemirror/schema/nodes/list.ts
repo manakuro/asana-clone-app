@@ -1,7 +1,5 @@
 import type { NodeSpec } from 'prosemirror-model';
 
-// changed from prosemirror-schema-list
-
 interface Attrs {
   type: string;
   start?: number;
@@ -40,7 +38,7 @@ export const list: NodeSpec = {
       case 'simple':
         return ['ul', { class: 'simple' }, 0];
       default:
-        return ['ul', 0];
+        return ['ul', {}, 0];
     }
   },
 };

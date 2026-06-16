@@ -3,8 +3,8 @@ import { useEffect, useRef } from 'react';
 
 const refAtom = atom<HTMLElement | null>(null);
 
-export const useSearchMenuRef = () => {
-  const ref = useRef<HTMLElement | null>(null);
+export const useSearchMenuRef = <T extends HTMLElement>() => {
+  const ref = useRef<T | null>(null);
   const [state, setState] = useAtom(refAtom);
 
   useEffect(() => {
@@ -19,6 +19,6 @@ export const useSearchMenuRef = () => {
 
   return {
     ref,
-    element: state,
+    element: state as T | null,
   };
 };

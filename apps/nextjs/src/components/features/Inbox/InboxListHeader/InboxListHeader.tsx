@@ -1,7 +1,7 @@
 import { memo, useEffect, useMemo, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = FlexProps;
 
@@ -34,7 +34,7 @@ export const InboxListHeader = memo(function InboxListHeader(props: Props) {
       alignItems="center"
       borderBottom="1px"
       borderStyle="solid"
-      borderColor="gray.200"
+      borderColor="border"
       bg="white"
       zIndex="docked"
       transition={transitions.base()}

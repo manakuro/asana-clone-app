@@ -26,21 +26,21 @@ export const ParentTask = memo(function ParentTask(props: Props) {
   return (
     <Flex px={6} my={4} alignItems="center">
       <Tooltip
-        hasArrow
-        label="Parent's notes and comments."
+        showArrow
+        content="Parent's notes and comments."
         aria-label="Parent's notes and comments."
         size="sm"
         withIcon
       >
         <Text
-          {...clickableHoverLightStyle}
+          css={clickableHoverLightStyle}
           textDecoration="underline"
           _hover={{ textDecoration: 'underline !important', opacity: 1 }}
           onClick={handleClick}
         >
           {parentTask.name}
         </Text>
-        <Icon icon="chevronRight" color="text.muted" size="sm" mt={1} />
+        <Icon icon="chevronRight" color="fg.muted" size="sm" mt={1} />
       </Tooltip>
     </Flex>
   );

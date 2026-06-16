@@ -37,7 +37,7 @@ export const DueDate = memo(function DueDate(props: Props) {
       menu
     >
       {isSortedByDueDate(taskListStatus.taskListSortStatus) && (
-        <Icon icon="arrowDownAlt" color="text.muted" />
+        <Icon icon="arrowDownAlt" color="fg.muted" />
       )}
     </Container>
   );

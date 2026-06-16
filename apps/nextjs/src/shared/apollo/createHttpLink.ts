@@ -1,4 +1,4 @@
-import { HttpLink, split } from '@apollo/client';
+import { ApolloLink, HttpLink } from '@apollo/client/core';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { SubscriptionClient } from 'subscriptions-transport-ws';
@@ -32,7 +32,7 @@ export const createHttpLink = (props: CreateHttpProps) => {
     });
     const wsLink = new WebSocketLink(wsClient);
 
-    return split(
+    return ApolloLink.split(
       ({ query }) => {
         const definition = getMainDefinition(query);
         return (

@@ -5,16 +5,13 @@ import {
   useTaskDetailBody,
 } from '@/components/features/TaskDetail';
 import type { FileUploaderParams, UploadedFile } from '@/components/ui/Form';
-import { useClickOutside, useToast } from '@/hooks';
+import { useClickOutside } from '@/hooks/useClickOutside';
+import { useToaster } from '@/hooks/useToaster';
 import { getScrollBottom } from '@/shared/getScrollBottom';
 import { parseDescription } from '@/shared/prosemirror/convertDescription';
 import { createProvider } from '@/shared/react/createProvider';
 import { useMe } from '@/store/entities/me';
-import {
-  type TaskFeed,
-  useTaskFeed,
-  useTaskFeedCommand,
-} from '@/store/entities/taskFeed';
+import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/taskFeed';
 import {
   getTaskFileTypeFromFile,
   initialState,
@@ -22,24 +19,7 @@ import {
   useTaskFileCommand,
 } from '@/store/entities/taskFile';
 
-type ContextProps = {
-  taskFeed: TaskFeed;
-  focused: boolean;
-  onChangeDescription: (val: string) => void;
-  onFocus: () => void;
-  onSave: () => void;
-  onUploadFile: (files: FileUploaderParams) => void;
-  ref: React.MutableRefObject<HTMLElement | null>;
-  taskFileIds: string[];
-  uploadingFiles: {
-    name: string;
-    num: number;
-  }[];
-  hasTaskFile: boolean;
-  onDeleteTaskFile: (taskFile: TaskFile) => void;
-};
-
-const useValue = (): ContextProps => {
+const useValue = () => {
   const { focused, setFocused, onFocus, ref } = useFocus();
   const [taskFeedId, setFeedId] = useState<string>('');
   const { taskFeed } = useTaskFeed(taskFeedId);
@@ -82,18 +62,18 @@ export const { Provider, useContext: useInputContext } = createProvider(
 
 const useTaskFile = () => {
   const [taskFileIds, setTaskFileIds] = useState<string[]>([]);
-  const { toast } = useToast();
+  const { toaster } = useToaster();
 
   const hasTaskFile = useMemo(() => !!taskFileIds.length, [taskFileIds]);
 
   const onDelete = useCallback(
     (taskFile: TaskFile) => {
       setTaskFileIds((prev) => prev.filter((p) => p !== taskFile.id));
-      toast({
+      toaster.success({
         description: `${taskFile.name} is deleted from this task`,
       });
     },
-    [toast],
+    [toaster.success],
   );
 
   const resetTaskFileIds = useCallback(() => {
@@ -115,7 +95,7 @@ const useUploadingFile = (props: {
   const { taskId } = useTaskDetail();
   const { addTaskFile } = useTaskFileCommand();
   const [uploadingFiles, setUploadingFiles] = useState<
-    ContextProps['uploadingFiles']
+    { name: string; num: number }[]
   >([]);
 
   const upsertUploadingFile = useCallback(
@@ -209,7 +189,7 @@ const useFocus = () => {
     setFocused(true);
   }, []);
 
-  const { ref } = useClickOutside(
+  const { ref } = useClickOutside<HTMLDivElement>(
     () => {
       setFocused(false);
     },

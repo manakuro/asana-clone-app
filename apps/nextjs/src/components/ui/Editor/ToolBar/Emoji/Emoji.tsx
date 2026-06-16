@@ -19,13 +19,14 @@ export const Component = memo(function Component() {
     <PopoverEmoji>
       <BaseButton
         aria-label="emoji"
-        icon={<Icon icon="emojiHappy" color="text.muted" />}
         action={action}
         tooltip={{
-          label: 'Emoji',
+          content: 'Emoji',
           'aria-label': 'Emoji',
         }}
-      />
+      >
+        <Icon icon="emojiHappy" color="fg.muted" />
+      </BaseButton>
     </PopoverEmoji>
   );
 });

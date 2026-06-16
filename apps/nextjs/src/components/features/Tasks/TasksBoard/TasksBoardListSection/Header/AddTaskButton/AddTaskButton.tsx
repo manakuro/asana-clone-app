@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const AddTaskButton = memo(function AddTaskButton(props: Props) {
-  const { ref, isOpen, onClose } = useTooltip();
+  const { ref, open, onClose } = useTooltip();
   const { addTask } = useTasksTask();
 
   const handleClick = useCallback(async () => {
@@ -21,19 +21,20 @@ export const AddTaskButton = memo(function AddTaskButton(props: Props) {
 
   return (
     <Tooltip
-      hasArrow
-      label="Add task"
+      showArrow
+      content="Add task"
       aria-label="Add task button"
-      isOpen={isOpen}
+      open={open}
     >
       <IconButton
         ref={ref as Ref<HTMLButtonElement>}
         aria-label="Add task button"
-        icon={<Icon icon="plus" color="text.muted" />}
         variant="ghost"
         size="sm"
         onClick={handleClick}
-      />
+      >
+        <Icon icon="plus" color="fg.muted" />
+      </IconButton>
     </Tooltip>
   );
 });

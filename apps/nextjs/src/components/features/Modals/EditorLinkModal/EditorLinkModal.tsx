@@ -1,13 +1,14 @@
 import type React from 'react';
 import { useCallback } from 'react';
+import { Button } from '@/components/ui/Button';
+import { Dialog } from '@/components/ui/Dialog';
 import { Input } from '@/components/ui/Input';
-import { Modal, ModalBody, ModalContent } from '@/components/ui/Modal';
 import { Stack } from '@/components/ui/Stack';
 import { useEditorLinkModal } from './useEditorLinkModal';
 
 const MARGIN = 30;
 export function EditorLinkModal() {
-  const { isOpen, x, y, onClose, setInput, input } = useEditorLinkModal();
+  const { open, x, y, onClose, setInput, input } = useEditorLinkModal();
 
   const handleInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>, type: keyof typeof input) => {
@@ -20,20 +21,37 @@ export function EditorLinkModal() {
   );
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="xs">
-      <ModalContent position="fixed" top={x + MARGIN} left={y} mb={0} mt={0}>
-        <ModalBody>
-          <Stack spacing={2}>
-            <Input
-              value={input.url}
-              onChange={(e) => handleInput(e, 'url')}
-              focusBorderColor="none"
-              placeholder="Add URL"
-              size="sm"
-            />
-          </Stack>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
+    <Dialog.Root
+      open={open}
+      onOpenChange={(e) => {
+        if (!e) onClose();
+      }}
+      size="xs"
+      closeOnInteractOutside={false}
+    >
+      <Dialog.Positioner>
+        <Dialog.Content
+          position="fixed"
+          top={x + MARGIN}
+          left={y}
+          mb={0}
+          mt={0}
+        >
+          <Dialog.Body p={2}>
+            <Stack gap={2} direction="row" alignItems="center">
+              <Input
+                value={input.url}
+                onChange={(e) => handleInput(e, 'url')}
+                placeholder="Add URL"
+                size="sm"
+              />
+              <Button variant="outline" onClick={onClose} size="sm">
+                Save
+              </Button>
+            </Stack>
+          </Dialog.Body>
+        </Dialog.Content>
+      </Dialog.Positioner>
+    </Dialog.Root>
   );
 }

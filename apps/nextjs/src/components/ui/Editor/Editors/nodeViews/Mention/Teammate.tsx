@@ -17,6 +17,7 @@ export const Teammate = memo(function Teammate() {
         email: teammate.email,
         image: teammate.image,
       }}
+      portal={false}
     >
       <MentionText>{`${teammate.email} `}</MentionText>
     </PopoverProfile>

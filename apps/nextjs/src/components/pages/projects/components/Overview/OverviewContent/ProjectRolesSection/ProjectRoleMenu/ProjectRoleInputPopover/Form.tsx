@@ -6,7 +6,7 @@ import { Input as AtomsInput } from '@/components/ui/Input';
 
 type Props = {
   defaultValue: string;
-  initialFocusRef: React.MutableRefObject<HTMLInputElement | null>;
+  initialFocusRef: React.Ref<HTMLInputElement | null>;
   onChange: (value: string) => void;
 };
 
@@ -32,7 +32,7 @@ export const Form = memo(function Form(props: Props) {
         size="sm"
         autoFocus
       />
-      <Button ml={2} colorScheme="teal" size="sm" onClick={handleDone}>
+      <Button ml={2} colorPalette="teal" size="sm" onClick={handleDone}>
         Done
       </Button>
     </Flex>

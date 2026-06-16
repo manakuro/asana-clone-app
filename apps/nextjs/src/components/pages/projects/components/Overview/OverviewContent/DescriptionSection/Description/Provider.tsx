@@ -1,4 +1,3 @@
-import type React from 'react';
 import { useCallback, useState } from 'react';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
@@ -6,13 +5,7 @@ import {
 } from '@/hooks';
 import { createProvider } from '@/shared/react/createProvider';
 
-type ContextProps = {
-  focused: boolean;
-  onFocus: () => void;
-  ref: React.MutableRefObject<HTMLElement | null>;
-};
-
-const useValue = (): ContextProps => {
+const useValue = () => {
   const [focused, setFocused] = useState(false);
 
   const hasClickedOutside =
@@ -24,7 +17,7 @@ const useValue = (): ContextProps => {
       return true;
     }, []);
 
-  const { ref } = useClickOutside(
+  const { ref } = useClickOutside<HTMLDivElement>(
     () => {
       setFocused(false);
     },

@@ -38,7 +38,7 @@ export const ListItem = memo(function ListItem(props: Props) {
   const handleClick = useCallback(
     async (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
-      await navigateToHomeDetail(taskId);
+      navigateToHomeDetail(taskId);
     },
     [navigateToHomeDetail, taskId],
   );
@@ -54,30 +54,31 @@ export const ListItem = memo(function ListItem(props: Props) {
   return (
     <Flex
       border="1px"
-      borderColor="gray.200"
+      borderColor="border"
       borderRadius="md"
+      borderStyle="solid"
       px={4}
       py={2}
       h={10}
       onClick={handleClick}
       aria-label="task due soon"
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
     >
       <Flex alignItems="center" flex={1}>
         <CheckIcon completed={task.completed} onClick={handleToggleDone} />
-        <Text fontSize="sm" ml={2} noOfLines={1}>
+        <Text fontSize="sm" ml={2} lineClamp={1}>
           {task.name}
         </Text>
       </Flex>
       <Flex flex="0 0 auto" alignItems="center" justifyContent="flex-end">
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" gap={2}>
           {projectIds.map((id) => (
             <ProjectChip
               variant="badge"
               projectId={id}
               key={id}
               badgeProps={{
-                noOfLines: 1,
+                truncate: true,
                 maxW: 20,
               }}
             />
@@ -92,12 +93,12 @@ export const ListItem = memo(function ListItem(props: Props) {
           <DueDate
             ml={2}
             fontSize="xs"
-            color="text.muted"
+            color="fg.muted"
             textAlign="right"
             dueDate={task.dueDate}
           >
             {task.dueTime && (
-              <Text as="span" fontSize="xs" color="text.muted" ml={1}>
+              <Text as="span" fontSize="xs" color="fg.muted" ml={1}>
                 {formatDueTime(task.dueTime)}
               </Text>
             )}

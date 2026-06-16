@@ -13,7 +13,7 @@ type Props = FlexProps;
 export const ShareButton = memo(function ShareButton(props: Props) {
   const { projectId } = useProjectsProjectId();
   const { onOpen, setProjectId, setShareTab } = useShareProjectModal();
-  const { isOpen, ref } = useTooltip();
+  const { open, ref } = useTooltip<HTMLButtonElement>();
   const { workspace } = useWorkspace();
 
   const handleClick = useCallback(() => {
@@ -25,19 +25,14 @@ export const ShareButton = memo(function ShareButton(props: Props) {
   return (
     <Flex alignItems="center" {...props}>
       <Tooltip
-        isOpen={isOpen}
-        hasArrow
-        label={`Members of this ${workspace.name} team can find this project`}
+        open={open}
+        showArrow
+        content={`Members of this ${workspace.name} team can find this project`}
         aria-label="A share button description"
         size="md"
       >
-        <Button
-          ref={ref}
-          leftIcon={<Icon icon="lockAlt" mt="-1px" size="xs" />}
-          variant="outline"
-          size="xs"
-          onClick={handleClick}
-        >
+        <Button ref={ref} variant="outline" size="xs" onClick={handleClick}>
+          <Icon icon="lockAlt" mt="-1px" size="xs" />
           Share
         </Button>
       </Tooltip>

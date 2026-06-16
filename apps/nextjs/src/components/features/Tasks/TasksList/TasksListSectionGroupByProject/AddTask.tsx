@@ -11,8 +11,8 @@ export const AddTask = memo(function AddTask(props: Props) {
   const { addTask } = useTasksTask();
   const { clickableHoverStyle } = useClickableHoverStyle();
 
-  const handleClick = useCallback(() => {
-    addTask({ taskSectionId: props.taskSectionId });
+  const handleClick = useCallback(async () => {
+    await addTask({ taskSectionId: props.taskSectionId });
   }, [addTask, props.taskSectionId]);
 
   return (
@@ -20,11 +20,11 @@ export const AddTask = memo(function AddTask(props: Props) {
       h="36px"
       minH="36px"
       fontSize="sm"
-      color="text.muted"
+      color="fg.muted"
       pl="68px"
       alignItems="center"
       flex={1}
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
       onClick={handleClick}
     >
       Add task...

@@ -1,6 +1,5 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import { Box } from '@/components/ui/Box';
 import { Button, type ButtonProps } from '@/components/ui/Button';
 import { Text, type TextProps } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
@@ -25,7 +24,7 @@ const focusedStyle: ButtonProps = {
 
 export const Assignee = memo(function Assignee(props: Props) {
   const { taskId } = props;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLButtonElement>();
   const [focused, setFocused] = useState(false);
   const { task } = useTask(taskId);
   const { teammate } = useTeammate(task.assigneeId);
@@ -35,7 +34,7 @@ export const Assignee = memo(function Assignee(props: Props) {
     [isAssigned, teammate.name],
   );
   const nameStyle = useMemo<TextProps>(
-    () => (isAssigned ? { color: 'text.base' } : { color: 'text.muted' }),
+    () => (isAssigned ? { color: 'fg' } : { color: 'fg.muted' }),
     [isAssigned],
   );
 
@@ -52,7 +51,6 @@ export const Assignee = memo(function Assignee(props: Props) {
       <Label>Assignee</Label>
       <Content>
         <Button
-          as={Box}
           variant="ghost"
           size="sm"
           ref={ref}

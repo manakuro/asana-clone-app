@@ -31,7 +31,7 @@ export const TasksBoardListItemForMyTasksPage = memo<Props>(
         <Projects projectIds={projectIds} />
         <TasksName taskId={props.taskId} />
         <Flex mt={4} alignItems="center">
-          <Stack spacing={1} direction="row">
+          <Stack gap={1} direction="row">
             <DueDate taskId={props.taskId} />
           </Stack>
           <Flex ml="auto">

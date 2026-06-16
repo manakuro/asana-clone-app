@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
 type Props = {
   onSort?: () => void;
@@ -29,15 +29,31 @@ export const MenuList = memo(function MenuList(props: Props) {
   }, [onHideColumn]);
 
   return (
-    <AtomsMenuList color="text.base">
-      {props.onSort && <MenuItem onClick={handleSortBy}>Sort by</MenuItem>}
-      <MenuItem onClick={handleMoveLeft} isDisabled={props.disabledMoveLeft}>
-        Move left
-      </MenuItem>
-      <MenuItem onClick={handleMoveRight} isDisabled={props.disabledMoveRight}>
-        Move right
-      </MenuItem>
-      <MenuItem onClick={handleHideColumn}>Hide column</MenuItem>
-    </AtomsMenuList>
+    <Menu.Positioner>
+      <Menu.Content color="fg">
+        {props.onSort && (
+          <Menu.Item onSelect={handleSortBy} value="Sort by">
+            Sort by
+          </Menu.Item>
+        )}
+        <Menu.Item
+          onSelect={handleMoveLeft}
+          disabled={props.disabledMoveLeft}
+          value="Move left"
+        >
+          Move left
+        </Menu.Item>
+        <Menu.Item
+          onSelect={handleMoveRight}
+          disabled={props.disabledMoveRight}
+          value="Move right"
+        >
+          Move right
+        </Menu.Item>
+        <Menu.Item onSelect={handleHideColumn} value="Hide column">
+          Hide column
+        </Menu.Item>
+      </Menu.Content>
+    </Menu.Positioner>
   );
 });

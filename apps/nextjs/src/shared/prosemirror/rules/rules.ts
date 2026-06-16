@@ -24,10 +24,12 @@ export const rules = (): Plugin =>
         /^(\d+)\.\s$/,
         schema.nodes.list,
         (match) => {
-          return { type: 'ordered', start: +match[1] };
+          return { type: 'ordered', start: +(match[1] as string) };
         },
         (match, node) => {
-          return node.childCount + Number(node.attrs.start) === +match[1];
+          return (
+            node.childCount + Number(node.attrs.start) === +(match[1] as string)
+          );
         },
       ),
 
@@ -41,7 +43,7 @@ export const rules = (): Plugin =>
 
       // # heading
       textblockTypeInputRule(/^(#{1,6})\s$/, schema.nodes.heading, (match) => {
-        return { level: match[1].length };
+        return { level: match[1]?.length };
       }),
     ],
   });

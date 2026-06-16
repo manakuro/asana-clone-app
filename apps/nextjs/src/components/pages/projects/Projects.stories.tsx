@@ -1,9 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { userEvent, within } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { LayoutDefault } from '@/components/ui/Layout';
 import { Container as Page } from './Container';
 
-const meta: Meta<typeof Page> = {
+const meta = {
   title: 'Pages/Projects',
   component: Page,
   parameters: {
@@ -27,7 +26,7 @@ const meta: Meta<typeof Page> = {
       </LayoutDefault>
     ),
   ],
-};
+} satisfies Meta<typeof Page>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -65,11 +64,6 @@ export const Board: Story = {
       },
     },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    await userEvent.click(await canvas.findByRole('tab', { name: 'Board' }));
-  },
 };
 
 export const Calendar: Story = {
@@ -87,12 +81,6 @@ export const Calendar: Story = {
     },
   },
 };
-// TODO: fix a failed chromatic test.
-// Calendar.play = async ({ canvasElement }) => {
-//   const canvas = within(canvasElement);
-//
-//   await userEvent.click(await canvas.findByRole('tab', { name: 'Calendar' }));
-// };
 
 export const Files: Story = {
   parameters: {
@@ -109,10 +97,3 @@ export const Files: Story = {
     },
   },
 };
-
-// TODO: fix a failed chromatic test.
-// Files.play = async ({ canvasElement }) => {
-//   const canvas = within(canvasElement);
-//
-//   await userEvent.click(await canvas.findByRole('tab', { name: 'Files' }));
-// };

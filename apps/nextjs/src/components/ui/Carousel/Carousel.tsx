@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Provider } from './Provider';
 
@@ -7,7 +7,7 @@ type Props = {
   defaultIndex?: number;
 };
 
-export function Carousel(props: React.PropsWithChildren<Props>) {
+export function Carousel(props: PropsWithChildren<Props>) {
   return (
     <Provider {...props}>
       <Component {...props} />
@@ -15,7 +15,7 @@ export function Carousel(props: React.PropsWithChildren<Props>) {
   );
 }
 
-function Component(props: React.PropsWithChildren<Props>) {
+function Component(props: PropsWithChildren<Props>) {
   return (
     <Flex
       flex="1"

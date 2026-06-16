@@ -1,10 +1,10 @@
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
-import { Collapse } from '@/components/ui/Collapse';
+import { Collapsible } from '@/components/ui/Collapsible';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useTask } from '@/store/entities/task';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 import { useTasksBoardListItemContext } from './Provider';
 
 type Props = FlexProps & {
@@ -14,9 +14,11 @@ export const Card = memo(function Card(props: Props) {
   const { isOpening } = useTasksBoardListItemContext();
 
   return (
-    <Collapse in={isOpening} animateOpacity style={{ overflow: 'initial' }}>
-      <Component {...props} />
-    </Collapse>
+    <Collapsible.Root defaultOpen open={isOpening}>
+      <Collapsible.Content>
+        <Component {...props} />
+      </Collapsible.Content>
+    </Collapsible.Root>
   );
 });
 
@@ -35,7 +37,7 @@ const Component: React.FC<Props> = memo<Props>((props) => {
   const handleClick = useCallback(
     async (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
-      await navigateToTaskDetail(taskId);
+      navigateToTaskDetail(taskId);
     },
     [navigateToTaskDetail, taskId],
   );
@@ -48,7 +50,7 @@ const Component: React.FC<Props> = memo<Props>((props) => {
       bg="white"
       border={1}
       borderStyle="solid"
-      borderColor="gray.200"
+      borderColor="border"
       borderRadius="md"
       mt={2}
       _hover={{

@@ -1,18 +1,10 @@
 import { memo } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
-type Props = {
-  onClose: () => void;
-  onMouseEnter: () => void;
-  projectId: string;
-};
-
-export const DeleteProject = memo(function DeleteProject(props: Props) {
-  const { onMouseEnter } = props;
-
+export const DeleteProject = memo(function DeleteProject() {
   return (
-    <MenuItem onMouseEnter={onMouseEnter} color="alert" isDisabled>
+    <Menu.Item value="Delete project" color="fg.error" disabled>
       Delete project
-    </MenuItem>
+    </Menu.Item>
   );
 });

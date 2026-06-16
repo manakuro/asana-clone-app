@@ -10,18 +10,19 @@ export const ArchiveButton = memo(function ArchiveButton(props: Props) {
 
   return (
     <Tooltip
-      hasArrow
-      label="Archive notification"
+      showArrow
+      content="Archive notification"
       aria-label="Archive notification"
     >
       <IconButton
         aria-label="Archive notifications"
-        icon={<Icon icon="trashAlt" color="text.muted" size="xs" />}
         variant="ghost"
         {...props}
         onClick={handleClick}
-        isDisabled
-      />
+        disabled
+      >
+        <Icon icon="trashAlt" color="fg.muted" size="xs" />
+      </IconButton>
     </Tooltip>
   );
 });

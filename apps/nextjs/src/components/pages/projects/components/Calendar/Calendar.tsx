@@ -37,6 +37,7 @@ const Component = memo(function Component() {
     isTaskDetailURL: isProjectsDetailURL,
     getTaskDetailId: getProjectsDetailId,
     fetchQuery: fetchTaskDetailQuery,
+    tabContentLoading,
   });
 
   const backToPage = useCallback(async () => {
@@ -52,7 +53,7 @@ const Component = memo(function Component() {
           h="40px"
           borderBottom={1}
           borderStyle="solid"
-          borderColor="gray.200"
+          borderColor="border"
           alignItems="center"
         >
           <TasksHeaderLeft>

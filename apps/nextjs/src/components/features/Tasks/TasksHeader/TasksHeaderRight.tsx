@@ -11,7 +11,7 @@ export const TasksHeaderRight = memo(function TasksHeaderRight(props: Props) {
 
   return (
     <Flex {...rest}>
-      <Stack spacing={props.spacing ?? 2} direction="row">
+      <Stack gap={props.spacing ?? 2} direction="row">
         {children}
       </Stack>
     </Flex>

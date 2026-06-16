@@ -1,4 +1,4 @@
-import type { Command } from 'prosemirror-commands';
+import type { Command } from 'prosemirror-state';
 import { useCallback, useMemo } from 'react';
 import { usePopoverEmojiContext } from '@/components/features/Popovers';
 import type { ToolbarItem } from './types';

@@ -8,7 +8,7 @@ type Props = TextProps;
 export const CreateAt = memo(function CreateAt(_props: Props) {
   const { taskFeed } = useTaskFeedListItemContext();
   return (
-    <Text fontSize="xs" color="text.muted" ml={2}>
+    <Text fontSize="xs" color="fg.muted" ml={2}>
       {formatFeedCreatedAt(taskFeed.createdAt)}
       {taskFeed.updatedAt ? ' (edited)' : ''}
     </Text>

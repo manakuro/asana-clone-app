@@ -1,43 +1,27 @@
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  type MenuProps,
-} from '@/components/ui/Menu';
-import { chakra } from '@/shared/chakra';
+import { Menu, type MenuRootProps } from '@/components/ui/Menu';
 
-type Props = {
-  onClose: () => void;
-} & MenuProps;
+type Props = MenuRootProps;
 
 export function PopoverExportAndPrintActions(props: Props) {
   return (
-    <Menu isLazy {...props}>
-      <MenuButton w="full" as={MenuButtonAs}>
-        {props.children}
-      </MenuButton>
-      <MenuList pointerEvents="auto" ml="5px">
-        <MenuItem as="div" isDisabled>
-          Sync to calendar
-        </MenuItem>
-        <MenuItem as="div" isDisabled>
-          CSV
-        </MenuItem>
-        <MenuItem as="div" isDisabled>
-          JSON
-        </MenuItem>
-        <MenuItem as="div" isDisabled>
-          Print
-        </MenuItem>
-      </MenuList>
-    </Menu>
+    <Menu.Root lazyMount {...props}>
+      <Menu.TriggerItem w="full">{props.children}</Menu.TriggerItem>
+      <Menu.Positioner>
+        <Menu.Content pointerEvents="auto" ml="5px">
+          <Menu.Item value="Sync to calendar" disabled>
+            Sync to calendar
+          </Menu.Item>
+          <Menu.Item value="CSV" disabled>
+            CSV
+          </Menu.Item>
+          <Menu.Item value="JSON" disabled>
+            JSON
+          </Menu.Item>
+          <Menu.Item value="Print" disabled>
+            Print
+          </Menu.Item>
+        </Menu.Content>
+      </Menu.Positioner>
+    </Menu.Root>
   );
 }
-
-// NOTE: Use custom component instead of `Box` because of styling issue with positioning menu item
-const MenuButtonAs = chakra('div', {
-  baseStyle: {
-    w: 'full',
-  },
-});

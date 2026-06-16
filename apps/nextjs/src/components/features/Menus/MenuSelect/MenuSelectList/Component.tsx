@@ -1,26 +1,21 @@
 import type React from 'react';
 import { useCallback } from 'react';
 import {
-  MenuList as AtomsMenuList,
-  type MenuListProps,
-  MenuOptionGroup,
-  type MenuOptionGroupProps,
+  Menu,
+  type MenuContentProps,
+  type MenuRadioItemGroupProps,
 } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
-import { useClickOutside } from '@/hooks/useClickOutside';
 import { useMenuSelectContext } from '../useMenuSelect';
 
-type Props = MenuOptionGroupProps & {
-  menuListProps?: MenuListProps;
+type Props = MenuRadioItemGroupProps & {
+  menuListProps?: MenuContentProps;
 };
 export type ComponentProps = Props;
 
 export function Component(props: Props) {
   const { menuListProps, ...rest } = props;
-  const { onChange, onClose, listStatus } = useMenuSelectContext();
-  const { ref } = useClickOutside(onClose, {
-    hasClickedOutside: () => true,
-  });
+  const { onChange, listStatus } = useMenuSelectContext();
 
   const handleChange = useCallback(
     (listStatus: string | string[] | undefined) => {
@@ -38,14 +33,15 @@ export function Component(props: Props) {
 
   return (
     <Portal>
-      <AtomsMenuList ref={ref} onClick={handleClickMenuList} {...menuListProps}>
-        <MenuOptionGroup
-          value={listStatus as unknown as string}
-          type="radio"
-          onChange={handleChange}
-          {...rest}
-        />
-      </AtomsMenuList>
+      <Menu.Positioner>
+        <Menu.Content onClick={handleClickMenuList} {...menuListProps}>
+          <Menu.RadioItemGroup
+            value={listStatus as unknown as string}
+            onValueChange={(e) => handleChange(e.value)}
+            {...rest}
+          />
+        </Menu.Content>
+      </Menu.Positioner>
     </Portal>
   );
 }

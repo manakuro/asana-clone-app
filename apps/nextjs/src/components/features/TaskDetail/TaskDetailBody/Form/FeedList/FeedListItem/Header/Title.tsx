@@ -1,13 +1,13 @@
 import type React from 'react';
 import { memo } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import { Text, type TextProps } from '@/components/ui/Text';
+import { Text } from '@/components/ui/Text';
 import type { TaskFeed } from '@/store/entities/taskFeed';
 import type { Teammate } from '@/store/entities/teammate';
 import { useTaskFeedListItemContext } from '../Provider';
 
-type Props = TextProps;
+type Props = FlexProps;
 
 const generateTitle = (
   {
@@ -25,7 +25,7 @@ const generateTitle = (
     case Boolean(hasTaskFile): {
       return (
         <Flex flex={1} alignItems="center">
-          <Icon icon="attach" color="text.muted" />
+          <Icon icon="attach" color="fg.muted" />
           <Text ml={1}>attached</Text>
         </Flex>
       );

@@ -2,16 +2,11 @@ import { useCallback, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { AspectRatio } from '@/components/ui/AspectRatio';
 import { Box } from '@/components/ui/Box';
+import { Dialog } from '@/components/ui/Dialog';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalOverlay,
-} from '@/components/ui/Modal';
+import { Portal } from '@/components/ui/Portal';
 import { DurationBar } from '@/components/ui/VideoPlayer/DurationBar';
 import { Duration } from './Duration';
 import { useVideoPlayer } from './useVideoPlayer';
@@ -68,61 +63,70 @@ export function VideoPlayer() {
   );
 
   return (
-    <Modal
-      isOpen={state.isOpen}
-      onClose={handleClose}
-      onEsc={handleClose}
-      onOverlayClick={handleClose}
-      size="2xl"
+    <Dialog.Root
+      open={state.open}
+      onOpenChange={(e) => {
+        if (!e.open) {
+          onClose();
+        }
+      }}
+      onEscapeKeyDown={handleClose}
+      onInteractOutside={handleClose}
+      size="xl"
     >
-      <ModalOverlay />
-      <ModalContent>
-        <ModalBody p={0}>
-          <AspectRatio ratio={16 / 9}>
-            <Box w="full" borderTopRadius="md">
-              <ReactPlayer
-                ref={ref}
-                url={state.src}
-                width="100%"
-                height="100%"
-                playing={videoState.playing}
-                onProgress={handleProgress}
-                onDuration={handleDuration}
-              />
-            </Box>
-          </AspectRatio>
-        </ModalBody>
-        <ModalFooter px={4} py={2} justifyContent="flex-start">
-          <Flex flex={1}>
-            <IconButton
-              borderRadius="full"
-              aria-label="play button"
-              icon={
-                <Icon
-                  icon={videoState.playing ? 'pause' : 'play'}
-                  mr={videoState.playing ? 0 : -1}
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>
+          <Dialog.Content>
+            <Dialog.Body p={0}>
+              <AspectRatio ratio={16 / 9}>
+                <Box w="full" borderTopRadius="md">
+                  <ReactPlayer
+                    ref={ref}
+                    url={state.src}
+                    width="100%"
+                    height="100%"
+                    playing={videoState.playing}
+                    onProgress={handleProgress}
+                    onDuration={handleDuration}
+                  />
+                </Box>
+              </AspectRatio>
+            </Dialog.Body>
+            <Dialog.Footer px={4} py={2} justifyContent="flex-start">
+              <Flex flex={1}>
+                <IconButton
+                  borderRadius="full"
+                  aria-label="play button"
+                  mr={4}
+                  onClick={handlePlay}
+                >
+                  <Icon
+                    icon={videoState.playing ? 'pause' : 'play'}
+                    mr={videoState.playing ? 0 : -1}
+                  />
+                </IconButton>
+                <Duration
+                  mr={3}
+                  seconds={videoState.duration * videoState.played}
                 />
-              }
-              mr={4}
-              onClick={handlePlay}
-            />
-            <Duration
-              mr={3}
-              seconds={videoState.duration * videoState.played}
-            />
 
-            <Flex flex={1} mr={3}>
-              <DurationBar
-                played={videoState.played}
-                seekTo={seekTo}
-                setVideoState={setVideoState}
-              />
-            </Flex>
+                <Flex flex={1} mr={3}>
+                  <DurationBar
+                    played={videoState.played}
+                    seekTo={seekTo}
+                    setVideoState={setVideoState}
+                  />
+                </Flex>
 
-            <Duration seconds={videoState.duration * (1 - videoState.played)} />
-          </Flex>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
+                <Duration
+                  seconds={videoState.duration * (1 - videoState.played)}
+                />
+              </Flex>
+            </Dialog.Footer>
+          </Dialog.Content>
+        </Dialog.Positioner>
+      </Portal>
+    </Dialog.Root>
   );
 }

@@ -7,7 +7,6 @@ import {
 import { useTasksTaskColumnByType } from '@/components/features/Tasks/hooks';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useMountedRef } from '@/hooks';
-import type { ChakraProps } from '@/shared/chakra';
 import { TaskColumnType } from '@/store/entities/taskColumn';
 
 type Props = FlexProps;
@@ -23,7 +22,7 @@ export const TasksListHorizontalScrollBorder = memo(
     );
     const { isExpanded } = useNavigation();
     const left = useMemo(() => (isExpanded ? '240px' : '53px'), [isExpanded]);
-    const scrollingStyle = useMemo((): ChakraProps => {
+    const scrollingStyle = useMemo((): FlexProps => {
       if (isScrolling) return { shadow: 'md' };
       return {};
     }, [isScrolling]);
@@ -58,7 +57,7 @@ export const TasksListHorizontalScrollBorder = memo(
         pointerEvents="none"
         borderRight="1px"
         borderStyle="solid"
-        borderColor="gray.200"
+        borderColor="border"
         bg="none"
         opacity={opacity}
         {...scrollingStyle}

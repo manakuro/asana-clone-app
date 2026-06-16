@@ -1,4 +1,4 @@
-import { Menu, type MenuProps } from '@/components/ui/Menu';
+import { Menu, type MenuRootProps } from '@/components/ui/Menu';
 import { type MaybeRenderProp, runIfFn } from '@/shared/utils';
 import { Context, type UseMenuSelect, useMenuSelect } from './useMenuSelect';
 
@@ -8,7 +8,7 @@ type Props<ListStatus> = {
   onOpened?: () => void;
   onClosed?: () => void;
   children: MaybeRenderProp<UseMenuSelect<ListStatus>>;
-} & Omit<MenuProps, 'children'>;
+} & Omit<MenuRootProps, 'children'>;
 
 export const MenuSelect = <ListStatus,>(props: Props<ListStatus>) => {
   const { listStatus, onOpened, onClosed, onChange, ...rest } = props;
@@ -22,9 +22,20 @@ export const MenuSelect = <ListStatus,>(props: Props<ListStatus>) => {
 
   return (
     <Context.Provider value={useMenuSelectResult}>
-      <Menu isOpen={useMenuSelectResult.isOpen} isLazy {...rest}>
+      <Menu.Root
+        open={useMenuSelectResult.open}
+        onOpenChange={(e) => {
+          if (e.open) {
+            useMenuSelectResult.onOpen();
+          } else {
+            useMenuSelectResult.onClose();
+          }
+        }}
+        lazyMount
+        {...rest}
+      >
         {runIfFn(props.children, useMenuSelectResult)}
-      </Menu>
+      </Menu.Root>
     </Context.Provider>
   );
 };

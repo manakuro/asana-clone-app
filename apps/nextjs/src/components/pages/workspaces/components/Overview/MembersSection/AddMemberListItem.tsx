@@ -20,7 +20,7 @@ export const AddMemberListItem = memo(function AddMemberListItem() {
       alignItems="center"
       onClick={handleClick}
       cursor="pointer"
-      {...clickableHoverLightStyle}
+      css={clickableHoverLightStyle}
     >
       <TeammateAvatar teammateId="" size="sm" />
       <Flex
@@ -30,7 +30,7 @@ export const AddMemberListItem = memo(function AddMemberListItem() {
         flex={1}
         justifyContent="center"
       >
-        <Text fontSize="sm" fontWeight="medium" color="text.muted">
+        <Text fontSize="sm" fontWeight="medium" color="fg.muted">
           Add member
         </Text>
       </Flex>

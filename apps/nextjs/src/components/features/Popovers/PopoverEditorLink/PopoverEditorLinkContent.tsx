@@ -1,18 +1,15 @@
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/Flex';
-import { PopoverBody, PopoverContent } from '@/components/ui/Popover';
-import { Portal } from '@/components/ui/Portal';
+import { HoverCard } from '@/components/ui/Popover';
 
-export const PopoverEditorLinkContent: React.FCWithChildren = (props) => {
+export function PopoverEditorLinkContent(props: PropsWithChildren) {
   return (
-    <Portal>
-      <PopoverContent contentEditable={false}>
-        <PopoverBody boxShadow="md" borderRadius="md">
-          <Flex fontSize="sm" alignItems="center" userSelect="none">
-            {props.children}
-          </Flex>
-        </PopoverBody>
-      </PopoverContent>
-    </Portal>
+    <HoverCard.Positioner>
+      <HoverCard.Content contentEditable={false} px={4} py={3}>
+        <Flex fontSize="sm" alignItems="center" userSelect="none">
+          {props.children}
+        </Flex>
+      </HoverCard.Content>
+    </HoverCard.Positioner>
   );
-};
+}

@@ -62,7 +62,7 @@ export const TaskListItem = memo(function TaskListItem(props: Props) {
         />
         <Stack
           direction="row"
-          spacing={1}
+          gap={1}
           ml="auto"
           alignItems="center"
           visibility={isHovering ? 'visible' : 'hidden'}

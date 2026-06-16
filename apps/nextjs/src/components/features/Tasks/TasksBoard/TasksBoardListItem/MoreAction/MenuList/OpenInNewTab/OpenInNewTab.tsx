@@ -1,27 +1,12 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 
-type Props = {
-  onMouseEnter: () => void;
-  onCloseMenu: () => void;
-  taskId: string;
-};
-export const OpenInNewTab = memo(function OpenInNewTab(props: Props) {
-  const { onMouseEnter, onCloseMenu } = props;
-
-  const handleClick = useCallback(() => {
-    onCloseMenu();
-  }, [onCloseMenu]);
-
+export const OpenInNewTab = memo(function OpenInNewTab() {
   return (
-    <MenuItem
-      onMouseEnter={onMouseEnter}
-      icon={<Icon icon="linkExternal" color="text.muted" />}
-      onClick={handleClick}
-      isDisabled
-    >
+    <Menu.Item disabled value="Open in new tab">
+      <Icon icon="linkExternal" color="fg.muted" />
       Open in new tab
-    </MenuItem>
+    </Menu.Item>
   );
 });

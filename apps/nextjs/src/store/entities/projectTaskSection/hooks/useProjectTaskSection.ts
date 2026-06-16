@@ -1,7 +1,8 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
-import { useUpdateProjectTaskSectionMutation } from '@/graphql/hooks';
+import { UpdateProjectTaskSectionDocument } from '@/graphql/hooks';
 import type { UpdateTeammateTaskSectionInput } from '@/graphql/types';
 import { omit } from '@/shared/utils/omit';
 import { useWorkspace } from '@/store/entities/workspace';
@@ -24,8 +25,9 @@ export const useProjectTaskSection = (projectTaskSectionId: string) => {
     ),
   );
 
-  const [updateProjectTaskSectionMutation] =
-    useUpdateProjectTaskSectionMutation();
+  const [updateProjectTaskSectionMutation] = useMutation(
+    UpdateProjectTaskSectionDocument,
+  );
 
   const setProjectTaskSection = useAtomCallback(
     useCallback(
@@ -44,7 +46,7 @@ export const useProjectTaskSection = (projectTaskSectionId: string) => {
             ),
           },
         });
-        if (res.errors) {
+        if (res.error) {
           upsert(prev);
         }
       },

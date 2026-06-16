@@ -1,40 +1,25 @@
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  type MenuProps,
-} from '@/components/ui/Menu';
-import { chakra } from '@/shared/chakra';
+import { Menu, type MenuRootProps } from '@/components/ui/Menu';
 
-type Props = {
-  onClose: () => void;
-} & MenuProps;
+type Props = MenuRootProps;
 
 export function PopoverAdvancedActions(props: Props) {
   return (
-    <Menu isLazy {...props}>
-      <MenuButton w="full" as={MenuButtonAs}>
-        {props.children}
-      </MenuButton>
-      <MenuList pointerEvents="auto" mr="5px">
-        <MenuItem as="div" isDisabled>
-          Make a subtask of
-        </MenuItem>
-        <MenuItem as="div" isDisabled>
-          Convert to a project
-        </MenuItem>
-        <MenuItem as="div" command="⇧+Tab+D" isDisabled>
-          Merge duplicate tasks
-        </MenuItem>
-      </MenuList>
-    </Menu>
+    <Menu.Root lazyMount {...props}>
+      <Menu.TriggerItem w="full">{props.children}</Menu.TriggerItem>
+      <Menu.Positioner>
+        <Menu.Content pointerEvents="auto" mr="5px">
+          <Menu.Item value="Make a subtask of" disabled>
+            Make a subtask of
+          </Menu.Item>
+          <Menu.Item value="Convert to a project" disabled>
+            Convert to a project
+          </Menu.Item>
+          <Menu.Item value="Merge duplicate tasks" disabled>
+            Merge duplicate tasks
+            <Menu.ItemCommand>⇧+Tab+D</Menu.ItemCommand>
+          </Menu.Item>
+        </Menu.Content>
+      </Menu.Positioner>
+    </Menu.Root>
   );
 }
-
-// NOTE: Use custom component instead of `Box` because of styling issue with positioning menu item
-const MenuButtonAs = chakra('div', {
-  baseStyle: {
-    w: 'full',
-  },
-});

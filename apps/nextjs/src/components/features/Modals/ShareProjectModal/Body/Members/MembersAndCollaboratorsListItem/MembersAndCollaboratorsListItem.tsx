@@ -20,7 +20,7 @@ export const MembersAndCollaboratorsListItem = memo(
         alignItems="center"
         h="50px"
         px={6}
-        {...clickableHoverStyle}
+        css={clickableHoverStyle}
         cursor="default"
       >
         <TeammateAvatar teammateId="" size="sm" />

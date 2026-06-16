@@ -48,7 +48,7 @@ export const TaskDetailHeader = memo(function TaskDetailHeader(props: Props) {
         <Complete taskId={taskId} />
       </Flex>
       <Flex>
-        <Stack spacing={1} direction="row">
+        <Stack gap={1} direction="row">
           <Like />
           <Attachment />
           <SubTasks taskId={taskId} />
@@ -57,11 +57,12 @@ export const TaskDetailHeader = memo(function TaskDetailHeader(props: Props) {
           {onClose && (
             <IconButton
               aria-label="Close button"
-              icon={<Icon icon={closeIcon} color="text.muted" />}
               variant="ghost"
               onClick={onClose}
               size="sm"
-            />
+            >
+              <Icon icon={closeIcon} color="fg.muted" />
+            </IconButton>
           )}
         </Stack>
       </Flex>

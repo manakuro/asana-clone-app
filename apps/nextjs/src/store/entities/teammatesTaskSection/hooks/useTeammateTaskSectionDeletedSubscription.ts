@@ -1,6 +1,7 @@
+import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { useTeammateTaskSectionDeletedSubscription as useSubscription } from '@/graphql/hooks';
+import { TeammateTaskSectionDeletedDocument } from '@/graphql/hooks';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import type { TeammateTaskSectionDeletedSubscriptionResponse as Response } from '../type';
@@ -21,27 +22,6 @@ export const useTeammateTaskSectionDeletedSubscription = (props: Props) => {
     () => !props.workspaceId,
     [props.workspaceId],
   );
-  const subscriptionResult = useSubscription({
-    variables: {
-      workspaceId: props.workspaceId,
-      teammateId: props.teammateId,
-      requestId: TEAMMATE_TASK_SECTION_DELETED_SUBSCRIPTION_REQUEST_ID,
-    },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
-
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
-      previousData = data;
-    },
-    skip: skipSubscription,
-  });
 
   const setBySubscription = useCallback(
     (response: Response) => {
@@ -52,6 +32,24 @@ export const useTeammateTaskSectionDeletedSubscription = (props: Props) => {
       resetTeammateTaskSection(data.id);
     },
     [resetTeammateTaskSection],
+  );
+
+  const subscriptionResult = useSubscription(
+    TeammateTaskSectionDeletedDocument,
+    {
+      variables: {
+        workspaceId: props.workspaceId,
+        teammateId: props.teammateId,
+        requestId: TEAMMATE_TASK_SECTION_DELETED_SUBSCRIPTION_REQUEST_ID,
+      },
+      onData: ({ data }) => {
+        if (isEqual(data.data, previousData?.data)) return;
+
+        if (data.data) setBySubscription(data.data);
+        previousData = data;
+      },
+      skip: skipSubscription,
+    },
   );
 
   return {

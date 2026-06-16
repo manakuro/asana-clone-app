@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { useCarouselContext } from './Provider';
@@ -7,12 +7,9 @@ type Props = {
   index?: number;
 };
 
-export function CarouselItem(props: React.PropsWithChildren<Props>) {
+export function CarouselItem({ index, children }: PropsWithChildren<Props>) {
   const { currentIndex } = useCarouselContext();
-  const show = useMemo(
-    () => currentIndex === props.index,
-    [currentIndex, props.index],
-  );
+  const show = useMemo(() => currentIndex === index, [currentIndex, index]);
 
   return (
     <Flex
@@ -23,7 +20,7 @@ export function CarouselItem(props: React.PropsWithChildren<Props>) {
       left={0}
       justifyContent="center"
       alignItems="center"
-      px={24}
+      px={{ base: 0, md: 24 }}
       opacity={show ? 1 : 0}
       zIndex={show ? 'popover' : 'base'}
     >
@@ -34,7 +31,7 @@ export function CarouselItem(props: React.PropsWithChildren<Props>) {
         alignItems="center"
         position="relative"
       >
-        {props.children}
+        {children}
       </Flex>
     </Flex>
   );

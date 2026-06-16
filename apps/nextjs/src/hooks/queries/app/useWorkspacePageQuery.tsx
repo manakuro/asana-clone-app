@@ -1,10 +1,14 @@
+import { useQuery } from '@apollo/client/react';
 import { useEffect, useState } from 'react';
-import { useWorkspacePageQuery as useQuery } from '@/graphql/hooks';
+import { WorkspacePageDocument } from '@/graphql/hooks';
 import { useMountedRef } from '@/hooks';
 import { useWorkspaceResponse } from '@/store/app/workspace';
 
 export const useWorkspacePageQuery = () => {
-  const queryResult = useQuery();
+  const queryResult = useQuery(WorkspacePageDocument, {
+    fetchPolicy: 'no-cache',
+    notifyOnNetworkStatusChange: true,
+  });
   const [loading, setLoading] = useState(queryResult.loading);
   const { setWorkspace } = useWorkspaceResponse();
   const { mountedRef } = useMountedRef();
@@ -23,7 +27,6 @@ export const useWorkspacePageQuery = () => {
   }, [loading, mountedRef, queryResult.data, setWorkspace]);
 
   return {
-    refetch: queryResult.refetch,
     loading,
   };
 };

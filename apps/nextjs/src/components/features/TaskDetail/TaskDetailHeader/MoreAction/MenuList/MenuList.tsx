@@ -1,122 +1,63 @@
-import { useCallback } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import {
-  MenuList as AtomsMenuList,
-  MenuDivider,
-  MenuItem,
-} from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
+import { Menu } from '@/components/ui/Menu';
 import { Text } from '@/components/ui/Text';
-import { useClickOutside } from '@/hooks/useClickOutside';
-import { useDisclosure } from '@/shared/chakra';
 import { AddToAnotherProject } from './AddToAnotherProject';
 import { DeleteTask } from './DeleteTask';
 import { PopoverAdvancedActions } from './PopoverAdvancedActions';
 import { Print } from './Print';
 
 type Props = {
-  onCloseMenu: () => void;
   taskId: string;
 };
 
 export function MenuList(props: Props) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const { ref } = useClickOutside<HTMLDivElement>(() => {
-    handleCloseAll();
-  });
-
-  const handleOpen = useCallback(() => {
-    onOpen();
-  }, [onOpen]);
-
-  const handleClose = useCallback(() => {
-    onClose();
-  }, [onClose]);
-
-  const handleCloseAll = useCallback(() => {
-    onClose();
-    props.onCloseMenu();
-  }, [onClose, props]);
-
   return (
-    <Portal>
-      <AtomsMenuList ref={ref} zIndex={1}>
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="fullscreenOutline" color="text.muted" />}
-          command="Tab+X"
-          isDisabled
-        >
+    <Menu.Positioner>
+      <Menu.Content zIndex={1}>
+        <Menu.Item disabled value="Full screen">
+          <Icon icon="fullscreenOutline" color="fg.muted" />
           Full screen
-        </MenuItem>
-        <AddToAnotherProject
-          onMouseEnter={handleClose}
-          taskId={props.taskId}
-          onClose={handleCloseAll}
-        />
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="squareRounded" color="text.muted" />}
-          isDisabled
-        >
+          <Menu.ItemCommand>Tab+X</Menu.ItemCommand>
+        </Menu.Item>
+        <AddToAnotherProject />
+        <Menu.Item disabled value="Mark as Milestone">
+          <Icon icon="squareRounded" color="fg.muted" />
           Mark as Milestone
-        </MenuItem>
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="beenHere" color="text.muted" />}
-          isDisabled
-        >
+        </Menu.Item>
+        <Menu.Item disabled value="Mark as Approval">
+          <Icon icon="beenHere" color="fg.muted" />
           Mark as Approval
-        </MenuItem>
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="gitPullRequest" color="text.muted" />}
-          isDisabled
-        >
+        </Menu.Item>
+        <Menu.Item disabled value="Make dependent">
+          <Icon icon="gitPullRequest" color="fg.muted" />
           Make dependent
-        </MenuItem>
-        <MenuItem
-          onMouseEnter={handleClose}
-          icon={<Icon icon="tag" color="text.muted" />}
-          command="Tab+T"
-          isDisabled
-        >
+        </Menu.Item>
+        <Menu.Item disabled value="Add tags">
+          <Icon icon="tag" color="fg.muted" />
           Add tags
-        </MenuItem>
-        <MenuDivider />
-        <MenuItem onMouseEnter={handleClose} isDisabled>
+          <Menu.ItemCommand>Tab+T</Menu.ItemCommand>
+        </Menu.Item>
+        <Menu.Separator />
+        <Menu.Item disabled value="Duplicate task">
           Duplicate task
-        </MenuItem>
-        <MenuItem onMouseEnter={handleClose} command="⌘+Tab+N" isDisabled>
+        </Menu.Item>
+        <Menu.Item disabled value="Create follow-up task">
           Create follow-up task
-        </MenuItem>
-        <Print
-          onMouseEnter={handleClose}
-          taskId={props.taskId}
-          onClose={handleCloseAll}
-        />
-        <MenuItem onMouseEnter={handleOpen}>
-          <PopoverAdvancedActions
-            isOpen={isOpen}
-            placement="left"
-            onClose={handleCloseAll}
-          >
-            <Flex flex={1}>
-              <Text fontSize="sm" flex={1}>
-                Advanced actions
-              </Text>
-              <Icon icon="chevronRight" />
-            </Flex>
-          </PopoverAdvancedActions>
-        </MenuItem>
-        <MenuDivider />
-        <DeleteTask
-          onMouseEnter={handleClose}
-          taskId={props.taskId}
-          onClose={handleCloseAll}
-        />
-      </AtomsMenuList>
-    </Portal>
+          <Menu.ItemCommand>⌘+Tab+N</Menu.ItemCommand>
+        </Menu.Item>
+        <Print />
+        <PopoverAdvancedActions positioning={{ placement: 'left' }}>
+          <Flex flex={1}>
+            <Text fontSize="sm" flex={1}>
+              Advanced actions
+            </Text>
+            <Icon icon="chevronRight" />
+          </Flex>
+        </PopoverAdvancedActions>
+        <Menu.Separator />
+        <DeleteTask taskId={props.taskId} />
+      </Menu.Content>
+    </Menu.Positioner>
   );
 }

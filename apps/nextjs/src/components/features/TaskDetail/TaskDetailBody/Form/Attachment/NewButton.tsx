@@ -1,17 +1,17 @@
 import { memo } from 'react';
 import { AttachmentMenu } from '@/components/features/Menus';
-import { MenuButton } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { NewBox } from '@/components/ui/NewBox';
 
 export const NewButton = memo(function NewButton() {
   return (
     <AttachmentMenu
       label="Attach a file. This file will not be persisted in database."
-      tooltip={{ size: 'md', textAlign: 'left' }}
+      tooltip={{ size: 'md', contentProps: { textAlign: 'left' } }}
     >
-      <MenuButton cursor="pointer">
+      <Menu.Trigger asChild cursor="pointer">
         <NewBox size="lg" />
-      </MenuButton>
+      </Menu.Trigger>
     </AttachmentMenu>
   );
 });

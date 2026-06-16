@@ -1,22 +1,28 @@
-import { Button as AtomsButton } from '@/components/ui/Button';
-import { MenuButton } from '@/components/ui/Menu';
-import { forwardRef } from '@/shared/chakra';
+import { forwardRef } from 'react';
+import {
+  Button as AtomsButton,
+  type ButtonProps,
+} from '@/components/ui/Button';
+import { Menu } from '@/components/ui/Menu';
 
-export const Button = forwardRef(function Button(props, ref) {
-  return (
-    <MenuButton
-      ref={ref}
-      cursor="pointer"
-      as={AtomsButton}
-      variant="ghost"
-      size="sm"
-      border="1px"
-      borderColor="transparent"
-      px={2}
-      h="56px"
-      w="full"
-    >
-      {props.children}
-    </MenuButton>
-  );
-});
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  function Button(props, ref) {
+    return (
+      <Menu.Trigger asChild>
+        <AtomsButton
+          ref={ref}
+          cursor="pointer"
+          variant="ghost"
+          size="sm"
+          border="1px"
+          borderColor="transparent"
+          px={2}
+          h="56px"
+          w="full"
+        >
+          {props.children}
+        </AtomsButton>
+      </Menu.Trigger>
+    );
+  },
+);

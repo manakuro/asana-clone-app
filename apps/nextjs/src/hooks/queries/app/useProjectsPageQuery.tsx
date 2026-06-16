@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
-import { useProjectsPageQuery as useQuery } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { ProjectsPageDocument } from '@/graphql/hooks';
 import type { ProjectsPageQueryVariables as Variables } from '@/graphql/types/app/projects';
 import { useMountedRef } from '@/hooks';
 import { useProjectsResponse } from '@/store/app/projects';
@@ -14,18 +15,12 @@ export const useProjectsPageQuery = (props: Props) => {
   const { setProjects } = useProjectsResponse();
   const { mountedRef } = useMountedRef();
 
-  const { refetch: refetchQuery } = useQuery({
+  const { data, refetch: refetchQuery } = useQuery(ProjectsPageDocument, {
     variables: {
       projectId: props.projectId,
     },
     fetchPolicy: 'no-cache',
     notifyOnNetworkStatusChange: true,
-    onCompleted: (data) => {
-      if (!mountedRef.current) return;
-
-      setProjects(data);
-      endLoading();
-    },
     skip,
   });
 
@@ -37,12 +32,18 @@ export const useProjectsPageQuery = (props: Props) => {
     setLoading(false);
   }, []);
 
+  useEffect(() => {
+    if (!mountedRef.current) return;
+    if (!data) return;
+
+    setProjects(data);
+    endLoading();
+  }, [data, endLoading, mountedRef.current, setProjects]);
+
   const refetch = useCallback(
     async (variables: Variables) => {
       startLoading();
-      setTimeout(async () => {
-        await refetchQuery(variables);
-      });
+      await refetchQuery(variables);
     },
     [refetchQuery, startLoading],
   );

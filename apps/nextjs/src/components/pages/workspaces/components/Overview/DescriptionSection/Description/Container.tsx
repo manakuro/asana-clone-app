@@ -1,11 +1,10 @@
-import type React from 'react';
 import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useDescriptionContext } from './Provider';
 
 type Props = FlexProps;
 
-export const Container: React.FC<Props> = memo<Props>((props) => {
+export const Container = memo<Props>(function Container(props) {
   const { ref, focused, onFocus } = useDescriptionContext();
 
   return (
@@ -30,4 +29,3 @@ export const Container: React.FC<Props> = memo<Props>((props) => {
     />
   );
 });
-Container.displayName = 'Container';

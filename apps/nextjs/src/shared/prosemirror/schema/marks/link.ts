@@ -10,6 +10,8 @@ export const link: MarkSpec = {
     href: {},
     title: { default: null },
   },
+  group: 'inline',
+  inline: true,
   inclusive: false,
   parseDOM: [
     {

@@ -11,7 +11,7 @@ export const ToolBar = memo(function ToolBar() {
 
   return (
     <Flex marginTop="auto" h={9}>
-      <Stack direction="row" spacing={1} alignItems="center">
+      <Stack direction="row" gap={1} alignItems="center">
         <Format />
         <AtMention />
         <Emoji />
@@ -20,7 +20,7 @@ export const ToolBar = memo(function ToolBar() {
         <Button variant="outline" size="sm" onClick={onCancel}>
           Cancel
         </Button>
-        <Button colorScheme="teal" ml={2} size="sm" w={28} onClick={onSave}>
+        <Button colorPalette="teal" ml={2} size="sm" w={28} onClick={onSave}>
           Save
         </Button>
       </Flex>

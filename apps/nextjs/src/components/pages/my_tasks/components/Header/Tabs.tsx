@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/Flex';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { Menu, MenuButton, MenuItem, MenuList } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { Tab, TabList } from '@/components/ui/Tabs';
 
@@ -12,32 +12,40 @@ export const Tabs = memo(function Tabs() {
     <Flex ml={4} mt={3} flex={1}>
       <Flex alignItems="flex-start" flexDirection="column">
         <Flex alignItems="center">
-          <Heading as="h2" size="md" fontWeight="semibold">
+          <Heading as="h2" size="lg" fontWeight="semibold">
             My Tasks
           </Heading>
-          <Menu placement="bottom-start">
-            <MenuButton
-              ml={1}
-              aria-label="expand button"
-              as={IconButton}
-              icon={<Icon icon="chevronDown" color="text.muted" />}
-              variant="ghost"
-            />
+          <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
+            <Menu.Trigger asChild>
+              <IconButton ml={1} aria-label="expand button" variant="ghost">
+                <Icon icon="chevronDown" color="fg.muted" />
+              </IconButton>
+            </Menu.Trigger>
             <Portal>
-              <MenuList color="text.base">
-                <MenuItem>Sync to Calendar</MenuItem>
-                <MenuItem>Add tasks via Email</MenuItem>
-                <MenuItem>Export CSV</MenuItem>
-                <MenuItem>Print</MenuItem>
-              </MenuList>
+              <Menu.Positioner>
+                <Menu.Content>
+                  <Menu.Item value="Sync to Calendar" disabled>
+                    Sync to Calendar
+                  </Menu.Item>
+                  <Menu.Item value="Add tasks via Email" disabled>
+                    Add tasks via Email
+                  </Menu.Item>
+                  <Menu.Item value="Export CSV" disabled>
+                    Export CSV
+                  </Menu.Item>
+                  <Menu.Item value="Print" disabled>
+                    Print
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu.Positioner>
             </Portal>
-          </Menu>
+          </Menu.Root>
         </Flex>
-        <TabList>
-          <Tab>List</Tab>
-          <Tab>Board</Tab>
-          <Tab>Calendar</Tab>
-          <Tab>Files</Tab>
+        <TabList bottom="2px">
+          <Tab value="list">List</Tab>
+          <Tab value="board">Board</Tab>
+          <Tab value="calendar">Calendar</Tab>
+          <Tab value="files">Files</Tab>
         </TabList>
       </Flex>
     </Flex>

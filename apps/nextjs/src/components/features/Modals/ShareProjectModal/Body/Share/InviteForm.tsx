@@ -26,7 +26,7 @@ export const InviteForm = memo(function InviteForm(props: Props) {
   const teammateText = useMemo(() => {
     const teammatesNames =
       teammateIds.length > 2
-        ? [firstTeammate.name, `${teammateIds.length} others`]
+        ? [firstTeammate.name, `${teammateIds.length - 1} others`]
         : [firstTeammate.name];
 
     return teammatesNames.join(' and ');
@@ -57,10 +57,10 @@ export const InviteForm = memo(function InviteForm(props: Props) {
   return (
     <>
       <InviteProjectTeammateMenu
-        isOpen={popoverDisclosure.isOpen}
+        open={popoverDisclosure.open}
         onClose={popoverDisclosure.onClose}
         onSelect={handleSelect}
-        placement="bottom-start"
+        positioning={{ placement: 'bottom-start' }}
         queryText={value}
       >
         <Flex>
@@ -68,15 +68,15 @@ export const InviteForm = memo(function InviteForm(props: Props) {
             autoFocus
             placeholder="Add project members by name or email..."
             fontSize="sm"
-            color="text.base"
+            color="fg"
             value={value}
             onChange={handleChange}
           />
         </Flex>
       </InviteProjectTeammateMenu>
       <Flex alignItems="center">
-        <AvatarGroup size="xs" max={3} spacing={1} fontSize="xs">
-          {teammateIds.map((id) => (
+        <AvatarGroup size="xs" spaceX={1} fontSize="xs">
+          {teammateIds.slice(0, 3).map((id) => (
             <TeammateAvatar teammateId={id} key={id} />
           ))}
         </AvatarGroup>

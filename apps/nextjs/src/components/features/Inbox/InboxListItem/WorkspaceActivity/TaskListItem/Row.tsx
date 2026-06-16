@@ -39,10 +39,10 @@ export const Row = memo(function Row(props: Props) {
       px={2}
       border="1px"
       borderStyle="solid"
-      borderColor="gray.200"
+      borderColor="border"
       position="relative"
       justifyContent="flex-end"
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
       {...containerStyle}
       {...rest}
     />

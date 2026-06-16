@@ -90,16 +90,18 @@ export const TasksNameField = memo(function TasksNameField(props: Props) {
         onChange={handleChange}
         onClick={(e) => e.stopPropagation()}
         onKeyDown={handleKeyDown}
-        fontSize="sm"
         placeholder="Write a task name"
         onFocus={onInputFocus}
         onBlur={onInputBlur}
         autoFocus={autoFocus}
-        borderRadius="sm"
-        minH="23px"
         containerStyle={{
           ml: 1,
           maxH: 20,
+        }}
+        inputStyle={{
+          fontSize: 'sm',
+          borderRadius: 'sm',
+          minHeight: '23px',
         }}
       />
     </Flex>

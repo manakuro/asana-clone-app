@@ -18,13 +18,13 @@ export const DashedBox = forwardRef<HTMLDivElement, Props>(
         borderColor="gray.300"
         borderRadius="md"
         p={2}
-        color="text.muted"
+        color="fg.muted"
         justifyContent="center"
         alignItems="center"
         flexDirection="column"
         ref={ref}
         {...props}
-        {...clickableHoverLightStyle}
+        css={clickableHoverLightStyle}
       />
     );
   },

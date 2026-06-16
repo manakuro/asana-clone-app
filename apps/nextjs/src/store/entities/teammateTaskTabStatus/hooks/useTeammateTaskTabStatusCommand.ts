@@ -1,6 +1,7 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { useUpdateTeammateTaskTabStatusMutation } from '@/graphql/hooks';
+import { UpdateTeammateTaskTabStatusDocument } from '@/graphql/hooks';
 import { tabStatusState } from '../atom';
 import {
   type TeammateTaskTabStatus,
@@ -10,8 +11,9 @@ import {
 import { useUpsert } from './useUpsert';
 
 export const useTeammateTaskTabStatusCommand = () => {
-  const [updateTeammateTaskTabStatusMutation] =
-    useUpdateTeammateTaskTabStatusMutation();
+  const [updateTeammateTaskTabStatusMutation] = useMutation(
+    UpdateTeammateTaskTabStatusDocument,
+  );
   const { upsert } = useUpsert();
 
   const setTabStatus = useAtomCallback(
@@ -40,7 +42,7 @@ export const useTeammateTaskTabStatusCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {

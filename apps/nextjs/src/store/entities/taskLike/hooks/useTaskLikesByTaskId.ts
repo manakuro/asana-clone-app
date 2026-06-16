@@ -1,9 +1,10 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtom } from 'jotai';
 import { RESET, useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
 import {
-  useCreateTaskLikeMutation,
-  useDeleteTaskLikeMutation,
+  CreateTaskLikeDocument,
+  DeleteTaskLikeDocument,
 } from '@/graphql/hooks';
 import { uuid } from '@/shared/uuid';
 import { useWorkspace } from '@/store/entities/workspace';
@@ -19,8 +20,8 @@ export const useTaskLikesByTaskId = (taskId: string) => {
   const { workspace } = useWorkspace();
   const { setTaskLikes } = useTaskLikeResponse();
 
-  const [createTaskLikeMutation] = useCreateTaskLikeMutation();
-  const [deleteTaskLikeMutation] = useDeleteTaskLikeMutation();
+  const [createTaskLikeMutation] = useMutation(CreateTaskLikeDocument);
+  const [deleteTaskLikeMutation] = useMutation(DeleteTaskLikeDocument);
 
   const addTaskLike = useAtomCallback(
     useCallback(
@@ -50,7 +51,7 @@ export const useTaskLikesByTaskId = (taskId: string) => {
                 },
               },
             });
-            if (res.errors) {
+            if (res.error) {
               restore();
               return;
             }
@@ -102,7 +103,7 @@ export const useTaskLikesByTaskId = (taskId: string) => {
               },
             });
 
-            if (res.errors) {
+            if (res.error) {
               restore();
             }
           } catch (e) {

@@ -2,7 +2,7 @@ import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Progress } from '@/components/ui/Progress';
 import { Text } from '@/components/ui/Text';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = FlexProps & {
   size: Sizes;
@@ -35,14 +35,15 @@ export function AttachmentUploadingBox(props: Props) {
     <Flex
       borderRadius="lg"
       border="1px"
-      borderColor="gray.200"
+      borderColor="border"
+      borderStyle="solid"
       alignItems="center"
       transition={transitions.base()}
       p={4}
       {...sizeStyle}
       {...rest}
     >
-      <Icon icon="fileBlank" color="text.muted" size="2xl" />
+      <Icon icon="fileBlank" color="fg.muted" size="2xl" />
       <Flex
         ml={4}
         flexDirection="column"
@@ -51,14 +52,20 @@ export function AttachmentUploadingBox(props: Props) {
         minW={0}
       >
         <Text fontSize="sm">{taskFile}</Text>
-        <Progress
+        <Progress.Root
           mt={2}
           size="sm"
-          hasStripe
-          isAnimated
+          striped
+          animated
           value={progressValue}
-          colorScheme="teal"
-        />
+          colorPalette="teal"
+        >
+          <Progress.Track>
+            <Progress.Range />
+          </Progress.Track>
+          <Progress.Label />
+          <Progress.ValueText />
+        </Progress.Root>
       </Flex>
     </Flex>
   );

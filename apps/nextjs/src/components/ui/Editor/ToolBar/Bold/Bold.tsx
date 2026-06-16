@@ -6,7 +6,7 @@ import { useBold } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label'> & {
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Omit<TooltipProps, 'content'>;
 };
 
 export const Bold = memo(function Bold(props: Props) {
@@ -15,15 +15,16 @@ export const Bold = memo(function Bold(props: Props) {
   return (
     <BaseButton
       aria-label="bold"
-      icon={<Icon icon="bold" color="text.muted" />}
       action={action}
       {...props}
       tooltip={{
-        label: 'Bold\n(⌘+b)',
+        content: 'Bold\n(⌘+b)',
         'aria-label': 'Bold',
         ...props.tooltip,
       }}
       isActive={isActive}
-    />
+    >
+      <Icon icon="bold" color="fg.muted" />
+    </BaseButton>
   );
 });

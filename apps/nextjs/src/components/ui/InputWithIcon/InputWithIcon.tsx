@@ -1,10 +1,5 @@
 import { Icon } from '@/components/ui/Icon';
-import {
-  Input,
-  InputGroup,
-  InputLeftElement,
-  type InputProps,
-} from '@/components/ui/Input';
+import { Input, InputGroup, type InputProps } from '@/components/ui/Input';
 import type { IconType } from '@/shared/icons';
 
 type Props = InputProps & {
@@ -37,13 +32,19 @@ export function InputWithIcon(props: Props) {
   const iconSize = iconSizes[(size as IconSizes) ?? 'md'];
 
   return (
-    <InputGroup size={size}>
-      <InputLeftElement
-        pointerEvents="none"
-        // biome-ignore lint/correctness/noChildrenProp: used for children prop
-        children={<Icon icon={icon} color="gray.300" {...iconSize} />}
+    <InputGroup
+      startElement={<Icon icon={icon} color="gray.300" {...iconSize} />}
+    >
+      <Input
+        size={size}
+        style={
+          {
+            '--focus-color ': 'primary',
+          } as any
+        }
+        placeholder="Search"
+        {...inputProps}
       />
-      <Input focusBorderColor="primary" placeholder="Search" {...inputProps} />
     </InputGroup>
   );
 }

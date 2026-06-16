@@ -1,24 +1,22 @@
-import type { NodeType } from 'prosemirror-model';
+import type { NodeType, Node as ProseMirrorNode } from 'prosemirror-model';
 import type { EditorView } from 'prosemirror-view';
 
 const isOfType = <Type>(type: string, predicate?: (value: Type) => boolean) => {
   return (value: unknown): value is Type => {
-    if (typeof value !== type) return false;
+    if ((typeof value as string) !== type) return false;
     return predicate ? predicate(value as Type) : true;
   };
 };
 export const isString = isOfType<string>('string');
 export const isNull = (value: unknown): value is null => value === null;
 export const isUndefined = isOfType<undefined>('undefined');
-// biome-ignore lint/complexity/noBannedTypes: used for type narrowing
-export const isFunction = isOfType<Function>('function');
+export const isFunction = isOfType<() => void>('function');
 export const isNumber = isOfType<number>(
   'number',
   (value) => !Number.isNaN(value),
 );
-export const Cast = <Type = any>(value: unknown): Type => value as Type;
-// biome-ignore lint/suspicious/noShadowRestrictedNames: should replace native function
-export const toString = (value: unknown): string =>
+export const Cast = <Type>(value: Type): Type => value as Type;
+export const convertToString = (value: unknown): string =>
   Object.prototype.toString.call(value);
 
 export const isNullOrUndefined = (
@@ -33,7 +31,10 @@ export const isObject = <Type>(value: unknown): value is Type => {
   );
 };
 
-export const isNodeOfType = (props: any): boolean => {
+export const isNodeOfType = (props: {
+  types: NodeType | NodeType[];
+  node: ProseMirrorNode;
+}): boolean => {
   const { types, node } = props;
 
   if (!node) return false;
@@ -50,10 +51,10 @@ export const isDomNode = (domNode: unknown): domNode is Node =>
   isObject(Node)
     ? domNode instanceof Node
     : isObject(domNode) &&
-      isNumber(Cast(domNode).nodeType) &&
-      isString(Cast(domNode).nodeName);
+      isNumber(Cast(domNode as Node).nodeType) &&
+      isString(Cast(domNode as Node).nodeName);
 
-const getObjectType = (value: unknown) => toString(value).slice(8, -1);
+const getObjectType = (value: unknown) => convertToString(value).slice(8, -1);
 
 export const isPlainObject = (value: unknown) => {
   if (getObjectType(value) !== 'Object') return false;
@@ -65,7 +66,9 @@ export const isPlainObject = (value: unknown) => {
 export const isDomNodeOutputSpec = (
   value: unknown,
 ): value is Node | { dom: Node; contentDOM?: Node } =>
-  isDomNode(value) || (isPlainObject(value) && isDomNode((value as any).dom));
+  isDomNode(value) ||
+  (isPlainObject(value) &&
+    isDomNode((value as { dom: Node; contentDOM?: Node }).dom));
 
 export const isElementDomNode = (domNode: unknown): domNode is HTMLElement =>
   isDomNode(domNode) && domNode.nodeType === Node.ELEMENT_NODE;

@@ -38,12 +38,11 @@ export function ListItem(props: Props) {
           <Text fontSize="xl" mt={4}>
             We're not able to preview this file
           </Text>
-          <Text fontSize="sm" color="text.muted" mt={4}>
+          <Text fontSize="sm" color="fg.muted" mt={4}>
             {taskFile.name}
           </Text>
         </Flex>
       );
     }
   }
-  return null;
 }

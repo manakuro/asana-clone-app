@@ -1,42 +1,37 @@
 import { memo, useCallback } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
-import { useToast } from '@/hooks';
+import { Menu } from '@/components/ui/Menu';
+import { useToaster } from '@/hooks/useToaster';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 
 type Props = {
-  onMouseEnter: () => void;
-  onClose: () => void;
   taskId: string;
 };
 export const DeleteTask = memo(function DeleteTask(props: Props) {
-  // TODO: Fix `Can't perform a React state update on an unmounted component ...` error.
-  const { onMouseEnter, taskId, onClose } = props;
+  const { taskId } = props;
   const { task } = useTask(props.taskId);
   const { deleteTask, undeleteTask } = useTaskCommand();
-  const { toast } = useToast();
+  const { toaster } = useToaster();
 
   const handleUndo = useCallback(async () => {
     await undeleteTask({ taskId });
   }, [taskId, undeleteTask]);
 
-  const handleClick = useCallback(async () => {
-    onClose();
+  const handleSelect = useCallback(async () => {
     await deleteTask({ taskId });
-    toast({
+    toaster.success({
       description: `${task.name} was deleted`,
-      undo: handleUndo,
+      action: {
+        label: 'Undo',
+        onClick: handleUndo,
+      },
       duration: 10000,
     });
-  }, [onClose, deleteTask, taskId, toast, task.name, handleUndo]);
+  }, [deleteTask, taskId, toaster.success, task.name, handleUndo]);
 
   return (
-    <MenuItem
-      onMouseEnter={onMouseEnter}
-      color="alert"
-      command="Tab+Del"
-      onClick={handleClick}
-    >
+    <Menu.Item color="alert" onSelect={handleSelect} value="Delete task">
       Delete task
-    </MenuItem>
+      <Menu.ItemCommand>Tab+Del</Menu.ItemCommand>
+    </Menu.Item>
   );
 });

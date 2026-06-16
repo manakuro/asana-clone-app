@@ -22,10 +22,10 @@ export const MemberListItem: React.FC<Props> = memo<Props>((props) => {
         flex={1}
         justifyContent="center"
       >
-        <Text fontSize="sm" fontWeight="medium" noOfLines={1}>
+        <Text fontSize="sm" fontWeight="medium" lineClamp={1}>
           {teammate.name}
         </Text>
-        <Text fontSize="xs" color="text.muted">
+        <Text fontSize="xs" color="fg.muted">
           {teammate.email}
         </Text>
       </Flex>

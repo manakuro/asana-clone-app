@@ -1,48 +1,37 @@
 import { useCallback } from 'react';
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  type MenuProps,
-} from '@/components/ui/Menu';
-import { chakra } from '@/shared/chakra';
+import { Menu, type MenuRootProps } from '@/components/ui/Menu';
+import { Portal } from '@/components/ui/Portal';
 
-type Props = {
-  onClose: () => void;
-} & MenuProps;
+type Props = MenuRootProps;
 
 export function PopoverMore(props: Props) {
-  const handleCreateNewWorkspace = useCallback(() => {
-    // do something
-    props.onClose();
-  }, [props]);
+  const handleCreateNewWorkspace = useCallback(() => {}, []);
 
-  const handleRemoveMe = useCallback(() => {
-    // do something
-    props.onClose();
-  }, [props]);
+  const handleRemoveMe = useCallback(() => {}, []);
 
   return (
-    <Menu isLazy {...props}>
-      <MenuButton w="full" as={MenuButtonAs}>
-        {props.children}
-      </MenuButton>
-      <MenuList pointerEvents="auto" mr="5px">
-        <MenuItem as="div" onClick={handleCreateNewWorkspace} isDisabled>
-          Create New Workspace
-        </MenuItem>
-        <MenuItem as="div" onClick={handleRemoveMe} isDisabled>
-          Remove me from this Workspace
-        </MenuItem>
-      </MenuList>
-    </Menu>
+    <Menu.Root {...props}>
+      <Menu.TriggerItem asChild>{props.children}</Menu.TriggerItem>
+      <Portal>
+        <Menu.Positioner>
+          <Menu.Content animation="none">
+            <Menu.Item
+              value="Create New Workspace"
+              onSelect={handleCreateNewWorkspace}
+              disabled
+            >
+              Create New Workspace
+            </Menu.Item>
+            <Menu.Item
+              value="Remove me from this Workspace"
+              onSelect={handleRemoveMe}
+              disabled
+            >
+              Remove me from this Workspace
+            </Menu.Item>
+          </Menu.Content>
+        </Menu.Positioner>
+      </Portal>
+    </Menu.Root>
   );
 }
-
-// NOTE: Use custom component instead of `Box` because of styling issue with positioning menu item
-const MenuButtonAs = chakra('div', {
-  baseStyle: {
-    w: 'full',
-  },
-});

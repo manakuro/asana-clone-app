@@ -39,8 +39,8 @@ export const DueDate = memo(function DueDate(props: Props) {
     >
       {task.dueDate ? (
         <Tooltip
-          hasArrow
-          label={`Due in ${getDifferenceInDays(
+          showArrow
+          content={`Due in ${getDifferenceInDays(
             new Date(task.dueDate),
             new Date(),
           )} days`}
@@ -52,8 +52,8 @@ export const DueDate = memo(function DueDate(props: Props) {
         </Tooltip>
       ) : (
         <Tooltip
-          hasArrow
-          label="Add a due date to this subtask"
+          showArrow
+          content="Add a due date to this subtask"
           aria-label="Due date"
           size="sm"
           withIcon
@@ -62,7 +62,7 @@ export const DueDate = memo(function DueDate(props: Props) {
             visibility={showIcon ? 'visible' : 'hidden'}
             pointerEvents={showIcon ? 'auto' : 'none'}
             icon="calendarAlt"
-            color="text.muted"
+            color="fg.muted"
             {...clickableHoverLightStyle}
           />
         </Tooltip>

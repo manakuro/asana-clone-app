@@ -1,6 +1,7 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { useUpdateTeammateTaskListStatusMutation } from '@/graphql/hooks';
+import { UpdateTeammateTaskListStatusDocument } from '@/graphql/hooks';
 import type { TaskListSortStatusCodeValue } from '@/store/app/myTasks/taskListStatus';
 import type { TaskListCompletedStatusCodeValue } from '@/store/entities/taskListCompletedStatus';
 import { useWorkspace } from '@/store/entities/workspace';
@@ -11,8 +12,9 @@ export const useTaskListStatusCommand = () => {
   const { upsert } = useUpsert();
   const { workspace } = useWorkspace();
 
-  const [updateTeammateTaskListStatusMutation] =
-    useUpdateTeammateTaskListStatusMutation();
+  const [updateTeammateTaskListStatusMutation] = useMutation(
+    UpdateTeammateTaskListStatusDocument,
+  );
 
   const setTaskListCompletedStatus = useAtomCallback(
     useCallback(
@@ -45,7 +47,7 @@ export const useTaskListStatusCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return;
           }
@@ -89,7 +91,7 @@ export const useTaskListStatusCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
             return;
           }

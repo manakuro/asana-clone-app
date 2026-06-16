@@ -8,6 +8,7 @@ type Props = {
   isTaskDetailURL: (params: Params, pathname: string | null) => boolean;
   getTaskDetailId: (params: Params, pathname: string | null) => string;
   fetchQuery: (variables: { taskId: string }) => Promise<void>;
+  tabContentLoading: boolean;
 };
 
 export const useTasksCalendarDetail = (props: Props) => {
@@ -18,6 +19,7 @@ export const useTasksCalendarDetail = (props: Props) => {
   const { isTaskDetailURL, getTaskDetailId, fetchQuery } = props;
 
   useEffect(() => {
+    if (props.tabContentLoading) return;
     if (!isTaskDetailURL(params, pathname)) return;
     const newId = getTaskDetailId(params, pathname);
     console.log('useTasksCalendarDetail!: ', newId);
@@ -39,5 +41,6 @@ export const useTasksCalendarDetail = (props: Props) => {
     isTaskDetailURL,
     getTaskDetailId,
     fetchQuery,
+    props.tabContentLoading,
   ]);
 };

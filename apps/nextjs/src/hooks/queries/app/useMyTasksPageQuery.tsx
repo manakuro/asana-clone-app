@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
-import { useMyTasksPageQuery as useQuery } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { MyTasksPageDocument } from '@/graphql/hooks';
 import { useMountedRef } from '@/hooks';
 import { useMyTasksResponse } from '@/store/app/myTasks';
 import { useMe } from '@/store/entities/me';
@@ -13,19 +14,13 @@ export const useMyTasksPageQuery = () => {
   const { setMyTasks } = useMyTasksResponse();
   const { mountedRef } = useMountedRef();
 
-  const { refetch: refetchQuery } = useQuery({
+  const { data, refetch: refetchQuery } = useQuery(MyTasksPageDocument, {
     variables: {
       teammateId: me.id,
       workspaceId: workspace.id,
     },
     fetchPolicy: 'no-cache',
     notifyOnNetworkStatusChange: true,
-    onCompleted: (data) => {
-      if (!mountedRef.current) return;
-
-      setMyTasks(data);
-      endLoading();
-    },
     skip,
   });
 
@@ -37,11 +32,17 @@ export const useMyTasksPageQuery = () => {
     setLoading(false);
   }, []);
 
+  useEffect(() => {
+    if (!mountedRef.current) return;
+    if (!data) return;
+
+    setMyTasks(data);
+    endLoading();
+  }, [data, endLoading, mountedRef.current, setMyTasks]);
+
   const refetch = useCallback(async () => {
     startLoading();
-    setTimeout(async () => {
-      await refetchQuery();
-    });
+    await refetchQuery();
   }, [refetchQuery, startLoading]);
 
   return {

@@ -3,13 +3,8 @@ import {
   FileUploader,
   type FileUploaderParams,
 } from '@/components/ui/Form/FileUploader';
-import {
-  MenuGroup,
-  MenuItem,
-  MenuList as OrganismsMenuList,
-} from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
-import { useClickOutside, useMenuStyle } from '@/hooks';
+import { Menu } from '@/components/ui/Menu';
+import { useMenuStyle } from '@/hooks';
 
 type Props = {
   onUpload?: (files: FileUploaderParams) => void;
@@ -18,28 +13,33 @@ type Props = {
 
 export const MenuList = memo(function MenuList(props: Props) {
   const itemStyle = useMenuStyle().item;
-  const { ref } = useClickOutside<HTMLDivElement>(() => {
-    props.onClose?.();
-  });
 
   return (
-    <Portal>
-      <OrganismsMenuList ref={ref}>
-        <MenuGroup title="Attach a File">
+    <Menu.Positioner>
+      <Menu.Content>
+        <Menu.ItemGroup title="Attach a File">
           <FileUploader
-            {...itemStyle}
+            css={itemStyle}
             id="attach-file-from-your-computer"
             onUpload={props.onUpload}
             onUploaded={props.onClose}
           >
             Your computer
           </FileUploader>
-          <MenuItem isDisabled>Dropbox</MenuItem>
-          <MenuItem isDisabled>Google Drive</MenuItem>
-          <MenuItem isDisabled>Box</MenuItem>
-          <MenuItem isDisabled>OneDrive/SharePoint</MenuItem>
-        </MenuGroup>
-      </OrganismsMenuList>
-    </Portal>
+          <Menu.Item disabled value="0">
+            Dropbox
+          </Menu.Item>
+          <Menu.Item disabled value="1">
+            Google Drive
+          </Menu.Item>
+          <Menu.Item disabled value="2">
+            Box
+          </Menu.Item>
+          <Menu.Item disabled value="3">
+            OneDrive/SharePoint
+          </Menu.Item>
+        </Menu.ItemGroup>
+      </Menu.Content>
+    </Menu.Positioner>
   );
 });

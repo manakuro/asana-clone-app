@@ -38,18 +38,17 @@ export const LikeIconButton = memo(function LikeIconButton(props: Props) {
   return (
     <IconButton
       aria-label="Like this"
-      icon={
-        <Icon
-          hasAnyoneLiked={hasAnyoneLiked}
-          label={label}
-          likeLength={likeLength}
-          textStyle={textStyle}
-        />
-      }
       variant="ghost"
       size="sm"
       onClick={handleClick}
       {...rest}
-    />
+    >
+      <Icon
+        hasAnyoneLiked={hasAnyoneLiked}
+        label={label}
+        likeLength={likeLength}
+        textStyle={textStyle}
+      />
+    </IconButton>
   );
 });

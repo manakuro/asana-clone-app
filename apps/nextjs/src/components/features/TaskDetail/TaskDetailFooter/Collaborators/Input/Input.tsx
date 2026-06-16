@@ -7,11 +7,7 @@ import { Flex } from '@/components/ui/Flex';
 import { Input as AtomsInput } from '@/components/ui/Input';
 import { Wrap, WrapItem } from '@/components/ui/Wrap';
 import { useClickOutside } from '@/hooks';
-import {
-  type ChakraProps,
-  useDisclosure,
-  useStyleConfig,
-} from '@/shared/chakra';
+import { useDisclosure } from '@/shared/chakra';
 import {
   useTaskCollaboratorCommand,
   useTeammateIdsByTaskId,
@@ -27,12 +23,7 @@ export const Input: React.FC = () => {
   return <Component />;
 };
 
-type InputStyle = {
-  field: ChakraProps;
-  addon: ChakraProps;
-};
-
-const Component: React.FC = memo(() => {
+const Component = memo(function Component() {
   const { taskId } = useTaskDetail();
   const { teammateIds } = useTeammateIdsByTaskId(taskId);
   const { addTaskCollaboratorByTeammate, deleteTaskCollaboratorByTeammate } =
@@ -44,7 +35,6 @@ const Component: React.FC = memo(() => {
       return true;
     },
   });
-  const style = useStyleConfig('Input') as InputStyle;
 
   const popoverDisclosure = useDisclosure();
   const [value, setValue] = useState<string>('');
@@ -85,23 +75,25 @@ const Component: React.FC = memo(() => {
 
   return (
     <InviteCollaboratorMenu
-      isOpen={popoverDisclosure.isOpen}
+      open={popoverDisclosure.open}
       onClose={popoverDisclosure.onClose}
       onSelect={handleSelect}
-      placement="top-start"
+      positioning={{ placement: 'top-start' }}
       queryText={value}
     >
       <Flex
         ref={ref}
         border={1}
-        borderColor="gray.200"
+        borderColor="border"
         borderStyle="solid"
+        borderRadius="md"
         bg="white"
         ml={2}
         alignItems="center"
-        {...style.field}
+        px={4}
         h="auto"
         maxH="none"
+        flex={1}
       >
         <Wrap py={teammateIds.length ? 2 : 0}>
           {teammateIds.map((id) => (
@@ -116,9 +108,9 @@ const Component: React.FC = memo(() => {
               fontSize="sm"
               size="sm"
               placeholder="Name or email"
-              variant="unstyled"
               value={value}
               onChange={handleChange}
+              unstyled
             />
           </WrapItem>
         </Wrap>

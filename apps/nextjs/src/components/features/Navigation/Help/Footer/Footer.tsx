@@ -37,10 +37,10 @@ const items: TNavListItem[] = [
 
 export function Footer() {
   return (
-    <List w="full" mb={3}>
+    <List.Root w="full" mb={3}>
       {items.map((n) => (
         <NavListItem key={n.name} item={n} />
       ))}
-    </List>
+    </List.Root>
   );
 }

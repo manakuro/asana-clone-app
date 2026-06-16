@@ -9,7 +9,6 @@ export const data = (
   deepmerge<Query>(
     {
       favoriteWorkspaceIds: ['0AD01GK0BWAQZYWRN2T89M5K2620Z'],
-      __typename: 'Query',
     },
     (options || {}) as Query,
     {

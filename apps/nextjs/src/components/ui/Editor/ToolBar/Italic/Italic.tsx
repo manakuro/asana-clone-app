@@ -6,7 +6,7 @@ import { useItalic } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 
 type Props = Omit<IconButtonProps, 'aria-label'> & {
-  tooltip?: Omit<TooltipProps, 'children'>;
+  tooltip?: Omit<TooltipProps, 'content'>;
 };
 
 export const Italic = memo(function Italic(props: Props) {
@@ -15,15 +15,16 @@ export const Italic = memo(function Italic(props: Props) {
   return (
     <BaseButton
       aria-label="italic"
-      icon={<Icon icon="italic" color="text.muted" />}
       {...props}
       action={action}
       tooltip={{
-        label: 'Italic\n(⌘+i)',
+        content: 'Italic\n(⌘+i)',
         'aria-label': 'Italic',
         ...props.tooltip,
       }}
       isActive={isActive}
-    />
+    >
+      <Icon icon="italic" color="fg.muted" />
+    </BaseButton>
   );
 });

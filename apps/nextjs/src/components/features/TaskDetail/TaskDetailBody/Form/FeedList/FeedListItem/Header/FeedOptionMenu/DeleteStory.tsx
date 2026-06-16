@@ -1,10 +1,14 @@
 import { memo } from 'react';
-import { MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useTaskFeedListItemContext } from '../../Provider';
 
 export const DeleteStory = memo(function DeleteStory() {
   const { hasTaskFile, hasText } = useTaskFeedListItemContext();
   if (hasText || !hasTaskFile) return null;
 
-  return <MenuItem color="alert">Delete Story</MenuItem>;
+  return (
+    <Menu.Item value="Delete story" color="alert">
+      Delete Story
+    </Menu.Item>
+  );
 });

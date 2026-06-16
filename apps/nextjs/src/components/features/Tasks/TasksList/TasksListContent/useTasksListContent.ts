@@ -1,10 +1,10 @@
 import { atom, useAtom } from 'jotai';
 import { useEffect, useRef } from 'react';
 
-const refAtom = atom<HTMLElement | null>(null);
+const refAtom = atom<HTMLDivElement | null>(null);
 
 export const useTasksListContent = () => {
-  const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [state, setState] = useAtom(refAtom);
 
   useEffect(() => {

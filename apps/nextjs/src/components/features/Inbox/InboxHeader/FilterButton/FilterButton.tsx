@@ -1,13 +1,13 @@
 import { memo, useCallback, useMemo } from 'react';
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
 import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItemOption } from '@/components/ui/Menu';
-import type { ChakraProps } from '@/shared/chakra';
+import { Menu } from '@/components/ui/Menu';
+import type { SystemStyleObject } from '@/shared/chakra';
 import {
   INBOX_LIST_FILTER_STATUS_TYPE_ALL,
   INBOX_LIST_FILTER_STATUS_TYPE_ASSIGNED_BY_ME,
@@ -55,7 +55,7 @@ export const FilterButton = memo(function FilterButton() {
   );
   const isActiveButton = useMemo(() => !isFiltered('all'), [isFiltered]);
   const buttonStyle = useMemo(
-    (): ChakraProps => ({
+    (): SystemStyleObject => ({
       ...(isActiveButton ? { bg: 'teal.100', _hover: { bg: 'teal.100' } } : {}),
     }),
     [isActiveButton],
@@ -70,27 +70,30 @@ export const FilterButton = memo(function FilterButton() {
   return (
     <MenuSelect<ToString<InboxListFilterStatuses>>
       onChange={handleChange}
-      placement="bottom-start"
+      positioning={{ placement: 'bottom-start' }}
+      listStatus={filterStatus as unknown as ToString<InboxListFilterStatuses>}
     >
-      <MenuSelectButton
-        variant="ghost"
-        aria-label="Sort tasks"
-        as={Button}
-        leftIcon={<Icon icon="filter" />}
-        size="xs"
-        {...buttonStyle}
-      >
-        Filter{text}
-      </MenuSelectButton>
-      <MenuSelectList defaultValue={filterStatus.toString()}>
+      <MenuSelectTrigger>
+        <Button
+          variant="ghost"
+          aria-label="Sort tasks"
+          size="xs"
+          {...buttonStyle}
+        >
+          <Icon icon="filter" />
+          Filter{text}
+        </Button>
+      </MenuSelectTrigger>
+      <MenuSelectList>
         {items.map((item, _i) => (
-          <MenuItemOption
+          <Menu.RadioItem
             value={item.value.toString()}
             key={item.value.toString()}
-            isDisabled
+            disabled
           >
             {item.text}
-          </MenuItemOption>
+            <Menu.ItemIndicator />
+          </Menu.RadioItem>
         ))}
       </MenuSelectList>
     </MenuSelect>

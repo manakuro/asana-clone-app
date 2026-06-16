@@ -1,4 +1,4 @@
-import type { Command } from 'prosemirror-commands';
+import type { Command } from 'prosemirror-state';
 import { useCallback, useMemo } from 'react';
 import { MENTION_CHAR } from '@/shared/prosemirror/plugins/suggestions/suggestMention';
 import type { ToolbarItem } from './types';

@@ -4,7 +4,8 @@ import {
   useHasTasksByTaskSectionId,
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
-import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
+import { Portal } from '@/components/ui/Portal';
 import { useTasksBoardListSectionContext } from '../../../Provider';
 
 export const MenuList = memo(function MenuList() {
@@ -30,11 +31,21 @@ export const MenuList = memo(function MenuList() {
   }, [deleteTaskSection, hasTasks, onOpen, setModalState, taskSectionId]);
 
   return (
-    <AtomsMenuList>
-      <MenuItem onClick={handleRenameSection}>Rename section</MenuItem>
-      <MenuItem onClick={handleDeleteSection} color="alert">
-        Delete section
-      </MenuItem>
-    </AtomsMenuList>
+    <Portal>
+      <Menu.Positioner>
+        <Menu.Content>
+          <Menu.Item onClick={handleRenameSection} value="Rename section">
+            Rename section
+          </Menu.Item>
+          <Menu.Item
+            onClick={handleDeleteSection}
+            color="alert"
+            value="Delete section"
+          >
+            Delete section
+          </Menu.Item>
+        </Menu.Content>
+      </Menu.Positioner>
+    </Portal>
   );
 });

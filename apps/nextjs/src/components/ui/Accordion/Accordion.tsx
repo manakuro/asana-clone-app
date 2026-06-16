@@ -1,4 +1,5 @@
 export {
   Accordion,
-  type AccordionProps,
+  type AccordionItemProps,
+  type AccordionItemTriggerProps,
 } from '@chakra-ui/react';

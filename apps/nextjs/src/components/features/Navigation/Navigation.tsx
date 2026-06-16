@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { DarkMode } from '@/chakra-ui/ui/color-mode';
 import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
 import { CustomNav } from './CustomNav';
@@ -17,24 +18,26 @@ export const Navigation = memo(function Navigation() {
   const { isExpanded } = useNavigation();
 
   return (
-    <Flex
-      as="nav"
-      w={isExpanded ? MAX_WIDTH : MIN_WIDTH}
-      backgroundColor="gray.800"
-      flexDirection="column"
-      color="white"
-      transition="width .2s"
-      overflowX="hidden"
-      h="100vh"
-      flex="0 0 auto"
-    >
-      <Header />
-      <MainNav />
-      <Box overflow="scroll" w={MAX_WIDTH} pb={40} flex="1">
-        <CustomNav />
-        <Projects />
-      </Box>
-      <Footer />
-    </Flex>
+    <DarkMode>
+      <Flex
+        as="nav"
+        w={isExpanded ? MAX_WIDTH : MIN_WIDTH}
+        backgroundColor="bg"
+        flexDirection="column"
+        color="fg"
+        transition="width .2s"
+        overflowX="hidden"
+        h="100vh"
+        flex="0 0 auto"
+      >
+        <Header />
+        <MainNav />
+        <Box overflow="scroll" w={MAX_WIDTH} pb={40} flex="1">
+          <CustomNav />
+          <Projects />
+        </Box>
+        <Footer />
+      </Flex>
+    </DarkMode>
   );
 });

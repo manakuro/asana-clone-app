@@ -22,19 +22,18 @@ export const Component = memo(function Component(props: Props) {
     <IconButton
       onClick={handleClick}
       aria-label="Show sub task"
-      icon={
-        <Icon
-          icon={isSubtaskExpanded ? 'chevronDown' : 'chevronRight'}
-          color="text.muted"
-          size="sm"
-        />
-      }
       visibility={props.showExpandIcon ? 'visible' : 'hidden'}
       size="xs"
       h={5}
       minW={5}
       p={0}
       variant="ghost"
-    />
+    >
+      <Icon
+        icon={isSubtaskExpanded ? 'chevronDown' : 'chevronRight'}
+        color="fg.muted"
+        size="sm"
+      />
+    </IconButton>
   );
 });

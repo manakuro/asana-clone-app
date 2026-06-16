@@ -3,7 +3,7 @@ import { atomWithReset, useResetAtom } from 'jotai/utils';
 import { useCallback } from 'react';
 
 type State = {
-  isOpen: boolean;
+  open: boolean;
   x: number;
   y: number;
   input: {
@@ -13,7 +13,7 @@ type State = {
 };
 
 const modalState = atomWithReset<State>({
-  isOpen: false,
+  open: false,
   x: 0,
   y: 0,
   input: {
@@ -27,7 +27,7 @@ export const useEditorLinkModal = () => {
   const resetState = useResetAtom(modalState);
 
   const onClose = useCallback(() => {
-    setState((s) => ({ ...s, isOpen: false }));
+    setState((s) => ({ ...s, open: false }));
     state.callback(state.input);
     resetState();
   }, [resetState, setState, state]);
@@ -37,7 +37,7 @@ export const useEditorLinkModal = () => {
       return new Promise<State['input']>((resolve) => {
         setState((s) => ({
           ...s,
-          isOpen: true,
+          open: true,
           x,
           y,
           callback: resolve,

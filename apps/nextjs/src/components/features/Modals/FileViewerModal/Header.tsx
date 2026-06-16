@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
 import { Button } from '@/components/ui/Button';
-import { Divider } from '@/components/ui/Divider';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
@@ -18,44 +17,41 @@ export const Header = memo(function Header() {
   const formattedCreateAt = formatTaskFileCreatedAt(taskFile.createdAt);
 
   return (
-    <Flex h="full">
+    <Flex h="full" flex={1}>
       <Flex flexDirection="column" py={4} px={6}>
         <Text fontSize="md">{taskFile.name}</Text>
-        <Text fontSize="sm" color="text.muted">
+        <Text fontSize="sm" color="fg.muted">
           {formattedCreateAt}
         </Text>
       </Flex>
-      <Stack direction="row" spacing={2} ml="auto" py={4} px={6}>
+      <Stack direction="row" gap={2} ml="auto" py={4} px={6}>
         <Link href={taskFile.src} download>
-          <Button
-            leftIcon={<Icon icon="download" />}
-            iconSpacing={2}
-            variant="ghost"
-            lightBg
-          >
+          <Button gap={2} variant="ghost" lightBg>
+            <Icon icon="download" />
             Download
           </Button>
         </Link>
-        <ComingSoonTooltip>
-          <Button
-            leftIcon={<Icon icon="commentDots" />}
-            iconSpacing={2}
-            variant="ghost"
-            lightBg
-          >
+        <ComingSoonTooltip
+          contentProps={{
+            bg: 'bg',
+            color: 'fg',
+          }}
+        >
+          <Button gap={2} variant="ghost" lightBg>
+            <Icon icon="commentDots" />
             Add Feedback
           </Button>
         </ComingSoonTooltip>
       </Stack>
-      <Divider orientation="vertical" />
       <Flex py={4} px={6} justifyContent="center" alignItems="center">
         <IconButton
-          icon={<Icon icon="x" size="lg" />}
           aria-label="close modal"
           variant="ghost"
           light
           onClick={onClose}
-        />
+        >
+          <Icon icon="x" size="lg" />
+        </IconButton>
       </Flex>
     </Flex>
   );

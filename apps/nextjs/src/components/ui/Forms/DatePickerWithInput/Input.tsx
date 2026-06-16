@@ -2,7 +2,6 @@ import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { Input as AtomsInput } from '@/components/ui/Input';
-import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { formatDueDateInput } from '@/shared/date';
 
@@ -15,13 +14,7 @@ type Props = {
 
 export const Input = memo(function Input(props: Props) {
   const { onClose, onSelect, dueDate, onClear } = props;
-  const { ref } = useClickOutside<HTMLInputElement>(onClose, {
-    hasClickedOutside: (e, helpers) => {
-      if (helpers.isContainInPopoverContent(e)) return false;
-      return true;
-    },
-  });
-  const popoverDisclosure = useDisclosure({ defaultIsOpen: true });
+  const popoverDisclosure = useDisclosure({ defaultOpen: true });
   const [value, setValue] = useState<string>(formatDueDateInput(dueDate));
 
   const handleChange = useCallback(
@@ -57,13 +50,12 @@ export const Input = memo(function Input(props: Props) {
       date={dueDate}
       onChange={handleSelect}
       onClear={handleClear}
-      defaultIsOpen
+      defaultOpen
       includeDueTime={false}
     >
       <AtomsInput
-        ref={ref}
         autoFocus
-        variant="unstyled"
+        unstyled
         fontSize="sm"
         onChange={handleChange}
         value={value}

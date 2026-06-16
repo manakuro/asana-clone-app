@@ -12,7 +12,7 @@ export const Tags = memo(function Tags(props: Props) {
   const { taskTagIds } = useTaskTagIdsByTaskId(props.taskId);
 
   return (
-    <Stack direction="row" spacing={1} overflow="hidden">
+    <Stack direction="row" gap={1} overflow="hidden">
       {taskTagIds.map((id) => (
         <Tag taskTagId={id} key={id} />
       ))}

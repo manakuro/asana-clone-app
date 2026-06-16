@@ -34,12 +34,15 @@ export const ProjectListItem = memo(function ProjectListItem(props: Props) {
         w={12}
         h={12}
         bg={projectBaseColor.color.color}
-        color="white"
         justifyContent="center"
         alignItems="center"
         flexDirection="column"
       >
-        <Icon size="md" icon={projectIcon.icon.icon as IconType} />
+        <Icon
+          size="md"
+          icon={projectIcon.icon.icon as IconType}
+          color="white"
+        />
       </Flex>
       <Flex ml={3} flex={1} alignItems="flex-start">
         <Flex alignItems="center">
@@ -48,10 +51,16 @@ export const ProjectListItem = memo(function ProjectListItem(props: Props) {
         </Flex>
       </Flex>
       <Flex alignItems="center">
-        <AvatarGroup size="xs" max={2} spacing={1} fontSize="xs">
-          {teammateIds.map((id) => (
+        <AvatarGroup size="xs" spaceX={1} fontSize="xs">
+          {teammateIds.slice(0, 2).map((id) => (
             <TeammateAvatar teammateId={id} key={id} />
           ))}
+          {teammateIds.length > 2 && (
+            <TeammateAvatar
+              teammateId=""
+              fallback={`+${teammateIds.length - 2}`}
+            />
+          )}
         </AvatarGroup>
         <PopoverProjectMenu
           addFavorite
@@ -59,14 +68,11 @@ export const ProjectListItem = memo(function ProjectListItem(props: Props) {
           copyProjectLink
           share
           projectId={project.id}
-          iconButton={{
-            as: IconButton,
-            'aria-label': 'menu button',
-            icon: <Icon icon="menu" size="xs" />,
-            variant: 'ghost',
-            ml: 2,
-          }}
-        />
+        >
+          <IconButton aria-label="menu button" variant="ghost" ml={2}>
+            <Icon icon="menu" size="xs" />
+          </IconButton>
+        </PopoverProjectMenu>
       </Flex>
     </Container>
   );

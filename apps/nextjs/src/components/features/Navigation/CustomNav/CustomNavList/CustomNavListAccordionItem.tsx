@@ -1,6 +1,5 @@
-import type { PropsWithChildren } from 'react';
-import { AccordionItem } from '@/components/ui/Accordion';
+import { Accordion, type AccordionItemProps } from '@/components/ui/Accordion';
 
-export function CustomNavListAccordionItem(props: PropsWithChildren) {
-  return <AccordionItem border="none" {...props} />;
+export function CustomNavListAccordionItem(props: AccordionItemProps) {
+  return <Accordion.Item border="none" {...props} />;
 }

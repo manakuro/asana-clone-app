@@ -1,13 +1,13 @@
 import { memo, useCallback, useMemo } from 'react';
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItemOption } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useClickableHoverStyle } from '@/hooks';
 import {
   PROJECT_PERMISSION_CAN_COMMENT,
@@ -51,24 +51,20 @@ export const PermissionMenu = memo(function PermissionMenu() {
   return (
     <MenuSelect<ToString<ProjectPermissionTypes>>
       onChange={handleChange}
-      placement="bottom-start"
+      positioning={{ placement: 'bottom-start' }}
     >
-      <MenuSelectButton
-        variant="ghost"
-        as={Button}
-        rightIcon={<Icon icon="chevronDown" />}
-        size="sm"
-        fontSize="xs"
-        fontWeight="medium"
-      >
-        {buttonText}
-      </MenuSelectButton>
+      <MenuSelectTrigger>
+        <Button variant="ghost" size="xs" fontWeight="medium">
+          {buttonText}
+          <Icon icon="chevronDown" />
+        </Button>
+      </MenuSelectTrigger>
       <MenuSelectList
         defaultValue={status.toString()}
         menuListProps={{ maxW: '250px' }}
       >
         {items.map((item, _i) => (
-          <MenuItemOption
+          <Menu.RadioItem
             value={item.value.toString()}
             key={item.value}
             {...clickableHoverStyle}
@@ -76,12 +72,15 @@ export const PermissionMenu = memo(function PermissionMenu() {
               bg: 'gray.100',
             }}
             fontWeight="medium"
+            flexDirection="column"
+            alignItems="flex-start"
           >
             {item.text}
-            <Flex fontSize="xs" fontWeight="normal" color="text.muted">
+            <Flex fontSize="xs" fontWeight="normal" color="fg.muted">
               {item.subText}
             </Flex>
-          </MenuItemOption>
+            <Menu.ItemIndicator />
+          </Menu.RadioItem>
         ))}
       </MenuSelectList>
     </MenuSelect>

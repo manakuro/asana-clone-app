@@ -1,11 +1,7 @@
 import React, { type PropsWithChildren, useCallback } from 'react';
 import { Link } from '@/components/ui/Link';
-import {
-  Popover,
-  type PopoverProps,
-  PopoverTrigger,
-} from '@/components/ui/Popover';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Popover } from '@/components/ui/Popover';
+import { Portal } from '@/components/ui/Portal';
 import { useDisclosure } from '@/shared/chakra';
 import { Content } from './Content';
 
@@ -13,7 +9,7 @@ type Props = {
   taskId: string;
   onOpened?: () => void;
   onClosed?: () => void;
-} & PopoverProps;
+};
 
 export function PopoverAssigneeInput(props: PropsWithChildren<Props>) {
   const { taskId } = props;
@@ -38,21 +34,23 @@ export function PopoverAssigneeInput(props: PropsWithChildren<Props>) {
   }, [popoverDisclosure, props]);
 
   return (
-    <PortalManager zIndex={1500}>
-      <Popover
-        placement="bottom-end"
-        isOpen={popoverDisclosure.isOpen}
-        initialFocusRef={inputRef}
-        isLazy
-        closeOnBlur={false}
-      >
-        <PopoverTrigger>
-          <Link onClick={handleOpen}>{props.children}</Link>
-        </PopoverTrigger>
-        {popoverDisclosure.isOpen && (
-          <Content taskId={taskId} onClose={handleClose} />
-        )}
-      </Popover>
-    </PortalManager>
+    <Popover.Root
+      positioning={{ placement: 'bottom-end' }}
+      open={popoverDisclosure.open}
+      initialFocusEl={() => inputRef.current}
+      lazyMount
+      closeOnInteractOutside={false}
+    >
+      <Popover.Trigger asChild>
+        <Link onClick={handleOpen}>{props.children}</Link>
+      </Popover.Trigger>
+      <Portal>
+        <Popover.Positioner>
+          {popoverDisclosure.open && (
+            <Content taskId={taskId} onClose={handleClose} />
+          )}
+        </Popover.Positioner>
+      </Portal>
+    </Popover.Root>
   );
 }

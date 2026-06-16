@@ -10,24 +10,24 @@ import { GuideListItem, type Item } from './GuideListItem';
 const items: Item[] = [guide1Item, guide2Item, guide3Item, guide4Item];
 
 export function Body(props: PropsWithChildren) {
-  const [state, setState] = useState<{ id: number; isOpen: boolean }[]>(
-    items.map((i) => ({ id: i.id, isOpen: false })),
+  const [state, setState] = useState<{ id: number; open: boolean }[]>(
+    items.map((i) => ({ id: i.id, open: false })),
   );
   const handleToggle = useCallback((id: number) => {
     setState((prev) => {
-      const current = prev.find((p) => p.isOpen);
+      const current = prev.find((p) => p.open);
       // Close the list item that is opened.
-      if (current?.isOpen && current?.id === id)
-        return prev.map((p) => ({ ...p, isOpen: false }));
+      if (current?.open && current?.id === id)
+        return prev.map((p) => ({ ...p, open: false }));
 
-      return prev.map((p) => ({ ...p, isOpen: p.id === id }));
+      return prev.map((p) => ({ ...p, open: p.id === id }));
     });
   }, []);
 
   return (
     <Stack
       w="full"
-      spacing={4}
+      gap={4}
       mb={40}
       flex={1}
       p={HELP_CONTAINER_PADDING}
@@ -38,7 +38,7 @@ export function Body(props: PropsWithChildren) {
           key={item.id}
           item={item}
           nextItem={items[i + 1]}
-          isOpen={state.find((s) => s.id === item.id)?.isOpen ?? false}
+          open={state.find((s) => s.id === item.id)?.open ?? false}
           onToggle={handleToggle}
         />
       ))}

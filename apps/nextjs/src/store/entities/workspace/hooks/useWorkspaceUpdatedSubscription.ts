@@ -1,7 +1,8 @@
+import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { useWorkspaceUpdatedSubscription as useSubscription } from '@/graphql/hooks';
+import { WorkspaceUpdatedDocument } from '@/graphql/hooks';
 import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
@@ -26,22 +27,15 @@ export const useWorkspaceUpdatedSubscription = (props: Props) => {
   const { setWorkspace } = useWorkspaceResponse();
   const { setHasDescriptionUpdated } = useHasDescriptionUpdated();
 
-  useSubscription({
+  useSubscription(WorkspaceUpdatedDocument, {
     variables: {
       id: props.workspaceId,
       requestId: WORKSPACE_UPDATED_SUBSCRIPTION_REQUEST_ID,
     },
-    onSubscriptionData: (data) => {
-      if (
-        isEqual(
-          data.subscriptionData.data,
-          previousData?.subscriptionData?.data,
-        )
-      )
-        return;
+    onData: ({ data }) => {
+      if (isEqual(data.data, previousData?.data)) return;
 
-      if (data.subscriptionData.data)
-        setBySubscription(data.subscriptionData.data);
+      if (data.data) setBySubscription(data.data);
       previousData = data;
     },
     skip: skipSubscription,

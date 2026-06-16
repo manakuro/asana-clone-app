@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
-import { TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';
+import { TabPanel, Tabs } from '@/components/ui/Tabs';
 import {
   isWorkspacesCalendarURL,
   isWorkspacesMessageURL,
@@ -19,9 +19,9 @@ type Props = {
   loading: boolean;
 };
 
-const OVERVIEW_INDEX = 0 as const;
-const MESSAGES_INDEX = 1 as const;
-const CALENDAR_INDEX = 2 as const;
+const OVERVIEW_INDEX = 'overview' as const;
+const MESSAGES_INDEX = 'messages' as const;
+const CALENDAR_INDEX = 'calendar' as const;
 
 type Index =
   | typeof OVERVIEW_INDEX
@@ -65,7 +65,7 @@ const WrappedComponent = memo(function WrappedComponent() {
   }, [navigateToWorkspaceOverview, workspace.id]);
 
   const handleTabsChange = useCallback(
-    async (index: number) => {
+    async (index: string) => {
       switch (index as Index) {
         case OVERVIEW_INDEX: {
           setLoading();
@@ -90,11 +90,10 @@ const WrappedComponent = memo(function WrappedComponent() {
 
   return (
     <Tabs
-      index={tabIndex}
-      onChange={handleTabsChange}
+      value={tabIndex}
+      onValueChange={(e) => handleTabsChange(e.value)}
       flex={1}
       display="flex"
-      isLazy
     >
       <Flex
         data-testid="Workspaces"
@@ -107,13 +106,13 @@ const WrappedComponent = memo(function WrappedComponent() {
           <Header loading={loadingQuery} />
         </MainHeader>
         <Flex flex={1}>
-          <TabPanels>
-            <TabPanel>
+          <Flex flex={1}>
+            <TabPanel value="overview">
               <Overview />
             </TabPanel>
-            <TabPanel />
-            <TabPanel />
-          </TabPanels>
+            <TabPanel value="messages" />
+            <TabPanel value="calendar" />
+          </Flex>
         </Flex>
       </Flex>
     </Tabs>

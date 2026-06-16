@@ -1,16 +1,15 @@
 import { memo, useCallback, useMemo } from 'react';
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
 import { Button } from '@/components/ui/Button';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItemOption } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Text } from '@/components/ui/Text';
-import { useDisclosure } from '@/shared/chakra';
 import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,
@@ -39,7 +38,6 @@ export const IncompleteTasksMenu = memo(function IncompleteTasksMenu(
     isTaskListCompletedYesterday,
     isTaskListCompletedAll,
   } = useTaskListCompletedStatus();
-  const popoverDisclosure = useDisclosure();
 
   const handleChange = useCallback(
     (status: TaskListCompletedStatusCodeValue) => {
@@ -83,51 +81,34 @@ export const IncompleteTasksMenu = memo(function IncompleteTasksMenu(
   return (
     <MenuSelect<TaskListCompletedStatusCodeValue>
       onChange={handleChange}
-      placement="bottom-end"
+      positioning={{ placement: 'bottom-end' }}
+      listStatus={taskListStatus.taskListCompletedStatus}
     >
-      {({ listStatus, onChange, onClose }) => (
+      {({ listStatus, onChange }) => (
         <>
-          <MenuSelectButton
-            variant="ghost"
-            aria-label="Task list status"
-            as={Button}
-            leftIcon={<Icon icon="checkCircle" />}
-            size="xs"
-          >
-            {buttonText}
-          </MenuSelectButton>
-          <MenuSelectList
-            defaultValue={taskListStatus.taskListCompletedStatus.toString()}
-          >
-            <MenuItemOption value={TaskListCompletedStatusCode.Incomplete}>
-              <Flex onMouseEnter={popoverDisclosure.onClose}>
-                Incomplete tasks
+          <MenuSelectTrigger>
+            <Button variant="ghost" aria-label="Task list status" size="xs">
+              <Icon icon="checkCircle" />
+              {buttonText}
+            </Button>
+          </MenuSelectTrigger>
+          <MenuSelectList>
+            <Menu.RadioItem value={TaskListCompletedStatusCode.Incomplete}>
+              Incomplete tasks
+              <Menu.ItemIndicator />
+            </Menu.RadioItem>
+            <PopoverCompletedTasks listStatus={listStatus} onChange={onChange}>
+              <Flex flex={1} pl={8}>
+                <Text fontSize="sm" flex={1}>
+                  Completed tasks
+                </Text>
+                <Icon icon="chevronRight" />
               </Flex>
-            </MenuItemOption>
-            <MenuItemOption>
-              <Flex onMouseEnter={popoverDisclosure.onOpen}>
-                <PopoverCompletedTasks
-                  isOpen={popoverDisclosure.isOpen}
-                  placement="left-start"
-                  onClose={() => {
-                    popoverDisclosure.onClose();
-                    onClose();
-                  }}
-                  listStatus={listStatus}
-                  onChange={onChange}
-                >
-                  <Flex flex={1}>
-                    <Text fontSize="sm" flex={1}>
-                      Completed tasks
-                    </Text>
-                    <Icon icon="chevronRight" />
-                  </Flex>
-                </PopoverCompletedTasks>
-              </Flex>
-            </MenuItemOption>
-            <MenuItemOption value={TaskListCompletedStatusCode.All}>
-              <Flex onMouseEnter={popoverDisclosure.onClose}>All tasks</Flex>
-            </MenuItemOption>
+            </PopoverCompletedTasks>
+            <Menu.RadioItem value={TaskListCompletedStatusCode.All}>
+              All tasks
+              <Menu.ItemIndicator />
+            </Menu.RadioItem>
           </MenuSelectList>
         </>
       )}

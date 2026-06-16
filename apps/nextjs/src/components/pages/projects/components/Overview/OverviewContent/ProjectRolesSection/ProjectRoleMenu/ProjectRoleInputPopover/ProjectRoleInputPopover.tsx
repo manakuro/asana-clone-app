@@ -1,47 +1,40 @@
 import { type PropsWithChildren, useRef } from 'react';
 import { Flex } from '@/components/ui/Flex';
-import {
-  Popover,
-  type PopoverProps,
-  PopoverTrigger,
-} from '@/components/ui/Popover';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Popover, type PopoverRootProps } from '@/components/ui/Popover';
 import { Content } from './Content';
 
-type Props = PopoverProps & {
+type Props = PopoverRootProps & {
   onClose: () => void;
   projectId: string;
   projectTeammateId: string;
-  isOpen: boolean;
+  open: boolean;
 };
 
 export function ProjectRoleInputPopover(props: PropsWithChildren<Props>) {
-  const { children, isOpen, onClose, projectId, projectTeammateId, ...rest } =
+  const { children, open, onClose, projectId, projectTeammateId, ...rest } =
     props;
   const initialFocusRef = useRef<HTMLInputElement | null>(null);
 
   return (
-    <PortalManager zIndex={1500}>
-      <Popover
-        isLazy
-        placement="bottom-start"
-        isOpen={isOpen}
+    <Popover.Root
+      lazyMount
+      positioning={{ placement: 'bottom-start' }}
+      open={open}
+      initialFocusEl={() => initialFocusRef.current}
+      onOpenChange={(e) => {
+        if (!e.open) onClose();
+      }}
+      {...rest}
+    >
+      <Popover.Trigger asChild>
+        <Flex>{children}</Flex>
+      </Popover.Trigger>
+      <Content
+        onClose={onClose}
+        projectId={projectId}
+        projectTeammateId={projectTeammateId}
         initialFocusRef={initialFocusRef}
-        {...rest}
-      >
-        <PopoverTrigger>
-          <Flex>{children}</Flex>
-        </PopoverTrigger>
-        {isOpen && (
-          <Content
-            isOpen={isOpen}
-            onClose={onClose}
-            projectId={projectId}
-            projectTeammateId={projectTeammateId}
-            initialFocusRef={initialFocusRef}
-          />
-        )}
-      </Popover>
-    </PortalManager>
+      />
+    </Popover.Root>
   );
 }

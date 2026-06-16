@@ -17,8 +17,8 @@ export const FavoriteButton = memo(function FavoriteButton(props: Props) {
 
   return (
     <Tooltip
-      hasArrow
-      label="Starring adds favorites to your sidebar for easy access."
+      showArrow
+      content="Starring adds favorites to your sidebar for easy access."
       aria-label="Favorite project"
       size="md"
       withIcon
@@ -31,7 +31,7 @@ export const FavoriteButton = memo(function FavoriteButton(props: Props) {
         h={6}
         w={6}
         iconStyle={{
-          none: { color: 'text.muted' },
+          none: { color: 'fg.muted' },
         }}
         {...props}
       />

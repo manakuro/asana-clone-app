@@ -1,5 +1,6 @@
-import type { ErrorResponse } from '@apollo/client/link/error';
-import { useStandaloneToast } from '@/hooks';
+import { CombinedGraphQLErrors, ServerError } from '@apollo/client';
+import type { ErrorLink } from '@apollo/client/link/error';
+import { toaster } from '@/chakra-ui/ui/toaster';
 
 let unauthorized = false;
 
@@ -14,36 +15,30 @@ export const websocketErrorHandler = async (errors: Error[]) => {
 
 // For graphql
 export const graphqlErrorHandler = ({
-  graphQLErrors,
-  networkError,
-}: ErrorResponse) => {
-  console.log('graphQLErrors: ', graphQLErrors);
-  if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }) => {
+  error,
+}: ErrorLink.ErrorHandlerOptions) => {
+  if (CombinedGraphQLErrors.is(error)) {
+    error.errors.forEach(({ message, locations, path }) => {
       console.log(
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
       );
     });
+  }
 
-  if ((networkError as any)?.statusCode === 401) {
+  if (ServerError.is(error) && error?.statusCode === 401) {
     handleUnauthorizedError();
   }
 
-  if (networkError) console.log(`[Network error]: ${networkError}`);
+  if (ServerError.is(error)) console.log(`[Network error]: ${error.message}`);
 };
 
 const handleUnauthorizedError = () => {
   if (unauthorized) return;
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  // biome-ignore lint/correctness/useHookAtTopLevel: used for error handling
-  const { toast } = useStandaloneToast();
-
-  toast({
+  toaster.error({
     title: 'An error occurred.',
     description:
       'Unable to connect user account. Reloading will be done automatically.',
-    status: 'error',
     duration: 1000000,
   });
   setTimeout(() => {

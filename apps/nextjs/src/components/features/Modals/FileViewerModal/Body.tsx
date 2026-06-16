@@ -39,8 +39,8 @@ export const Body = memo(function Body() {
         ))}
       </CarouselBody>
       <CarouselThumbnail>
-        {taskFileIds.map((id) => (
-          <CarouselThumbnailItem key={id}>
+        {taskFileIds.map((id, index) => (
+          <CarouselThumbnailItem key={id} index={index}>
             <ThumbnailListItem taskFileId={id} />
           </CarouselThumbnailItem>
         ))}

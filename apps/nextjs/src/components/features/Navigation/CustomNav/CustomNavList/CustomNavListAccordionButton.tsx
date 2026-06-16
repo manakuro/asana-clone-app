@@ -1,14 +1,14 @@
 import type React from 'react';
 import {
-  AccordionButton,
-  type AccordionButtonProps,
+  Accordion,
+  type AccordionItemTriggerProps,
 } from '@/components/ui/Accordion';
 import { PADDING_X } from '../../Navigation';
 
-type Props = AccordionButtonProps;
+type Props = AccordionItemTriggerProps;
 
 export const CustomNavListAccordionButton: React.FCWithChildren<Props> = (
   props,
 ) => {
-  return <AccordionButton px={PADDING_X} py={4} {...props} />;
+  return <Accordion.ItemTrigger px={PADDING_X} py={4} {...props} />;
 };

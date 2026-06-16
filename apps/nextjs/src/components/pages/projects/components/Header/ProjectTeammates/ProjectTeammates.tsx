@@ -8,12 +8,12 @@ import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { useWorkspace } from '@/store/entities/workspace';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 export const ProjectTeammates = memo(function ProjectTeammates() {
   const { projectId } = useProjectsProjectId();
   const { teammateIds } = useTeammateIdsByProjectId(projectId);
-  const { isOpen, ref } = useTooltip();
+  const { open, ref } = useTooltip();
   const { onOpen, setProjectId, setMembersTab } = useShareProjectModal();
   const { workspace } = useWorkspace();
 
@@ -26,25 +26,24 @@ export const ProjectTeammates = memo(function ProjectTeammates() {
   return (
     <Flex alignItems="center">
       <Tooltip
-        isOpen={isOpen}
-        hasArrow
-        label={`Members of this ${workspace.name} team can find this project`}
+        open={open}
+        showArrow
+        content={`Members of this ${workspace.name} team can find this project`}
         aria-label="A share button description"
         size="md"
       >
         <AvatarGroup
           ref={ref as Ref<HTMLDivElement>}
           size="xs"
-          max={3}
           fontSize="xs"
           cursor="pointer"
-          spacing={-1}
+          spaceX={-1}
           opacity={0.8}
           transition={transitions.base()}
           _hover={{ opacity: 1 }}
           onClick={handleClick}
         >
-          {teammateIds.map((id) => (
+          {teammateIds.slice(0, 3).map((id) => (
             <TeammateAvatar teammateId={id} key={id} showProfile={false} />
           ))}
         </AvatarGroup>

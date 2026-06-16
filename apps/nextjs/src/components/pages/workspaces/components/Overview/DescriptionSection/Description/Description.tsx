@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/Editor';
 import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
 import {
@@ -19,13 +19,12 @@ export const Description = memo(function Description() {
 });
 
 const DescriptionHandler = memo(function DescriptionHandler() {
-  const { workspace, hasDescriptionUpdated } = useWorkspace();
+  const { workspace } = useWorkspace();
   const { setWorkspace } = useWorkspaceCommand();
   const initialValue = useMemo(
     () => stringifyDescription(workspace.description),
     [workspace.description],
   );
-  const [resetView, setResetView] = useState<number>(1);
 
   const handleChange = useCallback(
     async (val: string) => {
@@ -40,27 +39,15 @@ const DescriptionHandler = memo(function DescriptionHandler() {
     [setWorkspace, workspace.description],
   );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: used for resetting view
-  useEffect(() => {
-    setResetView((s) => s + 1);
-  }, [hasDescriptionUpdated]);
-
-  return (
-    <Component
-      onChange={handleChange}
-      initialValue={initialValue}
-      resetView={resetView}
-    />
-  );
+  return <Component onChange={handleChange} initialValue={initialValue} />;
 });
 
 type ComponentProps = {
   onChange: (val: string) => void;
   initialValue: string;
-  resetView: number;
 };
 const Component = memo<ComponentProps>(function Component(props) {
-  const { onChange, initialValue, resetView } = props;
+  const { onChange, initialValue } = props;
 
   const handleChange = useCallback(
     (val: string) => {
@@ -71,11 +58,7 @@ const Component = memo<ComponentProps>(function Component(props) {
 
   return (
     <Container>
-      <Editor
-        onChange={handleChange}
-        initialValue={initialValue}
-        resetView={resetView}
-      >
+      <Editor onChange={handleChange} initialValue={initialValue}>
         <EditorContent />
         <Placeholder />
       </Editor>

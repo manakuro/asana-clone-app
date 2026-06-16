@@ -1,4 +1,5 @@
 import type React from 'react';
+import { LightMode } from '@/chakra-ui/ui/color-mode';
 import type { Item } from '@/components/features/Navigation/Help/Body/GuideListItem';
 import { Flex } from '@/components/ui/Flex';
 import { Background } from './Background';
@@ -16,21 +17,22 @@ export function ListItemDetail(props: Props) {
   const { item, onToggle, nextItem, seeMoreComponent } = props;
 
   return (
-    <Flex
-      flexDirection="column"
-      borderRadius="md"
-      minH="340px"
-      color="gray.700"
-      bg="help.guide.bg"
-    >
-      <Header item={item} onToggle={onToggle} />
-      <Background src={item.src} />
-      <Detail
-        item={item}
-        onToggle={onToggle}
-        seeMoreComponent={seeMoreComponent}
-        nextItem={nextItem}
-      />
-    </Flex>
+    <LightMode>
+      <Flex
+        flexDirection="column"
+        borderRadius="md"
+        minH="340px"
+        bg="help.guide.bg"
+      >
+        <Header item={item} onToggle={onToggle} />
+        <Background src={item.src} />
+        <Detail
+          item={item}
+          onToggle={onToggle}
+          seeMoreComponent={seeMoreComponent}
+          nextItem={nextItem}
+        />
+      </Flex>
+    </LightMode>
   );
 }

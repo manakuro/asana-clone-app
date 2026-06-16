@@ -1,5 +1,6 @@
-import { useMemo } from 'react';
-import { useFavoriteProjectIdsQuery as useQuery } from '@/graphql/hooks';
+import { useQuery } from '@apollo/client/react';
+import { useEffect, useMemo } from 'react';
+import { FavoriteProjectIdsDocument } from '@/graphql/hooks';
 import { useFavoriteProjectIdsResponse } from '@/store/entities/favoriteProjectIds';
 import { useMe } from '@/store/entities/me';
 
@@ -8,15 +9,18 @@ export const useFavoriteProjectIdsQuery = () => {
   const skip = useMemo(() => !me.id, [me.id]);
   const { setFavoriteProjectIds } = useFavoriteProjectIdsResponse();
 
-  const queryResult = useQuery({
+  const queryResult = useQuery(FavoriteProjectIdsDocument, {
     variables: {
       teammateId: me.id,
     },
     skip,
-    onCompleted: (data) => {
-      setFavoriteProjectIds(data.favoriteProjectIds);
-    },
   });
+
+  useEffect(() => {
+    if (!queryResult.data) return;
+
+    setFavoriteProjectIds(queryResult.data.favoriteProjectIds);
+  }, [queryResult.data, setFavoriteProjectIds]);
 
   return {
     refetch: queryResult.refetch,

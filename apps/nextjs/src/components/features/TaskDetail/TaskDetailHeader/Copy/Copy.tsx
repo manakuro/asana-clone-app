@@ -10,18 +10,14 @@ type Props = {
 export const Copy = memo(function Copy(_props: Props) {
   return (
     <Tooltip
-      hasArrow
-      label="Copy task link"
+      showArrow
+      content="Copy task link"
       aria-label="Copy task link button description"
       size="sm"
     >
-      <IconButton
-        aria-label="Copy button"
-        icon={<Icon icon="copyAlt" color="text.muted" />}
-        variant="ghost"
-        size="sm"
-        isDisabled
-      />
+      <IconButton aria-label="Copy button" variant="ghost" size="sm" disabled>
+        <Icon icon="copyAlt" color="fg.muted" />
+      </IconButton>
     </Tooltip>
   );
 });

@@ -30,19 +30,16 @@ export const ListItem = memo(function ListItem(props: Props) {
   );
 
   return (
-    <NextLink
-      href={ROUTE_PROJECTS_LIST.href.pathnameObj(projectId)}
-      passHref
-      legacyBehavior
+    <Link
+      w="full"
+      p={2}
+      px={PADDING_X}
+      _hover={_hover}
+      {...(selected ? selectedStyle : {})}
+      asChild
     >
-      <Link
-        w="full"
-        p={2}
-        px={PADDING_X}
-        _hover={_hover}
-        {...(selected ? selectedStyle : {})}
-      >
-        <Flex alignItems="center">
+      <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(projectId)}>
+        <Flex alignItems="center" flex={1}>
           {isExpanded ? (
             <Flex alignItems="center" flex={1}>
               <ColorBox size="xs" ml={1} color={projectBaseColor.color.color} />
@@ -59,7 +56,7 @@ export const ListItem = memo(function ListItem(props: Props) {
           )}
           <ProjectMenu projectId={projectId} />
         </Flex>
-      </Link>
-    </NextLink>
+      </NextLink>
+    </Link>
   );
 });

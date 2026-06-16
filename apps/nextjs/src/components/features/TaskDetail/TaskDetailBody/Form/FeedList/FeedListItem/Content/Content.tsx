@@ -16,9 +16,9 @@ const Component = memo(function Component() {
   const { taskFileIds, hasText } = useTaskFeedListItemContext();
 
   return (
-    <Stack flexDirection="column" flex={1} spacing={4}>
+    <Stack flexDirection="column" flex={1} gap={4}>
       {hasText && <ContentText />}
-      <Stack spacing={4}>
+      <Stack gap={4}>
         {taskFileIds.map((id) => (
           <ContentAttachment taskFileId={id} key={id} />
         ))}

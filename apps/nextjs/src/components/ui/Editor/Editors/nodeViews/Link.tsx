@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { PropsWithChildren } from 'react';
 import {
   PopoverEditorLink,
   PopoverEditorLinkContent,
@@ -9,16 +9,22 @@ import { Icon } from '@/components/ui/Icon';
 import { Link as AtomsLink } from '@/components/ui/Link';
 import { useReactNodeView } from '../ReactNodeView';
 
-export function Link(props: React.PropsWithChildren) {
+export function Link(props: PropsWithChildren) {
   const context = useReactNodeView();
 
   return (
     <PopoverEditorLink>
       <PopoverEditorLinkTrigger>{props.children}</PopoverEditorLinkTrigger>
       <PopoverEditorLinkContent>
-        <Icon icon="linkExternal" color="text.muted" size="sm" />
+        <Icon icon="linkExternal" color="fg.muted" size="sm" />
         <PopoverEditorLinkText>
-          <AtomsLink href={context.node?.attrs.href} isExternal>
+          <AtomsLink
+            href={context.node?.attrs.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            color="cyan.400"
+            _hover={{ textDecoration: 'underline' }}
+          >
             {context.node?.attrs.href}
           </AtomsLink>
         </PopoverEditorLinkText>

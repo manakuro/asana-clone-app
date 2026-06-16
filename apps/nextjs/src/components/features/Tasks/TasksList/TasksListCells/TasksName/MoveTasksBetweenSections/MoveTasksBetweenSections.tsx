@@ -1,7 +1,8 @@
 import { memo, useCallback } from 'react';
-import { MenuSelect, MenuSelectButton } from '@/components/features/Menus';
+import { MenuSelect, MenuSelectTrigger } from '@/components/features/Menus';
 import { useTasksTask } from '@/components/features/Tasks/hooks';
 import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { MenuList } from './MenuList';
@@ -30,32 +31,29 @@ export const MoveTasksBetweenSections = memo(function MoveTasksBetweenSections(
       onChange={handleChange}
       onClosed={props.onClosed}
       onOpened={props.onOpened}
-      placement="bottom-end"
+      positioning={{ placement: 'bottom-end' }}
     >
-      {({ isOpen }) => (
+      {({ open }) => (
         <>
           <Tooltip
-            hasArrow
-            label="Move tasks between sections"
+            showArrow
+            content="Move tasks between sections"
             aria-label="Move tasks between sections"
             size="md"
             withIcon
-            display={isOpen ? 'none' : 'block'}
+            contentProps={{ display: open ? 'none' : 'block' }}
           >
-            <MenuSelectButton
-              spanStyle={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
-              <Icon
-                icon="moveVertical"
-                color="text.muted"
-                {...clickableHoverLightStyle}
-              />
-            </MenuSelectButton>
+            <MenuSelectTrigger>
+              <IconButton unstyled>
+                <Icon
+                  icon="moveVertical"
+                  color="fg.muted"
+                  {...clickableHoverLightStyle}
+                />
+              </IconButton>
+            </MenuSelectTrigger>
           </Tooltip>
-          {isOpen && <MenuList taskId={props.taskId} />}
+          {open && <MenuList taskId={props.taskId} />}
         </>
       )}
     </MenuSelect>

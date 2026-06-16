@@ -2,7 +2,7 @@ import { ComingSoonTooltip } from '@/components/features/Tooltips';
 import { DashedBox } from '@/components/ui/DashedBox';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 import { Container } from './Container';
 
 type Props = {

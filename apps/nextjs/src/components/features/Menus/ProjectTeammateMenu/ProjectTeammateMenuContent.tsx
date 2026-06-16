@@ -1,10 +1,7 @@
 import { memo } from 'react';
 import { useSearchMenuRef } from '@/components/features/Menus/SearchMenu';
 import { Flex } from '@/components/ui/Flex';
-import {
-  PopoverContent,
-  type PopoverContentProps,
-} from '@/components/ui/Popover';
+import { Popover, type PopoverContentProps } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
 
@@ -21,22 +18,26 @@ export const ProjectTeammateMenuContent = memo(
         return true;
       },
     });
-    const { ref: containerRef } = useSearchMenuRef();
+    const { ref: containerRef } = useSearchMenuRef<HTMLDivElement>();
 
     return (
       <Portal>
-        <PopoverContent
-          className="focus-visible"
-          w="450px"
-          maxH={56}
-          ref={containerRef}
-          overflowY="scroll"
-          {...rest}
-        >
-          <Flex flexDirection="column" ref={ref}>
-            {children}
-          </Flex>
-        </PopoverContent>
+        <Popover.Positioner>
+          <Popover.Content
+            className="focus-visible"
+            w="450px"
+            maxH={56}
+            ref={containerRef}
+            overflowY="scroll"
+            {...rest}
+          >
+            <Popover.Body>
+              <Flex flexDirection="column" ref={ref}>
+                {children}
+              </Flex>
+            </Popover.Body>
+          </Popover.Content>
+        </Popover.Positioner>
       </Portal>
     );
   },

@@ -6,8 +6,8 @@ import {
   SearchMenuRightContainer,
   useSearchMenu,
 } from '@/components/features/Menus/SearchMenu';
-import { Divider } from '@/components/ui/Divider';
 import { Icon } from '@/components/ui/Icon';
+import { Separator } from '@/components/ui/Separator';
 import { Text } from '@/components/ui/Text';
 import type { Tag } from '@/store/entities/tag';
 import { TagItem } from './TagItem';
@@ -55,7 +55,7 @@ export const Content = memo(function Content(props: Props) {
       {tags.map((t, i) => (
         <TagItem key={t.id} onClick={handleSelect} tag={t} index={i} />
       ))}
-      <Divider />
+      <Separator />
       <SearchMenuListItem index={tags.length}>
         <SearchMenuLeftContainer>
           <Icon icon="plus" color="primary" />

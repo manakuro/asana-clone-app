@@ -40,9 +40,10 @@ export const FavoriteIconButton = memo(function FavoriteIconButton(
       onClick={handleClick}
       aria-label={ariaLabel}
       role="button"
-      icon={<Icon {...favoriteIconStyle} size="xs" />}
       variant="ghost"
       {...rest}
-    />
+    >
+      <Icon {...favoriteIconStyle} size="xs" />
+    </IconButton>
   );
 });

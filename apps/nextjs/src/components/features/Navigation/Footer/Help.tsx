@@ -1,11 +1,11 @@
 import type React from 'react';
 import { useCallback } from 'react';
-import { Divider } from '@/components/features/Navigation/Divider';
 import { useHelp } from '@/components/features/Navigation/Help';
+import { Separator } from '@/components/features/Navigation/Separator';
 import { Icon } from '@/components/ui/Icon';
-import { ListItem } from '@/components/ui/List';
+import { List } from '@/components/ui/List';
 import { Text } from '@/components/ui/Text';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 import { PADDING_X } from '../Navigation';
 
 export const Help: React.FC = () => {
@@ -17,8 +17,8 @@ export const Help: React.FC = () => {
 
   return (
     <>
-      <Divider />
-      <ListItem
+      <Separator />
+      <List.Item
         display="flex"
         alignItems="center"
         px={PADDING_X}
@@ -31,8 +31,10 @@ export const Help: React.FC = () => {
         onClick={handleClick}
       >
         <Icon icon="help" color="primary" mr={PADDING_X} mt="-2px" />
-        <Text fontSize="sm">Help & getting started</Text>
-      </ListItem>
+        <Text fontSize="sm" color="fg">
+          Help & getting started
+        </Text>
+      </List.Item>
     </>
   );
 };

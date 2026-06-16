@@ -22,7 +22,7 @@ export const Project = memo(function Project(props: Props) {
         <ColorBox size="sm" color={projectBaseColor.color.color} />
       </LeftContainer>
       <RightContainer>
-        <Text fontSize="sm" w="80%" noOfLines={1}>
+        <Text fontSize="sm" w="80%" lineClamp={1}>
           {props.mention.title}
         </Text>
       </RightContainer>

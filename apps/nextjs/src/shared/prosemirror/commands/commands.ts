@@ -1,11 +1,15 @@
-import type { Command } from 'prosemirror-commands';
 import type {
   MarkType,
   NodeType,
   Node as ProsemirrorNode,
   ResolvedPos,
 } from 'prosemirror-model';
-import type { EditorState, NodeSelection, Selection } from 'prosemirror-state';
+import type {
+  Command,
+  EditorState,
+  NodeSelection,
+  Selection,
+} from 'prosemirror-state';
 import { findWrapping, liftTarget } from 'prosemirror-transform';
 
 export const insertNodeOfType =
@@ -44,38 +48,6 @@ export const isBlockActive =
 
     return to <= $from.end() && $from.parent.hasMarkup(type, attrs);
   };
-
-// export const removeFormatting: Command = (state, dispatch) => {
-//   const { from, to } = state.selection
-//
-//   const tr = state.tr
-//
-//   tr.removeMark(from, to, undefined).setStoredMarks()
-//
-//   if (!tr.docChanged) {
-//     return false
-//   }
-//
-//   if (dispatch) {
-//     dispatch(tr)
-//   }
-//
-//   return true
-// }
-
-// export const canInsert = (type: NodeType) => (state: EditorState): boolean => {
-//   const { $from } = state.selection
-//
-//   for (let d = $from.depth; d >= 0; d--) {
-//     const index = $from.index(d)
-//
-//     if ($from.node(d).canReplaceWith(index, index, type)) {
-//       return true
-//     }
-//   }
-//
-//   return false
-// }
 
 const parentWithNodeType = (
   $pos: ResolvedPos,
@@ -117,46 +89,6 @@ export const parentInGroupPos = (
     }
   }
 };
-
-//
-// export const changeBlockType = <S extends Schema>(
-//   nodeType: NodeType<S>,
-//   attrs?: Record<string, unknown>,
-//   marks?: Array<Mark<S>>
-// ) => (state: EditorState<S>, dispatch?: DispatchTransaction): boolean => {
-//   const { $from } = state.selection
-//
-//   const parentPos = parentBlockPos($from)
-//
-//   if (!parentPos) {
-//     return false
-//   }
-//
-//   if (dispatch) {
-//     dispatch(state.tr.setNodeMarkup(parentPos, nodeType, attrs, marks))
-//   }
-//
-//   return true
-// }
-//
-// export const canWrap = <S extends Schema>(
-//   nodeType: NodeType<S>,
-//   attrs?: Record<string, unknown>
-// ) => (state: EditorState<S>): boolean => {
-//   const { $from, $to } = state.selection
-//
-//   const range = $from.blockRange($to)
-//
-//   if (!range) {
-//     return false
-//   }
-//
-//   if (parentWithNodeType(range.$from, nodeType)) {
-//     return false // already wrapped
-//   }
-//
-//   return findWrapping(range, nodeType, attrs) !== null
-// }
 
 export const isWrapped =
   (nodeType: NodeType) =>

@@ -7,9 +7,9 @@ type Props = {
   openDelay?: number;
 };
 
-export const useTooltip = (props: Props = {}) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const { ref, isHovering } = useHover();
+export const useTooltip = <T extends HTMLElement>(props: Props = {}) => {
+  const { open, onOpen, onClose } = useDisclosure();
+  const { ref, isHovering } = useHover<T>();
   const { mountedRef } = useMountedRef();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const useTooltip = (props: Props = {}) => {
 
   return {
     ref,
-    isOpen,
+    open,
     onClose,
     onOpen,
   };

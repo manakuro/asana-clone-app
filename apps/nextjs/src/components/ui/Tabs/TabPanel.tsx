@@ -1,14 +1,10 @@
-import {
-  TabPanel as ChakraTabPanel,
-  type TabPanelProps as ChakraTabPanelProps,
-} from '@chakra-ui/react';
+import { Tabs, type TabsContentProps } from '@chakra-ui/react';
 import { forwardRef } from 'react';
 
-type Props = ChakraTabPanelProps;
-export type TabPanelProps = Props;
+type Props = TabsContentProps;
 
 export const TabPanel = forwardRef<HTMLDivElement, Props>(
   function TabPanel(props, ref) {
-    return <ChakraTabPanel p={0} h="full" {...props} ref={ref} />;
+    return <Tabs.Content p={0} h="full" {...props} ref={ref} />;
   },
 );

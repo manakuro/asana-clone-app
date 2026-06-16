@@ -1,13 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import {
-  Menu,
-  MenuButton,
-  MenuItemOption,
-  MenuList,
-  MenuOptionGroup,
-} from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 
 type Props = {
@@ -31,31 +25,34 @@ export const ProjectListMenu = memo(function ProjectListMenu(props: Props) {
   }, [props]);
 
   return (
-    <Menu placement="bottom-start" isLazy>
-      <MenuButton
-        as={IconButton}
-        aria-label="list icon"
-        icon={<Icon icon="table" color="text.muted" size="sm" />}
-        variant="ghost"
-      />
+    <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
+      <Menu.Trigger asChild>
+        <IconButton aria-label="list icon" variant="ghost">
+          <Icon icon="table" color="fg.muted" size="sm" />
+        </IconButton>
+      </Menu.Trigger>
       <Portal>
-        <MenuList>
-          <MenuOptionGroup value={props.listStatus} type="radio">
-            <MenuItemOption
-              onClick={handleClickViewAsTitles}
-              value={PROJECT_LIST_MENU_VIEW_AS_TILES}
-            >
-              View as tiles
-            </MenuItemOption>
-            <MenuItemOption
-              onClick={handleClickViewAsList}
-              value={PROJECT_LIST_MENU_VIEW_AS_LIST}
-            >
-              View as list
-            </MenuItemOption>
-          </MenuOptionGroup>
-        </MenuList>
+        <Menu.Positioner>
+          <Menu.Content>
+            <Menu.RadioItemGroup value={props.listStatus}>
+              <Menu.RadioItem
+                onClick={handleClickViewAsTitles}
+                value={PROJECT_LIST_MENU_VIEW_AS_TILES}
+              >
+                View as tiles
+                <Menu.ItemIndicator />
+              </Menu.RadioItem>
+              <Menu.RadioItem
+                onClick={handleClickViewAsList}
+                value={PROJECT_LIST_MENU_VIEW_AS_LIST}
+              >
+                View as list
+                <Menu.ItemIndicator />
+              </Menu.RadioItem>
+            </Menu.RadioItemGroup>
+          </Menu.Content>
+        </Menu.Positioner>
       </Portal>
-    </Menu>
+    </Menu.Root>
   );
 });

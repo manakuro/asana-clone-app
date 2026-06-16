@@ -6,7 +6,7 @@ import { useClickableHoverStyle } from '@/hooks';
 import { useCarouselContext } from './Provider';
 
 type Props = {
-  index?: number;
+  index: number;
 };
 
 export function CarouselThumbnailItem(props: PropsWithChildren<Props>) {
@@ -18,9 +18,7 @@ export function CarouselThumbnailItem(props: PropsWithChildren<Props>) {
   const { clickableHoverLightStyle } = useClickableHoverStyle();
 
   const handleClick = useCallback(() => {
-    if (props.index) {
-      setCurrentIndex(props.index);
-    }
+    setCurrentIndex(props.index);
   }, [props.index, setCurrentIndex]);
 
   return (
@@ -30,6 +28,7 @@ export function CarouselThumbnailItem(props: PropsWithChildren<Props>) {
       {...clickableHoverLightStyle}
       opacity={show ? 1 : 0.5}
       borderRadius="md"
+      cursor="pointer"
       onClick={handleClick}
     >
       <AspectRatio w={16} ratio={4 / 3}>

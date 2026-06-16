@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { ModalBody, ModalContent } from '@/components/ui/Modal';
+import { Dialog } from '@/components/ui/Dialog';
 import { useMenuStyle } from '@/hooks';
 import type { BaseEmoji } from '@/shared/emoji';
 import { EmojiItem } from './EmojiItem';
@@ -17,7 +17,7 @@ export function MenuList() {
   );
 
   return (
-    <ModalContent
+    <Dialog.Content
       position="fixed"
       top={y}
       left={x}
@@ -28,11 +28,11 @@ export function MenuList() {
       overflowY="scroll"
       ref={containerRef}
     >
-      <ModalBody w="full" px={0} {...menuStyles.list}>
+      <Dialog.Body w="full" px={0} css={menuStyles.content}>
         {emojis.map((e, i) => (
           <EmojiItem onClick={handleClick} emoji={e} key={e.id} index={i} />
         ))}
-      </ModalBody>
-    </ModalContent>
+      </Dialog.Body>
+    </Dialog.Content>
   );
 }

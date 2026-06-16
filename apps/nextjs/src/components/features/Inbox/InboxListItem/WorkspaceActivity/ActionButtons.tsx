@@ -14,7 +14,7 @@ export const ActionButtons = memo(function ActionButtons(_props: Props) {
 
   return (
     <Actions visibility={isHovering ? 'visible' : 'hidden'}>
-      <ArchiveButton isDisabled tooltipProps={{ label: 'Archive All' }} />
+      <ArchiveButton disabled tooltipProps={{ content: 'Archive All' }} />
     </Actions>
   );
 });

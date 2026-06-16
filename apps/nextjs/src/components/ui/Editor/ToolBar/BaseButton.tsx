@@ -12,7 +12,7 @@ type Props = {
   isActive?: ToolbarItem['isActive'];
   isEnable?: ToolbarItem['isEnable'];
   action: ToolbarItem['action'];
-  tooltip: Omit<TooltipProps, 'children'>;
+  tooltip: TooltipProps;
 } & Omit<IconButtonProps, 'isActive'>;
 
 export function BaseButton(props: Props) {
@@ -30,15 +30,15 @@ export function BaseButton(props: Props) {
   );
 
   return (
-    <Tooltip hasArrow {...tooltip} size="sm" withIcon openDelay={500}>
+    <Tooltip showArrow {...tooltip} size="sm" withIcon openDelay={500}>
       <IconButton
         variant="ghost"
         size="sm"
-        colorScheme="teal"
+        colorPalette="teal"
         onMouseDown={handleMouseDown}
         {...rest}
-        isActive={isActive?.(state) ?? false}
-        isDisabled={isEnable?.(state) === false}
+        data-active={isActive?.(state) ?? false}
+        disabled={isEnable?.(state) === false}
         _disabled={{
           cursor: 'pointer',
           opacity: 0.4,

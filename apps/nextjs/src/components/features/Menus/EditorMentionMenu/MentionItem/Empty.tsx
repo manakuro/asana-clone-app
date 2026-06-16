@@ -10,8 +10,8 @@ export const Empty = memo(function Empty(props: Props) {
   return (
     <Flex
       fontSize="sm"
-      {...styles}
-      color="text.muted"
+      css={styles}
+      color="fg.muted"
       pointerEvents="none"
       {...props}
     >

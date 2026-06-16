@@ -21,12 +21,13 @@ export const ProjectDetailIconButton = memo(function ProjectDetailIconButton(
   return (
     <IconButton
       aria-label="Project detail"
-      icon={<Icon icon="infoCircle" color="text.muted" size="xs" />}
       variant="ghost"
       {...rest}
       h={6}
       w={6}
       onClick={handleClick}
-    />
+    >
+      <Icon icon="infoCircle" color="fg.muted" size="xs" />
+    </IconButton>
   );
 });

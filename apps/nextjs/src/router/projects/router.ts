@@ -51,7 +51,7 @@ export const useRouterProjects = () => {
     [push],
   );
   const navigateToProjectsFiles = useCallback(
-    async (id: string, options?: Options) => {
+    (id: string, options?: Options) => {
       push(ROUTE_PROJECTS_FILES.href.pathname(id), options);
     },
     [push],

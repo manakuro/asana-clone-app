@@ -8,11 +8,11 @@ const openAtom = atom(false);
 
 const projectIdAtom = atomWithReset<string>('');
 
-const tabIndexAtom = atomWithReset<Index>(0);
+const tabIndexAtom = atomWithReset<Index>('share');
 
 export const useShareProjectModal = () => {
   const { resetInvitedTeammates } = useShareProjectModalInvitedTeammates();
-  const [isOpen, setIsOpen] = useAtom(openAtom);
+  const [open, setIsOpen] = useAtom(openAtom);
   const [projectId, setProjectId] = useAtom(projectIdAtom);
   const resetProjectId = useResetAtom(projectIdAtom);
 
@@ -39,7 +39,7 @@ export const useShareProjectModal = () => {
   }, [setTabIndex]);
 
   return {
-    isOpen,
+    open,
     onOpen,
     onClose,
     projectId,

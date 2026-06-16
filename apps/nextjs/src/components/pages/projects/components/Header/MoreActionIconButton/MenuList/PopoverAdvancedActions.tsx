@@ -1,36 +1,29 @@
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  type MenuProps,
-} from '@/components/ui/Menu';
-import { chakra } from '@/shared/chakra';
+import { Menu, type MenuRootProps } from '@/components/ui/Menu';
+import { Portal } from '@/components/ui/Portal';
 
 type Props = {
   onClose: () => void;
-} & MenuProps;
+} & MenuRootProps;
 
 export function PopoverAdvancedActions(props: Props) {
   return (
-    <Menu isLazy {...props}>
-      <MenuButton w="full" as={MenuButtonAs}>
+    <Menu.Root lazyMount {...props}>
+      <Menu.TriggerItem w="full" asChild>
         {props.children}
-      </MenuButton>
-      <MenuList pointerEvents="auto" mr="5px">
-        <MenuItem as="div">Make a subtask of</MenuItem>
-        <MenuItem as="div">Convert to a project</MenuItem>
-        <MenuItem as="div" command="⇧+Tab+D">
-          Merge duplicate tasks
-        </MenuItem>
-      </MenuList>
-    </Menu>
+      </Menu.TriggerItem>
+      <Portal></Portal>
+      <Menu.Positioner>
+        <Menu.Content pointerEvents="auto" mr="5px">
+          <Menu.Item value="Make a subtask of">Make a subtask of</Menu.Item>
+          <Menu.Item value="Convert to a project">
+            Convert to a project
+          </Menu.Item>
+          <Menu.Item value="Merge duplicate tasks">
+            Merge duplicate tasks
+            <Menu.ItemCommand>⇧+Tab+D</Menu.ItemCommand>
+          </Menu.Item>
+        </Menu.Content>
+      </Menu.Positioner>
+    </Menu.Root>
   );
 }
-
-// NOTE: Use custom component instead of `Box` because of styling issue with positioning menu item
-const MenuButtonAs = chakra('div', {
-  baseStyle: {
-    w: 'full',
-  },
-});

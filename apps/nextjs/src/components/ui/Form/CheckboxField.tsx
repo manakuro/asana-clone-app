@@ -18,6 +18,16 @@ export const CheckboxField = memo(function CheckboxField(props: Props) {
 });
 
 type ComponentProps = Props & FieldInputProps<string>;
-const Component = memo(function Component(props: ComponentProps) {
-  return <Checkbox size="sm" isChecked={props.checked} {...props} />;
+const Component = memo(function Component({
+  children,
+  checked,
+  ...rest
+}: ComponentProps) {
+  return (
+    <Checkbox.Root size="sm" checked={checked} cursor="pointer" {...rest}>
+      <Checkbox.HiddenInput />
+      <Checkbox.Control />
+      <Checkbox.Label>{children}</Checkbox.Label>
+    </Checkbox.Root>
+  );
 });

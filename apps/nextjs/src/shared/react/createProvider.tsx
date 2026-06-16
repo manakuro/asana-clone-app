@@ -30,18 +30,6 @@ export function createProvider<
     return context;
   };
 
-  const Provider = memo<PropsWithChildren<Props>>(
-    forwardRef(function Provider(props, ref) {
-      return (
-        <Component
-          {...(props as Props)}
-          ref={ref}
-          {...useValue(props as Props)}
-        />
-      );
-    }) as unknown as FC<PropsWithChildren<Props>>,
-  );
-
   const Component = memo<Props & ContextProps>(
     forwardRef<
       FC<Props & ContextProps>,
@@ -53,6 +41,18 @@ export function createProvider<
         </Context.Provider>
       );
     }) as unknown as FC<Props & ContextProps>,
+  );
+
+  const Provider = memo<PropsWithChildren<Props>>(
+    forwardRef(function Provider(props, ref) {
+      return (
+        <Component
+          {...(props as Props)}
+          ref={ref}
+          {...useValue(props as Props)}
+        />
+      );
+    }) as unknown as FC<PropsWithChildren<Props>>,
   );
 
   return {

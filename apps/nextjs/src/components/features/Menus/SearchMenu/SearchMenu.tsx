@@ -1,20 +1,20 @@
 import { memo } from 'react';
-import { Popover, type PopoverProps } from '@/components/ui/Popover';
-import { PortalManager } from '@/components/ui/PortalManager';
+import { Popover, type PopoverRootProps } from '@/components/ui/Popover';
 
-type Props = PopoverProps;
+type Props = PopoverRootProps;
 
-export const SearchMenu = memo(function SearchMenu(props: Props) {
+export const SearchMenu = memo(function SearchMenu({
+  children,
+  ...rest
+}: Props) {
   return (
-    <PortalManager zIndex={1500}>
-      <Popover
-        closeOnBlur={false}
-        autoFocus={false}
-        returnFocusOnClose={false}
-        isLazy
-        lazyBehavior="keepMounted"
-        {...props}
-      />
-    </PortalManager>
+    <Popover.Root
+      closeOnInteractOutside={false}
+      autoFocus={false}
+      lazyMount
+      {...rest}
+    >
+      {children}
+    </Popover.Root>
   );
 });

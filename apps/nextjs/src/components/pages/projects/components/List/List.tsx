@@ -46,10 +46,11 @@ const Component = memo(function Component() {
     isTaskDetailURL: isProjectsDetailURL,
     getTaskDetailId: getProjectsDetailId,
     fetchQuery: fetchTaskDetailQuery,
+    tabContentLoading,
   });
 
-  const backToPage = useCallback(async () => {
-    await navigateToProjectsList(projectId);
+  const backToPage = useCallback(() => {
+    navigateToProjectsList(projectId);
   }, [navigateToProjectsList, projectId]);
 
   if (tabContentLoading)

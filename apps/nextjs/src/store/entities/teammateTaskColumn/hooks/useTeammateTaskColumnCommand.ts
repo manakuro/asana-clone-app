@@ -1,8 +1,9 @@
+import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import {
-  useUpdateTeammateTaskColumnMutation,
-  useUpdateTeammateTaskColumnOrderMutation,
+  UpdateTeammateTaskColumnDocument,
+  UpdateTeammateTaskColumnOrderDocument,
 } from '@/graphql/hooks';
 import { teammateTaskColumnState, teammateTaskColumnsState } from '../atom';
 import type { TeammateTaskColumn } from '../type';
@@ -10,10 +11,12 @@ import { useUpsert } from './useUpsert';
 
 export const useTeammateTaskColumnCommand = () => {
   const { upsert } = useUpsert();
-  const [updateTeammateTaskColumnMutation] =
-    useUpdateTeammateTaskColumnMutation();
-  const [updateTeammateTaskColumnOrderMutation] =
-    useUpdateTeammateTaskColumnOrderMutation();
+  const [updateTeammateTaskColumnMutation] = useMutation(
+    UpdateTeammateTaskColumnDocument,
+  );
+  const [updateTeammateTaskColumnOrderMutation] = useMutation(
+    UpdateTeammateTaskColumnOrderDocument,
+  );
 
   const setTeammateTaskColumn = useAtomCallback(
     useCallback(
@@ -39,7 +42,7 @@ export const useTeammateTaskColumnCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {
@@ -55,7 +58,10 @@ export const useTeammateTaskColumnCommand = () => {
     useCallback(
       async (get, _set, ids: string[]) => {
         const prev = get(teammateTaskColumnsState);
-        const prevIds = prev.map((p) => p.id);
+        const prevIds = prev
+          .filter((t) => !t.disabled)
+          .toSorted((a, b) => (a.order > b.order ? 1 : -1))
+          .map((p) => p.id);
 
         if (JSON.stringify(prevIds) === JSON.stringify(ids)) return;
 
@@ -83,7 +89,7 @@ export const useTeammateTaskColumnCommand = () => {
               },
             },
           });
-          if (res.errors) {
+          if (res.error) {
             restore();
           }
         } catch (e) {

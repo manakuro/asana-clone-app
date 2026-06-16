@@ -1,6 +1,7 @@
+import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { useMentionLazyQuery as useQuery } from '@/graphql/hooks';
+import { MentionDocument } from '@/graphql/hooks';
 import type { Mention } from '@/store/entities/mention';
 import { useWorkspace } from '@/store/entities/workspace';
 
@@ -14,20 +15,15 @@ type Props = {
 export const useMentionsQuery = () => {
   const [loading, setLoading] = useAtom(loadingAtom);
   const [mentions, setMentions] = useAtom(mentionsAtom);
-  const [refetchQuery] = useQuery({
+  const [refetchQuery] = useLazyQuery(MentionDocument, {
     fetchPolicy: 'no-cache',
-    onCompleted: (data) => {
-      if (!data.mentions) return;
-
-      setMentions(data.mentions as Mention[]);
-    },
   });
   const { workspace } = useWorkspace();
 
   const refetch = useCallback(
     async (props: Props) => {
       setLoading(true);
-      await refetchQuery({
+      const result = await refetchQuery({
         variables: {
           where: {
             workspaceId: workspace.id,
@@ -36,9 +32,12 @@ export const useMentionsQuery = () => {
           },
         },
       });
+      if (result.data?.mentions) {
+        setMentions(result.data.mentions as Mention[]);
+      }
       setLoading(false);
     },
-    [refetchQuery, setLoading, workspace.id],
+    [refetchQuery, setLoading, workspace.id, setMentions],
   );
 
   return {

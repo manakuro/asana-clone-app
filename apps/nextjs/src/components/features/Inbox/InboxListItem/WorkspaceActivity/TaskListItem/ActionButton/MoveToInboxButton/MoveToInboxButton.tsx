@@ -9,14 +9,15 @@ export const MoveToInboxButton = memo(function MoveToInboxButton(props: Props) {
   const handleClick = useCallback(() => {}, []);
 
   return (
-    <Tooltip hasArrow label="Move to Inbox" aria-label="Move to Inbox">
+    <Tooltip showArrow content="Move to Inbox" aria-label="Move to Inbox">
       <IconButton
         aria-label="Move to Inbox"
-        icon={<Icon icon="arrowLeftAlt" color="text.muted" size="xs" />}
         variant="ghost"
         {...props}
         onClick={handleClick}
-      />
+      >
+        <Icon icon="arrowLeftAlt" color="fg.muted" size="xs" />
+      </IconButton>
     </Tooltip>
   );
 });

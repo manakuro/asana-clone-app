@@ -1,7 +1,8 @@
+import type { ListItemProps } from '@chakra-ui/react';
 import { memo, useMemo } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import { Link, type LinkProps } from '@/components/ui/Link';
-import { ListItem, type ListItemProps } from '@/components/ui/List';
+import { List } from '@/components/ui/List';
 import { NextLink } from '@/components/ui/NextLink';
 import { Text } from '@/components/ui/Text';
 import { useLinkHoverStyle } from '@/hooks';
@@ -12,13 +13,12 @@ import type { NavListItem as TNavListItem } from './type';
 type Props = {
   item: TNavListItem;
   light?: boolean;
-  linkStyle?: LinkProps;
+  linkProps?: LinkProps;
   disabled?: boolean;
-} & ListItemProps;
+};
 
 export const NavListItem = memo(function NavListItem(props: Props) {
-  const { item, linkStyle, light: _, disabled, ...rest } = props;
-  const { _hover, selectedStyle } = useLinkHoverStyle();
+  const { item, disabled } = props;
   const listItemStyle = useMemo(
     (): ListItemProps => ({
       ...(disabled
@@ -29,33 +29,48 @@ export const NavListItem = memo(function NavListItem(props: Props) {
   );
 
   return (
-    <ListItem {...listItemStyle} {...rest}>
-      <WithNextLink {...props}>
-        <Link
-          href={item.href}
-          isExternal={item.isExternal ?? false}
-          display="flex"
-          alignItems="center"
-          px={PADDING_X}
-          py={2}
-          _hover={_hover}
-          {...(item.isCurrentRoute?.() ? selectedStyle : {})}
-          {...linkStyle}
+    <List.Item display="flex" flexDirection="column" {...listItemStyle}>
+      {props.item.isExternal ? (
+        <NavListLink
+          item={props.item}
+          linkProps={props.linkProps}
+          target="_blank"
         >
           <Icon icon={item.icon} mr={PADDING_X} mt="-2px" />
-          <Text fontSize="sm">{item.name}</Text>
-        </Link>
-      </WithNextLink>
-    </ListItem>
+          <Text fontSize="sm" color="fg">
+            {item.name}
+          </Text>
+        </NavListLink>
+      ) : (
+        <NavListLink item={props.item} linkProps={props.linkProps} asChild>
+          <NextLink href={props.item.href as StaticRoutes}>
+            <Icon icon={item.icon} mr={PADDING_X} mt="-2px" />
+            <Text fontSize="sm" color="fg">
+              {item.name}
+            </Text>
+          </NextLink>
+        </NavListLink>
+      )}
+    </List.Item>
   );
 });
 
-function WithNextLink(props: Props) {
-  return props.item.isExternal ? (
-    props.children
-  ) : (
-    <NextLink href={props.item.href as StaticRoutes} passHref legacyBehavior>
-      {props.children}
-    </NextLink>
+function NavListLink(
+  props: LinkProps & { item: TNavListItem; linkProps?: LinkProps },
+) {
+  const { item, linkProps, ...rest } = props;
+  const { _hover, selectedStyle } = useLinkHoverStyle();
+  return (
+    <Link
+      display="flex"
+      flex={1}
+      alignItems="center"
+      px={PADDING_X}
+      py={2}
+      _hover={_hover}
+      {...(item.isCurrentRoute?.() ? selectedStyle : {})}
+      {...linkProps}
+      {...rest}
+    />
   );
 }

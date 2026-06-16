@@ -1,7 +1,7 @@
+import { useLazyQuery } from '@apollo/client/react';
 import { useCallback, useState } from 'react';
-import { useProjectsTaskDetailPageLazyQuery as useQuery } from '@/graphql/hooks';
+import { ProjectsTaskDetailPageDocument } from '@/graphql/hooks';
 import type { ProjectsTaskDetailPageQueryVariables as Variables } from '@/graphql/types/app/projects';
-import { useMountedRef } from '@/hooks';
 import {
   type ProjectTaskResponse,
   useProjectTaskResponse,
@@ -18,22 +18,10 @@ export const useProjectsTaskDetailPageQuery =
     const [loading, setLoading] = useState(true);
     const { setProjectTask } = useProjectTaskResponse();
     const { setTasksFromResponse } = useTasksResponse();
-    const { mountedRef } = useMountedRef();
 
-    const [refetchQuery] = useQuery({
+    const [refetchQuery] = useLazyQuery(ProjectsTaskDetailPageDocument, {
       notifyOnNetworkStatusChange: true,
       fetchPolicy: 'no-cache',
-      onCompleted: (data) => {
-        if (!mountedRef.current) return;
-
-        if (data.projectTask)
-          setProjectTask([data.projectTask as ProjectTaskResponse], {
-            includeTask: false,
-          });
-        if (data.task) setTasksFromResponse([data.task]);
-
-        endLoading();
-      },
     });
 
     const startLoading = useCallback(() => {
@@ -47,13 +35,29 @@ export const useProjectsTaskDetailPageQuery =
     const refetch = useCallback(
       async (variables: Variables) => {
         startLoading();
-        setTimeout(async () => {
-          await refetchQuery({
-            variables: variables,
-          });
+        const result = await refetchQuery({
+          variables: variables,
         });
+        if (result.data?.projectTask) {
+          setProjectTask(
+            [result.data.projectTask as unknown as ProjectTaskResponse],
+            {
+              includeTask: false,
+            },
+          );
+        }
+        if (result.data?.task) {
+          setTasksFromResponse([result.data.task]);
+        }
+        endLoading();
       },
-      [refetchQuery, startLoading],
+      [
+        refetchQuery,
+        startLoading,
+        endLoading,
+        setProjectTask,
+        setTasksFromResponse,
+      ],
     );
 
     return {

@@ -12,7 +12,7 @@ export const useTaskDetailDrawer = () => {
   const { resetScrollId } = useTaskDetailResetScrollId();
   const { taskId } = useTaskDetail();
   const { resetId } = useTaskDetailResetId();
-  const [isOpen, setIsOpen] = useAtom(isOpenAtom);
+  const [open, setIsOpen] = useAtom(isOpenAtom);
 
   const onClose = useCallback(() => {
     setIsOpen(false);
@@ -29,7 +29,7 @@ export const useTaskDetailDrawer = () => {
   );
 
   return {
-    isOpen,
+    open,
     onOpen,
     onClose,
     taskId,

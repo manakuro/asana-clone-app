@@ -1,11 +1,11 @@
 'use client';
 
 import { useParams, usePathname } from 'next/navigation';
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, startTransition, useCallback, useEffect } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
-import { TabPanel, TabPanels, Tabs } from '@/components/ui/Tabs';
+import { TabPanel, Tabs } from '@/components/ui/Tabs';
 import {
   isMyTasksBoardURL,
   isMyTasksCalendarURL,
@@ -34,10 +34,10 @@ type Props = {
   fetchTaskDetailQuery: (variables: { taskId: string }) => Promise<void>;
 };
 
-const TASKS_INDEX = 0 as const;
-const BOARD_INDEX = 1 as const;
-const CALENDAR_INDEX = 2 as const;
-const FILES_INDEX = 3 as const;
+const TASKS_INDEX = 'list' as const;
+const BOARD_INDEX = 'board' as const;
+const CALENDAR_INDEX = 'calendar' as const;
+const FILES_INDEX = 'files' as const;
 type Index =
   | typeof TASKS_INDEX
   | typeof BOARD_INDEX
@@ -102,43 +102,48 @@ const WrappedComponent = memo(function WrappedComponent() {
     }),
   );
 
-  const setLoading = useCallback(() => {
-    startTabContentLoading();
-    setTimeout(() => {
-      endTabContentLoading();
-    }, 200);
-  }, [startTabContentLoading, endTabContentLoading]);
-
   const handleTabsChange = useCallback(
-    async (index: number) => {
+    async (index: string) => {
       switch (index as Index) {
         case TASKS_INDEX: {
-          setLoading();
+          startTabContentLoading();
           setTabIndex(TASKS_INDEX);
-          setTabStatus('List');
-          navigateToMyTasksList();
+          startTransition(() => {
+            setTabStatus('List');
+            navigateToMyTasksList();
+            endTabContentLoading();
+          });
           break;
         }
         case BOARD_INDEX: {
           if (isSorted('project')) sortBy(TaskListSortStatusCode.None);
-          setLoading();
+          startTabContentLoading();
           setTabIndex(BOARD_INDEX);
-          setTabStatus('Board');
-          navigateToMyTasksBoard();
+          startTransition(() => {
+            setTabStatus('Board');
+            navigateToMyTasksBoard();
+            endTabContentLoading();
+          });
           break;
         }
         case CALENDAR_INDEX: {
-          setLoading();
+          startTabContentLoading();
           setTabIndex(CALENDAR_INDEX);
-          setTabStatus('Calendar');
-          navigateToMyTasksCalendar();
+          startTransition(() => {
+            setTabStatus('Calendar');
+            navigateToMyTasksCalendar();
+            endTabContentLoading();
+          });
           break;
         }
         case FILES_INDEX: {
-          setLoading();
+          startTabContentLoading();
           setTabIndex(FILES_INDEX);
-          setTabStatus('Files');
-          await navigateToMyTasksFiles();
+          startTransition(() => {
+            setTabStatus('Files');
+            navigateToMyTasksFiles();
+            endTabContentLoading();
+          });
           break;
         }
       }
@@ -151,7 +156,8 @@ const WrappedComponent = memo(function WrappedComponent() {
       navigateToMyTasksFiles,
       sortBy,
       setTabStatus,
-      setLoading,
+      startTabContentLoading,
+      endTabContentLoading,
     ],
   );
 
@@ -197,17 +203,16 @@ const WrappedComponent = memo(function WrappedComponent() {
       setTabStatus('Files');
       return;
     }
-    // Force update tab status based on URL
-    /* eslint react-hooks/exhaustive-deps: off */
   }, []);
 
   return (
     <Tabs
-      index={tabIndex}
-      onChange={handleTabsChange}
+      value={tabIndex}
+      onValueChange={(e) => handleTabsChange(e.value)}
       flex={1}
       display="flex"
-      isLazy
+      lazyMount
+      unmountOnExit
     >
       <Flex data-testid="MyTasks" flex={1} flexDirection="column">
         <Head title="My Tasks" />
@@ -215,20 +220,20 @@ const WrappedComponent = memo(function WrappedComponent() {
           <Header loading={queryLoading} />
         </MainHeader>
         <Flex flex={1}>
-          <TabPanels>
-            <TabPanel>
+          <Flex flex={1}>
+            <TabPanel value="list">
               <List />
             </TabPanel>
-            <TabPanel>
+            <TabPanel value="board">
               <Board />
             </TabPanel>
-            <TabPanel>
+            <TabPanel value="calendar">
               <Calendar />
             </TabPanel>
-            <TabPanel>
+            <TabPanel value="files">
               <Files />
             </TabPanel>
-          </TabPanels>
+          </Flex>
         </Flex>
       </Flex>
     </Tabs>

@@ -59,7 +59,7 @@ export const TasksNameField = memo(function TasksNameField(props: Props) {
         fontSize="sm"
         placeholder="Write a task name"
         autoFocus
-        variant="unstyled"
+        unstyled
       />
     </Flex>
   );

@@ -1,25 +1,21 @@
 import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useEditorEmojiMenu } from '@/components/features/Menus/EditorEmojiMenu';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import type { BaseEmoji } from '@/shared/emoji';
 
-type Props = Override<
-  FlexProps,
-  {
-    onClick: (val: BaseEmoji) => void;
-  }
-> & {
+type Props = {
+  onClick: (val: BaseEmoji) => void;
   emoji: BaseEmoji;
   index: number;
 };
 
 export const EmojiItem = memo(function EmojiItem(props: Props) {
-  const { onClick, ...rest } = props;
+  const { onClick } = props;
   const styles = useMenuStyle().item;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const { selectedIndex, setSelectedIndex } = useEditorEmojiMenu();
 
   styles._hover = undefined;
@@ -40,15 +36,14 @@ export const EmojiItem = memo(function EmojiItem(props: Props) {
   return (
     <Flex
       ref={ref}
-      {...styles}
-      bg={selected ? styles._focus.bg : 'transparent'}
+      css={styles}
+      bg={selected ? styles._focus?.bg : 'transparent'}
       fontSize="sm"
       alignItems="center"
       onClick={handleClick}
-      {...rest}
     >
       <Text fontSize="sm">{props.emoji.native}</Text>
-      <Text ml={2} fontSize="sm" color="text.muted">
+      <Text ml={2} fontSize="sm" color="fg.muted">
         {props.emoji.colons}
       </Text>
     </Flex>

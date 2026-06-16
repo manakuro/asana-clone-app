@@ -34,12 +34,7 @@ export const TasksCalendarListItem = memo(function TasksCalendarListItem(
       {...rest}
     >
       <Flex>
-        <Text
-          fontSize="xs"
-          fontWeight="medium"
-          color="text.muted"
-          {...textStyle}
-        >
+        <Text fontSize="xs" fontWeight="medium" color="fg.muted" {...textStyle}>
           {dateText}
         </Text>
         <Info dateString={dateString} />

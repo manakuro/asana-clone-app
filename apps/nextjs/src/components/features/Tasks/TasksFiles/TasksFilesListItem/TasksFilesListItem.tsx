@@ -2,11 +2,11 @@ import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useFileViewerModal } from '@/components/features/Modals';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
-import { Divider } from '@/components/ui/Divider';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Image } from '@/components/ui/Image';
 import { Link } from '@/components/ui/Link';
+import { Separator } from '@/components/ui/Separator';
 import { Text } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
 import { FileTypeCode } from '@/store/entities/fileType';
@@ -16,7 +16,7 @@ import {
   useTaskFile,
   useTaskFileIdsByTaskId,
 } from '@/store/entities/taskFile';
-import { transitions } from '@/styles';
+import { transitions } from '@/styles/transitions';
 
 type Props = {
   taskFileId: string;
@@ -26,7 +26,7 @@ export const TasksFilesListItem = memo(function TasksFilesListItem(
   props: Props,
 ) {
   const { taskFileId, ...rest } = props;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const { taskFile } = useTaskFile(taskFileId);
   const { task } = useTask(taskFile.taskId);
   const { taskFileIds } = useTaskFileIdsByTaskId(taskFile.taskId);
@@ -37,7 +37,7 @@ export const TasksFilesListItem = memo(function TasksFilesListItem(
   const handleOpenTaskDetail = useCallback(
     async (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.stopPropagation();
-      await navigateToTaskDetail(task.id);
+      navigateToTaskDetail(task.id);
     },
     [navigateToTaskDetail, task.id],
   );
@@ -55,7 +55,8 @@ export const TasksFilesListItem = memo(function TasksFilesListItem(
       ref={ref}
       border="1px"
       borderRadius="md"
-      borderColor={isHovering ? 'gray.400' : 'gray.200'}
+      borderColor={isHovering ? 'gray.focusRing' : 'gray.muted'}
+      borderStyle="solid"
       transition={transitions.base()}
       flexDirection="column"
       cursor="pointer"
@@ -67,15 +68,15 @@ export const TasksFilesListItem = memo(function TasksFilesListItem(
       {...rest}
     >
       <Flex p={4} alignItems="center">
-        <Icon icon={icon} color="text.muted" size="2xl" />
+        <Icon icon={icon} color="fg.muted" size="2xl" />
         <Flex ml={4} flexDirection="column" flex={1} minW={0}>
-          <Text fontSize="sm" noOfLines={1}>
+          <Text fontSize="sm" lineClamp={1}>
             {taskFile.name}
           </Text>
           <Flex>
             <Link
               fontSize="xs"
-              color="text.muted"
+              color="fg.muted"
               hover
               onClick={handleOpenTaskDetail}
             >
@@ -86,7 +87,7 @@ export const TasksFilesListItem = memo(function TasksFilesListItem(
       </Flex>
       {taskFile.fileType.typeCode === FileTypeCode.Image && (
         <>
-          <Divider />
+          <Separator />
           <Image
             width="auto"
             maxW="100%"

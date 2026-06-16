@@ -1,32 +1,29 @@
 import type React from 'react';
 import { useCallback } from 'react';
+import { Menu } from '@/components/ui/Menu';
 import { useCopyProjectLink } from '@/hooks/pages/projects';
-import { MenuItem } from './MenuItem';
 
 type Props = {
   projectId: string;
-  onClose: () => void;
-  onMouseEnter: () => void;
 };
 
 export function CopyProjectLink(props: Props) {
-  const { projectId, onClose, onMouseEnter } = props;
+  const { projectId } = props;
   const { copyProjectLink } = useCopyProjectLink({ projectId });
 
   const handleClick = useCallback(
-    async (e: React.MouseEvent<HTMLButtonElement>) => {
+    async (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
       e.preventDefault();
-      onClose();
 
       await copyProjectLink();
     },
-    [copyProjectLink, onClose],
+    [copyProjectLink],
   );
 
   return (
-    <MenuItem onMouseEnter={onMouseEnter} onClick={handleClick}>
+    <Menu.Item value="Copy Project Link" onClick={handleClick}>
       Copy Project Link
-    </MenuItem>
+    </Menu.Item>
   );
 }

@@ -1,4 +1,5 @@
-import { Node as ProsemirrorNode, type Schema } from 'prosemirror-model';
+import type { Schema } from 'prosemirror-model';
+import { Node as ProsemirrorNode } from 'prosemirror-model';
 
 import type { ProsemirrorTransformer } from './types';
 

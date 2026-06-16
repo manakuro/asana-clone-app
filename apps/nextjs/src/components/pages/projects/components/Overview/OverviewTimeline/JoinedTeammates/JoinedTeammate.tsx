@@ -39,7 +39,7 @@ export const JoinedTeammate = memo(function JoinedTeammate(props: Props) {
   return (
     <Flex position="relative">
       <Flex flexDirection="column">
-        <Icon icon="group" color="text.muted" size="xl" />
+        <Icon icon="group" color="fg.muted" size="xl" />
         <Flex
           flex={1}
           minW="1px"
@@ -56,7 +56,7 @@ export const JoinedTeammate = memo(function JoinedTeammate(props: Props) {
         <Heading as="h5" size="sm" {...linkStyle} onClick={handleClick}>
           {name} joined
         </Heading>
-        <Text fontSize="xs" color="text.muted">
+        <Text fontSize="xs" color="fg.muted">
           {formatCreatedAt(projectTeammate.createdAt)}
         </Text>
         <TeammateAvatar mt={2} teammateId={teammate.id} size="xs" />

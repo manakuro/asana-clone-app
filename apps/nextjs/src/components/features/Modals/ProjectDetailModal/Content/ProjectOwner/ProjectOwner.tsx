@@ -24,7 +24,7 @@ const focusedStyle: ButtonProps = {
 
 export const ProjectOwner = memo(function ProjectOwner(props: Props) {
   const { projectId } = props;
-  const { ref, isHovering } = useHover();
+  const { ref, isHovering } = useHover<HTMLButtonElement>();
   const [focused, setFocused] = useState(false);
   const { projectTeammate } = useOwnerTeammateIdsByProjectId(projectId);
   const { teammate } = useTeammate(projectTeammate.teammateId);
@@ -34,7 +34,7 @@ export const ProjectOwner = memo(function ProjectOwner(props: Props) {
     [hasOwner, teammate.name],
   );
   const nameStyle = useMemo<TextProps>(
-    () => (hasOwner ? { color: 'text.base' } : { color: 'text.muted' }),
+    () => (hasOwner ? { color: 'fg' } : { color: 'fg.muted' }),
     [hasOwner],
   );
 

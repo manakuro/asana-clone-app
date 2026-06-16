@@ -1,13 +1,15 @@
-import type React from 'react';
-import { Popover } from '@/components/ui/Popover';
-import { PortalManager } from '@/components/ui/PortalManager';
+import type { PropsWithChildren } from 'react';
 
-export const PopoverEditorLink: React.FCWithChildren = (props) => {
+import { HoverCard } from '@/components/ui/Popover';
+
+export function PopoverEditorLink(props: PropsWithChildren) {
   return (
-    <PortalManager zIndex={1500}>
-      <Popover trigger="hover" isLazy placement="bottom-start" openDelay={500}>
-        {props.children}
-      </Popover>
-    </PortalManager>
+    <HoverCard.Root
+      lazyMount
+      positioning={{ placement: 'bottom-start' }}
+      openDelay={500}
+    >
+      {props.children}
+    </HoverCard.Root>
   );
-};
+}

@@ -1,18 +1,13 @@
 import React from 'react';
 import { Input, type InputProps } from '@/components/ui/Input';
-import {
-  Menu,
-  MenuButton,
-  type MenuButtonProps,
-  MenuList,
-} from '@/components/ui/Menu';
+import { Menu, type MenuTriggerProps } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 
 type Props = {
   value: string;
   onChange: (val: string) => void;
   size: InputProps['size'];
-} & Omit<MenuButtonProps, 'onChange'>;
+} & Omit<MenuTriggerProps, 'onChange'>;
 
 export function Select(props: React.PropsWithChildren<Props>) {
   const { value, onChange, children, size, ...rest } = props;
@@ -25,19 +20,26 @@ export function Select(props: React.PropsWithChildren<Props>) {
 
     return React.cloneElement(child, {
       onChange,
-    });
+    } as Partial<Props>);
   });
 
   return (
-    <Menu placement="bottom-start" isLazy>
-      <MenuButton {...rest}>
+    <Menu.Root positioning={{ placement: 'bottom-start' }} lazyMount>
+      <Menu.Trigger asChild {...rest}>
         <Input size={size} value={value} onChange={() => {}} />
-      </MenuButton>
+      </Menu.Trigger>
       <Portal>
-        <MenuList zIndex="popover" minW={28} maxH={60} overflowY="scroll">
-          {options}
-        </MenuList>
+        <Menu.Positioner>
+          <Menu.RadioItemGroup
+            zIndex="popover"
+            minW={28}
+            maxH={60}
+            overflowY="scroll"
+          >
+            {options}
+          </Menu.RadioItemGroup>
+        </Menu.Positioner>
       </Portal>
-    </Menu>
+    </Menu.Root>
   );
 }

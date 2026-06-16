@@ -85,7 +85,7 @@ export const SortMenu = memo(function SortMenu(props: Props) {
       items={items}
       text={text}
       onChange={handleChange}
-      defaultValue={
+      value={
         taskListStatus.taskListSortStatus.statusCode ||
         TaskListSortStatusCode.None
       }

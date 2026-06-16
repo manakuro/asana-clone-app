@@ -28,7 +28,7 @@ export const EditorPlaceholder = memo(function EditorPlaceholder(props: Props) {
       alignItems="center"
       {...rest}
     >
-      <Text fontSize="sm" color="text.muted">
+      <Text fontSize="sm" color="fg.muted">
         {children}
       </Text>
     </Flex>

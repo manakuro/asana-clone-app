@@ -4,21 +4,13 @@ import { useHover } from '@/hooks/useHover';
 import { createProvider } from '@/shared/react/createProvider';
 import { type TaskFile, useTaskFile } from '@/store/entities/taskFile';
 
-type ContextProps = {
-  ref: React.MutableRefObject<HTMLElement | null>;
-  isHovering: boolean;
-  thumbnailMenuOpened: boolean;
-  setThumbnailMenuOpened: React.Dispatch<React.SetStateAction<boolean>>;
-  onDelete: (e: React.MouseEvent<HTMLElement>) => void;
-};
-
 type Props = {
   taskFileId: string;
   onDelete: (taskFile: TaskFile) => void;
 };
 
-const useValue = (props: Props): ContextProps => {
-  const { ref, isHovering } = useHover();
+const useValue = (props: Props) => {
+  const { ref, isHovering } = useHover<HTMLDivElement>();
   const [thumbnailMenuOpened, setThumbnailMenuOpened] =
     useState<boolean>(false);
   const { taskFile } = useTaskFile(props.taskFileId);

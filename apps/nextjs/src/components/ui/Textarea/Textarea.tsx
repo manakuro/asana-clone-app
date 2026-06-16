@@ -12,6 +12,14 @@ export type TextareaProps = Props;
 
 export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
   function Textarea(props, ref) {
-    return <ChakraTextarea {...props} focusBorderColor="none" ref={ref} />;
+    return (
+      <ChakraTextarea
+        {...props}
+        css={{
+          '--focus-color': 'none',
+        }}
+        ref={ref}
+      />
+    );
   },
 );

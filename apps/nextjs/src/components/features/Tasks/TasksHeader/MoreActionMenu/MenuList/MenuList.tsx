@@ -1,10 +1,17 @@
 import { memo } from 'react';
-import { MenuList as AtomsMenuList, MenuItem } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
+import { Portal } from '@/components/ui/Portal';
 
 export const MenuList = memo(function MenuList() {
   return (
-    <AtomsMenuList>
-      <MenuItem isDisabled>Save layout as default</MenuItem>
-    </AtomsMenuList>
+    <Portal>
+      <Menu.Positioner>
+        <Menu.Content>
+          <Menu.Item disabled value="Save layout as default">
+            Save layout as default
+          </Menu.Item>
+        </Menu.Content>
+      </Menu.Positioner>
+    </Portal>
   );
 });

@@ -72,10 +72,10 @@ export const Input = memo(function Input(props: Props) {
 
   return (
     <TagMenu
-      isOpen={popoverDisclosure.isOpen}
+      open={popoverDisclosure.open}
       onClose={popoverDisclosure.onClose}
       onSelect={handleSelect}
-      placement="top-start"
+      positioning={{ placement: 'top-start' }}
       queryText={value}
     >
       <Flex
@@ -111,8 +111,8 @@ export const Input = memo(function Input(props: Props) {
               autoFocus
               fontSize="sm"
               size="sm"
-              variant="unstyled"
-              color="text.base"
+              unstyled
+              color="fg"
               value={value}
               onChange={handleChange}
             />

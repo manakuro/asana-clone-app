@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
 import {
   MenuSelect,
-  MenuSelectButton,
   MenuSelectList,
+  MenuSelectTrigger,
 } from '@/components/features/Menus';
 import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icon';
-import { MenuItemOption } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/Menu';
 import { useProjectTask } from '@/store/entities/projectTask';
 import {
   useProjectsTaskSectionsByProjectId,
@@ -43,23 +43,22 @@ export const Section = memo(function Section(props: Props) {
   );
 
   return (
-    <MenuSelect onChange={handleChange} placement="bottom-start">
-      <MenuSelectButton
-        as={Button}
-        variant="ghost"
-        size="xs"
-        cursor="pointer"
-        rightIcon={
-          <Icon mt="1px" icon="chevronDown" color="text.muted" size="md" />
-        }
-      >
-        {projectTaskSection.name}
-      </MenuSelectButton>
+    <MenuSelect
+      onChange={handleChange}
+      positioning={{ placement: 'bottom-start' }}
+    >
+      <MenuSelectTrigger>
+        <Button variant="ghost" size="xs" cursor="pointer">
+          {projectTaskSection.name}
+          <Icon mt="1px" icon="chevronDown" color="fg.muted" size="md" />
+        </Button>
+      </MenuSelectTrigger>
       <MenuSelectList>
         {projectTaskSections.map((p) => (
-          <MenuItemOption value={p.id} key={p.id}>
+          <Menu.RadioItem value={p.id} key={p.id}>
             {p.name}
-          </MenuItemOption>
+            <Menu.ItemIndicator />
+          </Menu.RadioItem>
         ))}
       </MenuSelectList>
     </MenuSelect>

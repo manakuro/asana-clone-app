@@ -39,6 +39,7 @@ const Component = memo(function Component() {
     isTaskDetailURL: isProjectsDetailURL,
     getTaskDetailId: getProjectsDetailId,
     fetchQuery: fetchTaskDetailQuery,
+    tabContentLoading,
   });
 
   if (loading) return <SkeletonFiles />;

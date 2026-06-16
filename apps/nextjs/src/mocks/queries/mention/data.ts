@@ -19,7 +19,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '',
-          __typename: 'Mention',
         },
         {
           id: '0AC01GK0BWAQM2G89ZEQW6V2CG974',
@@ -31,7 +30,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '',
-          __typename: 'Mention',
         },
         {
           id: '0AC01GK0BWAQM2G89ZEQW6XCNRHWV',
@@ -43,7 +41,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '',
-          __typename: 'Mention',
         },
         {
           id: '0AD01GK0BWAQZYWRN2T89M5K2620Z',
@@ -55,7 +52,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '',
-          __typename: 'Mention',
         },
         {
           id: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
@@ -67,7 +63,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-          __typename: 'Mention',
         },
         {
           id: '0AG01GK0BWAWW1RDQ0KJJENA0ET1A',
@@ -79,7 +74,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '0AG01GK0BWAWW1RDQ0KJJENA0ET1A',
-          __typename: 'Mention',
         },
         {
           id: '0AG01GK0BWAWW1RDQ0KJJEPA0GCDW',
@@ -91,7 +85,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '0AG01GK0BWAWW1RDQ0KJJEPA0GCDW',
-          __typename: 'Mention',
         },
         {
           id: '0BC01GK0BWBA4G55H3FPK89AJEG9J',
@@ -103,7 +96,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-          __typename: 'Mention',
         },
         {
           id: '0BC01GK0BWBA4G55H3FPK8BZ4M330',
@@ -115,7 +107,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-          __typename: 'Mention',
         },
         {
           id: '0BC01GK0BWBA4G55H3FPK8D6RKBRF',
@@ -127,7 +118,6 @@ export const data = (
           completed: false,
           image: '',
           projectId: '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G',
-          __typename: 'Mention',
         },
       ],
     },

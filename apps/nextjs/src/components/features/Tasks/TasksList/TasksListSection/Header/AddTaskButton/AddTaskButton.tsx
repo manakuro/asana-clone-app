@@ -17,19 +17,20 @@ export const AddTaskButton = memo(function AddTaskButton(props: Props) {
 
   return (
     <Tooltip
-      hasArrow
-      label="Add a task to this section"
+      showArrow
+      content="Add a task to this section"
       aria-label="Add task button"
       size="sm"
       openDelay={500}
     >
       <IconButton
         aria-label="Add task button"
-        icon={<Icon icon="plus" color="text.muted" />}
         variant="ghost"
         size="sm"
         onClick={handleClick}
-      />
+      >
+        <Icon icon="plus" color="fg.muted" />
+      </IconButton>
     </Tooltip>
   );
 });

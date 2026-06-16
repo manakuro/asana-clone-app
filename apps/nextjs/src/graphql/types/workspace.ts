@@ -1,10 +1,6 @@
 import type { WorkspaceQuery } from '@/graphql/types';
 
 export type {
-  WorkspaceLazyQueryHookResult,
-  WorkspaceQueryHookResult,
-} from '@/graphql/hooks';
-export type {
   WorkspaceQuery,
   WorkspaceQueryVariables,
   WorkspaceUpdatedSubscription as WorkspaceUpdatedSubscriptionResponse,

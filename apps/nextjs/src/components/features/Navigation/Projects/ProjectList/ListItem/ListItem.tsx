@@ -3,9 +3,11 @@ import { memo, useMemo } from 'react';
 import { useNavigation } from '@/components/features/Navigation';
 import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { PopoverProjectMenu } from '@/components/features/Popovers';
+import { Box } from '@/components/ui/Box';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
+import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';
 import { Text } from '@/components/ui/Text';
@@ -33,19 +35,16 @@ export const ListItem = memo(function ListItem(props: Props) {
   );
 
   return (
-    <NextLink
-      href={ROUTE_PROJECTS_LIST.href.pathnameObj(projectId)}
-      passHref
-      legacyBehavior
+    <Link
+      w="full"
+      p={2}
+      px={PADDING_X}
+      _hover={_hover}
+      {...(selected ? selectedStyle : {})}
+      asChild
     >
-      <Link
-        w="full"
-        p={2}
-        px={PADDING_X}
-        _hover={_hover}
-        {...(selected ? selectedStyle : {})}
-      >
-        <Flex alignItems="center">
+      <NextLink href={ROUTE_PROJECTS_LIST.href.pathnameObj(projectId)}>
+        <Flex alignItems="center" flex={1}>
           {isExpanded ? (
             <Flex alignItems="center" flex={1}>
               <ColorBox size="xs" color={projectBaseColor.color.color} />
@@ -60,18 +59,33 @@ export const ListItem = memo(function ListItem(props: Props) {
               </Text>
             </Flex>
           )}
-          <PopoverProjectMenu
-            addFavorite
-            duplicateProject
-            archiveProject
-            deleteProject
-            projectId={props.projectId}
-            menuButtonStyle={{ ...clickableHoverLightStyle }}
+          <Box
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            }}
+            onPointerDown={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            }}
           >
-            <Icon icon="dotsHorizontalRounded" />
-          </PopoverProjectMenu>
+            <PopoverProjectMenu
+              addFavorite
+              duplicateProject
+              archiveProject
+              deleteProject
+              projectId={props.projectId}
+            >
+              <IconButton unstyled>
+                <Icon
+                  icon="dotsHorizontalRounded"
+                  {...clickableHoverLightStyle}
+                />
+              </IconButton>
+            </PopoverProjectMenu>
+          </Box>
         </Flex>
-      </Link>
-    </NextLink>
+      </NextLink>
+    </Link>
   );
 });

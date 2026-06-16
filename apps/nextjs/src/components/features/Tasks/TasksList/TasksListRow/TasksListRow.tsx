@@ -19,7 +19,7 @@ export const TasksListRow = memo(function TasksListRow(props: Props) {
 
   return (
     <Flex
-      {...clickableHoverStyle}
+      css={clickableHoverStyle}
       cursor="auto"
       h="36px"
       {...style}

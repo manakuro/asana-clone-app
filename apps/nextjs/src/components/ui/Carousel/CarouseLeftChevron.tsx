@@ -26,15 +26,11 @@ export function CarouselLeftChevron() {
       h="100%"
       justifyContent="center"
       alignItems="center"
-      zIndex="skipLink"
+      zIndex="skipNav"
     >
-      <IconButton
-        onClick={handleClick}
-        aria-label="next"
-        icon={<Icon icon="chevronLeft" size="2xl" />}
-        variant="ghost"
-        light
-      />
+      <IconButton onClick={handleClick} aria-label="next" variant="ghost">
+        <Icon icon="chevronLeft" size="2xl" />
+      </IconButton>
     </Flex>
   );
 }

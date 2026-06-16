@@ -1,16 +1,9 @@
-import { keyframes } from '@chakra-ui/react';
 import { memo, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 
 type Props = FlexProps & {
   isTransitioning: boolean;
 };
-
-const shimmer = keyframes({
-  '100%': {
-    transform: 'translateX(100%)',
-  },
-});
 
 export const TaskDoneTransition = memo(function TaskDoneTransition(
   props: Props,
@@ -31,8 +24,7 @@ export const TaskDoneTransition = memo(function TaskDoneTransition(
           transform: 'translateX(-100%)',
           backgroundImage:
             'linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0))',
-          animation: `${shimmer} 2s`,
-          animationIterationCount: 1,
+          animation: 'shimmer',
         },
       };
     return {};
@@ -50,7 +42,7 @@ export const TaskDoneTransition = memo(function TaskDoneTransition(
       bg="inherit"
       visibility="hidden"
       opacity={0}
-      bgGradient="linear(to-r, teal.50, teal.100, teal.200, teal.200, teal.100, teal.50)"
+      backgroundImage="linear-gradient(to right, {colors.teal.50}, {colors.teal.100}, {colors.teal.200}, {colors.teal.200}, {colors.teal.100}, {colors.teal.50})"
       transition="visibility 0s .25s, opacity .25s linear"
       pointerEvents="none"
       overflow="hidden"
