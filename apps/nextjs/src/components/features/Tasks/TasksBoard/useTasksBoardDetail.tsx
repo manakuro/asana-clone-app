@@ -61,7 +61,7 @@ export const useTasksBoardDetail = (props: Props) => {
         loadingShown = true;
         setLoading(true);
       }
-    }, 300);
+    }, 500);
 
     startTransition(async () => {
       await fetchQuery({ taskId: newId });
