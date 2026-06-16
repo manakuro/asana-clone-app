@@ -193,8 +193,6 @@ const WrappedComponent = memo(function WrappedComponent() {
       setTabStatus('Files');
       return;
     }
-    // Force update tab status based on URL
-    /* eslint react-hooks/exhaustive-deps: off */
   }, []);
 
   return (
