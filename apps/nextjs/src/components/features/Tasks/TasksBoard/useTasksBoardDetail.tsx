@@ -1,5 +1,5 @@
 import { useParams, usePathname } from 'next/navigation';
-import { useCallback, useEffect, useRef } from 'react';
+import { startTransition, useCallback, useEffect, useRef } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksBoardListItemElement } from '@/components/features/Tasks/TasksBoard/TasksBoardListItem';
@@ -50,14 +50,31 @@ export const useTasksBoardDetail = (props: Props) => {
     if (openRef.current && taskIdRef.current === newId) return;
     console.log('useTasksBoardDetail!', newId);
 
-    setLoading(true);
-    onOpen(() => {
-      setTimeout(async () => {
-        setId(newId);
-        await fetchQuery({ taskId: newId });
+    onOpen();
+    setId(newId);
+
+    let loadingShown = false;
+    let cancelled = false;
+
+    const timer = setTimeout(() => {
+      if (!cancelled) {
+        loadingShown = true;
+        setLoading(true);
+      }
+    }, 300);
+
+    startTransition(async () => {
+      await fetchQuery({ taskId: newId });
+      clearTimeout(timer);
+      if (!cancelled && loadingShown) {
         setLoading(false);
-      }, 200);
+      }
     });
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
   }, [
     params,
     pathname,
