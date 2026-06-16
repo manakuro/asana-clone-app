@@ -1,5 +1,5 @@
 import { useParams, usePathname } from 'next/navigation';
-import { useCallback, useEffect, useRef } from 'react';
+import { startTransition, useCallback, useEffect, useRef } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksListBody } from '@/components/features/Tasks';
@@ -48,26 +48,42 @@ export const useTasksListDetail = (props: Props) => {
 
     const newId = getTaskDetailId(params, pathname);
     if (openRef.current && taskIdRef.current === newId) return;
-    console.log('useTasksListDetail!: ', newId);
 
-    setLoading(true);
-    onOpen(() => {
-      setTimeout(async () => {
-        setId(newId);
-        await fetchQuery({ taskId: newId });
+    onOpen();
+    setId(newId);
+
+    let loadingShown = false;
+    let cancelled = false;
+
+    const timer = setTimeout(() => {
+      if (!cancelled) {
+        loadingShown = true;
+        setLoading(true);
+      }
+    }, 300);
+
+    startTransition(async () => {
+      await fetchQuery({ taskId: newId });
+      clearTimeout(timer);
+      if (!cancelled && loadingShown) {
         setLoading(false);
-      }, 200);
+      }
     });
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
   }, [
+    fetchQuery,
+    getTaskDetailId,
+    isTaskDetailURL,
+    onOpen,
     params,
     pathname,
-    onOpen,
-    fetchQuery,
+    props.tabContentLoading,
     setId,
     setLoading,
-    isTaskDetailURL,
-    getTaskDetailId,
-    props.tabContentLoading,
   ]);
 
   return {
