@@ -1,7 +1,7 @@
 'use client';
 
 import { useParams, usePathname } from 'next/navigation';
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, startTransition, useCallback, useEffect } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
 import { Flex } from '@/components/ui/Flex';
 import { Head } from '@/components/ui/Head';
@@ -102,43 +102,48 @@ const WrappedComponent = memo(function WrappedComponent() {
     }),
   );
 
-  const setLoading = useCallback(() => {
-    startTabContentLoading();
-    setTimeout(() => {
-      endTabContentLoading();
-    }, 200);
-  }, [startTabContentLoading, endTabContentLoading]);
-
   const handleTabsChange = useCallback(
     async (index: string) => {
       switch (index as Index) {
         case TASKS_INDEX: {
-          setLoading();
+          startTabContentLoading();
           setTabIndex(TASKS_INDEX);
-          setTabStatus('List');
-          navigateToMyTasksList();
+          startTransition(() => {
+            setTabStatus('List');
+            navigateToMyTasksList();
+            endTabContentLoading();
+          });
           break;
         }
         case BOARD_INDEX: {
           if (isSorted('project')) sortBy(TaskListSortStatusCode.None);
-          setLoading();
+          startTabContentLoading();
           setTabIndex(BOARD_INDEX);
-          setTabStatus('Board');
-          navigateToMyTasksBoard();
+          startTransition(() => {
+            setTabStatus('Board');
+            navigateToMyTasksBoard();
+            endTabContentLoading();
+          });
           break;
         }
         case CALENDAR_INDEX: {
-          setLoading();
+          startTabContentLoading();
           setTabIndex(CALENDAR_INDEX);
-          setTabStatus('Calendar');
-          navigateToMyTasksCalendar();
+          startTransition(() => {
+            setTabStatus('Calendar');
+            navigateToMyTasksCalendar();
+            endTabContentLoading();
+          });
           break;
         }
         case FILES_INDEX: {
-          setLoading();
+          startTabContentLoading();
           setTabIndex(FILES_INDEX);
-          setTabStatus('Files');
-          navigateToMyTasksFiles();
+          startTransition(() => {
+            setTabStatus('Files');
+            navigateToMyTasksFiles();
+            endTabContentLoading();
+          });
           break;
         }
       }
@@ -151,7 +156,8 @@ const WrappedComponent = memo(function WrappedComponent() {
       navigateToMyTasksFiles,
       sortBy,
       setTabStatus,
-      setLoading,
+      startTabContentLoading,
+      endTabContentLoading,
     ],
   );
 
