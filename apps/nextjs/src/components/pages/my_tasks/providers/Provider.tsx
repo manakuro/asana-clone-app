@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useTransition } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { createProvider } from '@/shared/react/createProvider';
 
 type Props = {
@@ -8,10 +8,12 @@ type Props = {
 
 const useValue = (props: Props) => {
   const [queryLoading, setQueryLoading] = useState(props.loading);
+  const [tabContentLoading, setTabContentLoading] = useState(props.loading);
   const [contentLoading, setContentLoading] = useState(false);
 
   useEffect(() => {
     setQueryLoading(props.loading);
+    setTabContentLoading(props.loading);
   }, [props.loading]);
 
   const startContentLoading = useCallback(() => {
@@ -21,15 +23,21 @@ const useValue = (props: Props) => {
     setContentLoading(false);
   }, []);
 
-  const [tabContentLoading, startTabContentTransition] = useTransition();
+  const startTabContentLoading = useCallback(() => {
+    setTabContentLoading(true);
+  }, []);
+  const endTabContentLoading = useCallback(() => {
+    setTabContentLoading(false);
+  }, []);
 
   return {
     queryLoading,
+    tabContentLoading,
     contentLoading,
+    startTabContentLoading,
+    endTabContentLoading,
     startContentLoading,
     endContentLoading,
-    tabContentLoading,
-    startTabContentTransition,
     fetchTaskDetailQuery: props.fetchTaskDetailQuery,
   };
 };
