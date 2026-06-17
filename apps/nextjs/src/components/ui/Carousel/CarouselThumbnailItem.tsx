@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { useCallback, useMemo } from 'react';
-import { AspectRatio } from '@/components/ui/AspectRatio';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { WrapItem } from '@/components/ui/Wrap';
 import { useClickableHoverStyle } from '@/hooks';
 import { useCarouselContext } from './Provider';

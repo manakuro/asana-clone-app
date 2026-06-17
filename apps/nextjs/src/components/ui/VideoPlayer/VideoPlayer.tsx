@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
-import { AspectRatio } from '@/components/ui/AspectRatio';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Box } from '@/components/ui/Box';
 import { Dialog } from '@/components/ui/Dialog';
 import { Flex } from '@/components/ui/Flex';

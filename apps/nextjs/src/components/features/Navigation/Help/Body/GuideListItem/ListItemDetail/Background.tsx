@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { AspectRatio } from '@/components/ui/AspectRatio';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { useVideoPlayer } from '@/components/ui/VideoPlayer';
