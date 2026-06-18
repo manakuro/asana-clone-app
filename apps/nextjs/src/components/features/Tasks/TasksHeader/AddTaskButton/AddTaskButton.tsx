@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/button-group';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/Portal';
 import type { SystemStyleObject } from '@/shared/chakra';
 

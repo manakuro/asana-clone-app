@@ -1,9 +1,9 @@
 import type { ListItemProps } from '@chakra-ui/react';
 import { memo, useMemo } from 'react';
 import { Icon } from '@/components/ui/icon';
-import { Link, type LinkProps } from '@/components/ui/Link';
-import { List } from '@/components/ui/List';
-import { NextLink } from '@/components/ui/NextLink';
+import { Link, type LinkProps } from '@/components/ui/link';
+import { List } from '@/components/ui/list';
+import { NextLink } from '@/components/ui/next-link';
 import { Text } from '@/components/ui/Text';
 import { useLinkHoverStyle } from '@/hooks';
 import type { StaticRoutes } from '@/router';

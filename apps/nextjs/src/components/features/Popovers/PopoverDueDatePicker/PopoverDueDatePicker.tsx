@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { useCallback } from 'react';
-import { Link } from '@/components/ui/Link';
+import { Link } from '@/components/ui/link';
 import { Popover, type PopoverRootProps } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { type SystemStyleObject, useDisclosure } from '@/shared/chakra';

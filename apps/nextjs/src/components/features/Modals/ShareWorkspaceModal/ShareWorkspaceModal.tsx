@@ -5,8 +5,8 @@ import { Dialog } from '@/components/ui/dialog';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Input } from '@/components/ui/input';
-import { Link } from '@/components/ui/Link';
-import { MoreLink } from '@/components/ui/MoreLink';
+import { Link } from '@/components/ui/link';
+import { MoreLink } from '@/components/ui/more-link';
 import { Portal } from '@/components/ui/Portal';
 import { useShareWorkspaceModal } from './useShareWorkspaceModal';
 

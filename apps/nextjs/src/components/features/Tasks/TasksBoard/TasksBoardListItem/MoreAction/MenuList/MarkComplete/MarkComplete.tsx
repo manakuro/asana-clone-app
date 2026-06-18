@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/icon';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { useTask } from '@/store/entities/task';
 import { useTasksBoardListItemContext } from '../../../Provider';
 

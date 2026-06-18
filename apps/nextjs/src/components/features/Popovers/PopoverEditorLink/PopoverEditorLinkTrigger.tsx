@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { Link } from '@/components/ui/Link';
+import { Link } from '@/components/ui/link';
 import { HoverCard } from '@/components/ui/Popover';
 import { useLinkStyle } from '@/hooks/styles';
 

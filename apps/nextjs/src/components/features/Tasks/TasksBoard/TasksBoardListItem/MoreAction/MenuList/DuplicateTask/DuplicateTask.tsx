@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Icon } from '@/components/ui/icon';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 
 export const DuplicateTask = memo(function DuplicateTask() {
   return (

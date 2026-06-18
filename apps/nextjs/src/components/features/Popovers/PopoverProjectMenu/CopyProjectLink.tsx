@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback } from 'react';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { useCopyProjectLink } from '@/hooks/pages/projects';
 
 type Props = {

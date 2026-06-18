@@ -7,7 +7,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { useClickableHoverStyle } from '@/hooks';
 import {
   PROJECT_PERMISSION_CAN_COMMENT,

@@ -1,7 +1,7 @@
 import { memo, type PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Image } from '@/components/ui/image';
-import { Logo } from '@/components/ui/Logo';
+import { Logo } from '@/components/ui/logo';
 import { Text } from '@/components/ui/Text';
 import { useResponsive } from '@/hooks';
 

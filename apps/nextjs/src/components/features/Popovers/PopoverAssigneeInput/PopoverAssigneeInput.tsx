@@ -1,5 +1,5 @@
 import React, { type PropsWithChildren, useCallback } from 'react';
-import { Link } from '@/components/ui/Link';
+import { Link } from '@/components/ui/link';
 import { Popover } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useDisclosure } from '@/shared/chakra';

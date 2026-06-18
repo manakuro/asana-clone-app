@@ -3,7 +3,7 @@ import {
   FileUploader,
   type FileUploaderParams,
 } from '@/components/ui/form/file-uploader';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { useMenuStyle } from '@/hooks';
 
 type Props = {

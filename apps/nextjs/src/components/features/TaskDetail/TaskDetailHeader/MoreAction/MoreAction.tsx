@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { MenuList } from './MenuList';
 

@@ -1,4 +1,4 @@
-import { Menu, type MenuRootProps } from '@/components/ui/Menu';
+import { Menu, type MenuRootProps } from '@/components/ui/menu';
 
 type Props = MenuRootProps;
 

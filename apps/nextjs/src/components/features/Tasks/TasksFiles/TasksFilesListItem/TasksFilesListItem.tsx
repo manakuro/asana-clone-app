@@ -5,7 +5,7 @@ import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Image } from '@/components/ui/image';
-import { Link } from '@/components/ui/Link';
+import { Link } from '@/components/ui/link';
 import { Separator } from '@/components/ui/Separator';
 import { Text } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';

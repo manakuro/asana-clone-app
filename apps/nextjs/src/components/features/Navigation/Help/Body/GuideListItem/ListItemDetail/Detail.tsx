@@ -8,7 +8,7 @@ import {
 import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
-import { MoreLink } from '@/components/ui/MoreLink';
+import { MoreLink } from '@/components/ui/more-link';
 import { Text } from '@/components/ui/Text';
 
 type Props = {

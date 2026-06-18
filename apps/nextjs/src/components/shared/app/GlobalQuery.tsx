@@ -1,5 +1,5 @@
 import type { PropsWithChildren, ReactElement } from 'react';
-import { PageLoader } from '@/components/ui/PageLoader';
+import { PageLoader } from '@/components/ui/page-loader';
 import {
   useFavoriteProjectIdsQuery,
   useFavoriteWorkspaceIdsQuery,

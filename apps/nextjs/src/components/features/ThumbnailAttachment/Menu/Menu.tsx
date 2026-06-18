@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
 import { useThumbnailAttachmentContext } from '@/components/features/ThumbnailAttachment/Provider';
-import { Link } from '@/components/ui/Link';
+import { Link } from '@/components/ui/link';
 import {
   type MenuRootProps,
   Menu as OrganismsMenu,
-} from '@/components/ui/Menu';
+} from '@/components/ui/menu';
 import { Portal } from '@/components/ui/Portal';
 import { useTaskFile } from '@/store/entities/taskFile';
 

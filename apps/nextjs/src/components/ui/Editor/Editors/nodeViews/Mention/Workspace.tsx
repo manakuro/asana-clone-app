@@ -6,8 +6,8 @@ import {
   PopoverEditorLinkTrigger,
 } from '@/components/features/Popovers';
 import { Icon } from '@/components/ui/icon';
-import { Link } from '@/components/ui/Link';
-import { NextLink } from '@/components/ui/NextLink';
+import { Link } from '@/components/ui/link';
+import { NextLink } from '@/components/ui/next-link';
 import { ROUTE_WORKSPACES_OVERVIEW } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';
 

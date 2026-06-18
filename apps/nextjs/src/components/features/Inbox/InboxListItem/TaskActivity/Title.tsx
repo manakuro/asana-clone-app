@@ -3,7 +3,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { useTaskActivityTaskIds } from '@/components/features/Inbox/hooks';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Link } from '@/components/ui/Link';
+import { Link } from '@/components/ui/link';
 import { formatDueDate } from '@/shared/date';
 import { useTask } from '@/store/entities/task';
 import { transitions } from '@/styles/transitions';

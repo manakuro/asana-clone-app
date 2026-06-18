@@ -2,7 +2,7 @@ import { PopoverSetColorAndIcon } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/color-box';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import type { Project } from '@/store/entities/project';

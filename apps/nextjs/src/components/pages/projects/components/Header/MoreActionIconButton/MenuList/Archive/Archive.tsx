@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 
 export const Archive = memo(function Archive() {
   return (

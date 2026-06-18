@@ -1,3 +1,4 @@
-src/components/ui/LikeIconButton/Icon.tsx
-src/components/ui/LikeIconButton/index.ts
-src/components/ui/LikeIconButton/LikeIconButton.tsx
+src/components/ui/PdfViewer/index.ts
+src/components/ui/PdfViewer/PdfViewer.tsx
+src/components/ui/PdfViewer/PdfViewerComponent.tsx
+src/components/ui/PdfViewer/pdfViewerCustomStyle.ts

@@ -1,4 +1,4 @@
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/Portal';
 import { AddToPortfolio } from './AddToPortfolio';
 import { Archive } from './Archive';

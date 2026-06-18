@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { useEditorStateContext } from '@/components/ui/Editor/Editors';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
-import { Link } from '@/components/ui/Link';
+import { Link } from '@/components/ui/link';
 import { Popover } from '@/components/ui/Popover';
 import { useDisclosure } from '@/shared/chakra';
 import {

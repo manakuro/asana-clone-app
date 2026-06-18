@@ -7,8 +7,8 @@ import {
 } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/color-box';
 import { useReactNodeView } from '@/components/ui/Editor/Editors/ReactNodeView';
-import { Link } from '@/components/ui/Link';
-import { NextLink } from '@/components/ui/NextLink';
+import { Link } from '@/components/ui/link';
+import { NextLink } from '@/components/ui/next-link';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { useProject } from '@/store/entities/project';

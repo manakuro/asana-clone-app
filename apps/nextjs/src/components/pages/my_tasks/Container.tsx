@@ -2,7 +2,7 @@
 
 import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import { PageLoader } from '@/components/ui/PageLoader';
+import { PageLoader } from '@/components/ui/page-loader';
 import {
   useMyTasksDetailPageQuery,
   useMyTasksPageQuery,

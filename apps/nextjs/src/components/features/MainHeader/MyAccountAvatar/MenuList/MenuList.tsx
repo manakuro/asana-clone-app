@@ -1,7 +1,7 @@
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Link } from '@/components/ui/Link';
-import { Menu } from '@/components/ui/Menu';
+import { Link } from '@/components/ui/link';
+import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/Portal';
 import { Text } from '@/components/ui/Text';
 import { PopoverMore } from './PopoverMore';

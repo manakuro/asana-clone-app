@@ -1,6 +1,6 @@
 import { NavListItem } from '@/components/features/Navigation/NavListItem';
 import type { NavListItem as TNavListItem } from '@/components/features/Navigation/type';
-import { List } from '@/components/ui/List';
+import { List } from '@/components/ui/list';
 
 const items: TNavListItem[] = [
   {

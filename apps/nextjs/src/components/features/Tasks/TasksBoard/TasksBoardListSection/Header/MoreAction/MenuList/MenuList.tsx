@@ -4,7 +4,7 @@ import {
   useHasTasksByTaskSectionId,
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/Portal';
 import { useTasksBoardListSectionContext } from '../../../Provider';
 

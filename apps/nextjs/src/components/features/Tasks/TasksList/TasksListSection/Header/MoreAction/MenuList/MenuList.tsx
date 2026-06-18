@@ -6,7 +6,7 @@ import {
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
 import { useTasksListSectionContext } from '@/components/features/Tasks/TasksList/TasksListSection/Provider';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { Tooltip } from '@/components/ui/Tooltip';
 
 export const MenuList = memo(function MenuList() {

@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { useNavigation } from '@/components/features/Navigation';
 import { NavListItem } from '@/components/features/Navigation/NavListItem';
 import { Accordion } from '@/components/ui/accordion';
-import { List } from '@/components/ui/List';
+import { List } from '@/components/ui/list';
 import { useDisabledStyle } from '@/hooks';
 import { Separator } from '../../Separator';
 import {

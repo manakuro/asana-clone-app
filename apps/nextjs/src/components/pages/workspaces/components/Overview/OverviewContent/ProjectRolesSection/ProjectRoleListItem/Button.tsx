@@ -3,7 +3,7 @@ import {
   Button as AtomsButton,
   type ButtonProps,
 } from '@/components/ui/button';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(props, ref) {
