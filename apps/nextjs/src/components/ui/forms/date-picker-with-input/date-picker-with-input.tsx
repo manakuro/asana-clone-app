@@ -5,8 +5,8 @@ import { Flex } from '@/components/ui/flex';
 import { Icon, type IconProps } from '@/components/ui/icon';
 import { useHover } from '@/hooks/useHover';
 import type { SystemStyleObject } from '@/shared/chakra';
-import { DeleteButton } from './DeleteButton';
-import { Input } from './Input';
+import { DeleteButton } from './delete-button';
+import { Input } from './input';
 
 type Props = {
   onSelect: (val: Date) => void;

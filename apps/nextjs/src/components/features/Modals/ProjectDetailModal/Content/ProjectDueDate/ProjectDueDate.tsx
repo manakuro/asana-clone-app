@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { DatePickerWithInput } from '@/components/ui/Forms/DatePickerWithInput';
+import { DatePickerWithInput } from '@/components/ui/forms/date-picker-with-input';
 import { useProject, useProjectCommand } from '@/store/entities/project';
 
 type Props = {
