@@ -103,6 +103,102 @@ convert_path() {
   printf '%s%s' "$leading_slash" "$joined"
 }
 
+# 既にリネーム処理済みのディレクトリパス（大文字小文字違いの2段階git mvを実施済み）
+# を記録し、同じディレクトリに対して何度も処理しないようにする。
+# bash 3.2（macOS標準）は連想配列(declare -A)に対応していないため、
+# 改行区切りの文字列で管理する。
+DIR_RENAMED_LIST=$'\n'
+
+is_dir_renamed_cached() {
+  case "$DIR_RENAMED_LIST" in
+    *$'\n'"$1"$'\n'*) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+mark_dir_renamed_cached() {
+  DIR_RENAMED_LIST="${DIR_RENAMED_LIST}${1}"$'\n'
+}
+
+# ディレクトリパス1個（例: src/components/ui/Avatar）を、対応するkebab-caseパス
+# （例: src/components/ui/avatar）へ、必要なら2段階git mvでリネームする。
+# ファイルの移動より前に、親ディレクトリ階層を1階層ずつ確実にリネームしておくための関数。
+# これにより、macOSのcase-insensitiveファイルシステムで `mkdir -p` が
+# 既存の大文字小文字違いディレクトリをそのまま使い続けてしまう問題を回避する。
+ensure_dir_renamed() {
+  local target_dir="$1"  # 変換後のディレクトリパス（kebab-case化済み）
+
+  # すでに変換後のディレクトリが存在し、かつそれが意図したものであれば何もしない
+  [[ -z "$target_dir" || "$target_dir" == "." ]] && return 0
+
+  local parent
+  parent="$(dirname "$target_dir")"
+  if [[ "$parent" != "." && "$parent" != "/" ]]; then
+    ensure_dir_renamed "$parent"
+  fi
+
+  # すでにこのディレクトリは処理済みならスキップ
+  if is_dir_renamed_cached "$target_dir"; then
+    return 0
+  fi
+  mark_dir_renamed_cached "$target_dir"
+
+  local parent_dir base_name
+  parent_dir="$(dirname "$target_dir")"
+  base_name="$(basename "$target_dir")"
+
+  if [[ ! -d "$parent_dir" ]]; then
+    # 親ディレクトリすらまだ無い場合は、mkdir -p に任せて問題ない
+    return 0
+  fi
+
+  # 親ディレクトリの実際のエントリ一覧を取得し、target_dir と「大文字小文字も含め
+  # 完全一致」する表記が既にあるか、また「小文字化すれば一致するが表記が違う」既存
+  # ディレクトリがあるかを判定する。
+  # NOTE: [[ -d "$target_dir" ]] のような直接の存在チェックは、macOS等の
+  # case-insensitiveファイルシステム上では大文字小文字を無視してマッチしてしまうため、
+  # ここでは使わず、ディレクトリエントリの文字列を明示的に比較する。
+  local exact_match=""
+  local existing=""
+  local entry base_lower entry_lower
+  base_lower="$(printf '%s' "$base_name" | tr '[:upper:]' '[:lower:]')"
+  for entry in "$parent_dir"/*/; do
+    [[ -e "$entry" ]] || continue
+    entry="${entry%/}"
+    entry="$(basename "$entry")"
+    if [[ "$entry" == "$base_name" ]]; then
+      exact_match="$entry"
+      break
+    fi
+    entry_lower="$(printf '%s' "$entry" | tr '[:upper:]' '[:lower:]')"
+    if [[ "$entry_lower" == "$base_lower" ]]; then
+      existing="$entry"
+    fi
+  done
+
+  # 既に正しい表記（大文字小文字含め完全一致）で存在するなら何もしない
+  if [[ -n "$exact_match" ]]; then
+    return 0
+  fi
+
+  if [[ -n "$existing" ]]; then
+    local old_dir="$parent_dir/$existing"
+    local tmp_dir="$parent_dir/${base_name}.kebabtmpdir$$"
+    if $DRY_RUN; then
+      echo "  [dry-run] git mv \"$old_dir\" \"$tmp_dir\" && git mv \"$tmp_dir\" \"$target_dir\"  (dir rename)"
+      # dry-run中は実際のリネームは起きないが、後続のold_path解決のために
+      # 「このディレクトリは旧名 existing のままである」ことを記録する。
+      LAST_DIR_RENAME_OLD_NAME="$existing"
+      LAST_DIR_RENAME_NEW_NAME="$base_name"
+      LAST_DIR_RENAME_PARENT="$parent_dir"
+    else
+      git mv -- "$old_dir" "$tmp_dir"
+      git mv -- "$tmp_dir" "$target_dir"
+      echo "  renamed dir (via temp): $old_dir -> $target_dir"
+    fi
+  fi
+}
+
 # git mv を安全に実行する。
 # macOS等のcase-insensitiveファイルシステムでは、大文字小文字のみが異なる
 # リネームが正しく行われないことがあるため、必要な場合は一時パスを経由する。
@@ -145,7 +241,8 @@ safe_git_mv() {
   if $DRY_RUN; then
     echo "  [dry-run] git mv \"$old\" \"$new\""
   else
-    # 親ディレクトリが無ければ作成（git mv は親ディレクトリを自動生成しないため）
+    # 親ディレクトリを用意する。mkdir -p の前に、大文字小文字違いの既存ディレクトリが
+    # ないかを確認し、あれば先に2段階git mvでリネームしておく（macOS対策）。
     mkdir -p "$(dirname "$new")"
     git mv -- "$old" "$new"
     echo "  renamed: $old -> $new"
@@ -153,6 +250,10 @@ safe_git_mv() {
 }
 
 echo "=== kebab-case rename plan ==="
+LAST_DIR_RENAME_OLD_NAME=""
+LAST_DIR_RENAME_NEW_NAME=""
+LAST_DIR_RENAME_PARENT=""
+
 while IFS= read -r line || [[ -n "$line" ]]; do
   # 空行・コメント行をスキップ
   [[ -z "$line" ]] && continue
@@ -163,6 +264,27 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 
   echo "$old_path"
   echo "  -> $new_path"
+
+  # ファイル本体を移動する前に、親ディレクトリ階層を確実にkebab-case表記へ
+  # リネームしておく（大文字小文字のみの差分が放置されるのを防ぐ）。
+  new_parent_dir="$(dirname "$new_path")"
+  LAST_DIR_RENAME_OLD_NAME=""
+  LAST_DIR_RENAME_NEW_NAME=""
+  LAST_DIR_RENAME_PARENT=""
+  ensure_dir_renamed "$new_parent_dir"
+
+  # 本番実行時: ensure_dir_renamed が実際に git mv を行っていれば、
+  # old_path の親ディレクトリ部分はもう存在しない（既に new_parent_dir に変わっている）。
+  # dry-run時: 実際には何も移動していないので、old_path はそのままでよいが、
+  # 表示用に「最終的にどのパスに対して safe_git_mv が呼ばれるか」を
+  # old_path 自身は変更せず、ディレクトリ名だけ書き換えて見せる。
+  if ! $DRY_RUN; then
+    old_filename="$(basename "$old_path")"
+    if [[ -d "$new_parent_dir" ]]; then
+      old_path="$new_parent_dir/$old_filename"
+    fi
+  fi
+
   safe_git_mv "$old_path" "$new_path" || true
 done < "$PATHS_FILE"
 
