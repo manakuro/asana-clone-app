@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { PopoverAssigneeInput } from '@/components/features/Popovers';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Icon } from '@/components/ui/icon';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip } from '@/components/ui/tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';
 

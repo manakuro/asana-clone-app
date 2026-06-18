@@ -6,7 +6,7 @@ import { CheckIcon } from '@/components/ui/check-icon';
 import { DueDate } from '@/components/ui/due-date';
 import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useRouter } from '@/router';
 import { formatDueTime } from '@/shared/date';

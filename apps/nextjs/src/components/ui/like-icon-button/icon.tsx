@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Icon as AtomsIcon } from '@/components/ui/icon';
-import { Text } from '@/components/ui/Text';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Text } from '@/components/ui/text';
+import { Tooltip } from '@/components/ui/tooltip';
 import type { LikeButtonProps } from './like-icon-button';
 
 type Props = Pick<

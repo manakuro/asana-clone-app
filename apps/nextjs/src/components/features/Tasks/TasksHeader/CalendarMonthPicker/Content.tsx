@@ -7,7 +7,7 @@ import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Popover, usePopoverContext } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { dateFns } from '@/shared/dateFns';
 
 export function Content() {

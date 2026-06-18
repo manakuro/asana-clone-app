@@ -5,7 +5,7 @@ import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import type { IconType } from '@/shared/icons';
 
 export const AddButton = memo(function AddButton() {

@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useMemo } from 'react';
 import { Box } from '@/components/ui/box';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Textarea, type TextareaProps } from '@/components/ui/Textarea';
+import { Textarea, type TextareaProps } from '@/components/ui/textarea';
 import type { SystemStyleObject } from '@/shared/chakra';
 
 type Props = {

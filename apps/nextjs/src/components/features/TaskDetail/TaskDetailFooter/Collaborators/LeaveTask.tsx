@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip } from '@/components/ui/tooltip';
 import { useCollaboratorsContext } from './Provider';
 
 export const LeaveTask = memo(() => {

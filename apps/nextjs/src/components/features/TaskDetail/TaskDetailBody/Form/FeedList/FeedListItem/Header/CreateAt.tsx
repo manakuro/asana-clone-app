@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Text, type TextProps } from '@/components/ui/Text';
+import { Text, type TextProps } from '@/components/ui/text';
 import { formatFeedCreatedAt } from '@/shared/date';
 import { useTaskFeedListItemContext } from '../Provider';
 

@@ -9,7 +9,7 @@ import { Image } from '@/components/ui/image';
 import { HoverCard } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
 import { Separator } from '@/components/ui/separator';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 
 type Props = {
   profile: {

@@ -5,7 +5,7 @@ import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { AvatarGroup } from '@/components/ui/avatar';
 import { Flex } from '@/components/ui/flex';
 import { Input } from '@/components/ui/input';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useLinkStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Image as AtomsImage } from '@/components/ui/image';
 import { Link } from '@/components/ui/link';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useTaskFile } from '@/store/entities/taskFile';
 
 type Props = FlexProps & {

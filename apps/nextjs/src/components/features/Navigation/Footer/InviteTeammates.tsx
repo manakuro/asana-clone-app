@@ -4,7 +4,7 @@ import { useInviteModal } from '@/components/features/Modals/InviteModal/useInvi
 import { Separator } from '@/components/features/Navigation/Separator';
 import { Icon } from '@/components/ui/icon';
 import { List } from '@/components/ui/list';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { transitions } from '@/styles/transitions';
 import { PADDING_X } from '../Navigation';
 

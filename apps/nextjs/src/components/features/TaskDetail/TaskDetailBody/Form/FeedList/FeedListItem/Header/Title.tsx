@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import type { TaskFeed } from '@/store/entities/taskFeed';
 import type { Teammate } from '@/store/entities/teammate';
 import { useTaskFeedListItemContext } from '../Provider';

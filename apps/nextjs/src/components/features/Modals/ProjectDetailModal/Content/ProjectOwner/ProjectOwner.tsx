@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo, useState } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Box } from '@/components/ui/box';
 import { Button, type ButtonProps } from '@/components/ui/button';
-import { Text, type TextProps } from '@/components/ui/Text';
+import { Text, type TextProps } from '@/components/ui/text';
 import { useHover } from '@/hooks/useHover';
 import { useOwnerTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';

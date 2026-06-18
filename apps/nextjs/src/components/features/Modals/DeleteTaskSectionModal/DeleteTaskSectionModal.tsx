@@ -7,7 +7,7 @@ import { Portal } from '@/components/ui/portal';
 import { RadioGroup } from '@/components/ui/radio';
 import { Separator } from '@/components/ui/separator';
 import { Stack } from '@/components/ui/stack';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useDeleteTaskSectionModal } from './useDeleteTaskSectionModal';
 
 export function DeleteTaskSectionModal() {

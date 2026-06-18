@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { TaskDoneTransition } from '@/components/ui/Transitions';
+import { TaskDoneTransition } from '@/components/ui/transitions';
 import { useHover } from '@/hooks/useHover';
 import { useRouter } from '@/router';
 import { CheckIcon } from './CheckIcon';

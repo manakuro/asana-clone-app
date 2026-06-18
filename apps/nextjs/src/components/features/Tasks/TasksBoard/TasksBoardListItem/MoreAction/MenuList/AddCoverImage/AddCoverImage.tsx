@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { PopoverAddCoverImageActions } from './PopoverAddCoverImageActions';
 
 export const AddCoverImage = memo(function AddCoverImage() {

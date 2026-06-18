@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useLinkStyle } from '@/hooks';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { BodyHeader } from '../BodyHeader';

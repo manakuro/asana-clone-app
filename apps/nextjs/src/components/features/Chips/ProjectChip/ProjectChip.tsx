@@ -4,7 +4,7 @@ import { Badge, type BadgeProps } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ColorBox } from '@/components/ui/color-box';
 import { Icon } from '@/components/ui/icon';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';

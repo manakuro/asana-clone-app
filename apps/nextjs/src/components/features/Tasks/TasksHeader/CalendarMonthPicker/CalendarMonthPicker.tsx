@@ -4,7 +4,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Popover } from '@/components/ui/popover';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { dateFns } from '@/shared/dateFns';
 import { Content } from './Content';
 

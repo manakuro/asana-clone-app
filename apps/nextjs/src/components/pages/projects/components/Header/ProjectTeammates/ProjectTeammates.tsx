@@ -3,8 +3,8 @@ import { useShareProjectModal } from '@/components/features/Modals/ShareProjectM
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { AvatarGroup } from '@/components/ui/avatar';
 import { Flex } from '@/components/ui/flex';
-import { Tooltip } from '@/components/ui/Tooltip';
-import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
+import { Tooltip } from '@/components/ui/tooltip';
+import { useTooltip } from '@/components/ui/tooltip/use-tooltip';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
 import { useWorkspace } from '@/store/entities/workspace';

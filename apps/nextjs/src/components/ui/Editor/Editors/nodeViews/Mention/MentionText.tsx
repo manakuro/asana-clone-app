@@ -1,4 +1,4 @@
-import { Text, type TextProps } from '@/components/ui/Text';
+import { Text, type TextProps } from '@/components/ui/text';
 import { useLinkStyle } from '@/hooks/styles';
 
 type Props = TextProps;

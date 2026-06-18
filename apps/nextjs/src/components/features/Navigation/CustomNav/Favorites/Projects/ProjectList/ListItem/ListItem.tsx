@@ -5,7 +5,7 @@ import { ColorBox } from '@/components/ui/color-box';
 import { Flex } from '@/components/ui/flex';
 import { Link } from '@/components/ui/link';
 import { NextLink } from '@/components/ui/next-link';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useLinkHoverStyle } from '@/hooks';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';

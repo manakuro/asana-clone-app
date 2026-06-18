@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useInviteModal } from '@/components/features/Modals';
 import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import { Wrap, WrapItem } from '@/components/ui/Wrap';
+import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammates } from '@/store/entities/teammate';
 import { Teammate } from './Teammate';

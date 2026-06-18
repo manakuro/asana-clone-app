@@ -4,7 +4,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import type { Project } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { ArchiveProject } from './ArchiveProject';

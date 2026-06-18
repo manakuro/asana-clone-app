@@ -8,7 +8,7 @@ import {
 } from '@/components/features/Menus/SearchMenu';
 import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import type { Tag } from '@/store/entities/tag';
 import { TagItem } from './TagItem';
 import { useSearchTagsQuery } from './useSearchTagsQuery';

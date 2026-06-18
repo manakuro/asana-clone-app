@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/flex';
 import {
   Tooltip as MoleculesTooltip,
   type TooltipProps,
-} from '@/components/ui/Tooltip';
+} from '@/components/ui/tooltip';
 import { useDisclosure } from '@/shared/chakra';
 import { useTaskFile } from '@/store/entities/taskFile';
 import { useThumbnailAttachmentContext } from './Provider';

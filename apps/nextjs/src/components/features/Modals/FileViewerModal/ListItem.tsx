@@ -2,7 +2,7 @@ import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
 import { Image } from '@/components/ui/image';
 import { PdfViewer } from '@/components/ui/pdf-viewer';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { useTaskFile } from '@/store/entities/taskFile';
 

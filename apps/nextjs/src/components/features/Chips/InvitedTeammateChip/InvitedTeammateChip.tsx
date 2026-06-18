@@ -4,7 +4,7 @@ import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
 import type { Teammate } from '@/store/entities/teammate';
 

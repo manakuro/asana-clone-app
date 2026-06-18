@@ -7,9 +7,9 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Portal } from '@/components/ui/portal';
-import { DurationBar } from '@/components/ui/VideoPlayer/DurationBar';
-import { Duration } from './Duration';
-import { useVideoPlayer } from './useVideoPlayer';
+import { DurationBar } from '@/components/ui/video-player/duration-bar';
+import { Duration } from './duration';
+import { useVideoPlayer } from './use-video-player';
 
 export type State = {
   played: number;

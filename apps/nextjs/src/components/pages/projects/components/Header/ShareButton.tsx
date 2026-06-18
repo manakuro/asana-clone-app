@@ -3,8 +3,8 @@ import { useShareProjectModal } from '@/components/features/Modals/ShareProjectM
 import { Button } from '@/components/ui/button';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Tooltip } from '@/components/ui/Tooltip';
-import { useTooltip } from '@/components/ui/Tooltip/useTooltip';
+import { Tooltip } from '@/components/ui/tooltip';
+import { useTooltip } from '@/components/ui/tooltip/use-tooltip';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useWorkspace } from '@/store/entities/workspace';
 

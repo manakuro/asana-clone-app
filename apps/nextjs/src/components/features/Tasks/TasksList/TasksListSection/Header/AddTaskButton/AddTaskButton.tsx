@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useTasksTask } from '@/components/features/Tasks/hooks';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip } from '@/components/ui/tooltip';
 
 type Props = {
   taskSectionId: string;

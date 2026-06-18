@@ -10,7 +10,7 @@ import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Link } from '@/components/ui/link';
 import { NextLink } from '@/components/ui/next-link';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle, useLinkHoverStyle } from '@/hooks';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';

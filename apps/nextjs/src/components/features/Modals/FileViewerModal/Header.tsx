@@ -6,7 +6,7 @@ import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Link } from '@/components/ui/link';
 import { Stack } from '@/components/ui/stack';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { formatTaskFileCreatedAt } from '@/shared/date';
 import { useTaskFile } from '@/store/entities/taskFile';
 import { useFileViewerModal } from './useFileViewerModal';

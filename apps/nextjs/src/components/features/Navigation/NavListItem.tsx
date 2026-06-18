@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/icon';
 import { Link, type LinkProps } from '@/components/ui/link';
 import { List } from '@/components/ui/list';
 import { NextLink } from '@/components/ui/next-link';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useLinkHoverStyle } from '@/hooks';
 import type { StaticRoutes } from '@/router';
 import { PADDING_X } from './Navigation';

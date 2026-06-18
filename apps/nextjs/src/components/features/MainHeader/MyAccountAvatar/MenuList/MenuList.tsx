@@ -3,7 +3,7 @@ import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { PopoverMore } from './PopoverMore';
 
 export function MenuList() {

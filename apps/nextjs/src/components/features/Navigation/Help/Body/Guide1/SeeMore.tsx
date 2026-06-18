@@ -3,7 +3,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Box } from '@/components/ui/box';
 import { Link } from '@/components/ui/link';
 import { Stack } from '@/components/ui/stack';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { guide1Item } from './item';
 
 export function SeeMore() {

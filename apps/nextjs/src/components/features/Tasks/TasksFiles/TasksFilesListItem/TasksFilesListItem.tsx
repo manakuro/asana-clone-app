@@ -7,7 +7,7 @@ import { Icon } from '@/components/ui/icon';
 import { Image } from '@/components/ui/image';
 import { Link } from '@/components/ui/link';
 import { Separator } from '@/components/ui/separator';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useHover } from '@/hooks/useHover';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { useTask } from '@/store/entities/task';

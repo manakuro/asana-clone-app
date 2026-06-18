@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,

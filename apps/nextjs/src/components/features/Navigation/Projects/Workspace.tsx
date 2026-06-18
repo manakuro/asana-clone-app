@@ -9,7 +9,7 @@ import { Link } from '@/components/ui/link';
 import { Menu } from '@/components/ui/menu';
 import { NextLink } from '@/components/ui/next-link';
 import { Portal } from '@/components/ui/portal';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle, useLinkHoverStyle } from '@/hooks';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';

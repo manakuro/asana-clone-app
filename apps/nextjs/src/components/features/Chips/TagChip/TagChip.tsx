@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
 import { Icon, type IconProps } from '@/components/ui/icon';
-import { Text } from '@/components/ui/Text';
+import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTaskTag } from '@/store/entities/taskTag';
 
