@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Badge, type BadgeProps } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ColorBox } from '@/components/ui/ColorBox';
+import { ColorBox } from '@/components/ui/color-box';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';

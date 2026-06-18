@@ -1,2 +1,2 @@
-src/components/ui/Collapsible/Collapsible.tsx
-src/components/ui/Collapsible/index.ts
+src/components/ui/CustomField/CustomField.tsx
+src/components/ui/CustomField/index.ts

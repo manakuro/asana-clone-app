@@ -2,7 +2,7 @@ import { Draggable } from '@hello-pangea/dnd';
 import { memo, useCallback, useMemo } from 'react';
 import { useTasksTaskColumn } from '@/components/features/Tasks/hooks';
 import { Box } from '@/components/ui/box';
-import { CustomField } from '@/components/ui/CustomField';
+import { CustomField } from '@/components/ui/custom-field';
 import { useDraggableInPortal } from '@/hooks/useDraggableInPortal';
 import { useTaskColumn } from '@/store/entities/taskColumn';
 

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ColorBox } from '@/components/ui/ColorBox';
+import { ColorBox } from '@/components/ui/color-box';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import type { Mention } from '@/store/entities/mention';

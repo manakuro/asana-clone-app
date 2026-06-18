@@ -5,7 +5,7 @@ import {
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
 } from '@/components/features/Popovers';
-import { ColorBox } from '@/components/ui/ColorBox';
+import { ColorBox } from '@/components/ui/color-box';
 import { useReactNodeView } from '@/components/ui/Editor/Editors/ReactNodeView';
 import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';

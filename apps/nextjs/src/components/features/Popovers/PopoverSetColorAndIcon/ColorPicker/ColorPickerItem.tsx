@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { ColorBox } from '@/components/ui/ColorBox';
+import { ColorBox } from '@/components/ui/color-box';
 import { Icon } from '@/components/ui/Icon';
 import { WrapItem } from '@/components/ui/Wrap';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
