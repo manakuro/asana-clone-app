@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTaskDetailProjectsInput } from '@/components/features/TaskDetail/hooks';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/Menu';
 
 export const AddToAnotherProject = memo(function AddToAnotherProject() {

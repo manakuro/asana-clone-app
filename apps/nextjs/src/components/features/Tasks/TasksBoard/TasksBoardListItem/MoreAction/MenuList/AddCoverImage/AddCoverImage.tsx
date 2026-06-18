@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/Text';
 import { PopoverAddCoverImageActions } from './PopoverAddCoverImageActions';
 

@@ -13,7 +13,7 @@ import { Box } from '@/components/ui/box';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Grid } from '@/components/ui/grid';
 import { Heading } from '@/components/ui/heading';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 
 type Props = {
   projectIds: string[];

@@ -3,7 +3,7 @@ import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { Button } from '@/components/ui/button';
 import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTask } from '@/store/entities/task';
 import { useTasksBoardListItemContext } from '../Provider';

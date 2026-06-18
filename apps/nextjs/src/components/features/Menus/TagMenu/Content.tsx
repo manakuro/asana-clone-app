@@ -6,7 +6,7 @@ import {
   SearchMenuRightContainer,
   useSearchMenu,
 } from '@/components/features/Menus/SearchMenu';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/Separator';
 import { Text } from '@/components/ui/Text';
 import type { Tag } from '@/store/entities/tag';

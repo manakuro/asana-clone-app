@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/Menu';
 
 export const Duplicate = memo(function Duplicate() {

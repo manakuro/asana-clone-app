@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Icon, type IconProps } from '@/components/ui/Icon';
+import { Icon, type IconProps } from '@/components/ui/icon';
 import { transitions } from '@/styles/transitions';
 
 type Props = {

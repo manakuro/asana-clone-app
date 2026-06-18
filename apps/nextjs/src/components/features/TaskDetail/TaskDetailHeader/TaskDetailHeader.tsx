@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
+import { Icon } from '@/components/ui/icon';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Stack } from '@/components/ui/Stack';
 import type { IconType } from '@/shared/icons';

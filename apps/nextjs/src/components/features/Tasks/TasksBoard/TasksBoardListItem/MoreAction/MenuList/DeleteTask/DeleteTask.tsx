@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/Menu';
 import { useToaster } from '@/hooks/useToaster';
 import { useTask, useTaskCommand } from '@/store/entities/task';

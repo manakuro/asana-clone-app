@@ -2,7 +2,7 @@ import type React from 'react';
 import { useCallback } from 'react';
 import { useHelp } from '@/components/features/Navigation/Help';
 import { Separator } from '@/components/features/Navigation/Separator';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { List } from '@/components/ui/List';
 import { Text } from '@/components/ui/Text';
 import { transitions } from '@/styles/transitions';

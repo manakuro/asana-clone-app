@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
 import { useProjectTeammate } from '@/store/entities/projectTeammate';

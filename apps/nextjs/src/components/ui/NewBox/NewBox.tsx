@@ -1,6 +1,6 @@
 import { DashedBox } from '@/components/ui/dashed-box';
 import type { FlexProps } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 
 type Props = FlexProps & {
   size: Sizes;

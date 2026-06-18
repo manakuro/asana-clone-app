@@ -1,5 +1,5 @@
-import { Icon } from '@/components/ui/Icon';
 import { Input, InputGroup, type InputProps } from '@/components/ui/Input';
+import { Icon } from '@/components/ui/icon';
 import type { IconType } from '@/shared/icons';
 
 type Props = InputProps & {

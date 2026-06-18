@@ -1,5 +1,5 @@
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Progress } from '@/components/ui/Progress';
 import { Text } from '@/components/ui/Text';
 import { transitions } from '@/styles/transitions';

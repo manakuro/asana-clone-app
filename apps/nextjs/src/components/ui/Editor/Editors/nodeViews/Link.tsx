@@ -5,7 +5,7 @@ import {
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
 } from '@/components/features/Popovers';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Link as AtomsLink } from '@/components/ui/Link';
 import { useReactNodeView } from '../ReactNodeView';
 

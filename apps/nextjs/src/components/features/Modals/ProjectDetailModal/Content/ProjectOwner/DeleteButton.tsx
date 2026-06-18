@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useProjectTeammatesCommand } from '@/store/entities/projectTeammate';
 

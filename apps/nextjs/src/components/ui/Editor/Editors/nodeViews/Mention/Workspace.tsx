@@ -5,7 +5,7 @@ import {
   PopoverEditorLinkText,
   PopoverEditorLinkTrigger,
 } from '@/components/features/Popovers';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';
 import { ROUTE_WORKSPACES_OVERVIEW } from '@/router';

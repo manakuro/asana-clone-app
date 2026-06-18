@@ -1,5 +1,5 @@
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/Menu';
 import { Text } from '@/components/ui/Text';
 import { AddToAnotherProject } from './AddToAnotherProject';

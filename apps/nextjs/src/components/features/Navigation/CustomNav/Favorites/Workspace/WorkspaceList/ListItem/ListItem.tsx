@@ -2,7 +2,7 @@ import { usePathname } from 'next/navigation';
 import { memo, useMemo } from 'react';
 import { PADDING_X, useNavigation } from '@/components/features/Navigation';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';
 import { Text } from '@/components/ui/Text';

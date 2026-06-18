@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/Menu';
 
 type Props = {

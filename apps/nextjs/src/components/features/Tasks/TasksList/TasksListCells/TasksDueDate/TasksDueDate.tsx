@@ -4,7 +4,7 @@ import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
 import { DueDate } from '@/components/ui/due-date';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import { useTask } from '@/store/entities/task';

@@ -4,7 +4,7 @@ import { useInviteModal } from '@/components/features/Modals/InviteModal/useInvi
 import { useNavigation } from '@/components/features/Navigation';
 import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/Link';
 import { Menu } from '@/components/ui/Menu';
 import { NextLink } from '@/components/ui/NextLink';

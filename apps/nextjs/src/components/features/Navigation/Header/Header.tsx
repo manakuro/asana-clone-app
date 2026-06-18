@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { PADDING_X, useNavigation } from '@/components/features/Navigation';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
+import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/Link';
 import { Logo } from '@/components/ui/Logo';
 import { NextLink } from '@/components/ui/NextLink';

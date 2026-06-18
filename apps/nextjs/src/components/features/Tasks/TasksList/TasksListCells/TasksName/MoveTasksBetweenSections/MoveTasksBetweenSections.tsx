@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
 import { MenuSelect, MenuSelectTrigger } from '@/components/features/Menus';
 import { useTasksTask } from '@/components/features/Tasks/hooks';
-import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
+import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';
 import { MenuList } from './MenuList';

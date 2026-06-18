@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Icon } from '@/components/ui/Icon';
 import type { IconButtonProps } from '@/components/ui/IconButton';
+import { Icon } from '@/components/ui/icon';
 import type { TooltipProps } from '@/components/ui/Tooltip';
 import { useItalic } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';

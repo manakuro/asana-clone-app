@@ -9,8 +9,8 @@ import {
   ButtonGroup,
   type ButtonGroupProps,
 } from '@/components/ui/button-group';
-import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
+import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import type { SystemStyleObject } from '@/shared/chakra';

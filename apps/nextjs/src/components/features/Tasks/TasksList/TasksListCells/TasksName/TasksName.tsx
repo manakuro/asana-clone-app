@@ -4,7 +4,7 @@ import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
 import { CheckIcon } from '@/components/ui/check-icon';
 import type { FlexProps } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';
 import { TaskDoneTransition } from '@/components/ui/Transitions';

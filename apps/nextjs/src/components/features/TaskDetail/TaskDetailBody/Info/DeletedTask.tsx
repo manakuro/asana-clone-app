@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/Text';
 import { useTaskCommand } from '@/store/entities/task';
 

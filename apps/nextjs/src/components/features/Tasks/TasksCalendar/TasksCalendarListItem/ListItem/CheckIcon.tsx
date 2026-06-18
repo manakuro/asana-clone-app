@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { CheckIcon as AtomsCheckIcon } from '@/components/ui/check-icon';
-import type { IconProps } from '@/components/ui/Icon';
+import type { IconProps } from '@/components/ui/icon';
 import type { SystemStyleObject } from '@/shared/chakra';
 import { useProject } from '@/store/entities/project';
 import { useTask } from '@/store/entities/task';

@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTaskActivityTaskIds } from '@/components/features/Inbox/hooks';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/Link';
 import { formatDueDate } from '@/shared/date';
 import { useTask } from '@/store/entities/task';

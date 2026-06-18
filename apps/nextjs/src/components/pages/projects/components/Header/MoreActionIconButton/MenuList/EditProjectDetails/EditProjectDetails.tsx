@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useProjectDetailModal } from '@/components/features/Modals';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/Menu';
 
 type Props = {

@@ -1,6 +1,6 @@
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
+import { Icon } from '@/components/ui/icon';
 import { Option, Select } from '@/components/ui/Select';
 import { Text } from '@/components/ui/Text';
 import { Tooltip } from '@/components/ui/Tooltip';

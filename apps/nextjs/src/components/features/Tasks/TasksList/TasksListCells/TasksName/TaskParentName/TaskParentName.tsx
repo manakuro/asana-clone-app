@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTasksContext } from '@/components/features/Tasks';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/Text';
 import { useTask } from '@/store/entities/task';
 import { useTasksNameContext } from '../TasksNameProvider';

@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/Text';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useClickableHoverStyle } from '@/hooks';

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Center } from '@/components/ui/center';
-import { Icon } from '@/components/ui/Icon';
 import { Image } from '@/components/ui/Image';
+import { Icon } from '@/components/ui/icon';
 import { FileTypeCode } from '@/graphql/enums';
 import type { SystemStyleObject } from '@/shared/chakra';
 import { getTaskFileIcon, useTaskFile } from '@/store/entities/taskFile';

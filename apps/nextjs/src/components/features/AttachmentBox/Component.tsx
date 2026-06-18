@@ -1,5 +1,5 @@
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/Link';
 import { Text } from '@/components/ui/Text';
 import type { IconType } from '@/shared/icons';

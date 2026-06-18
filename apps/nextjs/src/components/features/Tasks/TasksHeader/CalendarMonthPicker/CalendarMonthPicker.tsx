@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
+import { Icon } from '@/components/ui/icon';
 import { Popover } from '@/components/ui/Popover';
 import { Text } from '@/components/ui/Text';
 import { dateFns } from '@/shared/dateFns';

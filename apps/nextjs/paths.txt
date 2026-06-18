@@ -1,2 +1,2 @@
-src/components/ui/Heading/Heading.tsx
-src/components/ui/Heading/index.ts
+src/components/ui/Icon/Icon.tsx
+src/components/ui/Icon/index.ts

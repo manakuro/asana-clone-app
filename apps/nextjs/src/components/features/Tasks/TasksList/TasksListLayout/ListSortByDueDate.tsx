@@ -10,8 +10,8 @@ import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListIt
 import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
-import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
+import { Icon } from '@/components/ui/icon';
 
 export const ListSortByDueDate: React.FC = memo(() => {
   const { taskIds } = useTasksTaskIds();

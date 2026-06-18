@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { useTaskListSortStatus } from '@/store/entities/taskListSortStatus';
 import { Container } from './Container';
 

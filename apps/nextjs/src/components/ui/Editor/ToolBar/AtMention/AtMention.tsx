@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { useAtMention } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../BaseButton';
 

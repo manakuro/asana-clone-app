@@ -1,6 +1,6 @@
 import type { ListItemProps } from '@chakra-ui/react';
 import { memo, useMemo } from 'react';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Link, type LinkProps } from '@/components/ui/Link';
 import { List } from '@/components/ui/List';
 import { NextLink } from '@/components/ui/NextLink';

@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { Icon, type IconProps } from '@/components/ui/Icon';
 import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
+import { Icon, type IconProps } from '@/components/ui/icon';
 
 type Props = {
   favoriteId: string;

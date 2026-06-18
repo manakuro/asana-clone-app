@@ -3,7 +3,7 @@ import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';
 import { Stack } from '@/components/ui/Stack';

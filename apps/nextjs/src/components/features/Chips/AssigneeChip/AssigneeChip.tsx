@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { PopoverProfile } from '@/components/features/Popovers';
 import { Avatar } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTeammate } from '@/store/entities/teammate';

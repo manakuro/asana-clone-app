@@ -4,7 +4,7 @@ import {
   MenuSelectTrigger,
 } from '@/components/features/Menus';
 import { Button } from '@/components/ui/button';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/Menu';
 import type { TaskListSortStatusCodeValue } from '@/store/entities/taskListSortStatus';
 

@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { ColorBox } from '@/components/ui/color-box';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import { WrapItem } from '@/components/ui/Wrap';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 
