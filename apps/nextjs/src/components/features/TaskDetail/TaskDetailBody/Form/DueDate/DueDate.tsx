@@ -3,7 +3,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
-import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
+import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Icon } from '@/components/ui/Icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';

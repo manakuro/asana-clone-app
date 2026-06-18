@@ -1,3 +1,2 @@
-src/components/ui/Dialog/Dialog/Dialog.tsx
-src/components/ui/Dialog/Dialog/index.ts
-src/components/ui/Dialog/index.ts
+src/components/ui/Fade/Fade.tsx
+src/components/ui/Fade/index.ts

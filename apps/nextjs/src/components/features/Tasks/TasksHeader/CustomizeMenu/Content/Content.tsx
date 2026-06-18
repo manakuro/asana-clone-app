@@ -4,7 +4,7 @@ import { memo, useEffect, useMemo } from 'react';
 import { Separator } from '@/components/features/Navigation/Separator';
 import { useTasksTaskColumnCustomizable } from '@/components/features/Tasks/hooks';
 import { Box } from '@/components/ui/box';
-import { Drawer } from '@/components/ui/Drawer';
+import { Drawer } from '@/components/ui/drawer';
 import { Flex } from '@/components/ui/Flex';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';

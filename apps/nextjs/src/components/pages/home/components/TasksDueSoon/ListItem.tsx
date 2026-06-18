@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { ProjectChip } from '@/components/features/Chips';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { CheckIcon } from '@/components/ui/check-icon';
-import { DueDate } from '@/components/ui/DueDate';
+import { DueDate } from '@/components/ui/due-date';
 import { Flex } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';

@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Button, type ButtonProps } from '@/components/ui/button';
-import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
+import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Flex } from '@/components/ui/Flex';
 import { Icon, type IconProps } from '@/components/ui/Icon';
 import { useHover } from '@/hooks/useHover';
