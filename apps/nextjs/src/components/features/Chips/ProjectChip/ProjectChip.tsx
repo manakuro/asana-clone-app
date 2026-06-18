@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { Badge, type BadgeProps } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { Badge, type BadgeProps } from '@/components/ui/badge';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
