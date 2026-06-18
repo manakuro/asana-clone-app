@@ -1,5 +1,5 @@
 import { memo, type PropsWithChildren } from 'react';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Menu } from '@/components/ui/Menu';
 import { useDisclosure } from '@/shared/chakra';
 import { MenuList } from './MenuList';

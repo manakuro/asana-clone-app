@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useMemo } from 'react';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Textarea, type TextareaProps } from '@/components/ui/Textarea';
 import type { SystemStyleObject } from '@/shared/chakra';

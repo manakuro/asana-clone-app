@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
+import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Stack } from '@/components/ui/Stack';

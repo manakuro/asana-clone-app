@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Dialog } from '@/components/ui/Dialog';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';

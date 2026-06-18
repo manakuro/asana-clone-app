@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Accordion } from '@/components/ui/accordion';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/Flex';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';

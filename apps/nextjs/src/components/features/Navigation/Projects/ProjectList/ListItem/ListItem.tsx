@@ -3,7 +3,7 @@ import { memo, useMemo } from 'react';
 import { useNavigation } from '@/components/features/Navigation';
 import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { PopoverProjectMenu } from '@/components/features/Popovers';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { ColorBox } from '@/components/ui/ColorBox';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';

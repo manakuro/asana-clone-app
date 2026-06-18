@@ -4,7 +4,7 @@ import { TasksListSectionGroupByProject } from '@/components/features/Tasks';
 import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
 import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListItem';
 import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';

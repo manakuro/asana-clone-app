@@ -1,5 +1,5 @@
 import { usePDFSlick } from '@pdfslick/react';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 
 import '@pdfslick/react/dist/pdf_viewer.css';
 

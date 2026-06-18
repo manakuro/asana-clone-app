@@ -9,7 +9,7 @@ import {
   ProjectTileItemNew,
 } from '@/components/features/Projects';
 import { Accordion } from '@/components/ui/accordion';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Grid } from '@/components/ui/Grid';
 import { Heading } from '@/components/ui/Heading';

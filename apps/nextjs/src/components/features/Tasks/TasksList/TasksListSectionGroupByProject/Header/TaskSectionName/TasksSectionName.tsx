@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { useProject } from '@/store/entities/project';
 
 type Props = {

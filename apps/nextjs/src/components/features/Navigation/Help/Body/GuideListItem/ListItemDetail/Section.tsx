@@ -1,5 +1,5 @@
 import type React from 'react';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Heading } from '@/components/ui/Heading';
 import { Separator } from '@/components/ui/Separator';
 

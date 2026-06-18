@@ -8,7 +8,7 @@ import {
   ProjectTileItem,
   ProjectTileItemNew,
 } from '@/components/features/Projects';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/Flex';
 import { Grid } from '@/components/ui/Grid';
 import { useProjectIds } from '@/store/entities/project';

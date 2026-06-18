@@ -1,2 +1,2 @@
-src/components/ui/Avatar/Avatar.tsx
-src/components/ui/Avatar/index.ts
+src/components/ui/Box/Box.tsx
+src/components/ui/Box/index.ts

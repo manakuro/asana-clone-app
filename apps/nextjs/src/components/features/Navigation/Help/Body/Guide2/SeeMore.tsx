@@ -1,6 +1,6 @@
 import { Section } from '@/components/features/Navigation/Help/Body/GuideListItem/ListItemDetail';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Link } from '@/components/ui/Link';
 import { List } from '@/components/ui/List';
 import { Stack } from '@/components/ui/Stack';

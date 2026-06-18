@@ -1,4 +1,4 @@
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/Flex';
 import { Image } from '@/components/ui/Image';
 import { PdfViewer } from '@/components/ui/PdfViewer';

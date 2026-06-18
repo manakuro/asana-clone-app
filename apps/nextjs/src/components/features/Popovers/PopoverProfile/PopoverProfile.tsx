@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from 'react';
 
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { Box } from '@/components/ui/Box';
 import { Button } from '@/components/ui/Button';
+import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Image } from '@/components/ui/Image';

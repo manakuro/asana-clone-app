@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { DarkMode } from '@/chakra-ui/ui/color-mode';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/Flex';
 import { CustomNav } from './CustomNav';
 import { Footer } from './Footer';

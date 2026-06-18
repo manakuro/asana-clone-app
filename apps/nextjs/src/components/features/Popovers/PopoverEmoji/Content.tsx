@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Box } from '@/components/ui/Box';
+import { Box } from '@/components/ui/box';
 import { Popover } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';
