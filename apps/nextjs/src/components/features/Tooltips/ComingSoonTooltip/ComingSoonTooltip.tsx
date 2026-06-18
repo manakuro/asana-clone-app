@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
+import { Tooltip, type TooltipProps } from '@/components/ui/tooltip';
 
 type Props = Omit<TooltipProps, 'content'>;
 

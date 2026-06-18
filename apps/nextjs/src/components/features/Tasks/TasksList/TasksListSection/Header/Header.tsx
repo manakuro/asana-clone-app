@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
 import { useTasksListSectionContext } from '@/components/features/Tasks/TasksList/TasksListSection/Provider';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
-import { Stack } from '@/components/ui/Stack';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
+import { Stack } from '@/components/ui/stack';
 import { useHover } from '@/hooks/useHover';
 import { AddTaskButton } from './AddTaskButton';
 import { MoreAction } from './MoreAction';

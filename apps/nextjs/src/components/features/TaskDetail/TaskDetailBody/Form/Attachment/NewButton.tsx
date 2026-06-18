@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { AttachmentMenu } from '@/components/features/Menus';
-import { Menu } from '@/components/ui/Menu';
-import { NewBox } from '@/components/ui/NewBox';
+import { Menu } from '@/components/ui/menu';
+import { NewBox } from '@/components/ui/new-box';
 
 export const NewButton = memo(function NewButton() {
   return (

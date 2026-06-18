@@ -3,7 +3,7 @@ import { AttachmentUploadingBox } from '@/components/features/AttachmentUploadin
 import { useFileViewerModal } from '@/components/features/Modals';
 import { useInputContext } from '@/components/features/TaskDetail/TaskDetailFooter/Comment/Input/Provider';
 import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
-import { Wrap, WrapItem } from '@/components/ui/Wrap';
+import { Wrap, WrapItem } from '@/components/ui/wrap';
 
 export const Attachments = memo(function Attachments() {
   const { taskFileIds, uploadingFiles, onDeleteTaskFile } = useInputContext();

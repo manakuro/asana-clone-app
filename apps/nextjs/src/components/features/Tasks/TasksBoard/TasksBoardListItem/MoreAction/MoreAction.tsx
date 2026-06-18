@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
-import { Menu } from '@/components/ui/Menu';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
+import { Menu } from '@/components/ui/menu';
 import { useDisclosure } from '@/shared/chakra';
 import {
   useTasksBoardListItemContext,

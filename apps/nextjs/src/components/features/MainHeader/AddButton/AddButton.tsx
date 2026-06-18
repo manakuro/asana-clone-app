@@ -1,11 +1,11 @@
 import { memo, useCallback } from 'react';
 import { useInviteModal } from '@/components/features/Modals/InviteModal/useInviteModal';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
-import { Menu } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
-import { Text } from '@/components/ui/Text';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
+import { Menu } from '@/components/ui/menu';
+import { Portal } from '@/components/ui/portal';
+import { Text } from '@/components/ui/text';
 import type { IconType } from '@/shared/icons';
 
 export const AddButton = memo(function AddButton() {

@@ -1,5 +1,5 @@
-import { Checkbox } from '@/components/ui/Checkbox';
-import { Flex } from '@/components/ui/Flex';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Flex } from '@/components/ui/flex';
 
 type Props = {
   isSetForEveryone: boolean;

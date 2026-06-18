@@ -1,7 +1,7 @@
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
-import { DashedBox } from '@/components/ui/DashedBox';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
+import { DashedBox } from '@/components/ui/dashed-box';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
 import { transitions } from '@/styles/transitions';
 import { Container } from './Container';
 

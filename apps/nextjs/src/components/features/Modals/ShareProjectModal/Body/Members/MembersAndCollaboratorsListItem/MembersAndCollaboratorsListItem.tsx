@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import { Flex } from '@/components/ui/Flex';
-import { Text } from '@/components/ui/Text';
+import { Flex } from '@/components/ui/flex';
+import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useWorkspace } from '@/store/entities/workspace';
 import { PermissionMenu } from '../../PermissionMenu';

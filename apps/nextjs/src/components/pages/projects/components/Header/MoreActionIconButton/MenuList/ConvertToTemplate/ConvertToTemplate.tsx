@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Icon } from '@/components/ui/Icon';
-import { Menu } from '@/components/ui/Menu';
+import { Icon } from '@/components/ui/icon';
+import { Menu } from '@/components/ui/menu';
 
 export const ConvertToTemplate = memo(function ConvertToTemplate() {
   return (

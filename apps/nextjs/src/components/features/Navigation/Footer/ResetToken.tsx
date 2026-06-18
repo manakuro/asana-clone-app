@@ -1,9 +1,9 @@
 import type React from 'react';
 import { useCallback } from 'react';
 import { Separator } from '@/components/features/Navigation/Separator';
-import { Icon } from '@/components/ui/Icon';
-import { List } from '@/components/ui/List';
-import { Text } from '@/components/ui/Text';
+import { Icon } from '@/components/ui/icon';
+import { List } from '@/components/ui/list';
+import { Text } from '@/components/ui/text';
 import { setErrorToken } from '@/shared/apollo/client';
 import { transitions } from '@/styles/transitions';
 import { PADDING_X } from '../Navigation';

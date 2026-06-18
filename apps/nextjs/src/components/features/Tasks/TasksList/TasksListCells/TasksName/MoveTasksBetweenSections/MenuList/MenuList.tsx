@@ -5,7 +5,7 @@ import {
   useTasksTaskSectionByTaskId,
   useTasksTaskSections,
 } from '@/components/features/Tasks/hooks';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 
 type Props = {
   taskId: string;

@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import { useProject } from '@/store/entities/project';
 import { MenuList } from './MenuList';
 

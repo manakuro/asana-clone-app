@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 import { createProvider } from '@/shared/react/createProvider';
 
 type Props = {

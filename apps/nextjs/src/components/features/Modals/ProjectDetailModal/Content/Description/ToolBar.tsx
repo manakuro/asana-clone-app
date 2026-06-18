@@ -11,9 +11,9 @@ import {
   OrderedList,
   Strikethrough,
   Underline,
-} from '@/components/ui/Editor/ToolBar';
-import { Separator } from '@/components/ui/Separator';
-import { Stack } from '@/components/ui/Stack';
+} from '@/components/ui/editor/tool-bar';
+import { Separator } from '@/components/ui/separator';
+import { Stack } from '@/components/ui/stack';
 import { useDescriptionContext } from './Provider';
 
 export const ToolBar = memo(function ToolBar() {

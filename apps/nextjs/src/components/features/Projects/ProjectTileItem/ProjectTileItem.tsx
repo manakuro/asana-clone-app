@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { PopoverProjectMenu } from '@/components/features/Popovers';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import { AvatarGroup } from '@/components/ui/Avatar';
-import { Fade } from '@/components/ui/Fade';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
+import { AvatarGroup } from '@/components/ui/avatar';
+import { Fade } from '@/components/ui/fade';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
 import type { IconType } from '@/shared/icons';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';

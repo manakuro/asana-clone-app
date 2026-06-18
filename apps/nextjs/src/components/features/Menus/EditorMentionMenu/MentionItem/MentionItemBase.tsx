@@ -3,7 +3,7 @@ import {
   type SetValueParam,
   useEditorMentionMenu,
 } from '@/components/features/Menus/EditorMentionMenu';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import type { Mention } from '@/store/entities/mention';

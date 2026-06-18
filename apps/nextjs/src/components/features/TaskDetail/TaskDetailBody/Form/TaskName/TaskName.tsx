@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { useTask } from '@/store/entities/task';
 import { Input } from './Input';
 

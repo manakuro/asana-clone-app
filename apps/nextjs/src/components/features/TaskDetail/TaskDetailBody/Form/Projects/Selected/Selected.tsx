@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
-import { Box } from '@/components/ui/Box';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Stack } from '@/components/ui/Stack';
+import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Stack } from '@/components/ui/stack';
 import { useProjectTask } from '@/store/entities/projectTask';
 import { ProjectButton } from './ProjectButton';
 import { Section } from './Section';

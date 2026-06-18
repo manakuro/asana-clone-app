@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useTasksTaskIds } from '@/components/features/Tasks/hooks';
 import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListItem';
 import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 
 export const ListSortByAlphabetical: React.FC = memo(() => {
   const { taskIds } = useTasksTaskIds();

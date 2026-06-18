@@ -1,10 +1,10 @@
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
-import { Box } from '@/components/ui/Box';
-import { Button } from '@/components/ui/Button';
-import { DueDate as AtomsDueDate } from '@/components/ui/DueDate';
-import { Icon } from '@/components/ui/Icon';
+import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
+import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
+import { Icon } from '@/components/ui/icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import { useTask } from '@/store/entities/task';

@@ -3,9 +3,9 @@ import {
   type Item,
   PADDING_X,
 } from '@/components/features/Navigation/Help/Body/GuideListItem';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Text } from '@/components/ui/Text';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Text } from '@/components/ui/text';
 
 type Props = {
   item: Item;

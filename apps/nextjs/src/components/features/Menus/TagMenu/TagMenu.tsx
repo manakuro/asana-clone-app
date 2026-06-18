@@ -4,7 +4,7 @@ import {
   SearchMenuContent,
   SearchMenuTrigger,
 } from '@/components/features/Menus/SearchMenu';
-import type { PopoverRootProps } from '@/components/ui/Popover';
+import type { PopoverRootProps } from '@/components/ui/popover';
 import type { Tag } from '@/store/entities/tag';
 import { Content } from './Content';
 

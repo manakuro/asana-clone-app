@@ -12,7 +12,7 @@ import {
   useTasksBoardDetail,
 } from '@/components/features/Tasks';
 import { useProjectsPageContext } from '@/components/pages/projects/providers/Provider';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { SortMenu } from '../TasksHeader';

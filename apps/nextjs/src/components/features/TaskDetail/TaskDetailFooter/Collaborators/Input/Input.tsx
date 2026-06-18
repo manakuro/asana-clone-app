@@ -3,9 +3,9 @@ import { memo, useCallback, useState } from 'react';
 import { AssigneeChip } from '@/components/features/Chips';
 import { InviteCollaboratorMenu } from '@/components/features/Menus';
 import { useTaskDetail } from '@/components/features/TaskDetail';
-import { Flex } from '@/components/ui/Flex';
-import { Input as AtomsInput } from '@/components/ui/Input';
-import { Wrap, WrapItem } from '@/components/ui/Wrap';
+import { Flex } from '@/components/ui/flex';
+import { Input as AtomsInput } from '@/components/ui/input';
+import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import {

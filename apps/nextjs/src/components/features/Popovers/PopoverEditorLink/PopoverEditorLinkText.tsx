@@ -1,7 +1,7 @@
 import {
   MentionText,
   type MentionTextProps,
-} from '@/components/ui/Editor/Editors/nodeViews/Mention/MentionText';
+} from '@/components/ui/editor/editors/node-views/mention/mention-text';
 
 type Props = MentionTextProps;
 

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { EditorPlaceholder } from '@/components/ui/Editor';
+import { EditorPlaceholder } from '@/components/ui/editor';
 import { useDescriptionContext } from './Provider';
 
 export const Placeholder = memo(function Placeholder() {

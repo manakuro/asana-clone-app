@@ -1,5 +1,5 @@
-import { Menu, type MenuRootProps } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
+import { Menu, type MenuRootProps } from '@/components/ui/menu';
+import { Portal } from '@/components/ui/portal';
 
 type Props = {
   onClose: () => void;

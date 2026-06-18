@@ -1,11 +1,11 @@
 import { memo } from 'react';
-import { Flex } from '@/components/ui/Flex';
-import { Heading } from '@/components/ui/Heading';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
-import { Menu } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
-import { Tab, TabList } from '@/components/ui/Tabs';
+import { Flex } from '@/components/ui/flex';
+import { Heading } from '@/components/ui/heading';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
+import { Menu } from '@/components/ui/menu';
+import { Portal } from '@/components/ui/portal';
+import { Tab, TabList } from '@/components/ui/tabs';
 
 export const Tabs = memo(function Tabs() {
   return (

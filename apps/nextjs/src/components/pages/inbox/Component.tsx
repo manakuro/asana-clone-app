@@ -2,9 +2,9 @@
 
 import React, { memo, useCallback } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
-import { Flex } from '@/components/ui/Flex';
-import { Head } from '@/components/ui/Head';
-import { TabPanel, Tabs } from '@/components/ui/Tabs';
+import { Flex } from '@/components/ui/flex';
+import { Head } from '@/components/ui/head';
+import { TabPanel, Tabs } from '@/components/ui/tabs';
 import { useRouter } from '@/router';
 import { Activity } from './components/Activity';
 import { Archive } from './components/Archive';

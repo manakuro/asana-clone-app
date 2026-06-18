@@ -1,7 +1,7 @@
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Link } from '@/components/ui/Link';
-import { Text } from '@/components/ui/Text';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Link } from '@/components/ui/link';
+import { Text } from '@/components/ui/text';
 import type { IconType } from '@/shared/icons';
 import { transitions } from '@/styles/transitions';
 import { type Sizes, sizes } from './sizes';

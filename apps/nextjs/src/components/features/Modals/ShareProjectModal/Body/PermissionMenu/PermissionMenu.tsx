@@ -4,10 +4,10 @@ import {
   MenuSelectList,
   MenuSelectTrigger,
 } from '@/components/features/Menus';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Menu } from '@/components/ui/Menu';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Menu } from '@/components/ui/menu';
 import { useClickableHoverStyle } from '@/hooks';
 import {
   PROJECT_PERMISSION_CAN_COMMENT,

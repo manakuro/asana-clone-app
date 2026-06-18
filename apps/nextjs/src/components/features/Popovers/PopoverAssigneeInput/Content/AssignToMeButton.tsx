@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { useMe } from '@/store/entities/me';
 import { useTaskCommand } from '@/store/entities/task';
 

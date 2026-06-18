@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useEditorEmojiMenu } from '@/components/features/Menus/EditorEmojiMenu';
-import { Flex } from '@/components/ui/Flex';
-import { Text } from '@/components/ui/Text';
+import { Flex } from '@/components/ui/flex';
+import { Text } from '@/components/ui/text';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import type { BaseEmoji } from '@/shared/emoji';

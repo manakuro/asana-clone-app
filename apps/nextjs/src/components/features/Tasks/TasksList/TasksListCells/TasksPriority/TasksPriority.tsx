@@ -1,8 +1,8 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { PriorityChip } from '@/components/features/Chips';
 import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
 import { useHover } from '@/hooks/useHover';
 import { useTask } from '@/store/entities/task';
 import { Menu } from './Menu';

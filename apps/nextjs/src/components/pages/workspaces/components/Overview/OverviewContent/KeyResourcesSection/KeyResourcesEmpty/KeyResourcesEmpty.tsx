@@ -1,9 +1,9 @@
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
-import { Heading } from '@/components/ui/Heading';
-import { Image } from '@/components/ui/Image';
-import { Stack } from '@/components/ui/Stack';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
+import { Heading } from '@/components/ui/heading';
+import { Image } from '@/components/ui/image';
+import { Stack } from '@/components/ui/stack';
 
 export function KeyResourcesEmpty() {
   return (

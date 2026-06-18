@@ -5,11 +5,11 @@ import {
   type Item,
   PADDING_X,
 } from '@/components/features/Navigation/Help/Body/GuideListItem';
-import { Box } from '@/components/ui/Box';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
-import { MoreLink } from '@/components/ui/MoreLink';
-import { Text } from '@/components/ui/Text';
+import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
+import { MoreLink } from '@/components/ui/more-link';
+import { Text } from '@/components/ui/text';
 
 type Props = {
   item: Item;

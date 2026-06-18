@@ -8,10 +8,10 @@ import {
 import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
 import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListItem';
 import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
-import { Box } from '@/components/ui/Box';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
+import { Box } from '@/components/ui/box';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
 
 export const ListSortByDueDate: React.FC = memo(() => {
   const { taskIds } = useTasksTaskIds();

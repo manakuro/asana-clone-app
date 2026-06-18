@@ -1,11 +1,11 @@
 import { usePathname } from 'next/navigation';
 import { memo, useMemo } from 'react';
 import { PADDING_X, useNavigation } from '@/components/features/Navigation';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Link } from '@/components/ui/Link';
-import { NextLink } from '@/components/ui/NextLink';
-import { Text } from '@/components/ui/Text';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Link } from '@/components/ui/link';
+import { NextLink } from '@/components/ui/next-link';
+import { Text } from '@/components/ui/text';
 import { useLinkHoverStyle } from '@/hooks';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';

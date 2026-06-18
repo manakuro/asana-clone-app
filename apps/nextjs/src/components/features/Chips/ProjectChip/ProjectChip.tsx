@@ -1,10 +1,10 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { Badge, type BadgeProps } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { ColorBox } from '@/components/ui/ColorBox';
-import { Icon } from '@/components/ui/Icon';
-import { Text } from '@/components/ui/Text';
+import { Badge, type BadgeProps } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { ColorBox } from '@/components/ui/color-box';
+import { Icon } from '@/components/ui/icon';
+import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';

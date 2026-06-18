@@ -18,7 +18,7 @@ import {
   useTasksListDetail,
 } from '@/components/features/Tasks';
 import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { SortMenu } from '../TasksHeader';
 import { SkeletonListContent, SkeletonListHeader } from './SkeletonList';

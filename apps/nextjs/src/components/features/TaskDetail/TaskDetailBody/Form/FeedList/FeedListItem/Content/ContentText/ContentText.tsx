@@ -3,7 +3,7 @@ import {
   Editor,
   EditorContent,
   type EditorHandle,
-} from '@/components/ui/Editor';
+} from '@/components/ui/editor';
 import { stringifyDescription } from '@/shared/prosemirror/convertDescription';
 import { useTaskFeedListItemContext } from '../../Provider';
 import { Container } from './Container';

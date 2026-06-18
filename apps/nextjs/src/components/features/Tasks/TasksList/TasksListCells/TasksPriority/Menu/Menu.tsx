@@ -4,7 +4,7 @@ import {
   MenuSelectList,
   MenuSelectTrigger,
 } from '@/components/features/Menus';
-import { Menu as UIMenu } from '@/components/ui/Menu';
+import { Menu as UIMenu } from '@/components/ui/menu';
 import { useTask } from '@/store/entities/task';
 import { useTasksPriorities } from '@/store/entities/taskPriority';
 

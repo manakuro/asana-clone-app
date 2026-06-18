@@ -4,9 +4,9 @@ import type { PropsWithChildren } from 'react';
 import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
 import { Modals } from '@/components/features/Modals';
 import { GlobalQuery, Subscription } from '@/components/shared/app';
-import { Mobile } from '@/components/ui/Mobile';
-import { PageLoader } from '@/components/ui/PageLoader';
-import { Toaster } from '@/components/ui/Toast';
+import { Mobile } from '@/components/ui/mobile';
+import { PageLoader } from '@/components/ui/page-loader';
+import { Toaster } from '@/components/ui/toast';
 import { AuthProvider, useAuthContext } from '@/providers/AuthProvider';
 import { ApolloProvider } from '@/shared/apollo/ApolloProvider';
 

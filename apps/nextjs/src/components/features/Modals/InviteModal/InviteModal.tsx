@@ -1,12 +1,12 @@
 import { CloseButton } from '@chakra-ui/react';
 import { useInviteModal } from '@/components/features/Modals';
-import { Box } from '@/components/ui/Box';
-import { Button } from '@/components/ui/Button';
-import { Dialog } from '@/components/ui/Dialog';
-import { Portal } from '@/components/ui/Portal';
-import { Stack } from '@/components/ui/Stack';
-import { Text } from '@/components/ui/Text';
-import { Textarea } from '@/components/ui/Textarea';
+import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
+import { Dialog } from '@/components/ui/dialog';
+import { Portal } from '@/components/ui/portal';
+import { Stack } from '@/components/ui/stack';
+import { Text } from '@/components/ui/text';
+import { Textarea } from '@/components/ui/textarea';
 
 export function InviteModal() {
   const { open, onClose } = useInviteModal();

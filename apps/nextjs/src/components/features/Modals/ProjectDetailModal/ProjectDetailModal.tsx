@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Dialog } from '@/components/ui/Dialog';
-import { Portal } from '@/components/ui/Portal';
+import { Dialog } from '@/components/ui/dialog';
+import { Portal } from '@/components/ui/portal';
 import { Content } from './Content';
 import { useProjectDetailModal } from './useProjectDetailModal';
 

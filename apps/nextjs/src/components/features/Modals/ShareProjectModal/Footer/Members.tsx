@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
-import { Button } from '@/components/ui/Button';
-import { Dialog } from '@/components/ui/Dialog';
-import { Icon } from '@/components/ui/Icon';
-import { Separator } from '@/components/ui/Separator';
+import { Button } from '@/components/ui/button';
+import { Dialog } from '@/components/ui/dialog';
+import { Icon } from '@/components/ui/icon';
+import { Separator } from '@/components/ui/separator';
 import { useCopyProjectLink } from '@/hooks/pages/projects';
 import { useShareProjectModal } from '../useShareProjectModal';
 

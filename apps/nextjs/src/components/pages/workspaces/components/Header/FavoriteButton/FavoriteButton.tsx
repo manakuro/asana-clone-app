@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { FavoriteIconButton } from '@/components/ui/FavoriteIconButton';
-import type { IconButtonProps } from '@/components/ui/IconButton';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { FavoriteIconButton } from '@/components/ui/favorite-icon-button';
+import type { IconButtonProps } from '@/components/ui/icon-button';
+import { Tooltip } from '@/components/ui/tooltip';
 import {
   useFavoriteWorkspaceIds,
   useFavoriteWorkspaceIdsCommand,

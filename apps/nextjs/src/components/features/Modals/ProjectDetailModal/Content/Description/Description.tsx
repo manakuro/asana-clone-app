@@ -1,7 +1,7 @@
 import isEqual from 'lodash-es/isEqual';
 import { memo, useCallback, useMemo } from 'react';
-import { Editor, EditorContent } from '@/components/ui/Editor';
-import { Flex } from '@/components/ui/Flex';
+import { Editor, EditorContent } from '@/components/ui/editor';
+import { Flex } from '@/components/ui/flex';
 import {
   parseDescription,
   stringifyDescription,

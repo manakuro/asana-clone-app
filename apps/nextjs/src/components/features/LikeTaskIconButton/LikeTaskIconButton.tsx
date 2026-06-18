@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import type { IconButtonProps } from '@/components/ui/IconButton';
-import { LikeIconButton } from '@/components/ui/LikeIconButton';
-import type { TextProps } from '@/components/ui/Text';
+import type { IconButtonProps } from '@/components/ui/icon-button';
+import { LikeIconButton } from '@/components/ui/like-icon-button';
+import type { TextProps } from '@/components/ui/text';
 import { useLike } from './useLike';
 
 type Props = {

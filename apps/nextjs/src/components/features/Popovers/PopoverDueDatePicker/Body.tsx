@@ -1,9 +1,9 @@
 import React, { memo, useCallback, useEffect } from 'react';
-import { Button } from '@/components/ui/Button';
-import { DatePicker } from '@/components/ui/DatePicker';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Popover } from '@/components/ui/Popover';
-import { Separator } from '@/components/ui/Separator';
+import { Button } from '@/components/ui/button';
+import { DatePicker } from '@/components/ui/date-picker';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Popover } from '@/components/ui/popover';
+import { Separator } from '@/components/ui/separator';
 import { useDisclosure } from '@/shared/chakra';
 import { dateFns } from '@/shared/dateFns';
 import { DueTime } from './DueTime';

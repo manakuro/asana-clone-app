@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 
 export const DeleteProject = memo(function DeleteProject() {
   return (

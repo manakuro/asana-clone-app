@@ -1,9 +1,9 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import type { BoxProps } from '@/components/ui/Box';
-import { Center } from '@/components/ui/Center';
-import { Icon as AtomsIcon } from '@/components/ui/Icon';
-import { WrapItem } from '@/components/ui/Wrap';
+import type { BoxProps } from '@/components/ui/box';
+import { Center } from '@/components/ui/center';
+import { Icon as AtomsIcon } from '@/components/ui/icon';
+import { WrapItem } from '@/components/ui/wrap';
 import { useLinkHoverStyle } from '@/hooks';
 import type { IconType } from '@/shared/icons';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';

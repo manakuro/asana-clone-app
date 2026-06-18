@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Grid } from '@/components/ui/Grid';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Grid } from '@/components/ui/grid';
+import { Skeleton } from '@/components/ui/skeleton';
 import { OverviewLeft } from './OverviewLeft';
 import { OverviewLeftContent } from './OverviewLeftContent';
 import { OverviewRight } from './OverviewRight';

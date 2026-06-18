@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useCustomizeMenu } from '@/components/features/Tasks/TasksHeader/CustomizeMenu/useCustomizeMenu';
-import { Button } from '@/components/ui/Button';
-import { Icon } from '@/components/ui/Icon';
+import { Button } from '@/components/ui/button';
+import { Icon } from '@/components/ui/icon';
 
 export const CustomizeButton = memo(function CustomizeButton() {
   const { setIsOpen } = useCustomizeMenu();

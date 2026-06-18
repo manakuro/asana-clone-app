@@ -1,10 +1,10 @@
 import { memo, useMemo } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
-import { Popover } from '@/components/ui/Popover';
-import { Text } from '@/components/ui/Text';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
+import { Popover } from '@/components/ui/popover';
+import { Text } from '@/components/ui/text';
 import { dateFns } from '@/shared/dateFns';
 import { Content } from './Content';
 

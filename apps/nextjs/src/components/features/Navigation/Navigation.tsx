@@ -2,8 +2,8 @@
 
 import { memo } from 'react';
 import { DarkMode } from '@/chakra-ui/ui/color-mode';
-import { Box } from '@/components/ui/Box';
-import { Flex } from '@/components/ui/Flex';
+import { Box } from '@/components/ui/box';
+import { Flex } from '@/components/ui/flex';
 import { CustomNav } from './CustomNav';
 import { Footer } from './Footer';
 import { Header } from './Header';

@@ -1,9 +1,9 @@
 import type React from 'react';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTaskDetailDrawerRef } from '@/components/features/TaskDetails';
-import { Box } from '@/components/ui/Box';
-import { Flex } from '@/components/ui/Flex';
-import { Input, type InputProps } from '@/components/ui/Input';
+import { Box } from '@/components/ui/box';
+import { Flex } from '@/components/ui/flex';
+import { Input, type InputProps } from '@/components/ui/input';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,

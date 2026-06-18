@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Flex } from '@/components/ui/Flex';
-import { Stack } from '@/components/ui/Stack';
+import { Flex } from '@/components/ui/flex';
+import { Stack } from '@/components/ui/stack';
 import { useTaskFeedListItemContext } from '../Provider';
 import { ContentAttachment } from './ContentAttachment';
 import { ContentText } from './ContentText';

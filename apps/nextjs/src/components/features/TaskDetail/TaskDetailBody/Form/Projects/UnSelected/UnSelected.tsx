@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { Box } from '@/components/ui/Box';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
+import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
 import { Input } from '../Input';
 
 type Props = {

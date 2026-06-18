@@ -5,7 +5,7 @@ import {
   useTasksListContentSticky,
 } from '@/components/features/Tasks';
 import { useTasksTaskColumnByType } from '@/components/features/Tasks/hooks';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMountedRef } from '@/hooks';
 import { TaskColumnType } from '@/store/entities/taskColumn';
 

@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
-import { Menu } from '@/components/ui/Menu';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
+import { Menu } from '@/components/ui/menu';
+import { Tooltip } from '@/components/ui/tooltip';
 import { MenuList } from './MenuList';
 
 type Props = {

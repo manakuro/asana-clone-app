@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
 import { useTasksListContext } from '@/components/features/Tasks';
 import { useTasksTaskSectionCommand } from '@/components/features/Tasks/hooks';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
 
 export const AddTaskSection = memo(function AddTaskSection() {
   const { addTaskSection } = useTasksTaskSectionCommand();

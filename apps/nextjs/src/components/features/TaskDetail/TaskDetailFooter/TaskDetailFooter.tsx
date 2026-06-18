@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Collaborators } from './Collaborators';
 import { Comment } from './Comment';
 

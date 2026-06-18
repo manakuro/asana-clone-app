@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { PopoverSetColorAndIcon } from '@/components/features/Popovers';
-import { ColorBox } from '@/components/ui/ColorBox';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Text } from '@/components/ui/Text';
+import { ColorBox } from '@/components/ui/color-box';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Text } from '@/components/ui/text';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 

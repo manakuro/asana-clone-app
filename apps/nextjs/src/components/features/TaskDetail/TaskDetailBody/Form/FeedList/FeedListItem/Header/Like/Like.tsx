@@ -1,4 +1,4 @@
-import { LikeIconButton } from '@/components/ui/LikeIconButton';
+import { LikeIconButton } from '@/components/ui/like-icon-button';
 import { useTaskFeedListItemContext } from '../../Provider';
 import { useLike } from './useLike';
 

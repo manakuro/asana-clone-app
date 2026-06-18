@@ -1,5 +1,5 @@
 import { memo, type PropsWithChildren, type Ref, useMemo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { transitions } from '@/styles/transitions';
 import { useTaskFeedListItemContext } from './Provider';
 import { useFeedListItemContainerContext } from './Provider/ProviderContainer';

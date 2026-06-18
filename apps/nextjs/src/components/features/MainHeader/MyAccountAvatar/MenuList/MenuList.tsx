@@ -1,9 +1,9 @@
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Link } from '@/components/ui/Link';
-import { Menu } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
-import { Text } from '@/components/ui/Text';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Link } from '@/components/ui/link';
+import { Menu } from '@/components/ui/menu';
+import { Portal } from '@/components/ui/portal';
+import { Text } from '@/components/ui/text';
 import { PopoverMore } from './PopoverMore';
 
 export function MenuList() {

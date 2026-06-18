@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 
 export const Print = memo(function Print() {
   return (

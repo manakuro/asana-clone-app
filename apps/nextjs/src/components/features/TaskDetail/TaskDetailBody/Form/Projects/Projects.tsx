@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTaskDetailProjectsInput } from '@/components/features/TaskDetail/hooks';
 import { Input } from '@/components/features/TaskDetail/TaskDetailBody/Form/Projects/Input';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { useProjectTaskSectionsByProjectIdsQuery } from '@/hooks/queries/entities';
 import {
   useProjectIdsByTaskId,

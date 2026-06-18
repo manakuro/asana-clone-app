@@ -1,6 +1,6 @@
 import type React from 'react';
-import { Drawer } from '@/components/ui/Drawer';
-import { Portal } from '@/components/ui/Portal';
+import { Drawer } from '@/components/ui/drawer';
+import { Portal } from '@/components/ui/portal';
 import { Content } from './Content';
 import { useCustomizeMenu } from './useCustomizeMenu';
 

@@ -2,8 +2,8 @@ import { memo } from 'react';
 import {
   FileUploader,
   type FileUploaderParams,
-} from '@/components/ui/Form/FileUploader';
-import { Menu } from '@/components/ui/Menu';
+} from '@/components/ui/form/file-uploader';
+import { Menu } from '@/components/ui/menu';
 import { useMenuStyle } from '@/hooks';
 
 type Props = {

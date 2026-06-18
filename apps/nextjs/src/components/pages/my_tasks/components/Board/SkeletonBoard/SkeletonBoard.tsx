@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Skeleton } from '@/components/ui/Skeleton';
-import { Stack } from '@/components/ui/Stack';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Stack } from '@/components/ui/stack';
 
 type Props = FlexProps;
 

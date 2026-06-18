@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback, useMemo } from 'react';
-import { Menu } from '@/components/ui/Menu';
+import { Menu } from '@/components/ui/menu';
 import {
   useFavoriteProjectIds,
   useFavoriteProjectIdsCommand,

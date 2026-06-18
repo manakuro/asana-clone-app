@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
 import { useClickableHoverStyle } from '@/hooks';
 import { useTaskCommand } from '@/store/entities/task';
 

@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import type { FlexProps } from '@/components/ui/Flex';
-import { Stack } from '@/components/ui/Stack';
+import type { FlexProps } from '@/components/ui/flex';
+import { Stack } from '@/components/ui/stack';
 import { useTaskTagIdsByTaskId } from '@/store/entities/taskTag';
 import { Tag } from './Tag';
 

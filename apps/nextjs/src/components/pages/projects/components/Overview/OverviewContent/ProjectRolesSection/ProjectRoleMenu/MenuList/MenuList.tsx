@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Menu } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
+import { Menu } from '@/components/ui/menu';
+import { Portal } from '@/components/ui/portal';
 import { AddRole } from './AddRole';
 import { RemoveFromProject } from './RemoveFromProject';
 import { SetProjectOwner } from './SetProjectOwner';

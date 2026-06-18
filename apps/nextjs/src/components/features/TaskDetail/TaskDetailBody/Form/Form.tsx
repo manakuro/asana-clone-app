@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
-import { Flex } from '@/components/ui/Flex';
-import { Stack } from '@/components/ui/Stack';
+import { Flex } from '@/components/ui/flex';
+import { Stack } from '@/components/ui/stack';
 import { Assignee } from './Assignee';
 import { Attachment } from './Attachment';
 import { Description } from './Description';

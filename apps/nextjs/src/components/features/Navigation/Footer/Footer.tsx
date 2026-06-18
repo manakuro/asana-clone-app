@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { List } from '@/components/ui/List';
+import { List } from '@/components/ui/list';
 import { isDev } from '@/shared/environment';
 import { MAX_WIDTH } from '../Navigation';
 import { Help } from './Help';

@@ -1,15 +1,15 @@
 import type { PropsWithChildren } from 'react';
 
-import { AspectRatio } from '@/components/ui/AspectRatio';
-import { Box } from '@/components/ui/Box';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Image } from '@/components/ui/Image';
-import { HoverCard } from '@/components/ui/Popover';
-import { Portal } from '@/components/ui/Portal';
-import { Separator } from '@/components/ui/Separator';
-import { Text } from '@/components/ui/Text';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Image } from '@/components/ui/image';
+import { HoverCard } from '@/components/ui/popover';
+import { Portal } from '@/components/ui/portal';
+import { Separator } from '@/components/ui/separator';
+import { Text } from '@/components/ui/text';
 
 type Props = {
   profile: {

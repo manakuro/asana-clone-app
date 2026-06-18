@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Text } from '@/components/ui/Text';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Text } from '@/components/ui/text';
 import { Content } from './Content';
 import { useListItemStyle } from './hooks';
 import { Info } from './Info';

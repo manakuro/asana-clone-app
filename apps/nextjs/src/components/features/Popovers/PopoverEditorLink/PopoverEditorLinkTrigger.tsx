@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
-import { Link } from '@/components/ui/Link';
-import { HoverCard } from '@/components/ui/Popover';
+import { Link } from '@/components/ui/link';
+import { HoverCard } from '@/components/ui/popover';
 import { useLinkStyle } from '@/hooks/styles';
 
 export function PopoverEditorLinkTrigger(props: PropsWithChildren) {

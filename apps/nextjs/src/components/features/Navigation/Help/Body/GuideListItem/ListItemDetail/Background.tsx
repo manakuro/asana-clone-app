@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
-import { AspectRatio } from '@/components/ui/AspectRatio';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { useVideoPlayer } from '@/components/ui/VideoPlayer';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { useVideoPlayer } from '@/components/ui/video-player';
 
 type Props = {
   src?: string;

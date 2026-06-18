@@ -4,7 +4,7 @@ import { Menu } from '@/components/features/ThumbnailAttachment/Menu';
 import { MenuButton } from '@/components/features/ThumbnailAttachment/MenuButton';
 import { useThumbnailAttachmentContext } from '@/components/features/ThumbnailAttachment/Provider';
 import { Tooltip } from '@/components/features/ThumbnailAttachment/Tooltip';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 
 type Props = FlexProps & {
   taskFileId: string;

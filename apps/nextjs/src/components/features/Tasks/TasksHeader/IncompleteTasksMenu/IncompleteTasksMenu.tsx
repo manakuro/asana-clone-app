@@ -5,11 +5,11 @@ import {
   MenuSelectTrigger,
 } from '@/components/features/Menus';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Menu } from '@/components/ui/Menu';
-import { Text } from '@/components/ui/Text';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Menu } from '@/components/ui/menu';
+import { Text } from '@/components/ui/text';
 import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,

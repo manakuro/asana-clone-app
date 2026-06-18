@@ -4,7 +4,7 @@ import {
   useTaskDetail,
   useTaskDetailBody,
 } from '@/components/features/TaskDetail';
-import type { FileUploaderParams, UploadedFile } from '@/components/ui/Form';
+import type { FileUploaderParams, UploadedFile } from '@/components/ui/form';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import { useToaster } from '@/hooks/useToaster';
 import { getScrollBottom } from '@/shared/getScrollBottom';

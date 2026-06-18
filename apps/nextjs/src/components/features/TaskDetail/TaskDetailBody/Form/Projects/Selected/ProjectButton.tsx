@@ -1,7 +1,7 @@
-import { Box } from '@/components/ui/Box';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
-import { Text } from '@/components/ui/Text';
+import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
+import { Text } from '@/components/ui/text';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 

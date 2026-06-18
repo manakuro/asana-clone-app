@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { Box } from '@/components/ui/Box';
-import { Flex } from '@/components/ui/Flex';
-import { Skeleton } from '@/components/ui/Skeleton';
-import { Stack } from '@/components/ui/Stack';
+import { Box } from '@/components/ui/box';
+import { Flex } from '@/components/ui/flex';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Stack } from '@/components/ui/stack';
 
 const TEXT_HEIGHT = '16px';
 export const SkeletonHome = memo(function SkeletonHome() {

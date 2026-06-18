@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Menu } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
+import { Menu } from '@/components/ui/menu';
+import { Portal } from '@/components/ui/portal';
 
 export const MenuList = memo(function MenuList() {
   return (

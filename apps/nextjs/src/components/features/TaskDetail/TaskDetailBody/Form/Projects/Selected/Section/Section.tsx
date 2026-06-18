@@ -4,9 +4,9 @@ import {
   MenuSelectList,
   MenuSelectTrigger,
 } from '@/components/features/Menus';
-import { Button } from '@/components/ui/Button';
-import { Icon } from '@/components/ui/Icon';
-import { Menu } from '@/components/ui/Menu';
+import { Button } from '@/components/ui/button';
+import { Icon } from '@/components/ui/icon';
+import { Menu } from '@/components/ui/menu';
 import { useProjectTask } from '@/store/entities/projectTask';
 import {
   useProjectsTaskSectionsByProjectId,

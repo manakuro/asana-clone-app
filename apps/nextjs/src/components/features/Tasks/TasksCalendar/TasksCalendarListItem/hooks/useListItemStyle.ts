@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTasksContext } from '@/components/features/Tasks';
-import type { FlexProps } from '@/components/ui/Flex';
-import type { TextProps } from '@/components/ui/Text';
+import type { FlexProps } from '@/components/ui/flex';
+import type { TextProps } from '@/components/ui/text';
 import { dateFns } from '@/shared/dateFns';
 import { useProjectDueDate } from './useProjectDueDate';
 

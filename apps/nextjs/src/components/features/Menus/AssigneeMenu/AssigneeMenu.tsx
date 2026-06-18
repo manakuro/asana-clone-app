@@ -7,7 +7,7 @@ import {
 import type {
   PopoverContentProps,
   PopoverRootProps,
-} from '@/components/ui/Popover';
+} from '@/components/ui/popover';
 import type { Teammate } from '@/store/entities/teammate';
 import { Content } from './Content';
 

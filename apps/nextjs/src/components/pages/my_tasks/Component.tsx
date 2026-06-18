@@ -3,9 +3,9 @@
 import { useParams, usePathname } from 'next/navigation';
 import React, { memo, startTransition, useCallback, useEffect } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
-import { Flex } from '@/components/ui/Flex';
-import { Head } from '@/components/ui/Head';
-import { TabPanel, Tabs } from '@/components/ui/Tabs';
+import { Flex } from '@/components/ui/flex';
+import { Head } from '@/components/ui/head';
+import { TabPanel, Tabs } from '@/components/ui/tabs';
 import {
   isMyTasksBoardURL,
   isMyTasksCalendarURL,

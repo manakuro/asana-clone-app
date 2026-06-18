@@ -18,7 +18,7 @@ import {
   TasksListLayout,
   useTasksListDetail,
 } from '@/components/features/Tasks';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectsPageContext } from '../../providers/Provider';

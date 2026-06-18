@@ -4,10 +4,10 @@ import { TasksListSectionGroupByProject } from '@/components/features/Tasks';
 import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
 import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListItem';
 import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
-import { Box } from '@/components/ui/Box';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
+import { Box } from '@/components/ui/box';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
 import { useMyTasksProjectIds } from '@/store/app/myTasks/projects';
 import { useMyTasksTaskIdsWithNoProject } from '@/store/app/myTasks/tasks';
 

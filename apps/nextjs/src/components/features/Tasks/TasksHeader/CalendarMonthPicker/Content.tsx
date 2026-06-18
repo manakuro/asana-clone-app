@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
-import { Button } from '@/components/ui/Button';
-import { Flex } from '@/components/ui/Flex';
-import { Grid } from '@/components/ui/Grid';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
-import { Popover, usePopoverContext } from '@/components/ui/Popover';
-import { Portal } from '@/components/ui/Portal';
-import { Text } from '@/components/ui/Text';
+import { Button } from '@/components/ui/button';
+import { Flex } from '@/components/ui/flex';
+import { Grid } from '@/components/ui/grid';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
+import { Popover, usePopoverContext } from '@/components/ui/popover';
+import { Portal } from '@/components/ui/portal';
+import { Text } from '@/components/ui/text';
 import { dateFns } from '@/shared/dateFns';
 
 export function Content() {

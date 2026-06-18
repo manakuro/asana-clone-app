@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Wrap } from '@/components/ui/Wrap';
+import { Wrap } from '@/components/ui/wrap';
 import { useProjectCommand } from '@/store/entities/project';
 import { useProjectBaseColorIds } from '@/store/entities/projectBaseColor';
 import { ColorPickerItem } from './ColorPickerItem';

@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useMemo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTasksNameContext } from './TasksNameProvider';
 
 type Props = FlexProps;

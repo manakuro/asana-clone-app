@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useProjectDetailModal } from '@/components/features/Modals';
-import { Icon } from '@/components/ui/Icon';
-import { Menu } from '@/components/ui/Menu';
+import { Icon } from '@/components/ui/icon';
+import { Menu } from '@/components/ui/menu';
 
 type Props = {
   projectId: string;

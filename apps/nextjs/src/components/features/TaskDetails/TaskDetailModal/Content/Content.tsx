@@ -4,8 +4,8 @@ import {
   TaskDetailFooter,
   TaskDetailHeader,
 } from '@/components/features/TaskDetail';
-import { Dialog } from '@/components/ui/Dialog';
-import { Separator } from '@/components/ui/Separator';
+import { Dialog } from '@/components/ui/dialog';
+import { Separator } from '@/components/ui/separator';
 
 type Props = {
   loading: boolean;

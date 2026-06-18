@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
-import { ClientOnly } from '@/components/ui/ClientOnly';
-import { Flex } from '@/components/ui/Flex';
-import { Popover } from '@/components/ui/Popover';
+import { ClientOnly } from '@/components/ui/client-only';
+import { Flex } from '@/components/ui/flex';
+import { Popover } from '@/components/ui/popover';
 import { Content } from './Content';
 import { Provider, usePopoverEmojiContext } from './Provider';
 

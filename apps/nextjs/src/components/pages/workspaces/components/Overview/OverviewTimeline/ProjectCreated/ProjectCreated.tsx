@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
-import { Flex } from '@/components/ui/Flex';
-import { Heading } from '@/components/ui/Heading';
-import { Icon } from '@/components/ui/Icon';
-import { Text } from '@/components/ui/Text';
+import { Flex } from '@/components/ui/flex';
+import { Heading } from '@/components/ui/heading';
+import { Icon } from '@/components/ui/icon';
+import { Text } from '@/components/ui/text';
 import { formatCreatedAt } from '@/shared/date';
 import { useProject } from '@/store/entities/project';
 import { useTeammate } from '@/store/entities/teammate';

@@ -1,5 +1,5 @@
 import { PopoverProfile } from '@/components/features/Popovers';
-import { Avatar, type AvatarProps } from '@/components/ui/Avatar';
+import { Avatar, type AvatarProps } from '@/components/ui/avatar';
 import { useTeammate } from '@/store/entities/teammate';
 
 type Props = {

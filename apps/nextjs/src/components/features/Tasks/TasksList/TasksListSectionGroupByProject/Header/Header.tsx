@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
 import { TaskSectionName } from './TaskSectionName';
 
 type Props = {

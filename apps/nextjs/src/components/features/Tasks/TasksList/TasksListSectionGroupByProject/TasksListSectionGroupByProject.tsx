@@ -1,7 +1,7 @@
 import { memo, useCallback, useState } from 'react';
 import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListItem';
 import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { useMyTasksTaskIdsByProjectId } from '@/store/app/myTasks/tasks';
 import { Header } from './Header';
 import { Provider } from './Provider';

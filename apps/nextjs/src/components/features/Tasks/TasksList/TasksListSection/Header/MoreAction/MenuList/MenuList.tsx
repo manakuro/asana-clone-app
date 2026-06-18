@@ -6,8 +6,8 @@ import {
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
 import { useTasksListSectionContext } from '@/components/features/Tasks/TasksList/TasksListSection/Provider';
-import { Menu } from '@/components/ui/Menu';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Menu } from '@/components/ui/menu';
+import { Tooltip } from '@/components/ui/tooltip';
 
 export const MenuList = memo(function MenuList() {
   const { setModalState, onOpen } = useDeleteTaskSectionModal();

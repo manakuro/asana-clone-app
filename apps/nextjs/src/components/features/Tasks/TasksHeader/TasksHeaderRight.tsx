@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Stack } from '@/components/ui/Stack';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Stack } from '@/components/ui/stack';
 
 type Props = FlexProps & {
   spacing?: number;

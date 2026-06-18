@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useProjectDetailModal } from '@/components/features/Modals';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
+import { Icon } from '@/components/ui/icon';
+import { IconButton, type IconButtonProps } from '@/components/ui/icon-button';
 
 type Props = {
   projectId: string;

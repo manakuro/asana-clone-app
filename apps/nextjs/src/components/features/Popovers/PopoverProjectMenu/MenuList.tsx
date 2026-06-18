@@ -1,10 +1,10 @@
 import { PopoverSetColorAndIcon } from '@/components/features/Popovers';
-import { ColorBox } from '@/components/ui/ColorBox';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Menu } from '@/components/ui/Menu';
-import { Portal } from '@/components/ui/Portal';
-import { Text } from '@/components/ui/Text';
+import { ColorBox } from '@/components/ui/color-box';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Menu } from '@/components/ui/menu';
+import { Portal } from '@/components/ui/portal';
+import { Text } from '@/components/ui/text';
 import type { Project } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { ArchiveProject } from './ArchiveProject';

@@ -7,7 +7,7 @@ import {
   CarouselRightChevron,
   CarouselThumbnail,
   CarouselThumbnailItem,
-} from '@/components/ui/Carousel';
+} from '@/components/ui/carousel';
 import { ListItem } from './ListItem';
 import { ThumbnailListItem } from './ThumbnailListItem/ThumbnailListItem';
 import { useFileViewerModal } from './useFileViewerModal';

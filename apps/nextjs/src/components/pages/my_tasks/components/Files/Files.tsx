@@ -7,7 +7,7 @@ import {
 } from '@/components/features/Tasks';
 import { useTasksFilesDetail } from '@/components/features/Tasks/TasksFiles/useTasksFilesDetail';
 import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { SkeletonFiles } from './SkeletonFiles';
 

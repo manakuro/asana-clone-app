@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { Icon } from '@/components/ui/Icon';
-import { Menu } from '@/components/ui/Menu';
+import { Icon } from '@/components/ui/icon';
+import { Menu } from '@/components/ui/menu';
 import { useClickableHoverStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import { MenuList } from './MenuList';

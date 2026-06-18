@@ -1,4 +1,4 @@
-import { Menu, type MenuRootProps } from '@/components/ui/Menu';
+import { Menu, type MenuRootProps } from '@/components/ui/menu';
 import { type MaybeRenderProp, runIfFn } from '@/shared/utils';
 import { Context, type UseMenuSelect, useMenuSelect } from './useMenuSelect';
 

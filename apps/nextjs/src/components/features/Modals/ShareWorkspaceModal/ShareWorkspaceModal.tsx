@@ -1,13 +1,13 @@
 import { CloseButton } from '@chakra-ui/react';
-import { Button } from '@/components/ui/Button';
-import { Container } from '@/components/ui/Container';
-import { Dialog } from '@/components/ui/Dialog';
-import { Flex } from '@/components/ui/Flex';
-import { Icon } from '@/components/ui/Icon';
-import { Input } from '@/components/ui/Input';
-import { Link } from '@/components/ui/Link';
-import { MoreLink } from '@/components/ui/MoreLink';
-import { Portal } from '@/components/ui/Portal';
+import { Button } from '@/components/ui/button';
+import { Container } from '@/components/ui/container';
+import { Dialog } from '@/components/ui/dialog';
+import { Flex } from '@/components/ui/flex';
+import { Icon } from '@/components/ui/icon';
+import { Input } from '@/components/ui/input';
+import { Link } from '@/components/ui/link';
+import { MoreLink } from '@/components/ui/more-link';
+import { Portal } from '@/components/ui/portal';
 import { useShareWorkspaceModal } from './useShareWorkspaceModal';
 
 export function ShareWorkspaceModal() {
