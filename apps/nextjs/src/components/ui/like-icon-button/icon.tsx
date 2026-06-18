@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon as AtomsIcon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/Text';
 import { Tooltip } from '@/components/ui/Tooltip';
-import type { LikeButtonProps } from './LikeIconButton';
+import type { LikeButtonProps } from './like-icon-button';
 
 type Props = Pick<
   LikeButtonProps,

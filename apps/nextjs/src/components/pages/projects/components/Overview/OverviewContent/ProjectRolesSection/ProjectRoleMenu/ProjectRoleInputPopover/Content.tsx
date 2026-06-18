@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { Label } from '@/components/ui/Label';
+import { Label } from '@/components/ui/label';
 import { Popover } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { LayoutDefault } from '@/components/ui/Layout';
+import { LayoutDefault } from '@/components/ui/layout';
 import { Container as Page } from './Container';
 
 const meta: Meta<typeof Page> = {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
-import { LayoutDefault } from '@/components/ui/Layout';
+import { LayoutDefault } from '@/components/ui/layout';
 import { AppProvider } from '@/providers/AppProvider';
 import { AuthProvider } from '@/providers/AuthProvider';
 import { description } from '@/shared/metatag/description';
