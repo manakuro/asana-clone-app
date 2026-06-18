@@ -2,15 +2,15 @@ import { useCallback } from 'react';
 import { Flex } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
-import { useCarouselContext } from './Provider';
+import { useCarouselContext } from './provider';
 
-export function CarouselLeftChevron() {
+export function CarouselRightChevron() {
   const { count, currentIndex, setCurrentIndex } = useCarouselContext();
 
   const handleClick = useCallback(() => {
-    const nextIndex = currentIndex - 1;
-    if (nextIndex < 0) {
-      setCurrentIndex(count - 1);
+    const nextIndex = currentIndex + 1;
+    if (nextIndex === count) {
+      setCurrentIndex(0);
       return;
     }
 
@@ -21,7 +21,7 @@ export function CarouselLeftChevron() {
     <Flex
       position="absolute"
       top={0}
-      left={0}
+      right={0}
       w={24}
       h="100%"
       justifyContent="center"
@@ -29,7 +29,7 @@ export function CarouselLeftChevron() {
       zIndex="skipNav"
     >
       <IconButton onClick={handleClick} aria-label="next" variant="ghost">
-        <Icon icon="chevronLeft" size="2xl" />
+        <Icon icon="chevronRight" size="2xl" />
       </IconButton>
     </Flex>
   );

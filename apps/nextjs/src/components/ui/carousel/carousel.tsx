@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/Flex';
-import { Provider } from './Provider';
+import { Provider } from './provider';
 
 type Props = {
   onChange?: (currentIndex: number) => void;

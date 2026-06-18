@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 import { Flex } from '@/components/ui/Flex';
-import { useCarouselContext } from './Provider';
+import { useCarouselContext } from './provider';
 
 type Props = {
   index?: number;

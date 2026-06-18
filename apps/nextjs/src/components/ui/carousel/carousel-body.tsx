@@ -1,7 +1,7 @@
 import type { PropsWithChildren, ReactElement } from 'react';
 import { Children, cloneElement, isValidElement, useEffect } from 'react';
 import { Flex } from '@/components/ui/Flex';
-import { useCarouselContext } from './Provider';
+import { useCarouselContext } from './provider';
 
 export function CarouselBody({ children }: PropsWithChildren) {
   const { setCount } = useCarouselContext();
