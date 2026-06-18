@@ -2,7 +2,7 @@ import { CloseButton } from '@chakra-ui/react';
 import { useInviteModal } from '@/components/features/Modals';
 import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { Portal } from '@/components/ui/Portal';
 import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';

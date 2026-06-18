@@ -1,6 +1,6 @@
 import { CloseButton } from '@chakra-ui/react';
 import { memo, useCallback } from 'react';
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { Flex } from '@/components/ui/Flex';
 import { Separator } from '@/components/ui/Separator';
 import { Stack } from '@/components/ui/Stack';

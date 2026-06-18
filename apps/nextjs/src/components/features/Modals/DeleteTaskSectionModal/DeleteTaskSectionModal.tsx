@@ -1,7 +1,7 @@
 import { CloseButton } from '@chakra-ui/react';
 import React, { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { Flex } from '@/components/ui/Flex';
 import { Portal } from '@/components/ui/Portal';
 import { RadioGroup } from '@/components/ui/Radio';

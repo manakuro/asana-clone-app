@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { useProject } from '@/store/entities/project';
 
 type Props = {

@@ -1,4 +1,4 @@
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { Portal } from '@/components/ui/Portal';
 import { MenuList } from './MenuList';
 import { useEditorEmojiMenu } from './useEditorEmojiMenu';

@@ -1,4 +1,4 @@
-import { DashedBox } from '@/components/ui/DashedBox';
+import { DashedBox } from '@/components/ui/dashed-box';
 import type { FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 

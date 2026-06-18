@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { Icon } from '@/components/ui/Icon';
 import { Separator } from '@/components/ui/Separator';
 import { useCopyProjectLink } from '@/hooks/pages/projects';

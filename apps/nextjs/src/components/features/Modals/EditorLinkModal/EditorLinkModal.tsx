@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/Input';
 import { Stack } from '@/components/ui/Stack';
 import { useEditorLinkModal } from './useEditorLinkModal';

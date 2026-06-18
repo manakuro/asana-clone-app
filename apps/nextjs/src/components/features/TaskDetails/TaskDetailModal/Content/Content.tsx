@@ -4,7 +4,7 @@ import {
   TaskDetailFooter,
   TaskDetailHeader,
 } from '@/components/features/TaskDetail';
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { Separator } from '@/components/ui/Separator';
 
 type Props = {

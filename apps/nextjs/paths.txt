@@ -1,2 +1,3 @@
-src/components/ui/CustomField/CustomField.tsx
-src/components/ui/CustomField/index.ts
+src/components/ui/Dialog/Dialog/Dialog.tsx
+src/components/ui/Dialog/Dialog/index.ts
+src/components/ui/Dialog/index.ts

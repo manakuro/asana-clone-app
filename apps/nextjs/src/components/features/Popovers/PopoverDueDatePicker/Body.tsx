@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { DatePicker } from '@/components/ui/DatePicker';
+import { DatePicker } from '@/components/ui/date-picker';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Popover } from '@/components/ui/Popover';
 import { Separator } from '@/components/ui/Separator';

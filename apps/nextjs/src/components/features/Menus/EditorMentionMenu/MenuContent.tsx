@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { useMenuStyle } from '@/hooks';
 import { MenuList } from './MenuList';
 import { useEditorMentionMenu } from './useEditorMentionMenu';
