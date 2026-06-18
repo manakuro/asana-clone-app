@@ -12,7 +12,7 @@ import {
   type EditorHandle,
   EditorProvider,
   useEditorStateContext,
-} from './EdiorProvider';
+} from './EditorProvider';
 import { Portals } from './Portals';
 
 export type EditorContainerProps = {

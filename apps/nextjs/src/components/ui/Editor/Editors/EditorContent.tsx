@@ -1,5 +1,5 @@
 import { type CSSProperties, memo, useEffect, useLayoutEffect } from 'react';
-import { useEditorViewContext } from '@/components/ui/Editor/Editors/EdiorProvider';
+import { useEditorViewContext } from '@/components/ui/Editor/Editors/EditorProvider';
 import 'prosemirror-view/style/prosemirror.css';
 
 type Props = {
