@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from 'react';
-import { Editor, EditorContent } from '@/components/ui/Editor';
+import { Editor, EditorContent } from '@/components/ui/editor';
 import { Flex } from '@/components/ui/flex';
 import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
 import {

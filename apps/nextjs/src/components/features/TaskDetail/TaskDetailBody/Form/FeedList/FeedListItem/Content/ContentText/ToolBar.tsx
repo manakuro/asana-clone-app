@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Button } from '@/components/ui/button';
-import { AtMention, Emoji, Format } from '@/components/ui/Editor/ToolBar';
+import { AtMention, Emoji, Format } from '@/components/ui/editor/tool-bar';
 import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { useTaskFeedListItemContext } from '../../Provider';

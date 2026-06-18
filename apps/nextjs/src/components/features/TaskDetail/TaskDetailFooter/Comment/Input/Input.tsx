@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Editor, EditorContent } from '@/components/ui/Editor';
+import { Editor, EditorContent } from '@/components/ui/editor';
 import { Flex } from '@/components/ui/flex';
 import { getDefaultDescription } from '@/shared/prosemirror/getDefaultDescription';
 import { Attachments } from './Attachments';
