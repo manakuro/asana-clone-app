@@ -1,6 +1,6 @@
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
-import { Image } from '@/components/ui/Image';
+import { Image } from '@/components/ui/image';
 import { PdfViewer } from '@/components/ui/PdfViewer';
 import { Text } from '@/components/ui/Text';
 import { FileTypeCode } from '@/store/entities/fileType';

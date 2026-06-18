@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Image as AtomsImage } from '@/components/ui/Image';
+import { Image as AtomsImage } from '@/components/ui/image';
 import { Link } from '@/components/ui/Link';
 import { Text } from '@/components/ui/Text';
 import { useTaskFile } from '@/store/entities/taskFile';

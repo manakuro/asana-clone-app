@@ -5,7 +5,7 @@ import { Overlay } from '@/components/features/ThumbnailAttachment/Overlay';
 import { useThumbnailAttachmentContext } from '@/components/features/ThumbnailAttachment/Provider';
 import { Tooltip } from '@/components/features/ThumbnailAttachment/Tooltip';
 import type { FlexProps } from '@/components/ui/flex';
-import { Image as AtomsImage } from '@/components/ui/Image';
+import { Image as AtomsImage } from '@/components/ui/image';
 import { useTaskFile } from '@/store/entities/taskFile';
 
 type Props = FlexProps & {
