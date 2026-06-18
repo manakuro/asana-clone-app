@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Accordion } from '@/components/ui/Accordion';
+import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/Box';
 import { Flex } from '@/components/ui/Flex';
 import { Heading } from '@/components/ui/Heading';

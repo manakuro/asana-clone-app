@@ -8,7 +8,7 @@ import {
   ProjectTileItem,
   ProjectTileItemNew,
 } from '@/components/features/Projects';
-import { Accordion } from '@/components/ui/Accordion';
+import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/Box';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Grid } from '@/components/ui/Grid';

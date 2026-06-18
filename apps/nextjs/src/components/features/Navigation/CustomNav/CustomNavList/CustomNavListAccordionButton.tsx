@@ -2,7 +2,7 @@ import type React from 'react';
 import {
   Accordion,
   type AccordionItemTriggerProps,
-} from '@/components/ui/Accordion';
+} from '@/components/ui/accordion';
 import { PADDING_X } from '../../Navigation';
 
 type Props = AccordionItemTriggerProps;
