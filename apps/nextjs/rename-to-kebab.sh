@@ -45,6 +45,15 @@ fi
 # 1セグメント（ディレクトリ名やファイル名、拡張子なし）を kebab-case に変換する。
 to_kebab_segment() {
   local input="$1"
+
+  # __tests__ , __mocks__ , __snapshots__ のような、先頭と末尾が二重アンダースコアで
+  # 囲まれた特殊な予約ディレクトリ名はツール（Jest等）が名前そのものを認識するため、
+  # 変換せずそのまま保持する。
+  if [[ "$input" =~ ^__[a-zA-Z0-9]+__$ ]]; then
+    printf '%s' "$input"
+    return 0
+  fi
+
   input="${input//_/-}"
   input="${input// /-}"
   printf '%s' "$input" | perl -CSD -pe '
