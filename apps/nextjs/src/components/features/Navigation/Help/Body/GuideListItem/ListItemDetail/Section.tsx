@@ -1,6 +1,6 @@
 import type React from 'react';
 import { Box } from '@/components/ui/box';
-import { Heading } from '@/components/ui/Heading';
+import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/Separator';
 
 type Props = {

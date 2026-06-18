@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
-import { Heading } from '@/components/ui/Heading';
+import { Heading } from '@/components/ui/heading';
 import { useTasksListContentVerticalScroll } from '../Content';
 
 export const Header = memo(function Header() {

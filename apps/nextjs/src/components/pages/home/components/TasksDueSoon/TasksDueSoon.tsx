@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
-import { Heading } from '@/components/ui/Heading';
+import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
 import { NextLink } from '@/components/ui/NextLink';

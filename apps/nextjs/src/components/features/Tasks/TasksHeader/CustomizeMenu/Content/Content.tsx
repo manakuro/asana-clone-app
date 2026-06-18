@@ -6,7 +6,7 @@ import { useTasksTaskColumnCustomizable } from '@/components/features/Tasks/hook
 import { Box } from '@/components/ui/box';
 import { Drawer } from '@/components/ui/drawer';
 import { Flex } from '@/components/ui/flex';
-import { Heading } from '@/components/ui/Heading';
+import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { useDnd } from '@/hooks/dnd/useDnd';

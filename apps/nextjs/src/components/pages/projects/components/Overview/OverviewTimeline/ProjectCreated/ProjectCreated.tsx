@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
-import { Heading } from '@/components/ui/Heading';
+import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { formatCreatedAt } from '@/shared/date';

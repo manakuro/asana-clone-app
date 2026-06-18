@@ -3,7 +3,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { useShareProjectModal } from '@/components/features/Modals';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/flex';
-import { Heading } from '@/components/ui/Heading';
+import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { useLinkStyle } from '@/hooks';

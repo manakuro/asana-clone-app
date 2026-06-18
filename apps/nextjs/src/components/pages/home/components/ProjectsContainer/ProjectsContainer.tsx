@@ -12,7 +12,7 @@ import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Grid } from '@/components/ui/grid';
-import { Heading } from '@/components/ui/Heading';
+import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/Icon';
 
 type Props = {
