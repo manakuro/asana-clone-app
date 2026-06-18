@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTaskDetailDrawerRef } from '@/components/features/TaskDetails';
 import { Flex } from '@/components/ui/flex';
-import type { InputProps } from '@/components/ui/Input';
+import type { InputProps } from '@/components/ui/input';
 import { InputText } from '@/components/ui/input-text';
 import {
   type UseClickOutsideOptionsHasClickedOutside,

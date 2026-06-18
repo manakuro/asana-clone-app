@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, type InputProps } from '@/components/ui/Input';
+import { Input, type InputProps } from '@/components/ui/input';
 import { Menu, type MenuTriggerProps } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 

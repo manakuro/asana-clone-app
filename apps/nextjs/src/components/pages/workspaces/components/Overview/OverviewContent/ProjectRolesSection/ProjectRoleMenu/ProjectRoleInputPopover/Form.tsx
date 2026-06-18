@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
-import { Input as AtomsInput } from '@/components/ui/Input';
+import { Input as AtomsInput } from '@/components/ui/input';
 
 type Props = {
   defaultValue: string;

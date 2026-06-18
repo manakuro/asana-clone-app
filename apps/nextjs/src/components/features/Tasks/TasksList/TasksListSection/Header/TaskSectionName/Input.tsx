@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { Input as AtomsInput, type InputProps } from '@/components/ui/Input';
+import { Input as AtomsInput, type InputProps } from '@/components/ui/input';
 import { useClickOutside } from '@/hooks';
 
 type Props = {

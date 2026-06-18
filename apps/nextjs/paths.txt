@@ -1,2 +1,3 @@
-src/components/ui/InputWithIcon/index.ts
-src/components/ui/InputWithIcon/InputWithIcon.tsx
+src/components/ui/Input/index.ts
+src/components/ui/Input/Input.tsx
+src/components/ui/Input/InputGroup.tsx

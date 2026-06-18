@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { AssignTaskMenu } from '@/components/features/Menus';
-import { Input as AtomsInput } from '@/components/ui/Input';
+import { Input as AtomsInput } from '@/components/ui/input';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
 import type { Teammate } from '@/store/entities/teammate';
