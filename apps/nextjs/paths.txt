@@ -1,9 +1,2 @@
-src/components/ui/Carousel/Carousel.tsx
-src/components/ui/Carousel/CarouselBody.tsx
-src/components/ui/Carousel/CarouseLeftChevron.tsx
-src/components/ui/Carousel/CarouselItem.tsx
-src/components/ui/Carousel/CarouselThumbnail.tsx
-src/components/ui/Carousel/CarouselThumbnailItem.tsx
-src/components/ui/Carousel/CarouseRightChevron.tsx
-src/components/ui/Carousel/index.ts
-src/components/ui/Carousel/Provider.tsx
+src/components/ui/Checkbox/CheckBox.tsx
+src/components/ui/Checkbox/index.ts

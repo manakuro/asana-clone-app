@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Center } from '@/components/ui/Center';
+import { Center } from '@/components/ui/center';
 import { Icon } from '@/components/ui/Icon';
 import { Image } from '@/components/ui/Image';
 import { FileTypeCode } from '@/graphql/enums';

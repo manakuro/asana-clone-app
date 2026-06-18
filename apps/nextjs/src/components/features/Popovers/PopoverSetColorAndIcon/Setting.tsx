@@ -1,4 +1,4 @@
-import { Checkbox } from '@/components/ui/Checkbox';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Flex } from '@/components/ui/Flex';
 
 type Props = {

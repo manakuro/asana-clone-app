@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import type { BoxProps } from '@/components/ui/box';
-import { Center } from '@/components/ui/Center';
+import { Center } from '@/components/ui/center';
 import { Icon as AtomsIcon } from '@/components/ui/Icon';
 import { WrapItem } from '@/components/ui/Wrap';
 import { useLinkHoverStyle } from '@/hooks';
