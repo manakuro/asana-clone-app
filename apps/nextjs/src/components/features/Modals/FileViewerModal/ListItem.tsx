@@ -1,5 +1,5 @@
 import { Box } from '@/components/ui/box';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Image } from '@/components/ui/Image';
 import { PdfViewer } from '@/components/ui/PdfViewer';
 import { Text } from '@/components/ui/Text';

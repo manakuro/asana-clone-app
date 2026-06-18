@@ -1,5 +1,5 @@
 import { memo, type PropsWithChildren } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Image } from '@/components/ui/Image';
 import { Logo } from '@/components/ui/Logo';
 import { Text } from '@/components/ui/Text';

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { MonthObserver } from './MonthObserver';
 import { ScrollDownObserver } from './ScrollDownObserver';
 import { ScrollUpObserver } from './ScrollUpObserver';

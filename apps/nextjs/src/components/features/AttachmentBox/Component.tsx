@@ -1,4 +1,4 @@
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
 import { Text } from '@/components/ui/Text';

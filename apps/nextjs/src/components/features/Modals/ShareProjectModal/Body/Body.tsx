@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { Dialog } from '@/components/ui/dialog';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Tab, TabList, TabPanel, Tabs } from '@/components/ui/Tabs';
 import { type Index, MEMBERS_INDEX, SHARE_INDEX } from '../types';
 import { useShareProjectModal } from '../useShareProjectModal';

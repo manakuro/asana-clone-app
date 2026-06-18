@@ -7,7 +7,7 @@ import {
 } from '@/components/features/Tasks';
 import { useTasksFilesDetail } from '@/components/features/Tasks/TasksFiles/useTasksFilesDetail';
 import { useProjectsPageContext } from '@/components/pages/projects/providers/Provider';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { useProjectsFilesPageQuery } from '@/hooks/queries/app';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';

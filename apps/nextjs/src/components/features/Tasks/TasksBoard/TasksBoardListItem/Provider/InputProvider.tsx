@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 import { isHTMLElement } from '@/shared/isHTMLElement';
 import { createProvider } from '@/shared/react/createProvider';
 

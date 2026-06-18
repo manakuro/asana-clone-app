@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { TasksNameField } from './TasksNameField';
 

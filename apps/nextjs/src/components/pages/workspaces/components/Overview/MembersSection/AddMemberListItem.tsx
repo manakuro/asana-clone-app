@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useInviteModal } from '@/components/features/Modals';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 

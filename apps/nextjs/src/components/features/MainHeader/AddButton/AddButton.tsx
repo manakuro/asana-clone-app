@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useInviteModal } from '@/components/features/Modals/InviteModal/useInviteModal';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Menu } from '@/components/ui/Menu';

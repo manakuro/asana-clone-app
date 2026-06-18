@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import type { Mention } from '@/store/entities/mention';

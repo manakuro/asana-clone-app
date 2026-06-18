@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Separator } from '@/components/ui/Separator';
 import { ProjectIcon } from './ProjectIcon';
 import { ProjectTeammates } from './ProjectTeammates';

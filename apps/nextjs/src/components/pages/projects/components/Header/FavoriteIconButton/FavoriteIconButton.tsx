@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { FavoriteIconButton as MoleculesFavoriteIconButton } from '@/components/ui/FavoriteIconButton';
+import { FavoriteIconButton as MoleculesFavoriteIconButton } from '@/components/ui/favorite-icon-button';
 import type { IconButtonProps } from '@/components/ui/IconButton';
 import { Tooltip } from '@/components/ui/Tooltip';
 import {

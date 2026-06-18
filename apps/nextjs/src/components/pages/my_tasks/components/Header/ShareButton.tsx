@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useShareWorkspaceModal } from '@/components/features/Modals/ShareWorkspaceModal';
 import { Button } from '@/components/ui/button';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useTooltip } from '@/components/ui/Tooltip/useTooltip';

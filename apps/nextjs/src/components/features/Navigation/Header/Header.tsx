@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { PADDING_X, useNavigation } from '@/components/features/Navigation';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTaskActivityTaskIds } from '@/components/features/Inbox/hooks';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { TaskListItem } from '../TaskListItem';
 
 type Props = FlexProps & {

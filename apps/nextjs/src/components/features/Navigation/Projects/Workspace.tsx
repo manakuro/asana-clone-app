@@ -3,7 +3,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { useInviteModal } from '@/components/features/Modals/InviteModal/useInviteModal';
 import { useNavigation } from '@/components/features/Navigation';
 import { PADDING_X } from '@/components/features/Navigation/Navigation';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';
 import { Menu } from '@/components/ui/Menu';

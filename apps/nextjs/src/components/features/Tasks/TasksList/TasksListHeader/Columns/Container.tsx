@@ -4,7 +4,7 @@ import { memo, useCallback, useMemo, useState } from 'react';
 import { useTasksTaskColumn } from '@/components/features/Tasks/hooks';
 import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
 import { useTasksListHeaderContext } from '@/components/features/Tasks/TasksList/TasksListHeader/Provider';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useClickableHoverStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 import { useTaskColumn } from '@/store/entities/taskColumn';

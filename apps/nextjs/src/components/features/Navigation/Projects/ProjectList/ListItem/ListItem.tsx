@@ -5,7 +5,7 @@ import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { PopoverProjectMenu } from '@/components/features/Popovers';
 import { Box } from '@/components/ui/box';
 import { ColorBox } from '@/components/ui/color-box';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';

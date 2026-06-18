@@ -1,2 +1,2 @@
-src/components/ui/Fade/Fade.tsx
-src/components/ui/Fade/index.ts
+src/components/ui/Head/Head.tsx
+src/components/ui/Head/index.ts

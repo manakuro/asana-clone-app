@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Wrap, type WrapProps } from '@/components/ui/Wrap';
 
 type Props = WrapProps;

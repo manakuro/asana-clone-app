@@ -9,8 +9,8 @@ import {
   ProjectTileItemNew,
 } from '@/components/features/Projects';
 import { Box } from '@/components/ui/box';
-import { Flex } from '@/components/ui/Flex';
-import { Grid } from '@/components/ui/Grid';
+import { Flex } from '@/components/ui/flex';
+import { Grid } from '@/components/ui/grid';
 import { useProjectIds } from '@/store/entities/project';
 import {
   OverviewSectionHeader,

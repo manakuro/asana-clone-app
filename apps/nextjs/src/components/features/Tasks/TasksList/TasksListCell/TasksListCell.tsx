@@ -1,6 +1,6 @@
 import type { SystemStyleObject } from '@chakra-ui/react';
 import { forwardRef, memo, type Ref, useCallback, useMemo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { pxToNum } from '@/shared/pxToNum';
 import { ColumnResizer } from './ColumnResizer';
 

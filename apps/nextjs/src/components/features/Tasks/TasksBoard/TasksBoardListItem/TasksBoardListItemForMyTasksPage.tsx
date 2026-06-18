@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/Stack';
 import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
 import { Card } from './Card';

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/Heading';
 import { Tab, TabList } from '@/components/ui/Tabs';
 import { useProjectsProjectId } from '@/store/app/projects/project';

@@ -2,7 +2,7 @@ import { CloseButton } from '@chakra-ui/react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { Dialog } from '@/components/ui/dialog';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Input } from '@/components/ui/Input';
 import { Link } from '@/components/ui/Link';

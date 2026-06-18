@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { ColorBox } from '@/components/ui/color-box';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/Text';
 import type { Mention } from '@/store/entities/mention';
 import { useProject } from '@/store/entities/project';

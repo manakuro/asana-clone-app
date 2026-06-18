@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import {
   Tooltip as MoleculesTooltip,
   type TooltipProps,

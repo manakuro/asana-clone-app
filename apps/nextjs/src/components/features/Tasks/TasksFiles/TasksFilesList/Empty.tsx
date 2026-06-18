@@ -1,7 +1,7 @@
 import NextImage from 'next/image';
 import { memo } from 'react';
 import emtpyImage from '@/assets/images/key_resources_1.svg';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Image } from '@/components/ui/Image';
 import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';

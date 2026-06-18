@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { Tooltip } from '@/components/ui/Tooltip';

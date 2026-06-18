@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useInboxListContentRef } from './useInboxListContentRef';
 import { useInboxListContentVerticalScroll } from './useInboxListContentVerticalScroll';
 

@@ -1,6 +1,6 @@
 import type { SystemStyleObject } from '@chakra-ui/react';
 import { type ReactElement, useCallback, useState } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/Text';
 import { useHover } from '@/hooks/useHover';
 import { transitions } from '@/styles/transitions';

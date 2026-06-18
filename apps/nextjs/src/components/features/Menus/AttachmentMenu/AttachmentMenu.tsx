@@ -1,5 +1,5 @@
 import { memo, type PropsWithChildren } from 'react';
-import type { FileUploaderParams } from '@/components/ui/Form/FileUploader';
+import type { FileUploaderParams } from '@/components/ui/form/file-uploader';
 import { Menu } from '@/components/ui/Menu';
 import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
 import { MenuList } from './MenuList';

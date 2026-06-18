@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { useTimelineStyle } from '../useTimelineStyle';
 import { ProjectDueDate } from './ProjectDueDate';
 

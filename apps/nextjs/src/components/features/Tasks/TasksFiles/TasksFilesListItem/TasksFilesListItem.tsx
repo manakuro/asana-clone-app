@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useFileViewerModal } from '@/components/features/Modals';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Image } from '@/components/ui/Image';
 import { Link } from '@/components/ui/Link';

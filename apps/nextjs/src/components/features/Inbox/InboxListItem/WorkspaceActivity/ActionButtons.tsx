@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 import { useInboxContext } from '../../Inbox';
 import { Actions, ArchiveButton } from '../Actions';
 import { useInboxListItemContext } from '../Provider';

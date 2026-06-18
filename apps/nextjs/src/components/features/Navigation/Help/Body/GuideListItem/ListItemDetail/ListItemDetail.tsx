@@ -1,7 +1,7 @@
 import type React from 'react';
 import { LightMode } from '@/chakra-ui/ui/color-mode';
 import type { Item } from '@/components/features/Navigation/Help/Body/GuideListItem';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Background } from './Background';
 import { Detail } from './Detail';
 import { Header } from './Header';

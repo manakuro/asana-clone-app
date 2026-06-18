@@ -5,7 +5,7 @@ import {
   Tooltip as ChakraTooltip,
   type TooltipProps as ChakraTooltipProps,
 } from '@/chakra-ui/ui/tooltip';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 
 type Props = ChakraTooltipProps & {
   withIcon?: boolean;

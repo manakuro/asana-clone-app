@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { PriorityChip } from '@/components/features/Chips';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 import { useTask } from '@/store/entities/task';
 
 type Props = FlexProps & {

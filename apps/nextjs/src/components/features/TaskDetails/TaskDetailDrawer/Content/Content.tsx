@@ -6,7 +6,7 @@ import {
   TaskDetailFooter,
   TaskDetailHeader,
 } from '@/components/features/TaskDetail';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Separator } from '@/components/ui/Separator';
 import {
   type UseClickOutsideOptionsHasClickedOutside,

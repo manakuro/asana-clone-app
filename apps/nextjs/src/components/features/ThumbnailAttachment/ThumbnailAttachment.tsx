@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { type TaskFile, useTaskFile } from '@/store/entities/taskFile';
 import { File } from './File';

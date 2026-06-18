@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
 import { Button } from '@/components/ui/button';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Link } from '@/components/ui/Link';

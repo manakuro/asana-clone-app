@@ -5,7 +5,7 @@ import {
   InboxListHeader,
   InboxRight,
 } from '@/components/features/Inbox';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Stack } from '@/components/ui/Stack';
 

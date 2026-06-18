@@ -1,6 +1,6 @@
 import { memo, useEffect, useMemo } from 'react';
 import { useAssigneeMenu } from '@/components/features/Menus/AssigneeMenu/useAssigneeMenu';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';
 

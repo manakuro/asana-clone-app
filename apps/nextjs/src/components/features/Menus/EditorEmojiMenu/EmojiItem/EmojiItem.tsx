@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useEditorEmojiMenu } from '@/components/features/Menus/EditorEmojiMenu';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/Text';
 import { useMenuStyle } from '@/hooks';
 import { useHover } from '@/hooks/useHover';

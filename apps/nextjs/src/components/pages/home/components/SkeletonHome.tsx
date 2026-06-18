@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Box } from '@/components/ui/box';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Stack } from '@/components/ui/Stack';
 

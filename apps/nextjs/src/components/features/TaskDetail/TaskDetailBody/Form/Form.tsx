@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/Stack';
 import { Assignee } from './Assignee';
 import { Attachment } from './Attachment';

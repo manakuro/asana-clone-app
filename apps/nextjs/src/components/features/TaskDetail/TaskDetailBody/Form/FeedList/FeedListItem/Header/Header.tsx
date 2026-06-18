@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/Stack';
 import { useTaskFeedListItemContext } from '../Provider';
 import { CreateAt } from './CreateAt';

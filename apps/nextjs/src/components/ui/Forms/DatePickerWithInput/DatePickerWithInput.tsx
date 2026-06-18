@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Button, type ButtonProps } from '@/components/ui/button';
 import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon, type IconProps } from '@/components/ui/Icon';
 import { useHover } from '@/hooks/useHover';
 import type { SystemStyleObject } from '@/shared/chakra';

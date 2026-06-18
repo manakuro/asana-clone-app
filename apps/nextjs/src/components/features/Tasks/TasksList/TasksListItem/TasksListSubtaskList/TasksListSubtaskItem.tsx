@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTasksTaskColumnIds } from '@/components/features/Tasks/hooks';
 import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
 import { TasksListRow } from '@/components/features/Tasks/TasksList/TasksListRow';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 import { Cell } from '../Cell';
 import { useTasksListItemRowContext } from '../Provider';
 

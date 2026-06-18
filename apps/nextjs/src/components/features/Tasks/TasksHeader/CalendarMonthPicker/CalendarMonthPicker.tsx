@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Popover } from '@/components/ui/Popover';

@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTaskActivityTaskIds } from '@/components/features/Inbox/hooks';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useRouter } from '@/router';
 
 type Props = FlexProps & {

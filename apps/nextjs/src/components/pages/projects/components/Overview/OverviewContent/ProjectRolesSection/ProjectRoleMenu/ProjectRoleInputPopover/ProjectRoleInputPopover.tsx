@@ -1,5 +1,5 @@
 import { type PropsWithChildren, useRef } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Popover, type PopoverRootProps } from '@/components/ui/Popover';
 import { Content } from './Content';
 

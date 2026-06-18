@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';
 import { Link } from '@/components/ui/Link';

@@ -3,7 +3,7 @@ import type { PropsWithChildren } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Image } from '@/components/ui/Image';
 import { HoverCard } from '@/components/ui/Popover';

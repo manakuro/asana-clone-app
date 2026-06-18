@@ -10,8 +10,8 @@ import {
 } from '@/components/features/Projects';
 import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
-import { Grid } from '@/components/ui/Grid';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Grid } from '@/components/ui/grid';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';
 

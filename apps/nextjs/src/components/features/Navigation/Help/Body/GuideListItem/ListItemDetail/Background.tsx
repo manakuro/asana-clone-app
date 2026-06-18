@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { useVideoPlayer } from '@/components/ui/VideoPlayer';
 

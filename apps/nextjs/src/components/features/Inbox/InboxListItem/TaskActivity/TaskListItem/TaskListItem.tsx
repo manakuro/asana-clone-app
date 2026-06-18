@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/Stack';
 import { TaskDoneTransition } from '@/components/ui/Transitions';
 import { useHover } from '@/hooks/useHover';

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTasksContext } from '@/components/features/Tasks';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 import { ListItemForMyTasksPage } from './ListItemForMyTasksPage';
 import { ListItemForProjectsPage } from './ListItemForProjectsPage';
 

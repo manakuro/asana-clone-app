@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useWorkspace } from '@/store/entities/workspace';

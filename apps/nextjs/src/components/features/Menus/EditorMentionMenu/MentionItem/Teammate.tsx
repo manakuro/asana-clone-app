@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Avatar } from '@/components/ui/avatar';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/Text';
 import type { Mention } from '@/store/entities/mention';
 import { useTeammate } from '@/store/entities/teammate';

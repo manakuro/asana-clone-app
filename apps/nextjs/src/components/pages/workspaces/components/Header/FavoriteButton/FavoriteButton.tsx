@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { FavoriteIconButton } from '@/components/ui/FavoriteIconButton';
+import { FavoriteIconButton } from '@/components/ui/favorite-icon-button';
 import type { IconButtonProps } from '@/components/ui/IconButton';
 import { Tooltip } from '@/components/ui/Tooltip';
 import {

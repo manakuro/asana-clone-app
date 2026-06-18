@@ -1,6 +1,6 @@
 import type { PropsWithChildren, ReactElement } from 'react';
 import { Children, cloneElement, isValidElement, useEffect } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { useCarouselContext } from './provider';
 
 export function CarouselBody({ children }: PropsWithChildren) {

@@ -3,7 +3,7 @@ import {
   type UseInboxListItemIdsKeys,
   useInboxListItemIds,
 } from '@/components/features/Inbox';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { InboxListSection } from '../InboxListSection';
 import { useInboxList } from './useInboxList';
 

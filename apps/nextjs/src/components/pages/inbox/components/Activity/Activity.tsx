@@ -14,7 +14,7 @@ import {
 } from '@/components/features/Inbox';
 import { TaskDetailSide } from '@/components/features/TaskDetails';
 import { TasksProvider } from '@/components/features/Tasks';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { useInboxActivityPageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
 import { useInboxPageContext } from '../../providers/Provider';

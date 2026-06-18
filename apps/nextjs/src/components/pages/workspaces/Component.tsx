@@ -1,8 +1,8 @@
 import { usePathname } from 'next/navigation';
 import { memo, useCallback, useState } from 'react';
 import { MainHeader } from '@/components/features/MainHeader';
-import { Flex } from '@/components/ui/Flex';
-import { Head } from '@/components/ui/Head';
+import { Flex } from '@/components/ui/flex';
+import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/Tabs';
 import {
   isWorkspacesCalendarURL,

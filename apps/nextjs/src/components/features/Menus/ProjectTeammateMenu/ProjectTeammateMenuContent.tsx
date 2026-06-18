@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useSearchMenuRef } from '@/components/features/Menus/SearchMenu';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Popover, type PopoverContentProps } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';

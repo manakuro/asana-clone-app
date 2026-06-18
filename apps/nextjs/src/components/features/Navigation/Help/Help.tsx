@@ -1,6 +1,6 @@
 import { DarkMode } from '@/chakra-ui/ui/color-mode';
 import { Drawer } from '@/components/ui/drawer';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Portal } from '@/components/ui/Portal';
 import { Body } from './Body';
 import { Footer } from './Footer';

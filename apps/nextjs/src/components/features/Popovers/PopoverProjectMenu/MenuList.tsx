@@ -1,6 +1,6 @@
 import { PopoverSetColorAndIcon } from '@/components/features/Popovers';
 import { ColorBox } from '@/components/ui/color-box';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';

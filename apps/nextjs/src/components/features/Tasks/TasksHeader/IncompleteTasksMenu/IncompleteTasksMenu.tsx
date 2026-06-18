@@ -6,7 +6,7 @@ import {
 } from '@/components/features/Menus';
 import { useTasksTaskListStatus } from '@/components/features/Tasks/hooks';
 import { Button } from '@/components/ui/button';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import { Text } from '@/components/ui/Text';

@@ -1,5 +1,5 @@
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { NewBox } from '@/components/ui/NewBox';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';

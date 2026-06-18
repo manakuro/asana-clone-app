@@ -1,5 +1,5 @@
 import { memo, type PropsWithChildren } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Popover, type PopoverContentProps } from '@/components/ui/Popover';
 import { Portal } from '@/components/ui/Portal';
 import { useClickOutside } from '@/hooks';

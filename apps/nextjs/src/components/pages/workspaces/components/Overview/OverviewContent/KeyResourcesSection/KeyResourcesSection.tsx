@@ -1,4 +1,4 @@
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { OverviewContentHeading } from '../OverviewContentHeading';
 import { KeyResourcesEmpty } from './KeyResourcesEmpty';
 

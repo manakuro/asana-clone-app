@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Flex, type FlexProps } from '@/components/ui/Flex';
+import { Flex, type FlexProps } from '@/components/ui/flex';
 import { InboxListHeader } from '../InboxListHeader';
 import { InboxListItem } from '../InboxListItem';
 

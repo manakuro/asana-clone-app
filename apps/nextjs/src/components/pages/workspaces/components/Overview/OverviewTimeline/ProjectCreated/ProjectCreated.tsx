@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/Heading';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';

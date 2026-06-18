@@ -5,7 +5,7 @@ import {
   MenuSelectTrigger,
 } from '@/components/features/Menus';
 import { Button } from '@/components/ui/button';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import { useClickableHoverStyle } from '@/hooks';

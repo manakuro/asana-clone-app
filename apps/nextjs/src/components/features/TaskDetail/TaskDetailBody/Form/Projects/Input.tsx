@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { ProjectMenu } from '@/components/features/Menus';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput, type InputProps } from '@/components/ui/Input';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';

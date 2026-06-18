@@ -1,5 +1,5 @@
-import { Flex } from '@/components/ui/Flex';
-import { Field } from '@/components/ui/Form';
+import { Flex } from '@/components/ui/flex';
+import { Field } from '@/components/ui/form';
 import { Icon } from '@/components/ui/Icon';
 import { Switch } from '@/components/ui/Switch';
 import { useClickableHoverStyle } from '@/hooks';

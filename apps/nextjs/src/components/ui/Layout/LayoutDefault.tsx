@@ -3,7 +3,7 @@
 import type { PropsWithChildren } from 'react';
 import { memo } from 'react';
 import { Navigation } from '@/components/features/Navigation';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 
 export const LayoutDefault = memo(function LayoutDefault(
   props: PropsWithChildren,

@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { AssigneeMenu } from '@/components/features/Menus';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { Input as AtomsInput, InputGroup } from '@/components/ui/Input';
 import { useClickableHoverStyle } from '@/hooks';

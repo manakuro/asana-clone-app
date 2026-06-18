@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
 import { Button } from '@/components/ui/button';
-import { Flex } from '@/components/ui/Flex';
-import { Grid } from '@/components/ui/Grid';
+import { Flex } from '@/components/ui/flex';
+import { Grid } from '@/components/ui/grid';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Popover, usePopoverContext } from '@/components/ui/Popover';

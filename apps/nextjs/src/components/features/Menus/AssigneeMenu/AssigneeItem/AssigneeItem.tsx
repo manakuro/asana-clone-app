@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import type { FlexProps } from '@/components/ui/Flex';
+import type { FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/Text';
 import { useTeammate } from '@/store/entities/teammate';
 import { LeftContainer, ListItem, RightContainer } from '../ListItem';

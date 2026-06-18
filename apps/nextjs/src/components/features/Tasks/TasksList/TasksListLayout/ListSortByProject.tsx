@@ -5,7 +5,7 @@ import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provi
 import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListItem';
 import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
 import { Box } from '@/components/ui/box';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { useMyTasksProjectIds } from '@/store/app/myTasks/projects';

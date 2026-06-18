@@ -3,7 +3,7 @@ import { memo, useCallback, useMemo, useState } from 'react';
 import { InviteProjectTeammateMenu } from '@/components/features/Menus';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { AvatarGroup } from '@/components/ui/avatar';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Input } from '@/components/ui/Input';
 import { Text } from '@/components/ui/Text';
 import { useLinkStyle } from '@/hooks';

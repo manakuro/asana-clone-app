@@ -4,7 +4,7 @@ import { ProjectChip } from '@/components/features/Chips';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { CheckIcon } from '@/components/ui/check-icon';
 import { DueDate } from '@/components/ui/due-date';
-import { Flex } from '@/components/ui/Flex';
+import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/Stack';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';

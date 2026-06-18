@@ -1,4 +1,4 @@
-import { FileUploader, type FileUploaderParams } from '@/components/ui/Form';
+import { FileUploader, type FileUploaderParams } from '@/components/ui/form';
 import { Menu, type MenuRootProps } from '@/components/ui/Menu';
 import { Portal } from '@/components/ui/Portal';
 import { useMenuStyle } from '@/hooks';
