@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
-import { Collapsible } from '@/components/ui/Collapsible';
+import { Collapsible } from '@/components/ui/collapsible';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useTask } from '@/store/entities/task';
 import { transitions } from '@/styles/transitions';

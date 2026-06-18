@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { ClientOnly } from '@/components/ui/ClientOnly';
+import { ClientOnly } from '@/components/ui/client-only';
 import { Flex } from '@/components/ui/Flex';
 import { Popover } from '@/components/ui/Popover';
 import { Content } from './Content';

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { CheckIcon } from '@/components/ui/CheckIcon';
+import { CheckIcon } from '@/components/ui/check-icon';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import type { Mention } from '@/store/entities/mention';

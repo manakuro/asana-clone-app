@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provider';
-import { CheckIcon } from '@/components/ui/CheckIcon';
+import { CheckIcon } from '@/components/ui/check-icon';
 import type { FlexProps } from '@/components/ui/Flex';
 import { Icon } from '@/components/ui/Icon';
 import { Stack } from '@/components/ui/Stack';

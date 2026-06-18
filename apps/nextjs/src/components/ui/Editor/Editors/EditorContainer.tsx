@@ -2,7 +2,7 @@ import type { Node as ProsemirrorNode, Schema } from 'prosemirror-model';
 import type { Plugin } from 'prosemirror-state';
 import type { EditorProps } from 'prosemirror-view';
 import { type PropsWithChildren, type Ref, useMemo } from 'react';
-import { ClientOnly } from '@/components/ui/ClientOnly';
+import { ClientOnly } from '@/components/ui/client-only';
 import { useDebounce, usePrevious } from '@/hooks';
 import {
   createJSONTransformer,

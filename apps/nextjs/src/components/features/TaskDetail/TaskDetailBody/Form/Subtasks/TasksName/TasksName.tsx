@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { TasksListRow } from '@/components/features/Tasks/TasksList/TasksListRow';
-import { CheckIcon } from '@/components/ui/CheckIcon';
+import { CheckIcon } from '@/components/ui/check-icon';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';
 import { TaskDoneTransition } from '@/components/ui/Transitions';

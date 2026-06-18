@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { CheckIcon } from '@/components/ui/CheckIcon';
+import { CheckIcon } from '@/components/ui/check-icon';
 import { Flex, type FlexProps } from '@/components/ui/Flex';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { useTasksBoardListItemContext } from '../Provider';

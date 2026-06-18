@@ -1,2 +1,2 @@
-src/components/ui/Checkbox/CheckBox.tsx
-src/components/ui/Checkbox/index.ts
+src/components/ui/Collapsible/Collapsible.tsx
+src/components/ui/Collapsible/index.ts
