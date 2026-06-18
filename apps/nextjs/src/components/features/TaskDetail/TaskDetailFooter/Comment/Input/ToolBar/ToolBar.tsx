@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { AtMention, Emoji, Format } from '@/components/ui/Editor/ToolBar';
 import { Flex } from '@/components/ui/Flex';
 import { Stack } from '@/components/ui/Stack';

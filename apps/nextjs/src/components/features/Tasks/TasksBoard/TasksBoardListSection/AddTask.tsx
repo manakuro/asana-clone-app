@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTasksTask } from '@/components/features/Tasks/hooks';
-import { Button, type ButtonProps } from '@/components/ui/Button';
+import { Button, type ButtonProps } from '@/components/ui/button';
 import { Icon } from '@/components/ui/Icon';
 
 type Props = {

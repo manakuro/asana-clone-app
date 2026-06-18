@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTasksCalendarContext } from '@/components/features/Tasks';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/Flex';
 import { Grid } from '@/components/ui/Grid';
 import { Icon } from '@/components/ui/Icon';

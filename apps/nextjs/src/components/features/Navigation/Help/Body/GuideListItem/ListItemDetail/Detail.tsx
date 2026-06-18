@@ -5,8 +5,8 @@ import {
   type Item,
   PADDING_X,
 } from '@/components/features/Navigation/Help/Body/GuideListItem';
-import { Button } from '@/components/ui/Button';
 import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/Flex';
 import { MoreLink } from '@/components/ui/MoreLink';
 import { Text } from '@/components/ui/Text';

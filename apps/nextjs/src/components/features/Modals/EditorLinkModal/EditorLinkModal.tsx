@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback } from 'react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/Dialog';
 import { Input } from '@/components/ui/Input';
 import { Stack } from '@/components/ui/Stack';

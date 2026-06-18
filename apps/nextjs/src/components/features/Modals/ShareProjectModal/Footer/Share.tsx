@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/Dialog';
 import { Icon } from '@/components/ui/Icon';
 import { Separator } from '@/components/ui/Separator';

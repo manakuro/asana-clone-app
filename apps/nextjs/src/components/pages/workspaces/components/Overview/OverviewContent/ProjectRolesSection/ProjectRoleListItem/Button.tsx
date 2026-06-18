@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import {
   Button as AtomsButton,
   type ButtonProps,
-} from '@/components/ui/Button';
+} from '@/components/ui/button';
 import { Menu } from '@/components/ui/Menu';
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

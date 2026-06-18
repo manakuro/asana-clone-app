@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { CheckIcon } from '@/components/ui/CheckIcon';
 import { useTask } from '@/store/entities/task';
 

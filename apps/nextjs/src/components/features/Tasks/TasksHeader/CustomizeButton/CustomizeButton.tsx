@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useCustomizeMenu } from '@/components/features/Tasks/TasksHeader/CustomizeMenu/useCustomizeMenu';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/Icon';
 
 export const CustomizeButton = memo(function CustomizeButton() {

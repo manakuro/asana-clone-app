@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/Button';
 import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/Flex';
 import { Text } from '@/components/ui/Text';
 import { useProject } from '@/store/entities/project';

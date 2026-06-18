@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Button } from '@/components/ui/Button';
 import { Box } from '@/components/ui/box';
+import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/Icon';
 
 export const AddToProject = memo(function AddToProject() {

@@ -4,7 +4,7 @@ import {
   MenuSelectList,
   MenuSelectTrigger,
 } from '@/components/features/Menus';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/Icon';
 import { Menu } from '@/components/ui/Menu';
 import type { SystemStyleObject } from '@/shared/chakra';

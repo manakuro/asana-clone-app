@@ -1,8 +1,8 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
-import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/Icon';
 import { Text } from '@/components/ui/Text';
 import { useClickableHoverStyle } from '@/hooks';

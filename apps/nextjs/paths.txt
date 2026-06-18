@@ -1,2 +1,2 @@
-src/components/ui/Box/Box.tsx
-src/components/ui/Box/index.ts
+src/components/ui/Button/Button.tsx
+src/components/ui/Button/index.ts

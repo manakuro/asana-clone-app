@@ -1,5 +1,5 @@
 import { forwardRef, type PropsWithChildren } from 'react';
-import { Button as AtomsButton } from '@/components/ui/Button';
+import { Button as AtomsButton } from '@/components/ui/button';
 import { Menu } from '@/components/ui/Menu';
 
 export const Button = forwardRef<HTMLButtonElement, PropsWithChildren>(

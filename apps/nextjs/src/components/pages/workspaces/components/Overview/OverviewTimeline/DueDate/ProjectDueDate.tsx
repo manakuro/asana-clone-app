@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import type { ButtonProps } from '@/components/ui/Button';
+import type { ButtonProps } from '@/components/ui/button';
 import { DatePickerWithInput } from '@/components/ui/Forms/DatePickerWithInput';
 import type { IconProps } from '@/components/ui/Icon';
 import { useProject, useProjectCommand } from '@/store/entities/project';

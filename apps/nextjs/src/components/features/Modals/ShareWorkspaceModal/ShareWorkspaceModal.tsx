@@ -1,5 +1,5 @@
 import { CloseButton } from '@chakra-ui/react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/Container';
 import { Dialog } from '@/components/ui/Dialog';
 import { Flex } from '@/components/ui/Flex';

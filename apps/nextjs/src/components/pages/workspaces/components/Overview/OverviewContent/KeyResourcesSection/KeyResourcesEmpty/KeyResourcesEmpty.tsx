@@ -1,5 +1,5 @@
 import { ComingSoonTooltip } from '@/components/features/Tooltips';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/Flex';
 import { Heading } from '@/components/ui/Heading';
 import { Image } from '@/components/ui/Image';

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Button, type ButtonProps } from '@/components/ui/Button';
+import { Button, type ButtonProps } from '@/components/ui/button';
 import { Icon } from '@/components/ui/Icon';
 
 type Props = ButtonProps;
