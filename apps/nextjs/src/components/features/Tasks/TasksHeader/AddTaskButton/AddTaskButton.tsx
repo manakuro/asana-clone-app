@@ -4,11 +4,11 @@ import {
   useTasksTaskSectionCommand,
   useTasksTaskSectionIds,
 } from '@/components/features/Tasks/hooks';
+import { Button } from '@/components/ui/button';
 import {
   ButtonGroup,
   type ButtonGroupProps,
-} from '@/components/ui/ButtonGroup';
-import { Button } from '@/components/ui/button';
+} from '@/components/ui/button-group';
 import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import { Menu } from '@/components/ui/Menu';

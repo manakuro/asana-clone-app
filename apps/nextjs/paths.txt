@@ -1,2 +1,2 @@
-src/components/ui/Button/Button.tsx
-src/components/ui/Button/index.ts
+src/components/ui/ButtonGroup/ButtonGroup.tsx
+src/components/ui/ButtonGroup/index.ts
