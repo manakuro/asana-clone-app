@@ -1,2 +1,2 @@
-src/components/ui/Image/Image.tsx
-src/components/ui/Image/index.ts
+src/components/ui/InputWithIcon/index.ts
+src/components/ui/InputWithIcon/InputWithIcon.tsx

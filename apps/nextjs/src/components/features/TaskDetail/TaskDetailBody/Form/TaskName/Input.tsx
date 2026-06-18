@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { Flex } from '@/components/ui/flex';
-import { InputText } from '@/components/ui/InputText';
+import { InputText } from '@/components/ui/input-text';
 import { useDebounce } from '@/hooks';
 
 type Props = {

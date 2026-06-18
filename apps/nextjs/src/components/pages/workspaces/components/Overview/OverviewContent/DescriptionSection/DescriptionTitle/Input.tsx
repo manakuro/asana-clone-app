@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
-import { InputText } from '@/components/ui/InputText';
+import { InputText } from '@/components/ui/input-text';
 import { useDescriptionTitleInput } from '@/hooks/pages/projects';
 
 type Props = {

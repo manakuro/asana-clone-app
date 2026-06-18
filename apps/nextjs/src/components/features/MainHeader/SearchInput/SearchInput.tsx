@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { InputWithIcon } from '@/components/ui/InputWithIcon';
+import { InputWithIcon } from '@/components/ui/input-with-icon';
 
 export const SearchInput = memo(function SearchInput() {
   return (
