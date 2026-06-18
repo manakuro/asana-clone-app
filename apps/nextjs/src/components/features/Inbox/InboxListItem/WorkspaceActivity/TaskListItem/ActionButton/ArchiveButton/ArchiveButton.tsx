@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
 import { Icon } from '@/components/ui/icon';
+import { IconButton, type IconButtonProps } from '@/components/ui/icon-button';
 import { Tooltip } from '@/components/ui/Tooltip';
 
 type Props = Omit<IconButtonProps, 'aria-label'>;

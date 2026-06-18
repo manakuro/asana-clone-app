@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { IconButton } from '@/components/ui/IconButton';
 import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useTaskCommand } from '@/store/entities/task';
 

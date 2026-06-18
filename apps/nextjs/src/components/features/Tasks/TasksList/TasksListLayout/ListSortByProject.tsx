@@ -6,8 +6,8 @@ import { TasksListItem } from '@/components/features/Tasks/TasksList/TasksListIt
 import { TasksListSectionProvider } from '@/components/features/Tasks/TasksList/TasksListSection';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
-import { IconButton } from '@/components/ui/IconButton';
 import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
 import { useMyTasksProjectIds } from '@/store/app/myTasks/projects';
 import { useMyTasksTaskIdsWithNoProject } from '@/store/app/myTasks/tasks';
 

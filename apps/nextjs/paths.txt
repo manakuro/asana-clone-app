@@ -1,2 +1,2 @@
-src/components/ui/Icon/Icon.tsx
-src/components/ui/Icon/index.ts
+src/components/ui/IconButton/IconButton.tsx
+src/components/ui/IconButton/index.ts

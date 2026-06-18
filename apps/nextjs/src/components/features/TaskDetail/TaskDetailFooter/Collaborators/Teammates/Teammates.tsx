@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
-import { IconButton } from '@/components/ui/IconButton';
 import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
 import { Stack } from '@/components/ui/Stack';
 import { useTeammateIdsByTaskId } from '@/store/entities/taskCollaborator';
 import { useCollaboratorsContext } from '../Provider';

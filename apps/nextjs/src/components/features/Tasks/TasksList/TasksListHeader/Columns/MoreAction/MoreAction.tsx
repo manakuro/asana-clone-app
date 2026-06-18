@@ -3,8 +3,8 @@ import {
   useTasksTaskColumn,
   useTasksTaskColumnIds,
 } from '@/components/features/Tasks/hooks';
-import { IconButton } from '@/components/ui/IconButton';
 import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
 import { Menu } from '@/components/ui/Menu';
 import { MenuList } from './MenuList';
 

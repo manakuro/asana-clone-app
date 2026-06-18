@@ -4,7 +4,7 @@ import {
   useEditorStateContext,
   useEditorViewContext,
 } from '@/components/ui/Editor/Editors';
-import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
+import { IconButton, type IconButtonProps } from '@/components/ui/icon-button';
 import { Tooltip, type TooltipProps } from '@/components/ui/Tooltip';
 import type { ToolbarItem } from '@/shared/prosemirror/hooks';
 

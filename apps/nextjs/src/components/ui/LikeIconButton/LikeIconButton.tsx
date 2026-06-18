@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { IconButton, type IconButtonProps } from '@/components/ui/IconButton';
+import { IconButton, type IconButtonProps } from '@/components/ui/icon-button';
 import type { TextProps } from '@/components/ui/Text';
 import { Icon } from './Icon';
 

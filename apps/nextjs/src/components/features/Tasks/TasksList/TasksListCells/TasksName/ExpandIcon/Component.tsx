@@ -1,8 +1,8 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useSubtaskListContext } from '@/components/features/Tasks/TasksList/TasksListItem/Provider';
-import { IconButton } from '@/components/ui/IconButton';
 import { Icon } from '@/components/ui/icon';
+import { IconButton } from '@/components/ui/icon-button';
 
 type Props = {
   showExpandIcon: boolean;

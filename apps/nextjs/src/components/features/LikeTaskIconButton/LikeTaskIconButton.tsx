@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import type { IconButtonProps } from '@/components/ui/IconButton';
+import type { IconButtonProps } from '@/components/ui/icon-button';
 import { LikeIconButton } from '@/components/ui/LikeIconButton';
 import type { TextProps } from '@/components/ui/Text';
 import { useLike } from './useLike';
