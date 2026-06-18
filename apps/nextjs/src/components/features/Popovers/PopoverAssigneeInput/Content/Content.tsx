@@ -1,6 +1,6 @@
 import type { MouseEvent } from 'react';
-import { Popover } from '@/components/ui/Popover';
-import { Stack } from '@/components/ui/Stack';
+import { Popover } from '@/components/ui/popover';
+import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/Text';
 import { useClickOutside } from '@/hooks';
 import { AssignToMeButton } from './AssignToMeButton';

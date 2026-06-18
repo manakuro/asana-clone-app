@@ -4,7 +4,7 @@ import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Menu } from '@/components/ui/menu';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { Tab, TabList } from '@/components/ui/Tabs';
 
 export const Tabs = memo(function Tabs() {

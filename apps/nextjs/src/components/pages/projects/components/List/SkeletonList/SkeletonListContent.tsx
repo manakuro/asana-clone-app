@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { TasksListRow } from '@/components/features/Tasks';
 import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
 import { Flex } from '@/components/ui/flex';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const TEXT_HEIGHT = '16px';
 export const SkeletonListContent = memo(function SkeletonListContent() {

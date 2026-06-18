@@ -3,7 +3,7 @@ import { memo } from 'react';
 import emtpyImage from '@/assets/images/key_resources_1.svg';
 import { Flex } from '@/components/ui/flex';
 import { Image } from '@/components/ui/image';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/Text';
 
 export const Empty = memo(function Empty() {

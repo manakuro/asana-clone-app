@@ -6,7 +6,7 @@ import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import { NextLink } from '@/components/ui/next-link';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useLinkStyle } from '@/hooks';
 import { ROUTE_MY_TASKS_LIST } from '@/router';

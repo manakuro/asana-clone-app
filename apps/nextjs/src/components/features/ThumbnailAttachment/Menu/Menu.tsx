@@ -5,7 +5,7 @@ import {
   type MenuRootProps,
   Menu as OrganismsMenu,
 } from '@/components/ui/menu';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { useTaskFile } from '@/store/entities/taskFile';
 
 type Props = MenuRootProps & {

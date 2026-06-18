@@ -5,7 +5,7 @@ import { useTasksListContext } from '@/components/features/Tasks/TasksList/Provi
 import { CheckIcon } from '@/components/ui/check-icon';
 import type { FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/Text';
 import { TaskDoneTransition } from '@/components/ui/Transitions';
 import { useTask, useTaskCommand } from '@/store/entities/task';

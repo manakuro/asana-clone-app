@@ -4,7 +4,7 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Menu } from '@/components/ui/menu';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/Text';
 import type { IconType } from '@/shared/icons';
 

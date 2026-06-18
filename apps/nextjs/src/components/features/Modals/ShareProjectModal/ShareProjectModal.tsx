@@ -1,7 +1,7 @@
 import { CloseButton } from '@chakra-ui/react';
 import { memo } from 'react';
 import { Dialog } from '@/components/ui/dialog';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { Body } from './Body';
 import { Footer } from './Footer';
 import { Header } from './Header';

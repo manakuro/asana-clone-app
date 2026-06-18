@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
-import { Presence } from '@/components/ui/Presence';
+import { Presence } from '@/components/ui/presence';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
 import { Content } from './Content';
 import { useTaskDetailDrawer } from './useTaskDetailDrawer';

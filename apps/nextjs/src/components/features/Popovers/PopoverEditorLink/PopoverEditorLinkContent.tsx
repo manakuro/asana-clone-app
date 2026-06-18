@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/flex';
-import { HoverCard } from '@/components/ui/Popover';
+import { HoverCard } from '@/components/ui/popover';
 
 export function PopoverEditorLinkContent(props: PropsWithChildren) {
   return (

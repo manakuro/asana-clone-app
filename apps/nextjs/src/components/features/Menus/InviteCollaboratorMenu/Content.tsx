@@ -10,7 +10,7 @@ import {
   SearchMenuRightContainer,
 } from '@/components/features/Menus/SearchMenu';
 import { Icon } from '@/components/ui/icon';
-import { Separator } from '@/components/ui/Separator';
+import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/Text';
 import type { Teammate } from '@/store/entities/teammate';
 

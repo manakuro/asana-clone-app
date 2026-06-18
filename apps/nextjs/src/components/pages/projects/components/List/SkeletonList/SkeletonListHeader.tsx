@@ -4,7 +4,7 @@ import {
   TasksHeaderLeft,
   TasksHeaderRight,
 } from '@/components/features/Tasks';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const BUTTON_HEIGHT = '28px';
 export const SkeletonListHeader = memo(function SkeletonListHeader() {

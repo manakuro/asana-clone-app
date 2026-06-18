@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { useEditorLinkModal } from './useEditorLinkModal';
 
 const MARGIN = 30;

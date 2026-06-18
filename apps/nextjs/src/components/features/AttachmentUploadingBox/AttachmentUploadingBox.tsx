@@ -1,6 +1,6 @@
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Progress } from '@/components/ui/Progress';
+import { Progress } from '@/components/ui/progress';
 import { Text } from '@/components/ui/Text';
 import { transitions } from '@/styles/transitions';
 

@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
 import { Assignee } from './Assignee';

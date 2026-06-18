@@ -3,10 +3,10 @@ import React, { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { Flex } from '@/components/ui/flex';
-import { Portal } from '@/components/ui/Portal';
-import { RadioGroup } from '@/components/ui/Radio';
-import { Separator } from '@/components/ui/Separator';
-import { Stack } from '@/components/ui/Stack';
+import { Portal } from '@/components/ui/portal';
+import { RadioGroup } from '@/components/ui/radio';
+import { Separator } from '@/components/ui/separator';
+import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/Text';
 import { useDeleteTaskSectionModal } from './useDeleteTaskSectionModal';
 

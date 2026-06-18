@@ -5,7 +5,7 @@ import {
   useTasksTaskSectionCommand,
 } from '@/components/features/Tasks/hooks';
 import { Menu } from '@/components/ui/menu';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { useTasksBoardListSectionContext } from '../../../Provider';
 
 export const MenuList = memo(function MenuList() {

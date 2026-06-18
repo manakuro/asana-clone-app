@@ -5,7 +5,7 @@ import {
   type MenuContentProps,
   type MenuRadioItemGroupProps,
 } from '@/components/ui/menu';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { useMenuSelectContext } from '../useMenuSelect';
 
 type Props = MenuRadioItemGroupProps & {

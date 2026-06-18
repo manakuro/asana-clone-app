@@ -3,4 +3,4 @@ export {
   type HoverCardRootProps,
   usePopoverContext,
 } from '@chakra-ui/react';
-export * from './Popover';
+export * from './popover';

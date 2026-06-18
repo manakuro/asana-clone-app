@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Button } from '@/components/ui/button';
 import { AtMention, Emoji, Format } from '@/components/ui/Editor/ToolBar';
 import { Flex } from '@/components/ui/flex';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { transitions } from '@/styles/transitions';
 import { useInputContext } from '../Provider';
 import { Attachment } from './Attachment';

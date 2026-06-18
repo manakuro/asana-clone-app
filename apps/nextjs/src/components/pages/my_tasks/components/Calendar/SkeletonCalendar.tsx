@@ -6,8 +6,8 @@ import {
   TasksHeaderRight,
 } from '@/components/features/Tasks';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Skeleton } from '@/components/ui/Skeleton';
-import { Stack } from '@/components/ui/Stack';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Stack } from '@/components/ui/stack';
 
 type Props = FlexProps;
 

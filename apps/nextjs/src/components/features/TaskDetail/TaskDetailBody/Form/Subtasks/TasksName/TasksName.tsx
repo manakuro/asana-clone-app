@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { TasksListRow } from '@/components/features/Tasks/TasksList/TasksListRow';
 import { CheckIcon } from '@/components/ui/check-icon';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { TaskDoneTransition } from '@/components/ui/Transitions';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { Assignee } from './Assignee';

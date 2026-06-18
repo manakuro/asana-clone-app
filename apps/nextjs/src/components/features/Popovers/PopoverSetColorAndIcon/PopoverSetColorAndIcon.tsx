@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
-import { HoverCard, type HoverCardRootProps } from '@/components/ui/Popover';
-import { Portal } from '@/components/ui/Portal';
-import { Separator } from '@/components/ui/Separator';
+import { HoverCard, type HoverCardRootProps } from '@/components/ui/popover';
+import { Portal } from '@/components/ui/portal';
+import { Separator } from '@/components/ui/separator';
 import type { Project } from '@/store/entities/project';
 import { ColorPicker } from './ColorPicker';
 import { IconPicker } from './IconPicker';

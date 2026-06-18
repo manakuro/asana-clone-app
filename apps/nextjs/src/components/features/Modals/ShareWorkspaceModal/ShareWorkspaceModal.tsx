@@ -7,7 +7,7 @@ import { Icon } from '@/components/ui/icon';
 import { Input } from '@/components/ui/input';
 import { Link } from '@/components/ui/link';
 import { MoreLink } from '@/components/ui/more-link';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { useShareWorkspaceModal } from './useShareWorkspaceModal';
 
 export function ShareWorkspaceModal() {

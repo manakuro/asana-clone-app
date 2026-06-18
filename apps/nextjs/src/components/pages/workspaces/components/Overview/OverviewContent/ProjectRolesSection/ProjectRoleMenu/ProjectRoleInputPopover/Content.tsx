@@ -1,8 +1,8 @@
 import type { RefObject } from 'react';
 import { memo, useCallback } from 'react';
 import { Label } from '@/components/ui/label';
-import { Popover } from '@/components/ui/Popover';
-import { Portal } from '@/components/ui/Portal';
+import { Popover } from '@/components/ui/popover';
+import { Portal } from '@/components/ui/portal';
 import { useClickOutside } from '@/hooks';
 import {
   useProjectTeammate,

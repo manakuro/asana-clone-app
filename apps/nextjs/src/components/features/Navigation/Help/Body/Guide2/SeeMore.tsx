@@ -3,7 +3,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Box } from '@/components/ui/box';
 import { Link } from '@/components/ui/link';
 import { List } from '@/components/ui/list';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/Text';
 import { guide2Item } from './item';
 

@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { Icon } from '@/components/ui/icon';
-import { Separator } from '@/components/ui/Separator';
+import { Separator } from '@/components/ui/separator';
 import { useCopyProjectLink } from '@/hooks/pages/projects';
 import { useShareProjectModal } from '../useShareProjectModal';
 import { useShareProjectModalInvitedTeammates } from '../useShareProjectModalInvitedTeammates';

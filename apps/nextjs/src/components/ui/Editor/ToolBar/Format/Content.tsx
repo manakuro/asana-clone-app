@@ -9,9 +9,9 @@ import {
   Strikethrough,
   Underline,
 } from '@/components/ui/Editor/ToolBar';
-import { Popover } from '@/components/ui/Popover';
-import { Portal } from '@/components/ui/Portal';
-import { Stack } from '@/components/ui/Stack';
+import { Popover } from '@/components/ui/popover';
+import { Portal } from '@/components/ui/portal';
+import { Stack } from '@/components/ui/stack';
 import { useClickOutside } from '@/hooks';
 
 type Props = {

@@ -1,6 +1,6 @@
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Logo } from '@/components/ui/logo';
-import { Spinner } from '@/components/ui/Spinner';
+import { Spinner } from '@/components/ui/spinner';
 
 type Props = FlexProps;
 

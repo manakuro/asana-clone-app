@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Menu } from '@/components/ui/menu';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { useTaskFeedListItemContext } from '../../Provider';
 import { CopyCommentLink } from './CopyCommentLink';
 import { DeleteComment } from './DeleteComment';

@@ -6,8 +6,8 @@ import {
   InboxRight,
 } from '@/components/features/Inbox';
 import { Flex } from '@/components/ui/flex';
-import { Skeleton } from '@/components/ui/Skeleton';
-import { Stack } from '@/components/ui/Stack';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Stack } from '@/components/ui/stack';
 
 const BUTTON_HEIGHT = '28px';
 const TEXT_HEIGHT = '16px';

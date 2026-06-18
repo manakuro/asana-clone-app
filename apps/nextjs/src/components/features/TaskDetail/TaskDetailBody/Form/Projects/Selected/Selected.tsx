@@ -3,7 +3,7 @@ import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { useProjectTask } from '@/store/entities/projectTask';
 import { ProjectButton } from './ProjectButton';
 import { Section } from './Section';

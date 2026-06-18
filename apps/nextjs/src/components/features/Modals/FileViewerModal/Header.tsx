@@ -5,7 +5,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Link } from '@/components/ui/link';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/Text';
 import { formatTaskFileCreatedAt } from '@/shared/date';
 import { useTaskFile } from '@/store/entities/taskFile';

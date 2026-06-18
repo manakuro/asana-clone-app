@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Popover, type PopoverRootProps } from '@/components/ui/Popover';
+import { Popover, type PopoverRootProps } from '@/components/ui/popover';
 
 type Props = PopoverRootProps;
 

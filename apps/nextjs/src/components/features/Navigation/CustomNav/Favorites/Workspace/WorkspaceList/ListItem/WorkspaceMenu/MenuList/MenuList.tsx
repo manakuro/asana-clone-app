@@ -1,5 +1,5 @@
 import { Menu } from '@/components/ui/menu';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { useClickOutside } from '@/hooks';
 import { RemoveFromFavorites } from './RemoveFromFavorites';
 

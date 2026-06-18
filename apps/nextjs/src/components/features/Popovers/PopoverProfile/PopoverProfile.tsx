@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Image } from '@/components/ui/image';
-import { HoverCard } from '@/components/ui/Popover';
-import { Portal } from '@/components/ui/Portal';
-import { Separator } from '@/components/ui/Separator';
+import { HoverCard } from '@/components/ui/popover';
+import { Portal } from '@/components/ui/portal';
+import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/Text';
 
 type Props = {

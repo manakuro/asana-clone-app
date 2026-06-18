@@ -2,7 +2,7 @@ import { Section } from '@/components/features/Navigation/Help/Body/GuideListIte
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Box } from '@/components/ui/box';
 import { List } from '@/components/ui/list';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/Text';
 import { guide3Item } from './item';
 

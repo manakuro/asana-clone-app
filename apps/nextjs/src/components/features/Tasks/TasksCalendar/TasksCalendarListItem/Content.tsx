@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTasksTaskIdsByDueDate } from '@/components/features/Tasks/hooks';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { ListItem } from './ListItem';
 
 type Props = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, type InputProps } from '@/components/ui/input';
 import { Menu, type MenuTriggerProps } from '@/components/ui/menu';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 
 type Props = {
   value: string;

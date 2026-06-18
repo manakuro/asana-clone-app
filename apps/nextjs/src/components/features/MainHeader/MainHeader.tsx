@@ -1,6 +1,6 @@
 import { memo, type PropsWithChildren, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 import { useMainStyle } from '@/hooks';
 import { AddButton } from './AddButton';
 import { MyAccountAvatar } from './MyAccountAvatar';

@@ -1,4 +1,2 @@
-src/components/ui/PdfViewer/index.ts
-src/components/ui/PdfViewer/PdfViewer.tsx
-src/components/ui/PdfViewer/PdfViewerComponent.tsx
-src/components/ui/PdfViewer/pdfViewerCustomStyle.ts
+src/components/ui/Switch/index.ts
+src/components/ui/Switch/Switch.tsx

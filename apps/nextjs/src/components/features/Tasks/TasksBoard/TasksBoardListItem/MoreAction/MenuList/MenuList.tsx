@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Menu } from '@/components/ui/menu';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { AddCoverImage } from './AddCoverImage';
 import { CopyTask } from './CopyTask';
 import { DeleteTask } from './DeleteTask';

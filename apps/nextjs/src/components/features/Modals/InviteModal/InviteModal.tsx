@@ -3,8 +3,8 @@ import { useInviteModal } from '@/components/features/Modals';
 import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
-import { Portal } from '@/components/ui/Portal';
-import { Stack } from '@/components/ui/Stack';
+import { Portal } from '@/components/ui/portal';
+import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/Text';
 import { Textarea } from '@/components/ui/Textarea';
 

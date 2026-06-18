@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
 import { Image } from '@/components/ui/image';
-import { Stack } from '@/components/ui/Stack';
+import { Stack } from '@/components/ui/stack';
 
 export function KeyResourcesEmpty() {
   return (

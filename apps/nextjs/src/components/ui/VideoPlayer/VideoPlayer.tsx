@@ -6,7 +6,7 @@ import { Dialog } from '@/components/ui/dialog';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
-import { Portal } from '@/components/ui/Portal';
+import { Portal } from '@/components/ui/portal';
 import { DurationBar } from '@/components/ui/VideoPlayer/DurationBar';
 import { Duration } from './Duration';
 import { useVideoPlayer } from './useVideoPlayer';
