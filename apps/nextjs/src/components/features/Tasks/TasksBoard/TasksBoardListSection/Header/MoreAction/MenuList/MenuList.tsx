@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useDeleteTaskSectionModal } from '@/components/features/Modals';
+import { useDeleteTaskSectionModal } from '@/components/features/modals';
 import {
   useHasTasksByTaskSectionId,
   useTasksTaskSectionCommand,

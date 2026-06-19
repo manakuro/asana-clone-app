@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation';
 import { memo, useCallback, useMemo } from 'react';
-import { useInviteModal } from '@/components/features/Modals/InviteModal/useInviteModal';
+import { useInviteModal } from '@/components/features/modals/invite-modal/use-invite-modal';
 import { useNavigation } from '@/components/features/Navigation';
 import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { Flex } from '@/components/ui/flex';

@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useInviteModal } from '@/components/features/Modals';
+import { useInviteModal } from '@/components/features/modals';
 import { PADDING_X } from '@/components/features/Navigation/Navigation';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Wrap, WrapItem } from '@/components/ui/wrap';

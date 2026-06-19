@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useFileViewerModal } from '@/components/features/Modals';
+import { useFileViewerModal } from '@/components/features/modals';
 import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { useToaster } from '@/hooks/useToaster';

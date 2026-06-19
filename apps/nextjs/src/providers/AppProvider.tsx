@@ -2,7 +2,7 @@
 
 import type { PropsWithChildren } from 'react';
 import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
-import { Modals } from '@/components/features/Modals';
+import { Modals } from '@/components/features/modals';
 import { GlobalQuery, Subscription } from '@/components/shared/app';
 import { Mobile } from '@/components/ui/mobile';
 import { PageLoader } from '@/components/ui/page-loader';

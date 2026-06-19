@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback } from 'react';
-import { useProjectDetailModal } from '@/components/features/Modals';
+import { useProjectDetailModal } from '@/components/features/modals';
 import { Menu } from '@/components/ui/menu';
 
 type Props = {

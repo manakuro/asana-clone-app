@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useShareProjectModal } from '@/components/features/Modals';
+import { useShareProjectModal } from '@/components/features/modals';
 import { TeammateAvatar } from '@/components/features/TeammateAvatar';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';

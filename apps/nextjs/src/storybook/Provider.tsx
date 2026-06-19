@@ -2,7 +2,7 @@ import { ApolloProvider as ApolloProviderLibs } from '@apollo/client/react';
 import type React from 'react';
 import { useMemo } from 'react';
 import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
-import { Modals } from '@/components/features/Modals';
+import { Modals } from '@/components/features/modals';
 import {
   useFavoriteProjectIdsQuery,
   useFavoriteWorkspaceIdsQuery,

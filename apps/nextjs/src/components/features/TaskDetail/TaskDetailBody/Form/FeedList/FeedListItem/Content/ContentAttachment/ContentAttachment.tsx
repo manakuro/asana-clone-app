@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useFileViewerModal } from '@/components/features/Modals';
+import { useFileViewerModal } from '@/components/features/modals';
 import { FileTypeCode } from '@/graphql/enums';
 import { useTaskFile, useTaskFileIdsByTaskId } from '@/store/entities/taskFile';
 import { useTaskFeedListItemContext } from '../../Provider';

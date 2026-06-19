@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useShareProjectModal } from '@/components/features/Modals/ShareProjectModal';
+import { useShareProjectModal } from '@/components/features/modals/share-project-modal';
 import { Button } from '@/components/ui/button';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
