@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import type React from 'react';
 import { Container } from '@/storybook/decorators/Container';
-import { Component } from './Component';
+import { Component } from './component';
 
 type Props = React.ComponentProps<typeof Component>;
 

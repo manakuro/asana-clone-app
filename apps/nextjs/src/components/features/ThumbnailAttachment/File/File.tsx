@@ -1,4 +1,4 @@
-import { AttachmentBox } from '@/components/features/AttachmentBox';
+import { AttachmentBox } from '@/components/features/attachment-box';
 import { Container } from '@/components/features/ThumbnailAttachment/Container';
 import { Menu } from '@/components/features/ThumbnailAttachment/Menu';
 import { MenuButton } from '@/components/features/ThumbnailAttachment/MenuButton';

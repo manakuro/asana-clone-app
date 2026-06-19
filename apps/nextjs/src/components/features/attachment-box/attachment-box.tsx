@@ -4,7 +4,7 @@ import {
   getTaskFileName,
   useTaskFile,
 } from '@/store/entities/taskFile';
-import { Component } from './Component';
+import { Component } from './component';
 import type { Sizes } from './sizes';
 
 type Props = FlexProps & {
