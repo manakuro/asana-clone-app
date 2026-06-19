@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { TeammateAvatar } from '@/components/features/TeammateAvatar';
+import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import type { FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { useHover } from '@/hooks/useHover';

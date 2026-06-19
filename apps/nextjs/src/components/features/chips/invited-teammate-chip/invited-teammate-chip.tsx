@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { TeammateAvatar } from '@/components/features/TeammateAvatar';
+import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { PopoverProjectMenu } from '@/components/features/Popovers';
-import { TeammateAvatar } from '@/components/features/TeammateAvatar';
+import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { AvatarGroup } from '@/components/ui/avatar';
 import { Fade } from '@/components/ui/fade';
 import { Flex, type FlexProps } from '@/components/ui/flex';

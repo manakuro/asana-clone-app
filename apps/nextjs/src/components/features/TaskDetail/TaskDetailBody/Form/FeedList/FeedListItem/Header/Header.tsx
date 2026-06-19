@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { TeammateAvatar } from '@/components/features/TeammateAvatar';
+import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { useTaskFeedListItemContext } from '../Provider';

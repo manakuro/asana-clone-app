@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 import { InviteProjectTeammateMenu } from '@/components/features/menus';
-import { TeammateAvatar } from '@/components/features/TeammateAvatar';
+import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { AvatarGroup } from '@/components/ui/avatar';
 import { Flex } from '@/components/ui/flex';
 import { Input } from '@/components/ui/input';
