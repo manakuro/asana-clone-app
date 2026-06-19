@@ -3,7 +3,7 @@ import { DashedBox } from '@/components/ui/dashed-box';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { transitions } from '@/styles/transitions';
-import { Container } from './Container';
+import { Container } from './container';
 
 type Props = {
   containerStyle?: FlexProps;

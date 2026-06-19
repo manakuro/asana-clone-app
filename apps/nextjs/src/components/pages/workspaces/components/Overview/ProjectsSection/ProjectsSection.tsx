@@ -7,7 +7,7 @@ import {
   type ProjectListStatus,
   ProjectTileItem,
   ProjectTileItemNew,
-} from '@/components/features/Projects';
+} from '@/components/features/projects';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
 import { Grid } from '@/components/ui/grid';

@@ -3,7 +3,7 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { NewBox } from '@/components/ui/new-box';
 import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
-import { Container } from './Container';
+import { Container } from './container';
 
 type Props = FlexProps;
 

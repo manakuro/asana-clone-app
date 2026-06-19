@@ -11,8 +11,8 @@ import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
 import { useProjectIcon } from '@/store/entities/projectIcon';
 import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
-import { Container } from './Container';
-import { FavoriteButton } from './FavoriteButton';
+import { Container } from './container';
+import { FavoriteButton } from './favorite-button';
 
 type Props = {
   projectId: string;
