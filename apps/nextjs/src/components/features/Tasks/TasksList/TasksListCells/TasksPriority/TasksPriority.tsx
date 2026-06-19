@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo, useState } from 'react';
-import { PriorityChip } from '@/components/features/Chips';
+import { PriorityChip } from '@/components/features/chips';
 import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

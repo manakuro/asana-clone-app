@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { InvitedTeammateChip } from '@/components/features/Chips';
+import { InvitedTeammateChip } from '@/components/features/chips';
 import { InviteProjectTeammateMenu } from '@/components/features/Menus';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput } from '@/components/ui/input';

@@ -1,2 +1,11 @@
-src/components/features/AttachmentUploadingBox/AttachmentUploadingBox.tsx
-src/components/features/AttachmentUploadingBox/index.ts
+src/components/features/Chips/AssigneeChip/AssigneeChip.tsx
+src/components/features/Chips/AssigneeChip/index.ts
+src/components/features/Chips/index.ts
+src/components/features/Chips/InvitedTeammateChip/index.ts
+src/components/features/Chips/InvitedTeammateChip/InvitedTeammateChip.tsx
+src/components/features/Chips/PriorityChip/index.ts
+src/components/features/Chips/PriorityChip/PriorityChip.tsx
+src/components/features/Chips/ProjectChip/index.ts
+src/components/features/Chips/ProjectChip/ProjectChip.tsx
+src/components/features/Chips/TagChip/index.ts
+src/components/features/Chips/TagChip/TagChip.tsx

@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { ProjectChip } from '@/components/features/Chips';
+import { ProjectChip } from '@/components/features/chips';
 import { PopoverDueDatePicker } from '@/components/features/Popovers';
 import { CheckIcon } from '@/components/ui/check-icon';
 import { DueDate } from '@/components/ui/due-date';

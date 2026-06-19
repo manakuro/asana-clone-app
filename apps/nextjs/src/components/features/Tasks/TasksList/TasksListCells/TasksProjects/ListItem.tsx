@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ProjectChip } from '@/components/features/Chips';
+import { ProjectChip } from '@/components/features/chips';
 import { useProjectTask } from '@/store/entities/projectTask';
 
 type Props = {
