@@ -1,5 +1,2 @@
-src/components/features/AttachmentBox/AttachmentBox.stories.tsx
-src/components/features/AttachmentBox/AttachmentBox.tsx
-src/components/features/AttachmentBox/Component.tsx
-src/components/features/AttachmentBox/index.ts
-src/components/features/AttachmentBox/sizes.ts
+src/components/features/AttachmentUploadingBox/AttachmentUploadingBox.tsx
+src/components/features/AttachmentUploadingBox/index.ts

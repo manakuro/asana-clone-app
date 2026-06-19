@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { AttachmentUploadingBox } from '@/components/features/AttachmentUploadingBox';
+import { AttachmentUploadingBox } from '@/components/features/attachment-uploading-box';
 import { useFileViewerModal } from '@/components/features/Modals';
 import { useInputContext } from '@/components/features/TaskDetail/TaskDetailFooter/Comment/Input/Provider';
 import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
