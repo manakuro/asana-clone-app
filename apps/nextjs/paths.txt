@@ -1,2 +1,13 @@
-src/components/features/TeammateAvatar/index.ts
-src/components/features/TeammateAvatar/TeammateAvatar.tsx
+src/components/features/ThumbnailAttachment/Container.tsx
+src/components/features/ThumbnailAttachment/File/File.tsx
+src/components/features/ThumbnailAttachment/File/index.ts
+src/components/features/ThumbnailAttachment/Image/Image.tsx
+src/components/features/ThumbnailAttachment/Image/index.ts
+src/components/features/ThumbnailAttachment/index.ts
+src/components/features/ThumbnailAttachment/Menu/index.ts
+src/components/features/ThumbnailAttachment/Menu/Menu.tsx
+src/components/features/ThumbnailAttachment/MenuButton.tsx
+src/components/features/ThumbnailAttachment/Overlay.tsx
+src/components/features/ThumbnailAttachment/Provider.tsx
+src/components/features/ThumbnailAttachment/ThumbnailAttachment.tsx
+src/components/features/ThumbnailAttachment/Tooltip.tsx

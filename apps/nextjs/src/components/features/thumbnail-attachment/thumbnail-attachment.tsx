@@ -2,9 +2,9 @@ import { memo, useCallback } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { type TaskFile, useTaskFile } from '@/store/entities/taskFile';
-import { File } from './File';
-import { Image } from './Image';
-import { Provider } from './Provider';
+import { File } from './file';
+import { Image } from './image';
+import { Provider } from './provider';
 
 type Props = FlexProps & {
   taskFileId: string;

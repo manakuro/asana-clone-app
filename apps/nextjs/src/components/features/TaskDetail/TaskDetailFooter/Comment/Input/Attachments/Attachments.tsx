@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { AttachmentUploadingBox } from '@/components/features/attachment-uploading-box';
 import { useFileViewerModal } from '@/components/features/modals';
 import { useInputContext } from '@/components/features/TaskDetail/TaskDetailFooter/Comment/Input/Provider';
-import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
+import { ThumbnailAttachment } from '@/components/features/thumbnail-attachment';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 
 export const Attachments = memo(function Attachments() {

@@ -1,5 +1,5 @@
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useThumbnailAttachmentContext } from './Provider';
+import { useThumbnailAttachmentContext } from './provider';
 
 type Props = FlexProps;
 

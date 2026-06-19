@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useFileViewerModal } from '@/components/features/modals';
-import { ThumbnailAttachment } from '@/components/features/ThumbnailAttachment';
+import { ThumbnailAttachment } from '@/components/features/thumbnail-attachment';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { useToaster } from '@/hooks/useToaster';
 import {

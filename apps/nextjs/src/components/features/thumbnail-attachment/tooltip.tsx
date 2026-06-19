@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/tooltip';
 import { useDisclosure } from '@/shared/chakra';
 import { useTaskFile } from '@/store/entities/taskFile';
-import { useThumbnailAttachmentContext } from './Provider';
+import { useThumbnailAttachmentContext } from './provider';
 
 type Props = Omit<TooltipProps, 'content' | 'size'> & {
   taskFileId: string;
