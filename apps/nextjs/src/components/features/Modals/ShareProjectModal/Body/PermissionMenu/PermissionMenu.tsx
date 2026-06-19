@@ -3,7 +3,7 @@ import {
   MenuSelect,
   MenuSelectList,
   MenuSelectTrigger,
-} from '@/components/features/Menus';
+} from '@/components/features/menus';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

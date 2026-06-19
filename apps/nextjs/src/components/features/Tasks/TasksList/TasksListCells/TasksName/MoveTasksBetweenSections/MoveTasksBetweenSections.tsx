@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { MenuSelect, MenuSelectTrigger } from '@/components/features/Menus';
+import { MenuSelect, MenuSelectTrigger } from '@/components/features/menus';
 import { useTasksTask } from '@/components/features/Tasks/hooks';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';

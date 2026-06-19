@@ -4,14 +4,14 @@ import {
   onEmojiArrowUp,
   onEmojiClose,
   onEmojiEnter,
-} from '@/components/features/Menus/EditorEmojiMenu';
+} from '@/components/features/menus/editor-emoji-menu';
 import {
   isMentionOpen,
   onMentionArrowDown,
   onMentionArrowUp,
   onMentionClose,
   onMentionEnter,
-} from '@/components/features/Menus/EditorMentionMenu';
+} from '@/components/features/menus/editor-mention-menu';
 
 export const Escape = () => {
   if (isEmojiOpen) onEmojiClose();

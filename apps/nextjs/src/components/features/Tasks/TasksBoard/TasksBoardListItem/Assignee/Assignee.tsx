@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { AssigneeIconMenu } from '@/components/features/Menus';
+import { AssigneeIconMenu } from '@/components/features/menus';
 import { useTask } from '@/store/entities/task';
 import { useAssignee } from './useAssignee';
 

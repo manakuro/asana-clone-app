@@ -1,9 +1,5 @@
 import { memo } from 'react';
 import {
-  EditorEmojiMenu,
-  EditorMentionMenu,
-} from '@/components/features/Menus';
-import {
   EditorLinkModal,
   FileViewerModal,
   InviteModal,
@@ -11,6 +7,10 @@ import {
   ShareProjectModal,
   ShareWorkspaceModal,
 } from '@/components/features/Modals';
+import {
+  EditorEmojiMenu,
+  EditorMentionMenu,
+} from '@/components/features/menus';
 import { Help } from '@/components/features/Navigation';
 import { VideoPlayer } from '@/components/ui/video-player';
 

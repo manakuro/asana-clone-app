@@ -3,7 +3,7 @@ import {
   MenuSelect,
   MenuSelectList,
   MenuSelectTrigger,
-} from '@/components/features/Menus';
+} from '@/components/features/menus';
 import { Menu as UIMenu } from '@/components/ui/menu';
 import { useTask } from '@/store/entities/task';
 import { useTasksPriorities } from '@/store/entities/taskPriority';

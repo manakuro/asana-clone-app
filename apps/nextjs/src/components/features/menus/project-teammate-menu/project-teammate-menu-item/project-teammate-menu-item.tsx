@@ -1,0 +1,45 @@
+import type React from 'react';
+import { memo, useCallback } from 'react';
+import {
+  SearchMenuLeftContainer,
+  SearchMenuListItem,
+  SearchMenuRightContainer,
+} from '@/components/features/menus/search-menu';
+import { TeammateAvatar } from '@/components/features/TeammateAvatar';
+import { Text } from '@/components/ui/text';
+import type { Teammate } from '@/store/entities/teammate';
+
+type Props = {
+  onClick: (teammate: Teammate) => void;
+  teammate: Teammate;
+  index: number;
+};
+
+export const ProjectTeammateMenuItem = memo(function ProjectTeammateMenuItem(
+  props: Props,
+) {
+  const { teammate, onClick } = props;
+
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      e.stopPropagation();
+      e.preventDefault();
+      onClick(teammate);
+    },
+    [onClick, teammate],
+  );
+
+  return (
+    <SearchMenuListItem index={props.index} onClick={handleClick}>
+      <SearchMenuLeftContainer>
+        <TeammateAvatar teammateId={teammate.id} size="xs" />
+      </SearchMenuLeftContainer>
+      <SearchMenuRightContainer>
+        <Text fontSize="sm">{teammate.name}</Text>
+        <Text ml={5} fontSize="xs" color="fg.muted">
+          {teammate.email}
+        </Text>
+      </SearchMenuRightContainer>
+    </SearchMenuListItem>
+  );
+});

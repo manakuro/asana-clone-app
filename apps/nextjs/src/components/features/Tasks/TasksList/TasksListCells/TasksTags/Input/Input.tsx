@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { TagChip } from '@/components/features/chips';
-import { TagMenu } from '@/components/features/Menus';
+import { TagMenu } from '@/components/features/menus';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { Wrap, WrapItem } from '@/components/ui/wrap';

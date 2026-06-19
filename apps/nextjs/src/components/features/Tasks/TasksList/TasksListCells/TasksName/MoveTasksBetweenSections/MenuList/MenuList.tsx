@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { MenuSelectList } from '@/components/features/Menus';
+import { MenuSelectList } from '@/components/features/menus';
 import {
   type TaskSection,
   useTasksTaskSectionByTaskId,
