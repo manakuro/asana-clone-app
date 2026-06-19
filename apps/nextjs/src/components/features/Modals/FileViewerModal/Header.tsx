@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ComingSoonTooltip } from '@/components/features/Tooltips';
+import { ComingSoonTooltip } from '@/components/features/tooltips';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

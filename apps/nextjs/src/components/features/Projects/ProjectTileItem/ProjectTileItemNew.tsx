@@ -1,4 +1,4 @@
-import { ComingSoonTooltip } from '@/components/features/Tooltips';
+import { ComingSoonTooltip } from '@/components/features/tooltips';
 import { DashedBox } from '@/components/ui/dashed-box';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

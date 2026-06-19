@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { MyAvatar } from '@/components/features/MyAvatar';
+import { MyAvatar } from '@/components/features/my-avatar';
 import { Flex } from '@/components/ui/flex';
 
 export const Avatar = memo(function Avatar() {

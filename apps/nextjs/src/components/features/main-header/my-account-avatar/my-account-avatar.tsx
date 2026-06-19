@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { MyAvatar } from '@/components/features/MyAvatar';
+import { MyAvatar } from '@/components/features/my-avatar';
 import { Menu } from '@/components/ui/menu';
-import { MenuList } from './MenuList';
+import { MenuList } from './menu-list';
 
 export const MyAccountAvatar = memo(function MyAccountAvatar() {
   return (

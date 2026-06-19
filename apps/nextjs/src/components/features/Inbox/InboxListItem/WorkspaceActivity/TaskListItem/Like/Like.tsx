@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { LikeTaskIconButton } from '@/components/features/LikeTaskIconButton';
+import { LikeTaskIconButton } from '@/components/features/like-task-icon-button';
 import { useTaskLikesByTaskId } from '@/store/entities/taskLike';
 
 type Props = {
