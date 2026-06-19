@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
-import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
+import { useTaskDetailDrawer } from '@/components/features/task-details';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
 

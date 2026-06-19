@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { TaskDetailModal } from '@/components/features/TaskDetails';
 import {
   TasksCalendar,
   TasksCalendarContent,
@@ -15,6 +14,7 @@ import {
   TasksHeaderRight,
   TodayButton,
 } from '@/components/features/Tasks/TasksHeader';
+import { TaskDetailModal } from '@/components/features/task-details';
 import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { SkeletonCalendar } from './SkeletonCalendar';

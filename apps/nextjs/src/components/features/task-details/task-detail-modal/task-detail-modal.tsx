@@ -2,8 +2,8 @@ import { memo, useCallback } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { Dialog } from '@/components/ui/dialog';
 import { Portal } from '@/components/ui/portal';
-import { Content } from './Content';
-import { useTaskDetailModal } from './useTaskDetailModal';
+import { Content } from './content';
+import { useTaskDetailModal } from './use-task-detail-modal';
 
 type Props = {
   backToPage: () => void;

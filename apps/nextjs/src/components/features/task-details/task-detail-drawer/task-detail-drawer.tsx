@@ -2,9 +2,9 @@ import { memo, useCallback } from 'react';
 import { useTaskDetail } from '@/components/features/TaskDetail';
 import { Presence } from '@/components/ui/presence';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
-import { Content } from './Content';
-import { useTaskDetailDrawer } from './useTaskDetailDrawer';
-import { useTaskDetailDrawerRef } from './useTaskDetailDrawerRef';
+import { Content } from './content';
+import { useTaskDetailDrawer } from './use-task-detail-drawer';
+import { useTaskDetailDrawerRef } from './use-task-detail-drawer-ref';
 
 type Props = {
   backToPage: () => void;

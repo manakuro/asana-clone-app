@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef, useState } from 'react';
-import { useTaskDetailDrawer } from '@/components/features/TaskDetails';
 import { useTasksBoardListSectionElement } from '@/components/features/Tasks/TasksBoard/TasksBoardListSection';
+import { useTaskDetailDrawer } from '@/components/features/task-details';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMainStyle, usePrevious } from '@/hooks';
 import { useBreakpointValue } from '@/shared/chakra';

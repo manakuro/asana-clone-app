@@ -1,5 +1,4 @@
 import { memo, useCallback } from 'react';
-import { TaskDetailModal } from '@/components/features/TaskDetails';
 import {
   TasksCalendar,
   TasksCalendarContent,
@@ -15,6 +14,7 @@ import {
   TasksHeaderRight,
   TodayButton,
 } from '@/components/features/Tasks/TasksHeader';
+import { TaskDetailModal } from '@/components/features/task-details';
 import { useProjectsPageContext } from '@/components/pages/projects/providers/Provider';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
