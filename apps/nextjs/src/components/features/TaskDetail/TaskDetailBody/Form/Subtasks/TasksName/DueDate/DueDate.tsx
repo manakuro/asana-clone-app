@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { PopoverDueDatePicker } from '@/components/features/Popovers';
+import { PopoverDueDatePicker } from '@/components/features/popovers';
 import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
