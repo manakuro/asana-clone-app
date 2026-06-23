@@ -17,7 +17,7 @@ import { TasksProvider } from '@/components/features/tasks';
 import { Flex } from '@/components/ui/flex';
 import { useInboxActivityPageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
-import { useInboxPageContext } from '../../providers/Provider';
+import { useInboxPageContext } from '../../providers/provider';
 
 export const Activity = memo(function Activity() {
   return <Component />;

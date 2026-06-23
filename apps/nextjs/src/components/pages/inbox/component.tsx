@@ -6,10 +6,10 @@ import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/tabs';
 import { useRouter } from '@/router';
-import { Activity } from './components/Activity';
-import { Archive } from './components/Archive';
-import { Header } from './components/Header';
-import { Provider, useInboxPageContext } from './providers/Provider';
+import { Activity } from './components/activity';
+import { Archive } from './components/archive';
+import { Header } from './components/header';
+import { Provider, useInboxPageContext } from './providers/provider';
 
 const ACTIVITY_INDEX = 'activity' as const;
 const ARCHIVE_INDEX = 'archive' as const;

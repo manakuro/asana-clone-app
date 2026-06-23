@@ -14,7 +14,7 @@ import { TasksProvider } from '@/components/features/tasks';
 import { Flex } from '@/components/ui/flex';
 import { useInboxArchivePageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
-import { useInboxPageContext } from '../../providers/Provider';
+import { useInboxPageContext } from '../../providers/provider';
 
 export const Archive = memo(function Archive() {
   return <Component />;

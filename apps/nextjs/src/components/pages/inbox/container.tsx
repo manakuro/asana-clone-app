@@ -1,6 +1,6 @@
 'use client';
 
-import { Component } from './Component';
+import { Component } from './component';
 
 export function Container() {
   return <Component />;
