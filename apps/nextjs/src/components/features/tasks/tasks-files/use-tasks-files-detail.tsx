@@ -1,0 +1,46 @@
+import { useParams, usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import { useTaskDetail } from '@/components/features/task-detail';
+import { useTaskDetailModal } from '@/components/features/task-details';
+import type { Params } from '@/shared/nextjs/navigation';
+
+type Props = {
+  isTaskDetailURL: (params: Params, pathname: string | null) => boolean;
+  getTaskDetailId: (params: Params, pathname: string | null) => string;
+  fetchQuery: (variables: { taskId: string }) => Promise<void>;
+  tabContentLoading: boolean;
+};
+
+export const useTasksFilesDetail = (props: Props) => {
+  const params = useParams();
+  const pathname = usePathname();
+  const { setId, setLoading } = useTaskDetail();
+  const { onOpen } = useTaskDetailModal();
+  const { isTaskDetailURL, getTaskDetailId, fetchQuery } = props;
+
+  useEffect(() => {
+    if (props.tabContentLoading) return;
+    if (!isTaskDetailURL(params, pathname)) return;
+    const newId = getTaskDetailId(params, pathname);
+    console.log('useTasksFilesDetail!: ', newId);
+
+    setLoading(true);
+    setId(newId);
+    onOpen(() => {
+      setTimeout(async () => {
+        await fetchQuery({ taskId: newId });
+        setLoading(false);
+      }, 200);
+    });
+  }, [
+    params,
+    pathname,
+    onOpen,
+    setLoading,
+    setId,
+    isTaskDetailURL,
+    getTaskDetailId,
+    fetchQuery,
+    props.tabContentLoading,
+  ]);
+};

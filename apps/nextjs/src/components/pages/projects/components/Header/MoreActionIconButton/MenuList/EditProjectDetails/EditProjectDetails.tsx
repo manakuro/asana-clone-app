@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useProjectDetailModal } from '@/components/features/Modals';
+import { useProjectDetailModal } from '@/components/features/modals';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
 

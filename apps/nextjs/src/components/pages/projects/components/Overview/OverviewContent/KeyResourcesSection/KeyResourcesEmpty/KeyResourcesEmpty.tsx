@@ -1,6 +1,6 @@
 import NextImage from 'next/image';
 import image from '@/assets/images/key_resources_2.svg';
-import { ComingSoonTooltip } from '@/components/features/Tooltips';
+import { ComingSoonTooltip } from '@/components/features/tooltips';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';

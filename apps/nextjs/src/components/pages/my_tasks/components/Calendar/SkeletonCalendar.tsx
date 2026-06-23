@@ -4,7 +4,7 @@ import {
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
-} from '@/components/features/Tasks';
+} from '@/components/features/tasks';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Stack } from '@/components/ui/stack';

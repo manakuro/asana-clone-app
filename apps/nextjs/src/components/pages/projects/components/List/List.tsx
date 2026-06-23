@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { TaskDetailDrawer } from '@/components/features/TaskDetails';
+import { TaskDetailDrawer } from '@/components/features/task-details';
 import {
   AddTaskButton,
   CustomizeButton,
@@ -17,7 +17,7 @@ import {
   TasksListHorizontalScrollBorder,
   TasksListLayout,
   useTasksListDetail,
-} from '@/components/features/Tasks';
+} from '@/components/features/tasks';
 import { Flex } from '@/components/ui/flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';

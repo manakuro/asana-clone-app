@@ -1,0 +1,123 @@
+import type React from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { Box } from '@/components/ui/box';
+import { Flex } from '@/components/ui/flex';
+import { Input, type InputProps } from '@/components/ui/input';
+import {
+  type UseClickOutsideOptionsHasClickedOutside,
+  useClickOutside,
+  useDebounce,
+  useMountedRef,
+} from '@/hooks';
+import { useSubtasksNameContext } from './provider';
+
+type Props = {
+  value: string;
+  onChange: (val: string) => void;
+  deleteTask?: () => Promise<void>;
+  isNew: boolean;
+  focusedBorder?: boolean;
+} & Omit<InputProps, 'onChange'>;
+
+export const TasksNameField = memo(function TasksNameField(props: Props) {
+  const [value, setValue] = useState<string>(props.value);
+  const { mountedRef } = useMountedRef();
+  const {
+    ref: containerRef,
+    onInputFocus,
+    onInputBlur,
+    inputFocused,
+    isTransitioning,
+  } = useSubtasksNameContext();
+  const autoFocus = useMemo(() => props.isNew, [props.isNew]);
+  const hasClickedOutside =
+    useCallback<UseClickOutsideOptionsHasClickedOutside>(
+      (e) => {
+        if (containerRef.current?.contains(e.target as Node) ?? false)
+          return false;
+        return true;
+      },
+      [containerRef],
+    );
+  const { ref, removeEventListener } = useClickOutside<HTMLDivElement>(
+    async () => {
+      if (!value) await props.deleteTask?.();
+    },
+    {
+      skip: !props.isNew,
+      hasClickedOutside,
+    },
+  );
+  useEffect(() => {
+    if (!props.isNew) removeEventListener();
+  }, [props.isNew, removeEventListener]);
+
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  }, []);
+
+  useEffect(() => {
+    if (!mountedRef.current) return;
+    setValue(props.value);
+  }, [mountedRef, props.value]);
+
+  useDebounce(value, props.onChange, 500);
+
+  const style = useMemo<InputProps>(() => {
+    let val: InputProps = {
+      ml: 1,
+      fontSize: 'sm',
+      color: 'fg',
+      minH: 5,
+      h: 5,
+      paddingInlineStart: 2,
+      paddingInlineEnd: 2,
+      border: 'none',
+    };
+    if (isTransitioning)
+      val = {
+        ...val,
+        color: 'gray.50',
+      };
+
+    if (props.focusedBorder)
+      val = {
+        ...val,
+        border: '1px',
+        borderColor: 'transparent',
+        borderRadius: 'sm',
+        _hover: {
+          borderColor: 'gray.400',
+        },
+      };
+    return val;
+  }, [isTransitioning, props.focusedBorder]);
+
+  return (
+    <Flex
+      position="relative"
+      maxWidth="70%"
+      minW={props.isNew ? '150px' : ''}
+      ref={ref}
+    >
+      <Box as="span" {...style} visibility="hidden">
+        {value}
+      </Box>
+      <Input
+        onClick={(e) => e.stopPropagation()}
+        onChange={handleChange}
+        value={value}
+        {...style}
+        position="absolute"
+        top={0}
+        css={{
+          '--focus-color': 'transparent',
+        }}
+        placeholder={inputFocused ? 'Write a task name' : ''}
+        onFocus={onInputFocus}
+        onBlur={onInputBlur}
+        autoFocus={autoFocus}
+      />
+    </Flex>
+  );
+});

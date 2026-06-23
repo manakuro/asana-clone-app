@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useShareWorkspaceModal } from '@/components/features/Modals/ShareWorkspaceModal';
+import { useShareWorkspaceModal } from '@/components/features/modals/share-workspace-modal';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

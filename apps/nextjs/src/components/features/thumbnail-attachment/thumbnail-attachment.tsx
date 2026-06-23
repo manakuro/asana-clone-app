@@ -1,0 +1,42 @@
+import { memo, useCallback } from 'react';
+import type { FlexProps } from '@/components/ui/flex';
+import { FileTypeCode } from '@/store/entities/fileType';
+import { type TaskFile, useTaskFile } from '@/store/entities/taskFile';
+import { File } from './file';
+import { Image } from './image';
+import { Provider } from './provider';
+
+type Props = FlexProps & {
+  taskFileId: string;
+  onOpenFileViewer: (taskFileId: string) => void;
+  onDelete: (taskFile: TaskFile) => void;
+};
+
+export const ThumbnailAttachment = memo(function ThumbnailAttachment(
+  props: Props,
+) {
+  return (
+    <Provider {...props}>
+      <Component {...props} />
+    </Provider>
+  );
+});
+
+export const Component = memo(function Component(props: Props) {
+  const { taskFileId, onOpenFileViewer, onDelete: _, ...rest } = props;
+  const { taskFile } = useTaskFile(taskFileId);
+
+  const handleClick = useCallback(() => {
+    onOpenFileViewer(taskFileId);
+  }, [taskFileId, onOpenFileViewer]);
+
+  switch (taskFile.fileType.typeCode) {
+    case FileTypeCode.Image: {
+      return <Image onClick={handleClick} taskFileId={taskFileId} {...rest} />;
+    }
+    case FileTypeCode.Pdf:
+    case FileTypeCode.Text: {
+      return <File onClick={handleClick} taskFileId={taskFileId} {...rest} />;
+    }
+  }
+});

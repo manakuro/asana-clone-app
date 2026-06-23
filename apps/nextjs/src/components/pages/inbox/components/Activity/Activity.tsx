@@ -11,9 +11,9 @@ import {
   InboxSkeleton,
   MoreActionButton,
   useInboxTaskDetail,
-} from '@/components/features/Inbox';
-import { TaskDetailSide } from '@/components/features/TaskDetails';
-import { TasksProvider } from '@/components/features/Tasks';
+} from '@/components/features/inbox';
+import { TaskDetailSide } from '@/components/features/task-details';
+import { TasksProvider } from '@/components/features/tasks';
 import { Flex } from '@/components/ui/flex';
 import { useInboxActivityPageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
