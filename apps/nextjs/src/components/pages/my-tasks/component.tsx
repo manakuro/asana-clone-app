@@ -22,12 +22,12 @@ import {
   useTeammateTaskTabStatus,
   useTeammateTaskTabStatusCommand,
 } from '@/store/entities/teammateTaskTabStatus';
-import { Board } from './components/Board';
-import { Calendar } from './components/Calendar';
-import { Files } from './components/Files';
-import { Header } from './components/Header';
-import { List } from './components/List';
-import { Provider, useMyTasksContext } from './providers/Provider';
+import { Board } from './components/board';
+import { Calendar } from './components/calendar';
+import { Files } from './components/files';
+import { Header } from './components/header';
+import { List } from './components/list';
+import { Provider, useMyTasksContext } from './providers/provider';
 
 type Props = {
   loading: boolean;

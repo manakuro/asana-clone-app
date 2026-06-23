@@ -9,7 +9,7 @@ import {
 } from '@/hooks/queries/app';
 import { useTeammateTaskTabStatusQuery } from '@/hooks/queries/entities';
 import { useMe } from '@/store/entities/me';
-import { Component } from './Component';
+import { Component } from './component';
 
 export function Container() {
   const { loading } = useMyTasksPageQuery();

@@ -6,10 +6,10 @@ import {
   TasksFilesList,
 } from '@/components/features/tasks';
 import { useTasksFilesDetail } from '@/components/features/tasks/tasks-files/use-tasks-files-detail';
-import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
+import { useMyTasksContext } from '@/components/pages/my-tasks/providers/provider';
 import { Flex } from '@/components/ui/flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
-import { SkeletonFiles } from './SkeletonFiles';
+import { SkeletonFiles } from './skeleton-files';
 
 export const Files = memo(function Files() {
   return (

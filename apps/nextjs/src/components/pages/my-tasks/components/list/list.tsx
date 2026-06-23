@@ -1,40 +1,45 @@
 import { memo } from 'react';
 import { TaskDetailDrawer } from '@/components/features/task-details';
 import {
+  AddTaskButton,
   CustomizeButton,
   CustomizeMenu,
   IncompleteTasksMenu,
-  TasksBoardContent,
-  TasksBoardList,
   TasksContainer,
   TasksHeader,
+  TasksHeaderLeft,
   TasksHeaderRight,
-  useTasksBoardDetail,
+  TasksList,
+  TasksListBody,
+  TasksListContent,
+  TasksListHeader,
+  TasksListHorizontalScrollBorder,
+  TasksListLayout,
+  useTasksListDetail,
 } from '@/components/features/tasks';
-import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
+import { useMyTasksContext } from '@/components/pages/my-tasks/providers/provider';
 import { Flex } from '@/components/ui/flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
-import { SortMenu } from '../TasksHeader';
-import { SkeletonBoardContent, SkeletonBoardHeader } from './SkeletonBoard';
+import { SortMenu } from '../tasks-header';
+import { SkeletonListContent, SkeletonListHeader } from './skeleton-list';
 
-export const Board = memo(function Board() {
+export const List = memo(function List() {
   return (
     <TasksContainer isMyTasksPage>
       <Component />
     </TasksContainer>
   );
 });
-
 const Component = memo(function Component() {
   const {
     tabContentLoading,
     fetchTaskDetailQuery,
+    contentLoading,
     startContentLoading,
     endContentLoading,
-    contentLoading,
   } = useMyTasksContext();
-  const { navigateToMyTasksBoard } = useRouter();
-  const { hasClickedOutside } = useTasksBoardDetail({
+  const { navigateToMyTasksList } = useRouter();
+  const { hasClickedOutside } = useTasksListDetail({
     isTaskDetailURL: isMyTasksDetailURL,
     getTaskDetailId: getMyTasksDetailId,
     fetchQuery: fetchTaskDetailQuery,
@@ -44,42 +49,42 @@ const Component = memo(function Component() {
   if (tabContentLoading)
     return (
       <Flex flex={1} flexDirection="column">
-        <SkeletonBoardHeader />
-        <SkeletonBoardContent />
+        <SkeletonListHeader />
+        <SkeletonListContent />
       </Flex>
     );
 
   return (
     <>
-      <Flex flex={1} h="full" flexDirection="column" bg="gray.50">
-        <TasksHeader
-          h="40px"
-          boxShadow="sm"
-          borderBottom={1}
-          borderStyle="solid"
-          borderColor="border"
-          alignItems="center"
-        >
-          <TasksHeaderRight ml="auto">
+      <TasksList>
+        <TasksHeader>
+          <TasksHeaderLeft>
+            <AddTaskButton solid />
+          </TasksHeaderLeft>
+          <TasksHeaderRight>
             <IncompleteTasksMenu
               startLoading={startContentLoading}
               endLoading={endContentLoading}
             />
-            <SortMenu projectSortable={false} />
+            <SortMenu />
             <CustomizeButton />
           </TasksHeaderRight>
         </TasksHeader>
         {contentLoading ? (
-          <SkeletonBoardContent />
+          <SkeletonListContent />
         ) : (
-          <TasksBoardContent>
-            <TasksBoardList />
-          </TasksBoardContent>
+          <TasksListContent>
+            <TasksListHeader />
+            <TasksListBody>
+              <TasksListLayout />
+            </TasksListBody>
+            <TasksListHorizontalScrollBorder />
+          </TasksListContent>
         )}
-      </Flex>
+      </TasksList>
       <CustomizeMenu />
       <TaskDetailDrawer
-        backToPage={navigateToMyTasksBoard}
+        backToPage={navigateToMyTasksList}
         hasClickedOutside={hasClickedOutside}
       />
     </>

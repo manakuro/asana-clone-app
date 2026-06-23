@@ -15,9 +15,9 @@ import {
   TasksHeaderRight,
   TodayButton,
 } from '@/components/features/tasks/tasks-header';
-import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
+import { useMyTasksContext } from '@/components/pages/my-tasks/providers/provider';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
-import { SkeletonCalendar } from './SkeletonCalendar';
+import { SkeletonCalendar } from './skeleton-calendar';
 
 export const Calendar = memo(function Calendar() {
   return (

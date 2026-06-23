@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Separator } from '@/components/ui/separator';
-import { Avatar } from './Avatar';
-import { ShareButton } from './ShareButton';
-import { SkeletonHeader } from './SkeletonHeader';
-import { Tabs } from './Tabs';
+import { Avatar } from './avatar';
+import { ShareButton } from './share-button';
+import { SkeletonHeader } from './skeleton-header';
+import { Tabs } from './tabs';
 
 type Props = {
   loading?: boolean;
