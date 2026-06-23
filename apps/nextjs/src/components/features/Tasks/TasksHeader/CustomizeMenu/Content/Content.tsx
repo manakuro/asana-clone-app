@@ -1,7 +1,7 @@
 import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import { usePathname } from 'next/navigation';
 import { memo, useEffect, useMemo } from 'react';
-import { Separator } from '@/components/features/Navigation/Separator';
+import { Separator } from '@/components/features/navigation/separator';
 import { useTasksTaskColumnCustomizable } from '@/components/features/Tasks/hooks';
 import { Box } from '@/components/ui/box';
 import { Drawer } from '@/components/ui/drawer';

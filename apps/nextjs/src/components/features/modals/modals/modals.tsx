@@ -11,7 +11,7 @@ import {
   ShareProjectModal,
   ShareWorkspaceModal,
 } from '@/components/features/modals';
-import { Help } from '@/components/features/Navigation';
+import { Help } from '@/components/features/navigation';
 import { VideoPlayer } from '@/components/ui/video-player';
 
 export const Modals = memo(function Modals() {

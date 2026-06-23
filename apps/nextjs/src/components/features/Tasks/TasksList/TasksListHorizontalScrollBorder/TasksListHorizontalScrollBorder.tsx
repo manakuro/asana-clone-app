@@ -1,5 +1,5 @@
 import { memo, useEffect, useMemo, useState } from 'react';
-import { useNavigation } from '@/components/features/Navigation';
+import { useNavigation } from '@/components/features/navigation';
 import {
   useTasksListContentHorizontalScroll,
   useTasksListContentSticky,
