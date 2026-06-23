@@ -1,6 +1,6 @@
 import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
 import { useCallback, useMemo, useState } from 'react';
-import { useTasksRouter } from '@/components/features/Tasks/hooks';
+import { useTasksRouter } from '@/components/features/tasks/hooks';
 import type { DescriptionFragmentFragment } from '@/graphql/types';
 import { useToaster } from '@/hooks/useToaster';
 import { parseDescription } from '@/shared/prosemirror/convertDescription';

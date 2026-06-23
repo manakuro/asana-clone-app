@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useTasksRouter } from '@/components/features/Tasks/hooks';
+import { useTasksRouter } from '@/components/features/tasks/hooks';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';

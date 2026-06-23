@@ -3,7 +3,7 @@ import { forwardRef, memo } from 'react';
 import {
   TasksListCell,
   type TasksListCellProps,
-} from '@/components/features/Tasks/TasksList/TasksListCell';
+} from '@/components/features/tasks/tasks-list/tasks-list-cell';
 import { useSubtasksNameContext } from './provider';
 
 type Props = TasksListCellProps;

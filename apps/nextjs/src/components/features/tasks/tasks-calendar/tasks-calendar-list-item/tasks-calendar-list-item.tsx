@@ -1,0 +1,45 @@
+import { memo } from 'react';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Text } from '@/components/ui/text';
+import { Content } from './content';
+import { useListItemStyle } from './hooks';
+import { Info } from './info';
+
+type Props = {
+  dateString: string;
+} & FlexProps;
+
+export const TasksCalendarListItem = memo(function TasksCalendarListItem(
+  props: Props,
+) {
+  const { dateString, ...rest } = props;
+  const { dateText, borderStyle, textStyle } = useListItemStyle({
+    dateString,
+  });
+
+  return (
+    <Flex
+      bg="white"
+      borderTop="3px"
+      borderStyle="solid"
+      borderTopColor="transparent"
+      flexDirection="column"
+      marginRight="3px"
+      minH="185px"
+      w="full"
+      maxW="full"
+      minW={0}
+      p={2}
+      {...borderStyle}
+      {...rest}
+    >
+      <Flex>
+        <Text fontSize="xs" fontWeight="medium" color="fg.muted" {...textStyle}>
+          {dateText}
+        </Text>
+        <Info dateString={dateString} />
+      </Flex>
+      <Content dateString={dateString} />
+    </Flex>
+  );
+});

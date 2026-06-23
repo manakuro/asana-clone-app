@@ -5,7 +5,7 @@ import {
   useTasksCompletedTaskSizeByTaskSectionId,
   useTasksTaskSection,
   useTasksTaskSectionCommand,
-} from '@/components/features/Tasks/hooks';
+} from '@/components/features/tasks/hooks';
 import { useToaster } from '@/hooks/useToaster';
 
 const openAtom = atom(false);

@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { TasksListRow } from '@/components/features/Tasks/TasksList/TasksListRow';
+import { TasksListRow } from '@/components/features/tasks/tasks-list/tasks-list-row';
 import { CheckIcon } from '@/components/ui/check-icon';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';

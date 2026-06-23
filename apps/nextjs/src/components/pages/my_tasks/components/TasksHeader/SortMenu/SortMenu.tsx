@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from 'react';
-import { SortMenu as TasksHeaderSortMenu } from '@/components/features/Tasks/TasksHeader';
+import { SortMenu as TasksHeaderSortMenu } from '@/components/features/tasks/tasks-header';
 import { useMyTasksContext } from '@/components/pages/my_tasks/providers/Provider';
 import {
   type TaskListSortStatusCodeValue,

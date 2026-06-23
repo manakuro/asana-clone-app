@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useTasksRouter } from '@/components/features/Tasks/hooks';
 import { useTaskDetailBody } from '@/components/features/task-detail/task-detail-body/use-task-detail-body';
+import { useTasksRouter } from '@/components/features/tasks/hooks';
 import { isHTMLElement } from '@/shared/isHTMLElement';
 import { createProvider } from '@/shared/react/createProvider';
 import { useTaskFeed } from '@/store/entities/taskFeed';

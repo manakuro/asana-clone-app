@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { TasksHeader, TasksHeaderRight } from '@/components/features/Tasks';
+import { TasksHeader, TasksHeaderRight } from '@/components/features/tasks';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Stack } from '@/components/ui/stack';

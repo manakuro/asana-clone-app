@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { TasksListRow } from '@/components/features/Tasks';
-import { TasksListCell } from '@/components/features/Tasks/TasksList/TasksListCell';
+import { TasksListRow } from '@/components/features/tasks';
+import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list-cell';
 import { Flex } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/skeleton';
 
