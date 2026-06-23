@@ -1,1 +1,0 @@
-export { ProjectsSection } from './ProjectsSection';

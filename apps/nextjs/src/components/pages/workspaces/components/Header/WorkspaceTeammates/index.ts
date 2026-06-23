@@ -1,1 +1,0 @@
-export { WorkspaceTeammates } from './WorkspaceTeammates';

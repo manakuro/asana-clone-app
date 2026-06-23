@@ -1,1 +1,0 @@
-export { KeyResourcesSection } from './KeyResourcesSection';
