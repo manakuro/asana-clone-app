@@ -4,7 +4,7 @@ import {
   useTaskDetail,
   useTaskDetailResetId,
   useTaskDetailResetScrollId,
-} from '@/components/features/TaskDetail';
+} from '@/components/features/task-detail';
 
 const isOpenAtom = atom<boolean>(false);
 

@@ -1,0 +1,43 @@
+import { memo, useCallback } from 'react';
+import { AttachmentUploadingBox } from '@/components/features/attachment-uploading-box';
+import { useFileViewerModal } from '@/components/features/modals';
+import { useInputContext } from '@/components/features/task-detail/task-detail-footer/comment/input/provider';
+import { ThumbnailAttachment } from '@/components/features/thumbnail-attachment';
+import { Wrap, WrapItem } from '@/components/ui/wrap';
+
+export const Attachments = memo(function Attachments() {
+  const { taskFileIds, uploadingFiles, onDeleteTaskFile } = useInputContext();
+  const { onOpen, setState } = useFileViewerModal();
+
+  const onOpenFileViewer = useCallback(
+    (taskFileId: string) => {
+      setState({
+        taskFileIds,
+        currentTaskFileId: taskFileId,
+      });
+      onOpen();
+    },
+    [taskFileIds, onOpen, setState],
+  );
+
+  if (!taskFileIds.length && !uploadingFiles.length) return null;
+
+  return (
+    <Wrap gap={3} py={2}>
+      {taskFileIds.map((id) => (
+        <WrapItem key={id}>
+          <ThumbnailAttachment
+            taskFileId={id}
+            onOpenFileViewer={onOpenFileViewer}
+            onDelete={onDeleteTaskFile}
+          />
+        </WrapItem>
+      ))}
+      {uploadingFiles.map((f, i) => (
+        <WrapItem key={`${f.name}-${i}`}>
+          <AttachmentUploadingBox file={f} size="md" />
+        </WrapItem>
+      ))}
+    </Wrap>
+  );
+});

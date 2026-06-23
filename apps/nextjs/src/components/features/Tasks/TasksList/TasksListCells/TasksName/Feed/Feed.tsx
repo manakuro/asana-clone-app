@@ -1,8 +1,8 @@
 import type React from 'react';
 import { useCallback, useMemo } from 'react';
-import { useTaskDetail } from '@/components/features/TaskDetail';
-import { FEED_LIST_CONTAINER_ID } from '@/components/features/TaskDetail/TaskDetailBody/Form/FeedList';
 import { useTasksRouter } from '@/components/features/Tasks/hooks';
+import { useTaskDetail } from '@/components/features/task-detail';
+import { FEED_LIST_CONTAINER_ID } from '@/components/features/task-detail/task-detail-body/form/feed-list';
 import { IconButton } from '@/components/ui/icon-button';
 import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/taskFeed';
 import { useTasksNameContext } from '../TasksNameProvider';

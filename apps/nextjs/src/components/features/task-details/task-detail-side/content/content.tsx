@@ -3,7 +3,7 @@ import {
   TaskDetailBody,
   TaskDetailFooter,
   TaskDetailHeader,
-} from '@/components/features/TaskDetail';
+} from '@/components/features/task-detail';
 import { Flex } from '@/components/ui/flex';
 
 const HEADER_HEIGHT = 72;

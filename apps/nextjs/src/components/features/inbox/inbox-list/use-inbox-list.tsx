@@ -7,7 +7,7 @@ import {
   useTaskActivityTaskIds,
   useWorkspaceActivityTaskIds,
 } from '@/components/features/inbox/hooks';
-import { useTaskDetail } from '@/components/features/TaskDetail';
+import { useTaskDetail } from '@/components/features/task-detail';
 import { isInboxDetailURL } from '@/router';
 import { useActivityType } from '@/store/entities/activityType';
 

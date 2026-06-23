@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useTaskDetail } from '@/components/features/TaskDetail';
+import { useTaskDetail } from '@/components/features/task-detail';
 import { Presence } from '@/components/ui/presence';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
 import { Content } from './content';

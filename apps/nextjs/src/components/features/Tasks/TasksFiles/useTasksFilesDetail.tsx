@@ -1,6 +1,6 @@
 import { useParams, usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import { useTaskDetail } from '@/components/features/TaskDetail';
+import { useTaskDetail } from '@/components/features/task-detail';
 import { useTaskDetailModal } from '@/components/features/task-details';
 import type { Params } from '@/shared/nextjs/navigation';
 

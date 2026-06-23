@@ -1,7 +1,7 @@
 import { useParams, usePathname } from 'next/navigation';
 import { startTransition, useCallback, useEffect, useRef } from 'react';
-import { useTaskDetail } from '@/components/features/TaskDetail';
 import { useTasksBoardListItemElement } from '@/components/features/Tasks/TasksBoard/TasksBoardListItem';
+import { useTaskDetail } from '@/components/features/task-detail';
 import { useTaskDetailDrawer } from '@/components/features/task-details';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks';
 import { isHTMLElement } from '@/shared/isHTMLElement';

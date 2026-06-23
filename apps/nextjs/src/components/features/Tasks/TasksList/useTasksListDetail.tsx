@@ -1,7 +1,7 @@
 import { useParams, usePathname } from 'next/navigation';
 import { startTransition, useCallback, useEffect, useRef } from 'react';
-import { useTaskDetail } from '@/components/features/TaskDetail';
 import { useTasksListBody } from '@/components/features/Tasks';
+import { useTaskDetail } from '@/components/features/task-detail';
 import { useTaskDetailDrawer } from '@/components/features/task-details';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
 import type { Params } from '@/shared/nextjs/navigation';

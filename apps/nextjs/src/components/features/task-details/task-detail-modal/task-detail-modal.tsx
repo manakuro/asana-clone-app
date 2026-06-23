@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useTaskDetail } from '@/components/features/TaskDetail';
+import { useTaskDetail } from '@/components/features/task-detail';
 import { Dialog } from '@/components/ui/dialog';
 import { Portal } from '@/components/ui/portal';
 import { Content } from './content';

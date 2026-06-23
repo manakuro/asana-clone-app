@@ -5,7 +5,7 @@ import {
   TaskDetailBody,
   TaskDetailFooter,
   TaskDetailHeader,
-} from '@/components/features/TaskDetail';
+} from '@/components/features/task-detail';
 import { Flex } from '@/components/ui/flex';
 import { Separator } from '@/components/ui/separator';
 import {

@@ -3,7 +3,7 @@ import {
   TaskDetailBody,
   TaskDetailFooter,
   TaskDetailHeader,
-} from '@/components/features/TaskDetail';
+} from '@/components/features/task-detail';
 import { Dialog } from '@/components/ui/dialog';
 import { Separator } from '@/components/ui/separator';
 

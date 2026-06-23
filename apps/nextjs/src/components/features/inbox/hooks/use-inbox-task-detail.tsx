@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {
   useTaskDetail,
   useTaskDetailResetId,
-} from '@/components/features/TaskDetail';
+} from '@/components/features/task-detail';
 import { useTaskDetailSide } from '@/components/features/task-details';
 import type { Params } from '@/shared/nextjs/navigation';
 
