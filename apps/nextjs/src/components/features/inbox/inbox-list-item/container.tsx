@@ -1,0 +1,30 @@
+import { memo } from 'react';
+import { Flex, type FlexProps } from '@/components/ui/flex';
+import { transitions } from '@/styles/transitions';
+import { useInboxListItemContext } from './provider';
+
+type Props = FlexProps;
+
+export const Container = memo<Props>(function Container(props) {
+  const { ref } = useInboxListItemContext();
+
+  return (
+    <Flex
+      maxW="inherit"
+      ref={ref}
+      flex={1}
+      px={6}
+      pb={2}
+      transition={transitions.base()}
+      borderBottom="1px"
+      borderStyle="solid"
+      borderColor="border"
+      cursor="pointer"
+      position="relative"
+      _hover={{
+        borderColor: 'gray.300',
+      }}
+      {...props}
+    />
+  );
+});

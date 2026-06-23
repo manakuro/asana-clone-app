@@ -8,7 +8,7 @@ import {
   InboxRight,
   InboxSkeleton,
   useInboxTaskDetail,
-} from '@/components/features/Inbox';
+} from '@/components/features/inbox';
 import { TasksProvider } from '@/components/features/Tasks';
 import { TaskDetailSide } from '@/components/features/task-details';
 import { Flex } from '@/components/ui/flex';
