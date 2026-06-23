@@ -6,7 +6,7 @@ import {
   useHomeTaskDetailPageQuery,
 } from '@/hooks/queries/app';
 import { useMe } from '@/store/entities/me';
-import { Component } from './Component';
+import { Component } from './component';
 
 export const Container = memo(function Container() {
   const { loading } = useHomePageQuery();

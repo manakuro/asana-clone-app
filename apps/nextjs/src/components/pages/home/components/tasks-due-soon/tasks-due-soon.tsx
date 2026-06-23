@@ -11,7 +11,7 @@ import { Tooltip } from '@/components/ui/tooltip';
 import { useLinkStyle } from '@/hooks';
 import { ROUTE_MY_TASKS_LIST } from '@/router';
 import { useTasksDueSoonIds } from '@/store/app/home/tasksDueSoon';
-import { ListItem } from './ListItem';
+import { ListItem } from './list-item';
 
 export const TasksDueSoon = memo(function TasksDueSoon() {
   const { taskIds } = useTasksDueSoonIds();

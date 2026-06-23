@@ -8,7 +8,7 @@ import {
   resetServer,
   startServer,
 } from '@/testUtils/mock/setup';
-import { Container } from '../Container';
+import { Container } from '../container';
 
 describe('pages/Home', () => {
   startServer();

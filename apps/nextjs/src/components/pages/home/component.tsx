@@ -5,12 +5,12 @@ import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { Stack } from '@/components/ui/stack';
 import { getHomeDetailId, isHomeDetailURL, useRouter } from '@/router';
-import { Content } from './components/Content';
-import { FavoriteProjects } from './components/FavoriteProjects';
-import { Header } from './components/Header';
-import { RecentProjects } from './components/RecentProjects';
-import { SkeletonHome } from './components/SkeletonHome';
-import { TasksDueSoon } from './components/TasksDueSoon';
+import { Content } from './components/content';
+import { FavoriteProjects } from './components/favorite-projects';
+import { Header } from './components/header';
+import { RecentProjects } from './components/recent-projects';
+import { SkeletonHome } from './components/skeleton-home';
+import { TasksDueSoon } from './components/tasks-due-soon';
 import { useHomeTaskDetail } from './hooks';
 
 type Props = {

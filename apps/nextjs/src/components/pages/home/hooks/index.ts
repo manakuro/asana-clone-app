@@ -1,1 +1,1 @@
-export { useHomeTaskDetail } from './useHomeTaskDetail';
+export { useHomeTaskDetail } from './use-home-task-detail';
