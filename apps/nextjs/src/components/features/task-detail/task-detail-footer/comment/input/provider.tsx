@@ -7,9 +7,9 @@ import {
 import type { FileUploaderParams, UploadedFile } from '@/components/ui/form';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useToaster } from '@/hooks/use-toaster';
-import { getScrollBottom } from '@/shared/getScrollBottom';
-import { parseDescription } from '@/shared/prosemirror/convertDescription';
-import { createProvider } from '@/shared/react/createProvider';
+import { getScrollBottom } from '@/shared/get-scroll-bottom';
+import { parseDescription } from '@/shared/prosemirror/convert-description';
+import { createProvider } from '@/shared/react/create-provider';
 import { useMe } from '@/store/entities/me';
 import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/taskFeed';
 import {

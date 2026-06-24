@@ -1,5 +1,5 @@
 import { useHover } from '@/hooks/use-hover';
-import { createProvider } from '@/shared/react/createProvider';
+import { createProvider } from '@/shared/react/create-provider';
 
 const useValue = () => {
   const { ref, isHovering } = useHover<HTMLDivElement>();

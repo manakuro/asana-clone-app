@@ -7,7 +7,7 @@ import { GlobalQuery, Subscription } from '@/components/shared/app';
 import { Mobile } from '@/components/ui/mobile';
 import { PageLoader } from '@/components/ui/page-loader';
 import { Toaster } from '@/components/ui/toast';
-import { ApolloProvider } from '@/shared/apollo/ApolloProvider';
+import { ApolloProvider } from '@/shared/apollo/apollo-provider';
 import { AuthProvider, useAuthContext } from './auth-provider';
 
 export function AppProvider({ children }: PropsWithChildren) {

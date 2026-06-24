@@ -8,7 +8,7 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Popover, usePopoverContext } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
-import { dateFns } from '@/shared/dateFns';
+import { dateFns } from '@/shared/date-fns';
 
 export function Content() {
   const { setOpen } = usePopoverContext();

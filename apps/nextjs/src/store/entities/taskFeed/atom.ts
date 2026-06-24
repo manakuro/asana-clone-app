@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import { getDefaultDescription } from '@/shared/prosemirror/getDefaultDescription';
+import { getDefaultDescription } from '@/shared/prosemirror/get-default-description';
 import { createState } from '@/store/util';
 import type { TaskFeed } from './type';
 

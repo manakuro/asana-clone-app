@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useHover } from '@/hooks/use-hover';
-import { createProvider } from '@/shared/react/createProvider';
+import { createProvider } from '@/shared/react/create-provider';
 import { useInputFocus } from './use-input-focus';
 
 type Props = {

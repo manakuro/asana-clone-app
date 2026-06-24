@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { generateTitle } from '@/shared/metatag/generateTitle';
+import { generateTitle } from '@/shared/metatag/generate-title';
 
 export const metadata: Metadata = {
   title: generateTitle('Workspaces'),

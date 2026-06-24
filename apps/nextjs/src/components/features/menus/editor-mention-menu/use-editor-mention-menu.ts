@@ -3,8 +3,8 @@ import { atomWithReset, useResetAtom } from 'jotai/utils';
 import { useCallback, useEffect, useRef } from 'react';
 import { useMentionsQuery } from '@/hooks/queries/entities';
 import { useResizeObserver } from '@/hooks/use-resize-observer';
-import { calculateModalPosition } from '@/shared/calculateModalPosition';
-import { getCaretPosition } from '@/shared/getCaretPosition';
+import { calculateModalPosition } from '@/shared/calculate-modal-position';
+import { getCaretPosition } from '@/shared/get-caret-position';
 import type { Mention, MentionTypeCode } from '@/store/entities/mention';
 
 type Id = string | null;

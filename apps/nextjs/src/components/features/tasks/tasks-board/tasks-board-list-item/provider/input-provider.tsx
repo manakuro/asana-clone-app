@@ -7,8 +7,8 @@ import {
   useState,
 } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
-import { isHTMLElement } from '@/shared/isHTMLElement';
-import { createProvider } from '@/shared/react/createProvider';
+import { isHTMLElement } from '@/shared/is-html-element';
+import { createProvider } from '@/shared/react/create-provider';
 
 type ContextProps = {
   ref: React.MutableRefObject<HTMLElement | null>;

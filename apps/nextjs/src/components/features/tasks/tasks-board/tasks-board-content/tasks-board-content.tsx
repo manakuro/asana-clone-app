@@ -4,7 +4,7 @@ import { useTasksBoardListSectionElement } from '@/components/features/tasks/tas
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMainStyle, usePrevious } from '@/hooks';
 import { useBreakpointValue } from '@/shared/chakra';
-import { isHTMLElement } from '@/shared/isHTMLElement';
+import { isHTMLElement } from '@/shared/is-html-element';
 import { transitions } from '@/styles/transitions';
 
 type Props = FlexProps;

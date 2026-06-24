@@ -3,7 +3,7 @@ import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
 } from '@/hooks';
-import { createProvider } from '@/shared/react/createProvider';
+import { createProvider } from '@/shared/react/create-provider';
 
 const useValue = () => {
   const [focused, setFocused] = useState(false);

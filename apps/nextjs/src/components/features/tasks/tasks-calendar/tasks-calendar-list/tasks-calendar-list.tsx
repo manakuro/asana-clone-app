@@ -1,7 +1,7 @@
 import { memo, useEffect } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { dateFns } from '@/shared/dateFns';
-import { isHTMLElement } from '@/shared/isHTMLElement';
+import { dateFns } from '@/shared/date-fns';
+import { isHTMLElement } from '@/shared/is-html-element';
 import { useTasksCalendarContext } from '../provider';
 import { TasksCalendarListItem } from '../tasks-calendar-list-item';
 import { TasksCalendarListRow } from '../tasks-calendar-list-row';

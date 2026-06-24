@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback } from 'react';
 import { Label, type LabelProps } from '@/components/ui/label';
-import { isInputFiles } from '@/shared/isInputFile';
+import { isInputFiles } from '@/shared/is-input-file';
 
 export type UploadedFile = {
   name: string;

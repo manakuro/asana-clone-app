@@ -1,5 +1,5 @@
 import type { Getter } from 'jotai';
-import { dateFns } from '@/shared/dateFns';
+import { dateFns } from '@/shared/date-fns';
 import { uniq } from '@/shared/utils';
 import {
   isTaskListCompletedStatusState,

@@ -3,7 +3,7 @@ import { WebSocketLink } from '@apollo/client/link/ws';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { SubscriptionClient } from 'subscriptions-transport-ws';
 import { config } from '@/config';
-import { websocketErrorHandler } from '@/shared/apollo/errorHandler';
+import { websocketErrorHandler } from '@/shared/apollo/error-handler';
 import { isClient } from '@/shared/environment';
 
 export type CreateHttpProps = {

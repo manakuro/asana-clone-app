@@ -1,4 +1,4 @@
-import { dateFns } from '@/shared/dateFns';
+import { dateFns } from '@/shared/date-fns';
 
 export const formatDueDate = (date: string): string => {
   if (!date) return '';

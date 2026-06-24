@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
-import { createProvider } from '@/shared/react/createProvider';
+import { createProvider } from '@/shared/react/create-provider';
 
 type Props = {
   taskSectionId: string;

@@ -1,4 +1,4 @@
-import { getDefaultDescription } from './getDefaultDescription';
+import { getDefaultDescription } from './get-default-description';
 
 export const parseDescription = <T extends object>(val: string): T => {
   try {

@@ -6,7 +6,7 @@ import {
   onIdTokenChanged,
   signInAnonymously,
 } from '@/shared/firebase/auth';
-import { createProvider } from '@/shared/react/createProvider';
+import { createProvider } from '@/shared/react/create-provider';
 
 const useValue = () => {
   const [idToken, setIdToken] = useState('');

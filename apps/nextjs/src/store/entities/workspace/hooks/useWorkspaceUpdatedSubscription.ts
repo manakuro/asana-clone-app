@@ -3,7 +3,7 @@ import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { WorkspaceUpdatedDocument } from '@/graphql/hooks';
-import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
+import { isDescriptionEqual } from '@/shared/editor/is-description-equal';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import { workspaceState } from '../atom';
