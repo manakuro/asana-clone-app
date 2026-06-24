@@ -1,3 +1,3 @@
-src/components/shared/app/GlobalQuery.tsx
-src/components/shared/app/index.ts
-src/components/shared/app/Subscription.tsx
+src/hooks/forms/index.ts
+src/hooks/forms/useCheckBox.ts
+src/hooks/forms/useInputText.ts
