@@ -1,12 +1,2 @@
-src/hooks/index.ts
-src/hooks/useClickOutside.tsx
-src/hooks/useDebounce.ts
-src/hooks/useDraggableInPortal.tsx
-src/hooks/useFirstRender.tsx
-src/hooks/useHover.ts
-src/hooks/useKeyPress.ts
-src/hooks/useMountedRef.ts
-src/hooks/usePrevious.ts
-src/hooks/useResizeObserver.ts
-src/hooks/useResponsive.ts
-src/hooks/useToaster.tsx
+src/providers/AppProvider.tsx
+src/providers/AuthProvider.tsx
