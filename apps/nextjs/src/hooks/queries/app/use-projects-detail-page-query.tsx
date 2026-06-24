@@ -5,7 +5,7 @@ import type { ProjectsTaskDetailPageQueryVariables as Variables } from '@/graphq
 import {
   type ProjectTaskResponse,
   useProjectTaskResponse,
-} from '@/store/entities/projectTask';
+} from '@/store/entities/project-task';
 import { useTasksResponse } from '@/store/entities/task';
 
 export type UseProjectsTaskDetailPageQueryResult = {

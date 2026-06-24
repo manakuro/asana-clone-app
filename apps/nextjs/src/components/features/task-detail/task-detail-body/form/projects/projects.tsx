@@ -7,7 +7,7 @@ import {
   useProjectIdsByTaskId,
   useProjectTaskCommand,
   useProjectTaskIdsByTaskId,
-} from '@/store/entities/projectTask';
+} from '@/store/entities/project-task';
 import { useTask } from '@/store/entities/task';
 import { Content, Label, Row } from '../row';
 import { Selected } from './selected';

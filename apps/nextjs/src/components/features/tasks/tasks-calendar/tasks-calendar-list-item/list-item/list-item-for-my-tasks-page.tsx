@@ -3,7 +3,7 @@ import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import type { FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { useHover } from '@/hooks/use-hover';
-import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
+import { useProjectIdsByTaskId } from '@/store/entities/project-task';
 import { useTask } from '@/store/entities/task';
 import { CheckIcon } from './check-icon';
 import { Container } from './container';

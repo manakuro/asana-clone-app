@@ -5,7 +5,7 @@ import { Tooltip } from '@/components/ui/tooltip';
 import {
   useFavoriteWorkspaceIds,
   useFavoriteWorkspaceIdsCommand,
-} from '@/store/entities/favoriteWorkspaceIds';
+} from '@/store/entities/favorite-workspace-ids';
 import { useWorkspace } from '@/store/entities/workspace';
 
 type Props = Omit<IconButtonProps, 'aria-label' | 'icon' | 'textStyle'>;

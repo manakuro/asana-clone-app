@@ -10,8 +10,8 @@ import { filterByDueDate } from '@/store/entities/task';
 import {
   tasksByTeammateIdState,
   tasksByTeammateTaskSectionIdState,
-} from '@/store/entities/teammateTask';
-import { isTabStatusState } from '@/store/entities/teammateTaskTabStatus';
+} from '@/store/entities/teammate-task';
+import { isTabStatusState } from '@/store/entities/teammate-task-tab-status';
 
 export const taskIdsState = atom<string[]>((get) => {
   let tasks = get(tasksByTeammateIdState);

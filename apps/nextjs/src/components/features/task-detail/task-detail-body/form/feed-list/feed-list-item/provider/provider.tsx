@@ -5,8 +5,8 @@ import type { DescriptionFragmentFragment } from '@/graphql/types';
 import { useToaster } from '@/hooks/use-toaster';
 import { parseDescription } from '@/shared/prosemirror/convert-description';
 import { createProvider } from '@/shared/react/create-provider';
-import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/taskFeed';
-import { useTaskFileIdsByTaskFeedId } from '@/store/entities/taskFile';
+import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/task-feed';
+import { useTaskFileIdsByTaskFeedId } from '@/store/entities/task-file';
 import { useTeammate } from '@/store/entities/teammate';
 import { Provider as ProviderContainer } from './provider-container';
 

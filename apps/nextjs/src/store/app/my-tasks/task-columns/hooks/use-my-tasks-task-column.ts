@@ -6,7 +6,7 @@ import {
   type TeammateTaskColumn,
   useTeammateTaskColumn,
   useTeammateTaskColumnCommand,
-} from '@/store/entities/teammateTaskColumn';
+} from '@/store/entities/teammate-task-column';
 import { taskColumnIdsState } from '../atom';
 
 export const useMyTasksTaskColumn = (tasksTaskColumnId: string) => {

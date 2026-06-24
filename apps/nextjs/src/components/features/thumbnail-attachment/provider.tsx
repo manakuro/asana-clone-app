@@ -2,7 +2,7 @@ import type React from 'react';
 import { useCallback, useState } from 'react';
 import { useHover } from '@/hooks/use-hover';
 import { createProvider } from '@/shared/react/create-provider';
-import { type TaskFile, useTaskFile } from '@/store/entities/taskFile';
+import { type TaskFile, useTaskFile } from '@/store/entities/task-file';
 
 type Props = {
   taskFileId: string;

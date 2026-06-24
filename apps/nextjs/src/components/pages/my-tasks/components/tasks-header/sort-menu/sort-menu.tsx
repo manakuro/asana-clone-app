@@ -5,7 +5,7 @@ import {
   type TaskListSortStatusCodeValue,
   useMyTasksTaskListStatus,
 } from '@/store/app/my-tasks/task-list-status';
-import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
+import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
 
 type Props = {
   projectSortable?: boolean;

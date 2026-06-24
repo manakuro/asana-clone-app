@@ -3,7 +3,7 @@ import { useTasksListContentVerticalScroll } from '@/components/features/tasks';
 import { useTasksTaskListStatus } from '@/components/features/tasks/hooks';
 import type { FlexProps } from '@/components/ui/flex';
 import { createProvider } from '@/shared/react/create-provider';
-import { useTaskListSortStatus } from '@/store/entities/taskListSortStatus';
+import { useTaskListSortStatus } from '@/store/entities/task-list-sort-status';
 
 const useValue = () => {
   const { taskListStatus } = useTasksTaskListStatus();

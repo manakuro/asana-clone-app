@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { TagChip } from '@/components/features/chips';
 import type { FlexProps } from '@/components/ui/flex';
 import { Tooltip } from '@/components/ui/tooltip';
-import { useTaskTag } from '@/store/entities/taskTag';
+import { useTaskTag } from '@/store/entities/task-tag';
 
 type Props = FlexProps & {
   taskTagId: string;

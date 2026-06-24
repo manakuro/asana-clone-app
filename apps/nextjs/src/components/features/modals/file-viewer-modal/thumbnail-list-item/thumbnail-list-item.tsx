@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/icon';
 import { Image } from '@/components/ui/image';
 import { FileTypeCode } from '@/graphql/enums';
 import type { SystemStyleObject } from '@/shared/chakra';
-import { getTaskFileIcon, useTaskFile } from '@/store/entities/taskFile';
+import { getTaskFileIcon, useTaskFile } from '@/store/entities/task-file';
 import { Container } from './container';
 
 type Props = {

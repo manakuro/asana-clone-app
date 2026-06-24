@@ -6,7 +6,7 @@ import { useToaster } from '@/hooks/use-toaster';
 import {
   type TaskFile,
   useTaskFileIdsByTaskId,
-} from '@/store/entities/taskFile';
+} from '@/store/entities/task-file';
 import { NewButton } from './new-button';
 
 type Props = {

@@ -2,7 +2,7 @@ import { useLazyQuery } from '@apollo/client/react';
 import { useCallback, useState } from 'react';
 import { HomeTaskDetailPageDocument } from '@/graphql/hooks';
 import type { HomeTaskDetailPageQueryVariables as Variables } from '@/graphql/types/app/home';
-import { useTeammateTaskResponse } from '@/store/entities/teammateTask';
+import { useTeammateTaskResponse } from '@/store/entities/teammate-task';
 
 export type UseHomeTaskDetailPageQueryResult = {
   refetch: (variables: Variables) => Promise<void>;

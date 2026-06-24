@@ -5,10 +5,10 @@ import {
   isTaskListCompletedStatusState,
   isTaskListSortStatusState,
 } from '@/store/app/my-tasks/task-list-status';
-import { projectTasksState } from '@/store/entities/projectTask';
+import { projectTasksState } from '@/store/entities/project-task';
 import type { Task } from '@/store/entities/task';
-import { taskLikesByTaskIdState } from '@/store/entities/taskLike';
-import type { TeammateTaskSection } from '@/store/entities/teammatesTaskSection';
+import { taskLikesByTaskIdState } from '@/store/entities/task-like';
+import type { TeammateTaskSection } from '@/store/entities/teammates-task-section';
 
 type Params = {
   get: Getter;

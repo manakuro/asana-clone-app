@@ -5,7 +5,7 @@ import type { ProjectTaskSectionsQuery } from '@/graphql/types';
 import type { ProjectTaskSectionResponse } from '@/graphql/types/projectTaskSections';
 import { useMountedRef } from '@/hooks';
 import { getNodesFromEdges } from '@/shared/apollo/util';
-import { useProjectTaskSectionResponse } from '@/store/entities/projectTaskSection';
+import { useProjectTaskSectionResponse } from '@/store/entities/project-task-section';
 
 export const useProjectTaskSectionsByProjectIdsQuery = (
   projectIds: string[],

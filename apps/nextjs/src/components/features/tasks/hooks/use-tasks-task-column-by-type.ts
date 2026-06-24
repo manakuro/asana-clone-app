@@ -1,8 +1,8 @@
 import { useMyTasksTaskColumnByType } from '@/store/app/my-tasks/task-columns';
 import { useProjectsTaskColumnByType } from '@/store/app/projects/task-columns';
-import type { ProjectTaskColumn } from '@/store/entities/projectTaskColumn';
-import type { TaskColumnTypeValue } from '@/store/entities/taskColumn';
-import type { TeammateTaskColumn } from '@/store/entities/teammateTaskColumn';
+import type { ProjectTaskColumn } from '@/store/entities/project-task-column';
+import type { TaskColumnTypeValue } from '@/store/entities/task-column';
+import type { TeammateTaskColumn } from '@/store/entities/teammate-task-column';
 import { useTasksContext } from '../tasks-provider';
 
 type TaskColumn = TeammateTaskColumn | ProjectTaskColumn;

@@ -3,7 +3,7 @@ import { TagChip } from '@/components/features/chips';
 import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list-cell';
 import type { FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { useTaskTagIdsByTaskId } from '@/store/entities/taskTag';
+import { useTaskTagIdsByTaskId } from '@/store/entities/task-tag';
 import { Input } from './input';
 
 type Props = FlexProps & {

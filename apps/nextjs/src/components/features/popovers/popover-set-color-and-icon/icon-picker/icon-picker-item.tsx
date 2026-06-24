@@ -6,9 +6,9 @@ import { Icon as AtomsIcon } from '@/components/ui/icon';
 import { WrapItem } from '@/components/ui/wrap';
 import { useLinkHoverStyle } from '@/hooks';
 import type { IconType } from '@/shared/icons';
-import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { useProjectIcon } from '@/store/entities/projectIcon';
-import { useProjectLightColor } from '@/store/entities/projectLightColor';
+import { useProjectBaseColor } from '@/store/entities/project-base-color';
+import { useProjectIcon } from '@/store/entities/project-icon';
+import { useProjectLightColor } from '@/store/entities/project-light-color';
 
 type Props = {
   projectIconId: string;

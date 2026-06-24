@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { useProjectResponse } from '@/store/entities/project';
 import { useTeammateResponse } from '@/store/entities/teammate';
 import { useWorkspaceResponse as useWorkspaceResponseEntity } from '@/store/entities/workspace';
-import { useWorkspaceTeammateResponse } from '@/store/entities/workspaceTeammate';
+import { useWorkspaceTeammateResponse } from '@/store/entities/workspace-teammate';
 import type { WorkspaceResponse } from '../type';
 
 export const useWorkspaceResponse = () => {

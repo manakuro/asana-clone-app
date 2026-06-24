@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo } from 'react';
 import { FavoriteWorkspaceIdsDocument } from '@/graphql/hooks';
-import { useFavoriteWorkspaceIdsResponse } from '@/store/entities/favoriteWorkspaceIds';
+import { useFavoriteWorkspaceIdsResponse } from '@/store/entities/favorite-workspace-ids';
 import { useMe } from '@/store/entities/me';
 import { useWorkspace } from '@/store/entities/workspace';
 

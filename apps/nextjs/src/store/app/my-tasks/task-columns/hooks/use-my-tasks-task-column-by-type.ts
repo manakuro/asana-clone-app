@@ -1,5 +1,5 @@
-import type { TaskColumnTypeValue } from '@/store/entities/taskColumn';
-import { useTeammateTaskColumnByType } from '@/store/entities/teammateTaskColumn';
+import type { TaskColumnTypeValue } from '@/store/entities/task-column';
+import { useTeammateTaskColumnByType } from '@/store/entities/teammate-task-column';
 
 export const useMyTasksTaskColumnByType = (type: TaskColumnTypeValue) => {
   const { teammatesTaskColumn } = useTeammateTaskColumnByType(type);

@@ -4,7 +4,7 @@ import { useProject } from '@/store/entities/project';
 import {
   useProjectBaseColor,
   useProjectBaseColorText,
-} from '@/store/entities/projectBaseColor';
+} from '@/store/entities/project-base-color';
 import { useTask } from '@/store/entities/task';
 import { transitions } from '@/styles/transitions';
 

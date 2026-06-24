@@ -1,12 +1,12 @@
 import type { Getter } from 'jotai';
 import { dateFns } from '@/shared/date-fns';
-import type { ProjectTaskSection } from '@/store/entities/projectTaskSection';
+import type { ProjectTaskSection } from '@/store/entities/project-task-section';
 import type { Task } from '@/store/entities/task';
-import { taskLikesByTaskIdState } from '@/store/entities/taskLike';
+import { taskLikesByTaskIdState } from '@/store/entities/task-like';
 import {
   TaskPriorityType,
   taskPriorityState,
-} from '@/store/entities/taskPriority';
+} from '@/store/entities/task-priority';
 import { teammateState } from '@/store/entities/teammate';
 import {
   isTaskListCompletedStatusState,

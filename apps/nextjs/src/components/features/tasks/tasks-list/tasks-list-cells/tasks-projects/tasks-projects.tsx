@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list-cell';
 import type { FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { useProjectTaskIdsByTaskId } from '@/store/entities/projectTask';
+import { useProjectTaskIdsByTaskId } from '@/store/entities/project-task';
 import { Input } from './input';
 import { ListItem } from './list-item';
 

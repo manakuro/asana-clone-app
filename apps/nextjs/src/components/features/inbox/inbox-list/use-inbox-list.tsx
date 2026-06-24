@@ -9,7 +9,7 @@ import {
 } from '@/components/features/inbox/hooks';
 import { useTaskDetail } from '@/components/features/task-detail';
 import { isInboxDetailURL } from '@/router';
-import { useActivityType } from '@/store/entities/activityType';
+import { useActivityType } from '@/store/entities/activity-type';
 
 type Props = {
   listItemId?: string;

@@ -1,6 +1,6 @@
 import type { PropsWithChildren, ReactElement } from 'react';
 import { memo } from 'react';
-import { useFavoriteProjectIdsUpdatedSubscription } from '@/store/entities/favoriteProjectIds';
+import { useFavoriteProjectIdsUpdatedSubscription } from '@/store/entities/favorite-project-ids';
 import { useMe } from '@/store/entities/me';
 import { useProjectUpdatedSubscription } from '@/store/entities/project';
 import {
@@ -8,7 +8,7 @@ import {
   useProjectTaskCreatedSubscription,
   useProjectTaskDeletedSubscription,
   useProjectTaskUpdatedSubscription,
-} from '@/store/entities/projectTask';
+} from '@/store/entities/project-task';
 import {
   useProjectTaskSectionCreatedSubscription,
   useProjectTaskSectionDeletedAndDeleteTasksSubscription,
@@ -17,7 +17,7 @@ import {
   useProjectTaskSectionUndeletedAndDeleteTasksSubscription,
   useProjectTaskSectionUndeletedAndKeepTasksSubscription,
   useProjectTaskSectionUpdatedSubscription,
-} from '@/store/entities/projectTaskSection';
+} from '@/store/entities/project-task-section';
 import {
   useTaskAssignedSubscription,
   useTaskDeletedSubscription,
@@ -28,24 +28,28 @@ import {
 import {
   useTaskCollaboratorCreatedSubscription,
   useTaskCollaboratorDeletedSubscription,
-} from '@/store/entities/taskCollaborator';
+} from '@/store/entities/task-collaborator';
 import {
   useTaskFeedCreatedSubscription,
   useTaskFeedDeletedSubscription,
   useTaskFeedUpdatedSubscription,
-} from '@/store/entities/taskFeed';
+} from '@/store/entities/task-feed';
 import {
   useTaskFeedLikeCreatedSubscription,
   useTaskFeedLikeDeletedSubscription,
-} from '@/store/entities/taskFeedLike';
+} from '@/store/entities/task-feed-like';
 import {
   useTaskLikeCreatedSubscription,
   useTaskLikeDeletedSubscription,
-} from '@/store/entities/taskLike';
+} from '@/store/entities/task-like';
 import {
   useTaskTagCreatedSubscription,
   useTaskTagDeletedSubscription,
-} from '@/store/entities/taskTag';
+} from '@/store/entities/task-tag';
+import {
+  useTeammateTaskCreatedSubscription,
+  useTeammateTaskUpdatedSubscription,
+} from '@/store/entities/teammate-task';
 import {
   useTeammateTaskSectionCreatedSubscription,
   useTeammateTaskSectionDeletedAndDeleteTasksSubscription,
@@ -54,11 +58,7 @@ import {
   useTeammateTaskSectionUndeletedAndDeleteTasksSubscription,
   useTeammateTaskSectionUndeletedAndKeepTasksSubscription,
   useTeammateTaskSectionUpdatedSubscription,
-} from '@/store/entities/teammatesTaskSection';
-import {
-  useTeammateTaskCreatedSubscription,
-  useTeammateTaskUpdatedSubscription,
-} from '@/store/entities/teammateTask';
+} from '@/store/entities/teammates-task-section';
 import {
   useWorkspace,
   useWorkspaceUpdatedSubscription,

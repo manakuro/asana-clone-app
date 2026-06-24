@@ -6,7 +6,7 @@ import { useThumbnailAttachmentContext } from '@/components/features/thumbnail-a
 import { Tooltip } from '@/components/features/thumbnail-attachment/tooltip';
 import type { FlexProps } from '@/components/ui/flex';
 import { Image as AtomsImage } from '@/components/ui/image';
-import { useTaskFile } from '@/store/entities/taskFile';
+import { useTaskFile } from '@/store/entities/task-file';
 
 type Props = FlexProps & {
   taskFileId: string;

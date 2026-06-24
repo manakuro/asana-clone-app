@@ -3,7 +3,7 @@ import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import { UpdateTeammateTaskListStatusDocument } from '@/graphql/hooks';
 import type { TaskListSortStatusCodeValue } from '@/store/app/my-tasks/task-list-status';
-import type { TaskListCompletedStatusCodeValue } from '@/store/entities/taskListCompletedStatus';
+import type { TaskListCompletedStatusCodeValue } from '@/store/entities/task-list-completed-status';
 import { useWorkspace } from '@/store/entities/workspace';
 import { taskListStatusState } from '../atom';
 import { useUpsert } from './use-upsert';

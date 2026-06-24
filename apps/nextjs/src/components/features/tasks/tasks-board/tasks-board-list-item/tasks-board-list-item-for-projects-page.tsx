@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
+import { useProjectIdsByTaskId } from '@/store/entities/project-task';
 import { Assignee } from './assignee';
 import { Card } from './card';
 import { DueDate } from './due-date';

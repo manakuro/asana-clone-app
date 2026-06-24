@@ -10,7 +10,7 @@ import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useRouter } from '@/router';
 import { formatDueTime } from '@/shared/date';
-import { useProjectIdsByTaskId } from '@/store/entities/projectTask';
+import { useProjectIdsByTaskId } from '@/store/entities/project-task';
 import { useTask } from '@/store/entities/task';
 
 type Props = {

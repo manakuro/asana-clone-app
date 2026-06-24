@@ -10,7 +10,7 @@ import { useLinkHoverStyle } from '@/hooks';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';
 import { useProject } from '@/store/entities/project';
-import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
+import { useProjectBaseColor } from '@/store/entities/project-base-color';
 import { ProjectMenu } from './project-menu';
 
 type Props = {

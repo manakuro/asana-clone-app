@@ -6,7 +6,7 @@ import { getNodesFromEdges } from '@/shared/apollo/util';
 import {
   type TaskPriority,
   useTaskPriorityResponse,
-} from '@/store/entities/taskPriority';
+} from '@/store/entities/task-priority';
 
 export const useTaskPrioritiesQuery = () => {
   const { setTaskPriorities } = useTaskPriorityResponse();

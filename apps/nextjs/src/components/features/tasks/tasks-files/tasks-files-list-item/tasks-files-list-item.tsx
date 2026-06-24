@@ -9,13 +9,13 @@ import { Link } from '@/components/ui/link';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
 import { useHover } from '@/hooks/use-hover';
-import { FileTypeCode } from '@/store/entities/fileType';
+import { FileTypeCode } from '@/store/entities/file-type';
 import { useTask } from '@/store/entities/task';
 import {
   getTaskFileIcon,
   useTaskFile,
   useTaskFileIdsByTaskId,
-} from '@/store/entities/taskFile';
+} from '@/store/entities/task-file';
 import { transitions } from '@/styles/transitions';
 
 type Props = {

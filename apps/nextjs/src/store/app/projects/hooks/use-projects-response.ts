@@ -4,9 +4,9 @@ import { getNodesFromEdges } from '@/shared/apollo/util';
 import {
   type ProjectTaskColumnResponse,
   useProjectTaskColumnResponse,
-} from '@/store/entities/projectTaskColumn';
-import { useProjectTaskSectionResponse } from '@/store/entities/projectTaskSection';
-import type { ProjectTaskSectionResponse } from '@/store/entities/projectTaskSection/type';
+} from '@/store/entities/project-task-column';
+import { useProjectTaskSectionResponse } from '@/store/entities/project-task-section';
+import type { ProjectTaskSectionResponse } from '@/store/entities/project-task-section/type';
 import { taskListStatusState } from '../task-list-status';
 import type {
   ProjectsProjectTaskSectionResponse,

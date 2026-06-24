@@ -1,6 +1,6 @@
 import { useAtomValue } from 'jotai';
 import { useMemo } from 'react';
-import { tasksByProjectTaskSectionIdAndProjectIdState } from '@/store/entities/projectTask';
+import { tasksByProjectTaskSectionIdAndProjectIdState } from '@/store/entities/project-task';
 import { useProjectsProjectId } from '../../project';
 
 export const useProjectsTasksByTaskSectionId = (taskSectionId: string) => {

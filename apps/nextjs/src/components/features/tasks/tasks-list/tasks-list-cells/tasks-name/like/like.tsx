@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { LikeTaskIconButton } from '@/components/features/like-task-icon-button';
-import { useTaskLikesByTaskId } from '@/store/entities/taskLike';
+import { useTaskLikesByTaskId } from '@/store/entities/task-like';
 import { useTasksNameContext } from '../tasks-name-provider';
 
 export function Like() {

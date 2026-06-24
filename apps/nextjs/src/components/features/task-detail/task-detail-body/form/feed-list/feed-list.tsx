@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/flex';
 import {
   useTaskFeedIdsByTaskId,
   useTaskFeedsPinnedIds,
-} from '@/store/entities/taskFeed';
+} from '@/store/entities/task-feed';
 import { FeedListItem } from './feed-list-item';
 
 type Props = {

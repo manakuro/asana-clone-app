@@ -5,7 +5,7 @@ import {
   type TaskListSortStatusCodeValue,
   useProjectsTaskListStatus,
 } from '@/store/app/projects/task-list-status';
-import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
+import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
 
 const ITEMS: {
   value: TaskListSortStatusCodeValue;

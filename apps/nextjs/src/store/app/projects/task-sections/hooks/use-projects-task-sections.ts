@@ -1,5 +1,5 @@
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useProjectsTaskSectionsByProjectId } from '@/store/entities/projectTaskSection';
+import { useProjectsTaskSectionsByProjectId } from '@/store/entities/project-task-section';
 
 export const useProjectsTaskSections = () => {
   const { projectId } = useProjectsProjectId();

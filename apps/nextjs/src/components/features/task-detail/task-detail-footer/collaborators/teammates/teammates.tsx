@@ -3,7 +3,7 @@ import { useTaskDetail } from '@/components/features/task-detail';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Stack } from '@/components/ui/stack';
-import { useTeammateIdsByTaskId } from '@/store/entities/taskCollaborator';
+import { useTeammateIdsByTaskId } from '@/store/entities/task-collaborator';
 import { useCollaboratorsContext } from '../provider';
 import { Teammate } from './teammate';
 

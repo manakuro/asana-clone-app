@@ -5,7 +5,7 @@ import { useMountedRef } from '@/hooks';
 import {
   type ProjectTaskResponse,
   useProjectTaskResponse,
-} from '@/store/entities/projectTask';
+} from '@/store/entities/project-task';
 
 export const useProjectTaskQuery = (id: string) => {
   const queryResult = useQuery(ProjectTaskDocument, {

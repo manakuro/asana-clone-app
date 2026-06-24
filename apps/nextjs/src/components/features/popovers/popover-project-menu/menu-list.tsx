@@ -6,7 +6,7 @@ import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
 import type { Project } from '@/store/entities/project';
-import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
+import { useProjectBaseColor } from '@/store/entities/project-base-color';
 import { ArchiveProject } from './archive-project';
 import { CopyProjectLink } from './copy-project-link';
 import { DeleteProject } from './delete-project';

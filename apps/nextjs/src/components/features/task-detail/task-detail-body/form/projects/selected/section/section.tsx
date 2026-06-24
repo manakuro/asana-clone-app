@@ -7,11 +7,11 @@ import {
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
-import { useProjectTask } from '@/store/entities/projectTask';
+import { useProjectTask } from '@/store/entities/project-task';
 import {
   useProjectsTaskSectionsByProjectId,
   useProjectTaskSection,
-} from '@/store/entities/projectTaskSection';
+} from '@/store/entities/project-task-section';
 
 type Props = {
   taskId: string;

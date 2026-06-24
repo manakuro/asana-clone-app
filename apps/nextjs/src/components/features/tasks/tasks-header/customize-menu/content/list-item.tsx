@@ -4,7 +4,7 @@ import { useTasksTaskColumn } from '@/components/features/tasks/hooks';
 import { Box } from '@/components/ui/box';
 import { CustomField } from '@/components/ui/custom-field';
 import { useDraggableInPortal } from '@/hooks/use-draggable-in-portal';
-import { useTaskColumn } from '@/store/entities/taskColumn';
+import { useTaskColumn } from '@/store/entities/task-column';
 
 type Props = {
   tasksTaskColumnId: string;

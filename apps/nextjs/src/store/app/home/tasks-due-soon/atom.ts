@@ -3,7 +3,7 @@ import {
   filterByDueDateInFiveDays,
   sortByDueDate,
 } from '@/store/entities/task';
-import { tasksByTeammateIdState } from '@/store/entities/teammateTask';
+import { tasksByTeammateIdState } from '@/store/entities/teammate-task';
 
 export const taskIdsState = atom<string[]>((get) => {
   let tasks = get(tasksByTeammateIdState);

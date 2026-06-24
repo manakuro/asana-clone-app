@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { ProjectChip } from '@/components/features/chips';
-import { useProjectTask } from '@/store/entities/projectTask';
+import { useProjectTask } from '@/store/entities/project-task';
 
 type Props = {
   projectTaskId: string;

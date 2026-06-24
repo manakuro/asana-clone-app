@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
 import { useLinkStyle } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
-import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
+import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { type Teammate, useTeammate } from '@/store/entities/teammate';
 
 type Props = {

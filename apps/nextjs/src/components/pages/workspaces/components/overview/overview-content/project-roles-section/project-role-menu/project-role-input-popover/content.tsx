@@ -7,7 +7,7 @@ import { useClickOutside } from '@/hooks';
 import {
   useProjectTeammate,
   useProjectTeammatesCommand,
-} from '@/store/entities/projectTeammate';
+} from '@/store/entities/project-teammate';
 import { useTeammate } from '@/store/entities/teammate';
 import { Form } from './form';
 

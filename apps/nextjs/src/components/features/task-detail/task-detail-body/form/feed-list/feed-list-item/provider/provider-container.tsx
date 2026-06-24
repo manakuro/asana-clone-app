@@ -3,7 +3,7 @@ import { useTaskDetailBody } from '@/components/features/task-detail/task-detail
 import { useTasksRouter } from '@/components/features/tasks/hooks';
 import { isHTMLElement } from '@/shared/is-html-element';
 import { createProvider } from '@/shared/react/create-provider';
-import { useTaskFeed } from '@/store/entities/taskFeed';
+import { useTaskFeed } from '@/store/entities/task-feed';
 
 type Props = {
   taskFeedId: string;

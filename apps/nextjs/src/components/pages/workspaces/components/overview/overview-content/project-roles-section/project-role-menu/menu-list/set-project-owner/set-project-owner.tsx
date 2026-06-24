@@ -3,7 +3,7 @@ import { Menu } from '@/components/ui/menu';
 import {
   useProjectTeammate,
   useProjectTeammatesCommand,
-} from '@/store/entities/projectTeammate';
+} from '@/store/entities/project-teammate';
 
 type Props = {
   projectId: string;

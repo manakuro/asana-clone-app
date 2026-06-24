@@ -11,7 +11,7 @@ import {
   useGetProjectTask,
   useProjectTaskCommand,
   useProjectTaskIdsByTaskId,
-} from '@/store/entities/projectTask';
+} from '@/store/entities/project-task';
 
 type Props = {
   taskId: string;

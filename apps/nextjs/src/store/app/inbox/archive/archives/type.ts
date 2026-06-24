@@ -1,5 +1,5 @@
 import type { ArchivedActivityResponse } from '@/graphql/types/archivedActivity';
-import type { ActivityTypeCodeValues } from '@/store/entities/activityType';
+import type { ActivityTypeCodeValues } from '@/store/entities/activity-type';
 
 export type { ArchivedActivityResponse } from '@/graphql/types/archivedActivity';
 

@@ -3,11 +3,11 @@ import { useProjectsTaskListStatus } from '@/store/app/projects/task-list-status
 import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,
-} from '@/store/entities/taskListCompletedStatus';
+} from '@/store/entities/task-list-completed-status';
 import {
   TaskListSortStatusCode,
   type TaskListSortStatusCodeValue,
-} from '@/store/entities/taskListSortStatus';
+} from '@/store/entities/task-list-sort-status';
 import { useTasksContext } from '../tasks-provider';
 
 type Result = {

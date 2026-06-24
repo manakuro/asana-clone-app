@@ -6,7 +6,7 @@ import { Flex } from '@/components/ui/flex';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useTooltip } from '@/components/ui/tooltip/use-tooltip';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
+import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { useWorkspace } from '@/store/entities/workspace';
 import { transitions } from '@/styles/transitions';
 

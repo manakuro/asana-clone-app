@@ -11,13 +11,13 @@ import { getScrollBottom } from '@/shared/get-scroll-bottom';
 import { parseDescription } from '@/shared/prosemirror/convert-description';
 import { createProvider } from '@/shared/react/create-provider';
 import { useMe } from '@/store/entities/me';
-import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/taskFeed';
+import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/task-feed';
 import {
   getTaskFileTypeFromFile,
   initialState,
   type TaskFile,
   useTaskFileCommand,
-} from '@/store/entities/taskFile';
+} from '@/store/entities/task-file';
 
 const useValue = () => {
   const { focused, setFocused, onFocus, ref } = useFocus();
