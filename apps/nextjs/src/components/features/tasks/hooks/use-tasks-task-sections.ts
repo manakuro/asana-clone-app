@@ -1,5 +1,5 @@
-import { useMyTasksTaskSections } from '@/store/app/myTasks/taskSections';
-import { useProjectsTaskSections } from '@/store/app/projects/taskSections';
+import { useMyTasksTaskSections } from '@/store/app/my-tasks/task-sections';
+import { useProjectsTaskSections } from '@/store/app/projects/task-sections';
 import type { ProjectTaskSection } from '@/store/entities/projectTaskSection';
 import type { TeammateTaskSection } from '@/store/entities/teammatesTaskSection';
 import { useTasksContext } from '../tasks-provider';

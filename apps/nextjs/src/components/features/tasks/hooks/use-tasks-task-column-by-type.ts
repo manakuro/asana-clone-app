@@ -1,5 +1,5 @@
-import { useMyTasksTaskColumnByType } from '@/store/app/myTasks/taskColumns';
-import { useProjectsTaskColumnByType } from '@/store/app/projects/taskColumns';
+import { useMyTasksTaskColumnByType } from '@/store/app/my-tasks/task-columns';
+import { useProjectsTaskColumnByType } from '@/store/app/projects/task-columns';
 import type { ProjectTaskColumn } from '@/store/entities/projectTaskColumn';
 import type { TaskColumnTypeValue } from '@/store/entities/taskColumn';
 import type { TeammateTaskColumn } from '@/store/entities/teammateTaskColumn';

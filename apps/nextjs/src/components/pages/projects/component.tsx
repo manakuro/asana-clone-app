@@ -13,7 +13,7 @@ import {
   useRouter,
 } from '@/router';
 import { isProjectsOverviewURL } from '@/router/projects';
-import { useMyTasksTaskListStatus } from '@/store/app/myTasks/taskListStatus';
+import { useMyTasksTaskListStatus } from '@/store/app/my-tasks/task-list-status';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
 import { Board } from './components/board';

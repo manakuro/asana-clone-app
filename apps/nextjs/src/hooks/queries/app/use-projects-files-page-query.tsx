@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useMountedRef } from '@/hooks';
-import { useProjectsFilesResponse } from '@/store/app/projectsFiles';
+import { useProjectsFilesResponse } from '@/store/app/projects-files';
 
 type Props = {
   lazy?: boolean;

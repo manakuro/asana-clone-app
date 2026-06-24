@@ -1,5 +1,5 @@
-import { useWorkspaceActivityTasksTaskIds } from '@/store/app/inbox/activity/workspaceActivityTasks';
-import { useArchivedWorkspaceActivityTasksTaskIds } from '@/store/app/inbox/archive/archivedWorkspaceActivityTasks';
+import { useWorkspaceActivityTasksTaskIds } from '@/store/app/inbox/activity/workspace-activity-tasks';
+import { useArchivedWorkspaceActivityTasksTaskIds } from '@/store/app/inbox/archive/archived-workspace-activity-tasks';
 import { useInboxContext } from '../../inbox';
 
 type Result = {

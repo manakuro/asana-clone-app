@@ -4,7 +4,7 @@ import { useMyTasksContext } from '@/components/pages/my-tasks/providers/provide
 import {
   type TaskListSortStatusCodeValue,
   useMyTasksTaskListStatus,
-} from '@/store/app/myTasks/taskListStatus';
+} from '@/store/app/my-tasks/task-list-status';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
 
 type Props = {

@@ -1,4 +1,4 @@
-import { useMyTasksTaskIdsByTaskSectionId } from '@/store/app/myTasks/tasks';
+import { useMyTasksTaskIdsByTaskSectionId } from '@/store/app/my-tasks/tasks';
 import { useProjectsTaskIdsByTaskSectionId } from '@/store/app/projects/tasks';
 import { useTasksContext } from '../tasks-provider';
 

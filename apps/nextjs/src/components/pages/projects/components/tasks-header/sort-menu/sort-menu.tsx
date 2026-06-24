@@ -4,7 +4,7 @@ import { useProjectsPageContext } from '@/components/pages/projects/providers/pr
 import {
   type TaskListSortStatusCodeValue,
   useProjectsTaskListStatus,
-} from '@/store/app/projects/taskListStatus';
+} from '@/store/app/projects/task-list-status';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
 
 const ITEMS: {

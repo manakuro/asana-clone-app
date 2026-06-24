@@ -14,7 +14,7 @@ import {
   isMyTasksListURL,
   useRouter,
 } from '@/router';
-import { useMyTasksTaskListStatus } from '@/store/app/myTasks/taskListStatus';
+import { useMyTasksTaskListStatus } from '@/store/app/my-tasks/task-list-status';
 import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
 import {
   type TeammateTaskTabStatus,

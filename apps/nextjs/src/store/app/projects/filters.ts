@@ -11,7 +11,7 @@ import { teammateState } from '@/store/entities/teammate';
 import {
   isTaskListCompletedStatusState,
   isTaskListSortStatusState,
-} from './taskListStatus';
+} from './task-list-status';
 
 type Params = {
   get: Getter;
