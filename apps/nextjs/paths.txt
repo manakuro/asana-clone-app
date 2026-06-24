@@ -1,3 +1,4 @@
-src/hooks/forms/index.ts
-src/hooks/forms/useCheckBox.ts
-src/hooks/forms/useInputText.ts
+src/hooks/pages/projects/index.ts
+src/hooks/pages/projects/useCopyProjectLink.ts
+src/hooks/pages/projects/useDescriptionTitle.ts
+src/hooks/pages/projects/useDescriptionTitleInput.ts
