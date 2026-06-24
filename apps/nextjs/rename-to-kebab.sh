@@ -2,27 +2,28 @@
 #
 # rename-to-kebab.sh
 #
-# 1行1パスのファイルを受け取り、各パスの全セグメント（ディレクトリ名・ファイル名）を
-# kebab-case に変換して `git mv` を実行する。
+# Reads a file containing one path per line and converts every path segment
+# (directory names and file names) to kebab-case, then performs `git mv`.
 #
-# 使い方:
+# Usage:
 #   ./rename-to-kebab.sh paths.txt
-#   ./rename-to-kebab.sh paths.txt --dry-run   # 実際には mv せず変換結果だけ表示
+#   ./rename-to-kebab.sh paths.txt --dry-run   # Show planned changes without renaming
 #
-# 前提:
-#   - git リポジトリのルート、またはその配下で実行すること
-#   - パスはリポジトリルートからの相対パス、もしくは絶対パスで指定
-#   - 拡張子は変換対象外（最後のドット以降はそのまま保持）
-#   - 既にlowercase/kebab-caseの部分は変化しない（同じ文字列になる）
+# Assumptions:
+#   - Must be executed from the Git repository root or one of its subdirectories.
+#   - Paths may be specified either relative to the repository root or as absolute paths.
+#   - File extensions are preserved (everything after the final dot remains unchanged).
+#   - Segments already in lowercase kebab-case remain unchanged.
 #
-# 設計のポイント:
-#   ディレクトリ階層は「ルートから1階層ずつ順番に」リネームしていく。
-#   各階層で「現在のディレクトリ名」(old) と「あるべきkebab-case名」(new) を
-#   文字列として比較し、違っていれば safe_git_mv でリネームする。
-#   大文字小文字のみの差分か、文字列自体が変わる差分かに関わらず同じ処理で扱う。
-#   ファイルシステムの -d / -e による存在チェックは、macOS等の
-#   case-insensitiveファイルシステム上では大文字小文字を無視してマッチして
-#   しまうため、ディレクトリの一覧 (ls相当) を文字列として比較することに限定する。
+# Design notes:
+#   Directory hierarchies are renamed one level at a time, starting from the root.
+#   At each level, the current directory name (old) and the desired kebab-case name (new)
+#   are compared as strings. If they differ, the directory is renamed via safe_git_mv.
+#   The same logic handles both case-only changes and full name changes.
+#   Existence checks using -d or -e are intentionally avoided because case-insensitive
+#   file systems (such as the default macOS file system) may incorrectly match names
+#   that differ only by letter case. Instead, directory entries are compared using
+#   exact string matching from directory listings.
 
 set -euo pipefail
 
@@ -42,13 +43,14 @@ if [[ ! -f "$PATHS_FILE" ]]; then
   exit 1
 fi
 
-# 1セグメント（ディレクトリ名やファイル名、拡張子なし）を kebab-case に変換する。
+# Converts a single segment (directory name, file name without extension, etc.)
+# to kebab-case.
 to_kebab_segment() {
   local input="$1"
 
-  # __tests__ , __mocks__ , __snapshots__ のような、先頭と末尾が二重アンダースコアで
-  # 囲まれた特殊な予約ディレクトリ名はツール（Jest等）が名前そのものを認識するため、
-  # 変換せずそのまま保持する。
+  # Reserved directory names wrapped with double underscores on both sides,
+  # such as __tests__, __mocks__, and __snapshots__, are recognized by tools
+  # like Jest and therefore must remain unchanged.
   if [[ "$input" =~ ^__[a-zA-Z0-9]+__$ ]]; then
     printf '%s' "$input"
     return 0
@@ -59,13 +61,14 @@ to_kebab_segment() {
   printf '%s' "$input" | perl -CSD -pe '
     s/([a-z0-9])([A-Z])/$1-$2/g;       # aB -> a-B
     s/([A-Z]+)([A-Z][a-z])/$1-$2/g;    # ABCFoo -> ABC-Foo
-    s/-+/-/g;                          # 連続ハイフンを1つに
-    s/^-//; s/-$//;                    # 先頭・末尾のハイフン除去
-    $_ = lc($_);                       # 小文字化
+    s/-+/-/g;                          # Collapse multiple hyphens into one
+    s/^-//; s/-$//;                    # Remove leading/trailing hyphens
+    $_ = lc($_);                       # Convert to lowercase
   '
 }
 
-# ファイル名（拡張子付き）を kebab-case に変換する。拡張子は維持。
+# Converts a filename (including extension) to kebab-case while preserving
+# the extension.
 to_kebab_filename() {
   local filename="$1"
   if [[ "$filename" == *.* && "$filename" != .* ]]; then
@@ -79,8 +82,9 @@ to_kebab_filename() {
   fi
 }
 
-# 親ディレクトリ内のエントリ一覧から、指定した名前と「完全一致」するものを返す。
-# （-e/-d によるcase-insensitiveな誤判定を避けるため、文字列比較で行う）
+# Returns an entry from the parent directory only if its name matches exactly.
+# This avoids false positives caused by case-insensitive file systems when using
+# -e or -d.
 find_exact_entry() {
   local parent_dir="$1"
   local name="$2"
@@ -97,8 +101,10 @@ find_exact_entry() {
   return 1
 }
 
-# dry-run時、同じディレクトリリネーム計画を何度も表示しないための記録。
-# bash 3.2対応のため連想配列は使わず改行区切り文字列で管理。
+# Tracks planned directory renames during dry-run mode to avoid printing
+# duplicate rename plans.
+# Uses a newline-delimited string instead of associative arrays for
+# compatibility with Bash 3.2.
 PLANNED_DIR_LIST=$'\n'
 is_dir_planned() {
   case "$PLANNED_DIR_LIST" in
@@ -110,7 +116,9 @@ mark_dir_planned() {
   PLANNED_DIR_LIST="${PLANNED_DIR_LIST}${1}"$'\n'
 }
 
-# 安全に git mv する。大文字小文字のみの差分なら一時名を経由する。
+# Safely performs git mv.
+# If the difference is only letter casing, a temporary name is used as an
+# intermediate step to support case-insensitive file systems.
 safe_git_mv() {
   local old="$1"
   local new="$2"
@@ -127,7 +135,8 @@ safe_git_mv() {
   new_lower="$(printf '%s' "$new" | tr '[:upper:]' '[:lower:]')"
 
   if [[ "$old_lower" == "$new_lower" ]]; then
-    # 大文字小文字のみの差分 -> 一時名を経由（case-insensitive FS対策）
+    # Case-only rename -> go through a temporary name
+    # (workaround for case-insensitive file systems)
     local tmp="${new}.kebabtmp$$.$RANDOM"
     if $DRY_RUN; then
       echo "  [dry-run] git mv \"$old\" \"$tmp\" && git mv \"$tmp\" \"$new\""
@@ -146,10 +155,12 @@ safe_git_mv() {
   fi
 }
 
-# old_path（変換前のフルパス）を、ルートから1階層ずつ処理し、各ディレクトリを
-# 必要に応じてkebab-caseにリネームしていく。最終的にファイル本体もリネームする。
-# 戻り値: 実際に（またはdry-runで）使われた「現在のパス」を表す文字列を
-#         グローバル変数 RESOLVED_CURRENT_PATH に格納する。
+# Processes old_path from the root downward, renaming each directory level
+# to kebab-case as needed. Finally, the file itself is renamed.
+#
+# Result:
+#   The path actually used (or that would be used in dry-run mode) is stored
+#   in the global variable RESOLVED_CURRENT_PATH.
 process_path() {
   local old_path="$1"
 
@@ -163,7 +174,7 @@ process_path() {
   IFS='/' read -ra segments <<< "$path"
   local n="${#segments[@]}"
 
-  local current_dir="$leading_slash"   # ここまでで確定している実在パス（リネーム済み）
+  local current_dir="$leading_slash"   # Existing path resolved so far
   local i seg new_seg
 
   for ((i = 0; i < n; i++)); do
@@ -171,7 +182,7 @@ process_path() {
     [[ -z "$seg" ]] && continue
 
     if (( i == n - 1 )); then
-      # 最後のセグメント = ファイル名
+      # Final segment = file name
       new_seg="$(to_kebab_filename "$seg")"
     else
       new_seg="$(to_kebab_segment "$seg")"
@@ -187,10 +198,13 @@ process_path() {
     fi
 
     if (( i < n - 1 )); then
-      # ディレクトリ階層: 既に new_seg という名前(完全一致)で存在するなら何もしない。
-      # そうでなければ、現在のディレクトリ(old_full)をリネームする。
-      # dry-run時は実際にファイルシステムが変わらないため、同じディレクトリの
-      # リネーム計画を二重に表示しないよう、表示済みかどうかを別途記録する。
+      # Directory level:
+      # If a directory with the exact target name already exists,
+      # do nothing. Otherwise rename the current directory.
+      #
+      # In dry-run mode, the file system is unchanged, so we separately
+      # track planned renames to avoid printing the same directory rename
+      # multiple times.
       if $DRY_RUN; then
         if ! is_dir_planned "$new_full"; then
           mark_dir_planned "$new_full"
@@ -202,18 +216,20 @@ process_path() {
       else
         local exact
         if exact="$(find_exact_entry "$current_dir" "$new_seg" 2>/dev/null)"; then
-          : # 既に正しい表記で存在する
+          : # Already exists with the correct spelling
         else
           safe_git_mv "$old_full" "$new_full"
         fi
       fi
+
       if [[ -z "$current_dir" ]]; then
         current_dir="$new_seg"
       else
         current_dir="$current_dir/$new_seg"
       fi
     else
-      # ファイル名: 親ディレクトリ(current_dir)は既に確定済み。
+      # File name:
+      # The parent directory has already been resolved.
       local file_old file_new
       file_old="$current_dir/$seg"
       file_new="$current_dir/$new_seg"

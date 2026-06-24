@@ -1,1 +1,0 @@
-export { RecentProjects } from './RecentProjects';

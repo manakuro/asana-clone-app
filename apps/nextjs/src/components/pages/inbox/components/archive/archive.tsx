@@ -1,0 +1,56 @@
+import { memo, useMemo } from 'react';
+import {
+  Inbox,
+  InboxHeader,
+  InboxLeft,
+  InboxList,
+  InboxListContent,
+  InboxRight,
+  InboxSkeleton,
+  useInboxTaskDetail,
+} from '@/components/features/inbox';
+import { TaskDetailSide } from '@/components/features/task-details';
+import { TasksProvider } from '@/components/features/tasks';
+import { Flex } from '@/components/ui/flex';
+import { useInboxArchivePageQuery } from '@/hooks/queries/app';
+import { getInboxDetailId, isInboxDetailURL } from '@/router';
+import { useInboxPageContext } from '../../providers/provider';
+
+export const Archive = memo(function Archive() {
+  return <Component />;
+});
+
+const Component = memo(function Component() {
+  const { loadingTabContent } = useInboxPageContext();
+  const { loading: loadingQuery } = useInboxArchivePageQuery();
+  const loading = useMemo(
+    () => loadingTabContent || loadingQuery,
+    [loadingTabContent, loadingQuery],
+  );
+
+  useInboxTaskDetail({
+    isTaskDetailURL: isInboxDetailURL,
+    getTaskDetailId: getInboxDetailId,
+    fetchQuery: async () => {},
+  });
+
+  if (loading) return <InboxSkeleton />;
+
+  return (
+    <TasksProvider isInboxPage>
+      <Inbox isArchive>
+        <InboxLeft>
+          <InboxHeader />
+          <InboxListContent>
+            <Flex>
+              <InboxList />
+            </Flex>
+          </InboxListContent>
+        </InboxLeft>
+        <InboxRight>
+          <TaskDetailSide />
+        </InboxRight>
+      </Inbox>
+    </TasksProvider>
+  );
+});

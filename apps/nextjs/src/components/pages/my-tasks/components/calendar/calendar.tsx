@@ -1,0 +1,68 @@
+import { memo } from 'react';
+import { TaskDetailModal } from '@/components/features/task-details';
+import {
+  TasksCalendar,
+  TasksCalendarContent,
+  TasksCalendarList,
+  TasksCalendarListHeader,
+  TasksContainer,
+  useTasksCalendarDetail,
+} from '@/components/features/tasks';
+import {
+  CalendarMonthPicker,
+  TasksHeader,
+  TasksHeaderLeft,
+  TasksHeaderRight,
+  TodayButton,
+} from '@/components/features/tasks/tasks-header';
+import { useMyTasksContext } from '@/components/pages/my-tasks/providers/provider';
+import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
+import { SkeletonCalendar } from './skeleton-calendar';
+
+export const Calendar = memo(function Calendar() {
+  return (
+    <TasksContainer isMyTasksPage>
+      <Component />
+    </TasksContainer>
+  );
+});
+
+const Component = memo(function Component() {
+  const { tabContentLoading, fetchTaskDetailQuery } = useMyTasksContext();
+  const { navigateToMyTasksCalendar } = useRouter();
+
+  useTasksCalendarDetail({
+    isTaskDetailURL: isMyTasksDetailURL,
+    getTaskDetailId: getMyTasksDetailId,
+    fetchQuery: fetchTaskDetailQuery,
+    tabContentLoading,
+  });
+
+  if (tabContentLoading) return <SkeletonCalendar />;
+
+  return (
+    <>
+      <TasksCalendar>
+        <TasksHeader
+          h="40px"
+          borderBottom={1}
+          borderStyle="solid"
+          borderColor="border"
+          alignItems="center"
+        >
+          <TasksHeaderLeft>
+            <CalendarMonthPicker />
+          </TasksHeaderLeft>
+          <TasksHeaderRight ml="auto">
+            <TodayButton />
+          </TasksHeaderRight>
+        </TasksHeader>
+        <TasksCalendarListHeader />
+        <TasksCalendarContent>
+          <TasksCalendarList />
+        </TasksCalendarContent>
+      </TasksCalendar>
+      <TaskDetailModal backToPage={navigateToMyTasksCalendar} />
+    </>
+  );
+});
