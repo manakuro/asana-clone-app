@@ -1,5 +1,5 @@
 import { formatDueDate } from '@/shared/date';
-import { mockDate } from '@/testUtils';
+import { mockDate } from '@/test-utils';
 
 describe('formatDueDate', () => {
   mockDate('2021/4/5');
