@@ -3,7 +3,7 @@ import { PriorityChip } from '@/components/features/chips';
 import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list-cell';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import { useTask } from '@/store/entities/task';
 import { Menu } from './menu';
 

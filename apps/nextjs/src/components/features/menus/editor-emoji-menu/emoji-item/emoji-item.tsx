@@ -3,7 +3,7 @@ import { useEditorEmojiMenu } from '@/components/features/menus/editor-emoji-men
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
 import { useMenuStyle } from '@/hooks';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import type { BaseEmoji } from '@/shared/emoji';
 
 type Props = {

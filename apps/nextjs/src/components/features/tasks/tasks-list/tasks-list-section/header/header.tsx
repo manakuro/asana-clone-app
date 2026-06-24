@@ -5,7 +5,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Stack } from '@/components/ui/stack';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import { AddTaskButton } from './add-task-button';
 import { MoreAction } from './more-action';
 import { TaskSectionName } from './task-section-name';

@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
 import { useCallback, useEffect, useRef } from 'react';
 import { useMentionsQuery } from '@/hooks/queries/entities';
-import { useResizeObserver } from '@/hooks/useResizeObserver';
+import { useResizeObserver } from '@/hooks/use-resize-observer';
 import { calculateModalPosition } from '@/shared/calculateModalPosition';
 import { getCaretPosition } from '@/shared/getCaretPosition';
 import type { Mention, MentionTypeCode } from '@/store/entities/mention';

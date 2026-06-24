@@ -3,7 +3,7 @@ import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import { useProjectTeammate } from '@/store/entities/projectTeammate';
 import { useTeammate } from '@/store/entities/teammate';
 import { ProjectRoleMenu } from '../project-role-menu';

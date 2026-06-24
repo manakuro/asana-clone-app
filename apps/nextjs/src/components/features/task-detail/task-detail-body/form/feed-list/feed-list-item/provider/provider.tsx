@@ -2,7 +2,7 @@ import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { useTasksRouter } from '@/components/features/tasks/hooks';
 import type { DescriptionFragmentFragment } from '@/graphql/types';
-import { useToaster } from '@/hooks/useToaster';
+import { useToaster } from '@/hooks/use-toaster';
 import { parseDescription } from '@/shared/prosemirror/convertDescription';
 import { createProvider } from '@/shared/react/createProvider';
 import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/taskFeed';

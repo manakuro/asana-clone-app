@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
-import { useToaster } from '@/hooks/useToaster';
+import { useToaster } from '@/hooks/use-toaster';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 
 type Props = {

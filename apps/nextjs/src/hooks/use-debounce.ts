@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useMountedRef } from '@/hooks/useMountedRef';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 
 export const useDebounce = <T>(
   value: T,

@@ -3,7 +3,7 @@ import { startTransition, useCallback, useEffect, useRef } from 'react';
 import { useTaskDetail } from '@/components/features/task-detail';
 import { useTaskDetailDrawer } from '@/components/features/task-details';
 import { useTasksListBody } from '@/components/features/tasks';
-import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
+import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/use-click-outside';
 import type { Params } from '@/shared/nextjs/navigation';
 
 type Props = {

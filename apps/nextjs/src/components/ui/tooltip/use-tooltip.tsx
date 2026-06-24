@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useMountedRef } from '@/hooks';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import { useDisclosure } from '@/shared/chakra';
 
 type Props = {

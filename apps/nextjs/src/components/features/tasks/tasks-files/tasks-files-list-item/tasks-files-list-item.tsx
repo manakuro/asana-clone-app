@@ -8,7 +8,7 @@ import { Image } from '@/components/ui/image';
 import { Link } from '@/components/ui/link';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import { FileTypeCode } from '@/store/entities/fileType';
 import { useTask } from '@/store/entities/task';
 import {

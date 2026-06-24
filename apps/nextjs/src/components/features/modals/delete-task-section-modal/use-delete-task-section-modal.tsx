@@ -6,7 +6,7 @@ import {
   useTasksTaskSection,
   useTasksTaskSectionCommand,
 } from '@/components/features/tasks/hooks';
-import { useToaster } from '@/hooks/useToaster';
+import { useToaster } from '@/hooks/use-toaster';
 
 const openAtom = atom(false);
 

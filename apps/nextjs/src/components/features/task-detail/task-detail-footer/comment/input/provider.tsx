@@ -5,8 +5,8 @@ import {
   useTaskDetailBody,
 } from '@/components/features/task-detail';
 import type { FileUploaderParams, UploadedFile } from '@/components/ui/form';
-import { useClickOutside } from '@/hooks/useClickOutside';
-import { useToaster } from '@/hooks/useToaster';
+import { useClickOutside } from '@/hooks/use-click-outside';
+import { useToaster } from '@/hooks/use-toaster';
 import { getScrollBottom } from '@/shared/getScrollBottom';
 import { parseDescription } from '@/shared/prosemirror/convertDescription';
 import { createProvider } from '@/shared/react/createProvider';

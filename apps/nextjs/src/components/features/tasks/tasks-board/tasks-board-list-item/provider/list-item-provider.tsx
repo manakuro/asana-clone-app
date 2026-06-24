@@ -1,7 +1,7 @@
 import { useParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { useTasksTaskListStatus } from '@/components/features/tasks/hooks';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import { ROUTE_MY_TASKS } from '@/router';
 import { createProvider } from '@/shared/react/createProvider';
 import { useTask } from '@/store/entities/task';

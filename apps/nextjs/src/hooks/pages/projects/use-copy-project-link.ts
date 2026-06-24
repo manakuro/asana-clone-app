@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useToaster } from '@/hooks/useToaster';
+import { useToaster } from '@/hooks/use-toaster';
 import { getProjectsURL } from '@/router/projects';
 
 type Props = {

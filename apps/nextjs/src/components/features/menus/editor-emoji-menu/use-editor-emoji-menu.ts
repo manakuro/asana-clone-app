@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { useResizeObserver } from '@/hooks/useResizeObserver';
+import { useResizeObserver } from '@/hooks/use-resize-observer';
 import { calculateModalPosition } from '@/shared/calculateModalPosition';
 import {
   type BaseEmoji,
