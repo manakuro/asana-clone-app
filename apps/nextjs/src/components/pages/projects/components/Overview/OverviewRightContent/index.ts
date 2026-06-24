@@ -1,1 +1,0 @@
-export { OverviewRightContent } from './OverviewRightContent';

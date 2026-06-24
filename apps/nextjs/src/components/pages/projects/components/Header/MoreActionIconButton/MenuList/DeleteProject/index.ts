@@ -1,1 +1,0 @@
-export { DeleteProject } from './DeleteProject';
