@@ -5,7 +5,7 @@ import {
   ROUTE_MY_TASKS_CALENDAR,
   ROUTE_MY_TASKS_FILES,
   ROUTE_MY_TASKS_LIST,
-} from './myTasks';
+} from './my-tasks';
 import {
   ROUTE_PROJECTS_BOARD,
   ROUTE_PROJECTS_CALENDAR,
@@ -22,7 +22,7 @@ export {
   ROUTE_MY_TASKS_CALENDAR,
   ROUTE_MY_TASKS_FILES,
   ROUTE_MY_TASKS_LIST,
-} from './myTasks';
+} from './my-tasks';
 export {
   ROUTE_PROJECTS_BOARD,
   ROUTE_PROJECTS_CALENDAR,

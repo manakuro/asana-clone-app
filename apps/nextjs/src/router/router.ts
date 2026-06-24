@@ -1,7 +1,7 @@
 import { useRouter as useRouterNext } from 'next/navigation';
 import { useRouterHome } from './home';
 import { useRouterInbox } from './inbox';
-import { useRouterMyTasks } from './myTasks';
+import { useRouterMyTasks } from './my-tasks';
 import { useRouterProjects } from './projects';
 import { useRouterWorkspace } from './workspace';
 

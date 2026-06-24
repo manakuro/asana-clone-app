@@ -12,7 +12,7 @@ export {
   isMyTasksDetailURLById,
   isMyTasksFilesURL,
   isMyTasksListURL,
-} from './myTasks';
+} from './my-tasks';
 export {
   getProjectsDetailFeedId,
   getProjectsDetailFeedURL,
@@ -24,7 +24,7 @@ export {
   isProjectsFilesURL,
   isProjectsListURL,
 } from './projects';
-export { taskDetailURL } from './taskDetail';
+export { taskDetailURL } from './task-detail';
 export {
   getWorkspacesIdFromURL,
   isWorkspacesCalendarURL,
