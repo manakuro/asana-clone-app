@@ -9,7 +9,7 @@ import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
-import { useDnd } from '@/hooks/dnd/useDnd';
+import { useDnd } from '@/hooks/dnd/use-dnd';
 import { isMyTasksBoardURL } from '@/router';
 import { useCustomizeMenu } from '../use-customize-menu';
 import { ListItem } from './list-item';
