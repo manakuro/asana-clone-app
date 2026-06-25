@@ -6,9 +6,9 @@ import { Input, type InputProps } from '@/components/ui/input';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
-  useDebounce,
-  useMountedRef,
-} from '@/hooks';
+} from '@/hooks/use-click-outside';
+import { useDebounce } from '@/hooks/use-debounce';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { useSubtasksNameContext } from './provider';
 
 type Props = {

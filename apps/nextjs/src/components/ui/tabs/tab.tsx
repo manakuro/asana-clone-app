@@ -1,6 +1,6 @@
 import { Tabs, type TabsTriggerProps } from '@chakra-ui/react';
 import { forwardRef } from 'react';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 
 type Props = TabsTriggerProps;
 

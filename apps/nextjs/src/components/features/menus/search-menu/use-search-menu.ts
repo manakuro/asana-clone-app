@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchMenuOnKeyBindings } from '@/components/features/menus/search-menu/index';
-import { useDebounce } from '@/hooks';
+import { useDebounce } from '@/hooks/use-debounce';
 
 type Props<T> = {
   items: T[];

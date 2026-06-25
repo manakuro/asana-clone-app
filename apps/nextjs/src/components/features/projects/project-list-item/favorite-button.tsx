@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { FavoriteIconButton } from '@/components/ui/favorite-icon-button';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import {
   useFavoriteProjectIds,
   useFavoriteProjectIdsCommand,

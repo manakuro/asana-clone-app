@@ -4,7 +4,7 @@ import type { BoxProps } from '@/components/ui/box';
 import { Center } from '@/components/ui/center';
 import { Icon as AtomsIcon } from '@/components/ui/icon';
 import { WrapItem } from '@/components/ui/wrap';
-import { useLinkHoverStyle } from '@/hooks';
+import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import type { IconType } from '@/shared/icons';
 import { useProjectBaseColor } from '@/store/entities/project-base-color';
 import { useProjectIcon } from '@/store/entities/project-icon';

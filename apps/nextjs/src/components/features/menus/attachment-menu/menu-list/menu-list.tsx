@@ -4,7 +4,7 @@ import {
   type FileUploaderParams,
 } from '@/components/ui/form/file-uploader';
 import { Menu } from '@/components/ui/menu';
-import { useMenuStyle } from '@/hooks';
+import { useMenuStyle } from '@/hooks/styles/use-menu-style';
 
 type Props = {
   onUpload?: (files: FileUploaderParams) => void;

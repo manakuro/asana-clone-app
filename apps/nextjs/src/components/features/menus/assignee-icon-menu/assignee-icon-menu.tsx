@@ -3,7 +3,7 @@ import { PopoverAssigneeInput } from '@/components/features/popovers';
 import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useTeammate } from '@/store/entities/teammate';
 
 type Props = {

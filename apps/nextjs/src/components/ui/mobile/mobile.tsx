@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/flex';
 import { Image } from '@/components/ui/image';
 import { Logo } from '@/components/ui/logo';
 import { Text } from '@/components/ui/text';
-import { useResponsive } from '@/hooks';
+import { useResponsive } from '@/hooks/use-responsive';
 
 type Props = PropsWithChildren;
 export type MenuProps = Props;

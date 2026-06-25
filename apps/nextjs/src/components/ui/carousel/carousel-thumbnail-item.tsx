@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import { useCallback, useMemo } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { WrapItem } from '@/components/ui/wrap';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useCarouselContext } from './provider';
 
 type Props = {

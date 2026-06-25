@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { Dialog } from '@/components/ui/dialog';
-import { useMenuStyle } from '@/hooks';
+import { useMenuStyle } from '@/hooks/styles/use-menu-style';
 import type { BaseEmoji } from '@/shared/emoji';
 import { EmojiItem } from './emoji-item';
 import { useEditorEmojiMenu } from './use-editor-emoji-menu';

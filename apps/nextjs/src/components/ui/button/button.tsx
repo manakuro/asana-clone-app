@@ -3,7 +3,7 @@ import {
   type ButtonProps as ChakraButtonProps,
 } from '@chakra-ui/react';
 import { forwardRef } from 'react';
-import { useLinkHoverStyle } from '@/hooks';
+import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 
 type Props = ChakraButtonProps & {
   lightBg?: boolean;

@@ -12,7 +12,7 @@ import {
 import { Popover } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
 import { Stack } from '@/components/ui/stack';
-import { useClickOutside } from '@/hooks';
+import { useClickOutside } from '@/hooks/use-click-outside';
 
 type Props = {
   onClose?: () => void;

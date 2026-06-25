@@ -5,7 +5,7 @@ import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list
 import { DueDate } from '@/components/ui/due-date';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useHover } from '@/hooks/use-hover';
 import { useTask } from '@/store/entities/task';
 

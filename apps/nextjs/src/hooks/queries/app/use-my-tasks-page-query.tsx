@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { MyTasksPageDocument } from '@/graphql/hooks';
-import { useMountedRef } from '@/hooks';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { useMyTasksResponse } from '@/store/app/my-tasks';
 import { useMe } from '@/store/entities/me';
 import { useWorkspace } from '@/store/entities/workspace';

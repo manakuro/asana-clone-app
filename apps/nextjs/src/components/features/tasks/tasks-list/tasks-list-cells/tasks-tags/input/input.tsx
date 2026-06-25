@@ -5,7 +5,7 @@ import { TagMenu } from '@/components/features/menus';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
-import { useClickOutside } from '@/hooks';
+import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/shared/chakra';
 import type { Tag } from '@/store/entities/tag';
 import {

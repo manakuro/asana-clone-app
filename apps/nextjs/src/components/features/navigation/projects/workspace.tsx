@@ -10,7 +10,8 @@ import { Menu } from '@/components/ui/menu';
 import { NextLink } from '@/components/ui/next-link';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
-import { useClickableHoverStyle, useLinkHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
+import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
 import { useWorkspace } from '@/store/entities/workspace';
 

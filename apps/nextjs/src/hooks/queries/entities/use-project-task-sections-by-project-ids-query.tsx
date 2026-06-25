@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ProjectTaskSectionsDocument } from '@/graphql/hooks';
 import type { ProjectTaskSectionsQuery } from '@/graphql/types';
 import type { ProjectTaskSectionResponse } from '@/graphql/types/project-task-sections';
-import { useMountedRef } from '@/hooks';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import { useProjectTaskSectionResponse } from '@/store/entities/project-task-section';
 

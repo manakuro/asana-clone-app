@@ -4,7 +4,7 @@ import {
   useEditorMentionMenu,
 } from '@/components/features/menus/editor-mention-menu';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useMenuStyle } from '@/hooks';
+import { useMenuStyle } from '@/hooks/styles/use-menu-style';
 import { useHover } from '@/hooks/use-hover';
 import type { Mention } from '@/store/entities/mention';
 

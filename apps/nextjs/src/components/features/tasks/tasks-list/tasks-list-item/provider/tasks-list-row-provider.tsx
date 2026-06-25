@@ -1,6 +1,6 @@
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useMountedRef } from '@/hooks';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { ROUTE_MY_TASKS } from '@/router';
 import { createProvider } from '@/shared/react/create-provider';
 

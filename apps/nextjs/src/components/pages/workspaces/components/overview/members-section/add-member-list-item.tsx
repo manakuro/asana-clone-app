@@ -3,7 +3,7 @@ import { useInviteModal } from '@/components/features/modals';
 import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 
 export const AddMemberListItem = memo(function AddMemberListItem() {
   const { setIsOpen } = useInviteModal();

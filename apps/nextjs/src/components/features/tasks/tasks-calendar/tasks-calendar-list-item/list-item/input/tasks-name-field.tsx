@@ -2,7 +2,8 @@ import type React from 'react';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Input, type InputProps } from '@/components/ui/input';
-import { useClickOutside, useDebounce } from '@/hooks';
+import { useClickOutside } from '@/hooks/use-click-outside';
+import { useDebounce } from '@/hooks/use-debounce';
 
 type Props = {
   value: string;

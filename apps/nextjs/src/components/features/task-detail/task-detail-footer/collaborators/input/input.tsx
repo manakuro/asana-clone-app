@@ -6,7 +6,7 @@ import { useTaskDetail } from '@/components/features/task-detail';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
-import { useClickOutside } from '@/hooks';
+import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/shared/chakra';
 import {
   useTaskCollaboratorCommand,

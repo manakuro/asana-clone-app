@@ -7,8 +7,8 @@ import { InputText } from '@/components/ui/input-text';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
-  useDebounce,
-} from '@/hooks';
+} from '@/hooks/use-click-outside';
+import { useDebounce } from '@/hooks/use-debounce';
 import { useTaskOptimistic } from '@/store/entities/task';
 import { useTasksBoardListItemElement } from '../index';
 import { useTasksBoardListItemInputContext } from '../provider';

@@ -1,7 +1,7 @@
 import { memo, type PropsWithChildren, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { useMainStyle } from '@/hooks';
+import { useMainStyle } from '@/hooks/styles/use-main-style';
 import { AddButton } from './add-button';
 import { MyAccountAvatar } from './my-account-avatar';
 import { SearchInput } from './search-input';

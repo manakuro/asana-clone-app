@@ -4,7 +4,8 @@ import {
 } from '@chakra-ui/react';
 import type React from 'react';
 import { forwardRef, useMemo } from 'react';
-import { useDisabledStyle, useLinkHoverStyle } from '@/hooks';
+import { useDisabledStyle } from '@/hooks/styles/use-disabled-style';
+import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import type { SystemStyleObject } from '@/shared/chakra';
 
 type Props = ChakraIconButtonProps & {

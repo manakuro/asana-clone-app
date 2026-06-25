@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo, useState } from 'react';
 import { ProjectTaskDocument } from '@/graphql/hooks';
-import { useMountedRef } from '@/hooks';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 import {
   type ProjectTaskResponse,
   useProjectTaskResponse,

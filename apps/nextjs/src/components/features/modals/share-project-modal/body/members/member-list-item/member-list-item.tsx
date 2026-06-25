@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useTeammate } from '@/store/entities/teammate';
 import { PermissionMenu } from '../../permission-menu';
 
