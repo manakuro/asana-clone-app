@@ -1,17 +1,17 @@
 import { memo, useMemo } from 'react';
+import { useInboxTaskDetail } from '@/components/features/inbox/hooks/use-inbox-task-detail';
+import { Inbox } from '@/components/features/inbox/inbox';
 import {
   FilterButton,
-  Inbox,
   InboxHeader,
   InboxHeaderRight,
-  InboxLeft,
-  InboxList,
-  InboxListContent,
-  InboxRight,
-  InboxSkeleton,
   MoreActionButton,
-  useInboxTaskDetail,
-} from '@/components/features/inbox';
+} from '@/components/features/inbox/inbox-header';
+import { InboxLeft } from '@/components/features/inbox/inbox-left';
+import { InboxList } from '@/components/features/inbox/inbox-list';
+import { InboxListContent } from '@/components/features/inbox/inbox-list-content';
+import { InboxRight } from '@/components/features/inbox/inbox-right';
+import { InboxSkeleton } from '@/components/features/inbox/inbox-skeleton';
 import { TaskDetailSide } from '@/components/features/task-details/task-detail-side';
 import { TasksProvider } from '@/components/features/tasks';
 import { Flex } from '@/components/ui/flex';

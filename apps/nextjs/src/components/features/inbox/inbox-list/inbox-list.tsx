@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import {
   type UseInboxListItemIdsKeys,
   useInboxListItemIds,
-} from '@/components/features/inbox';
+} from '@/components/features/inbox/hooks/use-inbox-list-item-ids';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { InboxListSection } from '../inbox-list-section';
 import { useInboxList } from './use-inbox-list';
