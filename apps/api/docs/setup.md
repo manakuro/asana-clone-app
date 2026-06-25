@@ -21,6 +21,11 @@ In the `apps/api` folder:
 2. Inside the `.keys` directory, create a file called `firebase-service-key.json`.
 3. Paste the content from the downloaded JSON file into `firebase-service-key.json` like this:
 
+```
+apps/api/.keys/
+└── firebase-service-key.json
+```
+
 ```json
 {
   "type": "service_account",
