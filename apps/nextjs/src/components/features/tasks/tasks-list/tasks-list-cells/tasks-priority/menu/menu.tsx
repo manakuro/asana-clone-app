@@ -6,7 +6,7 @@ import {
 } from '@/components/features/menus';
 import { Menu as UIMenu } from '@/components/ui/menu';
 import { useTask } from '@/store/entities/task';
-import { useTasksPriorities } from '@/store/entities/taskPriority';
+import { useTasksPriorities } from '@/store/entities/task-priority';
 
 type Props = PropsWithChildren<{
   taskId: string;

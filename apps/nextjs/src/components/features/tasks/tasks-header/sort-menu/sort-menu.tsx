@@ -6,7 +6,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
-import type { TaskListSortStatusCodeValue } from '@/store/entities/taskListSortStatus';
+import type { TaskListSortStatusCodeValue } from '@/store/entities/task-list-sort-status';
 
 type Props<T extends TaskListSortStatusCodeValue> = {
   items: {

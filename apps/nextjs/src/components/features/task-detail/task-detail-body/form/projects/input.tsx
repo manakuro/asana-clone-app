@@ -5,7 +5,7 @@ import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput, type InputProps } from '@/components/ui/input';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
-import { useProjectTaskCommand } from '@/store/entities/projectTask';
+import { useProjectTaskCommand } from '@/store/entities/project-task';
 
 type Props = {
   onClose: () => void;

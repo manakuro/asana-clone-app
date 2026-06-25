@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { createProvider } from '@/shared/react/createProvider';
+import { createProvider } from '@/shared/react/create-provider';
 
 type ContextProps = {
   queryLoading: boolean;

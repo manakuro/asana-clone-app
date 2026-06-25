@@ -4,7 +4,7 @@ import { useTaskDetail } from '@/components/features/task-detail';
 import { FEED_LIST_CONTAINER_ID } from '@/components/features/task-detail/task-detail-body/form/feed-list';
 import { useTasksRouter } from '@/components/features/tasks/hooks';
 import { IconButton } from '@/components/ui/icon-button';
-import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/taskFeed';
+import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/task-feed';
 import { Icon } from './icon';
 
 type Props = {

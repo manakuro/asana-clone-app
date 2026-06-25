@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Icon, type IconProps } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
-import { useTaskTag } from '@/store/entities/taskTag';
+import { useTaskTag } from '@/store/entities/task-tag';
 
 type Variant = 'button' | 'icon';
 

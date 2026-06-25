@@ -4,7 +4,7 @@ import { AssignProjectOwnerMenu } from '@/components/features/menus';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { useClickOutside } from '@/hooks';
 import { useDisclosure } from '@/shared/chakra';
-import { useProjectTeammatesCommand } from '@/store/entities/projectTeammate';
+import { useProjectTeammatesCommand } from '@/store/entities/project-teammate';
 import type { Teammate } from '@/store/entities/teammate';
 
 type Props = {

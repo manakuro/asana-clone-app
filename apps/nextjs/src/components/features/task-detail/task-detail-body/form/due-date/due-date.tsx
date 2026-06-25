@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Icon } from '@/components/ui/icon';
 import { useClickableHoverStyle } from '@/hooks';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import { useTask } from '@/store/entities/task';
 import { Content, Label, Row } from '../row';
 

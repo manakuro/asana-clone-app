@@ -6,8 +6,8 @@ import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list
 import { useTasksListHeaderContext } from '@/components/features/tasks/tasks-list/tasks-list-header/provider';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useClickableHoverStyle } from '@/hooks';
-import { useHover } from '@/hooks/useHover';
-import { useTaskColumn } from '@/store/entities/taskColumn';
+import { useHover } from '@/hooks/use-hover';
+import { useTaskColumn } from '@/store/entities/task-column';
 import { MoreAction } from './more-action';
 
 type Props = {

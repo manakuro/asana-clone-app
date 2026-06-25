@@ -7,7 +7,7 @@ import {
   ROUTE_MY_TASKS_FILES,
   ROUTE_MY_TASKS_LIST,
 } from '@/router';
-import { useTeammateTaskTabStatus } from '@/store/entities/teammateTaskTabStatus';
+import { useTeammateTaskTabStatus } from '@/store/entities/teammate-task-tab-status';
 import { NavListItem } from '../../nav-list-item';
 import type { NavListItem as TNavListItem } from '../../type';
 

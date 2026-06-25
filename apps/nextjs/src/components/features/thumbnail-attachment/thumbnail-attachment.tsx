@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
-import { FileTypeCode } from '@/store/entities/fileType';
-import { type TaskFile, useTaskFile } from '@/store/entities/taskFile';
+import { FileTypeCode } from '@/store/entities/file-type';
+import { type TaskFile, useTaskFile } from '@/store/entities/task-file';
 import { File } from './file';
 import { Image } from './image';
 import { Provider } from './provider';

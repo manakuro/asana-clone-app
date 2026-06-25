@@ -8,9 +8,9 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Text } from '@/components/ui/text';
 import type { IconType } from '@/shared/icons';
 import { useProject } from '@/store/entities/project';
-import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
-import { useProjectIcon } from '@/store/entities/projectIcon';
-import { useTeammateIdsByProjectId } from '@/store/entities/projectTeammate';
+import { useProjectBaseColor } from '@/store/entities/project-base-color';
+import { useProjectIcon } from '@/store/entities/project-icon';
+import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { Container } from './container';
 import { FavoriteButton } from './favorite-button';
 

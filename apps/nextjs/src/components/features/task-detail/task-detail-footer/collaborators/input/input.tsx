@@ -11,7 +11,7 @@ import { useDisclosure } from '@/shared/chakra';
 import {
   useTaskCollaboratorCommand,
   useTeammateIdsByTaskId,
-} from '@/store/entities/taskCollaborator';
+} from '@/store/entities/task-collaborator';
 import type { Teammate } from '@/store/entities/teammate';
 import { useCollaboratorsContext } from '../provider';
 

@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { useTaskPriority } from '@/store/entities/taskPriority';
+import { useTaskPriority } from '@/store/entities/task-priority';
 
 type Props = {
   taskPriorityId: string;

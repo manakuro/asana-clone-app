@@ -14,7 +14,7 @@ import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,
   useTaskListCompletedStatus,
-} from '@/store/entities/taskListCompletedStatus';
+} from '@/store/entities/task-list-completed-status';
 import { PopoverCompletedTasks } from './popover-completed-tasks';
 
 type Props = {

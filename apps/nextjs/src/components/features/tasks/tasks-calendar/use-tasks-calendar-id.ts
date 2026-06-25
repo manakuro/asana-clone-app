@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { dateFns } from '@/shared/dateFns';
+import { dateFns } from '@/shared/date-fns';
 
 export const useTasksCalendarId = () => {
   const getCalendarListId = useCallback((date: Date) => {

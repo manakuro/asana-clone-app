@@ -1,1 +1,1 @@
-export * from './useProjectsProjectIds';
+export * from './use-projects-project-ids';

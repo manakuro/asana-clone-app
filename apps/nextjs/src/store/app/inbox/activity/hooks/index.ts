@@ -1,1 +1,1 @@
-export * from './useActivityResponse';
+export * from './use-activity-response';

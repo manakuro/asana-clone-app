@@ -10,7 +10,7 @@ import { Stack } from '@/components/ui/stack';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useLinkStyle } from '@/hooks';
 import { ROUTE_MY_TASKS_LIST } from '@/router';
-import { useTasksDueSoonIds } from '@/store/app/home/tasksDueSoon';
+import { useTasksDueSoonIds } from '@/store/app/home/tasks-due-soon';
 import { ListItem } from './list-item';
 
 export const TasksDueSoon = memo(function TasksDueSoon() {

@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import type { BaseEmoji } from '@/shared/emoji';
-import { createProvider } from '@/shared/react/createProvider';
+import { createProvider } from '@/shared/react/create-provider';
 
 type ContextProps = {
   open: boolean;

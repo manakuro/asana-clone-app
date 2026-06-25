@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/icon';
 import { useClickableHoverStyle } from '@/hooks';
-import { useProjectTeammatesCommand } from '@/store/entities/projectTeammate';
+import { useProjectTeammatesCommand } from '@/store/entities/project-teammate';
 
 type Props = {
   projectTeammateId: string;

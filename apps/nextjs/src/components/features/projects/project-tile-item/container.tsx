@@ -2,7 +2,7 @@ import type { SystemStyleObject } from '@chakra-ui/react';
 import { type ReactElement, useCallback, useState } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import { transitions } from '@/styles/transitions';
 
 type Props = {

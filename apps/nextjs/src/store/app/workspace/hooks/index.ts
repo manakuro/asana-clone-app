@@ -1,1 +1,1 @@
-export * from './useWorkspaceResponse';
+export * from './use-workspace-response';

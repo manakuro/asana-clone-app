@@ -1,6 +1,6 @@
 import { atom, useAtom } from 'jotai';
 import { useCallback, useEffect } from 'react';
-import { isHTMLElement } from '@/shared/isHTMLElement';
+import { isHTMLElement } from '@/shared/is-html-element';
 import { useTasksListContent } from './use-tasks-list-content';
 
 const isScrollingAtom = atom<boolean>(false);

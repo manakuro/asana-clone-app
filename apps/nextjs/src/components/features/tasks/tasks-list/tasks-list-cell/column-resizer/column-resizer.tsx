@@ -2,7 +2,7 @@ import type React from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Portal } from '@/components/ui/portal';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 
 type Props = Omit<FlexProps, 'onChange'> & {
   onChange?: (margin: number) => void;

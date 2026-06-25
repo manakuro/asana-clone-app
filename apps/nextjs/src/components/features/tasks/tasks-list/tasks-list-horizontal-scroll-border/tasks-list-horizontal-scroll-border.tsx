@@ -7,7 +7,7 @@ import {
 import { useTasksTaskColumnByType } from '@/components/features/tasks/hooks';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMountedRef } from '@/hooks';
-import { TaskColumnType } from '@/store/entities/taskColumn';
+import { TaskColumnType } from '@/store/entities/task-column';
 
 type Props = FlexProps;
 

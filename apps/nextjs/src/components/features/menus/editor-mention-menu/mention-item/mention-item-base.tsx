@@ -5,7 +5,7 @@ import {
 } from '@/components/features/menus/editor-mention-menu';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMenuStyle } from '@/hooks';
-import { useHover } from '@/hooks/useHover';
+import { useHover } from '@/hooks/use-hover';
 import type { Mention } from '@/store/entities/mention';
 
 type Props = Override<

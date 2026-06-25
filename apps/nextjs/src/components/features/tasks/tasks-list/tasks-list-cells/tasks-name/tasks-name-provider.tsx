@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useHover } from '@/hooks/useHover';
-import { createProvider } from '@/shared/react/createProvider';
+import { useHover } from '@/hooks/use-hover';
+import { createProvider } from '@/shared/react/create-provider';
 import { useInputFocus } from './use-input-focus';
 import { useMarkMenuFocus } from './use-mark-menu-focus';
 

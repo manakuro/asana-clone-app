@@ -11,7 +11,7 @@ import type { Tag } from '@/store/entities/tag';
 import {
   useTaskTagCommand,
   useTaskTagIdsByTaskId,
-} from '@/store/entities/taskTag';
+} from '@/store/entities/task-tag';
 
 type Props = {
   taskId: string;

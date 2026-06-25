@@ -14,14 +14,14 @@ import {
   isMyTasksListURL,
   useRouter,
 } from '@/router';
-import { useMyTasksTaskListStatus } from '@/store/app/myTasks/taskListStatus';
-import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
+import { useMyTasksTaskListStatus } from '@/store/app/my-tasks/task-list-status';
+import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
 import {
   type TeammateTaskTabStatus,
   TeammateTaskTabStatusCode,
   useTeammateTaskTabStatus,
   useTeammateTaskTabStatusCommand,
-} from '@/store/entities/teammateTaskTabStatus';
+} from '@/store/entities/teammate-task-tab-status';
 import { Board } from './components/board';
 import { Calendar } from './components/calendar';
 import { Files } from './components/files';

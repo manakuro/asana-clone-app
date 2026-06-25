@@ -8,7 +8,7 @@ import { Text } from '@/components/ui/text';
 import { useLinkStyle } from '@/hooks';
 import { formatCreatedAt } from '@/shared/date';
 import { useMe } from '@/store/entities/me';
-import { useProjectTeammate } from '@/store/entities/projectTeammate';
+import { useProjectTeammate } from '@/store/entities/project-teammate';
 import { useTeammate } from '@/store/entities/teammate';
 import { useTimelineStyle } from '../use-timeline-style';
 

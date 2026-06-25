@@ -1,1 +1,1 @@
-export * from './useHomeResponse';
+export * from './use-home-response';

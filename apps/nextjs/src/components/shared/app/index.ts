@@ -1,2 +1,2 @@
-export * from './GlobalQuery';
-export * from './Subscription';
+export * from './global-query';
+export * from './subscription';

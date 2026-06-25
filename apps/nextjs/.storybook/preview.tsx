@@ -3,7 +3,7 @@ import { initialize, mswLoader } from 'msw-storybook-addon';
 import { createElement } from 'react';
 import { handlers as mutationHandlers } from '../src/mocks/mutations/handlers';
 import { handlers as queryHandlers } from '../src/mocks/queries/handlers';
-import { Provider } from '../src/storybook/Provider';
+import { Provider } from '../src/storybook/provider';
 
 const originalWarn = console.warn;
 console.warn = (...args) => {

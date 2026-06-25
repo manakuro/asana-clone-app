@@ -5,9 +5,9 @@ import { Tooltip } from '@/components/ui/tooltip';
 import {
   useFavoriteProjectIds,
   useFavoriteProjectIdsCommand,
-} from '@/store/entities/favoriteProjectIds';
+} from '@/store/entities/favorite-project-ids';
 import { useProject } from '@/store/entities/project';
-import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
+import { useProjectBaseColor } from '@/store/entities/project-base-color';
 
 type Props = {
   projectId: string;

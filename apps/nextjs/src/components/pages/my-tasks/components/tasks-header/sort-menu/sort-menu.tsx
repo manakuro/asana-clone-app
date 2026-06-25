@@ -4,8 +4,8 @@ import { useMyTasksContext } from '@/components/pages/my-tasks/providers/provide
 import {
   type TaskListSortStatusCodeValue,
   useMyTasksTaskListStatus,
-} from '@/store/app/myTasks/taskListStatus';
-import { TaskListSortStatusCode } from '@/store/entities/taskListSortStatus';
+} from '@/store/app/my-tasks/task-list-status';
+import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
 
 type Props = {
   projectSortable?: boolean;

@@ -16,7 +16,7 @@ import {
   INBOX_LIST_FILTER_STATUS_TYPE_UNREAD_ONLY,
   type InboxListFilterStatuses,
   useInboxListStatus,
-} from '@/store/app/inbox/activity/inboxListStatus';
+} from '@/store/app/inbox/activity/inbox-list-status';
 
 const items: {
   value: InboxListFilterStatuses;

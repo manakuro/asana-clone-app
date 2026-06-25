@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTasksListContentSticky } from '@/components/features/tasks';
 import type { SystemStyleObject } from '@/shared/chakra';
-import { createProvider } from '@/shared/react/createProvider';
+import { createProvider } from '@/shared/react/create-provider';
 
 type ContextProps = {
   stickyStyle: StickyStyle;

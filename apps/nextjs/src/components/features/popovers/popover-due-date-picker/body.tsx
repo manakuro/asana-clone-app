@@ -5,7 +5,7 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Popover } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
 import { useDisclosure } from '@/shared/chakra';
-import { dateFns } from '@/shared/dateFns';
+import { dateFns } from '@/shared/date-fns';
 import { DueTime } from './due-time';
 
 type Props = {

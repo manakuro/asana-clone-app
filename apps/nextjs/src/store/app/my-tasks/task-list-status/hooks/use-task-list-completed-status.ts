@@ -1,0 +1,34 @@
+import { useCallback } from 'react';
+import type { TaskListCompletedStatusCodeValue } from '@/store/entities/task-list-completed-status';
+import {
+  type TaskListCompletedStatuses,
+  taskListCompletedStatues,
+} from '../atom';
+import { useTaskListStatus } from './use-task-list-status';
+import { useTaskListStatusCommand } from './use-task-list-status-command';
+
+export const useTaskListCompletedStatus = () => {
+  const { taskListStatus } = useTaskListStatus();
+  const taskListStatusCommand = useTaskListStatusCommand();
+
+  const isTaskListCompletedStatus = useCallback(
+    (status: TaskListCompletedStatuses) =>
+      taskListStatus.taskListCompletedStatus.statusCode ===
+      taskListCompletedStatues[status],
+    [taskListStatus.taskListCompletedStatus],
+  );
+
+  const setTaskListCompletedStatus = useCallback(
+    (status: TaskListCompletedStatusCodeValue) => {
+      taskListStatusCommand.setTaskListCompletedStatus({
+        statusCode: status,
+      });
+    },
+    [taskListStatusCommand],
+  );
+
+  return {
+    isTaskListCompletedStatus,
+    setTaskListCompletedStatus,
+  };
+};

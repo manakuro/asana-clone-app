@@ -1,6 +1,6 @@
 import type React from 'react';
-import { useHover } from '@/hooks/useHover';
-import { createProvider } from '@/shared/react/createProvider';
+import { useHover } from '@/hooks/use-hover';
+import { createProvider } from '@/shared/react/create-provider';
 
 type ContextProps = {
   ref: React.MutableRefObject<HTMLElement | null>;

@@ -5,7 +5,7 @@ import { ProjectTeammatesDocument } from '@/graphql/hooks';
 import type {
   ProjectTeammateResponse,
   ProjectTeammatesQuery,
-} from '@/graphql/types/projectTeammate';
+} from '@/graphql/types/project-teammate';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import type { Teammate } from '@/store/entities/teammate';
 

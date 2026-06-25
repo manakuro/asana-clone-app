@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list-item';
 import { TasksListSectionProvider } from '@/components/features/tasks/tasks-list/tasks-list-section';
 import { Flex } from '@/components/ui/flex';
-import { useMyTasksTaskIdsByProjectId } from '@/store/app/myTasks/tasks';
+import { useMyTasksTaskIdsByProjectId } from '@/store/app/my-tasks/tasks';
 import { Header } from './header';
 import { Provider } from './provider';
 

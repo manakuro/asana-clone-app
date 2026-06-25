@@ -1,7 +1,7 @@
 import { Flex } from '@/components/ui/flex';
 import { Grid } from '@/components/ui/grid';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useProjectTeammateIdsByProjectIdSortedByOwner } from '@/store/entities/projectTeammate';
+import { useProjectTeammateIdsByProjectIdSortedByOwner } from '@/store/entities/project-teammate';
 import { OverviewContentHeading } from '../overview-content-heading';
 import { ProjectRoleAddMember } from './project-role-add-member';
 import { ProjectRoleListItem } from './project-role-list-item';

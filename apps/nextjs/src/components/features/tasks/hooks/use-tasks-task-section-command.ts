@@ -1,13 +1,13 @@
-import { useMyTasksTaskSectionCommand } from '@/store/app/myTasks/taskSections';
-import { useProjectsTaskSectionCommand } from '@/store/app/projects/taskSections';
+import { useMyTasksTaskSectionCommand } from '@/store/app/my-tasks/task-sections';
+import { useProjectsTaskSectionCommand } from '@/store/app/projects/task-sections';
 import type {
   DeleteProjectTaskSectionAndDeleteTasksMutation,
   DeleteProjectTaskSectionAndKeepTasksMutation,
-} from '@/store/entities/projectTaskSection';
+} from '@/store/entities/project-task-section';
 import type {
   DeleteTeammateTaskSectionAndDeleteTasksMutation,
   DeleteTeammateTaskSectionAndKeepTasksMutation,
-} from '@/store/entities/teammatesTaskSection';
+} from '@/store/entities/teammates-task-section';
 import { useTasksContext } from '../tasks-provider';
 
 export type DeleteTaskSectionAndKeepTasksResponse =

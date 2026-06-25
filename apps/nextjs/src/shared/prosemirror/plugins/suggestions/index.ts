@@ -1,5 +1,5 @@
 import { suggest } from 'prosemirror-suggest';
-import { suggestEmoji } from './suggestEmoji';
-import { suggestMention } from './suggestMention';
+import { suggestEmoji } from './suggest-emoji';
+import { suggestMention } from './suggest-mention';
 
 export const suggestionPlugin = () => suggest(suggestMention, suggestEmoji);

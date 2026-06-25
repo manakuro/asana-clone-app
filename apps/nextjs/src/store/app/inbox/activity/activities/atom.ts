@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
-import { dateFns } from '@/shared/dateFns';
-import { ActivityTypeCode } from '@/store/entities/activityType';
+import { dateFns } from '@/shared/date-fns';
+import { ActivityTypeCode } from '@/store/entities/activity-type';
 import { createState } from '@/store/util';
 import type { Activity } from './type';
 

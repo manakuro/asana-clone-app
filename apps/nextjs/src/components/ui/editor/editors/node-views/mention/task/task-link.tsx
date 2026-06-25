@@ -6,7 +6,7 @@ import {
   PopoverEditorLinkTrigger,
 } from '@/components/features/popovers';
 import { CheckIcon } from '@/components/ui/check-icon';
-import { useProjectTask } from '@/store/entities/projectTask';
+import { useProjectTask } from '@/store/entities/project-task';
 import { useTask } from '@/store/entities/task';
 
 type Props = {

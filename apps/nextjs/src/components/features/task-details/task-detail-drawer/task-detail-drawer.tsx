@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTaskDetail } from '@/components/features/task-detail';
 import { Presence } from '@/components/ui/presence';
-import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/useClickOutside';
+import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/use-click-outside';
 import { Content } from './content';
 import { useTaskDetailDrawer } from './use-task-detail-drawer';
 import { useTaskDetailDrawerRef } from './use-task-detail-drawer-ref';

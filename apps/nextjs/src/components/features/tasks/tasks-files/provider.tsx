@@ -1,4 +1,4 @@
-import { createProvider } from '@/shared/react/createProvider';
+import { createProvider } from '@/shared/react/create-provider';
 
 const useValue = () => {
   return {};

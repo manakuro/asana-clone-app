@@ -2,8 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import consola from 'consola';
-import { fetchToken } from '../fetchToken/fetchToken.js';
-import { downloadSchema } from './downloadSchema.js';
+import { fetchToken } from '../fetch-token/fetch-token.js';
+import { downloadSchema } from './download-schema.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

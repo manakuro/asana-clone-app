@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client/core';
-import { type CreateLinkProps, createLink } from './createLink';
+import { type CreateLinkProps, createLink } from './create-link';
 
 type Props = CreateLinkProps;
 let client: ApolloClient;

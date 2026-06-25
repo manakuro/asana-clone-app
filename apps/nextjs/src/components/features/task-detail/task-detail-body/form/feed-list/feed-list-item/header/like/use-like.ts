@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useMe } from '@/store/entities/me';
-import { useTaskFeedLikesByTaskFeedId } from '@/store/entities/taskFeedLike';
+import { useTaskFeedLikesByTaskFeedId } from '@/store/entities/task-feed-like';
 import { useTeammates } from '@/store/entities/teammate';
 import { useTaskFeedListItemContext } from '../../provider';
 

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Stack } from '@/components/ui/stack';
-import { useProjectTask } from '@/store/entities/projectTask';
+import { useProjectTask } from '@/store/entities/project-task';
 import { ProjectButton } from './project-button';
 import { Section } from './section';
 

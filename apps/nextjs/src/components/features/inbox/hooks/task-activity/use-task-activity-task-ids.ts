@@ -1,5 +1,5 @@
-import { useTaskActivityTasksTaskIds } from '@/store/app/inbox/activity/taskActivityTasks';
-import { useArchivedTaskActivityTasksTaskIds } from '@/store/app/inbox/archive/archivedTaskActivityTasks';
+import { useTaskActivityTasksTaskIds } from '@/store/app/inbox/activity/task-activity-tasks';
+import { useArchivedTaskActivityTasksTaskIds } from '@/store/app/inbox/archive/archived-task-activity-tasks';
 import { useInboxContext } from '../../inbox';
 
 type Result = {

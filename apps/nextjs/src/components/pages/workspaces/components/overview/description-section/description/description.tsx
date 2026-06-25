@@ -1,10 +1,10 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/editor';
-import { isDescriptionEqual } from '@/shared/editor/isDescriptionEqual';
+import { isDescriptionEqual } from '@/shared/editor/is-description-equal';
 import {
   parseDescription,
   stringifyDescription,
-} from '@/shared/prosemirror/convertDescription';
+} from '@/shared/prosemirror/convert-description';
 import { useWorkspace, useWorkspaceCommand } from '@/store/entities/workspace';
 import { Container } from './container';
 import { Placeholder } from './placeholder';

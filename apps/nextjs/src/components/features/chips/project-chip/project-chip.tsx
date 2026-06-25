@@ -7,7 +7,7 @@ import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { useClickableHoverStyle } from '@/hooks';
 import { useProject } from '@/store/entities/project';
-import { useProjectBaseColor } from '@/store/entities/projectBaseColor';
+import { useProjectBaseColor } from '@/store/entities/project-base-color';
 
 type Variant = 'badge' | 'button';
 

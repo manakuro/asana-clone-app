@@ -1,4 +1,4 @@
-import { useMyTasksTaskIdsByDueDate } from '@/store/app/myTasks/tasks';
+import { useMyTasksTaskIdsByDueDate } from '@/store/app/my-tasks/tasks';
 import { useProjectsTaskIdsByDueDate } from '@/store/app/projects/tasks';
 import { useTasksContext } from '../tasks-provider';
 

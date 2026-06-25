@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { removeAllListeners } from '@/mocks/server';
-import { mockDate, Provider } from '@/testUtils';
+import { mockDate, Provider } from '@/test-utils';
 import {
   closeServer,
   resetHandlers,
   resetServer,
   startServer,
-} from '@/testUtils/mock/setup';
+} from '@/test-utils/mock/setup';
 import { Container } from '../container';
 
 describe('pages/Home', () => {

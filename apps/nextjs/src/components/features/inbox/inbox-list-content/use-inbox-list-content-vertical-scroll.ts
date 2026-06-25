@@ -1,6 +1,6 @@
 import { atom, useAtom } from 'jotai';
 import { useCallback, useEffect } from 'react';
-import { isHTMLElement } from '@/shared/isHTMLElement';
+import { isHTMLElement } from '@/shared/is-html-element';
 import { useInboxListContentRef } from './use-inbox-list-content-ref';
 
 const scrollingAtom = atom<boolean>(false);

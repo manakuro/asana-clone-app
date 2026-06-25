@@ -1,1 +1,1 @@
-export * from './useProjectsResponse';
+export * from './use-projects-response';

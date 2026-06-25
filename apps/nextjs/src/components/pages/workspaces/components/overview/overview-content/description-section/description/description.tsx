@@ -5,7 +5,7 @@ import { Flex } from '@/components/ui/flex';
 import {
   parseDescription,
   stringifyDescription,
-} from '@/shared/prosemirror/convertDescription';
+} from '@/shared/prosemirror/convert-description';
 import { useProject, useProjectCommand } from '@/store/entities/project';
 import { Container } from './container';
 import { Placeholder } from './placeholder';

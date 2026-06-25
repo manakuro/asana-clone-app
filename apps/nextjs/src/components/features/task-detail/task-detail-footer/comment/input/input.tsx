@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/editor';
 import { Flex } from '@/components/ui/flex';
-import { getDefaultDescription } from '@/shared/prosemirror/getDefaultDescription';
+import { getDefaultDescription } from '@/shared/prosemirror/get-default-description';
 import { Attachments } from './attachments';
 import { Container } from './container';
 import { Placeholder } from './placeholder';
