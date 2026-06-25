@@ -46,10 +46,6 @@ yarn-error.log*
 *.tsbuildinfo
 
 # codegen
-src/graphql/types/index.ts
-src/graphql/hooks/index.ts
-src/graphql/types/index.mock.ts
-src/graphql/enums/index.ts
 scripts/codegen/token.json
 __schema__.graphql
 
