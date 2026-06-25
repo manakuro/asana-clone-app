@@ -1,4 +1,4 @@
-import type { TeammateTaskSectionResponse as Response } from '@/graphql/types/teammateTaskSection';
+import type { TeammateTaskSectionResponse as Response } from '@/graphql/types/teammate-task-section';
 
 export type {
   DeleteTeammateTaskSectionAndDeleteTasksMutation,
@@ -11,7 +11,7 @@ export type {
   TeammateTaskSectionUndeletedAndKeepTasksSubscriptionResponse,
   TeammateTaskSectionUpdatedSubscriptionResponse,
   UpdateTeammateTaskSectionInput,
-} from '@/graphql/types/teammateTaskSection';
+} from '@/graphql/types/teammate-task-section';
 
 export type TeammateTaskSectionResponse = Response & {
   isNew?: boolean;

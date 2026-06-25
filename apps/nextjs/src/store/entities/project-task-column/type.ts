@@ -1,5 +1,5 @@
-import type { ProjectTaskColumnResponse } from '@/graphql/types/projectTaskColumn';
+import type { ProjectTaskColumnResponse } from '@/graphql/types/project-task-column';
 
-export type { ProjectTaskColumnResponse } from '@/graphql/types/projectTaskColumn';
+export type { ProjectTaskColumnResponse } from '@/graphql/types/project-task-column';
 
 export type ProjectTaskColumn = Omit<ProjectTaskColumnResponse, 'taskColumn'>;

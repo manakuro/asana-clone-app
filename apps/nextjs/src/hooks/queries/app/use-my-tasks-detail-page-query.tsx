@@ -1,7 +1,7 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { useCallback, useState } from 'react';
 import { MyTasksDetailPageDocument } from '@/graphql/hooks';
-import type { MyTasksDetailPageQueryVariables as Variables } from '@/graphql/types/app/myTasks';
+import type { MyTasksDetailPageQueryVariables as Variables } from '@/graphql/types/app/my-tasks';
 import { useTeammateTaskResponse } from '@/store/entities/teammate-task';
 
 export type UseMyTasksDetailPageQueryResult = {

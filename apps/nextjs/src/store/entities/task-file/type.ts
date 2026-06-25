@@ -1,5 +1,5 @@
-import type { TaskFileResponse } from '@/graphql/types/taskFile';
+import type { TaskFileResponse } from '@/graphql/types/task-file';
 
-export type { TaskFileResponse } from '@/graphql/types/taskFile';
+export type { TaskFileResponse } from '@/graphql/types/task-file';
 
 export type TaskFile = TaskFileResponse;

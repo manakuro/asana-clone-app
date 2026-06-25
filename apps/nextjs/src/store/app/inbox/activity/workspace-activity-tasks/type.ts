@@ -1,5 +1,5 @@
-import type { WorkspaceActivityTaskResponse } from '@/graphql/types/workspaceActivityTask';
+import type { WorkspaceActivityTaskResponse } from '@/graphql/types/workspace-activity-task';
 
-export type { WorkspaceActivityTaskResponse } from '@/graphql/types/workspaceActivityTask';
+export type { WorkspaceActivityTaskResponse } from '@/graphql/types/workspace-activity-task';
 
 export type WorkspaceActivityTask = Omit<WorkspaceActivityTaskResponse, 'task'>;

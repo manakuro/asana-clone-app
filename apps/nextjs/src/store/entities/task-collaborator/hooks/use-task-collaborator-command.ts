@@ -5,7 +5,7 @@ import {
   CreateTaskCollaboratorDocument,
   DeleteTaskCollaboratorDocument,
 } from '@/graphql/hooks';
-import type { TaskCollaboratorResponse } from '@/graphql/types/taskCollaborator';
+import type { TaskCollaboratorResponse } from '@/graphql/types/task-collaborator';
 import { uuid } from '@/shared/uuid';
 import {
   type Teammate,

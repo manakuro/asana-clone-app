@@ -1,5 +1,5 @@
-import type { ProjectLightColorResponse } from '@/graphql/types/projectLightColor';
+import type { ProjectLightColorResponse } from '@/graphql/types/project-light-color';
 
-export type { ProjectLightColorResponse } from '@/graphql/types/projectLightColor';
+export type { ProjectLightColorResponse } from '@/graphql/types/project-light-color';
 
 export type ProjectLightColor = ProjectLightColorResponse;

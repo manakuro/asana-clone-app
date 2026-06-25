@@ -1,6 +1,6 @@
-import type { ArchivedWorkspaceActivityResponse } from '@/graphql/types/archivedWorkspaceActivity';
+import type { ArchivedWorkspaceActivityResponse } from '@/graphql/types/archived-workspace-activity';
 
-export type { ArchivedWorkspaceActivityResponse } from '@/graphql/types/archivedWorkspaceActivity';
+export type { ArchivedWorkspaceActivityResponse } from '@/graphql/types/archived-workspace-activity';
 
 export type ArchivedWorkspaceActivity = Omit<
   ArchivedWorkspaceActivityResponse,

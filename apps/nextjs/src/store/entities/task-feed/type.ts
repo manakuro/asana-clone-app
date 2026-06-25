@@ -1,4 +1,4 @@
-import type { TaskFeedResponse } from '@/graphql/types/taskFeed';
+import type { TaskFeedResponse } from '@/graphql/types/task-feed';
 
 export type {
   CreateTaskFeedInput,
@@ -9,6 +9,6 @@ export type {
   TaskFeedResponse,
   TaskFeedUpdatedSubscriptionResponse,
   UpdateTaskFeedInput,
-} from '@/graphql/types/taskFeed';
+} from '@/graphql/types/task-feed';
 
 export type TaskFeed = TaskFeedResponse;

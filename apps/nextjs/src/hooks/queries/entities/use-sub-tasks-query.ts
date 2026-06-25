@@ -5,7 +5,7 @@ import type {
   SubTaskResponse,
   SubTasksQuery,
   SubTasksQueryVariables as Variables,
-} from '@/graphql/types/subTasks';
+} from '@/graphql/types/sub-tasks';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import { type TaskResponse, useTasksResponse } from '@/store/entities/task';
 

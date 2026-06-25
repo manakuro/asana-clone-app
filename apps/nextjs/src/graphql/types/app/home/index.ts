@@ -1,2 +1,2 @@
 export * from './home';
-export * from './homeTaskDetail';
+export * from './home-task-detail';

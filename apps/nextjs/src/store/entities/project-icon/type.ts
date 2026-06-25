@@ -1,5 +1,5 @@
-import type { ProjectIconResponse } from '@/graphql/types/projectIcon';
+import type { ProjectIconResponse } from '@/graphql/types/project-icon';
 
-export type { ProjectIconResponse } from '@/graphql/types/projectIcon';
+export type { ProjectIconResponse } from '@/graphql/types/project-icon';
 
 export type ProjectIcon = ProjectIconResponse;

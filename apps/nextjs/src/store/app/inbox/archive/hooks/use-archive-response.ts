@@ -1,8 +1,8 @@
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import type { InboxArchivePageQuery } from '@/graphql/types/app/inbox';
-import type { ArchivedWorkspaceActivityResponse } from '@/graphql/types/archivedWorkspaceActivity';
-import type { ArchivedWorkspaceActivityTaskResponse } from '@/graphql/types/archivedWorkspaceActivityTask';
+import type { ArchivedWorkspaceActivityResponse } from '@/graphql/types/archived-workspace-activity';
+import type { ArchivedWorkspaceActivityTaskResponse } from '@/graphql/types/archived-workspace-activity-task';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import {
   type ArchivedTaskActivityResponse,

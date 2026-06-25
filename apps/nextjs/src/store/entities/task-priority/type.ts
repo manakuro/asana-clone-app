@@ -1,5 +1,5 @@
-import type { TaskPriorityResponse } from '@/graphql/types/taskPriority';
+import type { TaskPriorityResponse } from '@/graphql/types/task-priority';
 
-export type { TaskPriorityResponse } from '@/graphql/types/taskPriority';
+export type { TaskPriorityResponse } from '@/graphql/types/task-priority';
 
 export type TaskPriority = TaskPriorityResponse;

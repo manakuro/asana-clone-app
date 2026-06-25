@@ -1,1 +1,1 @@
-export * from './inboxActivity';
+export * from './inbox-activity';

@@ -3,7 +3,7 @@ import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { ProjectTaskSectionDeletedAndKeepTasksDocument } from '@/graphql/hooks';
-import type { ProjectTaskResponse } from '@/graphql/types/projectTask';
+import type { ProjectTaskResponse } from '@/graphql/types/project-task';
 import { isDev } from '@/shared/environment';
 import { uuid } from '@/shared/uuid';
 import {

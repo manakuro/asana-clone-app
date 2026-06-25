@@ -5,7 +5,7 @@ import { WorkspaceTeammatesDocument } from '@/graphql/hooks';
 import type {
   WorkspaceTeammateResponse,
   WorkspaceTeammatesQuery,
-} from '@/graphql/types/workspaceTeammate';
+} from '@/graphql/types/workspace-teammate';
 import { getNodesFromEdges } from '@/shared/apollo/util';
 import type { Teammate } from '@/store/entities/teammate';
 

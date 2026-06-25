@@ -1,6 +1,6 @@
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import type { ProjectTaskResponse } from '@/graphql/types/projectTask';
+import type { ProjectTaskResponse } from '@/graphql/types/project-task';
 import { uniqBy } from '@/shared/utils';
 import { useProjectTaskResponse } from '@/store/entities/project-task';
 import { projectTaskSectionState } from '../atom';

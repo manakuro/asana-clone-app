@@ -1,4 +1,4 @@
-import type { ProjectTaskSectionResponse as Response } from '@/graphql/types/projectTaskSection';
+import type { ProjectTaskSectionResponse as Response } from '@/graphql/types/project-task-section';
 
 export type {
   DeleteProjectTaskSectionAndDeleteTasksMutation,
@@ -10,7 +10,7 @@ export type {
   ProjectTaskSectionUndeletedAndDeleteTasksSubscriptionResponse,
   ProjectTaskSectionUndeletedAndKeepTasksSubscriptionResponse,
   ProjectTaskSectionUpdatedSubscriptionResponse,
-} from '@/graphql/types/projectTaskSection';
+} from '@/graphql/types/project-task-section';
 
 export type ProjectTaskSectionResponse = Response & {
   isNew?: boolean;
