@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { useTaskDetailDrawerRef } from '@/components/features/task-details';
+import { useTaskDetailDrawerRef } from '@/components/features/task-details/task-detail-drawer';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
 import { Input, type InputProps } from '@/components/ui/input';

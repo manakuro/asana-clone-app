@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { TaskDetailModal } from '@/components/features/task-details';
+import { TaskDetailModal } from '@/components/features/task-details/task-detail-modal';
 import {
   TasksCalendar,
   TasksCalendarContent,

@@ -12,7 +12,7 @@ import {
   MoreActionButton,
   useInboxTaskDetail,
 } from '@/components/features/inbox';
-import { TaskDetailSide } from '@/components/features/task-details';
+import { TaskDetailSide } from '@/components/features/task-details/task-detail-side';
 import { TasksProvider } from '@/components/features/tasks';
 import { Flex } from '@/components/ui/flex';
 import { useInboxActivityPageQuery } from '@/hooks/queries/app';

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { TaskDetailDrawer } from '@/components/features/task-details';
+import { TaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
 import {
   CustomizeButton,
   CustomizeMenu,
