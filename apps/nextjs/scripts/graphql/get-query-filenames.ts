@@ -1,33 +1,33 @@
-import './enableImportGraphql'
+import './enable-import-graphql';
 
-import * as path from 'path'
-import consola from 'consola'
-import fg from 'fast-glob'
+import consola from 'consola';
+import fg from 'fast-glob';
+import * as path from 'path';
 
 type Result = {
-  paths: string[]
-}
+  paths: string[];
+};
 export const getQueryFilenames = async (): Promise<Result> => {
   let paths = await fg(['src/graphql/queries/**/*'], {
     ignore: ['**/*/fragments'],
     absolute: true,
-  })
+  });
 
   if (!paths) {
-    consola.error('GraphQL file not found')
-    return { paths: [] }
+    consola.error('GraphQL file not found');
+    return { paths: [] };
   }
 
   paths = paths
     .filter((f) => isGraphqlFile(f))
     .filter((f) => f !== '__schema__.graphql')
-    .filter((f) => !f.includes('Fragment'))
+    .filter((f) => !f.includes('Fragment'));
 
   return {
     paths,
-  }
-}
+  };
+};
 
 const isGraphqlFile = (file: string) => {
-  return ['.gql', '.graphql'].includes(path.extname(file))
-}
+  return ['.gql', '.graphql'].includes(path.extname(file));
+};
