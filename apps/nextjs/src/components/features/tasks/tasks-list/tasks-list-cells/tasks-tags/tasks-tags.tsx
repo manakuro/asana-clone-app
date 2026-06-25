@@ -1,5 +1,5 @@
 import { memo, useCallback, useState } from 'react';
-import { TagChip } from '@/components/features/chips';
+import { TagChip } from '@/components/features/chips/tag-chip';
 import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list-cell';
 import type { FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
