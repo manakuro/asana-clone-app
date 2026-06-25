@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useTasksCalendarContext } from '@/components/features/tasks';
+import { useTasksCalendarContext } from '@/components/features/tasks/tasks-calendar/provider';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Grid } from '@/components/ui/grid';

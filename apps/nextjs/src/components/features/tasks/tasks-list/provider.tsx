@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useTasksListContentSticky } from '@/components/features/tasks';
+import { useTasksListContentSticky } from '@/components/features/tasks/tasks-list/tasks-list-content/use-tasks-list-content-sticky';
 import type { SystemStyleObject } from '@/shared/chakra';
 import { createProvider } from '@/shared/react/create-provider';
 

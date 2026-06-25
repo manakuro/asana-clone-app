@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo } from 'react';
-import { TasksListSection } from '@/components/features/tasks';
 import { useTasksTaskSectionIds } from '@/components/features/tasks/hooks';
+import { TasksListSection } from '@/components/features/tasks/tasks-list/tasks-list-section/tasks-list-section';
 
 export const ListBasic: React.FC = memo(() => {
   const { taskSectionIds } = useTasksTaskSectionIds();

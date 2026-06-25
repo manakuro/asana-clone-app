@@ -1,16 +1,16 @@
 import { memo, useCallback } from 'react';
 import { TaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
+import { TasksBoardContent } from '@/components/features/tasks/tasks-board/tasks-board-content/tasks-board-content';
+import { TasksBoardList } from '@/components/features/tasks/tasks-board/tasks-board-list/tasks-board-list';
+import { useTasksBoardDetail } from '@/components/features/tasks/tasks-board/use-tasks-board-detail';
+import { TasksContainer } from '@/components/features/tasks/tasks-container/tasks-container';
 import {
   CustomizeButton,
   CustomizeMenu,
   IncompleteTasksMenu,
-  TasksBoardContent,
-  TasksBoardList,
-  TasksContainer,
   TasksHeader,
   TasksHeaderRight,
-  useTasksBoardDetail,
-} from '@/components/features/tasks';
+} from '@/components/features/tasks/tasks-header';
 import { useProjectsPageContext } from '@/components/pages/projects/providers/provider';
 import { Flex } from '@/components/ui/flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';

@@ -1,10 +1,10 @@
 import { memo } from 'react';
+import { TasksCalendarContent } from '@/components/features/tasks/tasks-calendar/tasks-calendar-content/tasks-calendar-content';
 import {
-  TasksCalendarContent,
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
-} from '@/components/features/tasks';
+} from '@/components/features/tasks/tasks-header';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Stack } from '@/components/ui/stack';

@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { useTasksCalendarContext } from '@/components/features/tasks';
+import { useTasksCalendarContext } from '@/components/features/tasks/tasks-calendar/provider';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';

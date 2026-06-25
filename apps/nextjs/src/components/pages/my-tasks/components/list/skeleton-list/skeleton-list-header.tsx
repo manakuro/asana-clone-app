@@ -3,7 +3,7 @@ import {
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
-} from '@/components/features/tasks';
+} from '@/components/features/tasks/tasks-header';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const BUTTON_HEIGHT = '28px';

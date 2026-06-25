@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { useTasksListContext } from '@/components/features/tasks';
 import { useTasksTaskSectionCommand } from '@/components/features/tasks/hooks';
+import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

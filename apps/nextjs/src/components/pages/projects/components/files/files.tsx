@@ -1,10 +1,8 @@
 import { memo, useCallback, useMemo } from 'react';
 import { TaskDetailModal } from '@/components/features/task-details/task-detail-modal';
-import {
-  TasksContainer,
-  TasksFilesContent,
-  TasksFilesList,
-} from '@/components/features/tasks';
+import { TasksContainer } from '@/components/features/tasks/tasks-container/tasks-container';
+import { TasksFilesContent } from '@/components/features/tasks/tasks-files/tasks-files-content/tasks-files-content';
+import { TasksFilesList } from '@/components/features/tasks/tasks-files/tasks-files-list/tasks-files-list';
 import { useTasksFilesDetail } from '@/components/features/tasks/tasks-files/use-tasks-files-detail';
 import { useProjectsPageContext } from '@/components/pages/projects/providers/provider';
 import { Flex } from '@/components/ui/flex';
