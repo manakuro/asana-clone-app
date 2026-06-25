@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { PopoverProfile } from '@/components/features/popovers';
+import { PopoverProfile } from '@/components/features/popovers/popover-profile/popover-profile';
 import { useReactNodeView } from '@/components/ui/editor/editors/react-node-view';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { useTeammate } from '@/store/entities/teammate';
