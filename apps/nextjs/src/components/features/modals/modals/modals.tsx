@@ -1,8 +1,6 @@
 import { memo } from 'react';
-import {
-  EditorEmojiMenu,
-  EditorMentionMenu,
-} from '@/components/features/menus';
+import { EditorEmojiMenu } from '@/components/features/menus/editor-emoji-menu';
+import { EditorMentionMenu } from '@/components/features/menus/editor-mention-menu';
 import {
   EditorLinkModal,
   FileViewerModal,

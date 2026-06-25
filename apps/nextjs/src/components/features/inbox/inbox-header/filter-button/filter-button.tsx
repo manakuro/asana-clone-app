@@ -3,7 +3,7 @@ import {
   MenuSelect,
   MenuSelectList,
   MenuSelectTrigger,
-} from '@/components/features/menus';
+} from '@/components/features/menus/menu-select';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';

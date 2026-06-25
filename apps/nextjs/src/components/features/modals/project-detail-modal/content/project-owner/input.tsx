@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { AssignProjectOwnerMenu } from '@/components/features/menus';
+import { AssignProjectOwnerMenu } from '@/components/features/menus/assign-project-owner-menu';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/shared/chakra';

@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback, useMemo, useState } from 'react';
-import { AssigneeMenu } from '@/components/features/menus';
+import { AssigneeMenu } from '@/components/features/menus/assignee-menu';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Input as AtomsInput, InputGroup } from '@/components/ui/input';
