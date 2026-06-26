@@ -72,11 +72,11 @@ export function ReactNodeViewPortalsProvider({
   );
 
   return (
-    <ReactNodeViewPortalsContext.Provider value={portals}>
-      <ReactNodeViewCreatePortalContext.Provider value={handlers}>
+    <ReactNodeViewPortalsContext value={portals}>
+      <ReactNodeViewCreatePortalContext value={handlers}>
         {children}
-      </ReactNodeViewCreatePortalContext.Provider>
-    </ReactNodeViewPortalsContext.Provider>
+      </ReactNodeViewCreatePortalContext>
+    </ReactNodeViewPortalsContext>
   );
 }
 
