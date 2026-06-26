@@ -5,21 +5,7 @@ import { isHTMLElement } from '@/shared/is-html-element';
 import { createContext } from '@/shared/react/create-context';
 import { useTasksCalendarId } from './use-tasks-calendar-id';
 
-type ContextProps = {
-  calendarRows: Date[][];
-  onVisibleWhenScrollUp: (id: string) => void;
-  onVisibleWhenScrollDown: (id: string) => void;
-  isSecondRowOfMonth: (row: Date[]) => boolean;
-  currentDate: Date;
-  onNextMonth: () => void;
-  onPrevMonth: () => void;
-  resetMonth: () => void;
-  resetCount: number;
-  setMonth: (date: Date) => void;
-  scrollToDate: (date: Date) => void;
-};
-
-const useValue = (): ContextProps => {
+const useValue = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [baseDate, setBaseDate] = useState(new Date());
   const { getCalendarListId, getCalendarListItemId } = useTasksCalendarId();

@@ -2,7 +2,7 @@ import { memo, useEffect } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { dateFns } from '@/shared/date-fns';
 import { isHTMLElement } from '@/shared/is-html-element';
-import { useTasksCalendarContext } from '../provider';
+import { useTasksCalendarContext } from '../context';
 import { TasksCalendarListItem } from '../tasks-calendar-list-item';
 import { TasksCalendarListRow } from '../tasks-calendar-list-row';
 import { useTasksCalendarId } from '../use-tasks-calendar-id';
