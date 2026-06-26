@@ -5,8 +5,8 @@ import { transitions } from '@/styles/transitions';
 import { TasksBoardListItem } from '../tasks-board-list-item';
 import { AddTask } from './add-task';
 import { AddTaskSection } from './add-task-section';
+import { Context } from './context';
 import { Header } from './header';
-import { Context } from './provider';
 import { useTasksBoardListSectionElement } from './use-tasks-board-list-section-element';
 
 type Props = {

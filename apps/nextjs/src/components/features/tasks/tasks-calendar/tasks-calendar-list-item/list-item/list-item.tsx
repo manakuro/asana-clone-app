@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useTasksContext } from '@/components/features/tasks/tasks-provider/tasks-provider';
+import { useTasksContext } from '@/components/features/tasks/tasks-provider/tasks-context';
 import type { FlexProps } from '@/components/ui/flex';
 import { ListItemForMyTasksPage } from './list-item-for-my-tasks-page';
 import { ListItemForProjectsPage } from './list-item-for-projects-page';
