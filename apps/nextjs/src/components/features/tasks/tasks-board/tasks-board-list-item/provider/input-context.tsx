@@ -1,26 +1,9 @@
-import type React from 'react';
-import {
-  type Dispatch,
-  type SetStateAction,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
+import { useCallback, useRef, useState } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import { isHTMLElement } from '@/shared/is-html-element';
 import { createContext } from '@/shared/react/create-context';
 
-type ContextProps = {
-  ref: React.MutableRefObject<HTMLElement | null>;
-  inputFocused: boolean;
-  setInputFocused: Dispatch<SetStateAction<boolean>>;
-  cellStyle?: FlexProps;
-  onInputFocus: () => void;
-  onInputBlur: () => void;
-  onInputSelect: () => void;
-};
-
-const useValue = (): ContextProps => {
+const useValue = () => {
   const ref = useRef<HTMLTextAreaElement | null>(null);
   const [focused, setFocused] = useState(false);
   const [cellStyle, setCellStyle] = useState<FlexProps>();
