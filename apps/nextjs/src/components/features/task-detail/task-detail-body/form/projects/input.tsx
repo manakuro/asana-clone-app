@@ -1,9 +1,9 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { ProjectMenu } from '@/components/features/menus';
+import { ProjectMenu } from '@/components/features/menus/project-menu';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput, type InputProps } from '@/components/ui/input';
-import { useClickOutside } from '@/hooks';
+import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/shared/chakra';
 import { useProjectTaskCommand } from '@/store/entities/project-task';
 

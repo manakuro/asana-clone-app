@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
-} from '@/hooks';
+} from '@/hooks/use-click-outside';
 import { createProvider } from '@/shared/react/create-provider';
 
 const useValue = () => {

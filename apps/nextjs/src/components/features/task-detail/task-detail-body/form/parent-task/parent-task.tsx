@@ -4,7 +4,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { Tooltip } from '@/components/ui/tooltip';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useTask } from '@/store/entities/task';
 
 type Props = {

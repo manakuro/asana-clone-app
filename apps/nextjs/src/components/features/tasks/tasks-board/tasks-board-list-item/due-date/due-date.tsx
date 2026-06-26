@@ -1,10 +1,10 @@
 import { memo, useCallback, useMemo } from 'react';
-import { PopoverDueDatePicker } from '@/components/features/popovers';
+import { PopoverDueDatePicker } from '@/components/features/popovers/popover-due-date-picker/popover-due-date-picker';
 import { Button } from '@/components/ui/button';
 import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useTask } from '@/store/entities/task';
 import { useTasksBoardListItemContext } from '../provider';
 

@@ -4,7 +4,7 @@ import { MainHeader } from '@/components/features/main-header';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/tabs';
-import { usePrevious } from '@/hooks';
+import { usePrevious } from '@/hooks/use-previous';
 import {
   isProjectsBoardURL,
   isProjectsCalendarURL,

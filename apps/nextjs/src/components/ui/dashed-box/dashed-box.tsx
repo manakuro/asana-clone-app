@@ -1,7 +1,7 @@
 import type React from 'react';
 import { forwardRef } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 
 type Props = FlexProps & {
   ref?: React.ForwardedRef<any>;

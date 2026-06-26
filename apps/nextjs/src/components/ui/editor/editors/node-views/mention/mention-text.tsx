@@ -1,5 +1,5 @@
 import { Text, type TextProps } from '@/components/ui/text';
-import { useLinkStyle } from '@/hooks/styles';
+import { useLinkStyle } from '@/hooks/styles/use-link-style';
 
 type Props = TextProps;
 export type MentionTextProps = Props;

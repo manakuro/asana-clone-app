@@ -2,7 +2,7 @@ import { memo, type PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Popover, type PopoverContentProps } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
-import { useClickOutside } from '@/hooks';
+import { useClickOutside } from '@/hooks/use-click-outside';
 import { useSearchMenuRef } from '../use-search-menu-ref';
 
 type Props = {

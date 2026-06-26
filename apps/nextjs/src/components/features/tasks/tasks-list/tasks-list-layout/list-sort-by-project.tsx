@@ -1,9 +1,9 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { TasksListSectionGroupByProject } from '@/components/features/tasks';
 import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
 import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list-item';
 import { TasksListSectionProvider } from '@/components/features/tasks/tasks-list/tasks-list-section';
+import { TasksListSectionGroupByProject } from '@/components/features/tasks/tasks-list/tasks-list-section-group-by-project/tasks-list-section-group-by-project';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

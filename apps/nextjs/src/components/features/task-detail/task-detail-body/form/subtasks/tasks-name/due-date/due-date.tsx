@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
-import { PopoverDueDatePicker } from '@/components/features/popovers';
+import { PopoverDueDatePicker } from '@/components/features/popovers/popover-due-date-picker/popover-due-date-picker';
 import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { getDifferenceInDays } from '@/shared/date';
 import { useTask } from '@/store/entities/task';
 import { useDueDate } from './use-due-date';

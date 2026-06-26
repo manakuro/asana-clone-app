@@ -1,8 +1,8 @@
-import { ComingSoonTooltip } from '@/components/features/tooltips';
+import { ComingSoonTooltip } from '@/components/features/tooltips/coming-soon-tooltip';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { NewBox } from '@/components/ui/new-box';
 import { Text } from '@/components/ui/text';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { Container } from './container';
 
 type Props = FlexProps;

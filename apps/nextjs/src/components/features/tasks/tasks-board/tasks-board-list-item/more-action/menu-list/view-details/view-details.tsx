@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from 'react';
-import { useTaskDetailDrawer } from '@/components/features/task-details';
+import { useTaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
 import { useTasksRouter } from '@/components/features/tasks/hooks';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';

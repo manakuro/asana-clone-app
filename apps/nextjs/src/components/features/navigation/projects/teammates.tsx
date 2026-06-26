@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
-import { useInviteModal } from '@/components/features/modals';
+import { useInviteModal } from '@/components/features/modals/invite-modal/use-invite-modal';
 import { PADDING_X } from '@/components/features/navigation/navigation';
 import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useTeammates } from '@/store/entities/teammate';
 import { Teammate } from './teammate';
 

@@ -1,16 +1,12 @@
 import { memo } from 'react';
-import {
-  EditorEmojiMenu,
-  EditorMentionMenu,
-} from '@/components/features/menus';
-import {
-  EditorLinkModal,
-  FileViewerModal,
-  InviteModal,
-  ProjectDetailModal,
-  ShareProjectModal,
-  ShareWorkspaceModal,
-} from '@/components/features/modals';
+import { EditorEmojiMenu } from '@/components/features/menus/editor-emoji-menu';
+import { EditorMentionMenu } from '@/components/features/menus/editor-mention-menu';
+import { EditorLinkModal } from '@/components/features/modals/editor-link-modal/editor-link-modal';
+import { FileViewerModal } from '@/components/features/modals/file-viewer-modal/file-viewer-modal';
+import { InviteModal } from '@/components/features/modals/invite-modal/invite-modal';
+import { ProjectDetailModal } from '@/components/features/modals/project-detail-modal/project-detail-modal';
+import { ShareProjectModal } from '@/components/features/modals/share-project-modal/share-project-modal';
+import { ShareWorkspaceModal } from '@/components/features/modals/share-workspace-modal/share-workspace-modal';
 import { Help } from '@/components/features/navigation';
 import { VideoPlayer } from '@/components/ui/video-player';
 

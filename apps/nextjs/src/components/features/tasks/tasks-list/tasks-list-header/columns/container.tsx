@@ -5,7 +5,7 @@ import { useTasksTaskColumn } from '@/components/features/tasks/hooks';
 import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list-cell';
 import { useTasksListHeaderContext } from '@/components/features/tasks/tasks-list/tasks-list-header/provider';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useHover } from '@/hooks/use-hover';
 import { useTaskColumn } from '@/store/entities/task-column';
 import { MoreAction } from './more-action';

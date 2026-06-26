@@ -1,6 +1,6 @@
 import type { Command } from 'prosemirror-state';
 import { useCallback, useMemo } from 'react';
-import { usePopoverEmojiContext } from '@/components/features/popovers';
+import { usePopoverEmojiContext } from '@/components/features/popovers/popover-emoji/provider';
 import type { ToolbarItem } from './types';
 
 export const useEmoji = (): ToolbarItem => {

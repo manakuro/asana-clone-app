@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Input as AtomsInput, type InputProps } from '@/components/ui/input';
-import { useClickOutside } from '@/hooks';
+import { useClickOutside } from '@/hooks/use-click-outside';
 
 type Props = {
   onClickOutside: () => void;

@@ -1,6 +1,5 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { TasksListSection } from '@/components/features/tasks';
 import {
   useTasksTaskIds,
   useTasksTaskSectionIds,
@@ -8,6 +7,7 @@ import {
 import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
 import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list-item';
 import { TasksListSectionProvider } from '@/components/features/tasks/tasks-list/tasks-list-section';
+import { TasksListSection } from '@/components/features/tasks/tasks-list/tasks-list-section/tasks-list-section';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

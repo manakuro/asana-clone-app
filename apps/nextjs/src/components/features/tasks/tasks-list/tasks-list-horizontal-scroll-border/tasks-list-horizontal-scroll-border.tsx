@@ -1,12 +1,10 @@
 import { memo, useEffect, useMemo, useState } from 'react';
 import { useNavigation } from '@/components/features/navigation';
-import {
-  useTasksListContentHorizontalScroll,
-  useTasksListContentSticky,
-} from '@/components/features/tasks';
 import { useTasksTaskColumnByType } from '@/components/features/tasks/hooks';
+import { useTasksListContentHorizontalScroll } from '@/components/features/tasks/tasks-list/tasks-list-content/use-tasks-list-content-horizontal-scroll';
+import { useTasksListContentSticky } from '@/components/features/tasks/tasks-list/tasks-list-content/use-tasks-list-content-sticky';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useMountedRef } from '@/hooks';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { TaskColumnType } from '@/store/entities/task-column';
 
 type Props = FlexProps;

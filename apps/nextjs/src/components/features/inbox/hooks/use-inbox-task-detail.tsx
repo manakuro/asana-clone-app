@@ -4,7 +4,7 @@ import {
   useTaskDetail,
   useTaskDetailResetId,
 } from '@/components/features/task-detail';
-import { useTaskDetailSide } from '@/components/features/task-details';
+import { useTaskDetailSide } from '@/components/features/task-details/task-detail-side';
 import type { Params } from '@/shared/nextjs/navigation';
 
 type Props = {

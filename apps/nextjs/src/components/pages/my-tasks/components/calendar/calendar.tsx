@@ -1,13 +1,11 @@
 import { memo } from 'react';
-import { TaskDetailModal } from '@/components/features/task-details';
-import {
-  TasksCalendar,
-  TasksCalendarContent,
-  TasksCalendarList,
-  TasksCalendarListHeader,
-  TasksContainer,
-  useTasksCalendarDetail,
-} from '@/components/features/tasks';
+import { TaskDetailModal } from '@/components/features/task-details/task-detail-modal';
+import { TasksCalendar } from '@/components/features/tasks/tasks-calendar/tasks-calendar';
+import { TasksCalendarContent } from '@/components/features/tasks/tasks-calendar/tasks-calendar-content/tasks-calendar-content';
+import { TasksCalendarList } from '@/components/features/tasks/tasks-calendar/tasks-calendar-list/tasks-calendar-list';
+import { TasksCalendarListHeader } from '@/components/features/tasks/tasks-calendar/tasks-calendar-list-header/tasks-calendar-list-header';
+import { useTasksCalendarDetail } from '@/components/features/tasks/tasks-calendar/use-tasks-calendar-detail';
+import { TasksContainer } from '@/components/features/tasks/tasks-container/tasks-container';
 import {
   CalendarMonthPicker,
   TasksHeader,

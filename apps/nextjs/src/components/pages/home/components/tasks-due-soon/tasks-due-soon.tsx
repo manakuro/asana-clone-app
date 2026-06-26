@@ -8,7 +8,7 @@ import { Link } from '@/components/ui/link';
 import { NextLink } from '@/components/ui/next-link';
 import { Stack } from '@/components/ui/stack';
 import { Tooltip } from '@/components/ui/tooltip';
-import { useLinkStyle } from '@/hooks';
+import { useLinkStyle } from '@/hooks/styles/use-link-style';
 import { ROUTE_MY_TASKS_LIST } from '@/router';
 import { useTasksDueSoonIds } from '@/store/app/home/tasks-due-soon';
 import { ListItem } from './list-item';

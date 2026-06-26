@@ -1,12 +1,12 @@
 import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
-import { InviteProjectTeammateMenu } from '@/components/features/menus';
+import { InviteProjectTeammateMenu } from '@/components/features/menus/invite-project-teammate-menu';
 import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { AvatarGroup } from '@/components/ui/avatar';
 import { Flex } from '@/components/ui/flex';
 import { Input } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
-import { useLinkStyle } from '@/hooks';
+import { useLinkStyle } from '@/hooks/styles/use-link-style';
 import { useDisclosure } from '@/shared/chakra';
 import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { type Teammate, useTeammate } from '@/store/entities/teammate';

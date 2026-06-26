@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { TaskDetailModal } from '@/components/features/task-details';
-import { TasksProvider } from '@/components/features/tasks';
+import { TaskDetailModal } from '@/components/features/task-details/task-detail-modal';
+import { TasksProvider } from '@/components/features/tasks/tasks-provider/tasks-provider';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { Stack } from '@/components/ui/stack';

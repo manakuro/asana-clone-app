@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useDisclosure } from '@/shared/chakra';
 import { MenuList } from './menu-list';
 

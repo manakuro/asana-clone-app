@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useInboxListItem } from '@/components/features/inbox';
+import { useInboxListItem } from '@/components/features/inbox/hooks/use-inbox-list-item';
 import type { FlexProps } from '@/components/ui/flex';
 import { ActivityTypeCode } from '@/store/entities/activity-type';
 import { Provider } from './provider';

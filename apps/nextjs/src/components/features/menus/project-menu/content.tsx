@@ -10,7 +10,7 @@ import {
 import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
-import { useFirstRender } from '@/hooks';
+import { useFirstRender } from '@/hooks/use-first-render';
 import type { Project } from '@/store/entities/project';
 import { ProjectItem } from './project-item';
 

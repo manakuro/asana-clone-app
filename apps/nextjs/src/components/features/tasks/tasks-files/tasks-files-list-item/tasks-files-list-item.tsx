@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { useFileViewerModal } from '@/components/features/modals';
+import { useFileViewerModal } from '@/components/features/modals/file-viewer-modal/use-file-viewer-modal';
 import { useTasksRouter } from '@/components/features/tasks/hooks';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

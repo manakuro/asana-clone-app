@@ -5,7 +5,7 @@ import { Link, type LinkProps } from '@/components/ui/link';
 import { List } from '@/components/ui/list';
 import { NextLink } from '@/components/ui/next-link';
 import { Text } from '@/components/ui/text';
-import { useLinkHoverStyle } from '@/hooks';
+import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import type { StaticRoutes } from '@/router';
 import { PADDING_X } from './navigation';
 import type { NavListItem as TNavListItem } from './type';

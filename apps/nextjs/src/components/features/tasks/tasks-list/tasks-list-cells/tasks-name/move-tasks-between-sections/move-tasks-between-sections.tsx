@@ -1,10 +1,13 @@
 import { memo, useCallback } from 'react';
-import { MenuSelect, MenuSelectTrigger } from '@/components/features/menus';
+import {
+  MenuSelect,
+  MenuSelectTrigger,
+} from '@/components/features/menus/menu-select';
 import { useTasksTask } from '@/components/features/tasks/hooks';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Tooltip } from '@/components/ui/tooltip';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { MenuList } from './menu-list';
 
 type Props = {

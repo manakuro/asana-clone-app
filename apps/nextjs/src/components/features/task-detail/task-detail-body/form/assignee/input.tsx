@@ -1,8 +1,8 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { AssigneeMenu } from '@/components/features/menus';
+import { AssigneeMenu } from '@/components/features/menus/assignee-menu';
 import { Input as AtomsInput } from '@/components/ui/input';
-import { useClickOutside } from '@/hooks';
+import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/shared/chakra';
 import { useTaskCommand } from '@/store/entities/task';
 import type { Teammate } from '@/store/entities/teammate';

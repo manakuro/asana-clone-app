@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useState } from 'react';
 import { WorkspaceDocument } from '@/graphql/hooks';
-import { useMountedRef } from '@/hooks';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 import {
   useWorkspaceResponse,
   type Workspace,

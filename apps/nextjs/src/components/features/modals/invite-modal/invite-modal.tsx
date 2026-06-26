@@ -1,5 +1,5 @@
 import { CloseButton } from '@chakra-ui/react';
-import { useInviteModal } from '@/components/features/modals';
+import { useInviteModal } from '@/components/features/modals/invite-modal/use-invite-modal';
 import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';

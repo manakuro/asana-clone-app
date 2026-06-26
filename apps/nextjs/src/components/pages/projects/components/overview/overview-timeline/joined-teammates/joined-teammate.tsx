@@ -1,11 +1,11 @@
 import { memo, useCallback, useMemo } from 'react';
-import { useShareProjectModal } from '@/components/features/modals';
+import { useShareProjectModal } from '@/components/features/modals/share-project-modal/use-share-project-modal';
 import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { useLinkStyle } from '@/hooks';
+import { useLinkStyle } from '@/hooks/styles/use-link-style';
 import { formatCreatedAt } from '@/shared/date';
 import { useMe } from '@/store/entities/me';
 import { useProjectTeammate } from '@/store/entities/project-teammate';

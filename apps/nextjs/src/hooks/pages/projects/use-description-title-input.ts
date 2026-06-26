@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import { useDebounce } from '@/hooks';
+import { useDebounce } from '@/hooks/use-debounce';
 
 type Props = {
   value: string;

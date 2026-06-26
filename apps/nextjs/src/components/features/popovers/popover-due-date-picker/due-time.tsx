@@ -4,7 +4,7 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Option, Select } from '@/components/ui/select';
 import { Text } from '@/components/ui/text';
 import { Tooltip } from '@/components/ui/tooltip';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { formatDueTime } from '@/shared/date';
 import { times } from '@/shared/date/time';
 

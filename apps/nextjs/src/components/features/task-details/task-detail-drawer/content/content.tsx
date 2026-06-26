@@ -8,11 +8,11 @@ import {
 } from '@/components/features/task-detail';
 import { Flex } from '@/components/ui/flex';
 import { Separator } from '@/components/ui/separator';
+import { useDrawerStyle } from '@/hooks/styles/use-drawer-style';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
-  useDrawerStyle,
-} from '@/hooks';
+} from '@/hooks/use-click-outside';
 
 const HEADER_HEIGHT = 71;
 const TOP = HEADER_HEIGHT;

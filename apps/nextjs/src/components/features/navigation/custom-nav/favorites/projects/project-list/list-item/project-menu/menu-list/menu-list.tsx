@@ -1,6 +1,6 @@
 import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
-import { useClickOutside } from '@/hooks';
+import { useClickOutside } from '@/hooks/use-click-outside';
 import { RemoveFromFavorites } from './remove-from-favorites';
 
 type Props = {

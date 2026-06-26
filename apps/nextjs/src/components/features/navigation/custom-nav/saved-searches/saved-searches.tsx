@@ -3,7 +3,7 @@ import { useNavigation } from '@/components/features/navigation';
 import { NavListItem } from '@/components/features/navigation/nav-list-item';
 import { Accordion } from '@/components/ui/accordion';
 import { List } from '@/components/ui/list';
-import { useDisabledStyle } from '@/hooks';
+import { useDisabledStyle } from '@/hooks/styles/use-disabled-style';
 import { Separator } from '../../separator';
 import {
   CustomNavList,

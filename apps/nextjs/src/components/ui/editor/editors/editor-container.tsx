@@ -3,7 +3,8 @@ import type { Plugin } from 'prosemirror-state';
 import type { EditorProps } from 'prosemirror-view';
 import { type PropsWithChildren, type Ref, useMemo } from 'react';
 import { ClientOnly } from '@/components/ui/client-only';
-import { useDebounce, usePrevious } from '@/hooks';
+import { useDebounce } from '@/hooks/use-debounce';
+import { usePrevious } from '@/hooks/use-previous';
 import {
   createJSONTransformer,
   type ProsemirrorTransformer,

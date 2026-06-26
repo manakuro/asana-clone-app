@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/icon';
-import { useClickableHoverStyle } from '@/hooks';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 
 type Props = {
   onDelete: () => void;

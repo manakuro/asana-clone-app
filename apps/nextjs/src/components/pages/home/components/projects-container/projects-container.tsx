@@ -1,13 +1,17 @@
 import { memo, useState } from 'react';
 import {
-  PROJECT_LIST_MENU_VIEW_AS_TILES,
   ProjectListItem,
   ProjectListItemNew,
+} from '@/components/features/projects/project-list-item';
+import {
+  PROJECT_LIST_MENU_VIEW_AS_TILES,
   ProjectListMenu,
   type ProjectListStatus,
+} from '@/components/features/projects/project-list-menu';
+import {
   ProjectTileItem,
   ProjectTileItemNew,
-} from '@/components/features/projects';
+} from '@/components/features/projects/project-tile-item';
 import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
 import { Flex, type FlexProps } from '@/components/ui/flex';

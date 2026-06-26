@@ -1,10 +1,8 @@
 import { memo } from 'react';
-import {
-  PopoverEditorLink,
-  PopoverEditorLinkContent,
-  PopoverEditorLinkText,
-  PopoverEditorLinkTrigger,
-} from '@/components/features/popovers';
+import { PopoverEditorLink } from '@/components/features/popovers/popover-editor-link/popover-editor-link';
+import { PopoverEditorLinkContent } from '@/components/features/popovers/popover-editor-link/popover-editor-link-content';
+import { PopoverEditorLinkText } from '@/components/features/popovers/popover-editor-link/popover-editor-link-text';
+import { PopoverEditorLinkTrigger } from '@/components/features/popovers/popover-editor-link/popover-editor-link-trigger';
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import { NextLink } from '@/components/ui/next-link';

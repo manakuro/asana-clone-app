@@ -1,14 +1,14 @@
 import type React from 'react';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { useTaskDetailDrawerRef } from '@/components/features/task-details';
+import { useTaskDetailDrawerRef } from '@/components/features/task-details/task-detail-drawer';
 import { Flex } from '@/components/ui/flex';
 import type { InputProps } from '@/components/ui/input';
 import { InputText } from '@/components/ui/input-text';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
-  useDebounce,
-} from '@/hooks';
+} from '@/hooks/use-click-outside';
+import { useDebounce } from '@/hooks/use-debounce';
 import { useTaskOptimistic } from '@/store/entities/task';
 import { useTasksBoardListItemElement } from '../index';
 import { useTasksBoardListItemInputContext } from '../provider';

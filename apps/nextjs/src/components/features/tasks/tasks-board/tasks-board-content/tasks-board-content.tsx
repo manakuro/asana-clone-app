@@ -1,8 +1,9 @@
 import { memo, useEffect, useRef, useState } from 'react';
-import { useTaskDetailDrawer } from '@/components/features/task-details';
+import { useTaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
 import { useTasksBoardListSectionElement } from '@/components/features/tasks/tasks-board/tasks-board-list-section';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useMainStyle, usePrevious } from '@/hooks';
+import { useMainStyle } from '@/hooks/styles/use-main-style';
+import { usePrevious } from '@/hooks/use-previous';
 import { useBreakpointValue } from '@/shared/chakra';
 import { isHTMLElement } from '@/shared/is-html-element';
 import { transitions } from '@/styles/transitions';

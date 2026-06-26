@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useMountedRef } from '@/hooks';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { useProjectsFilesResponse } from '@/store/app/projects-files';
 
 type Props = {

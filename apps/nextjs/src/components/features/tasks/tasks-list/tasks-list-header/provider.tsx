@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { useTasksListContentVerticalScroll } from '@/components/features/tasks';
 import { useTasksTaskListStatus } from '@/components/features/tasks/hooks';
+import { useTasksListContentVerticalScroll } from '@/components/features/tasks/tasks-list/tasks-list-content/use-tasks-list-content-vertical-scroll';
 import type { FlexProps } from '@/components/ui/flex';
 import { createProvider } from '@/shared/react/create-provider';
 import { useTaskListSortStatus } from '@/store/entities/task-list-sort-status';

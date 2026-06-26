@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useTasksContext } from '@/components/features/tasks';
+import { useTasksContext } from '@/components/features/tasks/tasks-provider/tasks-provider';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { ProjectDueInfo } from './project-due-info';
 
