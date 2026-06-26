@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { EditorPlaceholder } from '@/components/ui/editor';
-import { useInputContext } from './provider';
+import { useInputContext } from './context';
 
 export const Placeholder = memo(function Placeholder() {
   const { focused, hasTaskFile } = useInputContext();

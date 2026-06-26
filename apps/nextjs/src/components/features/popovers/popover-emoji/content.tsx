@@ -4,7 +4,7 @@ import { Popover } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { type BaseEmoji, EmojiPicker } from '@/shared/emoji';
-import { usePopoverEmojiContext } from './provider';
+import { usePopoverEmojiContext } from './context';
 
 import 'emoji-mart/css/emoji-mart.css';
 

@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useThumbnailAttachmentContext } from '@/components/features/thumbnail-attachment/provider';
+import { useThumbnailAttachmentContext } from '@/components/features/thumbnail-attachment/context';
 import { Link } from '@/components/ui/link';
 import {
   type MenuRootProps,

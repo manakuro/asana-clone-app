@@ -3,7 +3,7 @@ import { ClientOnly } from '@/components/ui/client-only';
 import { Flex } from '@/components/ui/flex';
 import { Popover } from '@/components/ui/popover';
 import { Content } from './content';
-import { Context, usePopoverEmojiContext } from './provider';
+import { Context, usePopoverEmojiContext } from './context';
 
 export function PopoverEmoji(props: PropsWithChildren) {
   return (

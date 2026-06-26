@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/editor/tool-bar';
 import { Separator } from '@/components/ui/separator';
 import { Stack } from '@/components/ui/stack';
-import { useDescriptionContext } from './provider';
+import { useDescriptionContext } from './context';
 
 export const ToolBar = memo(function ToolBar() {
   const { focused } = useDescriptionContext();
