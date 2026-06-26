@@ -17,7 +17,7 @@ type Portal = {
   key: string;
 };
 
-const ReactNodeViewPortalsContext = createContext<Portal[]>([]);
+const PortalsContext = createContext<Portal[]>([]);
 
 export type PortalHandlers = {
   createPortal: (portal: { Component: FC; container: HTMLElement }) => void;
@@ -25,7 +25,7 @@ export type PortalHandlers = {
   setPortals: (portals: Portal[]) => void;
 };
 
-const ReactNodeViewCreatePortalContext = createContext<PortalHandlers>({
+const CreatePortalContext = createContext<PortalHandlers>({
   createPortal: () => {},
   removePortal: () => {},
   setPortals: () => {},
@@ -33,7 +33,7 @@ const ReactNodeViewCreatePortalContext = createContext<PortalHandlers>({
 
 type PortalsProviderProps = PropsWithChildren;
 
-export function ReactNodeViewPortalsProvider({
+export function ReactNodeViewPortalsContext({
   children,
 }: PortalsProviderProps) {
   const [portals, setPortals] = useState<Portal[]>([]);
@@ -72,15 +72,12 @@ export function ReactNodeViewPortalsProvider({
   );
 
   return (
-    <ReactNodeViewPortalsContext value={portals}>
-      <ReactNodeViewCreatePortalContext value={handlers}>
-        {children}
-      </ReactNodeViewCreatePortalContext>
-    </ReactNodeViewPortalsContext>
+    <PortalsContext value={portals}>
+      <CreatePortalContext value={handlers}>{children}</CreatePortalContext>
+    </PortalsContext>
   );
 }
 
-export const useReactNodeViewPortals = () =>
-  useContext(ReactNodeViewPortalsContext);
-export const useReactNodeViewCreatePortal = () =>
-  useContext(ReactNodeViewCreatePortalContext);
+export const useReactNodeViewPortalsContext = () => useContext(PortalsContext);
+export const useReactNodeViewCreatePortalContext = () =>
+  useContext(CreatePortalContext);

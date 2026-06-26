@@ -13,9 +13,9 @@ import {
 } from 'react';
 import { generateView } from './node-views/generate-view';
 import {
-  ReactNodeViewPortalsProvider,
-  useReactNodeViewCreatePortal,
-} from './react-node-view-portals';
+  ReactNodeViewPortalsContext,
+  useReactNodeViewCreatePortalContext,
+} from './react-node-view-context';
 
 const EditorStateContext = createContext<EditorState | null>(null);
 const EditorViewContext = createContext<EditorView | null>(null);
@@ -41,9 +41,9 @@ type Props = {
 
 export function EditorProvider({ ref, ...props }: PropsWithChildren<Props>) {
   return (
-    <ReactNodeViewPortalsProvider>
+    <ReactNodeViewPortalsContext>
       <Provider ref={ref} {...props} />
-    </ReactNodeViewPortalsProvider>
+    </ReactNodeViewPortalsContext>
   );
 }
 
@@ -56,7 +56,7 @@ const generateState = (props: Parameters<typeof EditorState.create>[0]) => {
 
 function Provider({ ref, ...props }: PropsWithChildren<Props>) {
   const { createPortal, removePortal, setPortals } =
-    useReactNodeViewCreatePortal();
+    useReactNodeViewCreatePortalContext();
   const [state, setState] = useState(
     generateState({ doc: props.doc, plugins: props.plugins }),
   );
