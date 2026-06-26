@@ -10,10 +10,10 @@ import {
   type ProsemirrorTransformer,
 } from '@/shared/prosemirror/transformers';
 import {
+  EditorContext,
   type EditorHandle,
-  EditorProvider,
   useEditorStateContext,
-} from './editor-provider';
+} from './editor-context';
 import { Portals } from './portals';
 
 export type EditorContainerProps = {
@@ -49,7 +49,7 @@ export function EditorContainer({
 
   return (
     <ClientOnly>
-      <EditorProvider
+      <EditorContext
         ref={ref}
         plugins={plugins}
         doc={initialDoc}
@@ -64,7 +64,7 @@ export function EditorContainer({
           {children}
         </Container>
         <Portals />
-      </EditorProvider>
+      </EditorContext>
     </ClientOnly>
   );
 }

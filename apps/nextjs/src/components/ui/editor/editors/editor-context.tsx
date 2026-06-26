@@ -39,7 +39,7 @@ type Props = {
   ref?: Ref<EditorHandle>;
 } & EditorProps;
 
-export function EditorProvider({ ref, ...props }: PropsWithChildren<Props>) {
+export function EditorContext({ ref, ...props }: PropsWithChildren<Props>) {
   return (
     <ReactNodeViewPortalsContext>
       <Provider ref={ref} {...props} />
