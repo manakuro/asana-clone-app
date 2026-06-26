@@ -1,6 +1,6 @@
 import { memo, type PropsWithChildren } from 'react';
 import { Context as InputContext } from './input-provider';
-import { Context as ListItemContext } from './list-item-provider';
+import { Context as ListItemContext } from './list-item-context';
 
 type Props = PropsWithChildren<{
   taskId: string;

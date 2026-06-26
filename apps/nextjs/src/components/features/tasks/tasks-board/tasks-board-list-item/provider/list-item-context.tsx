@@ -49,7 +49,7 @@ const useValue = (props: Props) => {
       }
     }
 
-    // When completed tasks are listed and the user is trying to make it as uncompleted
+    // When completed, tasks are listed and the user is trying to make it as uncompleted
     if (
       !isTaskListInComplete(taskListStatus.taskListCompletedStatus) &&
       !isTaskListCompletedAll(taskListStatus.taskListCompletedStatus)
