@@ -42,7 +42,7 @@ type Props = {
 export function EditorContext({ ref, ...props }: PropsWithChildren<Props>) {
   return (
     <ReactNodeViewPortalsContext>
-      <Provider ref={ref} {...props} />
+      <Context ref={ref} {...props} />
     </ReactNodeViewPortalsContext>
   );
 }
@@ -54,7 +54,7 @@ const generateState = (props: Parameters<typeof EditorState.create>[0]) => {
   });
 };
 
-function Provider({ ref, ...props }: PropsWithChildren<Props>) {
+function Context({ ref, ...props }: PropsWithChildren<Props>) {
   const { createPortal, removePortal, setPortals } =
     useReactNodeViewCreatePortalContext();
   const [state, setState] = useState(
@@ -97,11 +97,11 @@ function Provider({ ref, ...props }: PropsWithChildren<Props>) {
   }, []);
 
   return (
-    <EditorStateContext.Provider value={state}>
-      <EditorViewContext.Provider value={view}>
+    <EditorStateContext value={state}>
+      <EditorViewContext value={view}>
         <div ref={editorRef} />
         {props.children}
-      </EditorViewContext.Provider>
-    </EditorStateContext.Provider>
+      </EditorViewContext>
+    </EditorStateContext>
   );
 }
