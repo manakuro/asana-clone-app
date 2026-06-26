@@ -1,20 +1,12 @@
-import type React from 'react';
 import { useCallback, useState } from 'react';
 import { createContext } from '@/shared/react/create-context';
-
-type ContextProps = {
-  count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
-  currentIndex: number;
-  setCurrentIndex: (currentIndex: number) => void;
-};
 
 type Props = {
   onChange?: (currentIndex: number) => void;
   defaultIndex?: number;
 };
 
-const useValue = (props: Props): ContextProps => {
+const useValue = (props: Props) => {
   const [currentIndex, setCurrentIndex] = useState<number>(
     props.defaultIndex ?? 0,
   );
