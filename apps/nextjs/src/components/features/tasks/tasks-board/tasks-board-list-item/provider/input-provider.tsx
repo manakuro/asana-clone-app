@@ -8,7 +8,7 @@ import {
 } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import { isHTMLElement } from '@/shared/is-html-element';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   ref: React.MutableRefObject<HTMLElement | null>;
@@ -54,8 +54,8 @@ const useValue = (): ContextProps => {
     onInputSelect,
   };
 };
-export const { Provider, useContext: useTasksBoardListItemInputContext } =
-  createProvider(
+export const { Context, useContext: useTasksBoardListItemInputContext } =
+  createContext(
     useValue,
-    '@/components/organisms/Tasks/TasksBoard/TasksBoardListItem/Provider/InputProvider.tsx',
+    '@/components/features/tasks/tasks-board/tasks-board-list-item/provider/input-context.tsx',
   );

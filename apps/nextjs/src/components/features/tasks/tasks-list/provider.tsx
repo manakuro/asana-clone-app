@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTasksListContentSticky } from '@/components/features/tasks/tasks-list/tasks-list-content/use-tasks-list-content-sticky';
 import type { SystemStyleObject } from '@/shared/chakra';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   stickyStyle: StickyStyle;
@@ -25,7 +25,7 @@ const useValue = (): ContextProps => {
     stickyStyle,
   } as const;
 };
-export const { Provider, useContext: useTasksListContext } = createProvider(
+export const { Context, useContext: useTasksListContext } = createContext(
   useValue,
-  '@/components/organisms/Tasks/TasksList/Provider.tsx',
+  '@/components/features/tasks/tasks-list/context.tsx',
 );

@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { getCalendarMatrix } from '@/shared/date';
 import { dateFns } from '@/shared/date-fns';
 import { isHTMLElement } from '@/shared/is-html-element';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 import { useTasksCalendarId } from './use-tasks-calendar-id';
 
 type ContextProps = {
@@ -105,7 +105,7 @@ const useValue = (): ContextProps => {
     scrollToDate,
   };
 };
-export const { Provider, useContext: useTasksCalendarContext } = createProvider(
+export const { Context, useContext: useTasksCalendarContext } = createContext(
   useValue,
-  '@/components/organisms/Tasks/TasksCalendar/Provider.tsx',
+  '@/components/features/tasks/tasks-calendar/context.tsx',
 );

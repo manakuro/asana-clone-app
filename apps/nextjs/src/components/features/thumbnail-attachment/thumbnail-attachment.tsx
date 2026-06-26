@@ -4,7 +4,7 @@ import { FileTypeCode } from '@/store/entities/file-type';
 import { type TaskFile, useTaskFile } from '@/store/entities/task-file';
 import { File } from './file';
 import { Image } from './image';
-import { Provider } from './provider';
+import { Context } from './provider';
 
 type Props = FlexProps & {
   taskFileId: string;
@@ -16,9 +16,9 @@ export const ThumbnailAttachment = memo(function ThumbnailAttachment(
   props: Props,
 ) {
   return (
-    <Provider {...props}>
+    <Context {...props}>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

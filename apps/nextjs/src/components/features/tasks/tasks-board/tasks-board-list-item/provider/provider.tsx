@@ -1,15 +1,15 @@
 import { memo, type PropsWithChildren } from 'react';
-import { Provider as InputProvider } from './input-provider';
-import { Provider as ListItemProvider } from './list-item-provider';
+import { Context as InputContext } from './input-provider';
+import { Context as ListItemContext } from './list-item-provider';
 
 type Props = PropsWithChildren<{
   taskId: string;
 }>;
 
-export const Provider = memo(function Provider(props: Props) {
+export const Context = memo(function Context(props: Props) {
   return (
-    <ListItemProvider {...props}>
-      <InputProvider {...props}>{props.children}</InputProvider>
-    </ListItemProvider>
+    <ListItemContext {...props}>
+      <InputContext {...props}>{props.children}</InputContext>
+    </ListItemContext>
   );
 });

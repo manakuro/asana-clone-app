@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Container } from './container';
 import { Content } from './content';
 import { Header } from './header';
-import { Provider } from './provider';
+import { Context } from './provider';
 
 type Props = {
   taskFeedId: string;
@@ -12,9 +12,9 @@ type Props = {
 
 export const FeedListItem = memo(function FeedListItem(props: Props) {
   return (
-    <Provider {...props}>
+    <Context {...props}>
       <Component />
-    </Provider>
+    </Context>
   );
 });
 

@@ -19,7 +19,7 @@ import { TasksNameCell } from './tasks-name-cell';
 import { TasksNameField } from './tasks-name-field';
 import { TasksNameGrabIcon } from './tasks-name-grab-icon';
 import { TasksNameGrabIconContainer } from './tasks-name-grab-icon-container';
-import { TasksNameProvider, useTasksNameContext } from './tasks-name-provider';
+import { TasksNameContext, useTasksNameContext } from './tasks-name-provider';
 import { TasksNameRightContainer } from './tasks-name-right-container';
 
 type Props = FlexProps & {
@@ -30,9 +30,9 @@ type Props = FlexProps & {
 
 export const TasksName = memo(function TasksName(props: Props) {
   return (
-    <TasksNameProvider taskId={props.taskId}>
+    <TasksNameContext taskId={props.taskId}>
       <Component {...props} />
-    </TasksNameProvider>
+    </TasksNameContext>
   );
 });
 

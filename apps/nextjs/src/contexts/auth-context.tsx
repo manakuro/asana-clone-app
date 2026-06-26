@@ -6,7 +6,7 @@ import {
   onIdTokenChanged,
   signInAnonymously,
 } from '@/shared/firebase/auth';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 const useValue = () => {
   const [idToken, setIdToken] = useState('');
@@ -34,5 +34,5 @@ const useValue = () => {
     idToken,
   };
 };
-export const { Provider: AuthContext, useContext: useAuthContext } =
-  createProvider(useValue, 'AuthProvider');
+export const { Context: AuthContext, useContext: useAuthContext } =
+  createContext(useValue, 'AuthContext');

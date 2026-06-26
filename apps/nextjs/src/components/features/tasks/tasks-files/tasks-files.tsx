@@ -1,15 +1,15 @@
 import { forwardRef, memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Provider } from './provider';
+import { Context } from './provider';
 
 type Props = FlexProps;
 type ComponentProps = Omit<Props, 'taskColumnIds'>;
 
 export const TasksFiles = memo(function TasksFiles(props: Props) {
   return (
-    <Provider>
+    <Context>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

@@ -9,7 +9,7 @@ import { useClickOutside } from '@/hooks/use-click-outside';
 import { useToaster } from '@/hooks/use-toaster';
 import { getScrollBottom } from '@/shared/get-scroll-bottom';
 import { parseDescription } from '@/shared/prosemirror/convert-description';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 import { useMe } from '@/store/entities/me';
 import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/task-feed';
 import {
@@ -55,9 +55,9 @@ const useValue = () => {
     onDeleteTaskFile,
   };
 };
-export const { Provider, useContext: useInputContext } = createProvider(
+export const { Context, useContext: useInputContext } = createContext(
   useValue,
-  '@/components/organisms/TaskDetail/TaskDetailFooter/Comment/Input/Provider.tsx',
+  '@/components/features/task-detail/task-detail-footer/comment/input/context.tsx',
 );
 
 const useTaskFile = () => {

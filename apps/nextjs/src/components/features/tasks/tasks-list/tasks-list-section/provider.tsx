@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type Props = {
   taskSectionId: string;
@@ -32,9 +32,9 @@ const useValue = (props: Props) => {
     indentedStyle,
   } as const;
 };
-export const { Provider, useContext: useTasksListSectionContext } =
-  createProvider(
+export const { Context, useContext: useTasksListSectionContext } =
+  createContext(
     useValue,
-    '@/components/organisms/Tasks/TasksList/TasksListSection/Provider.tsx',
+    '@/components/features/tasks/tasks-list/tasks-list-section/context.tsx',
   );
-export const TasksListSectionProvider = Provider;
+export const TasksListSectionContext = Context;

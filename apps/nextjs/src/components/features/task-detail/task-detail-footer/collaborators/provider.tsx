@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   onInputFocus: () => void;
@@ -16,9 +16,9 @@ const useValue = (): ContextProps => {
     onInputUnfocus,
   } as const;
 };
-export const { Provider, useContext: useCollaboratorsContext } = createProvider(
+export const { Context, useContext: useCollaboratorsContext } = createContext(
   useValue,
-  '@/components/organisms/TaskDetail/TaskDetailFooter/Collaborators/Provider.tsx',
+  '@/components/features/task-detail/task-detail-footer/collaborators/context.tsx',
 );
 
 function useInput() {

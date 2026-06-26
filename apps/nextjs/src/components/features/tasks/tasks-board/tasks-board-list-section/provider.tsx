@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   focused: boolean;
@@ -30,8 +30,8 @@ const useValue = (props: Props): ContextProps => {
     taskSectionId: props.taskSectionId,
   } as const;
 };
-export const { Provider, useContext: useTasksBoardListSectionContext } =
-  createProvider(
+export const { Context, useContext: useTasksBoardListSectionContext } =
+  createContext(
     useValue,
-    '@/components/organisms/Tasks/TasksBoard/TasksBoardListSection/Provider.tsx',
+    '@/components/features/tasks/tasks-board/tasks-board-list-section/context.tsx',
   );

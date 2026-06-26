@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useHover } from '@/hooks/use-hover';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 import { useInputFocus } from './use-input-focus';
 
 type Props = {
@@ -31,7 +31,7 @@ const useValue = (props: Props) => {
     onEndTransition,
   };
 };
-export const { Provider, useContext: useSubtasksNameContext } = createProvider(
+export const { Context, useContext: useSubtasksNameContext } = createContext(
   useValue,
-  '@/components/organisms/TaskDetail/TaskDetailBody/Form/Subtasks/TasksName/Provider.tsx',
+  '@/components/features/task-detail/task-detail-body/form/subtasks/tasks-name/context.tsx',
 );

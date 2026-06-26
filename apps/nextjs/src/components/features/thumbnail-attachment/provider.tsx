@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback, useState } from 'react';
 import { useHover } from '@/hooks/use-hover';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 import { type TaskFile, useTaskFile } from '@/store/entities/task-file';
 
 type Props = {
@@ -32,8 +32,8 @@ const useValue = (props: Props) => {
   };
 };
 
-export const { Provider, useContext: useThumbnailAttachmentContext } =
-  createProvider(
+export const { Context, useContext: useThumbnailAttachmentContext } =
+  createContext(
     useValue,
-    '@/components/molecules/ThumbnailAttachment/Provider.tsx',
+    '@/components/features/thumbnail-attachment/context.tsx',
   );

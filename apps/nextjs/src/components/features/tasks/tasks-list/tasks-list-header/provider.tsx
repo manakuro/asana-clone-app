@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useTasksTaskListStatus } from '@/components/features/tasks/hooks';
 import { useTasksListContentVerticalScroll } from '@/components/features/tasks/tasks-list/tasks-list-content/use-tasks-list-content-vertical-scroll';
 import type { FlexProps } from '@/components/ui/flex';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 import { useTaskListSortStatus } from '@/store/entities/task-list-sort-status';
 
 const useValue = () => {
@@ -47,5 +47,7 @@ const useValue = () => {
     scrollingStyle,
   } as const;
 };
-export const { Provider, useContext: useTasksListHeaderContext } =
-  createProvider(useValue, 'TasksListHeaderProvider');
+export const { Context, useContext: useTasksListHeaderContext } = createContext(
+  useValue,
+  'TasksListHeaderContext',
+);

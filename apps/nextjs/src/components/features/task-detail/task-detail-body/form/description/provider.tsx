@@ -3,7 +3,7 @@ import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
 } from '@/hooks/use-click-outside';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 const useValue = () => {
   const [focused, setFocused] = useState(false);
@@ -36,7 +36,7 @@ const useValue = () => {
     ref,
   };
 };
-export const { Provider, useContext: useDescriptionContext } = createProvider(
+export const { Context, useContext: useDescriptionContext } = createContext(
   useValue,
-  '@/components/organisms/TaskDetail/TaskDetailBody/Form/Description/Provider.tsx',
+  '@/components/features/task-detail/task-detail-body/form/description/context.tsx',
 );

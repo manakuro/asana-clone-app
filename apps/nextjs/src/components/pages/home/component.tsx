@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { TaskDetailModal } from '@/components/features/task-details/task-detail-modal';
-import { TasksProvider } from '@/components/features/tasks/tasks-provider/tasks-provider';
+import { TasksContext } from '@/components/features/tasks/tasks-provider/tasks-provider';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { Stack } from '@/components/ui/stack';
@@ -29,7 +29,7 @@ export const Component = memo<Props>(function Component(props) {
   });
 
   return (
-    <TasksProvider isHomePage>
+    <TasksContext isHomePage>
       <Flex flexDirection="column">
         <Head title="Home" />
         <Header />
@@ -46,6 +46,6 @@ export const Component = memo<Props>(function Component(props) {
         )}
       </Flex>
       <TaskDetailModal backToPage={navigateToHome} />
-    </TasksProvider>
+    </TasksContext>
   );
 });

@@ -9,7 +9,7 @@ import { useRouter } from '@/router';
 import { Activity } from './components/activity';
 import { Archive } from './components/archive';
 import { Header } from './components/header';
-import { Provider, useInboxPageContext } from './providers/provider';
+import { Context, useInboxPageContext } from './providers/provider';
 
 const ACTIVITY_INDEX = 'activity' as const;
 const ARCHIVE_INDEX = 'archive' as const;
@@ -18,9 +18,9 @@ type Index = typeof ACTIVITY_INDEX | typeof ARCHIVE_INDEX;
 
 export const Component = memo(function InboxComponent() {
   return (
-    <Provider>
+    <Context>
       <WrappedComponent />
-    </Provider>
+    </Context>
   );
 });
 

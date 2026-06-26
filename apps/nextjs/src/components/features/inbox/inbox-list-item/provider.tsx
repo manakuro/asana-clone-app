@@ -1,5 +1,5 @@
 import { useHover } from '@/hooks/use-hover';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 const useValue = () => {
   const { ref, isHovering } = useHover<HTMLDivElement>();
@@ -10,7 +10,7 @@ const useValue = () => {
   };
 };
 
-export const { Provider, useContext: useInboxListItemContext } = createProvider(
+export const { Context, useContext: useInboxListItemContext } = createContext(
   useValue,
-  '@/components/organisms/Inbox/InboxListItem/Provider.tsx',
+  '@/components/organisms/Inbox/InboxListItem/context.tsx',
 );

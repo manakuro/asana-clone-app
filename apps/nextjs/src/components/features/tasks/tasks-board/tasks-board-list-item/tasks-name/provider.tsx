@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useHover } from '@/hooks/use-hover';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   ref: React.MutableRefObject<HTMLElement | null>;
@@ -20,8 +20,8 @@ const useValue = (props: Props): ContextProps => {
     taskId: props.taskId,
   };
 };
-export const { Provider: TasksNameProvider, useContext: useTasksNameContext } =
-  createProvider(
+export const { Context: TasksNameContext, useContext: useTasksNameContext } =
+  createContext(
     useValue,
-    '@/components/organisms/Tasks/TasksBoard/TasksBoardListItem/TasksName/Provider.tsx',
+    '@/components/features/tasks/tasks-board/tasks-board-list-item/tasks-name/context.tsx',
   );

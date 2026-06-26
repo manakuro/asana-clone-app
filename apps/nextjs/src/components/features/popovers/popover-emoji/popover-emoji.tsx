@@ -3,13 +3,13 @@ import { ClientOnly } from '@/components/ui/client-only';
 import { Flex } from '@/components/ui/flex';
 import { Popover } from '@/components/ui/popover';
 import { Content } from './content';
-import { Provider, usePopoverEmojiContext } from './provider';
+import { Context, usePopoverEmojiContext } from './provider';
 
 export function PopoverEmoji(props: PropsWithChildren) {
   return (
-    <Provider>
+    <Context>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 }
 

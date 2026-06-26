@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { Flex } from '@/components/ui/flex';
-import { Provider } from './provider';
+import { Context } from './provider';
 
 type Props = {
   onChange?: (currentIndex: number) => void;
@@ -9,9 +9,9 @@ type Props = {
 
 export function Carousel(props: PropsWithChildren<Props>) {
   return (
-    <Provider {...props}>
+    <Context {...props}>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 }
 

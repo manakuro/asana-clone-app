@@ -1,4 +1,4 @@
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   projectId: string;
@@ -13,10 +13,8 @@ const useValue = (props: Props): ContextProps => {
     projectId: props.projectId,
   } as const;
 };
-export const {
-  Provider,
-  useContext: useTasksListSectionGroupByProjectContext,
-} = createProvider(
-  useValue,
-  '@/components/organisms/Tasks/TasksList/TasksListSectionGroupByProject/Provider.tsx',
-);
+export const { Context, useContext: useTasksListSectionGroupByProjectContext } =
+  createContext(
+    useValue,
+    '@/components/features/tasks/tasks-list/tasks-list-section-group-by-project/context.tsx',
+  );

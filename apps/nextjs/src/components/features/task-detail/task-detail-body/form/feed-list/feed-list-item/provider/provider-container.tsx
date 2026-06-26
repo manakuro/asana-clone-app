@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTaskDetailBody } from '@/components/features/task-detail/task-detail-body/use-task-detail-body';
 import { useTasksRouter } from '@/components/features/tasks/hooks';
 import { isHTMLElement } from '@/shared/is-html-element';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 import { useTaskFeed } from '@/store/entities/task-feed';
 
 type Props = {
@@ -49,8 +49,8 @@ const useValue = (props: Props) => {
     isReferenced,
   };
 };
-export const { Provider, useContext: useFeedListItemContainerContext } =
-  createProvider(
+export const { Context, useContext: useFeedListItemContainerContext } =
+  createContext(
     useValue,
-    '@/components/organisms/TaskDetail/TaskDetailBody/Form/FeedList/FeedListItem/Provider/ProviderContainer.tsx',
+    '@/components/features/task-detail/task-detail-body/form/feed-list/feed-list-item/provider/context-container.tsx',
   );

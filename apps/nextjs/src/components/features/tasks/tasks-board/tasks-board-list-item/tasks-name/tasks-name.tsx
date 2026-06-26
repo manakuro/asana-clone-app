@@ -4,7 +4,7 @@ import { CheckIcon } from '@/components/ui/check-icon';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { useTasksBoardListItemContext } from '../provider';
-import { TasksNameProvider } from './provider';
+import { TasksNameContext } from './provider';
 import { TasksNameField } from './tasks-name-field';
 
 type Props = FlexProps & {
@@ -13,9 +13,9 @@ type Props = FlexProps & {
 
 export const TasksName = memo(function TasksName(props: Props) {
   return (
-    <TasksNameProvider taskId={props.taskId}>
+    <TasksNameContext taskId={props.taskId}>
       <Component {...props} />
-    </TasksNameProvider>
+    </TasksNameContext>
   );
 });
 

@@ -7,7 +7,7 @@ import { TaskDoneTransition } from '@/components/ui/transitions';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { Assignee } from './assignee';
 import { DueDate } from './due-date';
-import { Provider, useSubtasksNameContext } from './provider';
+import { Context, useSubtasksNameContext } from './provider';
 import { RightItem } from './right-item';
 import { TasksNameCell } from './tasks-name-cell';
 import { TasksNameField } from './tasks-name-field';
@@ -19,9 +19,9 @@ type Props = FlexProps & {
 
 export const TasksName = memo(function TasksName(props: Props) {
   return (
-    <Provider taskId={props.taskId}>
+    <Context taskId={props.taskId}>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

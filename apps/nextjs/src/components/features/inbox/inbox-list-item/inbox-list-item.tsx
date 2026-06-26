@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useInboxListItem } from '@/components/features/inbox/hooks/use-inbox-list-item';
 import type { FlexProps } from '@/components/ui/flex';
 import { ActivityTypeCode } from '@/store/entities/activity-type';
-import { Provider } from './provider';
+import { Context } from './provider';
 import { TaskActivity } from './task-activity';
 import { WorkspaceActivity } from './workspace-activity';
 
@@ -12,9 +12,9 @@ type Props = FlexProps & {
 
 export const InboxListItem = memo(function InboxListItem(props: Props) {
   return (
-    <Provider>
+    <Context>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

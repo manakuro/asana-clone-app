@@ -1,10 +1,10 @@
 import { memo, useCallback, useState } from 'react';
 import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list-item';
-import { TasksListSectionProvider } from '@/components/features/tasks/tasks-list/tasks-list-section';
+import { TasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section';
 import { Flex } from '@/components/ui/flex';
 import { useMyTasksTaskIdsByProjectId } from '@/store/app/my-tasks/tasks';
 import { Header } from './header';
-import { Provider } from './provider';
+import { Context } from './provider';
 
 type Props = {
   projectId: string;
@@ -12,9 +12,9 @@ type Props = {
 export const TasksListSectionGroupByProject = memo(
   function TasksListSectionGroupByProject(props: Props) {
     return (
-      <Provider projectId={props.projectId}>
+      <Context projectId={props.projectId}>
         <Component {...props} />
-      </Provider>
+      </Context>
     );
   },
 );
@@ -37,9 +37,9 @@ const Component = memo(function Component(props: Props) {
       {isExpanded && (
         <Flex flexDirection="column">
           {taskIds.map((id) => (
-            <TasksListSectionProvider taskSectionId="" key={id}>
+            <TasksListSectionContext taskSectionId="" key={id}>
               <TasksListItem taskId={id} />
-            </TasksListSectionProvider>
+            </TasksListSectionContext>
           ))}
         </Flex>
       )}

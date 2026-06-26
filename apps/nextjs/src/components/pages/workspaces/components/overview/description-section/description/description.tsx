@@ -8,13 +8,13 @@ import {
 import { useWorkspace, useWorkspaceCommand } from '@/store/entities/workspace';
 import { Container } from './container';
 import { Placeholder } from './placeholder';
-import { Provider } from './provider';
+import { Context } from './provider';
 
 export const Description = memo(function Description() {
   return (
-    <Provider>
+    <Context>
       <DescriptionHandler />
-    </Provider>
+    </Context>
   );
 });
 

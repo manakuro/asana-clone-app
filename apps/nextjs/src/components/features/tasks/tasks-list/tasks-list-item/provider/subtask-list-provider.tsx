@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   isSubtaskExpanded: boolean;
@@ -18,7 +18,7 @@ const useValue = (): ContextProps => {
     onToggleExpandSubtask,
   } as const;
 };
-export const { Provider, useContext: useSubtaskListContext } = createProvider(
+export const { Context, useContext: useSubtaskListContext } = createContext(
   useValue,
-  '@/components/organisms/Tasks/TasksList/TasksListItem/Provider/SubtaskListProvider.tsx',
+  '@/components/features/tasks/tasks-list/tasks-list-item/provider/subtask-list-context.tsx',
 );

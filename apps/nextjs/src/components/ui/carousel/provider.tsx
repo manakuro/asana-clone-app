@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback, useState } from 'react';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   count: number;
@@ -35,7 +35,7 @@ const useValue = (props: Props): ContextProps => {
     setCurrentIndex: handleSetCurrentIndex,
   };
 };
-export const { Provider, useContext: useCarouselContext } = createProvider(
+export const { Context, useContext: useCarouselContext } = createContext(
   useValue,
-  '@/components/organisms/Carousel/Provider.tsx',
+  '@/components/ui/carousel/context.tsx',
 );

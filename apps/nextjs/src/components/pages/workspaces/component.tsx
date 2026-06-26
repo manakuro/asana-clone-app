@@ -13,7 +13,7 @@ import {
 import { useWorkspace } from '@/store/entities/workspace';
 import { Header } from './components/header';
 import { Overview } from './components/overview';
-import { Provider, useWorkspacesPageContext } from './providers/provider';
+import { Context, useWorkspacesPageContext } from './providers/provider';
 
 type Props = {
   loading: boolean;
@@ -30,9 +30,9 @@ type Index =
 
 export const Component = memo(function Component(props: Props) {
   return (
-    <Provider loading={props.loading}>
+    <Context loading={props.loading}>
       <WrappedComponent />
-    </Provider>
+    </Context>
   );
 });
 

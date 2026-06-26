@@ -1,14 +1,14 @@
 import { forwardRef, memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Provider } from './provider';
+import { Context } from './provider';
 
 type Props = FlexProps;
 
 export const TasksCalendar = memo(function TasksCalendar(props: Props) {
   return (
-    <Provider>
+    <Context>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

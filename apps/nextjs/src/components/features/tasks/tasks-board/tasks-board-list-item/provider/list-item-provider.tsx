@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTasksTaskListStatus } from '@/components/features/tasks/hooks';
 import { useHover } from '@/hooks/use-hover';
 import { ROUTE_MY_TASKS } from '@/router';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 import { useTask } from '@/store/entities/task';
 import { useTaskListCompletedStatus } from '@/store/entities/task-list-completed-status';
 
@@ -83,8 +83,8 @@ const useValue = (props: Props) => {
     onToggleDone,
   };
 };
-export const { Provider, useContext: useTasksBoardListItemContext } =
-  createProvider(
+export const { Context, useContext: useTasksBoardListItemContext } =
+  createContext(
     useValue,
-    '@/components/organisms/Tasks/TasksBoard/TasksBoardListItem/Provider/ListItemProvider.tsx',
+    '@/components/features/tasks/tasks-board/tasks-board-list-item/provider/list-item-context.tsx',
   );

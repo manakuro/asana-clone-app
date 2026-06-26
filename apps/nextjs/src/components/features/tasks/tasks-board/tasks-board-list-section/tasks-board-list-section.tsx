@@ -6,7 +6,7 @@ import { TasksBoardListItem } from '../tasks-board-list-item';
 import { AddTask } from './add-task';
 import { AddTaskSection } from './add-task-section';
 import { Header } from './header';
-import { Provider } from './provider';
+import { Context } from './provider';
 import { useTasksBoardListSectionElement } from './use-tasks-board-list-section-element';
 
 type Props = {
@@ -17,9 +17,9 @@ export const TasksBoardListSection = memo(function TasksBoardListSection(
   props: Props,
 ) {
   return (
-    <Provider taskSectionId={props.taskSectionId}>
+    <Context taskSectionId={props.taskSectionId}>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

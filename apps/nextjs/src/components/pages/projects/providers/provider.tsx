@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   queryLoading: boolean;
@@ -52,7 +52,7 @@ const useValue = (props: Props): ContextProps => {
     fetchTaskDetailQuery: props.fetchTaskDetailQuery,
   } as const;
 };
-export const { Provider, useContext: useProjectsPageContext } = createProvider(
+export const { Context, useContext: useProjectsPageContext } = createContext(
   useValue,
-  '@/components/pages/Projects/Provider.tsx',
+  '@/components/pages/projects/providers/context.tsx',
 );

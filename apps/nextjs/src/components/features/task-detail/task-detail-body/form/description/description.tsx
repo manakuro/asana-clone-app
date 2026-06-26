@@ -9,7 +9,7 @@ import { useTask } from '@/store/entities/task';
 import { Content, Label, Row } from '../row';
 import { Container } from './container';
 import { Placeholder } from './placeholder';
-import { Provider } from './provider';
+import { Context } from './provider';
 import { ToolBar } from './tool-bar';
 
 type Props = {
@@ -18,9 +18,9 @@ type Props = {
 
 export const Description = memo(function Description(props: Props) {
   return (
-    <Provider>
+    <Context>
       <DescriptionHandler {...props} />
-    </Provider>
+    </Context>
   );
 });
 

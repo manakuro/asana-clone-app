@@ -1,9 +1,9 @@
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 const useValue = () => {
   return {};
 };
-export const { Provider, useContext: useTasksBoardContext } = createProvider(
+export const { Context, useContext: useTasksBoardContext } = createContext(
   useValue,
-  '@/components/organisms/Tasks/TasksBoard/Provider.tsx',
+  '@/components/features/tasks/tasks-board/context.tsx',
 );

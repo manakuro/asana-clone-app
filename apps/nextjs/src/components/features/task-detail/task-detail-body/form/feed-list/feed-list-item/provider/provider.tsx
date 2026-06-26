@@ -4,22 +4,22 @@ import { useTasksRouter } from '@/components/features/tasks/hooks';
 import type { DescriptionFragmentFragment } from '@/graphql/types';
 import { useToaster } from '@/hooks/use-toaster';
 import { parseDescription } from '@/shared/prosemirror/convert-description';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/task-feed';
 import { useTaskFileIdsByTaskFeedId } from '@/store/entities/task-file';
 import { useTeammate } from '@/store/entities/teammate';
-import { Provider as ProviderContainer } from './provider-container';
+import { Context as ContextContainer } from './provider-container';
 
 type Props = {
   taskFeedId: string;
   taskId: string;
   isPinned?: boolean;
 };
-export function Provider(props: PropsWithChildren<Props>) {
+export function Context(props: PropsWithChildren<Props>) {
   return (
-    <ProviderBase {...props}>
-      <ProviderContainer {...props}>{props.children}</ProviderContainer>
-    </ProviderBase>
+    <ContextBase {...props}>
+      <ContextContainer {...props}>{props.children}</ContextContainer>
+    </ContextBase>
   );
 }
 
@@ -73,10 +73,10 @@ const useValue = (props: Props) => {
     taskFileIds,
   };
 };
-const { Provider: ProviderBase, useContext: useTaskFeedListItemContext } =
-  createProvider(
+const { Context: ContextBase, useContext: useTaskFeedListItemContext } =
+  createContext(
     useValue,
-    '@/components/organisms/TaskDetail/TaskDetailBody/Form/FeedList/FeedListItem/Provider/Provider.tsx',
+    '@/components/features/task-detail/task-detail-body/form/feed-list/feed-list-item/provider/context.tsx',
   );
 
 const useFeedOptionMenu = (props: Props) => {

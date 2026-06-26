@@ -3,14 +3,14 @@ import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
 import { Input } from './input';
 import { LeaveTask } from './leave-task';
-import { Provider } from './provider';
+import { Context } from './provider';
 import { Teammates } from './teammates';
 
 export const Collaborators = memo(function Collaborators(props) {
   return (
-    <Provider>
+    <Context>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useHover } from '@/hooks/use-hover';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 import { useInputFocus } from './use-input-focus';
 import { useMarkMenuFocus } from './use-mark-menu-focus';
 
@@ -47,8 +47,8 @@ const useValue = (props: Props) => {
     onEndTransition,
   };
 };
-export const { Provider: TasksNameProvider, useContext: useTasksNameContext } =
-  createProvider(
+export const { Context: TasksNameContext, useContext: useTasksNameContext } =
+  createContext(
     useValue,
-    '@/components/organisms/Tasks/TasksList/TasksListCells/TasksName/TasksNameProvider.tsx',
+    '@/components/features/tasks/tasks-list/tasks-list-cells/tasks-name/tasks-name-context.tsx',
   );

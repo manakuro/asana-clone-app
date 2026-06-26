@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useSearchWorkspaceTeammatesQuery } from '@/hooks/queries/entities';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 const useValue = () => {
   const {
@@ -34,8 +34,8 @@ const useValue = () => {
   };
 };
 
-export const { Provider, useContext: useProjectTeammateMenuContext } =
-  createProvider(
+export const { Context, useContext: useProjectTeammateMenuContext } =
+  createContext(
     useValue,
-    '@/components/organisms/Menus/ProjectTeammateMenu/Provider.tsx',
+    '@/components/organisms/Menus/ProjectTeammateMenu/context.tsx',
   );

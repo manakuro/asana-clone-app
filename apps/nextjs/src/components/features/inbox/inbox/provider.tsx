@@ -1,4 +1,4 @@
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   isActivity: boolean;
@@ -8,7 +8,7 @@ type Props = {
   isActivity?: boolean;
   isArchive?: boolean;
 };
-export type InboxProviderProps = Props;
+export type InboxContextProps = Props;
 
 const useValue = (props: Props): ContextProps => {
   return {
@@ -17,7 +17,7 @@ const useValue = (props: Props): ContextProps => {
   };
 };
 
-export const { Provider, useContext: useInboxContext } = createProvider(
+export const { Context, useContext: useInboxContext } = createContext(
   useValue,
-  '@/components/organisms/Inbox/Inbox/Provider.tsx',
+  '@/components/organisms/Inbox/Inbox/context.tsx',
 );

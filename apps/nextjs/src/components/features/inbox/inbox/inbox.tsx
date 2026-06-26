@@ -1,15 +1,15 @@
 import { forwardRef, memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { type InboxProviderProps, Provider } from './provider';
+import { Context, type InboxContextProps } from './provider';
 
-type Props = FlexProps & InboxProviderProps;
+type Props = FlexProps & InboxContextProps;
 
 export const Inbox = memo<Props>(function Inbox(props) {
   const { isActivity, isArchive, ...rest } = props;
   return (
-    <Provider isActivity={isActivity} isArchive={isArchive}>
+    <Context isActivity={isActivity} isArchive={isArchive}>
       <Component {...rest} />
-    </Provider>
+    </Context>
   );
 });
 

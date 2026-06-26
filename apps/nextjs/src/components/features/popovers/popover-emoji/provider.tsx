@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import type { BaseEmoji } from '@/shared/emoji';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   open: boolean;
@@ -41,7 +41,7 @@ const useValue = (props: Props): ContextProps => {
     onOpen,
   };
 };
-export const { Provider, useContext: usePopoverEmojiContext } = createProvider(
+export const { Context, useContext: usePopoverEmojiContext } = createContext(
   useValue,
-  '@/components/organisms/Popovers/PopoverEmoji/Provider.tsx',
+  '@/components/features/popovers/popover-emoji/context.tsx',
 );

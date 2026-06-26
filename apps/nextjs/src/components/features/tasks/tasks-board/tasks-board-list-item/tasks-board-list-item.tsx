@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTasksContext } from '@/components/features/tasks/tasks-provider/tasks-provider';
 import type { FlexProps } from '@/components/ui/flex';
-import { Provider } from './provider';
+import { Context } from './provider';
 import { TasksBoardListItemForMyTasksPage } from './tasks-board-list-item-for-my-tasks-page';
 import { TasksBoardListItemForProjectsPage } from './tasks-board-list-item-for-projects-page';
 
@@ -13,9 +13,9 @@ export const TasksBoardListItem = memo(function TasksBoardListItem(
   props: Props,
 ) {
   return (
-    <Provider {...props}>
+    <Context {...props}>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

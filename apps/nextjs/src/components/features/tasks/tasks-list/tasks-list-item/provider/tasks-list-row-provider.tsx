@@ -2,7 +2,7 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { ROUTE_MY_TASKS } from '@/router';
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   selected: boolean;
@@ -31,8 +31,8 @@ const useValue = (props: Props): ContextProps => {
     selected,
   };
 };
-export const { Provider, useContext: useTasksListItemRowContext } =
-  createProvider(
+export const { Context, useContext: useTasksListItemRowContext } =
+  createContext(
     useValue,
-    '@/components/organisms/Tasks/TasksList/TasksListItem/Provider/TasksListRowProvider.tsx',
+    '@/components/features/tasks/tasks-list/tasks-list-item/provider/tasks-list-row-context.tsx',
   );

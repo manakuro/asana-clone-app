@@ -1,4 +1,4 @@
-import { createProvider } from '@/shared/react/create-provider';
+import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   isMyTasksPage: boolean;
@@ -23,5 +23,5 @@ const useValue = (props: Props): ContextProps => {
     isInboxPage: !!props.isInboxPage,
   } as const;
 };
-export const { Provider: TasksProvider, useContext: useTasksContext } =
-  createProvider(useValue, 'TasksProvider');
+export const { Context: TasksContext, useContext: useTasksContext } =
+  createContext(useValue, 'TasksContext');
