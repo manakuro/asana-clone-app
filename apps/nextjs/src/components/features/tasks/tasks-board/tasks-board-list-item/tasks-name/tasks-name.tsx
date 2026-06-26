@@ -4,7 +4,7 @@ import { CheckIcon } from '@/components/ui/check-icon';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { useTasksBoardListItemContext } from '../provider';
-import { TasksNameContext } from './provider';
+import { TasksNameContext } from './context';
 import { TasksNameField } from './tasks-name-field';
 
 type Props = FlexProps & {
