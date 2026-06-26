@@ -1,6 +1,6 @@
 import { forwardRef, memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Context } from './provider';
+import { Context } from './context';
 
 type Props = FlexProps;
 type ComponentProps = Omit<Props, 'taskColumnIds'>;
