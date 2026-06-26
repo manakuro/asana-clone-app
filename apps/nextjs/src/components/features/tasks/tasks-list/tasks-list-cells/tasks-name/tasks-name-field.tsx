@@ -11,7 +11,7 @@ import {
 import { useDebounce } from '@/hooks/use-debounce';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { useTaskOptimistic } from '@/store/entities/task';
-import { useTasksNameContext } from './tasks-name-provider';
+import { useTasksNameContext } from './tasks-name-context';
 
 type Props = {
   taskId: string;

@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
+import { useTasksListContext } from '@/components/features/tasks/tasks-list/context';
 import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list-item';
 import { TasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section';
 import { TasksListSectionGroupByProject } from '@/components/features/tasks/tasks-list/tasks-list-section-group-by-project/tasks-list-section-group-by-project';

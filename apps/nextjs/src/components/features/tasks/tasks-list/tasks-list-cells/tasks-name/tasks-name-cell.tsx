@@ -4,8 +4,8 @@ import {
   TasksListCell,
   type TasksListCellProps,
 } from '@/components/features/tasks/tasks-list/tasks-list-cell';
-import { useTasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section/provider';
-import { useTasksNameContext } from './tasks-name-provider';
+import { useTasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section/context';
+import { useTasksNameContext } from './tasks-name-context';
 
 type Props = TasksListCellProps;
 

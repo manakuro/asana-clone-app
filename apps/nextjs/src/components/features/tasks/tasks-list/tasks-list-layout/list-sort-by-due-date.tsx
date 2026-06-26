@@ -4,7 +4,7 @@ import {
   useTasksTaskIds,
   useTasksTaskSectionIds,
 } from '@/components/features/tasks/hooks';
-import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
+import { useTasksListContext } from '@/components/features/tasks/tasks-list/context';
 import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list-item';
 import { TasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section';
 import { TasksListSection } from '@/components/features/tasks/tasks-list/tasks-list-section/tasks-list-section';

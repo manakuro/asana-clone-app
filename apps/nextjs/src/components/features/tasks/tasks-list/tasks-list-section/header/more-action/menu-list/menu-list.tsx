@@ -5,7 +5,7 @@ import {
   useTasksCanDeleteTaskSection,
   useTasksTaskSectionCommand,
 } from '@/components/features/tasks/hooks';
-import { useTasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section/provider';
+import { useTasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section/context';
 import { Menu } from '@/components/ui/menu';
 import { Tooltip } from '@/components/ui/tooltip';
 

@@ -1,6 +1,6 @@
 import { forwardRef, memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { Context, type InboxContextProps } from './provider';
+import { Context, type InboxContextProps } from './context';
 
 type Props = FlexProps & InboxContextProps;
 

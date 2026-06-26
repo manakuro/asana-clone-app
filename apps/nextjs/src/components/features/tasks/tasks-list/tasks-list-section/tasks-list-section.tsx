@@ -4,8 +4,8 @@ import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list
 import { Flex } from '@/components/ui/flex';
 import { AddTask } from './add-task';
 import { AddTaskSection } from './add-task-section';
+import { Context } from './context';
 import { Header } from './header';
-import { Context } from './provider';
 
 type Props = {
   taskSectionId: string;

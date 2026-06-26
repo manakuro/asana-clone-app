@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list-cell';
-import { useTasksListHeaderContext } from '../provider';
+import { useTasksListHeaderContext } from '../context';
 
 export const RemainingSpace = memo(function RemainingSpace() {
   const { sortedStyle } = useTasksListHeaderContext();

@@ -1,6 +1,6 @@
 import { memo, type PropsWithChildren } from 'react';
-import { Context as SubtaskListContext } from './subtask-list-provider';
-import { Context as TasksListRowContext } from './tasks-list-row-provider';
+import { Context as SubtaskListContext } from './subtask-list-context';
+import { Context as TasksListRowContext } from './tasks-list-row-context';
 
 type Props = PropsWithChildren<{
   taskId: string;

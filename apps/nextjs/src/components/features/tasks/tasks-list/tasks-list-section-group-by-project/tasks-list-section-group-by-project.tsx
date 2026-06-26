@@ -3,8 +3,8 @@ import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list
 import { TasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section';
 import { Flex } from '@/components/ui/flex';
 import { useMyTasksTaskIdsByProjectId } from '@/store/app/my-tasks/tasks';
+import { Context } from './context';
 import { Header } from './header';
-import { Context } from './provider';
 
 type Props = {
   projectId: string;

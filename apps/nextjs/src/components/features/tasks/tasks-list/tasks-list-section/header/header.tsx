@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
-import { useTasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section/provider';
+import { useTasksListContext } from '@/components/features/tasks/tasks-list/context';
+import { useTasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section/context';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';

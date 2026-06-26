@@ -1,3 +1,3 @@
-export * from './provider';
-export { useSubtaskListContext } from './subtask-list-provider';
-export { useTasksListItemRowContext } from './tasks-list-row-provider';
+export * from './context';
+export { useSubtaskListContext } from './subtask-list-context';
+export { useTasksListItemRowContext } from './tasks-list-row-context';

@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTasksTask } from '@/components/features/tasks/hooks';
-import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
+import { useTasksListContext } from '@/components/features/tasks/tasks-list/context';
 import { Flex } from '@/components/ui/flex';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 
