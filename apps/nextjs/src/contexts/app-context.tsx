@@ -8,17 +8,15 @@ import { Mobile } from '@/components/ui/mobile';
 import { PageLoader } from '@/components/ui/page-loader';
 import { Toaster } from '@/components/ui/toast';
 import { ApolloProvider } from '@/shared/apollo/apollo-provider';
-import { AuthProvider, useAuthContext } from './auth-provider';
+import { useAuthContext } from './auth-context';
 
-export function AppProvider({ children }: PropsWithChildren) {
+export function AppContext({ children }: PropsWithChildren) {
   return (
-    <AuthProvider>
-      <ChakraProvider>
-        <Mobile>
-          <Inner>{children}</Inner>
-        </Mobile>
-      </ChakraProvider>
-    </AuthProvider>
+    <ChakraProvider>
+      <Mobile>
+        <Inner>{children}</Inner>
+      </Mobile>
+    </ChakraProvider>
   );
 }
 

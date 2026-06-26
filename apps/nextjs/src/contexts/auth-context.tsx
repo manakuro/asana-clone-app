@@ -34,5 +34,5 @@ const useValue = () => {
     idToken,
   };
 };
-export const { Provider: AuthProvider, useContext: useAuthContext } =
+export const { Provider: AuthContext, useContext: useAuthContext } =
   createProvider(useValue, 'AuthProvider');

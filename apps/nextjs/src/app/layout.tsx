@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 import { LayoutDefault } from '@/components/ui/layout';
-import { AppProvider } from '@/providers/app-provider';
-import { AuthProvider } from '@/providers/auth-provider';
+import { AppContext } from '@/contexts/app-context';
+import { AuthContext } from '@/contexts/auth-context';
 import { description } from '@/shared/metatag/description';
 import { title } from '@/shared/metatag/title';
 import { roboto } from '@/styles/fonts';
@@ -43,11 +43,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <link rel="manifest" href="/icon/manifest.json" />
       </head>
       <body>
-        <AuthProvider>
-          <AppProvider>
+        <AuthContext>
+          <AppContext>
             <LayoutDefault>{children}</LayoutDefault>
-          </AppProvider>
-        </AuthProvider>
+          </AppContext>
+        </AuthContext>
       </body>
     </html>
   );
