@@ -9,7 +9,7 @@ import { useRouter } from '@/router';
 import { Activity } from './components/activity';
 import { Archive } from './components/archive';
 import { Header } from './components/header';
-import { Context, useInboxPageContext } from './providers/context';
+import { Context, useInboxPageContext } from './contexts/context';
 
 const ACTIVITY_INDEX = 'activity' as const;
 const ARCHIVE_INDEX = 'archive' as const;

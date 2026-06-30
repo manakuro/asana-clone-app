@@ -27,7 +27,7 @@ import { Calendar } from './components/calendar';
 import { Files } from './components/files';
 import { Header } from './components/header';
 import { List } from './components/list';
-import { Context, useMyTasksContext } from './providers/context';
+import { Context, useMyTasksContext } from './contexts/context';
 
 type Props = {
   loading: boolean;

@@ -12,7 +12,7 @@ import { TasksContext } from '@/components/features/tasks/tasks-provider/tasks-c
 import { Flex } from '@/components/ui/flex';
 import { useInboxArchivePageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
-import { useInboxPageContext } from '../../providers/context';
+import { useInboxPageContext } from '../../contexts/context';
 
 export const Archive = memo(function Archive() {
   return <Component />;

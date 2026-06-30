@@ -4,7 +4,7 @@ import { TasksContainer } from '@/components/features/tasks/tasks-container/task
 import { TasksFilesContent } from '@/components/features/tasks/tasks-files/tasks-files-content/tasks-files-content';
 import { TasksFilesList } from '@/components/features/tasks/tasks-files/tasks-files-list/tasks-files-list';
 import { useTasksFilesDetail } from '@/components/features/tasks/tasks-files/use-tasks-files-detail';
-import { useMyTasksContext } from '@/components/pages/my-tasks/providers/context';
+import { useMyTasksContext } from '@/components/pages/my-tasks/contexts/context';
 import { Flex } from '@/components/ui/flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { SkeletonFiles } from './skeleton-files';

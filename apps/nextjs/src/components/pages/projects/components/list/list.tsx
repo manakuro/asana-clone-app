@@ -21,7 +21,7 @@ import { useTasksListDetail } from '@/components/features/tasks/tasks-list/use-t
 import { Flex } from '@/components/ui/flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useProjectsPageContext } from '../../providers/context';
+import { useProjectsPageContext } from '../../contexts/context';
 import { SortMenu } from '../tasks-header';
 import { SkeletonListContent, SkeletonListHeader } from './skeleton-list';
 
