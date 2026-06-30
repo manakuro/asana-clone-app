@@ -13,7 +13,7 @@ import {
 import { useWorkspace } from '@/store/entities/workspace';
 import { Header } from './components/header';
 import { Overview } from './components/overview';
-import { Context, useWorkspacesPageContext } from './providers/provider';
+import { Context, useWorkspacesPageContext } from './providers/context';
 
 type Props = {
   loading: boolean;

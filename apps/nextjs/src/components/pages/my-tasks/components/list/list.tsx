@@ -17,7 +17,7 @@ import { TasksListHeader } from '@/components/features/tasks/tasks-list/tasks-li
 import { TasksListHorizontalScrollBorder } from '@/components/features/tasks/tasks-list/tasks-list-horizontal-scroll-border/tasks-list-horizontal-scroll-border';
 import { TasksListLayout } from '@/components/features/tasks/tasks-list/tasks-list-layout/tasks-list-layout';
 import { useTasksListDetail } from '@/components/features/tasks/tasks-list/use-tasks-list-detail';
-import { useMyTasksContext } from '@/components/pages/my-tasks/providers/provider';
+import { useMyTasksContext } from '@/components/pages/my-tasks/providers/context';
 import { Flex } from '@/components/ui/flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { SortMenu } from '../tasks-header';

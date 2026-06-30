@@ -22,7 +22,7 @@ import { Files } from './components/files';
 import { Header } from './components/header';
 import { List } from './components/list';
 import { Overview } from './components/overview';
-import { Context, useProjectsPageContext } from './providers/provider';
+import { Context, useProjectsPageContext } from './providers/context';
 
 type Props = {
   loading: boolean;

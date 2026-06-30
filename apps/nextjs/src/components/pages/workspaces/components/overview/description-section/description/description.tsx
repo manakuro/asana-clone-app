@@ -7,8 +7,8 @@ import {
 } from '@/shared/prosemirror/convert-description';
 import { useWorkspace, useWorkspaceCommand } from '@/store/entities/workspace';
 import { Container } from './container';
+import { Context } from './context';
 import { Placeholder } from './placeholder';
-import { Context } from './provider';
 
 export const Description = memo(function Description() {
   return (

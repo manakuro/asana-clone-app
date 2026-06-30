@@ -11,7 +11,7 @@ import {
   TasksHeader,
   TasksHeaderRight,
 } from '@/components/features/tasks/tasks-header';
-import { useProjectsPageContext } from '@/components/pages/projects/providers/provider';
+import { useProjectsPageContext } from '@/components/pages/projects/providers/context';
 import { Flex } from '@/components/ui/flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';

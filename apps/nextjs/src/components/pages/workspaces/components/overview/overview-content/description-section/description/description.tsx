@@ -8,8 +8,8 @@ import {
 } from '@/shared/prosemirror/convert-description';
 import { useProject, useProjectCommand } from '@/store/entities/project';
 import { Container } from './container';
+import { Context } from './context';
 import { Placeholder } from './placeholder';
-import { Context } from './provider';
 import { ToolBar } from './tool-bar';
 
 type Props = {
