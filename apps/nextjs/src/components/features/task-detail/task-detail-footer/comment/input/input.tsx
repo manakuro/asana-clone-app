@@ -4,17 +4,17 @@ import { Flex } from '@/components/ui/flex';
 import { getDefaultDescription } from '@/shared/prosemirror/get-default-description';
 import { Attachments } from './attachments';
 import { Container } from './container';
+import { Context, useInputContext } from './context';
 import { Placeholder } from './placeholder';
-import { Provider, useInputContext } from './provider';
 import { ToolBar } from './tool-bar';
 
 const initialValue = JSON.stringify(getDefaultDescription());
 
 export function Input() {
   return (
-    <Provider>
+    <Context>
       <Component />
-    </Provider>
+    </Context>
   );
 }
 

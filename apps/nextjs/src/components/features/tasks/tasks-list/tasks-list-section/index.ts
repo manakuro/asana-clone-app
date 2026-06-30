@@ -1,5 +1,5 @@
 export {
-  TasksListSectionProvider,
+  TasksListSectionContext,
   useTasksListSectionContext,
-} from './provider';
+} from './context';
 export * from './tasks-list-section';

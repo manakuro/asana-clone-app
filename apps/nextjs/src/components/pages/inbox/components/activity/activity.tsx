@@ -13,11 +13,11 @@ import { InboxListContent } from '@/components/features/inbox/inbox-list-content
 import { InboxRight } from '@/components/features/inbox/inbox-right';
 import { InboxSkeleton } from '@/components/features/inbox/inbox-skeleton';
 import { TaskDetailSide } from '@/components/features/task-details/task-detail-side';
-import { TasksProvider } from '@/components/features/tasks/tasks-provider/tasks-provider';
+import { TasksContext } from '@/components/features/tasks/tasks-provider/tasks-context';
 import { Flex } from '@/components/ui/flex';
 import { useInboxActivityPageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
-import { useInboxPageContext } from '../../providers/provider';
+import { useInboxPageContext } from '../../contexts/context';
 
 export const Activity = memo(function Activity() {
   return <Component />;
@@ -40,7 +40,7 @@ const Component = memo(function Component() {
   if (loading) return <InboxSkeleton />;
 
   return (
-    <TasksProvider isInboxPage>
+    <TasksContext isInboxPage>
       <Inbox isActivity>
         <InboxLeft>
           <InboxHeader>
@@ -59,6 +59,6 @@ const Component = memo(function Component() {
           <TaskDetailSide />
         </InboxRight>
       </Inbox>
-    </TasksProvider>
+    </TasksContext>
   );
 });

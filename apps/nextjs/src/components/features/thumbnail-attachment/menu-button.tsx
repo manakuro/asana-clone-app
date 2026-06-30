@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback, useMemo } from 'react';
-import { useThumbnailAttachmentContext } from '@/components/features/thumbnail-attachment/provider';
+import { useThumbnailAttachmentContext } from '@/components/features/thumbnail-attachment/context';
 import { Icon, type IconProps } from '@/components/ui/icon';
 import { IconButton, type IconButtonProps } from '@/components/ui/icon-button';
 import { Menu, type MenuTriggerProps } from '@/components/ui/menu';

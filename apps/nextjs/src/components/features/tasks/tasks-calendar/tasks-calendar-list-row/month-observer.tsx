@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useTasksCalendarContext } from '../provider';
+import { useTasksCalendarContext } from '../context';
 
 type Props = {
   isSecondRowOfMonth: boolean;

@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { useTasksRouter } from '@/components/features/tasks/hooks';
-import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
+import { useTasksListContext } from '@/components/features/tasks/tasks-list/context';
 import { CheckIcon } from '@/components/ui/check-icon';
 import type { FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
@@ -16,10 +16,10 @@ import { MoveTasksBetweenSections } from './move-tasks-between-sections';
 import { Subtask } from './subtask';
 import { TaskParentName } from './task-parent-name';
 import { TasksNameCell } from './tasks-name-cell';
+import { TasksNameContext, useTasksNameContext } from './tasks-name-context';
 import { TasksNameField } from './tasks-name-field';
 import { TasksNameGrabIcon } from './tasks-name-grab-icon';
 import { TasksNameGrabIconContainer } from './tasks-name-grab-icon-container';
-import { TasksNameProvider, useTasksNameContext } from './tasks-name-provider';
 import { TasksNameRightContainer } from './tasks-name-right-container';
 
 type Props = FlexProps & {
@@ -30,9 +30,9 @@ type Props = FlexProps & {
 
 export const TasksName = memo(function TasksName(props: Props) {
   return (
-    <TasksNameProvider taskId={props.taskId}>
+    <TasksNameContext taskId={props.taskId}>
       <Component {...props} />
-    </TasksNameProvider>
+    </TasksNameContext>
   );
 });
 

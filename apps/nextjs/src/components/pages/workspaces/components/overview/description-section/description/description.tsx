@@ -7,14 +7,14 @@ import {
 } from '@/shared/prosemirror/convert-description';
 import { useWorkspace, useWorkspaceCommand } from '@/store/entities/workspace';
 import { Container } from './container';
+import { Context } from './context';
 import { Placeholder } from './placeholder';
-import { Provider } from './provider';
 
 export const Description = memo(function Description() {
   return (
-    <Provider>
+    <Context>
       <DescriptionHandler />
-    </Provider>
+    </Context>
   );
 });
 

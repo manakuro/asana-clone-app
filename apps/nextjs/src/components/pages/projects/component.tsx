@@ -22,7 +22,7 @@ import { Files } from './components/files';
 import { Header } from './components/header';
 import { List } from './components/list';
 import { Overview } from './components/overview';
-import { Provider, useProjectsPageContext } from './providers/provider';
+import { Context, useProjectsPageContext } from './contexts/context';
 
 type Props = {
   loading: boolean;
@@ -47,12 +47,12 @@ type Index =
 
 export const Component = memo(function Component(props: Props) {
   return (
-    <Provider
+    <Context
       loading={props.loading}
       fetchTaskDetailQuery={props.fetchTaskDetailQuery}
     >
       <WrappedComponent />
-    </Provider>
+    </Context>
   );
 });
 

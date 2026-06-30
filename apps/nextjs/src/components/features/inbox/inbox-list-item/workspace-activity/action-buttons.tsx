@@ -2,7 +2,7 @@ import { memo } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import { useInboxContext } from '../../inbox';
 import { Actions, ArchiveButton } from '../actions';
-import { useInboxListItemContext } from '../provider';
+import { useInboxListItemContext } from '../context';
 
 type Props = FlexProps;
 

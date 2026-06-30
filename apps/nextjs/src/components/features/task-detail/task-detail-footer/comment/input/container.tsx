@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useInputContext } from './provider';
+import { useInputContext } from './context';
 
 type Props = FlexProps;
 

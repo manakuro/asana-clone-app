@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import ReactDOM from 'react-dom';
-import { useReactNodeViewPortals } from './react-node-view-portals';
+import { useReactNodeViewPortalsContext } from './react-node-view-context';
 
 export const Portals = memo(function Portals() {
-  const portals = useReactNodeViewPortals();
+  const portals = useReactNodeViewPortalsContext();
 
   return (
     <>

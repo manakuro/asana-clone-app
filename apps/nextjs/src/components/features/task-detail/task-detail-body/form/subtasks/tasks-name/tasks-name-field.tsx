@@ -9,7 +9,7 @@ import {
 } from '@/hooks/use-click-outside';
 import { useDebounce } from '@/hooks/use-debounce';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
-import { useSubtasksNameContext } from './provider';
+import { useSubtasksNameContext } from './context';
 
 type Props = {
   value: string;

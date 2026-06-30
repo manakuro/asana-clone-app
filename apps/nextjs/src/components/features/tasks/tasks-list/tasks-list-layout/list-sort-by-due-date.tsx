@@ -4,9 +4,9 @@ import {
   useTasksTaskIds,
   useTasksTaskSectionIds,
 } from '@/components/features/tasks/hooks';
-import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
+import { useTasksListContext } from '@/components/features/tasks/tasks-list/context';
 import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list-item';
-import { TasksListSectionProvider } from '@/components/features/tasks/tasks-list/tasks-list-section';
+import { TasksListSectionContext } from '@/components/features/tasks/tasks-list/tasks-list-section';
 import { TasksListSection } from '@/components/features/tasks/tasks-list/tasks-list-section/tasks-list-section';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
@@ -27,9 +27,9 @@ export const ListSortByDueDate: React.FC = memo(() => {
     <Flex flexDirection="column">
       <Flex flexDirection="column">
         {taskIds.map((id) => (
-          <TasksListSectionProvider key={id} taskSectionId="">
+          <TasksListSectionContext key={id} taskSectionId="">
             <TasksListItem taskId={id} />
-          </TasksListSectionProvider>
+          </TasksListSectionContext>
         ))}
       </Flex>
       <Flex>

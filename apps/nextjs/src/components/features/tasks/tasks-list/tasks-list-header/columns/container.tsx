@@ -3,7 +3,7 @@ import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 import { useTasksTaskColumn } from '@/components/features/tasks/hooks';
 import { TasksListCell } from '@/components/features/tasks/tasks-list/tasks-list-cell';
-import { useTasksListHeaderContext } from '@/components/features/tasks/tasks-list/tasks-list-header/provider';
+import { useTasksListHeaderContext } from '@/components/features/tasks/tasks-list/tasks-list-header/context';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useHover } from '@/hooks/use-hover';

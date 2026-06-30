@@ -11,7 +11,7 @@ import {
   TasksHeader,
   TasksHeaderRight,
 } from '@/components/features/tasks/tasks-header';
-import { useMyTasksContext } from '@/components/pages/my-tasks/providers/provider';
+import { useMyTasksContext } from '@/components/pages/my-tasks/contexts/context';
 import { Flex } from '@/components/ui/flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { SortMenu } from '../tasks-header';

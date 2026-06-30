@@ -27,7 +27,7 @@ import { Calendar } from './components/calendar';
 import { Files } from './components/files';
 import { Header } from './components/header';
 import { List } from './components/list';
-import { Provider, useMyTasksContext } from './providers/provider';
+import { Context, useMyTasksContext } from './contexts/context';
 
 type Props = {
   loading: boolean;
@@ -46,12 +46,12 @@ type Index =
 
 export const Component = memo<Props>(function Component(props) {
   return (
-    <Provider
+    <Context
       loading={props.loading}
       fetchTaskDetailQuery={props.fetchTaskDetailQuery}
     >
       <WrappedComponent />
-    </Provider>
+    </Context>
   );
 });
 

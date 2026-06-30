@@ -2,7 +2,7 @@ import type { EditorState } from 'prosemirror-state';
 import { type EditorProps, EditorView } from 'prosemirror-view';
 import type { Dispatch, FC, SetStateAction } from 'react';
 import { createReactNodeView } from '../react-node-view';
-import type { PortalHandlers } from '../react-node-view-portals';
+import type { PortalHandlers } from '../react-node-view-context';
 import { Emoji } from './emoji';
 import { Link } from './link';
 import { Mention } from './mention';

@@ -1,16 +1,16 @@
 import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
+import { Context } from './context';
 import { Input } from './input';
 import { LeaveTask } from './leave-task';
-import { Provider } from './provider';
 import { Teammates } from './teammates';
 
 export const Collaborators = memo(function Collaborators(props) {
   return (
-    <Provider>
+    <Context>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

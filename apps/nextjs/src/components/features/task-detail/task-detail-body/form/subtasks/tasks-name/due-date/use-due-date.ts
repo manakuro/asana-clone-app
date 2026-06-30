@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useSubtasksNameContext } from '../provider';
+import { useSubtasksNameContext } from '../context';
 
 export type UseDueDate = {
   onDueDateOpened: () => void;

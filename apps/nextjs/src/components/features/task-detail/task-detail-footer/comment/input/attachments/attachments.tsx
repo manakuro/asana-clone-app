@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { AttachmentUploadingBox } from '@/components/features/attachment-uploading-box';
 import { useFileViewerModal } from '@/components/features/modals/file-viewer-modal/use-file-viewer-modal';
-import { useInputContext } from '@/components/features/task-detail/task-detail-footer/comment/input/provider';
+import { useInputContext } from '@/components/features/task-detail/task-detail-footer/comment/input/context';
 import { ThumbnailAttachment } from '@/components/features/thumbnail-attachment';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 

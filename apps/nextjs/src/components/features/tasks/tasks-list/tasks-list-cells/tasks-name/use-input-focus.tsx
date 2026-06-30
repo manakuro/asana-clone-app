@@ -4,7 +4,7 @@ import {
   useCallback,
   useState,
 } from 'react';
-import { useTasksListContext } from '@/components/features/tasks/tasks-list/provider';
+import { useTasksListContext } from '@/components/features/tasks/tasks-list/context';
 import type { TasksListCellProps } from '@/components/features/tasks/tasks-list/tasks-list-cell';
 
 export type UseInputFocus = {

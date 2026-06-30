@@ -3,13 +3,13 @@ import { useTasksTaskColumnIds } from '@/components/features/tasks/hooks';
 import { Flex } from '@/components/ui/flex';
 import { Column } from './column';
 import { RemainingSpace } from './columns';
-import { Provider, useTasksListHeaderContext } from './provider';
+import { Context, useTasksListHeaderContext } from './context';
 
 export const TasksListHeader = memo(function TasksListHeader() {
   return (
-    <Provider>
+    <Context>
       <Component />
-    </Provider>
+    </Context>
   );
 });
 

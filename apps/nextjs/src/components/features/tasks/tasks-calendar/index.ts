@@ -1,4 +1,4 @@
-export { useTasksCalendarContext } from './provider';
+export { useTasksCalendarContext } from './context';
 export * from './tasks-calendar';
 export * from './tasks-calendar-content';
 export * from './tasks-calendar-list';

@@ -8,8 +8,8 @@ import {
 import { useTask } from '@/store/entities/task';
 import { Content, Label, Row } from '../row';
 import { Container } from './container';
+import { Context } from './context';
 import { Placeholder } from './placeholder';
-import { Provider } from './provider';
 import { ToolBar } from './tool-bar';
 
 type Props = {
@@ -18,9 +18,9 @@ type Props = {
 
 export const Description = memo(function Description(props: Props) {
   return (
-    <Provider>
+    <Context>
       <DescriptionHandler {...props} />
-    </Provider>
+    </Context>
   );
 });
 

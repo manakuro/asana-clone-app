@@ -1,3 +1,3 @@
-export { useTasksBoardListItemInputContext } from './input-provider';
-export { useTasksBoardListItemContext } from './list-item-provider';
-export * from './provider';
+export * from './context';
+export { useTasksBoardListItemInputContext } from './input-context';
+export { useTasksBoardListItemContext } from './list-item-context';

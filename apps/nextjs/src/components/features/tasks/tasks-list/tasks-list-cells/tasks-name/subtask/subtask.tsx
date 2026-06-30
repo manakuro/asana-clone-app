@@ -5,7 +5,7 @@ import { SUBTASK_LIST_CONTAINER_ID } from '@/components/features/task-detail/tas
 import { useTasksRouter } from '@/components/features/tasks/hooks';
 import { IconButton } from '@/components/ui/icon-button';
 import { useSubtaskIds } from '@/store/entities/task';
-import { useTasksNameContext } from '../tasks-name-provider';
+import { useTasksNameContext } from '../tasks-name-context';
 import { Icon } from './icon';
 
 export function Subtask() {

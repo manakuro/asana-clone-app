@@ -6,7 +6,7 @@ import {
 } from '@/components/features/tasks/hooks';
 import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
-import { useTasksBoardListSectionContext } from '../../../provider';
+import { useTasksBoardListSectionContext } from '../../../context';
 
 export const MenuList = memo(function MenuList() {
   const { setModalState, onOpen } = useDeleteTaskSectionModal();

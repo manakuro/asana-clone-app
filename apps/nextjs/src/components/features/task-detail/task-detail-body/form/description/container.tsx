@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useDescriptionContext } from './provider';
+import { useDescriptionContext } from './context';
 
 type Props = FlexProps;
 

@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
-import { useCollaboratorsContext } from './provider';
+import { useCollaboratorsContext } from './context';
 
 export const LeaveTask = memo(() => {
   const { isInputFocused } = useCollaboratorsContext();

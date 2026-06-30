@@ -5,7 +5,7 @@ import { FEED_LIST_CONTAINER_ID } from '@/components/features/task-detail/task-d
 import { useTasksRouter } from '@/components/features/tasks/hooks';
 import { IconButton } from '@/components/ui/icon-button';
 import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/task-feed';
-import { useTasksNameContext } from '../tasks-name-provider';
+import { useTasksNameContext } from '../tasks-name-context';
 import { Icon } from './icon';
 
 export function Feed() {

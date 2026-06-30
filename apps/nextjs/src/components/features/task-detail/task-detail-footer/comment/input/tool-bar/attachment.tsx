@@ -3,7 +3,7 @@ import { AttachmentMenu } from '@/components/features/menus/attachment-menu';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Menu } from '@/components/ui/menu';
-import { useInputContext } from '../provider';
+import { useInputContext } from '../context';
 
 export const Attachment = memo(function Attachment() {
   const { onUploadFile } = useInputContext();

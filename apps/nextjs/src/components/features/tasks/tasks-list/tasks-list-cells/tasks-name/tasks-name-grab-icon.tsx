@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Icon, type IconProps } from '@/components/ui/icon';
-import { useTasksNameContext } from './tasks-name-provider';
+import { useTasksNameContext } from './tasks-name-context';
 
 type Props = Omit<IconProps, 'icon'>;
 

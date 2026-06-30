@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Stack } from '@/components/ui/stack';
 import { useTeammateIdsByTaskId } from '@/store/entities/task-collaborator';
-import { useCollaboratorsContext } from '../provider';
+import { useCollaboratorsContext } from '../context';
 import { Teammate } from './teammate';
 
 export const Teammates = memo(function Teammates() {

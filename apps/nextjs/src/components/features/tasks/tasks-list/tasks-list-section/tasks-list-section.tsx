@@ -4,8 +4,8 @@ import { TasksListItem } from '@/components/features/tasks/tasks-list/tasks-list
 import { Flex } from '@/components/ui/flex';
 import { AddTask } from './add-task';
 import { AddTaskSection } from './add-task-section';
+import { Context } from './context';
 import { Header } from './header';
-import { Provider } from './provider';
 
 type Props = {
   taskSectionId: string;
@@ -14,9 +14,9 @@ type Props = {
 };
 export const TasksListSection = memo(function TasksListSection(props: Props) {
   return (
-    <Provider taskSectionId={props.taskSectionId} indented={props.indented}>
+    <Context taskSectionId={props.taskSectionId} indented={props.indented}>
       <Component {...props} />
-    </Provider>
+    </Context>
   );
 });
 

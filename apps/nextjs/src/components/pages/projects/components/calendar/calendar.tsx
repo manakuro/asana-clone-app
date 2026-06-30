@@ -13,7 +13,7 @@ import {
   TasksHeaderRight,
   TodayButton,
 } from '@/components/features/tasks/tasks-header';
-import { useProjectsPageContext } from '@/components/pages/projects/providers/provider';
+import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { SkeletonCalendar } from './skeleton-calendar';

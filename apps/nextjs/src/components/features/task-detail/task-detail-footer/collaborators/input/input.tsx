@@ -13,7 +13,7 @@ import {
   useTeammateIdsByTaskId,
 } from '@/store/entities/task-collaborator';
 import type { Teammate } from '@/store/entities/teammate';
-import { useCollaboratorsContext } from '../provider';
+import { useCollaboratorsContext } from '../context';
 
 export const Input: React.FC = () => {
   const { isInputFocused } = useCollaboratorsContext();
