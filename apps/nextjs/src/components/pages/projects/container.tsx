@@ -2,12 +2,10 @@
 
 import { useParams, usePathname } from 'next/navigation';
 import { memo, useCallback, useEffect } from 'react';
-import {
-  useProjectsPageQuery,
-  useProjectsTaskDetailPageQuery,
-} from '@/hooks/queries/app';
 import { getProjectsIdFromURL } from '@/router/projects';
 import { useProjectsProjectId } from '@/store/app/projects/project';
+import { useProjectsTaskDetailPageQuery } from './api/queries/use-projects-detail-page-query';
+import { useProjectsPageQuery } from './api/queries/use-projects-page-query';
 import { Component } from './component';
 
 export const Container = memo(function Container() {

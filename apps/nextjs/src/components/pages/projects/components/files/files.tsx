@@ -6,9 +6,9 @@ import { TasksFilesList } from '@/components/features/tasks/tasks-files/tasks-fi
 import { useTasksFilesDetail } from '@/components/features/tasks/tasks-files/use-tasks-files-detail';
 import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
 import { Flex } from '@/components/ui/flex';
-import { useProjectsFilesPageQuery } from '@/hooks/queries/app';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
+import { useProjectsFilesPageQuery } from '../../api/queries/use-projects-files-page-query';
 import { SkeletonFiles } from './skeleton-files';
 
 export const Files = memo(function Files() {

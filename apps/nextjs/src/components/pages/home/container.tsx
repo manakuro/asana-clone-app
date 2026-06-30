@@ -1,11 +1,9 @@
 'use client';
 
 import { memo, useCallback } from 'react';
-import {
-  useHomePageQuery,
-  useHomeTaskDetailPageQuery,
-} from '@/hooks/queries/app';
 import { useMe } from '@/store/entities/me';
+import { useHomePageQuery } from './api/queries/use-home-page-query';
+import { useHomeTaskDetailPageQuery } from './api/queries/use-home-task-detail-page-query';
 import { Component } from './component';
 
 export const Container = memo(function Container() {

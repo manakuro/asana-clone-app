@@ -15,8 +15,8 @@ import { InboxSkeleton } from '@/components/features/inbox/inbox-skeleton';
 import { TaskDetailSide } from '@/components/features/task-details/task-detail-side';
 import { TasksContext } from '@/components/features/tasks/tasks-provider/tasks-context';
 import { Flex } from '@/components/ui/flex';
-import { useInboxActivityPageQuery } from '@/hooks/queries/app';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
+import { useInboxActivityPageQuery } from '../../api/queries/use-inbox-activity-page-query';
 import { useInboxPageContext } from '../../contexts/context';
 
 export const Activity = memo(function Activity() {
