@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useSearchWorkspaceTeammatesQuery } from '@/hooks/queries/entities';
+import { useSearchWorkspaceTeammatesQuery } from '@/hooks/queries/entities/use-search-workspace-teammates-query';
 import { createContext } from '@/shared/react/create-context';
 
 const useValue = () => {
