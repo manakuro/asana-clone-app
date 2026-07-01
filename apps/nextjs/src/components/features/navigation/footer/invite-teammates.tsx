@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback } from 'react';
-import { useInviteModal } from '@/components/features/modals/invite-modal/use-invite-modal';
 import { Separator } from '@/components/features/navigation/separator';
+import { useInviteModal } from '@/components/features/teammates/components/invite-modal/use-invite-modal';
 import { Icon } from '@/components/ui/icon';
 import { List } from '@/components/ui/list';
 import { Text } from '@/components/ui/text';

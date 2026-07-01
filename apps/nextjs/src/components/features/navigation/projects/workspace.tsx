@@ -1,8 +1,8 @@
 import { usePathname } from 'next/navigation';
 import { memo, useCallback, useMemo } from 'react';
-import { useInviteModal } from '@/components/features/modals/invite-modal/use-invite-modal';
 import { useNavigation } from '@/components/features/navigation';
 import { PADDING_X } from '@/components/features/navigation/navigation';
+import { useInviteModal } from '@/components/features/teammates/components/invite-modal/use-invite-modal';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';

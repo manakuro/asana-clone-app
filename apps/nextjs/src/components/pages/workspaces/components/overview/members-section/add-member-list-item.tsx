@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useInviteModal } from '@/components/features/modals/invite-modal/use-invite-modal';
+import { useInviteModal } from '@/components/features/teammates/components/invite-modal/use-invite-modal';
 import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
