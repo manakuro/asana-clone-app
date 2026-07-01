@@ -2,7 +2,7 @@ import { ApolloProvider as ApolloProviderLibs } from '@apollo/client/react';
 import type { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
-import { Modals } from '@/components/features/modals/modals';
+import { Modals } from '@/components/layout/modals/modals';
 import { useFavoriteProjectIdsQuery } from '@/hooks/queries/entities/use-favorite-project-ids-query';
 import { useFavoriteWorkspaceIdsQuery } from '@/hooks/queries/entities/use-favorite-workspace-ids-query';
 import { useMeQuery } from '@/hooks/queries/entities/use-me-query';
