@@ -6,7 +6,7 @@ import {
   type ArchiveActivity,
   useArchive,
 } from '@/store/app/inbox/archive/archives';
-import { useInboxContext } from '../inbox';
+import { useInboxContext } from '../components/inbox';
 
 type Result = {
   listItem: Activity | ArchiveActivity;

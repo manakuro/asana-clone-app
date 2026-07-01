@@ -1,10 +1,10 @@
 import {
   InboxHeader,
   InboxHeaderRight,
-} from '@/components/features/inbox/inbox-header';
-import { InboxLeft } from '@/components/features/inbox/inbox-left';
-import { InboxListHeader } from '@/components/features/inbox/inbox-list-header';
-import { InboxRight } from '@/components/features/inbox/inbox-right';
+} from '@/components/features/inbox/components/inbox-header';
+import { InboxLeft } from '@/components/features/inbox/components/inbox-left';
+import { InboxListHeader } from '@/components/features/inbox/components/inbox-list-header';
+import { InboxRight } from '@/components/features/inbox/components/inbox-right';
 import { Flex } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Stack } from '@/components/ui/stack';

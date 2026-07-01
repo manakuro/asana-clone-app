@@ -1,17 +1,17 @@
 import { memo, useMemo } from 'react';
-import { useInboxTaskDetail } from '@/components/features/inbox/hooks/use-inbox-task-detail';
-import { Inbox } from '@/components/features/inbox/inbox';
+import { Inbox } from '@/components/features/inbox/components/inbox';
 import {
   FilterButton,
   InboxHeader,
   InboxHeaderRight,
   MoreActionButton,
-} from '@/components/features/inbox/inbox-header';
-import { InboxLeft } from '@/components/features/inbox/inbox-left';
-import { InboxList } from '@/components/features/inbox/inbox-list';
-import { InboxListContent } from '@/components/features/inbox/inbox-list-content';
-import { InboxRight } from '@/components/features/inbox/inbox-right';
-import { InboxSkeleton } from '@/components/features/inbox/inbox-skeleton';
+} from '@/components/features/inbox/components/inbox-header';
+import { InboxLeft } from '@/components/features/inbox/components/inbox-left';
+import { InboxList } from '@/components/features/inbox/components/inbox-list';
+import { InboxListContent } from '@/components/features/inbox/components/inbox-list-content';
+import { InboxRight } from '@/components/features/inbox/components/inbox-right';
+import { InboxSkeleton } from '@/components/features/inbox/components/inbox-skeleton';
+import { useInboxTaskDetail } from '@/components/features/inbox/hooks/use-inbox-task-detail';
 import { TaskDetailSide } from '@/components/features/task-details/task-detail-side';
 import { TasksContext } from '@/components/features/tasks/tasks-provider/tasks-context';
 import { Flex } from '@/components/ui/flex';

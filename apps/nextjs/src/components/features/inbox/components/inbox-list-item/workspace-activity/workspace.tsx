@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { useInboxListItemContext } from '@/components/features/inbox/inbox-list-item/context';
+import { useInboxListItemContext } from '@/components/features/inbox/components/inbox-list-item/context';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text, type TextProps } from '@/components/ui/text';

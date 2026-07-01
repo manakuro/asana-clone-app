@@ -1,6 +1,6 @@
 import { useActivityIdsSortByUpdatedAt } from '@/store/app/inbox/activity/activities';
 import { useArchiveIdsSortByUpdatedAt } from '@/store/app/inbox/archive/archives';
-import { useInboxContext } from '../inbox';
+import { useInboxContext } from '../components/inbox';
 
 type Result = {
   listItemIds: {

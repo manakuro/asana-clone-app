@@ -1,6 +1,6 @@
 import { useTaskActivityTasksTaskIds } from '@/store/app/inbox/activity/task-activity-tasks';
 import { useArchivedTaskActivityTasksTaskIds } from '@/store/app/inbox/archive/archived-task-activity-tasks';
-import { useInboxContext } from '../../inbox';
+import { useInboxContext } from '../../components/inbox';
 
 type Result = {
   taskIds: string[];
