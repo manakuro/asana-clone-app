@@ -4,10 +4,10 @@ import { EditorMentionMenu } from '@/components/features/menus/editor-mention-me
 import { EditorLinkModal } from '@/components/features/modals/editor-link-modal/editor-link-modal';
 import { FileViewerModal } from '@/components/features/modals/file-viewer-modal/file-viewer-modal';
 import { InviteModal } from '@/components/features/modals/invite-modal/invite-modal';
-import { ShareWorkspaceModal } from '@/components/features/modals/share-workspace-modal/share-workspace-modal';
 import { Help } from '@/components/features/navigation';
 import { ProjectDetailModal } from '@/components/features/projects/components/project-detail-modal/project-detail-modal';
 import { ShareProjectModal } from '@/components/features/projects/components/share-project-modal/share-project-modal';
+import { ShareWorkspaceModal } from '@/components/features/workspaces/components/share-workspace-modal/share-workspace-modal';
 import { VideoPlayer } from '@/components/ui/video-player';
 
 export const Modals = memo(function Modals() {
