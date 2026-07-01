@@ -47,7 +47,7 @@ See `.claude/rules/folder-structure.md` for detailed guidelines.
 | `components/ui/` | Reusable UI primitives (button, input, card, modal) | No |
 | `components/layout/` | App-wide structural components (header, sidebar) | No |
 | `hooks/` | App-wide custom hooks (use-debounce, use-hover) | No |
-| `store/` | Global state management with Recoil | Yes |
+| `store/` | Global state management with Jotai | Yes |
 | `lib/` | Third-party library setup (apollo, firebase) | No |
 | `graphql/` | GraphQL definitions and generated types | No |
 | `utils/` | Generic helper functions | No |
@@ -71,7 +71,7 @@ components/pages/{page}/  →  (needed elsewhere)  →  features/{domain}/
 ## Key Libraries
 
 - **UI Framework**: Chakra UI
-- **State Management**: Recoil (atoms in `store/`)
+- **State Management**: Jotai (atoms in `store/`)
 - **GraphQL**: Apollo Client with codegen
 - **Linting**: Biome (not ESLint)
 - **Testing**: Vitest + Storybook
