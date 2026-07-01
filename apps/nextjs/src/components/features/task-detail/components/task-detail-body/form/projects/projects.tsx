@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
+import { Input } from '@/components/features/task-detail/components/task-detail-body/form/projects/input';
 import { useTaskDetailProjectsInput } from '@/components/features/task-detail/hooks';
-import { Input } from '@/components/features/task-detail/task-detail-body/form/projects/input';
 import { Flex } from '@/components/ui/flex';
 import { useProjectTaskSectionsByProjectIdsQuery } from '@/hooks/queries/entities/use-project-task-sections-by-project-ids-query';
 import {
