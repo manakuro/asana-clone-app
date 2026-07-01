@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { TaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
+import { TaskDetailDrawer } from '@/components/features/task-details/components/task-detail-drawer';
 import { TasksBoardContent } from '@/components/features/tasks/components/tasks-board/tasks-board-content/tasks-board-content';
 import { TasksBoardList } from '@/components/features/tasks/components/tasks-board/tasks-board-list/tasks-board-list';
 import { useTasksBoardDetail } from '@/components/features/tasks/components/tasks-board/use-tasks-board-detail';

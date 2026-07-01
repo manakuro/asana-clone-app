@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { TaskDetailModal } from '@/components/features/task-details/task-detail-modal';
+import { TaskDetailModal } from '@/components/features/task-details/components/task-detail-modal';
 import { TasksCalendar } from '@/components/features/tasks/components/tasks-calendar/tasks-calendar';
 import { TasksCalendarContent } from '@/components/features/tasks/components/tasks-calendar/tasks-calendar-content/tasks-calendar-content';
 import { TasksCalendarList } from '@/components/features/tasks/components/tasks-calendar/tasks-calendar-list/tasks-calendar-list';

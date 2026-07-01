@@ -1,7 +1,7 @@
 import { useParams, usePathname } from 'next/navigation';
 import { startTransition, useCallback, useEffect, useRef } from 'react';
 import { useTaskDetail } from '@/components/features/task-detail';
-import { useTaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
+import { useTaskDetailDrawer } from '@/components/features/task-details/components/task-detail-drawer';
 import { useTasksBoardListItemElement } from '@/components/features/tasks/components/tasks-board/tasks-board-list-item';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/use-click-outside';
 import { isHTMLElement } from '@/shared/is-html-element';

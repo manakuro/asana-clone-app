@@ -7,7 +7,7 @@ import { InboxListContent } from '@/components/features/inbox/components/inbox-l
 import { InboxRight } from '@/components/features/inbox/components/inbox-right';
 import { InboxSkeleton } from '@/components/features/inbox/components/inbox-skeleton';
 import { useInboxTaskDetail } from '@/components/features/inbox/hooks/use-inbox-task-detail';
-import { TaskDetailSide } from '@/components/features/task-details/task-detail-side';
+import { TaskDetailSide } from '@/components/features/task-details/components/task-detail-side';
 import { TasksContext } from '@/components/features/tasks/components/tasks-provider/tasks-context';
 import { Flex } from '@/components/ui/flex';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';

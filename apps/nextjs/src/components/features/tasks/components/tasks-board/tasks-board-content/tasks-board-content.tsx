@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef, useState } from 'react';
-import { useTaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
+import { useTaskDetailDrawer } from '@/components/features/task-details/components/task-detail-drawer';
 import { useTasksBoardListSectionElement } from '@/components/features/tasks/components/tasks-board/tasks-board-list-section';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMainStyle } from '@/hooks/styles/use-main-style';

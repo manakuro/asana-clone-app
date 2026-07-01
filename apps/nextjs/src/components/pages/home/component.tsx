@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { TaskDetailModal } from '@/components/features/task-details/task-detail-modal';
+import { TaskDetailModal } from '@/components/features/task-details/components/task-detail-modal';
 import { TasksContext } from '@/components/features/tasks/components/tasks-provider/tasks-context';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
