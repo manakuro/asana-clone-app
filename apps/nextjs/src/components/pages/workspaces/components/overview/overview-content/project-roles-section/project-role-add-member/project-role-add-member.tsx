@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useShareProjectModal } from '@/components/features/projects/components/share-project-modal/use-share-project-modal';
-import { TeammateAvatar } from '@/components/features/teammate-avatar';
+import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
 import { Button } from './button';

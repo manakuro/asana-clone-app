@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo, useState } from 'react';
-import { TeammateAvatar } from '@/components/features/teammate-avatar';
+import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { Box } from '@/components/ui/box';
 import { Button, type ButtonProps } from '@/components/ui/button';
 import { Text, type TextProps } from '@/components/ui/text';

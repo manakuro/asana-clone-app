@@ -1,6 +1,6 @@
 import { memo, type Ref, useCallback } from 'react';
 import { useShareProjectModal } from '@/components/features/projects/components/share-project-modal';
-import { TeammateAvatar } from '@/components/features/teammate-avatar';
+import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { AvatarGroup } from '@/components/ui/avatar';
 import { Flex } from '@/components/ui/flex';
 import { Tooltip } from '@/components/ui/tooltip';

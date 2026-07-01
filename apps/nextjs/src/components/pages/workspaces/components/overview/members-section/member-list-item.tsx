@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo } from 'react';
-import { TeammateAvatar } from '@/components/features/teammate-avatar';
+import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
 import { useTeammate } from '@/store/entities/teammate';

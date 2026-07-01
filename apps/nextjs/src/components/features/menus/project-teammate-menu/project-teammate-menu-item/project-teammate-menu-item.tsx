@@ -5,7 +5,7 @@ import {
   SearchMenuListItem,
   SearchMenuRightContainer,
 } from '@/components/features/menus/search-menu';
-import { TeammateAvatar } from '@/components/features/teammate-avatar';
+import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { Text } from '@/components/ui/text';
 import type { Teammate } from '@/store/entities/teammate';
 
