@@ -1,6 +1,6 @@
 import { useMyTasksTaskSectionByTaskId } from '@/store/app/my-tasks/task-sections';
 import { useProjectTaskSectionByTaskId } from '@/store/app/projects/task-sections';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {
   taskSection: {

@@ -2,7 +2,7 @@ import { useMyTasksTaskColumn } from '@/store/app/my-tasks/task-columns';
 import { useProjectsTaskColumns } from '@/store/app/projects/task-columns';
 import type { ProjectTaskColumn } from '@/store/entities/project-task-column';
 import type { TeammateTaskColumn } from '@/store/entities/teammate-task-column';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type TaskColumn = ProjectTaskColumn | TeammateTaskColumn;
 

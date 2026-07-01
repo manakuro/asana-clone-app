@@ -2,7 +2,7 @@ import { memo } from 'react';
 import {
   TasksHeader,
   TasksHeaderRight,
-} from '@/components/features/tasks/tasks-header';
+} from '@/components/features/tasks/components/tasks-header';
 import type { FlexProps } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/skeleton';
 

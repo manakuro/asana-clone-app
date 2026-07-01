@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { TasksContainer } from '@/components/features/tasks/tasks-container/tasks-container';
+import { TasksContainer } from '@/components/features/tasks/components/tasks-container/tasks-container';
 import { Flex } from '@/components/ui/flex';
 import { useWorkspacesPageContext } from '../../contexts/context';
 import { DescriptionSection } from './description-section';

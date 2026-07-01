@@ -1,6 +1,6 @@
 import { useMyTasksFiles } from '@/store/app/my-tasks-files';
 import { useProjectsFiles } from '@/store/app/projects-files';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {
   taskFileIds: string[];

@@ -2,7 +2,7 @@ import { useMyTasksTaskSections } from '@/store/app/my-tasks/task-sections';
 import { useProjectsTaskSections } from '@/store/app/projects/task-sections';
 import type { ProjectTaskSection } from '@/store/entities/project-task-section';
 import type { TeammateTaskSection } from '@/store/entities/teammates-task-section';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 export type TaskSection = TeammateTaskSection | ProjectTaskSection;
 

@@ -1,18 +1,18 @@
 import { memo, useCallback } from 'react';
 import { TaskDetailModal } from '@/components/features/task-details/task-detail-modal';
-import { TasksCalendar } from '@/components/features/tasks/tasks-calendar/tasks-calendar';
-import { TasksCalendarContent } from '@/components/features/tasks/tasks-calendar/tasks-calendar-content/tasks-calendar-content';
-import { TasksCalendarList } from '@/components/features/tasks/tasks-calendar/tasks-calendar-list/tasks-calendar-list';
-import { TasksCalendarListHeader } from '@/components/features/tasks/tasks-calendar/tasks-calendar-list-header/tasks-calendar-list-header';
-import { useTasksCalendarDetail } from '@/components/features/tasks/tasks-calendar/use-tasks-calendar-detail';
-import { TasksContainer } from '@/components/features/tasks/tasks-container/tasks-container';
+import { TasksCalendar } from '@/components/features/tasks/components/tasks-calendar/tasks-calendar';
+import { TasksCalendarContent } from '@/components/features/tasks/components/tasks-calendar/tasks-calendar-content/tasks-calendar-content';
+import { TasksCalendarList } from '@/components/features/tasks/components/tasks-calendar/tasks-calendar-list/tasks-calendar-list';
+import { TasksCalendarListHeader } from '@/components/features/tasks/components/tasks-calendar/tasks-calendar-list-header/tasks-calendar-list-header';
+import { useTasksCalendarDetail } from '@/components/features/tasks/components/tasks-calendar/use-tasks-calendar-detail';
+import { TasksContainer } from '@/components/features/tasks/components/tasks-container/tasks-container';
 import {
   CalendarMonthPicker,
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
   TodayButton,
-} from '@/components/features/tasks/tasks-header';
+} from '@/components/features/tasks/components/tasks-header';
 import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';

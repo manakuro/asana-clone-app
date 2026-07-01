@@ -11,7 +11,7 @@ import {
 } from '@/router';
 import type { Options } from '@/router/types';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {
   navigateToTaskDetail: (taskId: string, options?: Options) => void;

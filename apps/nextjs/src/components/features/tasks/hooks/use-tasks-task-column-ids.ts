@@ -1,6 +1,6 @@
 import { useMyTasksTaskColumnIds } from '@/store/app/my-tasks/task-columns';
 import { useProjectsTaskColumnIds } from '@/store/app/projects/task-columns';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {
   tasksTaskColumnIds: string[];

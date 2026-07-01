@@ -1,6 +1,6 @@
 import { useMyTasksTask } from '@/store/app/my-tasks/tasks';
 import { useProjectsTask } from '@/store/app/projects/tasks';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {
   addTask: (val: { taskSectionId: string }) => Promise<string>;

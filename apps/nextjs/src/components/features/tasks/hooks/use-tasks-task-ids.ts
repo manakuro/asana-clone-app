@@ -1,6 +1,6 @@
 import { useMyTasksTaskIds } from '@/store/app/my-tasks/tasks';
 import { useProjectsTaskIds } from '@/store/app/projects/tasks';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {
   taskIds: string[];

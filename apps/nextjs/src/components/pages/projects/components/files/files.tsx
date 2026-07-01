@@ -1,9 +1,9 @@
 import { memo, useCallback, useMemo } from 'react';
 import { TaskDetailModal } from '@/components/features/task-details/task-detail-modal';
-import { TasksContainer } from '@/components/features/tasks/tasks-container/tasks-container';
-import { TasksFilesContent } from '@/components/features/tasks/tasks-files/tasks-files-content/tasks-files-content';
-import { TasksFilesList } from '@/components/features/tasks/tasks-files/tasks-files-list/tasks-files-list';
-import { useTasksFilesDetail } from '@/components/features/tasks/tasks-files/use-tasks-files-detail';
+import { TasksContainer } from '@/components/features/tasks/components/tasks-container/tasks-container';
+import { TasksFilesContent } from '@/components/features/tasks/components/tasks-files/tasks-files-content/tasks-files-content';
+import { TasksFilesList } from '@/components/features/tasks/components/tasks-files/tasks-files-list/tasks-files-list';
+import { useTasksFilesDetail } from '@/components/features/tasks/components/tasks-files/use-tasks-files-detail';
 import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
 import { Flex } from '@/components/ui/flex';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';

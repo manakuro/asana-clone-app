@@ -1,4 +1,4 @@
-import { useTasksContext } from '@/components/features/tasks/tasks-provider/tasks-context';
+import { useTasksContext } from '@/components/features/tasks/components/tasks-provider/tasks-context';
 import { useTasksTaskSection } from './use-tasks-task-section';
 import { useTasksTaskSectionIds } from './use-tasks-task-section-ids';
 

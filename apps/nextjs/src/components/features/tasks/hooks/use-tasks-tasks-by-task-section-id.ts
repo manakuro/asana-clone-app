@@ -1,7 +1,7 @@
 import { useMyTasksTasksByTaskSectionId } from '@/store/app/my-tasks/tasks';
 import { useProjectsTasksByTaskSectionId } from '@/store/app/projects/tasks';
 import type { Task } from '@/store/entities/task';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {
   tasks: Task[];

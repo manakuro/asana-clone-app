@@ -8,7 +8,7 @@ import type {
   DeleteTeammateTaskSectionAndDeleteTasksMutation,
   DeleteTeammateTaskSectionAndKeepTasksMutation,
 } from '@/store/entities/teammates-task-section';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 export type DeleteTaskSectionAndKeepTasksResponse =
   | DeleteTeammateTaskSectionAndKeepTasksMutation

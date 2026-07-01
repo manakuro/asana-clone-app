@@ -1,6 +1,6 @@
 import { useMyTasksTaskSection } from '@/store/app/my-tasks/task-sections';
 import { useProjectsTaskSection } from '@/store/app/projects/task-sections';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {
   taskSection: {

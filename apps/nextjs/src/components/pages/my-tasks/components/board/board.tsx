@@ -1,16 +1,16 @@
 import { memo } from 'react';
 import { TaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
-import { TasksBoardContent } from '@/components/features/tasks/tasks-board/tasks-board-content/tasks-board-content';
-import { TasksBoardList } from '@/components/features/tasks/tasks-board/tasks-board-list/tasks-board-list';
-import { useTasksBoardDetail } from '@/components/features/tasks/tasks-board/use-tasks-board-detail';
-import { TasksContainer } from '@/components/features/tasks/tasks-container/tasks-container';
+import { TasksBoardContent } from '@/components/features/tasks/components/tasks-board/tasks-board-content/tasks-board-content';
+import { TasksBoardList } from '@/components/features/tasks/components/tasks-board/tasks-board-list/tasks-board-list';
+import { useTasksBoardDetail } from '@/components/features/tasks/components/tasks-board/use-tasks-board-detail';
+import { TasksContainer } from '@/components/features/tasks/components/tasks-container/tasks-container';
 import {
   CustomizeButton,
   CustomizeMenu,
   IncompleteTasksMenu,
   TasksHeader,
   TasksHeaderRight,
-} from '@/components/features/tasks/tasks-header';
+} from '@/components/features/tasks/components/tasks-header';
 import { useMyTasksContext } from '@/components/pages/my-tasks/contexts/context';
 import { Flex } from '@/components/ui/flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';

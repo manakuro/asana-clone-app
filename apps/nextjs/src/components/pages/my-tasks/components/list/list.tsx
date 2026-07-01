@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { TaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
-import { TasksContainer } from '@/components/features/tasks/tasks-container/tasks-container';
+import { TasksContainer } from '@/components/features/tasks/components/tasks-container/tasks-container';
 import {
   AddTaskButton,
   CustomizeButton,
@@ -9,14 +9,14 @@ import {
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
-} from '@/components/features/tasks/tasks-header';
-import { TasksList } from '@/components/features/tasks/tasks-list';
-import { TasksListBody } from '@/components/features/tasks/tasks-list/tasks-list-body/tasks-list-body';
-import { TasksListContent } from '@/components/features/tasks/tasks-list/tasks-list-content/tasks-list-content';
-import { TasksListHeader } from '@/components/features/tasks/tasks-list/tasks-list-header/tasks-list-header';
-import { TasksListHorizontalScrollBorder } from '@/components/features/tasks/tasks-list/tasks-list-horizontal-scroll-border/tasks-list-horizontal-scroll-border';
-import { TasksListLayout } from '@/components/features/tasks/tasks-list/tasks-list-layout/tasks-list-layout';
-import { useTasksListDetail } from '@/components/features/tasks/tasks-list/use-tasks-list-detail';
+} from '@/components/features/tasks/components/tasks-header';
+import { TasksList } from '@/components/features/tasks/components/tasks-list';
+import { TasksListBody } from '@/components/features/tasks/components/tasks-list/tasks-list-body/tasks-list-body';
+import { TasksListContent } from '@/components/features/tasks/components/tasks-list/tasks-list-content/tasks-list-content';
+import { TasksListHeader } from '@/components/features/tasks/components/tasks-list/tasks-list-header/tasks-list-header';
+import { TasksListHorizontalScrollBorder } from '@/components/features/tasks/components/tasks-list/tasks-list-horizontal-scroll-border/tasks-list-horizontal-scroll-border';
+import { TasksListLayout } from '@/components/features/tasks/components/tasks-list/tasks-list-layout/tasks-list-layout';
+import { useTasksListDetail } from '@/components/features/tasks/components/tasks-list/use-tasks-list-detail';
 import { useMyTasksContext } from '@/components/pages/my-tasks/contexts/context';
 import { Flex } from '@/components/ui/flex';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';

@@ -8,7 +8,7 @@ import {
   TaskListSortStatusCode,
   type TaskListSortStatusCodeValue,
 } from '@/store/entities/task-list-sort-status';
-import { useTasksContext } from '../tasks-provider';
+import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {
   taskListStatus: {

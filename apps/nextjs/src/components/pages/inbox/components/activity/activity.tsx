@@ -13,7 +13,7 @@ import { InboxRight } from '@/components/features/inbox/components/inbox-right';
 import { InboxSkeleton } from '@/components/features/inbox/components/inbox-skeleton';
 import { useInboxTaskDetail } from '@/components/features/inbox/hooks/use-inbox-task-detail';
 import { TaskDetailSide } from '@/components/features/task-details/task-detail-side';
-import { TasksContext } from '@/components/features/tasks/tasks-provider/tasks-context';
+import { TasksContext } from '@/components/features/tasks/components/tasks-provider/tasks-context';
 import { Flex } from '@/components/ui/flex';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
 import { useInboxActivityPageQuery } from '../../api/queries/use-inbox-activity-page-query';
