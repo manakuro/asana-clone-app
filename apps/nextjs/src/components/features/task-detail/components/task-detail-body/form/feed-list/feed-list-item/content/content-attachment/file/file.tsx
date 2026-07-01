@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { AttachmentBox } from '@/components/features/attachment-box';
+import { AttachmentBox } from '@/components/features/task-detail/components/attachment-box';
 import type { FlexProps } from '@/components/ui/flex';
 
 type Props = FlexProps & {

@@ -1,4 +1,4 @@
-import { AttachmentBox } from '@/components/features/attachment-box';
+import { AttachmentBox } from '@/components/features/task-detail/components/attachment-box';
 import { Container } from '@/components/features/task-detail/components/thumbnail-attachment/container';
 import { useThumbnailAttachmentContext } from '@/components/features/task-detail/components/thumbnail-attachment/context';
 import { Menu } from '@/components/features/task-detail/components/thumbnail-attachment/menu';

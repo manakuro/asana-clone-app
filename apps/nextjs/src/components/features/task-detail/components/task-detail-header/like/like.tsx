@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { LikeTaskIconButton } from '@/components/features/like-task-icon-button';
 import { useTaskDetail } from '@/components/features/task-detail';
+import { LikeTaskIconButton } from '@/components/features/tasks/components/like-task-icon-button';
 
 export const Like = memo(function Like() {
   const { taskId } = useTaskDetail();
