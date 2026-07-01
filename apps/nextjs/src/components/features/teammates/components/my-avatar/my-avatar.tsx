@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { PopoverProfile } from '@/components/features/popovers/popover-profile/popover-profile';
+import { PopoverProfile } from '@/components/features/teammates/components/popover-profile/popover-profile';
 import { Avatar, type AvatarProps } from '@/components/ui/avatar';
 import { useMe } from '@/store/entities/me';
 

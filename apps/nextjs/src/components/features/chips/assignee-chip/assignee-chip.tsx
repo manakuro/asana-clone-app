@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { PopoverProfile } from '@/components/features/popovers/popover-profile/popover-profile';
+import { PopoverProfile } from '@/components/features/teammates/components/popover-profile/popover-profile';
 import { Avatar } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
