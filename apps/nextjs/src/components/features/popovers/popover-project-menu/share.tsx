@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useCallback } from 'react';
-import { useShareProjectModal } from '@/components/features/modals/share-project-modal/use-share-project-modal';
+import { useShareProjectModal } from '@/components/features/projects/share-project-modal/use-share-project-modal';
 import { Menu } from '@/components/ui/menu';
 
 type Props = {

@@ -5,9 +5,9 @@ import { EditorLinkModal } from '@/components/features/modals/editor-link-modal/
 import { FileViewerModal } from '@/components/features/modals/file-viewer-modal/file-viewer-modal';
 import { InviteModal } from '@/components/features/modals/invite-modal/invite-modal';
 import { ProjectDetailModal } from '@/components/features/modals/project-detail-modal/project-detail-modal';
-import { ShareProjectModal } from '@/components/features/modals/share-project-modal/share-project-modal';
 import { ShareWorkspaceModal } from '@/components/features/modals/share-workspace-modal/share-workspace-modal';
 import { Help } from '@/components/features/navigation';
+import { ShareProjectModal } from '@/components/features/projects/share-project-modal/share-project-modal';
 import { VideoPlayer } from '@/components/ui/video-player';
 
 export const Modals = memo(function Modals() {

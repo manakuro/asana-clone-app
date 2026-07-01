@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
-import { useShareProjectModal } from '@/components/features/modals/share-project-modal/use-share-project-modal';
+import { useShareProjectModal } from '@/components/features/projects/share-project-modal/use-share-project-modal';
 import { TeammateAvatar } from '@/components/features/teammate-avatar';
 import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
