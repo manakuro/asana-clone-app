@@ -3,7 +3,7 @@ import {
   ProjectTeammateMenu,
   ProjectTeammateMenuContent,
   ProjectTeammateMenuTrigger,
-} from '@/components/features/menus/project-teammate-menu';
+} from '@/components/features/projects/components/project-teammate-menu';
 import type {
   PopoverContentProps,
   PopoverRootProps,
@@ -19,7 +19,7 @@ type Props = PopoverRootProps & {
   contentStyle?: PopoverContentProps;
 };
 
-export const AssignProjectOwnerMenu = memo(function AssignProjectOwnerMenu(
+export const AssignTaskMenu = memo(function AssignTaskMenu(
   props: PropsWithChildren<Props>,
 ) {
   const {

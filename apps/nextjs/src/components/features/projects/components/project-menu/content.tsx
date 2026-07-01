@@ -1,5 +1,4 @@
 import { memo, useCallback, useEffect } from 'react';
-import { useSearchProjectsQuery } from '@/components/features/menus/project-menu/use-search-projects-query';
 import {
   SearchMenuLeftContainer,
   SearchMenuListItem,
@@ -7,6 +6,7 @@ import {
   SearchMenuRightContainer,
   useSearchMenu,
 } from '@/components/features/menus/search-menu';
+import { useSearchProjectsQuery } from '@/components/features/projects/components/project-menu/use-search-projects-query';
 import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';

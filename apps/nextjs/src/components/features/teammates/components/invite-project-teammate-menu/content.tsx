@@ -1,14 +1,14 @@
-import { memo, useMemo } from 'react';
-import {
-  ProjectTeammateMenuItem,
-  useProjectTeammateMenu,
-} from '@/components/features/menus/project-teammate-menu';
+import { memo } from 'react';
 import {
   SearchMenuLeftContainer,
   SearchMenuListItem,
   SearchMenuLoading,
   SearchMenuRightContainer,
 } from '@/components/features/menus/search-menu';
+import {
+  ProjectTeammateMenuItem,
+  useProjectTeammateMenu,
+} from '@/components/features/projects/components/project-teammate-menu';
 import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
@@ -25,12 +25,6 @@ export const Content = memo(function Content(props: Props) {
   const { teammates, loading, onSelectTeammate } =
     useProjectTeammateMenu(props);
 
-  const text = useMemo(() => {
-    if (props.queryText) return `Invite '${props.queryText}' via email`;
-
-    return 'Invite teammates via email';
-  }, [props.queryText]);
-
   if (loading) return <SearchMenuLoading />;
 
   return (
@@ -46,11 +40,11 @@ export const Content = memo(function Content(props: Props) {
       <Separator />
       <SearchMenuListItem index={teammates.length}>
         <SearchMenuLeftContainer>
-          <Icon icon="plus" color="primary" />
+          <Icon icon="userPlus" color="primary" />
         </SearchMenuLeftContainer>
         <SearchMenuRightContainer>
           <Text fontSize="sm" color="primary" fontWeight="medium">
-            {text}
+            {`Invite '${props.queryText}' via email`}
           </Text>
         </SearchMenuRightContainer>
       </SearchMenuListItem>

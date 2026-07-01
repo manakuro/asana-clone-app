@@ -3,7 +3,7 @@ import {
   ProjectTeammateMenu,
   ProjectTeammateMenuContent,
   ProjectTeammateMenuTrigger,
-} from '@/components/features/menus/project-teammate-menu';
+} from '@/components/features/projects/components/project-teammate-menu';
 import type {
   PopoverContentProps,
   PopoverRootProps,

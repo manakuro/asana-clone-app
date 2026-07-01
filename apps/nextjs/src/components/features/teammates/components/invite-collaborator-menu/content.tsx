@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import {
-  ProjectTeammateMenuItem,
-  useProjectTeammateMenu,
-} from '@/components/features/menus/project-teammate-menu';
-import {
   SearchMenuLeftContainer,
   SearchMenuListItem,
   SearchMenuLoading,
   SearchMenuRightContainer,
 } from '@/components/features/menus/search-menu';
+import {
+  ProjectTeammateMenuItem,
+  useProjectTeammateMenu,
+} from '@/components/features/projects/components/project-teammate-menu';
 import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';

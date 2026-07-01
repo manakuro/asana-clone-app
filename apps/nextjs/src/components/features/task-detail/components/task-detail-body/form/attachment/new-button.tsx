@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { AttachmentMenu } from '@/components/features/menus/attachment-menu';
+import { AttachmentMenu } from '@/components/features/task-detail/components/attachment-menu';
 import { Menu } from '@/components/ui/menu';
 import { NewBox } from '@/components/ui/new-box';
 

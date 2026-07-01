@@ -1,14 +1,14 @@
-import { memo } from 'react';
-import {
-  ProjectTeammateMenuItem,
-  useProjectTeammateMenu,
-} from '@/components/features/menus/project-teammate-menu';
+import { memo, useMemo } from 'react';
 import {
   SearchMenuLeftContainer,
   SearchMenuListItem,
   SearchMenuLoading,
   SearchMenuRightContainer,
 } from '@/components/features/menus/search-menu';
+import {
+  ProjectTeammateMenuItem,
+  useProjectTeammateMenu,
+} from '@/components/features/projects/components/project-teammate-menu';
 import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
@@ -22,10 +22,14 @@ type Props = {
 };
 
 export const Content = memo(function Content(props: Props) {
-  const { teammates, loading, onSelectTeammate } = useProjectTeammateMenu({
-    ...props,
-    additionalIndexLength: 1,
-  });
+  const { teammates, loading, onSelectTeammate } =
+    useProjectTeammateMenu(props);
+
+  const text = useMemo(() => {
+    if (props.queryText) return `Invite '${props.queryText}' via email`;
+
+    return 'Invite teammates via email';
+  }, [props.queryText]);
 
   if (loading) return <SearchMenuLoading />;
 
@@ -42,22 +46,11 @@ export const Content = memo(function Content(props: Props) {
       <Separator />
       <SearchMenuListItem index={teammates.length}>
         <SearchMenuLeftContainer>
-          <Icon icon="userPlus" color="primary" />
-        </SearchMenuLeftContainer>
-        <SearchMenuRightContainer>
-          <Text fontSize="sm" color="primary" fontWeight="medium">
-            {`Invite '${props.queryText}' via email`}
-          </Text>
-        </SearchMenuRightContainer>
-      </SearchMenuListItem>
-      <Separator />
-      <SearchMenuListItem index={teammates.length + 1}>
-        <SearchMenuLeftContainer>
           <Icon icon="plus" color="primary" />
         </SearchMenuLeftContainer>
         <SearchMenuRightContainer>
           <Text fontSize="sm" color="primary" fontWeight="medium">
-            Assign duplicate tasks
+            {text}
           </Text>
         </SearchMenuRightContainer>
       </SearchMenuListItem>
