@@ -1,11 +1,11 @@
 import { memo } from 'react';
-import { MenuSelectList } from '@/components/features/menus/menu-select';
 import {
   type TaskSection,
   useTasksTaskSectionByTaskId,
   useTasksTaskSections,
 } from '@/components/features/tasks/hooks';
 import { Menu } from '@/components/ui/menu';
+import { MenuSelectList } from '@/components/ui/menu-select';
 
 type Props = {
   taskId: string;
