@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useProjectDetailModal } from '@/components/features/modals/project-detail-modal/use-project-detail-modal';
+import { useProjectDetailModal } from '@/components/features/projects/components/project-detail-modal/use-project-detail-modal';
 import { Icon } from '@/components/ui/icon';
 import { IconButton, type IconButtonProps } from '@/components/ui/icon-button';
 
