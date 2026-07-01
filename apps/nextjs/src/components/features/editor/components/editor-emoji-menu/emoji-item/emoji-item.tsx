@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo } from 'react';
-import { useEditorEmojiMenu } from '@/components/features/menus/editor-emoji-menu';
+import { useEditorEmojiMenu } from '@/components/features/editor/components/editor-emoji-menu';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
 import { useMenuStyle } from '@/hooks/styles/use-menu-style';

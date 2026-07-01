@@ -2,7 +2,7 @@ import { memo, useCallback, useEffect, useMemo } from 'react';
 import {
   type SetValueParam,
   useEditorMentionMenu,
-} from '@/components/features/menus/editor-mention-menu';
+} from '@/components/features/editor/components/editor-mention-menu';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMenuStyle } from '@/hooks/styles/use-menu-style';
 import { useHover } from '@/hooks/use-hover';

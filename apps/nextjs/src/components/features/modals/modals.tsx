@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { EditorEmojiMenu } from '@/components/features/menus/editor-emoji-menu';
-import { EditorMentionMenu } from '@/components/features/menus/editor-mention-menu';
-import { EditorLinkModal } from '@/components/features/modals/editor-link-modal/editor-link-modal';
+import { EditorEmojiMenu } from '@/components/features/editor/components/editor-emoji-menu';
+import { EditorLinkModal } from '@/components/features/editor/components/editor-link-modal/editor-link-modal';
+import { EditorMentionMenu } from '@/components/features/editor/components/editor-mention-menu';
 import { FileViewerModal } from '@/components/features/modals/file-viewer-modal/file-viewer-modal';
 import { InviteModal } from '@/components/features/modals/invite-modal/invite-modal';
 import { Help } from '@/components/features/navigation';
