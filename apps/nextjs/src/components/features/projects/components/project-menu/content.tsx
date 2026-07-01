@@ -1,13 +1,13 @@
 import { memo, useCallback, useEffect } from 'react';
+import { useSearchProjectsQuery } from '@/components/features/projects/components/project-menu/use-search-projects-query';
+import { Icon } from '@/components/ui/icon';
 import {
   SearchMenuLeftContainer,
   SearchMenuListItem,
   SearchMenuLoading,
   SearchMenuRightContainer,
   useSearchMenu,
-} from '@/components/features/menus/search-menu';
-import { useSearchProjectsQuery } from '@/components/features/projects/components/project-menu/use-search-projects-query';
-import { Icon } from '@/components/ui/icon';
+} from '@/components/ui/search-menu';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
 import { useFirstRender } from '@/hooks/use-first-render';

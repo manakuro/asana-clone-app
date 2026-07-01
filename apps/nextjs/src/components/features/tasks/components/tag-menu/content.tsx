@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
+import { Icon } from '@/components/ui/icon';
 import {
   SearchMenuLeftContainer,
   SearchMenuListItem,
   SearchMenuLoading,
   SearchMenuRightContainer,
   useSearchMenu,
-} from '@/components/features/menus/search-menu';
-import { Icon } from '@/components/ui/icon';
+} from '@/components/ui/search-menu';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
 import type { Tag } from '@/store/entities/tag';

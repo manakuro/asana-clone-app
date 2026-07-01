@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { useSearchMenuRef } from '@/components/features/menus/search-menu';
 import { Flex } from '@/components/ui/flex';
 import { Popover, type PopoverContentProps } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
+import { useSearchMenuRef } from '@/components/ui/search-menu';
 import { useClickOutside } from '@/hooks/use-click-outside';
 
 type Props = PopoverContentProps & {

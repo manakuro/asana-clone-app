@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { SearchMenuListItem } from '@/components/features/menus/search-menu';
+import { SearchMenuListItem } from '@/components/ui/search-menu';
 import type { Project } from '@/store/entities/project';
 
 type Props = {

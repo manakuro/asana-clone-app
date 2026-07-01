@@ -1,10 +1,10 @@
 import { memo, type PropsWithChildren } from 'react';
+import type { PopoverRootProps } from '@/components/ui/popover';
 import {
   SearchMenu,
   SearchMenuContent,
   SearchMenuTrigger,
-} from '@/components/features/menus/search-menu';
-import type { PopoverRootProps } from '@/components/ui/popover';
+} from '@/components/ui/search-menu';
 import type { Tag } from '@/store/entities/tag';
 import { Content } from './content';
 

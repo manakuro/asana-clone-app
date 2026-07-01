@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { SearchMenuLoading } from '@/components/features/menus/search-menu';
 import {
   ProjectTeammateMenuItem,
   useProjectTeammateMenu,
 } from '@/components/features/projects/components/project-teammate-menu';
+import { SearchMenuLoading } from '@/components/ui/search-menu';
 import type { Teammate } from '@/store/entities/teammate';
 
 type Props = {

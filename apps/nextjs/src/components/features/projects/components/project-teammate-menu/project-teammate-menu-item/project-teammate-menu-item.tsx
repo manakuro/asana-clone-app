@@ -1,11 +1,11 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
+import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import {
   SearchMenuLeftContainer,
   SearchMenuListItem,
   SearchMenuRightContainer,
-} from '@/components/features/menus/search-menu';
-import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
+} from '@/components/ui/search-menu';
 import { Text } from '@/components/ui/text';
 import type { Teammate } from '@/store/entities/teammate';
 
