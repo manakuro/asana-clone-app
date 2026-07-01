@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
+import { useCopyProjectLink } from '@/components/features/projects/hooks/use-copy-project-link';
 import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
-import { useCopyProjectLink } from '@/hooks/pages/projects/use-copy-project-link';
 import { useShareProjectModal } from '../use-share-project-modal';
 import { useShareProjectModalInvitedTeammates } from '../use-share-project-modal-invited-teammates';
 

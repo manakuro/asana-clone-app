@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback } from 'react';
+import { useCopyProjectLink } from '@/components/features/projects/hooks/use-copy-project-link';
 import { Menu } from '@/components/ui/menu';
-import { useCopyProjectLink } from '@/hooks/pages/projects/use-copy-project-link';
 
 type Props = {
   projectId: string;
