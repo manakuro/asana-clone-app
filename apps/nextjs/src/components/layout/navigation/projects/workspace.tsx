@@ -1,6 +1,5 @@
 import { usePathname } from 'next/navigation';
 import { memo, useCallback, useMemo } from 'react';
-import { useInviteModal } from '@/components/features/teammates/components/invite-modal/use-invite-modal';
 import { useNavigation } from '@/components/layout/navigation';
 import { PADDING_X } from '@/components/layout/navigation/navigation';
 import { Flex } from '@/components/ui/flex';
@@ -10,6 +9,7 @@ import { Menu } from '@/components/ui/menu';
 import { NextLink } from '@/components/ui/next-link';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
+import { useInviteModal } from '@/features/teammates/components/invite-modal/use-invite-modal';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';

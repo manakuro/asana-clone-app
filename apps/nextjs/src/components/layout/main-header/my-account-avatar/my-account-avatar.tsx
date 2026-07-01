@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { MyAvatar } from '@/components/features/teammates/components/my-avatar';
 import { Menu } from '@/components/ui/menu';
+import { MyAvatar } from '@/features/teammates/components/my-avatar';
 import { MenuList } from './menu-list';
 
 export const MyAccountAvatar = memo(function MyAccountAvatar() {

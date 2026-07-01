@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { useDescriptionTitle } from '@/components/features/projects/hooks/use-description-title';
 import { Flex } from '@/components/ui/flex';
+import { useDescriptionTitle } from '@/features/projects/hooks/use-description-title';
 import { Input } from './input';
 
 type Props = {

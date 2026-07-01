@@ -1,12 +1,12 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
-import { PopoverDueDatePicker } from '@/components/features/tasks/components/popover-due-date-picker/popover-due-date-picker';
-import { ProjectChip } from '@/components/features/tasks/components/project-chip';
 import { CheckIcon } from '@/components/ui/check-icon';
 import { DueDate } from '@/components/ui/due-date';
 import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/text';
+import { PopoverDueDatePicker } from '@/features/tasks/components/popover-due-date-picker/popover-due-date-picker';
+import { ProjectChip } from '@/features/tasks/components/project-chip';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useRouter } from '@/router';
 import { formatDueTime } from '@/shared/date';

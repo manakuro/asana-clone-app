@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { TaskDetailModal } from '@/components/features/task-details/components/task-detail-modal';
-import { TasksContext } from '@/components/features/tasks/components/tasks-provider/tasks-context';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { Stack } from '@/components/ui/stack';
+import { TaskDetailModal } from '@/features/task-details/components/task-detail-modal';
+import { TasksContext } from '@/features/tasks/components/tasks-provider/tasks-context';
 import { getHomeDetailId, isHomeDetailURL, useRouter } from '@/router';
 import { Content } from './components/content';
 import { FavoriteProjects } from './components/favorite-projects';

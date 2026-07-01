@@ -1,20 +1,20 @@
 import { memo, useState } from 'react';
+import { Box } from '@/components/ui/box';
+import { Flex } from '@/components/ui/flex';
+import { Grid } from '@/components/ui/grid';
 import {
   ProjectListItem,
   ProjectListItemNew,
-} from '@/components/features/projects/components/project-list-item';
+} from '@/features/projects/components/project-list-item';
 import {
   PROJECT_LIST_MENU_VIEW_AS_TILES,
   ProjectListMenu,
   type ProjectListStatus,
-} from '@/components/features/projects/components/project-list-menu';
+} from '@/features/projects/components/project-list-menu';
 import {
   ProjectTileItem,
   ProjectTileItemNew,
-} from '@/components/features/projects/components/project-tile-item';
-import { Box } from '@/components/ui/box';
-import { Flex } from '@/components/ui/flex';
-import { Grid } from '@/components/ui/grid';
+} from '@/features/projects/components/project-tile-item';
 import { useProjectIds } from '@/store/entities/project';
 import {
   OverviewSectionHeader,

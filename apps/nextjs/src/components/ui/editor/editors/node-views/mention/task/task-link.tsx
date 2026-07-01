@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { PopoverEditorLink } from '@/components/features/editor/components/popover-editor-link/popover-editor-link';
-import { PopoverEditorLinkContent } from '@/components/features/editor/components/popover-editor-link/popover-editor-link-content';
-import { PopoverEditorLinkText } from '@/components/features/editor/components/popover-editor-link/popover-editor-link-text';
-import { PopoverEditorLinkTrigger } from '@/components/features/editor/components/popover-editor-link/popover-editor-link-trigger';
 import { CheckIcon } from '@/components/ui/check-icon';
+import { PopoverEditorLink } from '@/features/editor/components/popover-editor-link/popover-editor-link';
+import { PopoverEditorLinkContent } from '@/features/editor/components/popover-editor-link/popover-editor-link-content';
+import { PopoverEditorLinkText } from '@/features/editor/components/popover-editor-link/popover-editor-link-text';
+import { PopoverEditorLinkTrigger } from '@/features/editor/components/popover-editor-link/popover-editor-link-trigger';
 import { useProjectTask } from '@/store/entities/project-task';
 import { useTask } from '@/store/entities/task';
 

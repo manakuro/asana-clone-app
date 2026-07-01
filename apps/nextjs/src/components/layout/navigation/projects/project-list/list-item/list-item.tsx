@@ -1,6 +1,5 @@
 import { usePathname } from 'next/navigation';
 import { memo, useMemo } from 'react';
-import { PopoverProjectMenu } from '@/components/features/projects/components/popover-project-menu/popover-project-menu';
 import { useNavigation } from '@/components/layout/navigation';
 import { PADDING_X } from '@/components/layout/navigation/navigation';
 import { Box } from '@/components/ui/box';
@@ -11,6 +10,7 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Link } from '@/components/ui/link';
 import { NextLink } from '@/components/ui/next-link';
 import { Text } from '@/components/ui/text';
+import { PopoverProjectMenu } from '@/features/projects/components/popover-project-menu/popover-project-menu';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import { ROUTE_PROJECTS_LIST } from '@/router';

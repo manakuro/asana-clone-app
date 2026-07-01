@@ -1,10 +1,10 @@
 import { memo, type Ref, useCallback } from 'react';
-import { useShareProjectModal } from '@/components/features/projects/components/share-project-modal';
-import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { AvatarGroup } from '@/components/ui/avatar';
 import { Flex } from '@/components/ui/flex';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useTooltip } from '@/components/ui/tooltip/use-tooltip';
+import { useShareProjectModal } from '@/features/projects/components/share-project-modal';
+import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { useWorkspace } from '@/store/entities/workspace';

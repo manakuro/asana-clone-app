@@ -1,0 +1,20 @@
+import { memo, useCallback } from 'react';
+import { Icon } from '@/components/ui/icon';
+import { Menu } from '@/components/ui/menu';
+import { useTaskDetailProjectsInput } from '@/features/task-detail/hooks';
+
+export const AddToAnotherProject = memo(function AddToAnotherProject() {
+  const inputDisclosure = useTaskDetailProjectsInput();
+
+  const handleClick = useCallback(async () => {
+    inputDisclosure.onOpen();
+  }, [inputDisclosure]);
+
+  return (
+    <Menu.Item onSelect={handleClick} value="Add to another project">
+      <Icon icon="bookAdd" color="fg.muted" />
+      Add to another project
+      <Menu.ItemCommand>Tab+P</Menu.ItemCommand>
+    </Menu.Item>
+  );
+});

@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { WrapItem } from '@/components/ui/wrap';
+import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
 
 type Props = {
   teammateId: string;

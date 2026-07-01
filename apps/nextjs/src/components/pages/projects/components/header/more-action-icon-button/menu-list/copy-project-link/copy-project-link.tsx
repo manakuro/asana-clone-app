@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
-import { useCopyProjectLink } from '@/components/features/projects/hooks/use-copy-project-link';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
+import { useCopyProjectLink } from '@/features/projects/hooks/use-copy-project-link';
 
 type Props = {
   projectId: string;

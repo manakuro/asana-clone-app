@@ -1,11 +1,11 @@
 import { memo, useCallback } from 'react';
-import { useInviteModal } from '@/components/features/teammates/components/invite-modal/use-invite-modal';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
+import { useInviteModal } from '@/features/teammates/components/invite-modal/use-invite-modal';
 import type { IconType } from '@/shared/icons';
 
 export const AddButton = memo(function AddButton() {

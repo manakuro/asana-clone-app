@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
-import { useInviteModal } from '@/components/features/teammates/components/invite-modal/use-invite-modal';
-import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { PADDING_X } from '@/components/layout/navigation/navigation';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
+import { useInviteModal } from '@/features/teammates/components/invite-modal/use-invite-modal';
+import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useTeammates } from '@/store/entities/teammate';
 import { Teammate } from './teammate';

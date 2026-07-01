@@ -1,23 +1,23 @@
 import { memo, useState } from 'react';
-import {
-  ProjectListItem,
-  ProjectListItemNew,
-} from '@/components/features/projects/components/project-list-item';
-import {
-  PROJECT_LIST_MENU_VIEW_AS_TILES,
-  ProjectListMenu,
-  type ProjectListStatus,
-} from '@/components/features/projects/components/project-list-menu';
-import {
-  ProjectTileItem,
-  ProjectTileItemNew,
-} from '@/components/features/projects/components/project-tile-item';
 import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Grid } from '@/components/ui/grid';
 import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/icon';
+import {
+  ProjectListItem,
+  ProjectListItemNew,
+} from '@/features/projects/components/project-list-item';
+import {
+  PROJECT_LIST_MENU_VIEW_AS_TILES,
+  ProjectListMenu,
+  type ProjectListStatus,
+} from '@/features/projects/components/project-list-menu';
+import {
+  ProjectTileItem,
+  ProjectTileItemNew,
+} from '@/features/projects/components/project-tile-item';
 
 type Props = {
   projectIds: string[];
