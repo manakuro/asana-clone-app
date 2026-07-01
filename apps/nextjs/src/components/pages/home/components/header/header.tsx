@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { MainHeader } from '@/components/features/main-header';
+import { MainHeader } from '@/components/layout/main-header';
 import { Heading } from '@/components/ui/heading';
 import { useTasksListContentVerticalScroll } from '../content';
 
