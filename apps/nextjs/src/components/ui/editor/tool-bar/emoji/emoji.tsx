@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { PopoverEmoji } from '@/components/features/popovers/popover-emoji/popover-emoji';
+import { PopoverEmoji } from '@/components/features/editor/components/popover-emoji/popover-emoji';
 import { Icon } from '@/components/ui/icon';
 import { useEmoji } from '@/shared/prosemirror/hooks';
 import { BaseButton } from '../base-button';
