@@ -2,16 +2,16 @@ import { memo, useState } from 'react';
 import {
   ProjectListItem,
   ProjectListItemNew,
-} from '@/components/features/projects/project-list-item';
+} from '@/components/features/projects/components/project-list-item';
 import {
   PROJECT_LIST_MENU_VIEW_AS_TILES,
   ProjectListMenu,
   type ProjectListStatus,
-} from '@/components/features/projects/project-list-menu';
+} from '@/components/features/projects/components/project-list-menu';
 import {
   ProjectTileItem,
   ProjectTileItemNew,
-} from '@/components/features/projects/project-tile-item';
+} from '@/components/features/projects/components/project-tile-item';
 import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
 import { Flex, type FlexProps } from '@/components/ui/flex';
