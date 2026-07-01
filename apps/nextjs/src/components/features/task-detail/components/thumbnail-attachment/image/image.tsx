@@ -1,9 +1,9 @@
-import { Container } from '@/components/features/thumbnail-attachment/container';
-import { useThumbnailAttachmentContext } from '@/components/features/thumbnail-attachment/context';
-import { Menu } from '@/components/features/thumbnail-attachment/menu';
-import { MenuButton } from '@/components/features/thumbnail-attachment/menu-button';
-import { Overlay } from '@/components/features/thumbnail-attachment/overlay';
-import { Tooltip } from '@/components/features/thumbnail-attachment/tooltip';
+import { Container } from '@/components/features/task-detail/components/thumbnail-attachment/container';
+import { useThumbnailAttachmentContext } from '@/components/features/task-detail/components/thumbnail-attachment/context';
+import { Menu } from '@/components/features/task-detail/components/thumbnail-attachment/menu';
+import { MenuButton } from '@/components/features/task-detail/components/thumbnail-attachment/menu-button';
+import { Overlay } from '@/components/features/task-detail/components/thumbnail-attachment/overlay';
+import { Tooltip } from '@/components/features/task-detail/components/thumbnail-attachment/tooltip';
 import type { FlexProps } from '@/components/ui/flex';
 import { Image as AtomsImage } from '@/components/ui/image';
 import { useTaskFile } from '@/store/entities/task-file';
