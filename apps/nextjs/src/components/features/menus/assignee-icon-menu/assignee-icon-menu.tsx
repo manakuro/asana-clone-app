@@ -1,5 +1,5 @@
 import { memo, useCallback, useState } from 'react';
-import { PopoverAssigneeInput } from '@/components/features/popovers/popover-assignee-input/popover-assignee-input';
+import { PopoverAssigneeInput } from '@/components/features/tasks/components/popover-assignee-input/popover-assignee-input';
 import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';

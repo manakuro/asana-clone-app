@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { PopoverProjectMenu } from '@/components/features/popovers/popover-project-menu/popover-project-menu';
+import { PopoverProjectMenu } from '@/components/features/projects/components/popover-project-menu/popover-project-menu';
 import { TeammateAvatar } from '@/components/features/teammates/components/teammate-avatar';
 import { AvatarGroup } from '@/components/ui/avatar';
 import { Fade } from '@/components/ui/fade';

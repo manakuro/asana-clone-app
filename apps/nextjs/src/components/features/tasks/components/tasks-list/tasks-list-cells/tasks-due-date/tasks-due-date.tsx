@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
-import { PopoverDueDatePicker } from '@/components/features/popovers/popover-due-date-picker/popover-due-date-picker';
+import { PopoverDueDatePicker } from '@/components/features/tasks/components/popover-due-date-picker/popover-due-date-picker';
 import { TasksListCell } from '@/components/features/tasks/components/tasks-list/tasks-list-cell';
 import { DueDate } from '@/components/ui/due-date';
 import { Flex, type FlexProps } from '@/components/ui/flex';

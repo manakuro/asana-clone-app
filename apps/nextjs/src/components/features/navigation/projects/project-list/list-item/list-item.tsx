@@ -2,7 +2,7 @@ import { usePathname } from 'next/navigation';
 import { memo, useMemo } from 'react';
 import { useNavigation } from '@/components/features/navigation';
 import { PADDING_X } from '@/components/features/navigation/navigation';
-import { PopoverProjectMenu } from '@/components/features/popovers/popover-project-menu/popover-project-menu';
+import { PopoverProjectMenu } from '@/components/features/projects/components/popover-project-menu/popover-project-menu';
 import { Box } from '@/components/ui/box';
 import { ColorBox } from '@/components/ui/color-box';
 import { Flex } from '@/components/ui/flex';

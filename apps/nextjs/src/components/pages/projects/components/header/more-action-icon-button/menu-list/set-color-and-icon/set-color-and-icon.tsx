@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { PopoverSetColorAndIcon } from '@/components/features/popovers/popover-set-color-and-icon/popover-set-color-and-icon';
+import { PopoverSetColorAndIcon } from '@/components/features/projects/components/popover-set-color-and-icon/popover-set-color-and-icon';
 import { ColorBox } from '@/components/ui/color-box';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

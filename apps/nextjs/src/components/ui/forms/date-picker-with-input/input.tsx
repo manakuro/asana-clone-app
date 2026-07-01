@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { PopoverDueDatePicker } from '@/components/features/popovers/popover-due-date-picker/popover-due-date-picker';
+import { PopoverDueDatePicker } from '@/components/features/tasks/components/popover-due-date-picker/popover-due-date-picker';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { useDisclosure } from '@/shared/chakra';
 import { formatDueDateInput } from '@/shared/date';
