@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo, useCallback, useMemo, useRef, useState } from 'react';
-import { TagChip } from '@/components/features/chips/tag-chip';
+import { TagChip } from '@/components/features/tasks/components/tag-chip';
 import { TagMenu } from '@/components/features/tasks/components/tag-menu';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput } from '@/components/ui/input';

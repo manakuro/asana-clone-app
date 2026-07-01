@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { AssigneeChip } from '@/components/features/chips/assignee-chip';
 import { useTaskDetail } from '@/components/features/task-detail';
+import { AssigneeChip } from '@/components/features/task-detail/components/assignee-chip';
 import { InviteCollaboratorMenu } from '@/components/features/teammates/components/invite-collaborator-menu';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput } from '@/components/ui/input';

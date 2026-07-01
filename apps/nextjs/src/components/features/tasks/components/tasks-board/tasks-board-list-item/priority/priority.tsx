@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { PriorityChip } from '@/components/features/chips/priority-chip';
+import { PriorityChip } from '@/components/features/tasks/components/priority-chip';
 import type { FlexProps } from '@/components/ui/flex';
 import { useTask } from '@/store/entities/task';
 

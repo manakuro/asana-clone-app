@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ProjectChip } from '@/components/features/chips/project-chip';
+import { ProjectChip } from '@/components/features/tasks/components/project-chip';
 import { useProjectTask } from '@/store/entities/project-task';
 
 type Props = {
