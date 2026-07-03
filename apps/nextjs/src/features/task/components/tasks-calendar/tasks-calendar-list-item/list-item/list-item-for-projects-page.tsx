@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
+import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
 import { useHover } from '@/hooks/use-hover';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectIdsByTaskId } from '@/store/entities/project-task';

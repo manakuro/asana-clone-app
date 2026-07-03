@@ -6,7 +6,7 @@ import { Portal } from '@/components/ui/portal';
 import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/text';
 import { Textarea } from '@/components/ui/textarea';
-import { useInviteModal } from '@/features/teammates/components/invite-modal/use-invite-modal';
+import { useInviteModal } from '@/features/teammate/components/invite-modal/use-invite-modal';
 
 export function InviteModal() {
   const { open, onClose } = useInviteModal();

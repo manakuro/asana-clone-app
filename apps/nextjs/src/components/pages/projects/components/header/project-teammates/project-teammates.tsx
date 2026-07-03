@@ -4,7 +4,7 @@ import { Flex } from '@/components/ui/flex';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useTooltip } from '@/components/ui/tooltip/use-tooltip';
 import { useShareProjectModal } from '@/features/project/components/share-project-modal';
-import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
+import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { useWorkspace } from '@/store/entities/workspace';

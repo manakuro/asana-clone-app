@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import { useInviteModal } from '@/features/teammates/components/invite-modal/use-invite-modal';
-import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
+import { useInviteModal } from '@/features/teammate/components/invite-modal/use-invite-modal';
+import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 
 export const AddMemberListItem = memo(function AddMemberListItem() {

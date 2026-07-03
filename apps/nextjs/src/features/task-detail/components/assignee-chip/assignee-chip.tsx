@@ -4,7 +4,7 @@ import { Avatar } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { PopoverProfile } from '@/features/teammates/components/popover-profile/popover-profile';
+import { PopoverProfile } from '@/features/teammate/components/popover-profile/popover-profile';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useTeammate } from '@/store/entities/teammate';
 

@@ -6,7 +6,7 @@ import {
   SearchMenuRightContainer,
 } from '@/components/ui/search-menu';
 import { Text } from '@/components/ui/text';
-import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
+import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
 import type { Teammate } from '@/store/entities/teammate';
 
 type Props = {
