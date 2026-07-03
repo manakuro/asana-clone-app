@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSearchMenuOnKeyBindings } from '@/components/ui/search-menu';
-import { useSearchWorkspaceTeammatesQuery } from '@/hooks/queries/entities/use-search-workspace-teammates-query';
+import { useSearchWorkspaceTeammatesQuery } from '@/hooks/queries/use-search-workspace-teammates-query';
 import { useDebounce } from '@/hooks/use-debounce';
 import type { Teammate } from '@/store/entities/teammate';
 

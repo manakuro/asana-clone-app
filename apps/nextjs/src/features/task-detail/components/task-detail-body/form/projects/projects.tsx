@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Input } from '@/features/task-detail/components/task-detail-body/form/projects/input';
 import { useTaskDetailProjectsInput } from '@/features/task-detail/hooks';
-import { useProjectTaskSectionsByProjectIdsQuery } from '@/hooks/queries/entities/use-project-task-sections-by-project-ids-query';
+import { useProjectTaskSectionsByProjectIdsQuery } from '@/hooks/queries/use-project-task-sections-by-project-ids-query';
 import {
   useProjectIdsByTaskId,
   useProjectTaskCommand,
