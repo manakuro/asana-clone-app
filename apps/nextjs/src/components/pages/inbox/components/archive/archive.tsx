@@ -11,7 +11,7 @@ import { useInboxTaskDetail } from '@/features/inbox/hooks/use-inbox-task-detail
 import { TaskDetailSide } from '@/features/task-details/components/task-detail-side';
 import { TasksContext } from '@/features/tasks/components/tasks-provider/tasks-context';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
-import { useInboxArchivePageQuery } from '../../api/queries/use-inbox-archive-page-query';
+import { useInboxArchivePageQuery } from '../../api/use-inbox-archive-page-query';
 import { useInboxPageContext } from '../../contexts/context';
 
 export const Archive = memo(function Archive() {

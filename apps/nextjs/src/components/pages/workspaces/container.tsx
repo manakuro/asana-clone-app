@@ -1,7 +1,7 @@
 'use client';
 
 import { memo } from 'react';
-import { useWorkspacePageQuery } from './api/queries/use-workspace-page-query';
+import { useWorkspacePageQuery } from './api/use-workspace-page-query';
 import { Component } from './component';
 
 export const Container = memo(function Container() {

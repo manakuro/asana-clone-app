@@ -4,8 +4,8 @@ import { useParams, usePathname } from 'next/navigation';
 import { memo, useCallback, useEffect } from 'react';
 import { getProjectsIdFromURL } from '@/router/projects';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useProjectsTaskDetailPageQuery } from './api/queries/use-projects-detail-page-query';
-import { useProjectsPageQuery } from './api/queries/use-projects-page-query';
+import { useProjectsTaskDetailPageQuery } from './api/use-projects-detail-page-query';
+import { useProjectsPageQuery } from './api/use-projects-page-query';
 import { Component } from './component';
 
 export const Container = memo(function Container() {

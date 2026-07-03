@@ -16,7 +16,7 @@ import { useInboxTaskDetail } from '@/features/inbox/hooks/use-inbox-task-detail
 import { TaskDetailSide } from '@/features/task-details/components/task-detail-side';
 import { TasksContext } from '@/features/tasks/components/tasks-provider/tasks-context';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
-import { useInboxActivityPageQuery } from '../../api/queries/use-inbox-activity-page-query';
+import { useInboxActivityPageQuery } from '../../api/use-inbox-activity-page-query';
 import { useInboxPageContext } from '../../contexts/context';
 
 export const Activity = memo(function Activity() {

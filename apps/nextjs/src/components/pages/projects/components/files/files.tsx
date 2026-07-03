@@ -8,7 +8,7 @@ import { TasksFilesList } from '@/features/tasks/components/tasks-files/tasks-fi
 import { useTasksFilesDetail } from '@/features/tasks/components/tasks-files/use-tasks-files-detail';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useProjectsFilesPageQuery } from '../../api/queries/use-projects-files-page-query';
+import { useProjectsFilesPageQuery } from '../../api/use-projects-files-page-query';
 import { SkeletonFiles } from './skeleton-files';
 
 export const Files = memo(function Files() {
