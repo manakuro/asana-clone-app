@@ -6,8 +6,8 @@ import { Modals } from '@/components/layout/modals/modals';
 import { Mobile } from '@/components/ui/mobile';
 import { PageLoader } from '@/components/ui/page-loader';
 import { Toaster } from '@/components/ui/toast';
+import { useAuthContext } from '@/features/auth/contexts/auth-context';
 import { ApolloProvider } from '@/lib/apollo/apollo-provider';
-import { useAuthContext } from '../auth-context';
 import { GlobalQuery } from './global-query';
 import { Subscription } from './subscription';
 
