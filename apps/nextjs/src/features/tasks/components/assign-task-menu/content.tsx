@@ -11,7 +11,7 @@ import { Text } from '@/components/ui/text';
 import {
   ProjectTeammateMenuItem,
   useProjectTeammateMenu,
-} from '@/features/projects/components/project-teammate-menu';
+} from '@/features/project/components/project-teammate-menu';
 import type { Teammate } from '@/store/entities/teammate';
 
 type Props = {

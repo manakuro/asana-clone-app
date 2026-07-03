@@ -3,7 +3,7 @@ import { SearchMenuLoading } from '@/components/ui/search-menu';
 import {
   ProjectTeammateMenuItem,
   useProjectTeammateMenu,
-} from '@/features/projects/components/project-teammate-menu';
+} from '@/features/project/components/project-teammate-menu';
 import type { Teammate } from '@/store/entities/teammate';
 
 type Props = {

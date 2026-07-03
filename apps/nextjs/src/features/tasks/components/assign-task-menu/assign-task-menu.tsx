@@ -7,7 +7,7 @@ import {
   ProjectTeammateMenu,
   ProjectTeammateMenuContent,
   ProjectTeammateMenuTrigger,
-} from '@/features/projects/components/project-teammate-menu';
+} from '@/features/project/components/project-teammate-menu';
 import type { Teammate } from '@/store/entities/teammate';
 import { Content } from './content';
 

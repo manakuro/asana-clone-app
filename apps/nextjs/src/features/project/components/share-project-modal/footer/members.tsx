@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog } from '@/components/ui/dialog';
 import { Icon } from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
-import { useCopyProjectLink } from '@/features/projects/hooks/use-copy-project-link';
+import { useCopyProjectLink } from '@/features/project/hooks/use-copy-project-link';
 import { useShareProjectModal } from '../use-share-project-modal';
 
 export const Members = memo(function Members() {

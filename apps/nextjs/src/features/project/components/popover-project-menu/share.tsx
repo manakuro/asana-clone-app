@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback } from 'react';
 import { Menu } from '@/components/ui/menu';
-import { useShareProjectModal } from '@/features/projects/components/share-project-modal/use-share-project-modal';
+import { useShareProjectModal } from '@/features/project/components/share-project-modal/use-share-project-modal';
 
 type Props = {
   projectId: string;

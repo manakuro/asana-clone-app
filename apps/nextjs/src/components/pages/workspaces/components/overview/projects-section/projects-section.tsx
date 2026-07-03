@@ -5,16 +5,16 @@ import { Grid } from '@/components/ui/grid';
 import {
   ProjectListItem,
   ProjectListItemNew,
-} from '@/features/projects/components/project-list-item';
+} from '@/features/project/components/project-list-item';
 import {
   PROJECT_LIST_MENU_VIEW_AS_TILES,
   ProjectListMenu,
   type ProjectListStatus,
-} from '@/features/projects/components/project-list-menu';
+} from '@/features/project/components/project-list-menu';
 import {
   ProjectTileItem,
   ProjectTileItemNew,
-} from '@/features/projects/components/project-tile-item';
+} from '@/features/project/components/project-tile-item';
 import { useProjectIds } from '@/store/entities/project';
 import {
   OverviewSectionHeader,

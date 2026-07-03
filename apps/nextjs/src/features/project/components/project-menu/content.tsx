@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/search-menu';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
-import { useSearchProjectsQuery } from '@/features/projects/components/project-menu/use-search-projects-query';
+import { useSearchProjectsQuery } from '@/features/project/components/project-menu/use-search-projects-query';
 import { useFirstRender } from '@/hooks/use-first-render';
 import type { Project } from '@/store/entities/project';
 import { ProjectItem } from './project-item';

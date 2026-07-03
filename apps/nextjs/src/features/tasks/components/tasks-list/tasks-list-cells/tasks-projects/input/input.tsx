@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
-import { ProjectMenu } from '@/features/projects/components/project-menu';
+import { ProjectMenu } from '@/features/project/components/project-menu';
 import { ProjectChip } from '@/features/tasks/components/project-chip';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/lib/chakra';

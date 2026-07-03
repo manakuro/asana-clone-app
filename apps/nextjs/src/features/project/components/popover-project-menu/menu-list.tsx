@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
-import { PopoverSetColorAndIcon } from '@/features/projects/components/popover-set-color-and-icon/popover-set-color-and-icon';
+import { PopoverSetColorAndIcon } from '@/features/project/components/popover-set-color-and-icon/popover-set-color-and-icon';
 import type { Project } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/project-base-color';
 import { ArchiveProject } from './archive-project';

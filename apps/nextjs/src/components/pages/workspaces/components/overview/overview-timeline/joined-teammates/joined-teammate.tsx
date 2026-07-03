@@ -4,7 +4,7 @@ import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { useShareProjectModal } from '@/features/projects/components/share-project-modal/use-share-project-modal';
+import { useShareProjectModal } from '@/features/project/components/share-project-modal/use-share-project-modal';
 import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
 import { useLinkStyle } from '@/hooks/styles/use-link-style';
 import { formatCreatedAt } from '@/lib/date';
