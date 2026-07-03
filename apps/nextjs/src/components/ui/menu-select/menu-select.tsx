@@ -1,5 +1,5 @@
 import { Menu, type MenuRootProps } from '@/components/ui/menu';
-import { type MaybeRenderProp, runIfFn } from '@/shared/utils';
+import { type MaybeRenderProp, runIfFn } from '@/utils';
 import { Context, type UseMenuSelect, useMenuSelect } from './use-menu-select';
 
 type Props<ListStatus> = {

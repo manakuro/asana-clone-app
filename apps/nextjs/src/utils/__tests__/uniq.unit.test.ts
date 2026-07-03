@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest';
-import { uniq } from '@/shared/utils/uniq';
+import { uniq } from '@/utils/uniq';
 
 describe('uniq', () => {
   describe('when number array', () => {

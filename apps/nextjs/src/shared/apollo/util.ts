@@ -1,4 +1,4 @@
-import { uniqBy } from '@/shared/utils';
+import { uniqBy } from '@/utils';
 
 export const getNodesFromEdges = <
   Node extends { id: string },

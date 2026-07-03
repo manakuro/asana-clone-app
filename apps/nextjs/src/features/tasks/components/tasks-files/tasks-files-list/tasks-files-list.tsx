@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { useTasksTaskFiles } from '@/features/tasks/hooks';
 import { useBreakpointValue } from '@/shared/chakra';
-import { splitByNumber } from '@/shared/utils';
+import { splitByNumber } from '@/utils';
 import { TasksFilesListItem } from '../tasks-files-list-item';
 import { Empty } from './empty';
 

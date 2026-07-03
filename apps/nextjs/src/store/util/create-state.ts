@@ -1,7 +1,7 @@
 import deepEqual from 'fast-deep-equal';
 import { atom, type PrimitiveAtom } from 'jotai';
 import { atomFamily, atomWithReset, RESET } from 'jotai/utils';
-import { uniqBy } from '@/shared/utils';
+import { uniqBy } from '@/utils';
 
 type Props<T> = {
   initialState: () => T;

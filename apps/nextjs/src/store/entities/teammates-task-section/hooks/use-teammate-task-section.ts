@@ -3,8 +3,8 @@ import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
 import { UpdateTeammateTaskSectionDocument } from '@/graphql/hooks';
-import { omit } from '@/shared/utils/omit';
 import { useWorkspace } from '@/store/entities/workspace';
+import { omit } from '@/utils/omit';
 import { teammatesTaskSectionState } from '../atom';
 import type {
   TeammateTaskSection,

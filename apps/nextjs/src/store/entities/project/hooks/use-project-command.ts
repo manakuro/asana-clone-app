@@ -7,8 +7,8 @@ import {
   formatDueTimeToLocalTimezone,
   formatDueTimeToServerTimezone,
 } from '@/shared/date';
-import { omit } from '@/shared/utils/omit';
 import { useWorkspace } from '@/store/entities/workspace';
+import { omit } from '@/utils/omit';
 import { projectState } from '../atom';
 import type { Project } from '../type';
 import { useSetHasDescriptionUpdated } from './use-has-description-updated';

@@ -1,8 +1,8 @@
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { asyncForEach } from '@/shared/utils';
 import { useTaskCommand } from '@/store/entities/task';
 import { type TaskFile, taskFileState } from '@/store/entities/task-file';
+import { asyncForEach } from '@/utils';
 import type { ProjectsFileResponse } from '../type';
 
 export const useProjectsFilesResponse = () => {
