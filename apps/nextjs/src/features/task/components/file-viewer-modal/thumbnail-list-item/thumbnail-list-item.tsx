@@ -3,7 +3,7 @@ import { Center } from '@/components/ui/center';
 import { Icon } from '@/components/ui/icon';
 import { Image } from '@/components/ui/image';
 import { FileTypeCode } from '@/graphql/enums';
-import type { SystemStyleObject } from '@/lib/chakra';
+import type { SystemStyleObject } from '@/lib/chakra-ui';
 import { getTaskFileIcon, useTaskFile } from '@/store/entities/task-file';
 import { Container } from './container';
 

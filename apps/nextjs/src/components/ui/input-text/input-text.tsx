@@ -3,7 +3,7 @@ import { memo, useMemo } from 'react';
 import { Box } from '@/components/ui/box';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Textarea, type TextareaProps } from '@/components/ui/textarea';
-import type { SystemStyleObject } from '@/lib/chakra';
+import type { SystemStyleObject } from '@/lib/chakra-ui';
 
 type Props = {
   value: string;

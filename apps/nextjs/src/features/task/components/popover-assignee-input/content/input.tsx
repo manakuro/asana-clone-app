@@ -5,7 +5,7 @@ import { Icon } from '@/components/ui/icon';
 import { Input as AtomsInput, InputGroup } from '@/components/ui/input';
 import { AssigneeMenu } from '@/features/task/components/assignee-menu';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { useDisclosure } from '@/lib/chakra';
+import { useDisclosure } from '@/lib/chakra-ui';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { type Teammate, useTeammate } from '@/store/entities/teammate';
 

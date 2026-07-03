@@ -13,7 +13,7 @@ import {
   useTasksTaskSectionCommand,
   useTasksTaskSectionIds,
 } from '@/features/task/hooks';
-import type { SystemStyleObject } from '@/lib/chakra';
+import type { SystemStyleObject } from '@/lib/chakra-ui';
 
 type Props = ButtonGroupProps & {
   solid?: boolean;

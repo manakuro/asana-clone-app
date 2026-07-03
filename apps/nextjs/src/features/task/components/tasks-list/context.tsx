@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useTasksListContentSticky } from '@/features/task/components/tasks-list/tasks-list-content/use-tasks-list-content-sticky';
-import type { SystemStyleObject } from '@/lib/chakra';
+import type { SystemStyleObject } from '@/lib/chakra-ui';
 import { createContext } from '@/lib/react/create-context';
 
 type ContextProps = {

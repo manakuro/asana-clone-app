@@ -6,7 +6,7 @@ import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { TagChip } from '@/features/task/components/tag-chip';
 import { TagMenu } from '@/features/task/components/tag-menu';
 import { useClickOutside } from '@/hooks/use-click-outside';
-import { useDisclosure } from '@/lib/chakra';
+import { useDisclosure } from '@/lib/chakra-ui';
 import type { Tag } from '@/store/entities/tag';
 import {
   useTaskTagCommand,

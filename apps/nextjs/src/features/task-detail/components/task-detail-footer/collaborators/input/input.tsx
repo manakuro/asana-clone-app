@@ -7,7 +7,7 @@ import { useTaskDetail } from '@/features/task-detail';
 import { AssigneeChip } from '@/features/task-detail/components/assignee-chip';
 import { InviteCollaboratorMenu } from '@/features/teammate/components/invite-collaborator-menu';
 import { useClickOutside } from '@/hooks/use-click-outside';
-import { useDisclosure } from '@/lib/chakra';
+import { useDisclosure } from '@/lib/chakra-ui';
 import {
   useTaskCollaboratorCommand,
   useTeammateIdsByTaskId,
