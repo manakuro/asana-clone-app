@@ -4,7 +4,7 @@ import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
 import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Icon } from '@/components/ui/icon';
-import { PopoverDueDatePicker } from '@/features/tasks/components/popover-due-date-picker/popover-due-date-picker';
+import { PopoverDueDatePicker } from '@/features/task/components/popover-due-date-picker/popover-due-date-picker';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useHover } from '@/hooks/use-hover';
 import { useTask } from '@/store/entities/task';

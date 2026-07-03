@@ -4,7 +4,7 @@ import {
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
-} from '@/features/tasks/components/tasks-header';
+} from '@/features/task/components/tasks-header';
 
 const BUTTON_HEIGHT = '28px';
 export const SkeletonListHeader = memo(function SkeletonListHeader() {

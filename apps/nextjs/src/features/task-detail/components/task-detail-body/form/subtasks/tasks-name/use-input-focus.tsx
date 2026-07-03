@@ -4,7 +4,7 @@ import {
   useCallback,
   useState,
 } from 'react';
-import type { TasksListCellProps } from '@/features/tasks/components/tasks-list/tasks-list-cell';
+import type { TasksListCellProps } from '@/features/task/components/tasks-list/tasks-list-cell';
 
 export type UseInputFocus = {
   inputFocused: boolean;

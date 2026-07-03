@@ -1,11 +1,11 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
 import { Flex } from '@/components/ui/flex';
+import { TasksContainer } from '@/features/task/components/tasks-container/tasks-container';
+import { TasksFilesContent } from '@/features/task/components/tasks-files/tasks-files-content/tasks-files-content';
+import { TasksFilesList } from '@/features/task/components/tasks-files/tasks-files-list/tasks-files-list';
+import { useTasksFilesDetail } from '@/features/task/components/tasks-files/use-tasks-files-detail';
 import { TaskDetailModal } from '@/features/task-details/components/task-detail-modal';
-import { TasksContainer } from '@/features/tasks/components/tasks-container/tasks-container';
-import { TasksFilesContent } from '@/features/tasks/components/tasks-files/tasks-files-content/tasks-files-content';
-import { TasksFilesList } from '@/features/tasks/components/tasks-files/tasks-files-list/tasks-files-list';
-import { useTasksFilesDetail } from '@/features/tasks/components/tasks-files/use-tasks-files-detail';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectsFilesPageQuery } from '../../api/use-projects-files-page-query';

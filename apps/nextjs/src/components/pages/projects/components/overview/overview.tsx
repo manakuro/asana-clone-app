@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
 import { Flex } from '@/components/ui/flex';
-import { TasksContainer } from '@/features/tasks/components/tasks-container/tasks-container';
+import { TasksContainer } from '@/features/task/components/tasks-container/tasks-container';
 import { OverviewContent } from './overview-content';
 import { OverviewLeft } from './overview-left';
 import { OverviewLeftContent } from './overview-left-content';

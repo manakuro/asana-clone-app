@@ -2,12 +2,12 @@ import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Stack } from '@/components/ui/stack';
-import { TasksCalendarContent } from '@/features/tasks/components/tasks-calendar/tasks-calendar-content/tasks-calendar-content';
+import { TasksCalendarContent } from '@/features/task/components/tasks-calendar/tasks-calendar-content/tasks-calendar-content';
 import {
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
-} from '@/features/tasks/components/tasks-header';
+} from '@/features/task/components/tasks-header';
 
 type Props = FlexProps;
 

@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Input as AtomsInput } from '@/components/ui/input';
-import { AssigneeMenu } from '@/features/tasks/components/assignee-menu';
+import { AssigneeMenu } from '@/features/task/components/assignee-menu';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/lib/chakra';
 import { useTaskCommand } from '@/store/entities/task';

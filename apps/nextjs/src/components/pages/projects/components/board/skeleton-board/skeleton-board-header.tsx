@@ -4,7 +4,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import {
   TasksHeader,
   TasksHeaderRight,
-} from '@/features/tasks/components/tasks-header';
+} from '@/features/task/components/tasks-header';
 
 type Props = FlexProps;
 

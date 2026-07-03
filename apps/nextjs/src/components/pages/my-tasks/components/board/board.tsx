@@ -1,18 +1,18 @@
 import { memo } from 'react';
 import { useMyTasksContext } from '@/components/pages/my-tasks/contexts/context';
 import { Flex } from '@/components/ui/flex';
-import { TaskDetailDrawer } from '@/features/task-details/components/task-detail-drawer';
-import { TasksBoardContent } from '@/features/tasks/components/tasks-board/tasks-board-content/tasks-board-content';
-import { TasksBoardList } from '@/features/tasks/components/tasks-board/tasks-board-list/tasks-board-list';
-import { useTasksBoardDetail } from '@/features/tasks/components/tasks-board/use-tasks-board-detail';
-import { TasksContainer } from '@/features/tasks/components/tasks-container/tasks-container';
+import { TasksBoardContent } from '@/features/task/components/tasks-board/tasks-board-content/tasks-board-content';
+import { TasksBoardList } from '@/features/task/components/tasks-board/tasks-board-list/tasks-board-list';
+import { useTasksBoardDetail } from '@/features/task/components/tasks-board/use-tasks-board-detail';
+import { TasksContainer } from '@/features/task/components/tasks-container/tasks-container';
 import {
   CustomizeButton,
   CustomizeMenu,
   IncompleteTasksMenu,
   TasksHeader,
   TasksHeaderRight,
-} from '@/features/tasks/components/tasks-header';
+} from '@/features/task/components/tasks-header';
+import { TaskDetailDrawer } from '@/features/task-details/components/task-detail-drawer';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { SortMenu } from '../tasks-header';
 import { SkeletonBoardContent, SkeletonBoardHeader } from './skeleton-board';
