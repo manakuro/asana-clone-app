@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
+import { AppContext } from '@/components/layout/app-context';
 import { LayoutDefault } from '@/components/ui/layout';
-import { AppContext } from '@/contexts/app-context';
 import { AuthContext } from '@/features/auth/contexts/auth-context';
 import { description } from '@/lib/metatag/description';
 import { title } from '@/lib/metatag/title';

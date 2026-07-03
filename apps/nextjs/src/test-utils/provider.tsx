@@ -2,9 +2,9 @@ import { ApolloProvider as ApolloProviderLibs } from '@apollo/client/react';
 import type React from 'react';
 import { type PropsWithChildren, Suspense, useMemo } from 'react';
 import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
+import { GlobalQuery } from '@/components/layout/app-context/global-query';
 import { Modals } from '@/components/layout/modals/modals';
 import { PageLoader } from '@/components/ui/page-loader';
-import { GlobalQuery } from '@/contexts/app-context/global-query';
 import { createApolloClient } from '@/lib/apollo/client';
 
 export const Provider: React.FCWithChildren = (props) => {
