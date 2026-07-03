@@ -4,8 +4,8 @@ import { useTaskDetail } from '@/features/task-detail';
 import { useTaskDetailDrawer } from '@/features/task-details/components/task-detail-drawer';
 import { useTasksBoardListItemElement } from '@/features/tasks/components/tasks-board/tasks-board-list-item';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/use-click-outside';
-import { isHTMLElement } from '@/shared/is-html-element';
 import type { Params } from '@/shared/nextjs/navigation';
+import { isHTMLElement } from '@/utils/is-html-element';
 
 type Props = {
   isTaskDetailURL: (params: Params, pathname: string | null) => boolean;

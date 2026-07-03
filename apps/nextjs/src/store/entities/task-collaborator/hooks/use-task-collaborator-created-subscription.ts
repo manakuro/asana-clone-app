@@ -3,9 +3,9 @@ import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { TaskCollaboratorCreatedDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
 import { useTeammateResponse } from '@/store/entities/teammate';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { TaskCollaboratorCreatedSubscriptionResponse as Response } from '../type';
 import { useTaskCollaboratorResponse } from './use-task-collaborator-response';
 

@@ -6,12 +6,12 @@ import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { PopoverProjectMenu } from '@/features/projects/components/popover-project-menu/popover-project-menu';
 import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
-import type { IconType } from '@/shared/icons';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/project-base-color';
 import { useProjectIcon } from '@/store/entities/project-icon';
 import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { transitions } from '@/styles/transitions';
+import type { IconType } from '@/utils/icons';
 import { Container } from './container';
 import { FavoriteButton } from './favorite-button';
 

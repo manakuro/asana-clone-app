@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
-import { isHTMLElement } from '@/shared/is-html-element';
 import { createContext } from '@/shared/react/create-context';
+import { isHTMLElement } from '@/utils/is-html-element';
 
 const useValue = () => {
   const ref = useRef<HTMLTextAreaElement | null>(null);

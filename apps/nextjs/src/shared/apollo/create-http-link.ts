@@ -4,7 +4,7 @@ import { getMainDefinition } from '@apollo/client/utilities';
 import { SubscriptionClient } from 'subscriptions-transport-ws';
 import { config } from '@/config';
 import { websocketErrorHandler } from '@/shared/apollo/error-handler';
-import { isClient } from '@/shared/environment';
+import { isClient } from '@/utils/environment';
 
 export type CreateHttpProps = {
   idToken: string;

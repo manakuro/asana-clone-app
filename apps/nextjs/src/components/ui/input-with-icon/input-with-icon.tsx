@@ -1,6 +1,6 @@
 import { Icon } from '@/components/ui/icon';
 import { Input, InputGroup, type InputProps } from '@/components/ui/input';
-import type { IconType } from '@/shared/icons';
+import type { IconType } from '@/utils/icons';
 
 type Props = InputProps & {
   icon: IconType;

@@ -2,13 +2,13 @@ import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import { CreateTaskTagDocument, DeleteTaskTagDocument } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
 import type { Tag } from '@/store/entities/tag';
 import {
   taskTagByTaskIdAndTagIdState,
   taskTagState,
 } from '@/store/entities/task-tag';
 import { useWorkspace } from '@/store/entities/workspace';
+import { uuid } from '@/utils/uuid';
 import { initialState } from '../atom';
 import { useResetTaskTag } from './use-reset-task-tag';
 import { TASK_TAG_CREATED_SUBSCRIPTION_REQUEST_ID } from './use-task-tag-created-subscription';

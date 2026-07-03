@@ -1,8 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
 import { getCalendarMatrix } from '@/shared/date';
 import { dateFns } from '@/shared/date-fns';
-import { isHTMLElement } from '@/shared/is-html-element';
 import { createContext } from '@/shared/react/create-context';
+import { isHTMLElement } from '@/utils/is-html-element';
 import { useTasksCalendarId } from './use-tasks-calendar-id';
 
 const useValue = () => {

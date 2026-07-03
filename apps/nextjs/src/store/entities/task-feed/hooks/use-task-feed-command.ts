@@ -6,10 +6,10 @@ import {
   DeleteTaskFeedDocument,
   UndeleteTaskFeedDocument,
 } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
 import { useTaskFeedLikeResponse } from '@/store/entities/task-feed-like';
 import { useTaskFileResponse } from '@/store/entities/task-file';
 import { useWorkspace } from '@/store/entities/workspace';
+import { uuid } from '@/utils/uuid';
 import { initialState, taskFeedState } from '../atom';
 import type { DeleteTaskFeedResponse, TaskFeed } from '../type';
 import { useResetTaskFeed } from './use-reset-task-feed';

@@ -3,9 +3,9 @@ import { RESET, useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { TaskLikeDeletedDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
 import { taskLikeState } from '@/store/entities/task-like';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { TaskLikeDeletedSubscriptionResponse as Response } from '../type';
 
 export const TASK_LIKE_DELETED_SUBSCRIPTION_REQUEST_ID = uuid();

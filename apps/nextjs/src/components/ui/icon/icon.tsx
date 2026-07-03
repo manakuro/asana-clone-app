@@ -4,7 +4,7 @@ import {
 } from '@chakra-ui/react';
 import type React from 'react';
 import { forwardRef } from 'react';
-import { type IconType, icons } from '@/shared/icons';
+import { type IconType, icons } from '@/utils/icons';
 
 type Props = Omit<ChakraIconProps, 'size'> & {
   icon: IconType | null;

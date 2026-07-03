@@ -4,11 +4,11 @@ import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
 import { TaskUpdatedDocument } from '@/graphql/hooks';
 import { isDescriptionEqual } from '@/shared/editor/is-description-equal';
-import { uuid } from '@/shared/uuid';
 import {
   type TaskUpdatedSubscriptionResponse,
   taskState,
 } from '@/store/entities/task';
+import { uuid } from '@/utils/uuid';
 import { useSetHasDescriptionUpdated } from './use-has-description-updated';
 import { useUpsert } from './use-upsert';
 

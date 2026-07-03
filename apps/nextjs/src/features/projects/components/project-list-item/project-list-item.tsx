@@ -6,11 +6,11 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Text } from '@/components/ui/text';
 import { PopoverProjectMenu } from '@/features/projects/components/popover-project-menu/popover-project-menu';
 import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
-import type { IconType } from '@/shared/icons';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/project-base-color';
 import { useProjectIcon } from '@/store/entities/project-icon';
 import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
+import type { IconType } from '@/utils/icons';
 import { Container } from './container';
 import { FavoriteButton } from './favorite-button';
 

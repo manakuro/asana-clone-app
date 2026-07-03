@@ -7,7 +7,6 @@ import {
   DeleteProjectTaskDocument,
   UpdateProjectTaskDocument,
 } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
 import { useMe } from '@/store/entities/me';
 import {
   taskOptimisticState,
@@ -15,6 +14,7 @@ import {
   useTaskCommand,
 } from '@/store/entities/task';
 import { useWorkspace } from '@/store/entities/workspace';
+import { uuid } from '@/utils/uuid';
 import {
   initialState,
   projectTaskByTaskIdAndProjectIdState,

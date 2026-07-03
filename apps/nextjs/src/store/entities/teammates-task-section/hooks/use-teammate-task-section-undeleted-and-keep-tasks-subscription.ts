@@ -3,14 +3,14 @@ import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { TeammateTaskSectionUndeletedAndKeepTasksDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
 import {
   type TeammateTaskResponse,
   teammateTasksByIdsState,
   useTeammateTaskResponse,
 } from '@/store/entities/teammate-task';
 import { useTeammatesTaskSectionResponse } from '@/store/entities/teammates-task-section';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { TeammateTaskSectionUndeletedAndKeepTasksSubscriptionResponse as Response } from '../type';
 
 // NOTE: To prevent re-rendering via duplicated subscription response.

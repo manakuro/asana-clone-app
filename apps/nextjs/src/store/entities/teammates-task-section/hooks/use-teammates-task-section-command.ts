@@ -9,7 +9,6 @@ import {
   UndeleteTeammateTaskSectionAndDeleteTasksDocument,
   UndeleteTeammateTaskSectionAndKeepTasksDocument,
 } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
 import { useMe } from '@/store/entities/me';
 import {
   type TeammateTaskResponse,
@@ -19,6 +18,7 @@ import {
   useTeammateTaskResponse,
 } from '@/store/entities/teammate-task';
 import { useWorkspace } from '@/store/entities/workspace';
+import { uuid } from '@/utils/uuid';
 import { initialState, teammatesTaskSectionState } from '../atom';
 import type {
   DeleteTeammateTaskSectionAndDeleteTasksMutation,

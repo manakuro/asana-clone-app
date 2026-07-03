@@ -4,12 +4,12 @@ import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { ProjectTaskSectionDeletedAndKeepTasksDocument } from '@/graphql/hooks';
 import type { ProjectTaskResponse } from '@/graphql/types/project-task';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
 import {
   projectTasksByProjectTaskSectionIdState,
   useProjectTaskResponse,
 } from '@/store/entities/project-task';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { ProjectTaskSectionDeletedAndKeepTasksSubscriptionResponse as Response } from '../type';
 import { useResetProjectTaskSection } from './use-reset-project-task-section';
 

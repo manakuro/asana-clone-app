@@ -2,8 +2,8 @@ import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { TeammateTaskSectionDeletedDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { TeammateTaskSectionDeletedSubscriptionResponse as Response } from '../type';
 import { useResetTeammateTaskSection } from './use-reset-teammate-task-section';
 

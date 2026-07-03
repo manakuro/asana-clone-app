@@ -2,7 +2,6 @@ import { useAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useResizeObserver } from '@/hooks/use-resize-observer';
-import { calculateModalPosition } from '@/shared/calculate-modal-position';
 import {
   type BaseEmoji,
   type EmojiData,
@@ -10,7 +9,8 @@ import {
   emojiData,
   frequently,
 } from '@/shared/emoji';
-import { getCaretPosition } from '@/shared/get-caret-position';
+import { calculateModalPosition } from '@/utils/calculate-modal-position';
+import { getCaretPosition } from '@/utils/get-caret-position';
 
 const DEFAULT_EMOJIS = [
   'grinning',

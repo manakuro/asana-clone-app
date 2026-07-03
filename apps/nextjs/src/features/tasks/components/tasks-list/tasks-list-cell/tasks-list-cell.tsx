@@ -1,7 +1,7 @@
 import type { SystemStyleObject } from '@chakra-ui/react';
 import { forwardRef, memo, type Ref, useCallback, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { pxToNum } from '@/shared/px-to-num';
+import { pxToNum } from '@/utils/px-to-num';
 import { ColumnResizer } from './column-resizer';
 
 type Props = {

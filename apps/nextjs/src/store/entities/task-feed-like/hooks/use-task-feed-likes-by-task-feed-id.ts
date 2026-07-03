@@ -6,8 +6,8 @@ import {
   CreateTaskFeedLikeDocument,
   DeleteTaskFeedLikeDocument,
 } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
 import { useWorkspace } from '@/store/entities/workspace';
+import { uuid } from '@/utils/uuid';
 import { initialState, taskFeedLikeState, taskFeedLikesState } from '../atom';
 import { TASK_FEED_LIKE_CREATED_SUBSCRIPTION_REQUEST_ID } from './use-task-feed-like-created-subscription';
 import { TASK_FEED_LIKE_DELETED_SUBSCRIPTION_REQUEST_ID } from './use-task-feed-like-deleted-subscription';

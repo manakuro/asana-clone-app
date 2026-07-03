@@ -3,9 +3,9 @@ import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { ProjectTaskSectionUndeletedAndDeleteTasksDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
 import { useProjectTaskSectionResponse } from '@/store/entities/project-task-section';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { ProjectTaskSectionUndeletedAndDeleteTasksSubscriptionResponse as Response } from '../type';
 
 // NOTE: To prevent re-rendering via duplicated subscription response.

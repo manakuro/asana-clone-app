@@ -1,4 +1,4 @@
-import { ulidRegex } from '@/shared/ulid';
+import { ulidRegex } from '@/utils/ulid';
 
 export const ROUTE_PROJECTS = {
   regex: new RegExp(`^/projects/${ulidRegex}/?`, 'iu'),

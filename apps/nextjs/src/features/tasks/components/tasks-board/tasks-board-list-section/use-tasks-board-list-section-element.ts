@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { isHTMLElement } from '@/shared/is-html-element';
+import { isHTMLElement } from '@/utils/is-html-element';
 import { useTasksBoardListItemElement } from '../tasks-board-list-item';
 
 const CLASS = 'tasks-board-list-section';

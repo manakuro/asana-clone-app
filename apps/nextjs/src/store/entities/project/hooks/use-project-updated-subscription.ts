@@ -3,8 +3,8 @@ import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { ProjectUpdatedDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { ProjectUpdatedSubscriptionResponse as Response } from '../type';
 import { useProjectResponse } from './use-project-response';
 

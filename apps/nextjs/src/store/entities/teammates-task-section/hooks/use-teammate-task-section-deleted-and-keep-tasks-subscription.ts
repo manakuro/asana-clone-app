@@ -3,13 +3,13 @@ import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { TeammateTaskSectionDeletedAndKeepTasksDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
 import {
   type TeammateTaskResponse,
   teammateTaskByTeammateTaskSectionIdState,
   useTeammateTaskResponse,
 } from '@/store/entities/teammate-task';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { TeammateTaskSectionDeletedAndKeepTasksSubscriptionResponse as Response } from '../type';
 import { useResetTeammateTaskSection } from './use-reset-teammate-task-section';
 
