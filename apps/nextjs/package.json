@@ -36,7 +36,7 @@
     "build-storybook": "storybook build",
     "chromatic": "chromatic",
     "chromatic:local": "env-cmd -f ./.env.local chromatic",
-    "chakra:typegen": "npx @chakra-ui/cli typegen src/chakra-ui/theme/theme.ts"
+    "chakra:typegen": "npx @chakra-ui/cli typegen src/lib/chakra-ui/theme.ts"
   },
   "dependencies": {
     "@apollo/client": "4.2.0",
