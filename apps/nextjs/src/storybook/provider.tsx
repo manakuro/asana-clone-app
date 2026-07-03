@@ -3,16 +3,16 @@ import type { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
 import { Modals } from '@/components/layout/modals/modals';
-import { useFavoriteProjectIdsQuery } from '@/hooks/queries/use-favorite-project-ids-query';
-import { useFavoriteWorkspaceIdsQuery } from '@/hooks/queries/use-favorite-workspace-ids-query';
-import { useMeQuery } from '@/hooks/queries/use-me-query';
-import { useProjectBaseColorsQuery } from '@/hooks/queries/use-project-base-colors-query';
-import { useProjectIconsQuery } from '@/hooks/queries/use-project-icons-query';
-import { useProjectLightColorsQuery } from '@/hooks/queries/use-project-light-colors-query';
-import { useProjectsQuery } from '@/hooks/queries/use-projects-query';
-import { useTaskPrioritiesQuery } from '@/hooks/queries/use-task-priorities-query';
-import { useTeammateTaskTabStatusQuery } from '@/hooks/queries/use-teammate-task-tab-status-query';
-import { useWorkspaceQuery } from '@/hooks/queries/use-workspace-query';
+import { useTeammateTaskTabStatusQuery } from '@/components/pages/my-tasks/api/use-teammate-task-tab-status-query';
+import { useFavoriteProjectIdsQuery } from '@/features/favorite-project/api/use-favorite-project-ids-query';
+import { useFavoriteWorkspaceIdsQuery } from '@/features/favorite-workspace/api/use-favorite-workspace-ids-query';
+import { useMeQuery } from '@/features/me/api/use-me-query';
+import { useProjectBaseColorsQuery } from '@/features/project/api/use-project-base-colors-query';
+import { useProjectIconsQuery } from '@/features/project/api/use-project-icons-query';
+import { useProjectLightColorsQuery } from '@/features/project/api/use-project-light-colors-query';
+import { useProjectsQuery } from '@/features/project/api/use-projects-query';
+import { useTaskPrioritiesQuery } from '@/features/task/api/use-task-priorities-query';
+import { useWorkspaceQuery } from '@/features/workspace/api/use-workspace-query';
 import { createApolloClient } from '@/lib/apollo/client';
 
 export const Provider = (props: PropsWithChildren) => {

@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
 import { useCallback, useEffect, useRef } from 'react';
-import { useMentionsQuery } from '@/hooks/queries/use-mentions-query';
+import { useMentionsQuery } from '@/features/editor/api/use-mentions-query';
 import { useResizeObserver } from '@/hooks/use-resize-observer';
 import type { Mention, MentionTypeCode } from '@/store/entities/mention';
 import { calculateModalPosition } from '@/utils/calculate-modal-position';
