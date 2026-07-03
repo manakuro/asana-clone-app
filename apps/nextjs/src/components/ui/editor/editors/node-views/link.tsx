@@ -1,10 +1,10 @@
 import type { PropsWithChildren } from 'react';
-import { PopoverEditorLink } from '@/components/features/popovers/popover-editor-link/popover-editor-link';
-import { PopoverEditorLinkContent } from '@/components/features/popovers/popover-editor-link/popover-editor-link-content';
-import { PopoverEditorLinkText } from '@/components/features/popovers/popover-editor-link/popover-editor-link-text';
-import { PopoverEditorLinkTrigger } from '@/components/features/popovers/popover-editor-link/popover-editor-link-trigger';
 import { Icon } from '@/components/ui/icon';
 import { Link as AtomsLink } from '@/components/ui/link';
+import { PopoverEditorLink } from '@/features/editor/components/popover-editor-link/popover-editor-link';
+import { PopoverEditorLinkContent } from '@/features/editor/components/popover-editor-link/popover-editor-link-content';
+import { PopoverEditorLinkText } from '@/features/editor/components/popover-editor-link/popover-editor-link-text';
+import { PopoverEditorLinkTrigger } from '@/features/editor/components/popover-editor-link/popover-editor-link-trigger';
 import { useReactNodeView } from '../react-node-view';
 
 export function Link(props: PropsWithChildren) {

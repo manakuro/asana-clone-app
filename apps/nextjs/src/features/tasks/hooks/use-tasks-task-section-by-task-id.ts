@@ -1,0 +1,28 @@
+import { useMyTasksTaskSectionByTaskId } from '@/store/app/my-tasks/task-sections';
+import { useProjectTaskSectionByTaskId } from '@/store/app/projects/task-sections';
+import { useTasksContext } from '../components/tasks-provider';
+
+type Result = {
+  taskSection: {
+    id: string;
+    name: string;
+    isNew?: boolean;
+    assigned?: boolean;
+  };
+};
+
+export const useTasksTaskSectionByTaskId = (taskId: string): Result => {
+  const { isMyTasksPage } = useTasksContext();
+  const myTasks = useMyTasksTaskSectionByTaskId(taskId);
+  const projects = useProjectTaskSectionByTaskId(taskId);
+
+  if (isMyTasksPage) {
+    return {
+      taskSection: myTasks.taskSection,
+    };
+  }
+
+  return {
+    taskSection: projects.taskSection,
+  };
+};

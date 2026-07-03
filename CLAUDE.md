@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 An Asana clone application built as a monorepo with real-time communication using WebSockets and optimistic UI updates. The architecture consists of:
 
 - **Backend**: Go-based GraphQL API with Ent ORM (`apps/api/`)
-- **Frontend**: Next.js React application with Recoil state management (`apps/nextjs/`)
+- **Frontend**: Next.js React application with Jotai state management (`apps/nextjs/`)
 - **Database**: MySQL with migrations and seeding
 - **Package Management**: pnpm with Turborepo for monorepo management
 
@@ -53,7 +53,7 @@ Use Makefile commands:
 ## Architecture
 
 ### State Management
-- **Frontend**: Uses Recoil for complex state management with atoms organized by domain
+- **Frontend**: Uses Jotai for complex state management with atoms organized by domain
 - **Store Structure**: `/src/store/` contains app-level state and entities
   - `/app/` - Application-level state (UI, routing)
   - `/entities/` - Domain entities with CRUD operations and subscriptions
@@ -66,7 +66,7 @@ Use Makefile commands:
 - **Real-time**: WebSocket subscriptions for live updates
 
 ### Key Libraries
-- **Frontend**: Next.js, React, Recoil, Chakra UI, Apollo Client, Biome (linting)
+- **Frontend**: Next.js, React, Jotai, Chakra UI, Apollo Client, Biome (linting)
 - **Backend**: Go, GraphQL (gqlgen), Ent ORM, Echo framework, Firebase Auth
 - **Testing**: Vitest (frontend), Go testing (backend), Storybook for components
 

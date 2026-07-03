@@ -3,12 +3,10 @@
 import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { PageLoader } from '@/components/ui/page-loader';
-import {
-  useMyTasksDetailPageQuery,
-  useMyTasksPageQuery,
-} from '@/hooks/queries/app';
-import { useTeammateTaskTabStatusQuery } from '@/hooks/queries/entities';
+import { useTeammateTaskTabStatusQuery } from '@/hooks/queries/entities/use-teammate-task-tab-status-query';
 import { useMe } from '@/store/entities/me';
+import { useMyTasksDetailPageQuery } from './api/queries/use-my-tasks-detail-page-query';
+import { useMyTasksPageQuery } from './api/queries/use-my-tasks-page-query';
 import { Component } from './component';
 
 export function Container() {

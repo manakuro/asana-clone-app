@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
-import { TaskDetailDrawer } from '@/components/features/task-details/task-detail-drawer';
-import { TasksContainer } from '@/components/features/tasks/tasks-container/tasks-container';
+import { Flex } from '@/components/ui/flex';
+import { TaskDetailDrawer } from '@/features/task-details/components/task-detail-drawer';
+import { TasksContainer } from '@/features/tasks/components/tasks-container/tasks-container';
 import {
   AddTaskButton,
   CustomizeButton,
@@ -10,15 +11,14 @@ import {
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
-} from '@/components/features/tasks/tasks-header';
-import { TasksList } from '@/components/features/tasks/tasks-list';
-import { TasksListBody } from '@/components/features/tasks/tasks-list/tasks-list-body/tasks-list-body';
-import { TasksListContent } from '@/components/features/tasks/tasks-list/tasks-list-content/tasks-list-content';
-import { TasksListHeader } from '@/components/features/tasks/tasks-list/tasks-list-header/tasks-list-header';
-import { TasksListHorizontalScrollBorder } from '@/components/features/tasks/tasks-list/tasks-list-horizontal-scroll-border/tasks-list-horizontal-scroll-border';
-import { TasksListLayout } from '@/components/features/tasks/tasks-list/tasks-list-layout/tasks-list-layout';
-import { useTasksListDetail } from '@/components/features/tasks/tasks-list/use-tasks-list-detail';
-import { Flex } from '@/components/ui/flex';
+} from '@/features/tasks/components/tasks-header';
+import { TasksList } from '@/features/tasks/components/tasks-list';
+import { TasksListBody } from '@/features/tasks/components/tasks-list/tasks-list-body/tasks-list-body';
+import { TasksListContent } from '@/features/tasks/components/tasks-list/tasks-list-content/tasks-list-content';
+import { TasksListHeader } from '@/features/tasks/components/tasks-list/tasks-list-header/tasks-list-header';
+import { TasksListHorizontalScrollBorder } from '@/features/tasks/components/tasks-list/tasks-list-horizontal-scroll-border/tasks-list-horizontal-scroll-border';
+import { TasksListLayout } from '@/features/tasks/components/tasks-list/tasks-list-layout/tasks-list-layout';
+import { useTasksListDetail } from '@/features/tasks/components/tasks-list/use-tasks-list-detail';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectsPageContext } from '../../contexts/context';

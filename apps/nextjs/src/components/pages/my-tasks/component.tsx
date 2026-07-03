@@ -2,7 +2,7 @@
 
 import { useParams, usePathname } from 'next/navigation';
 import React, { memo, startTransition, useCallback, useEffect } from 'react';
-import { MainHeader } from '@/components/features/main-header';
+import { MainHeader } from '@/components/layout/main-header';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/tabs';

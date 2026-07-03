@@ -1,10 +1,10 @@
 import { memo } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   TasksHeader,
   TasksHeaderLeft,
   TasksHeaderRight,
-} from '@/components/features/tasks/tasks-header';
-import { Skeleton } from '@/components/ui/skeleton';
+} from '@/features/tasks/components/tasks-header';
 
 const BUTTON_HEIGHT = '28px';
 export const SkeletonListHeader = memo(function SkeletonListHeader() {

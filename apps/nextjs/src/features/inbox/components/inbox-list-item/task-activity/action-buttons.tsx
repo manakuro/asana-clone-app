@@ -1,0 +1,29 @@
+import { memo } from 'react';
+import type { FlexProps } from '@/components/ui/flex';
+import { useInboxContext } from '@/features/inbox/components/inbox/context';
+import { Actions, ArchiveButton, MoveToInboxButton } from '../actions';
+import { useInboxListItemContext } from '../context';
+
+type Props = FlexProps;
+
+export const ActionButtons = memo<Props>(function ActionButtons() {
+  const { isHovering } = useInboxListItemContext();
+  const { isArchive, isActivity } = useInboxContext();
+
+  return (
+    <Actions visibility={isHovering ? 'visible' : 'hidden'}>
+      {isActivity && (
+        <ArchiveButton
+          disabled
+          tooltipProps={{ content: 'Archive notification' }}
+        />
+      )}
+      {isArchive && (
+        <MoveToInboxButton
+          disabled
+          tooltipProps={{ content: 'Move to Inbox' }}
+        />
+      )}
+    </Actions>
+  );
+});

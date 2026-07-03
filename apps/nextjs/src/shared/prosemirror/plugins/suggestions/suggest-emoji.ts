@@ -5,7 +5,7 @@ import {
   onEmojiClose as onClose,
   onEmojiOpen as onOpen,
   setEmojiQuery as setQuery,
-} from '@/components/features/menus/editor-emoji-menu';
+} from '@/features/editor/components/editor-emoji-menu';
 
 export const suggestEmoji: Suggester = {
   disableDecorations: true,

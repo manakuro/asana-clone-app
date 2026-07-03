@@ -7,7 +7,7 @@ import {
   onMentionClose as onClose,
   onMentionOpen as onOpen,
   setMentionQuery as setQuery,
-} from '@/components/features/menus/editor-mention-menu';
+} from '@/features/editor/components/editor-mention-menu';
 import type { MentionAttrs } from '@/shared/prosemirror/schema';
 
 export const MENTION_CHAR = '@';
