@@ -7,8 +7,8 @@ import { PopoverEditorLink } from '@/features/editor/components/popover-editor-l
 import { PopoverEditorLinkContent } from '@/features/editor/components/popover-editor-link/popover-editor-link-content';
 import { PopoverEditorLinkText } from '@/features/editor/components/popover-editor-link/popover-editor-link-text';
 import { PopoverEditorLinkTrigger } from '@/features/editor/components/popover-editor-link/popover-editor-link-trigger';
+import type { MentionAttrs } from '@/lib/prosemirror/schema';
 import { ROUTE_PROJECTS_LIST } from '@/router';
-import type { MentionAttrs } from '@/shared/prosemirror/schema';
 import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/project-base-color';
 

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTaskDetailBody } from '@/features/task-detail/components/task-detail-body/use-task-detail-body';
 import { useTasksRouter } from '@/features/tasks/hooks';
-import { createContext } from '@/shared/react/create-context';
+import { createContext } from '@/lib/react/create-context';
 import { useTaskFeed } from '@/store/entities/task-feed';
 import { isHTMLElement } from '@/utils/is-html-element';
 

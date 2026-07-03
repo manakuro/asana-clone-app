@@ -3,8 +3,8 @@ import type { PropsWithChildren } from 'react';
 import { LayoutDefault } from '@/components/ui/layout';
 import { AppContext } from '@/contexts/app-context';
 import { AuthContext } from '@/contexts/auth-context';
-import { description } from '@/shared/metatag/description';
-import { title } from '@/shared/metatag/title';
+import { description } from '@/lib/metatag/description';
+import { title } from '@/lib/metatag/title';
 import { roboto } from '@/styles/fonts';
 
 export const metadata: Metadata = {

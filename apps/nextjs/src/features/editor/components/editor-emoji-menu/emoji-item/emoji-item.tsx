@@ -4,7 +4,7 @@ import { Text } from '@/components/ui/text';
 import { useEditorEmojiMenu } from '@/features/editor/components/editor-emoji-menu';
 import { useMenuStyle } from '@/hooks/styles/use-menu-style';
 import { useHover } from '@/hooks/use-hover';
-import type { BaseEmoji } from '@/shared/emoji';
+import type { BaseEmoji } from '@/lib/emoji';
 
 type Props = {
   onClick: (val: BaseEmoji) => void;

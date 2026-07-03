@@ -6,7 +6,7 @@ import type {
   WorkspaceTeammateResponse,
   WorkspaceTeammatesQuery,
 } from '@/graphql/types/workspace-teammate';
-import { getNodesFromEdges } from '@/shared/apollo/util';
+import { getNodesFromEdges } from '@/lib/apollo/util';
 import type { Teammate } from '@/store/entities/teammate';
 
 const queryAtom = atom<{ loading: boolean; teammates: Teammate[] }>({

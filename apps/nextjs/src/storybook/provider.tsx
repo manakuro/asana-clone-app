@@ -13,7 +13,7 @@ import { useProjectsQuery } from '@/hooks/queries/use-projects-query';
 import { useTaskPrioritiesQuery } from '@/hooks/queries/use-task-priorities-query';
 import { useTeammateTaskTabStatusQuery } from '@/hooks/queries/use-teammate-task-tab-status-query';
 import { useWorkspaceQuery } from '@/hooks/queries/use-workspace-query';
-import { createApolloClient } from '@/shared/apollo/client';
+import { createApolloClient } from '@/lib/apollo/client';
 
 export const Provider = (props: PropsWithChildren) => {
   return (

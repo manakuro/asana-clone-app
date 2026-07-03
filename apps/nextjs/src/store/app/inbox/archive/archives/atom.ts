@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import { dateFns } from '@/shared/date-fns';
+import { dateFns } from '@/lib/date-fns';
 import { createState } from '@/store/util';
 import type { ArchiveActivity } from './type';
 

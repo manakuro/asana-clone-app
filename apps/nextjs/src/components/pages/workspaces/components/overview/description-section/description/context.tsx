@@ -3,7 +3,7 @@ import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
 } from '@/hooks/use-click-outside';
-import { createContext } from '@/shared/react/create-context';
+import { createContext } from '@/lib/react/create-context';
 
 const useValue = () => {
   const [focused, setFocused] = useState(false);

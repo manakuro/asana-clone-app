@@ -1,6 +1,6 @@
 import type { Command } from 'prosemirror-state';
 import { useCallback, useMemo } from 'react';
-import { MENTION_CHAR } from '@/shared/prosemirror/plugins/suggestions/suggest-mention';
+import { MENTION_CHAR } from '@/lib/prosemirror/plugins/suggestions/suggest-mention';
 import type { ToolbarItem } from './types';
 
 export const useAtMention = (): ToolbarItem => {

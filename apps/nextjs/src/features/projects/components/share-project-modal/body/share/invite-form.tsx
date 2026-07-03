@@ -7,7 +7,7 @@ import { Text } from '@/components/ui/text';
 import { InviteProjectTeammateMenu } from '@/features/teammates/components/invite-project-teammate-menu';
 import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
 import { useLinkStyle } from '@/hooks/styles/use-link-style';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { type Teammate, useTeammate } from '@/store/entities/teammate';
 

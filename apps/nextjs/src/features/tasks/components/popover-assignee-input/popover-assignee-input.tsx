@@ -2,7 +2,7 @@ import React, { type PropsWithChildren, useCallback } from 'react';
 import { Link } from '@/components/ui/link';
 import { Popover } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 import { Content } from './content';
 
 type Props = {

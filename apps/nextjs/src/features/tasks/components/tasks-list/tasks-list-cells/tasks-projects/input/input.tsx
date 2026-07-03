@@ -6,7 +6,7 @@ import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { ProjectMenu } from '@/features/projects/components/project-menu';
 import { ProjectChip } from '@/features/tasks/components/project-chip';
 import { useClickOutside } from '@/hooks/use-click-outside';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 import {
   useGetProjectTask,
   useProjectTaskCommand,

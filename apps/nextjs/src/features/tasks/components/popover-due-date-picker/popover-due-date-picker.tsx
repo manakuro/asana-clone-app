@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { Link } from '@/components/ui/link';
 import { Popover, type PopoverRootProps } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
-import { type SystemStyleObject, useDisclosure } from '@/shared/chakra';
+import { type SystemStyleObject, useDisclosure } from '@/lib/chakra';
 import { Body } from './body';
 
 type Props = {

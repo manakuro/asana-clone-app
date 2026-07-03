@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
 import { ProjectIconsDocument } from '@/graphql/hooks';
 import type { ProjectIconsQuery } from '@/graphql/types/project-icons';
-import { getNodesFromEdges } from '@/shared/apollo/util';
+import { getNodesFromEdges } from '@/lib/apollo/util';
 import {
   type ProjectIconResponse,
   useProjectIconsResponse,

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { isMarkActive } from '@/shared/prosemirror/commands';
-import { schema } from '@/shared/prosemirror/config';
-import { toggleMarkStrikethrough } from '@/shared/prosemirror/config/commands';
+import { isMarkActive } from '@/lib/prosemirror/commands';
+import { schema } from '@/lib/prosemirror/config';
+import { toggleMarkStrikethrough } from '@/lib/prosemirror/config/commands';
 import type { ToolbarItem } from './types';
 
 export const useStrikethrough = (): ToolbarItem => {

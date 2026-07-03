@@ -5,7 +5,7 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Popover } from '@/components/ui/popover';
 import { Text } from '@/components/ui/text';
 import { useTasksCalendarContext } from '@/features/tasks/components/tasks-calendar/context';
-import { dateFns } from '@/shared/date-fns';
+import { dateFns } from '@/lib/date-fns';
 import { Content } from './content';
 
 export const CalendarMonthPicker = memo(function CalendarMonthPicker() {

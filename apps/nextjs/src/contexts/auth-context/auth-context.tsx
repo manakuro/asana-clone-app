@@ -5,8 +5,8 @@ import {
   onAuthStateChanged,
   onIdTokenChanged,
   signInAnonymously,
-} from '@/shared/firebase/auth';
-import { createContext } from '@/shared/react/create-context';
+} from '@/lib/firebase/auth';
+import { createContext } from '@/lib/react/create-context';
 
 const useValue = () => {
   const [idToken, setIdToken] = useState('');

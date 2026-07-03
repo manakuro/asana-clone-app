@@ -4,7 +4,7 @@ import { useTaskDetailDrawer } from '@/features/task-details/components/task-det
 import { useTasksBoardListSectionElement } from '@/features/tasks/components/tasks-board/tasks-board-list-section';
 import { useMainStyle } from '@/hooks/styles/use-main-style';
 import { usePrevious } from '@/hooks/use-previous';
-import { useBreakpointValue } from '@/shared/chakra';
+import { useBreakpointValue } from '@/lib/chakra';
 import { transitions } from '@/styles/transitions';
 import { isHTMLElement } from '@/utils/is-html-element';
 

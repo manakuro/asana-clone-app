@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { sinkListItemCommand } from '@/shared/prosemirror/config/commands';
+import { sinkListItemCommand } from '@/lib/prosemirror/config/commands';
 import type { ToolbarItem } from './types';
 
 export const useIncreaseListIndent = (): ToolbarItem => {

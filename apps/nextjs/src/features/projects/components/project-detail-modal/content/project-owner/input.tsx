@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from 'react';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { AssignProjectOwnerMenu } from '@/features/projects/components/assign-project-owner-menu';
 import { useClickOutside } from '@/hooks/use-click-outside';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 import { useProjectTeammatesCommand } from '@/store/entities/project-teammate';
 import type { Teammate } from '@/store/entities/teammate';
 

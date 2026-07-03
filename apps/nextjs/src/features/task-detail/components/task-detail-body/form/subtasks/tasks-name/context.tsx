@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useHover } from '@/hooks/use-hover';
-import { createContext } from '@/shared/react/create-context';
+import { createContext } from '@/lib/react/create-context';
 import { useInputFocus } from './use-input-focus';
 
 type Props = {

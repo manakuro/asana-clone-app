@@ -1,4 +1,4 @@
-import type { Params } from '@/shared/nextjs/navigation';
+import type { Params } from '@/lib/nextjs/navigation';
 import {
   ROUTE_WORKSPACES,
   ROUTE_WORKSPACES_CALENDAR,

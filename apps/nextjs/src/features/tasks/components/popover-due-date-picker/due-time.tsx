@@ -5,8 +5,8 @@ import { Option, Select } from '@/components/ui/select';
 import { Text } from '@/components/ui/text';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { formatDueTime } from '@/shared/date';
-import { times } from '@/shared/date/time';
+import { formatDueTime } from '@/lib/date';
+import { times } from '@/lib/date/time';
 
 type Props = {
   onClick: () => void;

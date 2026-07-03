@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { dateFns } from '@/shared/date-fns';
+import { dateFns } from '@/lib/date-fns';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProject } from '@/store/entities/project';
 

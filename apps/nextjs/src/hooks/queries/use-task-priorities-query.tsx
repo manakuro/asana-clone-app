@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
 import { TaskPrioritiesDocument } from '@/graphql/hooks';
 import type { TaskPrioritiesQuery } from '@/graphql/types/task-priorities';
-import { getNodesFromEdges } from '@/shared/apollo/util';
+import { getNodesFromEdges } from '@/lib/apollo/util';
 import {
   type TaskPriority,
   useTaskPriorityResponse,

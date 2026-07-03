@@ -4,8 +4,8 @@ import type { FileUploaderParams, UploadedFile } from '@/components/ui/form';
 import { useTaskDetail, useTaskDetailBody } from '@/features/task-detail';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useToaster } from '@/hooks/use-toaster';
-import { parseDescription } from '@/shared/prosemirror/convert-description';
-import { createContext } from '@/shared/react/create-context';
+import { parseDescription } from '@/lib/prosemirror/convert-description';
+import { createContext } from '@/lib/react/create-context';
 import { useMe } from '@/store/entities/me';
 import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/task-feed';
 import {

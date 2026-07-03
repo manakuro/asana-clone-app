@@ -8,7 +8,7 @@ import {
   type EmojiSkin,
   emojiData,
   frequently,
-} from '@/shared/emoji';
+} from '@/lib/emoji';
 import { calculateModalPosition } from '@/utils/calculate-modal-position';
 import { getCaretPosition } from '@/utils/get-caret-position';
 

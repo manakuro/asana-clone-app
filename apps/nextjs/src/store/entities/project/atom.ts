@@ -1,4 +1,4 @@
-import { getDefaultDescription } from '@/shared/prosemirror/get-default-description';
+import { getDefaultDescription } from '@/lib/prosemirror/get-default-description';
 import { createState } from '../../util';
 import type { Project } from './type';
 

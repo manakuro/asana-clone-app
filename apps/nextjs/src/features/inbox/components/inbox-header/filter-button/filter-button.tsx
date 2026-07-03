@@ -7,7 +7,7 @@ import {
   MenuSelectList,
   MenuSelectTrigger,
 } from '@/components/ui/menu-select';
-import type { SystemStyleObject } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/lib/chakra';
 import {
   INBOX_LIST_FILTER_STATUS_TYPE_ALL,
   INBOX_LIST_FILTER_STATUS_TYPE_ASSIGNED_BY_ME,

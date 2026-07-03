@@ -8,7 +8,7 @@ import { Popover, usePopoverContext } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
 import { useTasksCalendarContext } from '@/features/tasks/components/tasks-calendar/context';
-import { dateFns } from '@/shared/date-fns';
+import { dateFns } from '@/lib/date-fns';
 
 export function Content() {
   const { setOpen } = usePopoverContext();

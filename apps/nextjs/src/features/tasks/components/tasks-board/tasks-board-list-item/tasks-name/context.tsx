@@ -1,5 +1,5 @@
 import { useHover } from '@/hooks/use-hover';
-import { createContext } from '@/shared/react/create-context';
+import { createContext } from '@/lib/react/create-context';
 
 type Props = {
   taskId: string;

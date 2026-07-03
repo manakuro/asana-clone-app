@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import type { SystemStyleObject } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/lib/chakra';
 
 export const useTimelineStyle = () => {
   const timelineBorderStyle = useMemo(

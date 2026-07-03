@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
 import { ProjectsDocument } from '@/graphql/hooks';
 import type { ProjectsQuery } from '@/graphql/types/projects';
-import { getNodesFromEdges } from '@/shared/apollo/util';
+import { getNodesFromEdges } from '@/lib/apollo/util';
 import {
   type ProjectResponse,
   useProjectResponse,

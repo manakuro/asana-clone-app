@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
-import { createContext } from '@/shared/react/create-context';
+import { createContext } from '@/lib/react/create-context';
 
 type Props = {
   taskSectionId: string;

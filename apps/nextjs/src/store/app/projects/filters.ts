@@ -1,5 +1,5 @@
 import type { Getter } from 'jotai';
-import { dateFns } from '@/shared/date-fns';
+import { dateFns } from '@/lib/date-fns';
 import type { ProjectTaskSection } from '@/store/entities/project-task-section';
 import type { Task } from '@/store/entities/task';
 import { taskLikesByTaskIdState } from '@/store/entities/task-like';

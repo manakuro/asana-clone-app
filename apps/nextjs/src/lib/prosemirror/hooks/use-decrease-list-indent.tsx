@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { liftListItemCommand } from '@/shared/prosemirror/config/commands';
+import { liftListItemCommand } from '@/lib/prosemirror/config/commands';
 import type { ToolbarItem } from './types';
 
 export const useDecreaseListIndent = (): ToolbarItem => {

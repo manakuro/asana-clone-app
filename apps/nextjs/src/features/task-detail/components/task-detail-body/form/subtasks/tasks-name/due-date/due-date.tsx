@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
 import { PopoverDueDatePicker } from '@/features/tasks/components/popover-due-date-picker/popover-due-date-picker';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { getDifferenceInDays } from '@/shared/date';
+import { getDifferenceInDays } from '@/lib/date';
 import { useTask } from '@/store/entities/task';
 import { useDueDate } from './use-due-date';
 

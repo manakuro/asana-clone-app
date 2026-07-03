@@ -1,4 +1,4 @@
-import { dateFns } from '@/shared/date-fns';
+import { dateFns } from '@/lib/date-fns';
 
 export const getDifferenceInDays = (
   laterDate: ArgType<typeof dateFns.differenceInCalendarDays, 0>,

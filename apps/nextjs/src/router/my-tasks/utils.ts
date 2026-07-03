@@ -1,4 +1,4 @@
-import type { Params } from '@/shared/nextjs/navigation';
+import type { Params } from '@/lib/nextjs/navigation';
 import {
   ROUTE_MY_TASKS,
   ROUTE_MY_TASKS_BOARD,

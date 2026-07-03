@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Text, type TextProps } from '@/components/ui/text';
-import { formatFeedCreatedAt } from '@/shared/date';
+import { formatFeedCreatedAt } from '@/lib/date';
 import { useTaskFeedListItemContext } from '../provider';
 
 type Props = TextProps;

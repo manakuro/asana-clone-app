@@ -17,7 +17,7 @@ import {
   isNodeOfType,
   isPlainObject,
   isString,
-} from '@/shared/prosemirror/utils';
+} from '@/lib/prosemirror/utils';
 import type { PortalHandlers } from './react-node-view-context';
 
 type ReactNodeViewContextProps = {

@@ -5,7 +5,7 @@ import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
 import { Modals } from '@/components/layout/modals/modals';
 import { PageLoader } from '@/components/ui/page-loader';
 import { GlobalQuery } from '@/contexts/app-context/global-query';
-import { createApolloClient } from '@/shared/apollo/client';
+import { createApolloClient } from '@/lib/apollo/client';
 
 export const Provider: React.FCWithChildren = (props) => {
   return (

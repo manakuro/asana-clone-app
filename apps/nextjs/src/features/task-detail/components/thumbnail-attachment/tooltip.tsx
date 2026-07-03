@@ -4,7 +4,7 @@ import {
   Tooltip as MoleculesTooltip,
   type TooltipProps,
 } from '@/components/ui/tooltip';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 import { useTaskFile } from '@/store/entities/task-file';
 import { useThumbnailAttachmentContext } from './context';
 

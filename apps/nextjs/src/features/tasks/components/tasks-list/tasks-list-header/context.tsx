@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import { useTasksListContentVerticalScroll } from '@/features/tasks/components/tasks-list/tasks-list-content/use-tasks-list-content-vertical-scroll';
 import { useTasksTaskListStatus } from '@/features/tasks/hooks';
-import { createContext } from '@/shared/react/create-context';
+import { createContext } from '@/lib/react/create-context';
 import { useTaskListSortStatus } from '@/store/entities/task-list-sort-status';
 
 const useValue = () => {

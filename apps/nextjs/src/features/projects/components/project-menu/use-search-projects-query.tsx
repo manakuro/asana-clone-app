@@ -3,7 +3,7 @@ import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
 import { ProjectsDocument } from '@/graphql/hooks';
 import type { ProjectResponse, ProjectsQuery } from '@/graphql/types/project';
-import { getNodesFromEdges } from '@/shared/apollo/util';
+import { getNodesFromEdges } from '@/lib/apollo/util';
 import type { Project } from '@/store/entities/project';
 import { useWorkspace } from '@/store/entities/workspace';
 

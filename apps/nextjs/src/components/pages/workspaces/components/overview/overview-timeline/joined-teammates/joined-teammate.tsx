@@ -7,7 +7,7 @@ import { Text } from '@/components/ui/text';
 import { useShareProjectModal } from '@/features/projects/components/share-project-modal/use-share-project-modal';
 import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
 import { useLinkStyle } from '@/hooks/styles/use-link-style';
-import { formatCreatedAt } from '@/shared/date';
+import { formatCreatedAt } from '@/lib/date';
 import { useMe } from '@/store/entities/me';
 import { useProjectTeammate } from '@/store/entities/project-teammate';
 import { useTeammate } from '@/store/entities/teammate';

@@ -8,7 +8,7 @@ import { usePrevious } from '@/hooks/use-previous';
 import {
   createJSONTransformer,
   type ProsemirrorTransformer,
-} from '@/shared/prosemirror/transformers';
+} from '@/lib/prosemirror/transformers';
 import {
   EditorContext,
   type EditorHandle,

@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
-import { getCalendarMatrix } from '@/shared/date';
-import { dateFns } from '@/shared/date-fns';
-import { createContext } from '@/shared/react/create-context';
+import { getCalendarMatrix } from '@/lib/date';
+import { dateFns } from '@/lib/date-fns';
+import { createContext } from '@/lib/react/create-context';
 import { isHTMLElement } from '@/utils/is-html-element';
 import { useTasksCalendarId } from './use-tasks-calendar-id';
 

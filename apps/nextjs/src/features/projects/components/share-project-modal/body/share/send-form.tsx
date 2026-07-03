@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { InviteProjectTeammateMenu } from '@/features/teammates/components/invite-project-teammate-menu';
 import { InvitedTeammateChip } from '@/features/teammates/components/invited-teammate-chip';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 import type { Teammate } from '@/store/entities/teammate';
 import { PermissionMenu } from '../permission-menu';
 

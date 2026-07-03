@@ -1,4 +1,4 @@
-import { formatDueDate } from '@/shared/date';
+import { formatDueDate } from '@/lib/date';
 import { mockDate } from '@/test-utils';
 
 describe('formatDueDate', () => {

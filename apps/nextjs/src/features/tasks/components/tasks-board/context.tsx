@@ -1,4 +1,4 @@
-import { createContext } from '@/shared/react/create-context';
+import { createContext } from '@/lib/react/create-context';
 
 const useValue = () => {
   return {};

@@ -1,4 +1,4 @@
-import type { Params } from '@/shared/nextjs/navigation';
+import type { Params } from '@/lib/nextjs/navigation';
 import { ROUTE_HOME } from './routes';
 
 export const isHomeDetailURL = (params: Params): boolean => {

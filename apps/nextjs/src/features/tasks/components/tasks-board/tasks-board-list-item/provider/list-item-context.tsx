@@ -2,8 +2,8 @@ import { useParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { useTasksTaskListStatus } from '@/features/tasks/hooks';
 import { useHover } from '@/hooks/use-hover';
+import { createContext } from '@/lib/react/create-context';
 import { ROUTE_MY_TASKS } from '@/router';
-import { createContext } from '@/shared/react/create-context';
 import { useTask } from '@/store/entities/task';
 import { useTaskListCompletedStatus } from '@/store/entities/task-list-completed-status';
 

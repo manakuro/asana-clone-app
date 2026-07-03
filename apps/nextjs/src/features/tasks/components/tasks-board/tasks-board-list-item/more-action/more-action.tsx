@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Menu } from '@/components/ui/menu';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 import {
   useTasksBoardListItemContext,
   useTasksBoardListItemInputContext,

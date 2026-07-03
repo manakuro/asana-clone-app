@@ -4,7 +4,7 @@ import {
   EditorContent,
   type EditorHandle,
 } from '@/components/ui/editor';
-import { stringifyDescription } from '@/shared/prosemirror/convert-description';
+import { stringifyDescription } from '@/lib/prosemirror/convert-description';
 import { useTaskFeedListItemContext } from '../../provider';
 import { Container } from './container';
 import { ToolBar } from './tool-bar';

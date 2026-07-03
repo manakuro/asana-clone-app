@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { isBlockActive } from '@/shared/prosemirror/commands';
-import { schema } from '@/shared/prosemirror/config';
-import { setListTypeBullet } from '@/shared/prosemirror/config/commands';
+import { isBlockActive } from '@/lib/prosemirror/commands';
+import { schema } from '@/lib/prosemirror/config';
+import { setListTypeBullet } from '@/lib/prosemirror/config/commands';
 import type { ToolbarItem } from './types';
 
 export const useBulletList = (): ToolbarItem => {

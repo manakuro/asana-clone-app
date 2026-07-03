@@ -1,4 +1,4 @@
-import { dateFns } from '@/shared/date-fns';
+import { dateFns } from '@/lib/date-fns';
 import type { Task } from './type';
 
 export const sortByDueDate = (tasks: Task[]) => {

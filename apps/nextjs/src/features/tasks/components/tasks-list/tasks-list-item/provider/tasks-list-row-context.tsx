@@ -1,8 +1,8 @@
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
+import { createContext } from '@/lib/react/create-context';
 import { ROUTE_MY_TASKS } from '@/router';
-import { createContext } from '@/shared/react/create-context';
 
 type ContextProps = {
   selected: boolean;

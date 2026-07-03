@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/icon';
 import { IconButton } from '@/components/ui/icon-button';
 import { Link } from '@/components/ui/link';
 import { Popover } from '@/components/ui/popover';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 import {
   useBold,
   useBulletList,
@@ -12,7 +12,7 @@ import {
   useOrderedList,
   useStrikethrough,
   useUnderline,
-} from '@/shared/prosemirror/hooks';
+} from '@/lib/prosemirror/hooks';
 import { Content } from './content';
 
 export const Format = memo(function Format() {

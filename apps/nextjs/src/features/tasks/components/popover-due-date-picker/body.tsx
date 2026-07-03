@@ -4,8 +4,8 @@ import { DatePicker } from '@/components/ui/date-picker';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Popover } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
-import { useDisclosure } from '@/shared/chakra';
-import { dateFns } from '@/shared/date-fns';
+import { useDisclosure } from '@/lib/chakra';
+import { dateFns } from '@/lib/date-fns';
 import { DueTime } from './due-time';
 
 type Props = {

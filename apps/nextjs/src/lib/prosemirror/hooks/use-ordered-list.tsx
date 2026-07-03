@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { isBlockActive } from '@/shared/prosemirror/commands';
-import { schema } from '@/shared/prosemirror/config';
-import { setListTypeOrdered } from '@/shared/prosemirror/config/commands';
+import { isBlockActive } from '@/lib/prosemirror/commands';
+import { schema } from '@/lib/prosemirror/config';
+import { setListTypeOrdered } from '@/lib/prosemirror/config/commands';
 import type { ToolbarItem } from './types';
 
 export const useOrderedList = (): ToolbarItem => {

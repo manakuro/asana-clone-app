@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useCallback, useState } from 'react';
 import { useHover } from '@/hooks/use-hover';
-import { createContext } from '@/shared/react/create-context';
+import { createContext } from '@/lib/react/create-context';
 import { type TaskFile, useTaskFile } from '@/store/entities/task-file';
 
 type Props = {

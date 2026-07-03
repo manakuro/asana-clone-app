@@ -3,7 +3,7 @@ import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
 import { TagsDocument } from '@/graphql/hooks';
 import type { TagResponse, TagsQuery } from '@/graphql/types/tag';
-import { getNodesFromEdges } from '@/shared/apollo/util';
+import { getNodesFromEdges } from '@/lib/apollo/util';
 import { useWorkspace } from '@/store/entities/workspace';
 
 const searchTagsQueryAtom = atom<{ loading: boolean; tags: any[] }>({
