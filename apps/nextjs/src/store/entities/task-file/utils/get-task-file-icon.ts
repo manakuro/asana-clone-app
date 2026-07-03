@@ -1,8 +1,8 @@
-import type { IconType } from '@/shared/icons';
 import {
   FileTypeCode,
   type FileTypeCodeValue,
 } from '@/store/entities/file-type';
+import type { IconType } from '@/utils/icons';
 
 export const getTaskFileIcon = (type: FileTypeCodeValue): IconType => {
   switch (type) {

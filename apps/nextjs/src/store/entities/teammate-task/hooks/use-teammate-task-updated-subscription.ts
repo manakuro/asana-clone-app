@@ -2,8 +2,8 @@ import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { TeammateTaskUpdatedDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { TeammateTaskUpdatedSubscriptionResponse as Response } from '../type';
 import { useTeammateTaskResponse } from './use-teammate-task-response';
 

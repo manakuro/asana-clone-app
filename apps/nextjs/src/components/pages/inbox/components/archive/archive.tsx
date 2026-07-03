@@ -8,10 +8,10 @@ import { InboxListContent } from '@/features/inbox/components/inbox-list-content
 import { InboxRight } from '@/features/inbox/components/inbox-right';
 import { InboxSkeleton } from '@/features/inbox/components/inbox-skeleton';
 import { useInboxTaskDetail } from '@/features/inbox/hooks/use-inbox-task-detail';
-import { TaskDetailSide } from '@/features/task-details/components/task-detail-side';
-import { TasksContext } from '@/features/tasks/components/tasks-provider/tasks-context';
+import { TasksContext } from '@/features/task/components/tasks-provider/tasks-context';
+import { TaskDetailSide } from '@/features/task-detail/components/task-detail-side';
 import { getInboxDetailId, isInboxDetailURL } from '@/router';
-import { useInboxArchivePageQuery } from '../../api/queries/use-inbox-archive-page-query';
+import { useInboxArchivePageQuery } from '../../api/use-inbox-archive-page-query';
 import { useInboxPageContext } from '../../contexts/context';
 
 export const Archive = memo(function Archive() {

@@ -6,13 +6,13 @@ import {
   DeleteTaskCollaboratorDocument,
 } from '@/graphql/hooks';
 import type { TaskCollaboratorResponse } from '@/graphql/types/task-collaborator';
-import { uuid } from '@/shared/uuid';
 import {
   type Teammate,
   useResetTeammate,
   useTeammateResponse,
 } from '@/store/entities/teammate';
 import { useWorkspace } from '@/store/entities/workspace';
+import { uuid } from '@/utils/uuid';
 import { initialState, taskCollaboratorByTaskIdAndTeammateId } from '../atom';
 import { useResetTaskCollaborator } from './use-reset-task-collaborator';
 import { TASK_COLLABORATOR_CREATED_SUBSCRIPTION_REQUEST_ID } from './use-task-collaborator-created-subscription';

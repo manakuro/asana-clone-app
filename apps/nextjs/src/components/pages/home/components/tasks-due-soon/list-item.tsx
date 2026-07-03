@@ -5,11 +5,11 @@ import { DueDate } from '@/components/ui/due-date';
 import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/text';
-import { PopoverDueDatePicker } from '@/features/tasks/components/popover-due-date-picker/popover-due-date-picker';
-import { ProjectChip } from '@/features/tasks/components/project-chip';
+import { PopoverDueDatePicker } from '@/features/task/components/popover-due-date-picker/popover-due-date-picker';
+import { ProjectChip } from '@/features/task/components/project-chip';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
+import { formatDueTime } from '@/lib/date';
 import { useRouter } from '@/router';
-import { formatDueTime } from '@/shared/date';
 import { useProjectIdsByTaskId } from '@/store/entities/project-task';
 import { useTask } from '@/store/entities/task';
 

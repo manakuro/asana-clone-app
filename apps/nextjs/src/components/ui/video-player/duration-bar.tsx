@@ -6,7 +6,7 @@ import type {
   SetStateAction,
 } from 'react';
 import { useCallback, useMemo } from 'react';
-import { chakra } from '@/shared/chakra';
+import { chakra } from '@/lib/chakra';
 import type { State } from './video-player';
 
 type InputProps = ComponentProps<typeof chakra.input>;

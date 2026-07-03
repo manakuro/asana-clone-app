@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
+import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
 import { useTeammate } from '@/store/entities/teammate';
 
 type Props = {

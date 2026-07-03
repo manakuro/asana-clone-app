@@ -8,7 +8,6 @@ import {
   UnassignTaskDocument,
   UndeleteTaskDocument,
 } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
 import {
   type DeletedTaskResponse,
   deletedTasksByTaskIdState,
@@ -31,6 +30,7 @@ import {
   useTeammateTaskResponse,
 } from '@/store/entities/teammate-task';
 import { useWorkspace } from '@/store/entities/workspace';
+import { uuid } from '@/utils/uuid';
 import { initialState, taskState } from '../atom';
 import { useResetTask } from './use-reset-task';
 import { TASK_ASSIGNED_SUBSCRIPTION_REQUEST_ID } from './use-task-assigned-subscription';

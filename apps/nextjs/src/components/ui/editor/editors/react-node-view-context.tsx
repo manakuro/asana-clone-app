@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react';
 import shortid from 'shortid';
-import { uniqBy } from '@/shared/utils';
+import { uniqBy } from '@/utils';
 
 type Portal = {
   Component: FC;

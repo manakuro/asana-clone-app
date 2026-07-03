@@ -1,5 +1,5 @@
 import { useReactNodeView } from '@/components/ui/editor/editors';
-import type { MentionAttrs } from '@/shared/prosemirror/schema';
+import type { MentionAttrs } from '@/lib/prosemirror/schema';
 import { MentionType, type MentionTypeCode } from '@/store/entities/mention';
 import { Project } from './project';
 import { Task } from './task';

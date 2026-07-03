@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
+import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
 import { useTaskFeedListItemContext } from '../provider';
 import { CreateAt } from './create-at';
 import { FeedOptionMenu } from './feed-option-menu';

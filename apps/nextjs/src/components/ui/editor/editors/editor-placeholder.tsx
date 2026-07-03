@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import { isContentEmpty } from '@/shared/prosemirror/utils';
+import { isContentEmpty } from '@/lib/prosemirror/utils';
 import { useEditorViewContext } from './editor-context';
 
 type Props = FlexProps;

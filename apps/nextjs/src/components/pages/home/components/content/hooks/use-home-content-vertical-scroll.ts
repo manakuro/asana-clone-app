@@ -1,6 +1,6 @@
 import { atom, useAtom } from 'jotai';
 import { useCallback, useEffect } from 'react';
-import { isHTMLElement } from '@/shared/is-html-element';
+import { isHTMLElement } from '@/utils/is-html-element';
 import { useHomeContentDom } from './use-home-content-dom';
 
 const scrollAtom = atom<boolean>(false);

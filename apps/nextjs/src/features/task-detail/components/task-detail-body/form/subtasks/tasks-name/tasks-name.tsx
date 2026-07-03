@@ -3,7 +3,7 @@ import { CheckIcon } from '@/components/ui/check-icon';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { TaskDoneTransition } from '@/components/ui/transitions';
-import { TasksListRow } from '@/features/tasks/components/tasks-list/tasks-list-row';
+import { TasksListRow } from '@/features/task/components/tasks-list/tasks-list-row';
 import { useTask, useTaskCommand } from '@/store/entities/task';
 import { Assignee } from './assignee';
 import { Context, useSubtasksNameContext } from './context';

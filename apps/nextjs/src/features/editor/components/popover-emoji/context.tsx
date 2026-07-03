@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
-import type { BaseEmoji } from '@/shared/emoji';
-import { createContext } from '@/shared/react/create-context';
+import type { BaseEmoji } from '@/lib/emoji';
+import { createContext } from '@/lib/react/create-context';
 
 type ContextProps = {
   open: boolean;

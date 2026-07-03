@@ -4,7 +4,7 @@ import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Flex } from '@/components/ui/flex';
 import { Icon, type IconProps } from '@/components/ui/icon';
 import { useHover } from '@/hooks/use-hover';
-import type { SystemStyleObject } from '@/shared/chakra';
+import type { SystemStyleObject } from '@/lib/chakra';
 import { DeleteButton } from './delete-button';
 import { Input } from './input';
 

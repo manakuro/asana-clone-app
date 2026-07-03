@@ -1,6 +1,6 @@
 import { createSystem, defaultConfig } from '@chakra-ui/react';
 import { pdfViewerCustomStyle } from '@/components/ui/pdf-viewer/pdf-viewer-custom-style';
-import { proseMirrorStyle } from '@/shared/prosemirror/style';
+import { proseMirrorStyle } from '@/lib/prosemirror/style';
 
 export const system = createSystem(defaultConfig, {
   preflight: true,

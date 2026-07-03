@@ -5,7 +5,7 @@ import { Stack } from '@/components/ui/stack';
 import {
   TasksHeader,
   TasksHeaderRight,
-} from '@/features/tasks/components/tasks-header';
+} from '@/features/task/components/tasks-header';
 
 type Props = FlexProps;
 

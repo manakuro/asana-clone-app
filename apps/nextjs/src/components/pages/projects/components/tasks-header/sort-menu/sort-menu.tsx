@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
-import { SortMenu as TasksHeaderSortMenu } from '@/features/tasks/components/tasks-header';
+import { SortMenu as TasksHeaderSortMenu } from '@/features/task/components/tasks-header';
 import {
   type TaskListSortStatusCodeValue,
   useProjectsTaskListStatus,

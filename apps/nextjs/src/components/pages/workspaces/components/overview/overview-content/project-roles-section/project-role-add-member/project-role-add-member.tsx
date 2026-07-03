@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import { useShareProjectModal } from '@/features/projects/components/share-project-modal/use-share-project-modal';
-import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
+import { useShareProjectModal } from '@/features/project/components/share-project-modal/use-share-project-modal';
+import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
 import { Button } from './button';
 
 type Props = {

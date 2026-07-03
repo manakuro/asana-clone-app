@@ -9,7 +9,6 @@ import {
   UndeleteProjectTaskSectionAndDeleteTasksDocument,
   UndeleteProjectTaskSectionAndKeepTasksDocument,
 } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
 import {
   type ProjectTaskResponse,
   projectTasksByIdsState,
@@ -18,6 +17,7 @@ import {
   useResetProjectTask,
 } from '@/store/entities/project-task';
 import { useWorkspace } from '@/store/entities/workspace';
+import { uuid } from '@/utils/uuid';
 import { initialState, projectTaskSectionState } from '../atom';
 import type {
   DeleteProjectTaskSectionAndDeleteTasksMutation,

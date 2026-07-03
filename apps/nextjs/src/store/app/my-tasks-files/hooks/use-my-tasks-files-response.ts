@@ -1,9 +1,9 @@
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { asyncForEach } from '@/shared/utils';
 import type { MyTaskFileResponse } from '@/store/app/my-tasks-files/type';
 import { useTaskCommand } from '@/store/entities/task';
 import { type TaskFile, taskFileState } from '@/store/entities/task-file';
+import { asyncForEach } from '@/utils';
 
 export const useMyTasksFilesResponse = () => {
   const { setTaskFile, setTaskStatus } = useSetters();

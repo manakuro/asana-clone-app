@@ -4,8 +4,8 @@ import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
 import { UpdateProjectTaskSectionDocument } from '@/graphql/hooks';
 import type { UpdateTeammateTaskSectionInput } from '@/graphql/types';
-import { omit } from '@/shared/utils/omit';
 import { useWorkspace } from '@/store/entities/workspace';
+import { omit } from '@/utils/omit';
 import { projectTaskSectionState } from '../atom';
 import type { ProjectTaskSection } from '../type';
 import {

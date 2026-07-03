@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
+import { useFileViewerModal } from '@/features/task/components/file-viewer-modal/use-file-viewer-modal';
 import { ThumbnailAttachment } from '@/features/task-detail/components/thumbnail-attachment';
-import { useFileViewerModal } from '@/features/tasks/components/file-viewer-modal/use-file-viewer-modal';
 import { useToaster } from '@/hooks/use-toaster';
 import {
   type TaskFile,

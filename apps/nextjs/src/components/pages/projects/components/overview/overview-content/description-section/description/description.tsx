@@ -1,11 +1,11 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/editor';
 import { Flex } from '@/components/ui/flex';
-import { isDescriptionEqual } from '@/shared/editor/is-description-equal';
+import { isDescriptionEqual } from '@/features/editor/utils/is-description-equal';
 import {
   parseDescription,
   stringifyDescription,
-} from '@/shared/prosemirror/convert-description';
+} from '@/lib/prosemirror/convert-description';
 import { useProject, useProjectCommand } from '@/store/entities/project';
 import { Container } from './container';
 import { Context } from './context';

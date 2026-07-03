@@ -2,8 +2,8 @@ import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { TaskTagCreatedDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { TaskTagCreatedSubscriptionResponse as Response } from '../type';
 import { useTaskTagResponse } from './use-task-tag-response';
 

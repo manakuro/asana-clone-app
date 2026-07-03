@@ -5,9 +5,9 @@ import { Input as AtomsInput } from '@/components/ui/input';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { useTaskDetail } from '@/features/task-detail';
 import { AssigneeChip } from '@/features/task-detail/components/assignee-chip';
-import { InviteCollaboratorMenu } from '@/features/teammates/components/invite-collaborator-menu';
+import { InviteCollaboratorMenu } from '@/features/teammate/components/invite-collaborator-menu';
 import { useClickOutside } from '@/hooks/use-click-outside';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 import {
   useTaskCollaboratorCommand,
   useTeammateIdsByTaskId,

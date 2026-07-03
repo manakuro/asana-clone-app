@@ -4,9 +4,8 @@ import type { FileUploaderParams, UploadedFile } from '@/components/ui/form';
 import { useTaskDetail, useTaskDetailBody } from '@/features/task-detail';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useToaster } from '@/hooks/use-toaster';
-import { getScrollBottom } from '@/shared/get-scroll-bottom';
-import { parseDescription } from '@/shared/prosemirror/convert-description';
-import { createContext } from '@/shared/react/create-context';
+import { parseDescription } from '@/lib/prosemirror/convert-description';
+import { createContext } from '@/lib/react/create-context';
 import { useMe } from '@/store/entities/me';
 import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/task-feed';
 import {
@@ -15,6 +14,7 @@ import {
   type TaskFile,
   useTaskFileCommand,
 } from '@/store/entities/task-file';
+import { getScrollBottom } from '@/utils/get-scroll-bottom';
 
 const useValue = () => {
   const { focused, setFocused, onFocus, ref } = useFocus();

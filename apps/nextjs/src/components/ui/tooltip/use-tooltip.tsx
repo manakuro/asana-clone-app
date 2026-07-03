@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useHover } from '@/hooks/use-hover';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
-import { useDisclosure } from '@/shared/chakra';
+import { useDisclosure } from '@/lib/chakra';
 
 type Props = {
   openDelay?: number;

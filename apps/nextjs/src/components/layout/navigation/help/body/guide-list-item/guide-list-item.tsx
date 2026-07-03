@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { IconType } from '@/shared/icons';
+import type { IconType } from '@/utils/icons';
 import { ListItem } from './list-item';
 import { ListItemDetail } from './list-item-detail';
 

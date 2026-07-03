@@ -2,11 +2,11 @@ import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
 import { TaskUndeletedDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
 import { useResetDeletedTask } from '@/store/entities/deleted-task';
 import { useProjectTaskResponse } from '@/store/entities/project-task';
 import { useTeammateTaskResponse } from '@/store/entities/teammate-task';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { TaskUndeletedSubscriptionResponse as Response } from '../type';
 
 // NOTE: To prevent re-rendering via duplicated subscription response.

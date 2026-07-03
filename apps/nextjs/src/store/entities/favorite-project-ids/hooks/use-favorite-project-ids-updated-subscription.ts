@@ -2,8 +2,8 @@ import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { FavoriteProjectIdsUpdatedDocument } from '@/graphql/hooks';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { FavoriteProjectIdsUpdatedSubscriptionResponse as Response } from '../type';
 import { useFavoriteProjectIdsResponse } from './use-favorite-project-ids-response';
 

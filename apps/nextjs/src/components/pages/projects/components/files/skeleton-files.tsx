@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Stack } from '@/components/ui/stack';
-import { useBreakpointValue } from '@/shared/chakra';
+import { useBreakpointValue } from '@/lib/chakra';
 
 type Props = FlexProps;
 

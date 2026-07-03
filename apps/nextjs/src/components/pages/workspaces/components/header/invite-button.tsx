@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
-import { useInviteModal } from '@/features/teammates/components/invite-modal/use-invite-modal';
+import { useInviteModal } from '@/features/teammate/components/invite-modal/use-invite-modal';
 
 type Props = FlexProps;
 

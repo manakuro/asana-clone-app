@@ -1,5 +1,5 @@
 import type { StaticRoutes } from '@/router';
-import type { IconType } from '@/shared/icons';
+import type { IconType } from '@/utils/icons';
 
 export type NavListItem = {
   name: string;

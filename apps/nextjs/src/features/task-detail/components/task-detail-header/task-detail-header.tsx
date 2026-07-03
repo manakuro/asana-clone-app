@@ -5,7 +5,7 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Stack } from '@/components/ui/stack';
 import { useTaskDetail } from '@/features/task-detail';
-import type { IconType } from '@/shared/icons';
+import type { IconType } from '@/utils/icons';
 import { Attachment } from './attachment';
 import { Complete } from './complete';
 import { Copy } from './copy';

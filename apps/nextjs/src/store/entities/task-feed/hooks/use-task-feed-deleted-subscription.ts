@@ -3,8 +3,8 @@ import { RESET, useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
 import { TaskFeedDeletedDocument } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
 import { taskFeedState } from '@/store/entities/task-feed';
+import { uuid } from '@/utils/uuid';
 import type { TaskFeedDeletedSubscriptionResponse } from '../type';
 
 // NOTE: To prevent re-rendering via duplicated subscription response.

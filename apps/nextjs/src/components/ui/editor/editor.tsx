@@ -1,5 +1,5 @@
 import { memo, type PropsWithChildren, type Ref, useMemo } from 'react';
-import { plugins, schema } from '@/shared/prosemirror/config';
+import { plugins, schema } from '@/lib/prosemirror/config';
 import { EditorContainer, type EditorContainerProps } from './editors';
 import type { EditorHandle } from './editors/editor-context';
 

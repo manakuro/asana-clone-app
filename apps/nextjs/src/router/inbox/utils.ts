@@ -1,5 +1,5 @@
 'use client';
-import type { Params } from '@/shared/nextjs/navigation';
+import type { Params } from '@/lib/nextjs/navigation';
 import { ROUTE_INBOX } from './routes';
 
 export const isInboxDetailURL = (params: Params): boolean => {

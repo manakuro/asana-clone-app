@@ -1,6 +1,5 @@
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { uniqBy } from '@/shared/utils';
 import { projectTaskState } from '@/store/entities/project-task';
 import { useTaskCollaboratorResponse } from '@/store/entities/task-collaborator';
 import { taskFeedState } from '@/store/entities/task-feed';
@@ -9,6 +8,7 @@ import { taskFileState } from '@/store/entities/task-file';
 import { useTaskLikeResponse } from '@/store/entities/task-like';
 import { taskTagState } from '@/store/entities/task-tag';
 import { useTeammateResponse } from '@/store/entities/teammate';
+import { uniqBy } from '@/utils';
 import { taskState } from '../atom';
 import type { TaskResponse } from '../type';
 

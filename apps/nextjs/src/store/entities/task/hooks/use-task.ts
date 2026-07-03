@@ -6,9 +6,9 @@ import { UpdateTaskDocument } from '@/graphql/hooks';
 import {
   formatDueTimeToLocalTimezone,
   formatDueTimeToServerTimezone,
-} from '@/shared/date';
-import { omit } from '@/shared/utils/omit';
+} from '@/lib/date';
 import { useWorkspace } from '@/store/entities/workspace';
+import { omit } from '@/utils/omit';
 import { taskState } from '../atom';
 import type { Task, UpdateTaskInput } from '../type';
 import { hasTaskBeenPersisted } from '../util';

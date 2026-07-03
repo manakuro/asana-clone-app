@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/editor/editors';
 import { IconButton, type IconButtonProps } from '@/components/ui/icon-button';
 import { Tooltip, type TooltipProps } from '@/components/ui/tooltip';
-import type { ToolbarItem } from '@/shared/prosemirror/hooks';
+import type { ToolbarItem } from '@/lib/prosemirror/hooks';
 
 type Props = {
   isActive?: ToolbarItem['isActive'];

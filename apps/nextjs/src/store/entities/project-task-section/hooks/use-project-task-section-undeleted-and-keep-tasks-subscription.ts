@@ -4,13 +4,13 @@ import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
 import { ProjectTaskSectionUndeletedAndKeepTasksDocument } from '@/graphql/hooks';
 import type { ProjectTaskResponse } from '@/graphql/types/project-task';
-import { isDev } from '@/shared/environment';
-import { uuid } from '@/shared/uuid';
 import {
   projectTasksByIdsState,
   useProjectTaskResponse,
 } from '@/store/entities/project-task';
 import { useProjectTaskSectionResponse } from '@/store/entities/project-task-section';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
 import type { ProjectTaskSectionUndeletedAndKeepTasksSubscriptionResponse as Response } from '../type';
 
 // NOTE: To prevent re-rendering via duplicated subscription response.

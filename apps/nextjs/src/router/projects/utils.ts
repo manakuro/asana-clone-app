@@ -1,6 +1,6 @@
 'use client';
 
-import type { Params } from '@/shared/nextjs/navigation';
+import type { Params } from '@/lib/nextjs/navigation';
 import {
   ROUTE_PROJECTS,
   ROUTE_PROJECTS_BOARD,

@@ -3,7 +3,7 @@ import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
 import { TaskFeedCreatedDocument } from '@/graphql/hooks';
-import { uuid } from '@/shared/uuid';
+import { uuid } from '@/utils/uuid';
 import type { TaskFeedCreatedSubscriptionResponse } from '../type';
 import { useTaskFeedResponse } from './use-task-feed-response';
 

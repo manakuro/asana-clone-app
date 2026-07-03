@@ -1,6 +1,6 @@
 import type React from 'react';
 import { type SetStateAction, useEffect, useState } from 'react';
-import { createContext } from '@/shared/react/create-context';
+import { createContext } from '@/lib/react/create-context';
 
 type ContextProps = {
   loadingQuery: boolean;

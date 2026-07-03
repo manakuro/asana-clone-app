@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
-import { uniq } from '@/shared/utils';
 import { projectTasksState } from '@/store/entities/project-task';
+import { uniq } from '@/utils';
 
 export const projectsProjectIdsState = atom<string[]>((get) => {
   const projectTasks = get(projectTasksState);

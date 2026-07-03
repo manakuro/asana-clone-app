@@ -1,8 +1,8 @@
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { useTaskDetail } from '@/features/task-detail';
-import { useTaskDetailModal } from '@/features/task-details/components/task-detail-modal';
-import type { Params } from '@/shared/nextjs/navigation';
+import { useTaskDetailModal } from '@/features/task-detail/components/task-detail-modal';
+import type { Params } from '@/lib/nextjs/navigation';
 
 type Props = {
   isTaskDetailURL: (params: Params) => boolean;

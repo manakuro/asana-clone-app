@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
 import { Flex } from '@/components/ui/flex';
+import { useProjectTaskSectionsByProjectIdsQuery } from '@/features/project/api/use-project-task-sections-by-project-ids-query';
 import { Input } from '@/features/task-detail/components/task-detail-body/form/projects/input';
 import { useTaskDetailProjectsInput } from '@/features/task-detail/hooks';
-import { useProjectTaskSectionsByProjectIdsQuery } from '@/hooks/queries/entities/use-project-task-sections-by-project-ids-query';
 import {
   useProjectIdsByTaskId,
   useProjectTaskCommand,

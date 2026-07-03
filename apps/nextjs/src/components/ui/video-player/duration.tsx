@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import { chakra } from '@/shared/chakra';
+import { chakra } from '@/lib/chakra';
 
 type TimeProps = ComponentProps<typeof chakra.time>;
 

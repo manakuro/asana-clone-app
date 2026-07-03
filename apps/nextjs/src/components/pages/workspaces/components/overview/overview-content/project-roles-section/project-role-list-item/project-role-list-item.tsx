@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { TeammateAvatar } from '@/features/teammates/components/teammate-avatar';
+import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
 import { useHover } from '@/hooks/use-hover';
 import { useProjectTeammate } from '@/store/entities/project-teammate';
 import { useTeammate } from '@/store/entities/teammate';

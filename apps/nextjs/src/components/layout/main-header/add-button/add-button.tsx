@@ -5,8 +5,8 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Menu } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
-import { useInviteModal } from '@/features/teammates/components/invite-modal/use-invite-modal';
-import type { IconType } from '@/shared/icons';
+import { useInviteModal } from '@/features/teammate/components/invite-modal/use-invite-modal';
+import type { IconType } from '@/utils/icons';
 
 export const AddButton = memo(function AddButton() {
   const inviteModal = useInviteModal();
