@@ -8,7 +8,7 @@ import { ProjectDetailModal } from '@/features/project/components/project-detail
 import { ShareProjectModal } from '@/features/project/components/share-project-modal/share-project-modal';
 import { FileViewerModal } from '@/features/task/components/file-viewer-modal/file-viewer-modal';
 import { InviteModal } from '@/features/teammate/components/invite-modal/invite-modal';
-import { ShareWorkspaceModal } from '@/features/workspaces/components/share-workspace-modal/share-workspace-modal';
+import { ShareWorkspaceModal } from '@/features/workspace/components/share-workspace-modal/share-workspace-modal';
 
 export const Modals = memo(function Modals() {
   return (

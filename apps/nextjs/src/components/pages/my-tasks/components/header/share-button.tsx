@@ -4,7 +4,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useTooltip } from '@/components/ui/tooltip/use-tooltip';
-import { useShareWorkspaceModal } from '@/features/workspaces/components/share-workspace-modal';
+import { useShareWorkspaceModal } from '@/features/workspace/components/share-workspace-modal';
 
 export const ShareButton = memo(function ShareButton() {
   const { setIsOpen } = useShareWorkspaceModal();
