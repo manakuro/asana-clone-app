@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/editor';
-import { isDescriptionEqual } from '@/lib/editor/is-description-equal';
+import { isDescriptionEqual } from '@/features/editor/utils/is-description-equal';
 import {
   parseDescription,
   stringifyDescription,
