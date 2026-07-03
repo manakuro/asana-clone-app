@@ -1,13 +1,13 @@
 'use client';
 
 import type { PropsWithChildren } from 'react';
-import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
 import { Modals } from '@/components/layout/modals/modals';
 import { Mobile } from '@/components/ui/mobile';
 import { PageLoader } from '@/components/ui/page-loader';
 import { Toaster } from '@/components/ui/toast';
 import { useAuthContext } from '@/features/auth/contexts/auth-context';
 import { ApolloProvider } from '@/lib/apollo/apollo-provider';
+import { Provider as ChakraProvider } from '@/lib/chakra-ui/generated/provider';
 import { GlobalQuery } from './global-query';
 import { Subscription } from './subscription';
 
