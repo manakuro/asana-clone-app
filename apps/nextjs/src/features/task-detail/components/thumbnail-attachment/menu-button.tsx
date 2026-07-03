@@ -4,7 +4,7 @@ import { Icon, type IconProps } from '@/components/ui/icon';
 import { IconButton, type IconButtonProps } from '@/components/ui/icon-button';
 import { Menu, type MenuTriggerProps } from '@/components/ui/menu';
 import { useThumbnailAttachmentContext } from '@/features/task-detail/components/thumbnail-attachment/context';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 
 type Props = Omit<MenuTriggerProps, 'children'> & {
   light?: IconButtonProps['light'];

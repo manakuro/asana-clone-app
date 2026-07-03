@@ -8,7 +8,7 @@ import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { useWorkspace } from '@/store/entities/workspace';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 
 export const ProjectTeammates = memo(function ProjectTeammates() {
   const { projectId } = useProjectsProjectId();

@@ -16,7 +16,7 @@ import {
   useTaskFile,
   useTaskFileIdsByTaskId,
 } from '@/store/entities/task-file';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 
 type Props = {
   taskFileId: string;

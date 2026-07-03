@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import type { SystemStyleObject } from '@/lib/chakra';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 
 export const useClickableHoverStyle = () => {
   const defaultStyle = useMemo<SystemStyleObject>(

@@ -5,7 +5,7 @@ import { LayoutDefault } from '@/components/ui/layout';
 import { AuthContext } from '@/features/auth/contexts/auth-context';
 import { description } from '@/lib/metatag/description';
 import { title } from '@/lib/metatag/title';
-import { roboto } from '@/styles/fonts';
+import { roboto } from '@/lib/nextjs/fonts';
 
 export const metadata: Metadata = {
   title,

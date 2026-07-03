@@ -10,8 +10,8 @@ import { useProject } from '@/store/entities/project';
 import { useProjectBaseColor } from '@/store/entities/project-base-color';
 import { useProjectIcon } from '@/store/entities/project-icon';
 import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
-import { transitions } from '@/styles/transitions';
 import type { IconType } from '@/utils/icons';
+import { transitions } from '@/utils/transitions';
 import { Container } from './container';
 import { FavoriteButton } from './favorite-button';
 

@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 import { type Item, PADDING_X } from './guide-list-item';
 
 type Props = {

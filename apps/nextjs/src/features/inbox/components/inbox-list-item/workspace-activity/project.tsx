@@ -4,7 +4,7 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import { useProject } from '@/store/entities/project';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 
 type Props = FlexProps & {
   projectId: string;
