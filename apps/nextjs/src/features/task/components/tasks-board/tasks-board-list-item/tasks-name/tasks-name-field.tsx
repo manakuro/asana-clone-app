@@ -3,7 +3,7 @@ import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Flex } from '@/components/ui/flex';
 import type { InputProps } from '@/components/ui/input';
 import { InputText } from '@/components/ui/input-text';
-import { useTaskDetailDrawerRef } from '@/features/task-details/components/task-detail-drawer';
+import { useTaskDetailDrawerRef } from '@/features/task-detail/components/task-detail-drawer';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,

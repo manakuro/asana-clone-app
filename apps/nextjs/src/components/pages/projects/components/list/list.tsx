@@ -18,7 +18,7 @@ import { TasksListHeader } from '@/features/task/components/tasks-list/tasks-lis
 import { TasksListHorizontalScrollBorder } from '@/features/task/components/tasks-list/tasks-list-horizontal-scroll-border/tasks-list-horizontal-scroll-border';
 import { TasksListLayout } from '@/features/task/components/tasks-list/tasks-list-layout/tasks-list-layout';
 import { useTasksListDetail } from '@/features/task/components/tasks-list/use-tasks-list-detail';
-import { TaskDetailDrawer } from '@/features/task-details/components/task-detail-drawer';
+import { TaskDetailDrawer } from '@/features/task-detail/components/task-detail-drawer';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectsPageContext } from '../../contexts/context';

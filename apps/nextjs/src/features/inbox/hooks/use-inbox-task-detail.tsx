@@ -1,7 +1,7 @@
 import { useParams, usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { useTaskDetail, useTaskDetailResetId } from '@/features/task-detail';
-import { useTaskDetailSide } from '@/features/task-details/components/task-detail-side';
+import { useTaskDetailSide } from '@/features/task-detail/components/task-detail-side';
 import type { Params } from '@/lib/nextjs/navigation';
 
 type Props = {

@@ -13,7 +13,7 @@ import {
   TasksHeaderRight,
   TodayButton,
 } from '@/features/task/components/tasks-header';
-import { TaskDetailModal } from '@/features/task-details/components/task-detail-modal';
+import { TaskDetailModal } from '@/features/task-detail/components/task-detail-modal';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { SkeletonCalendar } from './skeleton-calendar';

@@ -5,7 +5,7 @@ import { TasksContainer } from '@/features/task/components/tasks-container/tasks
 import { TasksFilesContent } from '@/features/task/components/tasks-files/tasks-files-content/tasks-files-content';
 import { TasksFilesList } from '@/features/task/components/tasks-files/tasks-files-list/tasks-files-list';
 import { useTasksFilesDetail } from '@/features/task/components/tasks-files/use-tasks-files-detail';
-import { TaskDetailModal } from '@/features/task-details/components/task-detail-modal';
+import { TaskDetailModal } from '@/features/task-detail/components/task-detail-modal';
 import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
 import { SkeletonFiles } from './skeleton-files';
 

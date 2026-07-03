@@ -12,7 +12,7 @@ import {
   TasksHeader,
   TasksHeaderRight,
 } from '@/features/task/components/tasks-header';
-import { TaskDetailDrawer } from '@/features/task-details/components/task-detail-drawer';
+import { TaskDetailDrawer } from '@/features/task-detail/components/task-detail-drawer';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
 import { useProjectsProjectId } from '@/store/app/projects/project';
 import { SortMenu } from '../tasks-header';

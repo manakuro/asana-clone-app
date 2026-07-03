@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
 import { useTasksRouter } from '@/features/task/hooks';
-import { useTaskDetailDrawer } from '@/features/task-details/components/task-detail-drawer';
+import { useTaskDetailDrawer } from '@/features/task-detail/components/task-detail-drawer';
 
 type Props = {
   taskId: string;

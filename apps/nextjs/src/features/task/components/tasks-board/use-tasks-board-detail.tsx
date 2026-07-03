@@ -2,7 +2,7 @@ import { useParams, usePathname } from 'next/navigation';
 import { startTransition, useCallback, useEffect, useRef } from 'react';
 import { useTasksBoardListItemElement } from '@/features/task/components/tasks-board/tasks-board-list-item';
 import { useTaskDetail } from '@/features/task-detail';
-import { useTaskDetailDrawer } from '@/features/task-details/components/task-detail-drawer';
+import { useTaskDetailDrawer } from '@/features/task-detail/components/task-detail-drawer';
 import type { UseClickOutsideOptionsHasClickedOutside } from '@/hooks/use-click-outside';
 import type { Params } from '@/lib/nextjs/navigation';
 import { isHTMLElement } from '@/utils/is-html-element';
