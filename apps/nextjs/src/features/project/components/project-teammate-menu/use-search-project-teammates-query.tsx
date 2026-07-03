@@ -1,7 +1,7 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { ProjectTeammatesDocument } from '@/graphql/hooks';
+import { ProjectTeammatesDocument } from '@/graphql/documents';
 import type {
   ProjectTeammateResponse,
   ProjectTeammatesQuery,

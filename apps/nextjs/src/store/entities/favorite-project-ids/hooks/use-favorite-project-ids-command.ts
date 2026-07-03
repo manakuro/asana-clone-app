@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import {
   CreateFavoriteProjectDocument,
   DeleteFavoriteProjectDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import { useMe } from '@/store/entities/me';
 import { favoriteProjectIdsState } from '../atom';
 import { FAVORITE_PROJECT_IDS_UPDATED_SUBSCRIPTION_REQUEST_ID } from './use-favorite-project-ids-updated-subscription';

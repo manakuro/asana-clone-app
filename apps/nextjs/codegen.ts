@@ -17,7 +17,7 @@ const config: CodegenConfig = {
       },
     },
 
-    './src/graphql/hooks/index.ts': {
+    './src/graphql/documents/index.ts': {
       plugins: ['typescript-operations', 'typed-document-node'],
       config: {
         importSchemaTypesFrom: './src/graphql/types/index.ts',

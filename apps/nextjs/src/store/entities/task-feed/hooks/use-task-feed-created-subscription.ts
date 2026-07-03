@@ -2,7 +2,7 @@ import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
-import { TaskFeedCreatedDocument } from '@/graphql/hooks';
+import { TaskFeedCreatedDocument } from '@/graphql/documents';
 import { uuid } from '@/utils/uuid';
 import type { TaskFeedCreatedSubscriptionResponse } from '../type';
 import { useTaskFeedResponse } from './use-task-feed-response';

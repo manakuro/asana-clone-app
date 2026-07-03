@@ -1,7 +1,7 @@
 import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
-import { FavoriteWorkspaceIdsUpdatedDocument } from '@/graphql/hooks';
+import { FavoriteWorkspaceIdsUpdatedDocument } from '@/graphql/documents';
 import { isDev } from '@/utils/environment';
 import { uuid } from '@/utils/uuid';
 import type { FavoriteWorkspaceIdsUpdatedSubscriptionResponse as Response } from '../type';

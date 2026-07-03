@@ -1,7 +1,7 @@
 import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
-import { TaskUnassignedDocument } from '@/graphql/hooks';
+import { TaskUnassignedDocument } from '@/graphql/documents';
 import {
   type TaskUnassignedSubscriptionResponse,
   useTaskCommand,

@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
-import { ProjectBaseColorsDocument } from '@/graphql/hooks';
+import { ProjectBaseColorsDocument } from '@/graphql/documents';
 import type { ProjectBaseColorsQuery } from '@/graphql/types/project-base-colors';
 import { getNodesFromEdges } from '@/lib/apollo/util';
 import {

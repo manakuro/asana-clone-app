@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { UpdateTeammateTaskListStatusDocument } from '@/graphql/hooks';
+import { UpdateTeammateTaskListStatusDocument } from '@/graphql/documents';
 import type { TaskListSortStatusCodeValue } from '@/store/app/my-tasks/task-list-status';
 import type { TaskListCompletedStatusCodeValue } from '@/store/entities/task-list-completed-status';
 import { useWorkspace } from '@/store/entities/workspace';

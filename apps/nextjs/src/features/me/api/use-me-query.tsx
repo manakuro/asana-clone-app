@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
-import { MeDocument } from '@/graphql/hooks';
+import { MeDocument } from '@/graphql/documents';
 import { initialMeState, useMeResponse } from '@/store/entities/me';
 
 export const useMeQuery = () => {

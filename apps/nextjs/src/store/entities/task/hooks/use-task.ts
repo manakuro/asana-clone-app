@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client/react';
 import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
-import { UpdateTaskDocument } from '@/graphql/hooks';
+import { UpdateTaskDocument } from '@/graphql/documents';
 import {
   formatDueTimeToLocalTimezone,
   formatDueTimeToServerTimezone,

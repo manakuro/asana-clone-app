@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo, useState } from 'react';
-import { ProjectTaskSectionsDocument } from '@/graphql/hooks';
+import { ProjectTaskSectionsDocument } from '@/graphql/documents';
 import type { ProjectTaskSectionsQuery } from '@/graphql/types';
 import type { ProjectTaskSectionResponse } from '@/graphql/types/project-task-sections';
 import { useMountedRef } from '@/hooks/use-mounted-ref';

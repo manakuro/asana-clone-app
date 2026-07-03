@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
-import { ProjectLightColorsDocument } from '@/graphql/hooks';
+import { ProjectLightColorsDocument } from '@/graphql/documents';
 import type { ProjectLightColorsQuery } from '@/graphql/types/project-light-colors';
 import { getNodesFromEdges } from '@/lib/apollo/util';
 import {

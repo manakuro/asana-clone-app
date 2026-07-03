@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { UpdateProjectDocument } from '@/graphql/hooks';
+import { UpdateProjectDocument } from '@/graphql/documents';
 import type { UpdateProjectInput } from '@/graphql/types';
 import {
   formatDueTimeToLocalTimezone,

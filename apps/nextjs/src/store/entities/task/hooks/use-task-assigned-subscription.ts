@@ -1,7 +1,7 @@
 import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
-import { TaskAssignedDocument } from '@/graphql/hooks';
+import { TaskAssignedDocument } from '@/graphql/documents';
 import type { TaskAssignedSubscriptionResponse } from '@/store/entities/task';
 import { useTeammateTaskResponse } from '@/store/entities/teammate-task';
 import { isDev } from '@/utils/environment';

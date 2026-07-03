@@ -2,7 +2,7 @@ import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { TaskCollaboratorCreatedDocument } from '@/graphql/hooks';
+import { TaskCollaboratorCreatedDocument } from '@/graphql/documents';
 import { useTeammateResponse } from '@/store/entities/teammate';
 import { isDev } from '@/utils/environment';
 import { uuid } from '@/utils/uuid';

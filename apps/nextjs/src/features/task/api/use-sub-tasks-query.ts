@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
-import { SubTasksDocument } from '@/graphql/hooks';
+import { SubTasksDocument } from '@/graphql/documents';
 import type {
   SubTaskResponse,
   SubTasksQuery,

@@ -6,7 +6,7 @@ import {
   CreateProjectTaskDocument,
   DeleteProjectTaskDocument,
   UpdateProjectTaskDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import { useMe } from '@/store/entities/me';
 import {
   taskOptimisticState,

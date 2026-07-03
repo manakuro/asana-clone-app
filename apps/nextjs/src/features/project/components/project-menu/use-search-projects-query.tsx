@@ -1,7 +1,7 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { ProjectsDocument } from '@/graphql/hooks';
+import { ProjectsDocument } from '@/graphql/documents';
 import type { ProjectResponse, ProjectsQuery } from '@/graphql/types/project';
 import { getNodesFromEdges } from '@/lib/apollo/util';
 import type { Project } from '@/store/entities/project';

@@ -8,7 +8,7 @@ import {
   DeleteProjectTaskSectionDocument,
   UndeleteProjectTaskSectionAndDeleteTasksDocument,
   UndeleteProjectTaskSectionAndKeepTasksDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import {
   type ProjectTaskResponse,
   projectTasksByIdsState,

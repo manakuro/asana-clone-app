@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import {
   CreateTeammateTaskDocument,
   UpdateTeammateTaskDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import { useMe } from '@/store/entities/me';
 import {
   taskOptimisticState,
