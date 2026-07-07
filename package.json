@@ -20,10 +20,10 @@
     "lefthook": "lefthook"
   },
   "devDependencies": {
-    "commitizen": "^4.3.1",
-    "cz-conventional-changelog": "^3.3.0",
-    "lefthook": "^2.0.15",
-    "turbo": "^2.4.4"
+    "commitizen": "4.3.2",
+    "cz-conventional-changelog": "3.3.0",
+    "lefthook": "2.1.9",
+    "turbo": "2.10.3"
   },
   "config": {
     "commitizen": {
