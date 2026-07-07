@@ -32,6 +32,18 @@
 Each subdirectory represents a **domain concept**, not a page or UI pattern.
 
 ```
+                 /home        /projects    /my-tasks
+               ┌───────────┬───────────┬───────────┐
+  feature/user │███████████│███████████│███████████│  ← crosses all pages
+               ├───────────┼───────────┼───────────┤
+  feature/task │███████████│███████████│███████████│  ← crosses all pages
+               ├───────────┼───────────┼───────────┤
+  feature/proj │           │███████████│           │  ← crosses relevant pages
+               └───────────┴───────────┴───────────┘
+```
+
+
+```
 features/
   user/
     components/
@@ -71,6 +83,18 @@ features/
 ## `components/pages/` — Vertical Route Slices
 
 Each subdirectory maps to a single route and contains **only** what is exclusive to that route.
+
+```
+               ┌───────────┐ ┌───────────┐ ┌───────────┐
+               │   /home   │ │ /projects │ │ /my-tasks │
+               │           │ │           │ │           │
+               │ components│ │ components│ │ components│
+               │ hooks     │ │ hooks     │ │ hooks     │
+               │ page.tsx  │ │ page.tsx  │ │ page.tsx  │
+               │           │ │           │ │           │
+               └───────────┘ └───────────┘ └───────────┘
+                 isolated      isolated      isolated
+```
 
 ```
 components/pages/
