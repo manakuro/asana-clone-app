@@ -4,7 +4,9 @@
 
 - **Colocation**: Keep related files close to where they are used.
 - **File and folder names**: Use `kebab-case`.
-- **Dependency direction**: One-way only — `shared → features → app`
+- **Dependency direction**: One-way only — `app → features → shared`
+  - e.g. `app (app/) → pages (components/pages/) → features (features/) → shared (lib/, utils/, config/, components/ui/)`
+  - `components/layout/` depends on `features/`, so it sits between `pages` and `shared`
 
 ---
 
