@@ -23,7 +23,7 @@ export const Page = memo(function Container() {
 
   return (
     <Context loading={loading}>
-      <Component />
+      <ViewComponent />
     </Context>
   );
 });
@@ -45,7 +45,7 @@ const mapURLtoTabIndex = ({ pathname }: { pathname: string | null }): Index => {
   return OVERVIEW_INDEX;
 };
 
-const Component = memo(function Component() {
+const ViewComponent = memo(function ViewComponent() {
   const { navigateToWorkspaceOverview } = useRouter();
   const { loadingQuery, setLoadingTabContent } = useWorkspacesPageContext();
   const pathname = usePathname();

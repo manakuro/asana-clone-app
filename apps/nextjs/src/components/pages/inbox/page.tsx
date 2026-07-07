@@ -19,12 +19,12 @@ type Index = typeof ACTIVITY_INDEX | typeof ARCHIVE_INDEX;
 export const Page = memo(function InboxComponent() {
   return (
     <Context>
-      <WrappedComponent />
+      <ViewComponent />
     </Context>
   );
 });
 
-const WrappedComponent = memo(function WrappedInboxComponent() {
+const ViewComponent = memo(function ViewComponent() {
   const { setLoadingTabContent } = useInboxPageContext();
   const [tabIndex, setTabIndex] = React.useState<Index>(ACTIVITY_INDEX);
   const { navigateToInbox } = useRouter();
