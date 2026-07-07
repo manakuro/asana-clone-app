@@ -3,8 +3,8 @@ import { memo, useCallback, useMemo } from 'react';
 import { Box } from '@/components/ui/box';
 import { CustomField } from '@/components/ui/custom-field';
 import { useTasksTaskColumn } from '@/features/task/hooks';
+import { useTaskColumn } from '@/features/task/store/task-column';
 import { useDraggableInPortal } from '@/hooks/use-draggable-in-portal';
-import { useTaskColumn } from '@/store/entities/task-column';
 
 type Props = {
   tasksTaskColumnId: string;

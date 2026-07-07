@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { useSubtaskIds } from '@/store/entities/task';
+import { useSubtaskIds } from '@/features/task/store/task';
 
 type Props = {
   taskId: string;

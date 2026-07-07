@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { AvatarGroup } from '@/components/ui/avatar';
 import { Flex } from '@/components/ui/flex';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
-import { useWorkspace } from '@/store/entities/workspace';
-import { useTeammateIdsByWorkspaceId } from '@/store/entities/workspace-teammate';
+import { useWorkspace } from '@/features/workspace/store/workspace';
+import { useTeammateIdsByWorkspaceId } from '@/features/workspace/store/workspace-teammate';
 
 export const WorkspaceTeammates = memo(function WorkspaceTeammates() {
   const { workspace } = useWorkspace();

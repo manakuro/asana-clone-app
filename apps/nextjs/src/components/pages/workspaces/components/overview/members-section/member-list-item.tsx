@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
-import { useTeammate } from '@/store/entities/teammate';
+import { useTeammate } from '@/features/teammate/store/teammate';
 
 type Props = {
   teammateId: string;

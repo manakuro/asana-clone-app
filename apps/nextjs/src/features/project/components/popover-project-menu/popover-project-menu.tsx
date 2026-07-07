@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { Menu } from '@/components/ui/menu';
-import { useProject } from '@/store/entities/project';
+import { useProject } from '@/features/project/store/project';
 import { MenuList } from './menu-list';
 
 type Props = {

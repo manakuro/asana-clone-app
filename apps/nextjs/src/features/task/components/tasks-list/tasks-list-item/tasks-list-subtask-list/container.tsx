@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useSubTasksQuery } from '@/features/task/api/use-sub-tasks-query';
+import { useSubtaskIds } from '@/features/task/store/task';
 import { useFirstRender } from '@/hooks/use-first-render';
-import { useSubtaskIds } from '@/store/entities/task';
 import { SkeletonList } from './skeleton-list';
 import { TasksListSubtaskItem } from './tasks-list-subtask-item';
 

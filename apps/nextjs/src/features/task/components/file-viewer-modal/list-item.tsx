@@ -3,8 +3,8 @@ import { Flex } from '@/components/ui/flex';
 import { Image } from '@/components/ui/image';
 import { PdfViewer } from '@/components/ui/pdf-viewer';
 import { Text } from '@/components/ui/text';
-import { FileTypeCode } from '@/store/entities/file-type';
-import { useTaskFile } from '@/store/entities/task-file';
+import { FileTypeCode } from '@/features/task/store/file-type';
+import { useTaskFile } from '@/features/task/store/task-file';
 
 type Props = {
   taskFileId: string;

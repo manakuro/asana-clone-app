@@ -3,9 +3,9 @@ import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
+import { useProject } from '@/features/project/store/project';
+import { useTeammate } from '@/features/teammate/store/teammate';
 import { formatCreatedAt } from '@/lib/date';
-import { useProject } from '@/store/entities/project';
-import { useTeammate } from '@/store/entities/teammate';
 
 type Props = {
   projectId: string;

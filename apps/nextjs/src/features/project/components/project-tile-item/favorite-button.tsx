@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { FavoriteIconButton } from '@/components/ui/favorite-icon-button';
-import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import {
   useFavoriteProjectIds,
   useFavoriteProjectIdsCommand,
-} from '@/store/entities/favorite-project-ids';
+} from '@/features/me/store/favorite-project-ids';
+import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 
 type Props = {
   projectId: string;

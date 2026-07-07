@@ -4,8 +4,8 @@ import { PopoverEditorLink } from '@/features/editor/components/popover-editor-l
 import { PopoverEditorLinkContent } from '@/features/editor/components/popover-editor-link/popover-editor-link-content';
 import { PopoverEditorLinkText } from '@/features/editor/components/popover-editor-link/popover-editor-link-text';
 import { PopoverEditorLinkTrigger } from '@/features/editor/components/popover-editor-link/popover-editor-link-trigger';
-import { useProjectTask } from '@/store/entities/project-task';
-import { useTask } from '@/store/entities/task';
+import { useProjectTask } from '@/features/project/store/project-task';
+import { useTask } from '@/features/task/store/task';
 
 type Props = {
   projectTaskId: string;

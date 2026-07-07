@@ -3,7 +3,10 @@ import { memo, useCallback } from 'react';
 import type { ButtonProps } from '@/components/ui/button';
 import { DatePickerWithInput } from '@/components/ui/forms/date-picker-with-input';
 import type { IconProps } from '@/components/ui/icon';
-import { useProject, useProjectCommand } from '@/store/entities/project';
+import {
+  useProject,
+  useProjectCommand,
+} from '@/features/project/store/project';
 
 type Props = {
   projectId: string;

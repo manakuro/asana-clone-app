@@ -3,8 +3,8 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { PriorityChip } from '@/features/task/components/priority-chip';
 import { TasksListCell } from '@/features/task/components/tasks-list/tasks-list-cell';
+import { useTask } from '@/features/task/store/task';
 import { useHover } from '@/hooks/use-hover';
-import { useTask } from '@/store/entities/task';
 import { Menu } from './menu';
 
 type Props = FlexProps & {

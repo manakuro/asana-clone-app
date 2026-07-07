@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
-import { useTask, useTaskCommand } from '@/store/entities/task';
+import { useTask, useTaskCommand } from '@/features/task/store/task';
 import { TasksNameField } from './tasks-name-field';
 
 type Props = FlexProps & {

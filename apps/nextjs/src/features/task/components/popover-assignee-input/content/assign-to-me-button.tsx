@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
-import { useMe } from '@/store/entities/me';
-import { useTaskCommand } from '@/store/entities/task';
+import { useMe } from '@/features/me/store/me';
+import { useTaskCommand } from '@/features/task/store/task';
 
 type Props = {
   taskId: string;

@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTasksDueSoonIds } from '@/components/pages/home/store/tasks-due-soon';
 import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
@@ -10,7 +11,6 @@ import { Stack } from '@/components/ui/stack';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useLinkStyle } from '@/hooks/styles/use-link-style';
 import { ROUTE_MY_TASKS_LIST } from '@/router';
-import { useTasksDueSoonIds } from '@/store/app/home/tasks-due-soon';
 import { ListItem } from './list-item';
 
 export const TasksDueSoon = memo(function TasksDueSoon() {

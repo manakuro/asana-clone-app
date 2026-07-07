@@ -1,19 +1,22 @@
 import type React from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import type { FileUploaderParams, UploadedFile } from '@/components/ui/form';
-import { useTaskDetail, useTaskDetailBody } from '@/features/task-detail';
-import { useClickOutside } from '@/hooks/use-click-outside';
-import { useToaster } from '@/hooks/use-toaster';
-import { parseDescription } from '@/lib/prosemirror/convert-description';
-import { createContext } from '@/lib/react/create-context';
-import { useMe } from '@/store/entities/me';
-import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/task-feed';
+import { useMe } from '@/features/me/store/me';
+import {
+  useTaskFeed,
+  useTaskFeedCommand,
+} from '@/features/task/store/task-feed';
 import {
   getTaskFileTypeFromFile,
   initialState,
   type TaskFile,
   useTaskFileCommand,
-} from '@/store/entities/task-file';
+} from '@/features/task/store/task-file';
+import { useTaskDetail, useTaskDetailBody } from '@/features/task-detail';
+import { useClickOutside } from '@/hooks/use-click-outside';
+import { useToaster } from '@/hooks/use-toaster';
+import { parseDescription } from '@/lib/prosemirror/convert-description';
+import { createContext } from '@/lib/react/create-context';
 import { getScrollBottom } from '@/utils/get-scroll-bottom';
 
 const useValue = () => {

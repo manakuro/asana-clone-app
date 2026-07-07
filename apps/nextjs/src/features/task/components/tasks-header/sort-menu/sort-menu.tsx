@@ -6,7 +6,7 @@ import {
   MenuSelectList,
   MenuSelectTrigger,
 } from '@/components/ui/menu-select';
-import type { TaskListSortStatusCodeValue } from '@/store/entities/task-list-sort-status';
+import type { TaskListSortStatusCodeValue } from '@/features/task/store/task-list-sort-status';
 
 type Props<T extends TaskListSortStatusCodeValue> = {
   items: {

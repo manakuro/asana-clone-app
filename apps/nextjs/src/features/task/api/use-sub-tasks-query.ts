@@ -1,5 +1,9 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
+import {
+  type TaskResponse,
+  useTasksResponse,
+} from '@/features/task/store/task';
 import { SubTasksDocument } from '@/graphql/documents';
 import type {
   SubTaskResponse,
@@ -7,7 +11,6 @@ import type {
   SubTasksQueryVariables as Variables,
 } from '@/graphql/types/sub-tasks';
 import { getNodesFromEdges } from '@/lib/apollo/util';
-import { type TaskResponse, useTasksResponse } from '@/store/entities/task';
 
 export const useSubTasksQuery = (variables: Variables) => {
   const { setTasksFromResponse } = useTasksResponse();

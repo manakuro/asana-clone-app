@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
 import { Tab, TabList } from '@/components/ui/tabs';
-import { useWorkspace } from '@/store/entities/workspace';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { FavoriteButton } from './favorite-button';
 
 export const Tabs = memo(function Tabs() {

@@ -1,9 +1,9 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
+import type { Mention } from '@/features/editor/store/mention';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { MentionDocument } from '@/graphql/documents';
-import type { Mention } from '@/store/entities/mention';
-import { useWorkspace } from '@/store/entities/workspace';
 
 const loadingAtom = atom<boolean>(false);
 

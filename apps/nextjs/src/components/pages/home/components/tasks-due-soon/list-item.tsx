@@ -5,13 +5,13 @@ import { DueDate } from '@/components/ui/due-date';
 import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/text';
+import { useProjectIdsByTaskId } from '@/features/project/store/project-task';
 import { PopoverDueDatePicker } from '@/features/task/components/popover-due-date-picker/popover-due-date-picker';
 import { ProjectChip } from '@/features/task/components/project-chip';
+import { useTask } from '@/features/task/store/task';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { formatDueTime } from '@/lib/date';
 import { useRouter } from '@/router';
-import { useProjectIdsByTaskId } from '@/store/entities/project-task';
-import { useTask } from '@/store/entities/task';
 
 type Props = {
   taskId: string;

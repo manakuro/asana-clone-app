@@ -8,7 +8,7 @@ import {
   ProjectTeammateMenuContent,
   ProjectTeammateMenuTrigger,
 } from '@/features/project/components/project-teammate-menu';
-import type { Teammate } from '@/store/entities/teammate';
+import type { Teammate } from '@/features/teammate/store/teammate';
 import { Content } from './content';
 
 type Props = PopoverRootProps & {

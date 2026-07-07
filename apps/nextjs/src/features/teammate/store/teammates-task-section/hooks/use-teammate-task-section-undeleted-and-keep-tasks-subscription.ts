@@ -1,0 +1,88 @@
+import { useSubscription } from '@apollo/client/react';
+import { useAtomCallback } from 'jotai/utils';
+import isEqual from 'lodash-es/isEqual';
+import { useCallback, useMemo } from 'react';
+import {
+  type TeammateTaskResponse,
+  teammateTasksByIdsState,
+  useTeammateTaskResponse,
+} from '@/features/teammate/store/teammate-task';
+import { useTeammatesTaskSectionResponse } from '@/features/teammate/store/teammates-task-section';
+import { TeammateTaskSectionUndeletedAndKeepTasksDocument } from '@/graphql/documents';
+import { isDev } from '@/utils/environment';
+import { uuid } from '@/utils/uuid';
+import type { TeammateTaskSectionUndeletedAndKeepTasksSubscriptionResponse as Response } from '../type';
+
+// NOTE: To prevent re-rendering via duplicated subscription response.
+let previousData: any;
+
+type Props = {
+  workspaceId: string;
+  teammateId: string;
+};
+export const TEAMMATE_TASK_SECTION_UNDELETED_AND_KEEP_TASKS_SUBSCRIPTION_REQUEST_ID =
+  uuid();
+export const useTeammateTaskSectionUndeletedAndKeepTasksSubscription = (
+  props: Props,
+) => {
+  const { setTeammatesTaskSections } = useTeammatesTaskSectionResponse();
+  const { setTeammateTask } = useTeammateTaskResponse();
+
+  const skipSubscription = useMemo(
+    () => !props.workspaceId,
+    [props.workspaceId],
+  );
+
+  const setBySubscription = useAtomCallback(
+    useCallback(
+      async (get, _set, response: Response) => {
+        const data = response.teammateTaskSectionUndeletedAndKeepTasks;
+
+        if (isDev()) console.log('Teammate Task Section undeleted!');
+
+        setTeammatesTaskSections(
+          [{ ...data.teammateTaskSection, teammateTasks: [] }],
+          {
+            includeTeammateTask: false,
+          },
+        );
+
+        const teammateTasks = get(
+          teammateTasksByIdsState(data.teammateTaskIds),
+        );
+
+        const newTeammateTasks = teammateTasks.map((t: any) => ({
+          ...t,
+          teammateTaskSectionId: data.teammateTaskSection.id,
+        }));
+        setTeammateTask(newTeammateTasks as TeammateTaskResponse[], {
+          includeTask: false,
+        });
+      },
+      [setTeammateTask, setTeammatesTaskSections],
+    ),
+  );
+
+  const subscriptionResult = useSubscription(
+    TeammateTaskSectionUndeletedAndKeepTasksDocument,
+    {
+      variables: {
+        workspaceId: props.workspaceId,
+        teammateId: props.teammateId,
+        requestId:
+          TEAMMATE_TASK_SECTION_UNDELETED_AND_KEEP_TASKS_SUBSCRIPTION_REQUEST_ID,
+      },
+      onData: ({ data }) => {
+        if (isEqual(data.data, previousData?.data)) return;
+
+        if (data.data) setBySubscription(data.data);
+        previousData = data;
+      },
+      skip: skipSubscription,
+    },
+  );
+
+  return {
+    subscriptionResult,
+  };
+};

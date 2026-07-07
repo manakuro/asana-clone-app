@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useProjectsProjectId } from '@/store/app/projects/project';
+import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import { DueDate } from './due-date';
 import { JoinedTeammates } from './joined-teammates';
 import { ProjectCreated } from './project-created';

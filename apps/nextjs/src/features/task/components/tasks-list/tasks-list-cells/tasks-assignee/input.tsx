@@ -2,9 +2,9 @@ import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { AssignTaskMenu } from '@/features/task/components/assign-task-menu';
+import type { Teammate } from '@/features/teammate/store/teammate';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/lib/chakra-ui';
-import type { Teammate } from '@/store/entities/teammate';
 
 type Props = {
   onSelect: (val: Teammate) => void;

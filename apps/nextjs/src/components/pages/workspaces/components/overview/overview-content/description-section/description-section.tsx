@@ -1,6 +1,6 @@
 import { memo } from 'react';
+import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import { Flex } from '@/components/ui/flex';
-import { useProjectsProjectId } from '@/store/app/projects/project';
 import { Description } from './description';
 import { DescriptionTitle } from './description-title';
 

@@ -1,6 +1,9 @@
 import { useReactNodeView } from '@/components/ui/editor/editors';
+import {
+  MentionType,
+  type MentionTypeCode,
+} from '@/features/editor/store/mention';
 import type { MentionAttrs } from '@/lib/prosemirror/schema';
-import { MentionType, type MentionTypeCode } from '@/store/entities/mention';
 import { Project } from './project';
 import { Task } from './task';
 import { Teammate } from './teammate';

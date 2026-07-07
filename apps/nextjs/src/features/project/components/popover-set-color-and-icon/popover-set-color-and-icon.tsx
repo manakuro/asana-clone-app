@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import { HoverCard, type HoverCardRootProps } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
 import { Separator } from '@/components/ui/separator';
-import type { Project } from '@/store/entities/project';
+import type { Project } from '@/features/project/store/project';
 import { ColorPicker } from './color-picker';
 import { IconPicker } from './icon-picker';
 import { Setting } from './setting';

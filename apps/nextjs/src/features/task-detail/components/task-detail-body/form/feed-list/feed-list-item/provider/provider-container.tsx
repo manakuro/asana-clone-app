@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTasksRouter } from '@/features/task/hooks';
+import { useTaskFeed } from '@/features/task/store/task-feed';
 import { useTaskDetailBody } from '@/features/task-detail/components/task-detail-body/use-task-detail-body';
 import { createContext } from '@/lib/react/create-context';
-import { useTaskFeed } from '@/store/entities/task-feed';
 import { isHTMLElement } from '@/utils/is-html-element';
 
 type Props = {

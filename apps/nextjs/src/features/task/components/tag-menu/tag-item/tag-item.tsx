@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { SearchMenuListItem } from '@/components/ui/search-menu';
-import type { Tag } from '@/store/entities/tag';
+import type { Tag } from '@/features/task/store/tag';
 
 type Props = {
   onClick: (tag: Tag) => void;

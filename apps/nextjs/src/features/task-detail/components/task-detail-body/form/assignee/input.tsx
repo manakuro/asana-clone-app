@@ -2,10 +2,10 @@ import type React from 'react';
 import { memo, useCallback, useState } from 'react';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { AssigneeMenu } from '@/features/task/components/assignee-menu';
+import { useTaskCommand } from '@/features/task/store/task';
+import type { Teammate } from '@/features/teammate/store/teammate';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/lib/chakra-ui';
-import { useTaskCommand } from '@/store/entities/task';
-import type { Teammate } from '@/store/entities/teammate';
 
 type Props = {
   taskId: string;

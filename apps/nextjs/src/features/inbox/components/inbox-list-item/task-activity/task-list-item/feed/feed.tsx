@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Icon as AtomsIcon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/task-feed';
+import { useTaskFeedIdsWithoutFirstByTaskId } from '@/features/task/store/task-feed';
 
 type Props = {
   taskId: string;

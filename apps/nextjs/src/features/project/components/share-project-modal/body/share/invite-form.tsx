@@ -4,12 +4,12 @@ import { AvatarGroup } from '@/components/ui/avatar';
 import { Flex } from '@/components/ui/flex';
 import { Input } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
+import { useTeammateIdsByProjectId } from '@/features/project/store/project-teammate';
 import { InviteProjectTeammateMenu } from '@/features/teammate/components/invite-project-teammate-menu';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
+import { type Teammate, useTeammate } from '@/features/teammate/store/teammate';
 import { useLinkStyle } from '@/hooks/styles/use-link-style';
 import { useDisclosure } from '@/lib/chakra-ui';
-import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
-import { type Teammate, useTeammate } from '@/store/entities/teammate';
 
 type Props = {
   projectId: string;

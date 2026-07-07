@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { Flex } from '@/components/ui/flex';
-import { useTask } from '@/store/entities/task';
+import { useTask } from '@/features/task/store/task';
 import { Input } from './input';
 
 type Props = {

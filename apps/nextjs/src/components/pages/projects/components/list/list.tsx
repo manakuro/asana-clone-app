@@ -1,4 +1,5 @@
 import { memo, useCallback } from 'react';
+import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import { Flex } from '@/components/ui/flex';
 import { TasksContainer } from '@/features/task/components/tasks-container/tasks-container';
 import {
@@ -20,7 +21,6 @@ import { TasksListLayout } from '@/features/task/components/tasks-list/tasks-lis
 import { useTasksListDetail } from '@/features/task/components/tasks-list/use-tasks-list-detail';
 import { TaskDetailDrawer } from '@/features/task-detail/components/task-detail-drawer';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
-import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectsPageContext } from '../../contexts/context';
 import { SortMenu } from '../tasks-header';
 import { SkeletonListContent, SkeletonListHeader } from './skeleton-list';

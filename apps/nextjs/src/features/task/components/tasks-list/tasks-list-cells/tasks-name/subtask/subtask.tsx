@@ -2,9 +2,9 @@ import type React from 'react';
 import { useCallback, useMemo } from 'react';
 import { IconButton } from '@/components/ui/icon-button';
 import { useTasksRouter } from '@/features/task/hooks';
+import { useSubtaskIds } from '@/features/task/store/task';
 import { useTaskDetail } from '@/features/task-detail';
 import { SUBTASK_LIST_CONTAINER_ID } from '@/features/task-detail/components/task-detail-body/form/subtasks';
-import { useSubtaskIds } from '@/store/entities/task';
 import { useTasksNameContext } from '../tasks-name-context';
 import { Icon } from './icon';
 

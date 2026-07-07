@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/search-menu';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
-import type { Tag } from '@/store/entities/tag';
+import type { Tag } from '@/features/task/store/tag';
 import { TagItem } from './tag-item';
 import { useSearchTagsQuery } from './use-search-tags-query';
 

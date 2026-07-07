@@ -2,10 +2,10 @@ import { useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
+import { useProjectTeammate } from '@/features/project/store/project-teammate';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
+import { useTeammate } from '@/features/teammate/store/teammate';
 import { useHover } from '@/hooks/use-hover';
-import { useProjectTeammate } from '@/store/entities/project-teammate';
-import { useTeammate } from '@/store/entities/teammate';
 import { ProjectRoleMenu } from '../project-role-menu';
 import { Button } from './button';
 

@@ -1,13 +1,16 @@
 import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { useTasksRouter } from '@/features/task/hooks';
+import {
+  useTaskFeed,
+  useTaskFeedCommand,
+} from '@/features/task/store/task-feed';
+import { useTaskFileIdsByTaskFeedId } from '@/features/task/store/task-file';
+import { useTeammate } from '@/features/teammate/store/teammate';
 import type { DescriptionFragmentFragment } from '@/graphql/types';
 import { useToaster } from '@/hooks/use-toaster';
 import { parseDescription } from '@/lib/prosemirror/convert-description';
 import { createContext } from '@/lib/react/create-context';
-import { useTaskFeed, useTaskFeedCommand } from '@/store/entities/task-feed';
-import { useTaskFileIdsByTaskFeedId } from '@/store/entities/task-file';
-import { useTeammate } from '@/store/entities/teammate';
 import { Context as ContextContainer } from './provider-container';
 
 type Props = {

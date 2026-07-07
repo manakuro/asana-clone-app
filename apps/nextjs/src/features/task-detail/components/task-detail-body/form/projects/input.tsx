@@ -3,9 +3,9 @@ import { memo, useCallback, useState } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput, type InputProps } from '@/components/ui/input';
 import { ProjectMenu } from '@/features/project/components/project-menu';
+import { useProjectTaskCommand } from '@/features/project/store/project-task';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useDisclosure } from '@/lib/chakra-ui';
-import { useProjectTaskCommand } from '@/store/entities/project-task';
 
 type Props = {
   onClose: () => void;

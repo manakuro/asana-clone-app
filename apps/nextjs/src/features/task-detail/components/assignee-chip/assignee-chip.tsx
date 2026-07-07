@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { PopoverProfile } from '@/features/teammate/components/popover-profile/popover-profile';
+import { useTeammate } from '@/features/teammate/store/teammate';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { useTeammate } from '@/store/entities/teammate';
 
 type Props = {
   teammateId: string;

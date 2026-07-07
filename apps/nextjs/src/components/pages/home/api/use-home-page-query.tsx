@@ -1,10 +1,10 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo, useState } from 'react';
+import { useHomeResponse } from '@/components/pages/home/store/home';
+import { useMe } from '@/features/me/store/me';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { HomePageDocument } from '@/graphql/documents';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
-import { useHomeResponse } from '@/store/app/home';
-import { useMe } from '@/store/entities/me';
-import { useWorkspace } from '@/store/entities/workspace';
 
 export const useHomePageQuery = () => {
   const { me } = useMe();

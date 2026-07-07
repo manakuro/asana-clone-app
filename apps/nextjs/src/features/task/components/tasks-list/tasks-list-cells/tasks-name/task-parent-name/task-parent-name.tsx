@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { useTasksContext } from '@/features/task/components/tasks-provider/tasks-context';
-import { useTask } from '@/store/entities/task';
+import { useTask } from '@/features/task/store/task';
 import { useTasksNameContext } from '../tasks-name-context';
 
 export const TaskParentName = memo(function TaskParentName() {

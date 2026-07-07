@@ -4,13 +4,13 @@ import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
+import { useMe } from '@/features/me/store/me';
 import { useShareProjectModal } from '@/features/project/components/share-project-modal/use-share-project-modal';
+import { useProjectTeammate } from '@/features/project/store/project-teammate';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
+import { useTeammate } from '@/features/teammate/store/teammate';
 import { useLinkStyle } from '@/hooks/styles/use-link-style';
 import { formatCreatedAt } from '@/lib/date';
-import { useMe } from '@/store/entities/me';
-import { useProjectTeammate } from '@/store/entities/project-teammate';
-import { useTeammate } from '@/store/entities/teammate';
 import { useTimelineStyle } from '../use-timeline-style';
 
 type Props = {

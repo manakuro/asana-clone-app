@@ -1,11 +1,11 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
-import { SortMenu as TasksHeaderSortMenu } from '@/features/task/components/tasks-header';
 import {
   type TaskListSortStatusCodeValue,
   useProjectsTaskListStatus,
-} from '@/store/app/projects/task-list-status';
-import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
+} from '@/components/pages/projects/store/projects/task-list-status';
+import { SortMenu as TasksHeaderSortMenu } from '@/features/task/components/tasks-header';
+import { TaskListSortStatusCode } from '@/features/task/store/task-list-sort-status';
 
 const ITEMS: {
   value: TaskListSortStatusCodeValue;

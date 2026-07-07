@@ -3,9 +3,9 @@ import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
 import { PopoverDueDatePicker } from '@/features/task/components/popover-due-date-picker/popover-due-date-picker';
+import { useTask } from '@/features/task/store/task';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { getDifferenceInDays } from '@/lib/date';
-import { useTask } from '@/store/entities/task';
 import { useDueDate } from './use-due-date';
 
 type Props = {

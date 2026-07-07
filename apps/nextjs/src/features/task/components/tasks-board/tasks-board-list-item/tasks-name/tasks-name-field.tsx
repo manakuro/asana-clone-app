@@ -3,13 +3,13 @@ import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Flex } from '@/components/ui/flex';
 import type { InputProps } from '@/components/ui/input';
 import { InputText } from '@/components/ui/input-text';
+import { useTaskOptimistic } from '@/features/task/store/task';
 import { useTaskDetailDrawerRef } from '@/features/task-detail/components/task-detail-drawer';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
   useClickOutside,
 } from '@/hooks/use-click-outside';
 import { useDebounce } from '@/hooks/use-debounce';
-import { useTaskOptimistic } from '@/store/entities/task';
 import { useTasksBoardListItemElement } from '../index';
 import { useTasksBoardListItemInputContext } from '../provider';
 

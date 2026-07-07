@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import { PriorityChip } from '@/features/task/components/priority-chip';
-import { useTask } from '@/store/entities/task';
+import { useTask } from '@/features/task/store/task';
 
 type Props = FlexProps & {
   taskId: string;

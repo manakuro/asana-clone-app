@@ -1,13 +1,13 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
+import type { Teammate } from '@/features/teammate/store/teammate';
 import { WorkspaceTeammatesDocument } from '@/graphql/documents';
 import type {
   WorkspaceTeammateResponse,
   WorkspaceTeammatesQuery,
 } from '@/graphql/types/workspace-teammate';
 import { getNodesFromEdges } from '@/lib/apollo/util';
-import type { Teammate } from '@/store/entities/teammate';
 
 const queryAtom = atom<{ loading: boolean; teammates: Teammate[] }>({
   loading: false,

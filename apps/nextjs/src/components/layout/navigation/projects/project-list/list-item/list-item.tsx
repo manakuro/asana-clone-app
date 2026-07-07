@@ -11,12 +11,12 @@ import { Link } from '@/components/ui/link';
 import { NextLink } from '@/components/ui/next-link';
 import { Text } from '@/components/ui/text';
 import { PopoverProjectMenu } from '@/features/project/components/popover-project-menu/popover-project-menu';
+import { useProject } from '@/features/project/store/project';
+import { useProjectBaseColor } from '@/features/project/store/project-base-color';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';
-import { useProject } from '@/store/entities/project';
-import { useProjectBaseColor } from '@/store/entities/project-base-color';
 
 type Props = {
   projectId: string;

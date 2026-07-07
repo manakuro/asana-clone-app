@@ -1,6 +1,9 @@
 import { memo, useCallback } from 'react';
 import { DatePickerWithInput } from '@/components/ui/forms/date-picker-with-input';
-import { useProject, useProjectCommand } from '@/store/entities/project';
+import {
+  useProject,
+  useProjectCommand,
+} from '@/features/project/store/project';
 
 type Props = {
   projectId: string;

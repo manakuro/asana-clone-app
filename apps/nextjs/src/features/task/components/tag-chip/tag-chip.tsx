@@ -4,8 +4,8 @@ import { Box } from '@/components/ui/box';
 import { Button } from '@/components/ui/button';
 import { Icon, type IconProps } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
+import { useTaskTag } from '@/features/task/store/task-tag';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { useTaskTag } from '@/store/entities/task-tag';
 
 type Variant = 'button' | 'icon';
 

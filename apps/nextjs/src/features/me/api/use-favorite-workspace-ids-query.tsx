@@ -1,0 +1,32 @@
+import { useQuery } from '@apollo/client/react';
+import { useEffect, useMemo } from 'react';
+import { useFavoriteWorkspaceIdsResponse } from '@/features/me/store/favorite-workspace-ids';
+import { useMe } from '@/features/me/store/me';
+import { useWorkspace } from '@/features/workspace/store/workspace';
+import { FavoriteWorkspaceIdsDocument } from '@/graphql/documents';
+
+export const useFavoriteWorkspaceIdsQuery = () => {
+  const { me } = useMe();
+  const { workspace } = useWorkspace();
+  const skip = useMemo(() => !me.id || !workspace.id, [me.id, workspace.id]);
+  const { setFavoriteWorkspaceIds } = useFavoriteWorkspaceIdsResponse();
+
+  const queryResult = useQuery(FavoriteWorkspaceIdsDocument, {
+    variables: {
+      teammateId: me.id,
+      workspaceId: workspace.id,
+    },
+    skip,
+  });
+
+  useEffect(() => {
+    if (!queryResult.data) return;
+
+    setFavoriteWorkspaceIds(queryResult.data.favoriteWorkspaceIds);
+  }, [queryResult.data, setFavoriteWorkspaceIds]);
+
+  return {
+    refetch: queryResult.refetch,
+    loading: queryResult.loading,
+  };
+};

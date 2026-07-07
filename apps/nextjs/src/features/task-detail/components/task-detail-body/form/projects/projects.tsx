@@ -1,14 +1,14 @@
 import { memo, useCallback } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { useProjectTaskSectionsByProjectIdsQuery } from '@/features/project/api/use-project-task-sections-by-project-ids-query';
-import { Input } from '@/features/task-detail/components/task-detail-body/form/projects/input';
-import { useTaskDetailProjectsInput } from '@/features/task-detail/hooks';
 import {
   useProjectIdsByTaskId,
   useProjectTaskCommand,
   useProjectTaskIdsByTaskId,
-} from '@/store/entities/project-task';
-import { useTask } from '@/store/entities/task';
+} from '@/features/project/store/project-task';
+import { useTask } from '@/features/task/store/task';
+import { Input } from '@/features/task-detail/components/task-detail-body/form/projects/input';
+import { useTaskDetailProjectsInput } from '@/features/task-detail/hooks';
 import { Content, Label, Row } from '../row';
 import { Selected } from './selected';
 import { UnSelected } from './un-selected';

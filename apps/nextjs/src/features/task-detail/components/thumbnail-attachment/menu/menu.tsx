@@ -5,8 +5,8 @@ import {
   Menu as OrganismsMenu,
 } from '@/components/ui/menu';
 import { Portal } from '@/components/ui/portal';
+import { useTaskFile } from '@/features/task/store/task-file';
 import { useThumbnailAttachmentContext } from '@/features/task-detail/components/thumbnail-attachment/context';
-import { useTaskFile } from '@/store/entities/task-file';
 
 type Props = MenuRootProps & {
   taskFileId: string;

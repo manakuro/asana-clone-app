@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { useTaskCommand } from '@/store/entities/task';
+import { useTaskCommand } from '@/features/task/store/task';
 
 type Props = {
   taskId: string;

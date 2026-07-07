@@ -6,11 +6,11 @@ import { Flex } from '@/components/ui/flex';
 import { Link } from '@/components/ui/link';
 import { NextLink } from '@/components/ui/next-link';
 import { Text } from '@/components/ui/text';
+import { useProject } from '@/features/project/store/project';
+import { useProjectBaseColor } from '@/features/project/store/project-base-color';
 import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import { ROUTE_PROJECTS_LIST } from '@/router';
 import { ROUTE_PROJECTS } from '@/router/projects';
-import { useProject } from '@/store/entities/project';
-import { useProjectBaseColor } from '@/store/entities/project-base-color';
 import { ProjectMenu } from './project-menu';
 
 type Props = {

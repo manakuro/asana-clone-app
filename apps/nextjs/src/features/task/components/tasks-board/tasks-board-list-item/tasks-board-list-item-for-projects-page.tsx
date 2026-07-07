@@ -1,9 +1,9 @@
 import type React from 'react';
 import { memo } from 'react';
+import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { useProjectsProjectId } from '@/store/app/projects/project';
-import { useProjectIdsByTaskId } from '@/store/entities/project-task';
+import { useProjectIdsByTaskId } from '@/features/project/store/project-task';
 import { Assignee } from './assignee';
 import { Card } from './card';
 import { DueDate } from './due-date';

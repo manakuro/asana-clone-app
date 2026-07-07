@@ -1,12 +1,12 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
-import { ProjectIconsDocument } from '@/graphql/documents';
-import type { ProjectIconsQuery } from '@/graphql/types/project-icons';
-import { getNodesFromEdges } from '@/lib/apollo/util';
 import {
   type ProjectIconResponse,
   useProjectIconsResponse,
-} from '@/store/entities/project-icon';
+} from '@/features/project/store/project-icon';
+import { ProjectIconsDocument } from '@/graphql/documents';
+import type { ProjectIconsQuery } from '@/graphql/types/project-icons';
+import { getNodesFromEdges } from '@/lib/apollo/util';
 
 export const useProjectIconsQuery = () => {
   const { setProjectIcons } = useProjectIconsResponse();

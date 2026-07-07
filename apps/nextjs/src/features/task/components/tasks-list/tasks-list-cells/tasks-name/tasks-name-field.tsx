@@ -3,6 +3,7 @@ import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
 import { Input, type InputProps } from '@/components/ui/input';
+import { useTaskOptimistic } from '@/features/task/store/task';
 import { useTaskDetailDrawerRef } from '@/features/task-detail/components/task-detail-drawer';
 import {
   type UseClickOutsideOptionsHasClickedOutside,
@@ -10,7 +11,6 @@ import {
 } from '@/hooks/use-click-outside';
 import { useDebounce } from '@/hooks/use-debounce';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
-import { useTaskOptimistic } from '@/store/entities/task';
 import { useTasksNameContext } from './tasks-name-context';
 
 type Props = {

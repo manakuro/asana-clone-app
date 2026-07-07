@@ -1,11 +1,11 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
+import type { Project } from '@/features/project/store/project';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { ProjectsDocument } from '@/graphql/documents';
 import type { ProjectResponse, ProjectsQuery } from '@/graphql/types/project';
 import { getNodesFromEdges } from '@/lib/apollo/util';
-import type { Project } from '@/store/entities/project';
-import { useWorkspace } from '@/store/entities/workspace';
 
 const searchProjectsQueryAtom = atom<{
   loading: boolean;

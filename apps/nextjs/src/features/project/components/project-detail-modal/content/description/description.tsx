@@ -3,10 +3,13 @@ import { memo, useCallback, useMemo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/editor';
 import { Flex } from '@/components/ui/flex';
 import {
+  useProject,
+  useProjectCommand,
+} from '@/features/project/store/project';
+import {
   parseDescription,
   stringifyDescription,
 } from '@/lib/prosemirror/convert-description';
-import { useProject, useProjectCommand } from '@/store/entities/project';
 import { Container } from './container';
 import { Context } from './context';
 import { Placeholder } from './placeholder';

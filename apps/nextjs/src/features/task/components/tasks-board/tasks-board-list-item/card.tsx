@@ -3,7 +3,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { Collapsible } from '@/components/ui/collapsible';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTasksRouter } from '@/features/task/hooks';
-import { useTask } from '@/store/entities/task';
+import { useTask } from '@/features/task/store/task';
 import { transitions } from '@/utils/transitions';
 import { useTasksBoardListItemContext } from './provider';
 

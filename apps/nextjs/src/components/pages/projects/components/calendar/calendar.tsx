@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
+import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import { TasksCalendar } from '@/features/task/components/tasks-calendar/tasks-calendar';
 import { TasksCalendarContent } from '@/features/task/components/tasks-calendar/tasks-calendar-content/tasks-calendar-content';
 import { TasksCalendarList } from '@/features/task/components/tasks-calendar/tasks-calendar-list/tasks-calendar-list';
@@ -15,7 +16,6 @@ import {
 } from '@/features/task/components/tasks-header';
 import { TaskDetailModal } from '@/features/task-detail/components/task-detail-modal';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
-import { useProjectsProjectId } from '@/store/app/projects/project';
 import { SkeletonCalendar } from './skeleton-calendar';
 
 export const Calendar = memo(function Calendar() {

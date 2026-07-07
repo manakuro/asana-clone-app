@@ -3,7 +3,7 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text, type TextProps } from '@/components/ui/text';
 import { useInboxListItemContext } from '@/features/inbox/components/inbox-list-item/context';
-import { useWorkspace } from '@/store/entities/workspace';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { transitions } from '@/utils/transitions';
 
 export const Workspace = memo(function Workspace() {

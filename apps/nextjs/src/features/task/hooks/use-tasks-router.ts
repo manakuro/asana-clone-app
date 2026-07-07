@@ -1,5 +1,6 @@
 import { useParams, usePathname } from 'next/navigation';
 import { useCallback } from 'react';
+import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import {
   getMyTasksDetailFeedId,
   getMyTasksDetailFeedURL,
@@ -10,7 +11,6 @@ import {
   useRouter,
 } from '@/router';
 import type { Options } from '@/router/types';
-import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {

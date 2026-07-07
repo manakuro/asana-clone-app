@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useSubtaskIds } from '@/store/entities/task';
+import { useSubtaskIds } from '@/features/task/store/task';
 import { useSubtaskListContext } from '../provider';
 import { Container } from './container';
 

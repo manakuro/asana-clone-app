@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { useFileViewerModal } from '@/features/task/components/file-viewer-modal/use-file-viewer-modal';
-import { ThumbnailAttachment } from '@/features/task-detail/components/thumbnail-attachment';
-import { useToaster } from '@/hooks/use-toaster';
 import {
   type TaskFile,
   useTaskFileIdsByTaskId,
-} from '@/store/entities/task-file';
+} from '@/features/task/store/task-file';
+import { ThumbnailAttachment } from '@/features/task-detail/components/thumbnail-attachment';
+import { useToaster } from '@/hooks/use-toaster';
 import { NewButton } from './new-button';
 
 type Props = {

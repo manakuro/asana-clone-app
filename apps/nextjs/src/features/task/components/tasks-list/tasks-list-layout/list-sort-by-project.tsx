@@ -1,5 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
+import { useMyTasksProjectIds } from '@/components/pages/my-tasks/store/my-tasks/projects';
+import { useMyTasksTaskIdsWithNoProject } from '@/components/pages/my-tasks/store/my-tasks/tasks';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
@@ -8,8 +10,6 @@ import { useTasksListContext } from '@/features/task/components/tasks-list/conte
 import { TasksListItem } from '@/features/task/components/tasks-list/tasks-list-item';
 import { TasksListSectionContext } from '@/features/task/components/tasks-list/tasks-list-section';
 import { TasksListSectionGroupByProject } from '@/features/task/components/tasks-list/tasks-list-section-group-by-project/tasks-list-section-group-by-project';
-import { useMyTasksProjectIds } from '@/store/app/my-tasks/projects';
-import { useMyTasksTaskIdsWithNoProject } from '@/store/app/my-tasks/tasks';
 
 export const ListSortByProject: React.FC = memo(() => {
   const { projectIds } = useMyTasksProjectIds();

@@ -3,16 +3,16 @@ import { memo, useCallback, useState } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Input as AtomsInput } from '@/components/ui/input';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
-import { useTaskDetail } from '@/features/task-detail';
-import { AssigneeChip } from '@/features/task-detail/components/assignee-chip';
-import { InviteCollaboratorMenu } from '@/features/teammate/components/invite-collaborator-menu';
-import { useClickOutside } from '@/hooks/use-click-outside';
-import { useDisclosure } from '@/lib/chakra-ui';
 import {
   useTaskCollaboratorCommand,
   useTeammateIdsByTaskId,
-} from '@/store/entities/task-collaborator';
-import type { Teammate } from '@/store/entities/teammate';
+} from '@/features/task/store/task-collaborator';
+import { useTaskDetail } from '@/features/task-detail';
+import { AssigneeChip } from '@/features/task-detail/components/assignee-chip';
+import { InviteCollaboratorMenu } from '@/features/teammate/components/invite-collaborator-menu';
+import type { Teammate } from '@/features/teammate/store/teammate';
+import { useClickOutside } from '@/hooks/use-click-outside';
+import { useDisclosure } from '@/lib/chakra-ui';
 import { useCollaboratorsContext } from '../context';
 
 export const Input: React.FC = () => {

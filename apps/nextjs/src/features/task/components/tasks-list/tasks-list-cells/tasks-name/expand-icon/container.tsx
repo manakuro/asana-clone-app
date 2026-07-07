@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { useSubtaskIds, useTask } from '@/store/entities/task';
+import { useSubtaskIds, useTask } from '@/features/task/store/task';
 import { Component } from './component';
 
 type Props = {

@@ -1,10 +1,10 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { TagsDocument } from '@/graphql/documents';
 import type { TagResponse, TagsQuery } from '@/graphql/types/tag';
 import { getNodesFromEdges } from '@/lib/apollo/util';
-import { useWorkspace } from '@/store/entities/workspace';
 
 const searchTagsQueryAtom = atom<{ loading: boolean; tags: any[] }>({
   loading: false,

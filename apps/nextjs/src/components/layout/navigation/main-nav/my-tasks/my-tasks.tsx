@@ -1,5 +1,6 @@
 import { usePathname } from 'next/navigation';
 import { memo, useMemo } from 'react';
+import { useTeammateTaskTabStatus } from '@/features/teammate/store/teammate-task-tab-status';
 import {
   ROUTE_MY_TASKS,
   ROUTE_MY_TASKS_BOARD,
@@ -7,7 +8,6 @@ import {
   ROUTE_MY_TASKS_FILES,
   ROUTE_MY_TASKS_LIST,
 } from '@/router';
-import { useTeammateTaskTabStatus } from '@/store/entities/teammate-task-tab-status';
 import { NavListItem } from '../../nav-list-item';
 import type { NavListItem as TNavListItem } from '../../type';
 

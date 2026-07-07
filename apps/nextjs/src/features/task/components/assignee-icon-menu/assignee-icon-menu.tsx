@@ -3,8 +3,8 @@ import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
 import { PopoverAssigneeInput } from '@/features/task/components/popover-assignee-input/popover-assignee-input';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
+import { useTeammate } from '@/features/teammate/store/teammate';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { useTeammate } from '@/store/entities/teammate';
 
 type Props = {
   taskId: string;

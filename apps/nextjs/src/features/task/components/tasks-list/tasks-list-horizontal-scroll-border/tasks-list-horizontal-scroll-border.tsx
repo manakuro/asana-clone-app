@@ -4,8 +4,8 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTasksListContentHorizontalScroll } from '@/features/task/components/tasks-list/tasks-list-content/use-tasks-list-content-horizontal-scroll';
 import { useTasksListContentSticky } from '@/features/task/components/tasks-list/tasks-list-content/use-tasks-list-content-sticky';
 import { useTasksTaskColumnByType } from '@/features/task/hooks';
+import { TaskColumnType } from '@/features/task/store/task-column';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
-import { TaskColumnType } from '@/store/entities/task-column';
 
 type Props = FlexProps;
 

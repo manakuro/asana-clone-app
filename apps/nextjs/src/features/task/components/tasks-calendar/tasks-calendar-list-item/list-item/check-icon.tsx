@@ -2,9 +2,9 @@ import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { CheckIcon as AtomsCheckIcon } from '@/components/ui/check-icon';
 import type { IconProps } from '@/components/ui/icon';
+import { useProject } from '@/features/project/store/project';
+import { useTask } from '@/features/task/store/task';
 import type { SystemStyleObject } from '@/lib/chakra-ui';
-import { useProject } from '@/store/entities/project';
-import { useTask } from '@/store/entities/task';
 
 type Props = {
   taskId: string;

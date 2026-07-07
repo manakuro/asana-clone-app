@@ -10,8 +10,8 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
 import { useSearchProjectsQuery } from '@/features/project/components/project-menu/use-search-projects-query';
+import type { Project } from '@/features/project/store/project';
 import { useFirstRender } from '@/hooks/use-first-render';
-import type { Project } from '@/store/entities/project';
 import { ProjectItem } from './project-item';
 
 type Props = {

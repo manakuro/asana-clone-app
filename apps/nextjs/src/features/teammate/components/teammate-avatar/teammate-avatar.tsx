@@ -1,6 +1,6 @@
 import { Avatar, type AvatarProps } from '@/components/ui/avatar';
 import { PopoverProfile } from '@/features/teammate/components/popover-profile/popover-profile';
-import { useTeammate } from '@/store/entities/teammate';
+import { useTeammate } from '@/features/teammate/store/teammate';
 
 type Props = {
   teammateId: string;

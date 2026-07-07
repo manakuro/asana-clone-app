@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import { useInboxListItem } from '@/features/inbox/hooks/use-inbox-list-item';
-import { ActivityTypeCode } from '@/store/entities/activity-type';
+import { ActivityTypeCode } from '@/features/inbox/store/activity-type';
 import { Context } from './context';
 import { TaskActivity } from './task-activity';
 import { WorkspaceActivity } from './workspace-activity';

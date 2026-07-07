@@ -3,12 +3,12 @@ import { memo, useCallback } from 'react';
 import { Label } from '@/components/ui/label';
 import { Popover } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
-import { useClickOutside } from '@/hooks/use-click-outside';
 import {
   useProjectTeammate,
   useProjectTeammatesCommand,
-} from '@/store/entities/project-teammate';
-import { useTeammate } from '@/store/entities/teammate';
+} from '@/features/project/store/project-teammate';
+import { useTeammate } from '@/features/teammate/store/teammate';
+import { useClickOutside } from '@/hooks/use-click-outside';
 import { Form } from './form';
 
 type Props = {

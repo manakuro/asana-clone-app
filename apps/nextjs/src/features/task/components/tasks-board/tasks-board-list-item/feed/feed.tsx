@@ -2,9 +2,9 @@ import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { IconButton } from '@/components/ui/icon-button';
 import { useTasksRouter } from '@/features/task/hooks';
+import { useTaskFeedIdsWithoutFirstByTaskId } from '@/features/task/store/task-feed';
 import { useTaskDetail } from '@/features/task-detail';
 import { FEED_LIST_CONTAINER_ID } from '@/features/task-detail/components/task-detail-body/form/feed-list';
-import { useTaskFeedIdsWithoutFirstByTaskId } from '@/store/entities/task-feed';
 import { Icon } from './icon';
 
 type Props = {

@@ -1,5 +1,5 @@
-import { Container } from '@/components/pages/projects';
+import { Page } from '@/components/pages/projects';
 
 export default async function ProjectsLayout() {
-  return <Container />;
+  return <Page />;
 }

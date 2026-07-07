@@ -4,7 +4,10 @@ import { Dialog } from '@/components/ui/dialog';
 import { Flex } from '@/components/ui/flex';
 import { Separator } from '@/components/ui/separator';
 import { Stack } from '@/components/ui/stack';
-import { useProject, useProjectCommand } from '@/store/entities/project';
+import {
+  useProject,
+  useProjectCommand,
+} from '@/features/project/store/project';
 import { Description } from './description';
 import { DescriptionTitle } from './description-title';
 import { Label } from './label';
