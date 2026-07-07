@@ -1,5 +1,5 @@
-import { formatDueDate } from '@/lib/date';
 import { mockDate } from '@/test-utils';
+import { formatDueDate } from '../format-date';
 
 describe('formatDueDate', () => {
   mockDate('2021/4/5');
