@@ -1,5 +1,5 @@
-import { useMyTasksTask } from '@/store/app/my-tasks/tasks';
-import { useProjectsTask } from '@/store/app/projects/tasks';
+import { useMyTasksTask } from '@/components/pages/my-tasks/store/my-tasks/tasks';
+import { useProjectsTask } from '@/components/pages/projects/store/projects/tasks';
 import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {

@@ -1,4 +1,13 @@
 import { memo, useCallback, useMemo } from 'react';
+import {
+  INBOX_LIST_FILTER_STATUS_TYPE_ALL,
+  INBOX_LIST_FILTER_STATUS_TYPE_ASSIGNED_BY_ME,
+  INBOX_LIST_FILTER_STATUS_TYPE_ASSIGNED_TO_ME,
+  INBOX_LIST_FILTER_STATUS_TYPE_MENTIONED,
+  INBOX_LIST_FILTER_STATUS_TYPE_UNREAD_ONLY,
+  type InboxListFilterStatuses,
+  useInboxListStatus,
+} from '@/components/pages/inbox/store/activity/inbox-list-status';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';
@@ -8,15 +17,6 @@ import {
   MenuSelectTrigger,
 } from '@/components/ui/menu-select';
 import type { SystemStyleObject } from '@/lib/chakra-ui';
-import {
-  INBOX_LIST_FILTER_STATUS_TYPE_ALL,
-  INBOX_LIST_FILTER_STATUS_TYPE_ASSIGNED_BY_ME,
-  INBOX_LIST_FILTER_STATUS_TYPE_ASSIGNED_TO_ME,
-  INBOX_LIST_FILTER_STATUS_TYPE_MENTIONED,
-  INBOX_LIST_FILTER_STATUS_TYPE_UNREAD_ONLY,
-  type InboxListFilterStatuses,
-  useInboxListStatus,
-} from '@/store/app/inbox/activity/inbox-list-status';
 
 const items: {
   value: InboxListFilterStatuses;

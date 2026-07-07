@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
+import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import { dateFns } from '@/lib/date-fns';
-import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProject } from '@/store/entities/project';
 
 type Props = {

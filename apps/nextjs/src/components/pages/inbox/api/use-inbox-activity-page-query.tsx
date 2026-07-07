@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo, useState } from 'react';
+import { useActivityResponse } from '@/components/pages/inbox/store/activity';
 import { InboxActivityPageDocument } from '@/graphql/documents';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
-import { useActivityResponse } from '@/store/app/inbox/activity';
 import { useWorkspace } from '@/store/entities/workspace';
 
 export const useInboxActivityPageQuery = () => {

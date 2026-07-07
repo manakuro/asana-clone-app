@@ -1,5 +1,5 @@
-import { useMyTasksTaskColumnIds } from '@/store/app/my-tasks/task-columns';
-import { useProjectsTaskColumnIds } from '@/store/app/projects/task-columns';
+import { useMyTasksTaskColumnIds } from '@/components/pages/my-tasks/store/my-tasks/task-columns';
+import { useProjectsTaskColumnIds } from '@/components/pages/projects/store/projects/task-columns';
 import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {

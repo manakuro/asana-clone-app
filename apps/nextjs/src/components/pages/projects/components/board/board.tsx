@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useProjectsPageContext } from '@/components/pages/projects/contexts/context';
+import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import { Flex } from '@/components/ui/flex';
 import { TasksBoardContent } from '@/features/task/components/tasks-board/tasks-board-content/tasks-board-content';
 import { TasksBoardList } from '@/features/task/components/tasks-board/tasks-board-list/tasks-board-list';
@@ -14,7 +15,6 @@ import {
 } from '@/features/task/components/tasks-header';
 import { TaskDetailDrawer } from '@/features/task-detail/components/task-detail-drawer';
 import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
-import { useProjectsProjectId } from '@/store/app/projects/project';
 import { SortMenu } from '../tasks-header';
 import { SkeletonBoardContent, SkeletonBoardHeader } from './skeleton-board';
 

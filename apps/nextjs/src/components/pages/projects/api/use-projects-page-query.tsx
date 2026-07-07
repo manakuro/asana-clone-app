@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useProjectsResponse } from '@/components/pages/projects/store/projects';
 import { ProjectsPageDocument } from '@/graphql/documents';
 import type { ProjectsPageQueryVariables as Variables } from '@/graphql/types/app/projects';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
-import { useProjectsResponse } from '@/store/app/projects';
 
 type Props = {
   projectId: string;

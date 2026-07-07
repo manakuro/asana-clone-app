@@ -3,6 +3,7 @@
 import { useParams, usePathname } from 'next/navigation';
 import React, { memo, startTransition, useCallback, useEffect } from 'react';
 import { MainHeader } from '@/components/layout/main-header';
+import { useMyTasksTaskListStatus } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/tabs';
@@ -14,7 +15,6 @@ import {
   isMyTasksListURL,
   useRouter,
 } from '@/router';
-import { useMyTasksTaskListStatus } from '@/store/app/my-tasks/task-list-status';
 import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
 import {
   type TeammateTaskTabStatus,

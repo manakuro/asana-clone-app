@@ -2,8 +2,8 @@
 
 import { useParams, usePathname } from 'next/navigation';
 import { memo, useCallback, useEffect } from 'react';
+import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import { getProjectsIdFromURL } from '@/router/projects';
-import { useProjectsProjectId } from '@/store/app/projects/project';
 import { useProjectsTaskDetailPageQuery } from './api/use-projects-detail-page-query';
 import { useProjectsPageQuery } from './api/use-projects-page-query';
 import { Component } from './component';
