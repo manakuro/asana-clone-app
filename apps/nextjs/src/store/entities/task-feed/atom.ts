@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
+import { createState } from '@/lib/jotai';
 import { getDefaultDescription } from '@/lib/prosemirror/get-default-description';
-import { createState } from '@/store/util';
 import type { TaskFeed } from './type';
 
 export const initialState = (): TaskFeed => ({

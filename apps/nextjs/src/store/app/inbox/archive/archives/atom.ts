@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
 import { dateFns } from '@/lib/date-fns';
-import { createState } from '@/store/util';
+import { createState } from '@/lib/jotai';
 import type { ArchiveActivity } from './type';
 
 export const initialState = (): ArchiveActivity => ({

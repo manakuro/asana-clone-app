@@ -1,9 +1,9 @@
 import { atom } from 'jotai';
+import { createState } from '@/lib/jotai';
 import {
   type TaskColumnTypeValue,
   taskColumnByTypeState,
 } from '@/store/entities/task-column';
-import { createState } from '@/store/util';
 import type { TeammateTaskColumn } from './type';
 
 export const initialState = (): TeammateTaskColumn => ({

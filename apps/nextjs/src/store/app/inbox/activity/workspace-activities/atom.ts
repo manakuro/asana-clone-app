@@ -1,4 +1,4 @@
-import { createState } from '@/store/util';
+import { createState } from '@/lib/jotai';
 import type { WorkspaceActivity } from './type';
 
 export const initialState = (): WorkspaceActivity => ({

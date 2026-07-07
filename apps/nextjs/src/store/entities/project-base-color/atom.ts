@@ -1,4 +1,4 @@
-import { createState } from '@/store/util';
+import { createState } from '@/lib/jotai';
 import type { ProjectBaseColor } from './type';
 
 export const initialState = (): ProjectBaseColor => ({

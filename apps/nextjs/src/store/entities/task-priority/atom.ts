@@ -1,4 +1,4 @@
-import { createState } from '@/store/util';
+import { createState } from '@/lib/jotai';
 import type { TaskPriority } from './type';
 import { TaskPriorityType } from './types';
 

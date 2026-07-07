@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
+import { createState } from '@/lib/jotai';
 import { type Task, taskState, tasksState } from '@/store/entities/task';
-import { createState } from '@/store/util';
 import type { ProjectTask } from './type';
 
 export const initialState = (): ProjectTask => ({

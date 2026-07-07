@@ -1,5 +1,5 @@
 import { getDefaultDescription } from '@/lib/prosemirror/get-default-description';
-import { createState } from '../../util';
+import { createState } from '../../../lib/jotai';
 import type { Project } from './type';
 
 export const initialState = (): Project => ({

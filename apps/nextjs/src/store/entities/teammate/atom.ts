@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import { createState } from '@/store/util';
+import { createState } from '@/lib/jotai';
 import type { Teammate } from './type';
 
 export const initialState = (): Teammate => ({

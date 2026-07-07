@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
+import { createState } from '@/lib/jotai';
 import { projectTaskByTaskIdState } from '@/store/entities/project-task';
-import { createState } from '@/store/util';
 import type { ProjectTaskSection } from './type';
 
 export const DEFAULT_TITLE_NAME = 'Untitled Section';

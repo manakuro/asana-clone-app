@@ -1,7 +1,7 @@
 import { atom } from 'jotai';
 import { dateFns } from '@/lib/date-fns';
+import { createState } from '@/lib/jotai';
 import { ActivityTypeCode } from '@/store/entities/activity-type';
-import { createState } from '@/store/util';
 import type { Activity } from './type';
 
 export const initialState = (): Activity => ({

@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
+import { createState } from '@/lib/jotai';
 import { type Task, tasksState } from '@/store/entities/task';
-import { createState } from '@/store/util';
 import type { TeammateTask } from './type';
 
 export const initialState = (): TeammateTask => ({
