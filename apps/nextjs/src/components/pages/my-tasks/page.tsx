@@ -48,7 +48,7 @@ export function Page() {
   return (
     <BeforeMount>
       <Context loading={loading} fetchTaskDetailQuery={fetchTaskDetailQuery}>
-        <ViewComponent />
+        <MyTasksView />
       </Context>
     </BeforeMount>
   );
@@ -90,7 +90,7 @@ const mapURLtoTabStatus = ({
   return TASKS_INDEX;
 };
 
-const ViewComponent = memo(function ViewComponent() {
+const MyTasksView = memo(function MyTasksView() {
   const {
     navigateToMyTasksList,
     navigateToMyTasksBoard,

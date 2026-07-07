@@ -64,7 +64,7 @@ export const Page = memo(function Container() {
 
   return (
     <Context loading={loading} fetchTaskDetailQuery={fetchTaskDetailQuery}>
-      <ViewComponent />
+      <ProjectsView />
     </Context>
   );
 });
@@ -95,7 +95,7 @@ const mapURLtoTabIndex = ({ pathname }: { pathname: string | null }): Index => {
   return LIST_INDEX;
 };
 
-const ViewComponent = memo(function ViewComponent() {
+const ProjectsView = memo(function ProjectsView() {
   const {
     navigateToProjectsList,
     navigateToProjectsBoard,
