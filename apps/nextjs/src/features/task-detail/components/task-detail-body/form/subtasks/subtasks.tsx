@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useSubtaskIds, useTaskCommand } from '@/store/entities/task';
+import { useSubtaskIds, useTaskCommand } from '@/features/task/store/task';
 import { Label, Row } from '../row';
 import { AddSubtaskButton } from './add-subtask-button';
 import { TasksName } from './tasks-name';

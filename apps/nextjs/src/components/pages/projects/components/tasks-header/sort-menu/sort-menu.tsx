@@ -5,7 +5,7 @@ import {
   useProjectsTaskListStatus,
 } from '@/components/pages/projects/store/projects/task-list-status';
 import { SortMenu as TasksHeaderSortMenu } from '@/features/task/components/tasks-header';
-import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
+import { TaskListSortStatusCode } from '@/features/task/store/task-list-sort-status';
 
 const ITEMS: {
   value: TaskListSortStatusCodeValue;

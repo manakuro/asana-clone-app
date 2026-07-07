@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useIsTaskDeleted } from '@/store/entities/task';
+import { useIsTaskDeleted } from '@/features/task/store/task';
 import { DeletedTask } from './deleted-task';
 import { MakePublic } from './make-public';
 

@@ -5,13 +5,13 @@ import { Input as AtomsInput } from '@/components/ui/input';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { TagChip } from '@/features/task/components/tag-chip';
 import { TagMenu } from '@/features/task/components/tag-menu';
-import { useClickOutside } from '@/hooks/use-click-outside';
-import { useDisclosure } from '@/lib/chakra-ui';
-import type { Tag } from '@/store/entities/tag';
+import type { Tag } from '@/features/task/store/tag';
 import {
   useTaskTagCommand,
   useTaskTagIdsByTaskId,
-} from '@/store/entities/task-tag';
+} from '@/features/task/store/task-tag';
+import { useClickOutside } from '@/hooks/use-click-outside';
+import { useDisclosure } from '@/lib/chakra-ui';
 
 type Props = {
   taskId: string;

@@ -3,10 +3,13 @@ import { Editor, EditorContent } from '@/components/ui/editor';
 import { Flex } from '@/components/ui/flex';
 import { isDescriptionEqual } from '@/features/editor/utils/is-description-equal';
 import {
+  useProject,
+  useProjectCommand,
+} from '@/features/project/store/project';
+import {
   parseDescription,
   stringifyDescription,
 } from '@/lib/prosemirror/convert-description';
-import { useProject, useProjectCommand } from '@/store/entities/project';
 import { Container } from './container';
 import { Context } from './context';
 import { Placeholder } from './placeholder';

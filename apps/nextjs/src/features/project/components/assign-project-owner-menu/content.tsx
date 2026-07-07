@@ -4,7 +4,7 @@ import {
   ProjectTeammateMenuItem,
   useProjectTeammateMenu,
 } from '@/features/project/components/project-teammate-menu';
-import type { Teammate } from '@/store/entities/teammate';
+import type { Teammate } from '@/features/teammate/store/teammate';
 
 type Props = {
   onSelect: (val: Teammate) => void;

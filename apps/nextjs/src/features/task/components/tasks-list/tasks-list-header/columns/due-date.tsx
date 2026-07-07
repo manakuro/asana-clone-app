@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/icon';
 import { useTasksTaskListStatus } from '@/features/task/hooks';
-import { useTaskListSortStatus } from '@/store/entities/task-list-sort-status';
+import { useTaskListSortStatus } from '@/features/task/store/task-list-sort-status';
 import { Container } from './container';
 
 type Props = {

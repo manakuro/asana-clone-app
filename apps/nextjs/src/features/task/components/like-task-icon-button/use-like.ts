@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
-import { useMe } from '@/store/entities/me';
-import { useTaskLikesByTaskId } from '@/store/entities/task-like';
-import { useTeammates } from '@/store/entities/teammate';
+import { useMe } from '@/features/me/store/me';
+import { useTaskLikesByTaskId } from '@/features/task/store/task-like';
+import { useTeammates } from '@/features/teammate/store/teammate';
 
 type Props = {
   taskId: string;

@@ -1,8 +1,8 @@
 import type React from 'react';
 import { useCallback, useState } from 'react';
+import { type TaskFile, useTaskFile } from '@/features/task/store/task-file';
 import { useHover } from '@/hooks/use-hover';
 import { createContext } from '@/lib/react/create-context';
-import { type TaskFile, useTaskFile } from '@/store/entities/task-file';
 
 type Props = {
   taskFileId: string;

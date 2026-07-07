@@ -7,9 +7,9 @@ import {
   useTaskActivityTaskIds,
   useWorkspaceActivityTaskIds,
 } from '@/features/inbox/hooks';
+import { useActivityType } from '@/features/inbox/store/activity-type';
 import { useTaskDetail } from '@/features/task-detail';
 import { isInboxDetailURL } from '@/router';
-import { useActivityType } from '@/store/entities/activity-type';
 
 type Props = {
   listItemId?: string;

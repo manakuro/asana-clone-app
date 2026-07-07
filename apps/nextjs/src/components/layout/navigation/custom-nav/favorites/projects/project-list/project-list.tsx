@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useFavoriteProjectIds } from '@/store/entities/favorite-project-ids';
+import { useFavoriteProjectIds } from '@/features/me/store/favorite-project-ids';
 import { ListItem } from './list-item';
 
 export const ProjectList = memo(function ProjectList() {

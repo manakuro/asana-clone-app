@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
-import { taskIdsByAssigneeIdState } from '@/store/entities/task';
-import { taskFilesState } from '@/store/entities/task-file';
+import { taskIdsByAssigneeIdState } from '@/features/task/store/task';
+import { taskFilesState } from '@/features/task/store/task-file';
 
 export const taskFileIdsState = (teammateId: string) =>
   atom<string[]>((get) => {

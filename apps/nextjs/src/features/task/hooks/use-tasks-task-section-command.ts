@@ -3,11 +3,11 @@ import { useProjectsTaskSectionCommand } from '@/components/pages/projects/store
 import type {
   DeleteProjectTaskSectionAndDeleteTasksMutation,
   DeleteProjectTaskSectionAndKeepTasksMutation,
-} from '@/store/entities/project-task-section';
+} from '@/features/project/store/project-task-section';
 import type {
   DeleteTeammateTaskSectionAndDeleteTasksMutation,
   DeleteTeammateTaskSectionAndKeepTasksMutation,
-} from '@/store/entities/teammates-task-section';
+} from '@/features/teammate/store/teammates-task-section';
 import { useTasksContext } from '../components/tasks-provider';
 
 export type DeleteTaskSectionAndKeepTasksResponse =

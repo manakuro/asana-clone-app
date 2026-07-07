@@ -6,6 +6,7 @@ import { useProjectsProjectId } from '@/components/pages/projects/store/projects
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/tabs';
+import { TaskListSortStatusCode } from '@/features/task/store/task-list-sort-status';
 import { usePrevious } from '@/hooks/use-previous';
 import {
   isProjectsBoardURL,
@@ -15,7 +16,6 @@ import {
   useRouter,
 } from '@/router';
 import { isProjectsOverviewURL } from '@/router/projects';
-import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
 import { Board } from './components/board';
 import { Calendar } from './components/calendar';
 import { Files } from './components/files';

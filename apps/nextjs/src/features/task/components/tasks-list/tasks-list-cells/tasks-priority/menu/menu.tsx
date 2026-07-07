@@ -5,8 +5,8 @@ import {
   MenuSelectList,
   MenuSelectTrigger,
 } from '@/components/ui/menu-select';
-import { useTask } from '@/store/entities/task';
-import { useTasksPriorities } from '@/store/entities/task-priority';
+import { useTask } from '@/features/task/store/task';
+import { useTasksPriorities } from '@/features/task/store/task-priority';
 
 type Props = PropsWithChildren<{
   taskId: string;

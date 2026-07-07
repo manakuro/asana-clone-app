@@ -1,8 +1,8 @@
 import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Icon } from '@/components/ui/icon';
+import { useProjectTeammatesCommand } from '@/features/project/store/project-teammate';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { useProjectTeammatesCommand } from '@/store/entities/project-teammate';
 
 type Props = {
   projectTeammateId: string;

@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import type { Mention } from '@/store/entities/mention';
-import { useWorkspace } from '@/store/entities/workspace';
+import type { Mention } from '@/features/editor/store/mention';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { LeftContainer } from './left-container';
 import { RightContainer } from './right-container';
 

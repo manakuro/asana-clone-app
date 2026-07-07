@@ -5,7 +5,7 @@ import {
   useMyTasksTaskListStatus,
 } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
 import { SortMenu as TasksHeaderSortMenu } from '@/features/task/components/tasks-header';
-import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
+import { TaskListSortStatusCode } from '@/features/task/store/task-list-sort-status';
 
 type Props = {
   projectSortable?: boolean;

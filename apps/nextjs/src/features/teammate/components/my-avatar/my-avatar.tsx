@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Avatar, type AvatarProps } from '@/components/ui/avatar';
+import { useMe } from '@/features/me/store/me';
 import { PopoverProfile } from '@/features/teammate/components/popover-profile/popover-profile';
-import { useMe } from '@/store/entities/me';
 
 type Props = AvatarProps & {
   showProfile?: boolean;

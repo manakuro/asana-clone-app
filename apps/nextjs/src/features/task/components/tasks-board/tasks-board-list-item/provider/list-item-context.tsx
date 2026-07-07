@@ -1,11 +1,11 @@
 import { useParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { useTasksTaskListStatus } from '@/features/task/hooks';
+import { useTask } from '@/features/task/store/task';
+import { useTaskListCompletedStatus } from '@/features/task/store/task-list-completed-status';
 import { useHover } from '@/hooks/use-hover';
 import { createContext } from '@/lib/react/create-context';
 import { ROUTE_MY_TASKS } from '@/router';
-import { useTask } from '@/store/entities/task';
-import { useTaskListCompletedStatus } from '@/store/entities/task-list-completed-status';
 
 type Props = {
   taskId: string;

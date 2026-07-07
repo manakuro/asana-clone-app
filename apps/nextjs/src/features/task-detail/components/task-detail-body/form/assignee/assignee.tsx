@@ -1,10 +1,10 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Button, type ButtonProps } from '@/components/ui/button';
 import { Text, type TextProps } from '@/components/ui/text';
+import { useTask } from '@/features/task/store/task';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
+import { useTeammate } from '@/features/teammate/store/teammate';
 import { useHover } from '@/hooks/use-hover';
-import { useTask } from '@/store/entities/task';
-import { useTeammate } from '@/store/entities/teammate';
 import { Content, Label, Row } from '../row';
 import { DeleteButton } from './delete-button';
 import { Input } from './input';

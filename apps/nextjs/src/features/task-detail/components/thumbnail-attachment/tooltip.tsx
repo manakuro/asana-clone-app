@@ -4,8 +4,8 @@ import {
   Tooltip as MoleculesTooltip,
   type TooltipProps,
 } from '@/components/ui/tooltip';
+import { useTaskFile } from '@/features/task/store/task-file';
 import { useDisclosure } from '@/lib/chakra-ui';
-import { useTaskFile } from '@/store/entities/task-file';
 import { useThumbnailAttachmentContext } from './context';
 
 type Props = Omit<TooltipProps, 'content' | 'size'> & {

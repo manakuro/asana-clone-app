@@ -3,7 +3,7 @@ import { useProjectsProjectId } from '@/components/pages/projects/store/projects
 import { Flex } from '@/components/ui/flex';
 import { Heading } from '@/components/ui/heading';
 import { Tab, TabList } from '@/components/ui/tabs';
-import { useProject } from '@/store/entities/project';
+import { useProject } from '@/features/project/store/project';
 import { FavoriteIconButton } from './favorite-icon-button';
 import { MoreActionIconButton } from './more-action-icon-button';
 import { ProjectDetailIconButton } from './project-detail-icon-button';

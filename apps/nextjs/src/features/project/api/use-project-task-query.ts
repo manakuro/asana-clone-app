@@ -1,11 +1,11 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo, useState } from 'react';
-import { ProjectTaskDocument } from '@/graphql/documents';
-import { useMountedRef } from '@/hooks/use-mounted-ref';
 import {
   type ProjectTaskResponse,
   useProjectTaskResponse,
-} from '@/store/entities/project-task';
+} from '@/features/project/store/project-task';
+import { ProjectTaskDocument } from '@/graphql/documents';
+import { useMountedRef } from '@/hooks/use-mounted-ref';
 
 export const useProjectTaskQuery = (id: string) => {
   const queryResult = useQuery(ProjectTaskDocument, {

@@ -1,10 +1,10 @@
 import { useQuery } from '@apollo/client/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useMyTasksResponse } from '@/components/pages/my-tasks/store/my-tasks';
+import { useMe } from '@/features/me/store/me';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { MyTasksPageDocument } from '@/graphql/documents';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
-import { useMe } from '@/store/entities/me';
-import { useWorkspace } from '@/store/entities/workspace';
 
 export const useMyTasksPageQuery = () => {
   const { me } = useMe();

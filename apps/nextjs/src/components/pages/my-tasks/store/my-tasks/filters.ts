@@ -3,11 +3,11 @@ import {
   isTaskListCompletedStatusState,
   isTaskListSortStatusState,
 } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
+import { projectTasksState } from '@/features/project/store/project-task';
+import type { Task } from '@/features/task/store/task';
+import { taskLikesByTaskIdState } from '@/features/task/store/task-like';
+import type { TeammateTaskSection } from '@/features/teammate/store/teammates-task-section';
 import { dateFns } from '@/lib/date-fns';
-import { projectTasksState } from '@/store/entities/project-task';
-import type { Task } from '@/store/entities/task';
-import { taskLikesByTaskIdState } from '@/store/entities/task-like';
-import type { TeammateTaskSection } from '@/store/entities/teammates-task-section';
 import { uniq } from '@/utils';
 
 type Params = {

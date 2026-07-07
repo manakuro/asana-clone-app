@@ -6,8 +6,8 @@ import { PopoverEditorLink } from '@/features/editor/components/popover-editor-l
 import { PopoverEditorLinkContent } from '@/features/editor/components/popover-editor-link/popover-editor-link-content';
 import { PopoverEditorLinkText } from '@/features/editor/components/popover-editor-link/popover-editor-link-text';
 import { PopoverEditorLinkTrigger } from '@/features/editor/components/popover-editor-link/popover-editor-link-trigger';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { ROUTE_WORKSPACES_OVERVIEW } from '@/router';
-import { useWorkspace } from '@/store/entities/workspace';
 
 export const Workspace = memo(function Workspace() {
   const { workspace } = useWorkspace();

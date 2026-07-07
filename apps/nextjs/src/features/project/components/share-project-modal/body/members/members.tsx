@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
+import { useTeammateIdsByProjectId } from '@/features/project/store/project-teammate';
 import { useLinkStyle } from '@/hooks/styles/use-link-style';
-import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
 import { BodyHeader } from '../body-header';
 import { BodyStack } from '../body-stack';
 import { MemberListItem } from './member-list-item';

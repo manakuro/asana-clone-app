@@ -4,10 +4,10 @@ import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Input as AtomsInput, InputGroup } from '@/components/ui/input';
 import { AssigneeMenu } from '@/features/task/components/assignee-menu';
+import { useTask, useTaskCommand } from '@/features/task/store/task';
+import { type Teammate, useTeammate } from '@/features/teammate/store/teammate';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useDisclosure } from '@/lib/chakra-ui';
-import { useTask, useTaskCommand } from '@/store/entities/task';
-import { type Teammate, useTeammate } from '@/store/entities/teammate';
 
 type Props = {
   taskId: string;

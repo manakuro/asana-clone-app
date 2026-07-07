@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/button';
 import { DueDate as AtomsDueDate } from '@/components/ui/due-date';
 import { Icon } from '@/components/ui/icon';
 import { PopoverDueDatePicker } from '@/features/task/components/popover-due-date-picker/popover-due-date-picker';
+import { useTask } from '@/features/task/store/task';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useHover } from '@/hooks/use-hover';
-import { useTask } from '@/store/entities/task';
 import { Content, Label, Row } from '../row';
 
 type Props = {

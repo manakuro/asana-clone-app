@@ -4,7 +4,7 @@ import { Portal } from '@/components/ui/portal';
 import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,
-} from '@/store/entities/task-list-completed-status';
+} from '@/features/task/store/task-list-completed-status';
 
 type Props = {
   listStatus?: TaskListCompletedStatusCodeValue;

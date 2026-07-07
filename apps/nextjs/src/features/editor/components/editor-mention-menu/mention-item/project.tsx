@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { ColorBox } from '@/components/ui/color-box';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import type { Mention } from '@/store/entities/mention';
-import { useProject } from '@/store/entities/project';
-import { useProjectBaseColor } from '@/store/entities/project-base-color';
+import type { Mention } from '@/features/editor/store/mention';
+import { useProject } from '@/features/project/store/project';
+import { useProjectBaseColor } from '@/features/project/store/project-base-color';
 import { LeftContainer } from './left-container';
 import { RightContainer } from './right-container';
 

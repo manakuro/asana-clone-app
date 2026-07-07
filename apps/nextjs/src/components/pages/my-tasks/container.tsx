@@ -3,7 +3,7 @@
 import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { PageLoader } from '@/components/ui/page-loader';
-import { useMe } from '@/store/entities/me';
+import { useMe } from '@/features/me/store/me';
 import { useMyTasksDetailPageQuery } from './api/use-my-tasks-detail-page-query';
 import { useMyTasksPageQuery } from './api/use-my-tasks-page-query';
 import { useTeammateTaskTabStatusQuery } from './api/use-teammate-task-tab-status-query';

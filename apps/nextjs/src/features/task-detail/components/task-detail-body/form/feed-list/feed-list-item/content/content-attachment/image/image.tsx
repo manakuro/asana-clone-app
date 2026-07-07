@@ -3,7 +3,7 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Image as AtomsImage } from '@/components/ui/image';
 import { Link } from '@/components/ui/link';
 import { Text } from '@/components/ui/text';
-import { useTaskFile } from '@/store/entities/task-file';
+import { useTaskFile } from '@/features/task/store/task-file';
 
 type Props = FlexProps & {
   taskFileId: string;

@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import type { Teammate } from '@/store/entities/teammate';
+import type { Teammate } from '@/features/teammate/store/teammate';
 import { uniqBy } from '@/utils';
 import { useShareProjectModalInvitedTeammates } from '../../use-share-project-modal-invited-teammates';
 import { BodyHeader } from '../body-header';

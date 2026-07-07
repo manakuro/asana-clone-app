@@ -2,8 +2,8 @@ import { atom } from 'jotai';
 import {
   filterByDueDateInFiveDays,
   sortByDueDate,
-} from '@/store/entities/task';
-import { tasksByTeammateIdState } from '@/store/entities/teammate-task';
+} from '@/features/task/store/task';
+import { tasksByTeammateIdState } from '@/features/teammate/store/teammate-task';
 
 export const taskIdsState = atom<string[]>((get) => {
   let tasks = get(tasksByTeammateIdState);

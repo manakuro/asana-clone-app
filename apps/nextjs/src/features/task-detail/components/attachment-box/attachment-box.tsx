@@ -3,7 +3,7 @@ import {
   getTaskFileIcon,
   getTaskFileName,
   useTaskFile,
-} from '@/store/entities/task-file';
+} from '@/features/task/store/task-file';
 import { Component } from './component';
 import type { Sizes } from './sizes';
 

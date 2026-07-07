@@ -1,12 +1,12 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { useCallback, useState } from 'react';
-import { ProjectsTaskDetailPageDocument } from '@/graphql/documents';
-import type { ProjectsTaskDetailPageQueryVariables as Variables } from '@/graphql/types/app/projects';
 import {
   type ProjectTaskResponse,
   useProjectTaskResponse,
-} from '@/store/entities/project-task';
-import { useTasksResponse } from '@/store/entities/task';
+} from '@/features/project/store/project-task';
+import { useTasksResponse } from '@/features/task/store/task';
+import { ProjectsTaskDetailPageDocument } from '@/graphql/documents';
+import type { ProjectsTaskDetailPageQueryVariables as Variables } from '@/graphql/types/app/projects';
 
 export type UseProjectsTaskDetailPageQueryResult = {
   refetch: (variables: Variables) => Promise<void>;

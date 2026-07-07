@@ -1,6 +1,6 @@
 import { useAtomValue } from 'jotai';
 import { useMemo } from 'react';
-import { useMe } from '@/store/entities/me';
+import { useMe } from '@/features/me/store/me';
 import { taskColumnIdsState } from '../atom';
 
 export const useMyTasksTaskColumnIds = () => {

@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import {
   type TeammateTaskResponse,
   useTeammateTaskResponse,
-} from '@/store/entities/teammate-task';
+} from '@/features/teammate/store/teammate-task';
 import type { HomeResponse } from '../type';
 
 export const useHomeResponse = () => {

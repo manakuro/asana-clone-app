@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useCallback } from 'react';
-import { useMe } from '@/store/entities/me';
+import { useMe } from '@/features/me/store/me';
 import { useHomePageQuery } from './api/use-home-page-query';
 import { useHomeTaskDetailPageQuery } from './api/use-home-task-detail-page-query';
 import { Component } from './component';

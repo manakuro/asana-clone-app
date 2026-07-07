@@ -4,9 +4,9 @@ import {
   type SetValueParam,
   useEditorMentionMenu,
 } from '@/features/editor/components/editor-mention-menu';
+import type { Mention } from '@/features/editor/store/mention';
 import { useMenuStyle } from '@/hooks/styles/use-menu-style';
 import { useHover } from '@/hooks/use-hover';
-import type { Mention } from '@/store/entities/mention';
 
 type Props = Override<
   FlexProps,

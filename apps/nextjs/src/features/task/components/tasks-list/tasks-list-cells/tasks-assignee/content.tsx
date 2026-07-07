@@ -1,9 +1,9 @@
 import { memo, useCallback, useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
+import { useTask, useTaskCommand } from '@/features/task/store/task';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
-import { useTask, useTaskCommand } from '@/store/entities/task';
-import { type Teammate, useTeammate } from '@/store/entities/teammate';
+import { type Teammate, useTeammate } from '@/features/teammate/store/teammate';
 import { DeleteButton } from './delete-button';
 import { Input } from './input';
 

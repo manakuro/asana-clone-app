@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo } from 'react';
+import { useFavoriteProjectIdsResponse } from '@/features/me/store/favorite-project-ids';
+import { useMe } from '@/features/me/store/me';
 import { FavoriteProjectIdsDocument } from '@/graphql/documents';
-import { useFavoriteProjectIdsResponse } from '@/store/entities/favorite-project-ids';
-import { useMe } from '@/store/entities/me';
 
 export const useFavoriteProjectIdsQuery = () => {
   const { me } = useMe();

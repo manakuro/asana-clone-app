@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
+import { initialMeState, useMeResponse } from '@/features/me/store/me';
 import { MeDocument } from '@/graphql/documents';
-import { initialMeState, useMeResponse } from '@/store/entities/me';
 
 export const useMeQuery = () => {
   const { setMe } = useMeResponse();

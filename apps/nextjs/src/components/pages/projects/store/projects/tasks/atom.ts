@@ -2,8 +2,8 @@ import { atom } from 'jotai';
 import {
   tasksByProjectIdState,
   tasksByProjectTaskSectionIdAndProjectIdState,
-} from '@/store/entities/project-task';
-import { filterByDueDate } from '@/store/entities/task';
+} from '@/features/project/store/project-task';
+import { filterByDueDate } from '@/features/task/store/task';
 import { filterTasks, sortTasks } from '../filters';
 import { isTaskListSortStatusState } from '../task-list-status';
 

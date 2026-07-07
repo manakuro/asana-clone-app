@@ -5,7 +5,7 @@ import {
   SearchMenuContent,
   SearchMenuTrigger,
 } from '@/components/ui/search-menu';
-import type { Tag } from '@/store/entities/tag';
+import type { Tag } from '@/features/task/store/tag';
 import { Content } from './content';
 
 type Props = PopoverRootProps & {

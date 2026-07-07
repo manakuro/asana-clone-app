@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { CheckIcon } from '@/components/ui/check-icon';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import type { Mention } from '@/store/entities/mention';
-import { useProject } from '@/store/entities/project';
+import type { Mention } from '@/features/editor/store/mention';
+import { useProject } from '@/features/project/store/project';
 import { LeftContainer } from './left-container';
 import { RightContainer } from './right-container';
 

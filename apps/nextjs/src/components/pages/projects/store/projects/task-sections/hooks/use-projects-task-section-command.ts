@@ -1,6 +1,6 @@
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { useProjectTaskSectionCommand as useCommand } from '@/store/entities/project-task-section';
+import { useProjectTaskSectionCommand as useCommand } from '@/features/project/store/project-task-section';
 import { useProjectsProjectId } from '../../project';
 
 export const useProjectsTaskSectionCommand = () => {

@@ -8,7 +8,7 @@ import { Text } from '@/components/ui/text';
 import { TaskDoneTransition } from '@/components/ui/transitions';
 import { useTasksListContext } from '@/features/task/components/tasks-list/context';
 import { useTasksRouter } from '@/features/task/hooks';
-import { useTask, useTaskCommand } from '@/store/entities/task';
+import { useTask, useTaskCommand } from '@/features/task/store/task';
 import { ExpandIcon } from './expand-icon';
 import { Feed } from './feed';
 import { Like } from './like';

@@ -10,10 +10,10 @@ import { NextLink } from '@/components/ui/next-link';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
 import { useInviteModal } from '@/features/teammate/components/invite-modal/use-invite-modal';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
-import { useWorkspace } from '@/store/entities/workspace';
 
 export const Workspace = memo(function Workspace() {
   const pathname = usePathname();

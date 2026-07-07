@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/search-menu';
 import { Text } from '@/components/ui/text';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
-import type { Teammate } from '@/store/entities/teammate';
+import type { Teammate } from '@/features/teammate/store/teammate';
 
 type Props = {
   onClick: (teammate: Teammate) => void;

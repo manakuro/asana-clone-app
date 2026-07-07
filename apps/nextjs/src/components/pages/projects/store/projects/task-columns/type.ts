@@ -1,4 +1,4 @@
-import type { TaskColumn } from '@/store/entities/task-column';
+import type { TaskColumn } from '@/features/task/store/task-column';
 
 export type ProjectTaskColumnResponse = {
   id: string;

@@ -6,7 +6,7 @@ import { Icon } from '@/components/ui/icon';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useTooltip } from '@/components/ui/tooltip/use-tooltip';
 import { useShareProjectModal } from '@/features/project/components/share-project-modal';
-import { useWorkspace } from '@/store/entities/workspace';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 
 type Props = FlexProps;
 

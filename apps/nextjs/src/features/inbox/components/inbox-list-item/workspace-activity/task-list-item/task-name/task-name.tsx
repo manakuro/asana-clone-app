@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { Text, type TextProps } from '@/components/ui/text';
-import { useTask } from '@/store/entities/task';
+import { useTask } from '@/features/task/store/task';
 
 type Props = {
   taskId: string;

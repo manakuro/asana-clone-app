@@ -5,9 +5,9 @@ import { Flex } from '@/components/ui/flex';
 import { Tooltip } from '@/components/ui/tooltip';
 import { useTooltip } from '@/components/ui/tooltip/use-tooltip';
 import { useShareProjectModal } from '@/features/project/components/share-project-modal';
+import { useTeammateIdsByProjectId } from '@/features/project/store/project-teammate';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
-import { useTeammateIdsByProjectId } from '@/store/entities/project-teammate';
-import { useWorkspace } from '@/store/entities/workspace';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { transitions } from '@/utils/transitions';
 
 export const ProjectTeammates = memo(function ProjectTeammates() {

@@ -1,7 +1,7 @@
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
-import { useProjectTaskCommand } from '@/store/entities/project-task';
+import { useProjectTaskCommand } from '@/features/project/store/project-task';
 
 export const useProjectsTask = () => {
   const { addProjectTask, setProjectTaskByTaskId } = useProjectTaskCommand();

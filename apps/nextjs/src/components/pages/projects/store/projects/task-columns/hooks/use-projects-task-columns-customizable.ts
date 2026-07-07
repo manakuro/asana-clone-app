@@ -2,7 +2,7 @@ import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
 import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
-import { useProjectTaskColumnCommand } from '@/store/entities/project-task-column';
+import { useProjectTaskColumnCommand } from '@/features/project/store/project-task-column';
 import { projectsTaskColumnIdsCustomizableState } from '../atom';
 
 export const useProjectsTaskColumnsCustomizable = () => {

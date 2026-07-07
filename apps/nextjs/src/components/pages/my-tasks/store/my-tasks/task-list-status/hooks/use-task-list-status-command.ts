@@ -2,9 +2,9 @@ import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
 import type { TaskListSortStatusCodeValue } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
+import type { TaskListCompletedStatusCodeValue } from '@/features/task/store/task-list-completed-status';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { UpdateTeammateTaskListStatusDocument } from '@/graphql/documents';
-import type { TaskListCompletedStatusCodeValue } from '@/store/entities/task-list-completed-status';
-import { useWorkspace } from '@/store/entities/workspace';
 import { taskListStatusState } from '../atom';
 import { useUpsert } from './use-upsert';
 

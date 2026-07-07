@@ -1,14 +1,14 @@
 import type { PropsWithChildren, ReactElement } from 'react';
 import { memo } from 'react';
-import { useFavoriteProjectIdsUpdatedSubscription } from '@/store/entities/favorite-project-ids';
-import { useMe } from '@/store/entities/me';
-import { useProjectUpdatedSubscription } from '@/store/entities/project';
+import { useFavoriteProjectIdsUpdatedSubscription } from '@/features/me/store/favorite-project-ids';
+import { useMe } from '@/features/me/store/me';
+import { useProjectUpdatedSubscription } from '@/features/project/store/project';
 import {
   useProjectTaskCreatedByTaskIdSubscription,
   useProjectTaskCreatedSubscription,
   useProjectTaskDeletedSubscription,
   useProjectTaskUpdatedSubscription,
-} from '@/store/entities/project-task';
+} from '@/features/project/store/project-task';
 import {
   useProjectTaskSectionCreatedSubscription,
   useProjectTaskSectionDeletedAndDeleteTasksSubscription,
@@ -17,39 +17,39 @@ import {
   useProjectTaskSectionUndeletedAndDeleteTasksSubscription,
   useProjectTaskSectionUndeletedAndKeepTasksSubscription,
   useProjectTaskSectionUpdatedSubscription,
-} from '@/store/entities/project-task-section';
+} from '@/features/project/store/project-task-section';
 import {
   useTaskAssignedSubscription,
   useTaskDeletedSubscription,
   useTaskUnassignedSubscription,
   useTaskUndeletedSubscription,
   useTaskUpdatedSubscription,
-} from '@/store/entities/task';
+} from '@/features/task/store/task';
 import {
   useTaskCollaboratorCreatedSubscription,
   useTaskCollaboratorDeletedSubscription,
-} from '@/store/entities/task-collaborator';
+} from '@/features/task/store/task-collaborator';
 import {
   useTaskFeedCreatedSubscription,
   useTaskFeedDeletedSubscription,
   useTaskFeedUpdatedSubscription,
-} from '@/store/entities/task-feed';
+} from '@/features/task/store/task-feed';
 import {
   useTaskFeedLikeCreatedSubscription,
   useTaskFeedLikeDeletedSubscription,
-} from '@/store/entities/task-feed-like';
+} from '@/features/task/store/task-feed-like';
 import {
   useTaskLikeCreatedSubscription,
   useTaskLikeDeletedSubscription,
-} from '@/store/entities/task-like';
+} from '@/features/task/store/task-like';
 import {
   useTaskTagCreatedSubscription,
   useTaskTagDeletedSubscription,
-} from '@/store/entities/task-tag';
+} from '@/features/task/store/task-tag';
 import {
   useTeammateTaskCreatedSubscription,
   useTeammateTaskUpdatedSubscription,
-} from '@/store/entities/teammate-task';
+} from '@/features/teammate/store/teammate-task';
 import {
   useTeammateTaskSectionCreatedSubscription,
   useTeammateTaskSectionDeletedAndDeleteTasksSubscription,
@@ -58,11 +58,11 @@ import {
   useTeammateTaskSectionUndeletedAndDeleteTasksSubscription,
   useTeammateTaskSectionUndeletedAndKeepTasksSubscription,
   useTeammateTaskSectionUpdatedSubscription,
-} from '@/store/entities/teammates-task-section';
+} from '@/features/teammate/store/teammates-task-section';
 import {
   useWorkspace,
   useWorkspaceUpdatedSubscription,
-} from '@/store/entities/workspace';
+} from '@/features/workspace/store/workspace';
 
 export const Subscription = memo(function Subscription(
   props: PropsWithChildren,

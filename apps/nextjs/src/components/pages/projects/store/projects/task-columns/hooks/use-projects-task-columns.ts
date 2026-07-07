@@ -6,7 +6,7 @@ import {
   type ProjectTaskColumn,
   useProjectTaskColumn,
   useProjectTaskColumnCommand,
-} from '@/store/entities/project-task-column';
+} from '@/features/project/store/project-task-column';
 import { projectsTaskColumnIdsState } from '../atom';
 
 export const useProjectsTaskColumns = (tasksTaskColumnId: string) => {

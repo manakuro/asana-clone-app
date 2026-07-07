@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
 import { useFileViewerModal } from '@/features/task/components/file-viewer-modal/use-file-viewer-modal';
-import { FileTypeCode } from '@/graphql/enums';
 import {
   useTaskFile,
   useTaskFileIdsByTaskId,
-} from '@/store/entities/task-file';
+} from '@/features/task/store/task-file';
+import { FileTypeCode } from '@/graphql/enums';
 import { useTaskFeedListItemContext } from '../../provider';
 import { File } from './file';
 import { Image } from './image';

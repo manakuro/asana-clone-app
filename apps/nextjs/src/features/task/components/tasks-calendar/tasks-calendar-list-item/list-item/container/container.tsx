@@ -1,11 +1,11 @@
 import { forwardRef, memo, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { useProject } from '@/store/entities/project';
+import { useProject } from '@/features/project/store/project';
 import {
   useProjectBaseColor,
   useProjectBaseColorText,
-} from '@/store/entities/project-base-color';
-import { useTask } from '@/store/entities/task';
+} from '@/features/project/store/project-base-color';
+import { useTask } from '@/features/task/store/task';
 import { transitions } from '@/utils/transitions';
 
 type Props = {

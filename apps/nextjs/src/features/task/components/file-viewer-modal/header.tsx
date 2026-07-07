@@ -7,8 +7,8 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Link } from '@/components/ui/link';
 import { Stack } from '@/components/ui/stack';
 import { Text } from '@/components/ui/text';
+import { useTaskFile } from '@/features/task/store/task-file';
 import { formatTaskFileCreatedAt } from '@/lib/date';
-import { useTaskFile } from '@/store/entities/task-file';
 import { useFileViewerModal } from './use-file-viewer-modal';
 
 export const Header = memo(function Header() {

@@ -6,8 +6,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { InviteProjectTeammateMenu } from '@/features/teammate/components/invite-project-teammate-menu';
 import { InvitedTeammateChip } from '@/features/teammate/components/invited-teammate-chip';
+import type { Teammate } from '@/features/teammate/store/teammate';
 import { useDisclosure } from '@/lib/chakra-ui';
-import type { Teammate } from '@/store/entities/teammate';
 import { PermissionMenu } from '../permission-menu';
 
 type Props = {

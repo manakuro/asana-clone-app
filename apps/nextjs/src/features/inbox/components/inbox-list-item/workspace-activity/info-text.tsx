@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useWorkspaceActivityTaskIds } from '@/features/inbox/hooks';
-import { useCreatedByIdsByTaskIds } from '@/store/entities/task';
-import { useTeammateNamesByTeammateIds } from '@/store/entities/teammate';
+import { useCreatedByIdsByTaskIds } from '@/features/task/store/task';
+import { useTeammateNamesByTeammateIds } from '@/features/teammate/store/teammate';
 
 type Props = FlexProps & {
   workspaceActivityId: string;

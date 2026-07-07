@@ -2,8 +2,8 @@ import type React from 'react';
 import { memo, useCallback } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
+import { useTaskCommand } from '@/features/task/store/task';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { useTaskCommand } from '@/store/entities/task';
 
 type Props = FlexProps & {
   taskId: string;

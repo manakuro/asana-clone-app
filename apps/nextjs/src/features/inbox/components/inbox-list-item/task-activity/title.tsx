@@ -4,8 +4,8 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import { useTaskActivityTaskIds } from '@/features/inbox/hooks';
+import { useTask } from '@/features/task/store/task';
 import { formatDueDate } from '@/lib/date';
-import { useTask } from '@/store/entities/task';
 import { transitions } from '@/utils/transitions';
 
 type Props = FlexProps & {

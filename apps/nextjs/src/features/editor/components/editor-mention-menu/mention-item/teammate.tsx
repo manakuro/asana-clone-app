@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { Avatar } from '@/components/ui/avatar';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
-import type { Mention } from '@/store/entities/mention';
-import { useTeammate } from '@/store/entities/teammate';
+import type { Mention } from '@/features/editor/store/mention';
+import { useTeammate } from '@/features/teammate/store/teammate';
 import { LeftContainer } from './left-container';
 import { RightContainer } from './right-container';
 

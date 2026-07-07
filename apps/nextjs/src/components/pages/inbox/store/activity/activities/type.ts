@@ -1,5 +1,5 @@
+import type { ActivityTypeCodeValues } from '@/features/inbox/store/activity-type';
 import type { ActivityResponse as Response } from '@/graphql/types/activity';
-import type { ActivityTypeCodeValues } from '@/store/entities/activity-type';
 
 export type { ActivityResponse } from '@/graphql/types/activity';
 export type Activity = Override<

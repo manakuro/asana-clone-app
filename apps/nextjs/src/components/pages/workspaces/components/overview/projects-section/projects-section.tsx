@@ -15,7 +15,7 @@ import {
   ProjectTileItem,
   ProjectTileItemNew,
 } from '@/features/project/components/project-tile-item';
-import { useProjectIds } from '@/store/entities/project';
+import { useProjectIds } from '@/features/project/store/project';
 import {
   OverviewSectionHeader,
   OverviewSectionHeaderHeading,

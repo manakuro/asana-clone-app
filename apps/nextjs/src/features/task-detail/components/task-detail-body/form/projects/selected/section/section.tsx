@@ -7,11 +7,11 @@ import {
   MenuSelectList,
   MenuSelectTrigger,
 } from '@/components/ui/menu-select';
-import { useProjectTask } from '@/store/entities/project-task';
+import { useProjectTask } from '@/features/project/store/project-task';
 import {
   useProjectsTaskSectionsByProjectId,
   useProjectTaskSection,
-} from '@/store/entities/project-task-section';
+} from '@/features/project/store/project-task-section';
 
 type Props = {
   taskId: string;

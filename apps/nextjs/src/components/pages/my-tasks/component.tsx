@@ -7,6 +7,13 @@ import { useMyTasksTaskListStatus } from '@/components/pages/my-tasks/store/my-t
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/tabs';
+import { TaskListSortStatusCode } from '@/features/task/store/task-list-sort-status';
+import {
+  type TeammateTaskTabStatus,
+  TeammateTaskTabStatusCode,
+  useTeammateTaskTabStatus,
+  useTeammateTaskTabStatusCommand,
+} from '@/features/teammate/store/teammate-task-tab-status';
 import {
   isMyTasksBoardURL,
   isMyTasksCalendarURL,
@@ -15,13 +22,6 @@ import {
   isMyTasksListURL,
   useRouter,
 } from '@/router';
-import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
-import {
-  type TeammateTaskTabStatus,
-  TeammateTaskTabStatusCode,
-  useTeammateTaskTabStatus,
-  useTeammateTaskTabStatusCommand,
-} from '@/store/entities/teammate-task-tab-status';
 import { Board } from './components/board';
 import { Calendar } from './components/calendar';
 import { Files } from './components/files';

@@ -1,4 +1,4 @@
-import type { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
+import type { TaskListSortStatusCode } from '@/features/task/store/task-list-sort-status';
 
 export type TaskListSortStatusCodeValue =
   | typeof TaskListSortStatusCode.None

@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useEffect } from 'react';
+import { useTeammateTaskTabStatusResponse } from '@/features/teammate/store/teammate-task-tab-status';
 import { TeammateTaskTabStatusDocument } from '@/graphql/documents';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
-import { useTeammateTaskTabStatusResponse } from '@/store/entities/teammate-task-tab-status';
 
 const loadingAtom = atom<boolean>(true);
 

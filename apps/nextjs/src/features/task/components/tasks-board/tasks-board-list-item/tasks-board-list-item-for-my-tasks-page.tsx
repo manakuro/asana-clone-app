@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { useProjectIdsByTaskId } from '@/store/entities/project-task';
+import { useProjectIdsByTaskId } from '@/features/project/store/project-task';
 import { Card } from './card';
 import { DueDate } from './due-date';
 import { Feed } from './feed';

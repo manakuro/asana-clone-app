@@ -1,4 +1,4 @@
-import type { TaskFile } from '@/store/entities/task-file';
+import type { TaskFile } from '@/features/task/store/task-file';
 
 export type ProjectsFileResponse = TaskFile & {
   task: Task;

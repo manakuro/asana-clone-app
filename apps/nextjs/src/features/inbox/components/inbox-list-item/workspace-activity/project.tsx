@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
-import { useProject } from '@/store/entities/project';
+import { useProject } from '@/features/project/store/project';
 import { transitions } from '@/utils/transitions';
 
 type Props = FlexProps & {

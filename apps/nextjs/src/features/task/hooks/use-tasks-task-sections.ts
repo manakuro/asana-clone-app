@@ -1,7 +1,7 @@
 import { useMyTasksTaskSections } from '@/components/pages/my-tasks/store/my-tasks/task-sections';
 import { useProjectsTaskSections } from '@/components/pages/projects/store/projects/task-sections';
-import type { ProjectTaskSection } from '@/store/entities/project-task-section';
-import type { TeammateTaskSection } from '@/store/entities/teammates-task-section';
+import type { ProjectTaskSection } from '@/features/project/store/project-task-section';
+import type { TeammateTaskSection } from '@/features/teammate/store/teammates-task-section';
 import { useTasksContext } from '../components/tasks-provider';
 
 export type TaskSection = TeammateTaskSection | ProjectTaskSection;

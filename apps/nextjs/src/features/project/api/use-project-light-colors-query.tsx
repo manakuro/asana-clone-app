@@ -1,12 +1,12 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
-import { ProjectLightColorsDocument } from '@/graphql/documents';
-import type { ProjectLightColorsQuery } from '@/graphql/types/project-light-colors';
-import { getNodesFromEdges } from '@/lib/apollo/util';
 import {
   type ProjectLightColorResponse,
   useProjectLightColorsResponse,
-} from '@/store/entities/project-light-color';
+} from '@/features/project/store/project-light-color';
+import { ProjectLightColorsDocument } from '@/graphql/documents';
+import type { ProjectLightColorsQuery } from '@/graphql/types/project-light-colors';
+import { getNodesFromEdges } from '@/lib/apollo/util';
 
 export const useProjectLightColorsQuery = () => {
   const { setProjectLightColors } = useProjectLightColorsResponse();

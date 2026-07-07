@@ -8,14 +8,14 @@ import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
 import { useFileViewerModal } from '@/features/task/components/file-viewer-modal/use-file-viewer-modal';
 import { useTasksRouter } from '@/features/task/hooks';
-import { useHover } from '@/hooks/use-hover';
-import { FileTypeCode } from '@/store/entities/file-type';
-import { useTask } from '@/store/entities/task';
+import { FileTypeCode } from '@/features/task/store/file-type';
+import { useTask } from '@/features/task/store/task';
 import {
   getTaskFileIcon,
   useTaskFile,
   useTaskFileIdsByTaskId,
-} from '@/store/entities/task-file';
+} from '@/features/task/store/task-file';
+import { useHover } from '@/hooks/use-hover';
 import { transitions } from '@/utils/transitions';
 
 type Props = {

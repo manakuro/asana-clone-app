@@ -5,9 +5,9 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
 import { PopoverDueDatePicker } from '@/features/task/components/popover-due-date-picker/popover-due-date-picker';
 import { TasksListCell } from '@/features/task/components/tasks-list/tasks-list-cell';
+import { useTask } from '@/features/task/store/task';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useHover } from '@/hooks/use-hover';
-import { useTask } from '@/store/entities/task';
 
 type Props = FlexProps & {
   taskId: string;

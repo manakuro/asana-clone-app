@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { useWorkspace } from '@/store/entities/workspace';
 import { PermissionMenu } from '../../permission-menu';
 
 type Props = {

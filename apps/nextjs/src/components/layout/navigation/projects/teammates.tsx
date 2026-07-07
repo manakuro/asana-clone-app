@@ -3,8 +3,8 @@ import { PADDING_X } from '@/components/layout/navigation/navigation';
 import { Wrap, WrapItem } from '@/components/ui/wrap';
 import { useInviteModal } from '@/features/teammate/components/invite-modal/use-invite-modal';
 import { TeammateAvatar } from '@/features/teammate/components/teammate-avatar';
+import { useTeammates } from '@/features/teammate/store/teammate';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
-import { useTeammates } from '@/store/entities/teammate';
 import { Teammate } from './teammate';
 
 export const Teammates = memo(function Teammates() {

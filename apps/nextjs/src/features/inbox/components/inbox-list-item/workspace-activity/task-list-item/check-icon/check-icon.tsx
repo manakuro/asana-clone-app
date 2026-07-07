@@ -4,7 +4,7 @@ import {
   CheckIcon as AtomsCheckIcon,
   type CheckIconProps,
 } from '@/components/ui/check-icon';
-import { useTask } from '@/store/entities/task';
+import { useTask } from '@/features/task/store/task';
 
 type Props = {
   taskId: string;

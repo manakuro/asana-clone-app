@@ -4,10 +4,10 @@ import type { BoxProps } from '@/components/ui/box';
 import { Center } from '@/components/ui/center';
 import { Icon as AtomsIcon } from '@/components/ui/icon';
 import { WrapItem } from '@/components/ui/wrap';
+import { useProjectBaseColor } from '@/features/project/store/project-base-color';
+import { useProjectIcon } from '@/features/project/store/project-icon';
+import { useProjectLightColor } from '@/features/project/store/project-light-color';
 import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
-import { useProjectBaseColor } from '@/store/entities/project-base-color';
-import { useProjectIcon } from '@/store/entities/project-icon';
-import { useProjectLightColor } from '@/store/entities/project-light-color';
 import type { IconType } from '@/utils/icons';
 
 type Props = {

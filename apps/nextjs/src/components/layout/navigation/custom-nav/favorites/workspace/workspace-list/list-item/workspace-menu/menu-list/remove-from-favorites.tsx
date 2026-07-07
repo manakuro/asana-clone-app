@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { Menu } from '@/components/ui/menu';
-import { useFavoriteWorkspaceIdsCommand } from '@/store/entities/favorite-workspace-ids';
+import { useFavoriteWorkspaceIdsCommand } from '@/features/me/store/favorite-workspace-ids';
 
 type Props = {
   workspaceId: string;

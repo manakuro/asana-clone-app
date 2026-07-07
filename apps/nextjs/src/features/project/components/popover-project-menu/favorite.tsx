@@ -4,7 +4,7 @@ import { Menu } from '@/components/ui/menu';
 import {
   useFavoriteProjectIds,
   useFavoriteProjectIdsCommand,
-} from '@/store/entities/favorite-project-ids';
+} from '@/features/me/store/favorite-project-ids';
 
 type Props = {
   projectId: string;

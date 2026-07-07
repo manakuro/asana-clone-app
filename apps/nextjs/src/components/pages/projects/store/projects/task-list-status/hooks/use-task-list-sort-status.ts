@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { TaskListSortStatusCode } from '@/store/entities/task-list-sort-status';
+import { TaskListSortStatusCode } from '@/features/task/store/task-list-sort-status';
 import { type TaskListSortStatuses, taskListSortStatues } from '../atom';
 import type { TaskListSortStatusCodeValue } from '../types';
 import { useTaskListStatus } from './use-task-list-status';

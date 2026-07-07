@@ -1,4 +1,4 @@
-import { useProjectTaskSection } from '@/store/entities/project-task-section';
+import { useProjectTaskSection } from '@/features/project/store/project-task-section';
 
 export const useProjectsTaskSection = (taskSectionId: string) => {
   const { setProjectTaskSectionName, projectTaskSection } =

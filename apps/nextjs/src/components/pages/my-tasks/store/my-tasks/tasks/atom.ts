@@ -6,12 +6,12 @@ import {
   sortTasks,
 } from '@/components/pages/my-tasks/store/my-tasks/filters';
 import { isTaskListSortStatusState } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
-import { filterByDueDate } from '@/store/entities/task';
+import { filterByDueDate } from '@/features/task/store/task';
 import {
   tasksByTeammateIdState,
   tasksByTeammateTaskSectionIdState,
-} from '@/store/entities/teammate-task';
-import { isTabStatusState } from '@/store/entities/teammate-task-tab-status';
+} from '@/features/teammate/store/teammate-task';
+import { isTabStatusState } from '@/features/teammate/store/teammate-task-tab-status';
 
 export const taskIdsState = atom<string[]>((get) => {
   let tasks = get(tasksByTeammateIdState);

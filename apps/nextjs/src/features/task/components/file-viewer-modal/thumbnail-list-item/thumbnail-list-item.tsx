@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 import { Center } from '@/components/ui/center';
 import { Icon } from '@/components/ui/icon';
 import { Image } from '@/components/ui/image';
+import { getTaskFileIcon, useTaskFile } from '@/features/task/store/task-file';
 import { FileTypeCode } from '@/graphql/enums';
 import type { SystemStyleObject } from '@/lib/chakra-ui';
-import { getTaskFileIcon, useTaskFile } from '@/store/entities/task-file';
 import { Container } from './container';
 
 type Props = {

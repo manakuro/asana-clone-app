@@ -1,12 +1,12 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect } from 'react';
-import { ProjectsDocument } from '@/graphql/documents';
-import type { ProjectsQuery } from '@/graphql/types/projects';
-import { getNodesFromEdges } from '@/lib/apollo/util';
 import {
   type ProjectResponse,
   useProjectResponse,
-} from '@/store/entities/project';
+} from '@/features/project/store/project';
+import { ProjectsDocument } from '@/graphql/documents';
+import type { ProjectsQuery } from '@/graphql/types/projects';
+import { getNodesFromEdges } from '@/lib/apollo/util';
 
 export const useProjectsQuery = () => {
   const { setProjects } = useProjectResponse();

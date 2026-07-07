@@ -5,9 +5,9 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { TasksListCell } from '@/features/task/components/tasks-list/tasks-list-cell';
 import { useTasksListHeaderContext } from '@/features/task/components/tasks-list/tasks-list-header/context';
 import { useTasksTaskColumn } from '@/features/task/hooks';
+import { useTaskColumn } from '@/features/task/store/task-column';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { useHover } from '@/hooks/use-hover';
-import { useTaskColumn } from '@/store/entities/task-column';
 import { MoreAction } from './more-action';
 
 type Props = {

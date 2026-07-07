@@ -1,6 +1,6 @@
 import { useAtomValue } from 'jotai';
 import { useMemo } from 'react';
-import { teammateTaskSectionByTaskIdState } from '@/store/entities/teammates-task-section';
+import { teammateTaskSectionByTaskIdState } from '@/features/teammate/store/teammates-task-section';
 
 export const useMyTasksTaskSectionByTaskId = (taskId: string) => {
   const taskSection = useAtomValue(

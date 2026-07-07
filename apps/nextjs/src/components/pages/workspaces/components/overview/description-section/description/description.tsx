@@ -2,10 +2,13 @@ import { memo, useCallback, useMemo } from 'react';
 import { Editor, EditorContent } from '@/components/ui/editor';
 import { isDescriptionEqual } from '@/features/editor/utils/is-description-equal';
 import {
+  useWorkspace,
+  useWorkspaceCommand,
+} from '@/features/workspace/store/workspace';
+import {
   parseDescription,
   stringifyDescription,
 } from '@/lib/prosemirror/convert-description';
-import { useWorkspace, useWorkspaceCommand } from '@/store/entities/workspace';
 import { Container } from './container';
 import { Context } from './context';
 import { Placeholder } from './placeholder';

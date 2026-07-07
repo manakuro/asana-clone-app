@@ -6,9 +6,9 @@ import { Icon } from '@/components/ui/icon';
 import { Link } from '@/components/ui/link';
 import { NextLink } from '@/components/ui/next-link';
 import { Text } from '@/components/ui/text';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import { useLinkHoverStyle } from '@/hooks/styles/use-link-hover-style';
 import { ROUTE_WORKSPACES, ROUTE_WORKSPACES_OVERVIEW } from '@/router';
-import { useWorkspace } from '@/store/entities/workspace';
 import { WorkspaceMenu } from './workspace-menu';
 
 export const ListItem = memo(function ListItem() {

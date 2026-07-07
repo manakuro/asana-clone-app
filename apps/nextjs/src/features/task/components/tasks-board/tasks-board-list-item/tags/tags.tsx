@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { useTaskTagIdsByTaskId } from '@/store/entities/task-tag';
+import { useTaskTagIdsByTaskId } from '@/features/task/store/task-tag';
 import { Tag } from './tag';
 
 type Props = FlexProps & {

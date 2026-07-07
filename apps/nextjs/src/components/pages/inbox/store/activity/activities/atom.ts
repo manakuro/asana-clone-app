@@ -1,7 +1,7 @@
 import { atom } from 'jotai';
+import { ActivityTypeCode } from '@/features/inbox/store/activity-type';
 import { dateFns } from '@/lib/date-fns';
 import { createState } from '@/lib/jotai';
-import { ActivityTypeCode } from '@/store/entities/activity-type';
 import type { Activity } from './type';
 
 export const initialState = (): Activity => ({

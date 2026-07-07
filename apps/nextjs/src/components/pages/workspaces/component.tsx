@@ -4,13 +4,13 @@ import { MainHeader } from '@/components/layout/main-header';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/tabs';
+import { useWorkspace } from '@/features/workspace/store/workspace';
 import {
   isWorkspacesCalendarURL,
   isWorkspacesMessageURL,
   isWorkspacesOverviewURL,
   useRouter,
 } from '@/router';
-import { useWorkspace } from '@/store/entities/workspace';
 import { Header } from './components/header';
 import { Overview } from './components/overview';
 import { Context, useWorkspacesPageContext } from './contexts/context';

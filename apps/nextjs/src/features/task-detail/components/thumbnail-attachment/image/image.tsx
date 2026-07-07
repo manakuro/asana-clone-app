@@ -1,12 +1,12 @@
 import type { FlexProps } from '@/components/ui/flex';
 import { Image as AtomsImage } from '@/components/ui/image';
+import { useTaskFile } from '@/features/task/store/task-file';
 import { Container } from '@/features/task-detail/components/thumbnail-attachment/container';
 import { useThumbnailAttachmentContext } from '@/features/task-detail/components/thumbnail-attachment/context';
 import { Menu } from '@/features/task-detail/components/thumbnail-attachment/menu';
 import { MenuButton } from '@/features/task-detail/components/thumbnail-attachment/menu-button';
 import { Overlay } from '@/features/task-detail/components/thumbnail-attachment/overlay';
 import { Tooltip } from '@/features/task-detail/components/thumbnail-attachment/tooltip';
-import { useTaskFile } from '@/store/entities/task-file';
 
 type Props = FlexProps & {
   taskFileId: string;
