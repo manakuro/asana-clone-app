@@ -1,7 +1,7 @@
 import { ApolloProvider as ApolloProviderLibs } from '@apollo/client/react';
 import type { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
-import { useAuthContext } from '@/contexts/auth-context';
+import { useAuthContext } from '@/features/auth/contexts/auth-context';
 import { createApolloClient } from './client';
 
 export function ApolloProvider({ children }: PropsWithChildren) {

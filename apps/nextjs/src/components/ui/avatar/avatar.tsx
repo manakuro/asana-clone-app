@@ -1,7 +1,7 @@
 import {
   Avatar as ChakraAvatar,
   type AvatarProps as ChakraAvatarProps,
-} from '@/chakra-ui/ui/avatar';
+} from '@/lib/chakra-ui/generated/avatar';
 
 export {
   AvatarGroup,

@@ -7,7 +7,7 @@ import {
   DeleteTaskDocument,
   UnassignTaskDocument,
   UndeleteTaskDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import {
   type DeletedTaskResponse,
   deletedTasksByTaskIdState,

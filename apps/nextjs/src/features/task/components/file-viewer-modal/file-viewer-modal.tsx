@@ -1,6 +1,6 @@
-import { DarkMode } from '@/chakra-ui/ui/color-mode';
 import { Dialog } from '@/components/ui/dialog';
 import { Portal } from '@/components/ui/portal';
+import { DarkMode } from '@/lib/chakra-ui/generated/color-mode';
 import { Body } from './body';
 import { Header } from './header';
 import { useFileViewerModal } from './use-file-viewer-modal';

@@ -2,7 +2,7 @@ import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { ProjectTaskSectionUndeletedAndKeepTasksDocument } from '@/graphql/hooks';
+import { ProjectTaskSectionUndeletedAndKeepTasksDocument } from '@/graphql/documents';
 import type { ProjectTaskResponse } from '@/graphql/types/project-task';
 import {
   projectTasksByIdsState,

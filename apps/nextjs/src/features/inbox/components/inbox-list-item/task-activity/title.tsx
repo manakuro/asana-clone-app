@@ -6,7 +6,7 @@ import { Link } from '@/components/ui/link';
 import { useTaskActivityTaskIds } from '@/features/inbox/hooks';
 import { formatDueDate } from '@/lib/date';
 import { useTask } from '@/store/entities/task';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 
 type Props = FlexProps & {
   taskActivityId: string;

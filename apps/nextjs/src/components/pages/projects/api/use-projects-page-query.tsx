@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { ProjectsPageDocument } from '@/graphql/hooks';
+import { ProjectsPageDocument } from '@/graphql/documents';
 import type { ProjectsPageQueryVariables as Variables } from '@/graphql/types/app/projects';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { useProjectsResponse } from '@/store/app/projects';

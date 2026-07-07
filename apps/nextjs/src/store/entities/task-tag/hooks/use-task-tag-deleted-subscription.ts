@@ -1,7 +1,7 @@
 import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { TaskTagDeletedDocument } from '@/graphql/hooks';
+import { TaskTagDeletedDocument } from '@/graphql/documents';
 import { isDev } from '@/utils/environment';
 import { uuid } from '@/utils/uuid';
 import type { TaskTagDeletedSubscriptionResponse as Response } from '../type';

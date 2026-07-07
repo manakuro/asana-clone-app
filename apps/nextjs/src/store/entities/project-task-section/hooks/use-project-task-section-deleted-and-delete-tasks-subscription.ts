@@ -2,7 +2,7 @@ import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { ProjectTaskSectionDeletedAndDeleteTasksDocument } from '@/graphql/hooks';
+import { ProjectTaskSectionDeletedAndDeleteTasksDocument } from '@/graphql/documents';
 import { isDev } from '@/utils/environment';
 import { uuid } from '@/utils/uuid';
 import type { ProjectTaskSectionDeletedAndDeleteTasksSubscriptionResponse as Response } from '../type';

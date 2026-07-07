@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { useTasksTaskFiles } from '@/features/task/hooks';
-import { useBreakpointValue } from '@/lib/chakra';
+import { useBreakpointValue } from '@/lib/chakra-ui';
 import { splitByNumber } from '@/utils';
 import { TasksFilesListItem } from '../tasks-files-list-item';
 import { Empty } from './empty';

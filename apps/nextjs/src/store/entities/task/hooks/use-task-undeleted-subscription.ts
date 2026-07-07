@@ -1,7 +1,7 @@
 import { useSubscription } from '@apollo/client/react';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback } from 'react';
-import { TaskUndeletedDocument } from '@/graphql/hooks';
+import { TaskUndeletedDocument } from '@/graphql/documents';
 import { useResetDeletedTask } from '@/store/entities/deleted-task';
 import { useProjectTaskResponse } from '@/store/entities/project-task';
 import { useTeammateTaskResponse } from '@/store/entities/teammate-task';

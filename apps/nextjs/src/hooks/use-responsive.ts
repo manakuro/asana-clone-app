@@ -1,4 +1,4 @@
-import { useBreakpointValue } from '@/lib/chakra';
+import { useBreakpointValue } from '@/lib/chakra-ui';
 
 export const useResponsive = () => {
   const isMobile = useBreakpointValue(

@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useEffect } from 'react';
-import { TeammateTaskTabStatusDocument } from '@/graphql/hooks';
+import { TeammateTaskTabStatusDocument } from '@/graphql/documents';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { useTeammateTaskTabStatusResponse } from '@/store/entities/teammate-task-tab-status';
 

@@ -5,7 +5,7 @@ import { useCallback, useMemo } from 'react';
 import {
   CreateTaskFeedLikeDocument,
   DeleteTaskFeedLikeDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import { useWorkspace } from '@/store/entities/workspace';
 import { uuid } from '@/utils/uuid';
 import { initialState, taskFeedLikeState, taskFeedLikesState } from '../atom';

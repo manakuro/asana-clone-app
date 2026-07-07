@@ -1,7 +1,7 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { TagsDocument } from '@/graphql/hooks';
+import { TagsDocument } from '@/graphql/documents';
 import type { TagResponse, TagsQuery } from '@/graphql/types/tag';
 import { getNodesFromEdges } from '@/lib/apollo/util';
 import { useWorkspace } from '@/store/entities/workspace';

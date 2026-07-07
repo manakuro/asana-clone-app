@@ -1,6 +1,6 @@
 import { CombinedGraphQLErrors, ServerError } from '@apollo/client';
 import type { ErrorLink } from '@apollo/client/link/error';
-import { toaster } from '@/chakra-ui/ui/toaster';
+import { toaster } from '@/lib/chakra-ui/generated/toaster';
 
 let unauthorized = false;
 

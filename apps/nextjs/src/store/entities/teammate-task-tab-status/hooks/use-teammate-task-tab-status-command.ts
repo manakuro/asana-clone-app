@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { UpdateTeammateTaskTabStatusDocument } from '@/graphql/hooks';
+import { UpdateTeammateTaskTabStatusDocument } from '@/graphql/documents';
 import { tabStatusState } from '../atom';
 import {
   type TeammateTaskTabStatus,

@@ -1,1 +1,1 @@
-export { Toaster } from '@/chakra-ui/ui/toaster';
+export { Toaster } from '@/lib/chakra-ui/generated/toaster';

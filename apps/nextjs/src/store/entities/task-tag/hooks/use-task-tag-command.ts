@@ -1,7 +1,10 @@
 import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { CreateTaskTagDocument, DeleteTaskTagDocument } from '@/graphql/hooks';
+import {
+  CreateTaskTagDocument,
+  DeleteTaskTagDocument,
+} from '@/graphql/documents';
 import type { Tag } from '@/store/entities/tag';
 import {
   taskTagByTaskIdAndTagIdState,

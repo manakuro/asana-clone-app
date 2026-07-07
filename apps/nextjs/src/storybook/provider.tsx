@@ -1,7 +1,6 @@
 import { ApolloProvider as ApolloProviderLibs } from '@apollo/client/react';
 import type { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
-import { Provider as ChakraProvider } from '@/chakra-ui/ui/provider';
 import { Modals } from '@/components/layout/modals/modals';
 import { useTeammateTaskTabStatusQuery } from '@/components/pages/my-tasks/api/use-teammate-task-tab-status-query';
 import { useFavoriteProjectIdsQuery } from '@/features/favorite-project/api/use-favorite-project-ids-query';
@@ -14,6 +13,7 @@ import { useProjectsQuery } from '@/features/project/api/use-projects-query';
 import { useTaskPrioritiesQuery } from '@/features/task/api/use-task-priorities-query';
 import { useWorkspaceQuery } from '@/features/workspace/api/use-workspace-query';
 import { createApolloClient } from '@/lib/apollo/client';
+import { Provider as ChakraProvider } from '@/lib/chakra-ui/generated/provider';
 
 export const Provider = (props: PropsWithChildren) => {
   return (

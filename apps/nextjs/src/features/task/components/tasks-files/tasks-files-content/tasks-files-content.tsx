@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useMainStyle } from '@/hooks/styles/use-main-style';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 
 type Props = FlexProps;
 

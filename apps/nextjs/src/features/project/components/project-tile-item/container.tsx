@@ -3,7 +3,7 @@ import { type ReactElement, useCallback, useState } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
 import { useHover } from '@/hooks/use-hover';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 
 type Props = {
   name: string;

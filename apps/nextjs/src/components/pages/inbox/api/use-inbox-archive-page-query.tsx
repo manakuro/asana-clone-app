@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { InboxArchivePageDocument } from '@/graphql/hooks';
+import { InboxArchivePageDocument } from '@/graphql/documents';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { useArchiveResponse } from '@/store/app/inbox/archive';
 import { useWorkspace } from '@/store/entities/workspace';

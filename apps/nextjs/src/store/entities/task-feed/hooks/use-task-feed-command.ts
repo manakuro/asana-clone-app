@@ -5,7 +5,7 @@ import {
   CreateTaskFeedDocument,
   DeleteTaskFeedDocument,
   UndeleteTaskFeedDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import { useTaskFeedLikeResponse } from '@/store/entities/task-feed-like';
 import { useTaskFileResponse } from '@/store/entities/task-file';
 import { useWorkspace } from '@/store/entities/workspace';

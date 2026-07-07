@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import {
   UpdateTeammateTaskColumnDocument,
   UpdateTeammateTaskColumnOrderDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import { teammateTaskColumnState, teammateTaskColumnsState } from '../atom';
 import type { TeammateTaskColumn } from '../type';
 import { useUpsert } from './use-upsert';

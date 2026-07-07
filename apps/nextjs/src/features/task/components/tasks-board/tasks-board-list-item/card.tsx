@@ -4,7 +4,7 @@ import { Collapsible } from '@/components/ui/collapsible';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTasksRouter } from '@/features/task/hooks';
 import { useTask } from '@/store/entities/task';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 import { useTasksBoardListItemContext } from './provider';
 
 type Props = FlexProps & {

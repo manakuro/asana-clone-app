@@ -2,7 +2,7 @@ import { useSubscription } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import isEqual from 'lodash-es/isEqual';
 import { useCallback, useMemo } from 'react';
-import { TeammateTaskSectionUndeletedAndKeepTasksDocument } from '@/graphql/hooks';
+import { TeammateTaskSectionUndeletedAndKeepTasksDocument } from '@/graphql/documents';
 import {
   type TeammateTaskResponse,
   teammateTasksByIdsState,

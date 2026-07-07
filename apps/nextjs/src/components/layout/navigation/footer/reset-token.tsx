@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/icon';
 import { List } from '@/components/ui/list';
 import { Text } from '@/components/ui/text';
 import { setErrorToken } from '@/lib/apollo/client';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 import { PADDING_X } from '../navigation';
 
 export function ResetToken() {

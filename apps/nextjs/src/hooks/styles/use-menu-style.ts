@@ -1,6 +1,6 @@
 import { useSlotRecipe } from '@chakra-ui/react';
 import { useMemo } from 'react';
-import type { SystemStyleObject } from '@/lib/chakra';
+import type { SystemStyleObject } from '@/lib/chakra-ui';
 
 type MenuStyle = {
   content: SystemStyleObject;

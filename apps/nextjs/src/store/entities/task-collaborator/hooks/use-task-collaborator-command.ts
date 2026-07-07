@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import {
   CreateTaskCollaboratorDocument,
   DeleteTaskCollaboratorDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import type { TaskCollaboratorResponse } from '@/graphql/types/task-collaborator';
 import {
   type Teammate,

@@ -1,6 +1,6 @@
 import { memo, type PropsWithChildren } from 'react';
 import { Menu } from '@/components/ui/menu';
-import { useDisclosure } from '@/lib/chakra';
+import { useDisclosure } from '@/lib/chakra-ui';
 import { MenuList } from './menu-list';
 import { ProjectRoleInputPopover } from './project-role-input-popover';
 

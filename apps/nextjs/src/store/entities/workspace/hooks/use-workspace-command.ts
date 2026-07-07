@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client/react';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import { UpdateWorkspaceDocument } from '@/graphql/hooks';
+import { UpdateWorkspaceDocument } from '@/graphql/documents';
 import { workspaceState } from '../atom';
 import type { Workspace } from '../type';
 import { useUpsert } from './use-upsert';

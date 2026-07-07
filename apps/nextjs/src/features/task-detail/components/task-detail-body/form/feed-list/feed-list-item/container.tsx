@@ -1,6 +1,6 @@
 import { memo, type PropsWithChildren, type Ref, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 import { useTaskFeedListItemContext } from './provider';
 import { useFeedListItemContainerContext } from './provider/provider-container';
 

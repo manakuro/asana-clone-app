@@ -1,6 +1,6 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { useCallback, useState } from 'react';
-import { ProjectsTaskDetailPageDocument } from '@/graphql/hooks';
+import { ProjectsTaskDetailPageDocument } from '@/graphql/documents';
 import type { ProjectsTaskDetailPageQueryVariables as Variables } from '@/graphql/types/app/projects';
 import {
   type ProjectTaskResponse,

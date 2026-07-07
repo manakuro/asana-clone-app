@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo, useState } from 'react';
-import { HomePageDocument } from '@/graphql/hooks';
+import { HomePageDocument } from '@/graphql/documents';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { useHomeResponse } from '@/store/app/home';
 import { useMe } from '@/store/entities/me';

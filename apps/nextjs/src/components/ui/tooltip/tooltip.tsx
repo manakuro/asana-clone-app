@@ -1,11 +1,11 @@
 import type { TooltipContentProps } from '@chakra-ui/react';
 import type React from 'react';
 import { forwardRef } from 'react';
+import { Flex } from '@/components/ui/flex';
 import {
   Tooltip as ChakraTooltip,
   type TooltipProps as ChakraTooltipProps,
-} from '@/chakra-ui/ui/tooltip';
-import { Flex } from '@/components/ui/flex';
+} from '@/lib/chakra-ui/generated/tooltip';
 
 type Props = ChakraTooltipProps & {
   withIcon?: boolean;

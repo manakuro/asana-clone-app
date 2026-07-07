@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { AtMention, Emoji, Format } from '@/components/ui/editor/tool-bar';
 import { Flex } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 import { useInputContext } from '../context';
 import { Attachment } from './attachment';
 

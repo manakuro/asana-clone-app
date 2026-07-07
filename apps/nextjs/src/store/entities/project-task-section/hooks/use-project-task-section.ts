@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client/react';
 import { useAtomValue } from 'jotai';
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback, useMemo } from 'react';
-import { UpdateProjectTaskSectionDocument } from '@/graphql/hooks';
+import { UpdateProjectTaskSectionDocument } from '@/graphql/documents';
 import type { UpdateTeammateTaskSectionInput } from '@/graphql/types';
 import { useWorkspace } from '@/store/entities/workspace';
 import { omit } from '@/utils/omit';

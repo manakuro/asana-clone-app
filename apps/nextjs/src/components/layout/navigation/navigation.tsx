@@ -1,9 +1,9 @@
 'use client';
 
 import { memo } from 'react';
-import { DarkMode } from '@/chakra-ui/ui/color-mode';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
+import { DarkMode } from '@/lib/chakra-ui/generated/color-mode';
 import { CustomNav } from './custom-nav';
 import { Footer } from './footer';
 import { Header } from './header';

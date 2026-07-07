@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import {
   UpdateProjectTeammateDocument,
   UpdateProjectTeammateOwnerDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import { useWorkspace } from '@/store/entities/workspace';
 import {
   ownerProjectTeammateByProjectIdState,

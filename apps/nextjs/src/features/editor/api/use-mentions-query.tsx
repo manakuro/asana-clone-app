@@ -1,7 +1,7 @@
 import { useLazyQuery } from '@apollo/client/react';
 import { atom, useAtom } from 'jotai';
 import { useCallback } from 'react';
-import { MentionDocument } from '@/graphql/hooks';
+import { MentionDocument } from '@/graphql/documents';
 import type { Mention } from '@/store/entities/mention';
 import { useWorkspace } from '@/store/entities/workspace';
 

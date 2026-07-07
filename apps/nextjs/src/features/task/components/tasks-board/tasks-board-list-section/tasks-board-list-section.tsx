@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { useTasksTaskIdsByTaskSectionId } from '@/features/task/hooks';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 import { TasksBoardListItem } from '../tasks-board-list-item';
 import { AddTask } from './add-task';
 import { AddTaskSection } from './add-task-section';

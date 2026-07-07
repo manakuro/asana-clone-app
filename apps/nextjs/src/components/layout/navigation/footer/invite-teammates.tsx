@@ -5,7 +5,7 @@ import { Icon } from '@/components/ui/icon';
 import { List } from '@/components/ui/list';
 import { Text } from '@/components/ui/text';
 import { useInviteModal } from '@/features/teammate/components/invite-modal/use-invite-modal';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 import { PADDING_X } from '../navigation';
 
 export const InviteTeammates: React.FC = () => {

@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import { chakra } from '@/lib/chakra';
+import { chakra } from '@/lib/chakra-ui';
 
 type Props = ComponentProps<typeof chakra.label>;
 export type LabelProps = Props;

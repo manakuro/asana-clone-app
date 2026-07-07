@@ -8,7 +8,7 @@ import {
   DeleteTeammateTaskSectionDocument,
   UndeleteTeammateTaskSectionAndDeleteTasksDocument,
   UndeleteTeammateTaskSectionAndKeepTasksDocument,
-} from '@/graphql/hooks';
+} from '@/graphql/documents';
 import { useMe } from '@/store/entities/me';
 import {
   type TeammateTaskResponse,

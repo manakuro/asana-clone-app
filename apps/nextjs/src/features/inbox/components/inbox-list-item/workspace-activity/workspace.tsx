@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/icon';
 import { Text, type TextProps } from '@/components/ui/text';
 import { useInboxListItemContext } from '@/features/inbox/components/inbox-list-item/context';
 import { useWorkspace } from '@/store/entities/workspace';
-import { transitions } from '@/styles/transitions';
+import { transitions } from '@/utils/transitions';
 
 export const Workspace = memo(function Workspace() {
   const { workspace } = useWorkspace();
