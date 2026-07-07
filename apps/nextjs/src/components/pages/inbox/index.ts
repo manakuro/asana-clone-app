@@ -1,2 +1,1 @@
-export { Component } from './component';
-export { Container } from './container';
+export { Page } from './page';

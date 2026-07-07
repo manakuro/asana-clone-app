@@ -8,7 +8,7 @@ import { useProjectsTaskDetailPageQuery } from './api/use-projects-detail-page-q
 import { useProjectsPageQuery } from './api/use-projects-page-query';
 import { Component } from './component';
 
-export const Container = memo(function Container() {
+export const Page = memo(function Container() {
   const { projectId, setProjectId } = useProjectsProjectId();
   const { loading, startLoading } = useProjectsPageQuery({ projectId });
   const { refetch: refetchProjectsTaskDetailPageQuery } =

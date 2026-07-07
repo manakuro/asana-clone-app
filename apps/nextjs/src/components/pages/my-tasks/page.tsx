@@ -9,7 +9,7 @@ import { useMyTasksPageQuery } from './api/use-my-tasks-page-query';
 import { useTeammateTaskTabStatusQuery } from './api/use-teammate-task-tab-status-query';
 import { Component } from './component';
 
-export function Container() {
+export function Page() {
   const { loading } = useMyTasksPageQuery();
   const { refetch } = useMyTasksDetailPageQuery();
   const { me } = useMe();

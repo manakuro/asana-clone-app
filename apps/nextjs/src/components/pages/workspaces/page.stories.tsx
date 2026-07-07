@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { LayoutDefault } from '@/components/ui/layout';
-import { Container as Page } from './container';
+import { Page } from './page';
 
-const meta: Meta<typeof Page> = {
-  title: 'Pages/Home',
+const meta = {
+  title: 'Pages/Workspaces',
   component: Page,
   parameters: {
     layout: 'fullscreen',
     nextjs: {
       appDirectory: true,
       navigation: {
-        pathname: '/',
+        pathname: '/workspaces/0AD01GK0BWAQZYWRN2T89M5K2620Z/overview',
         searchParams: {},
       },
     },
@@ -22,9 +22,9 @@ const meta: Meta<typeof Page> = {
       </LayoutDefault>
     ),
   ],
-};
+} satisfies Meta<typeof Page>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Overview: Story = {};

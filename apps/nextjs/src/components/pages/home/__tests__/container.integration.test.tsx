@@ -8,7 +8,7 @@ import {
   resetServer,
   startServer,
 } from '@/test-utils/mock/setup';
-import { Container } from '../container';
+import { Page } from '../page';
 
 describe('pages/Home', () => {
   startServer();
@@ -26,7 +26,7 @@ describe('pages/Home', () => {
     it('should render tasks due soon section', async () => {
       render(
         <Provider>
-          <Container />
+          <Page />
         </Provider>,
       );
 
@@ -38,7 +38,7 @@ describe('pages/Home', () => {
     it('should render favorite projects', async () => {
       render(
         <Provider>
-          <Container />
+          <Page />
         </Provider>,
       );
 
@@ -49,7 +49,7 @@ describe('pages/Home', () => {
     it('should add favorite item', async () => {
       render(
         <Provider>
-          <Container />
+          <Page />
         </Provider>,
       );
 
@@ -64,7 +64,7 @@ describe('pages/Home', () => {
     it('should delete favorite item', async () => {
       render(
         <Provider>
-          <Container />
+          <Page />
         </Provider>,
       );
 
@@ -83,7 +83,7 @@ describe('pages/Home', () => {
     it('should render recent projects', async () => {
       render(
         <Provider>
-          <Container />
+          <Page />
         </Provider>,
       );
 

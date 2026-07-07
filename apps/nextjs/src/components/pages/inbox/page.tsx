@@ -16,7 +16,7 @@ const ARCHIVE_INDEX = 'archive' as const;
 
 type Index = typeof ACTIVITY_INDEX | typeof ARCHIVE_INDEX;
 
-export const Component = memo(function InboxComponent() {
+export const Page = memo(function InboxComponent() {
   return (
     <Context>
       <WrappedComponent />
