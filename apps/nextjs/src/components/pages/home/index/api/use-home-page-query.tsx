@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useEffect, useMemo, useState } from 'react';
-import { useHomeResponse } from '@/components/pages/home/store/home';
+import { useHomeResponse } from '@/components/pages/home/index/store/home';
 import { useMe } from '@/features/me/store/me';
 import { useWorkspace } from '@/features/workspace/store/workspace';
 import { HomePageDocument } from '@/graphql/documents';

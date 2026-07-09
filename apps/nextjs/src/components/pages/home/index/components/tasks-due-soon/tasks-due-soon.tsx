@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useTasksDueSoonIds } from '@/components/pages/home/store/tasks-due-soon';
+import { useTasksDueSoonIds } from '@/components/pages/home/index/store/tasks-due-soon';
 import { Accordion } from '@/components/ui/accordion';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
