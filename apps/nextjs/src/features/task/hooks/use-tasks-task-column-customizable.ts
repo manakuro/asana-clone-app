@@ -1,4 +1,4 @@
-import { useMyTasksTaskColumnsCustomizable } from '@/components/pages/my-tasks/store/my-tasks/task-columns';
+import { useMyTasksTaskColumnsCustomizable } from '@/components/pages/my-tasks/index/store/my-tasks/task-columns';
 import { useProjectsTaskColumnsCustomizable } from '@/components/pages/projects/store/projects/task-columns';
 import { useTasksContext } from '../components/tasks-provider';
 

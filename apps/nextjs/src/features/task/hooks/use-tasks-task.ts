@@ -1,4 +1,4 @@
-import { useMyTasksTask } from '@/components/pages/my-tasks/store/my-tasks/tasks';
+import { useMyTasksTask } from '@/components/pages/my-tasks/index/store/my-tasks/tasks';
 import { useProjectsTask } from '@/components/pages/projects/store/projects/tasks';
 import { useTasksContext } from '../components/tasks-provider';
 

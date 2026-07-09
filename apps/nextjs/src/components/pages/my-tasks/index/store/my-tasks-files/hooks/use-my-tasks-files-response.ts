@@ -1,6 +1,6 @@
 import { useAtomCallback } from 'jotai/utils';
 import { useCallback } from 'react';
-import type { MyTaskFileResponse } from '@/components/pages/my-tasks/store/my-tasks-files/type';
+import type { MyTaskFileResponse } from '@/components/pages/my-tasks/index/store/my-tasks-files/type';
 import { useTaskCommand } from '@/features/task/store/task';
 import { type TaskFile, taskFileState } from '@/features/task/store/task-file';
 import { asyncForEach } from '@/utils';

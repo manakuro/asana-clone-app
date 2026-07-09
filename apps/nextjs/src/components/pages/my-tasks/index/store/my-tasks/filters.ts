@@ -2,7 +2,7 @@ import type { Getter } from 'jotai';
 import {
   isTaskListCompletedStatusState,
   isTaskListSortStatusState,
-} from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
+} from '@/components/pages/my-tasks/index/store/my-tasks/task-list-status';
 import { projectTasksState } from '@/features/project/store/project-task';
 import type { Task } from '@/features/task/store/task';
 import { taskLikesByTaskIdState } from '@/features/task/store/task-like';

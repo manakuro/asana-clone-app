@@ -1,9 +1,9 @@
 import { memo, useCallback, useMemo } from 'react';
-import { useMyTasksContext } from '@/components/pages/my-tasks/contexts/context';
+import { useMyTasksContext } from '@/components/pages/my-tasks/index/contexts/context';
 import {
   type TaskListSortStatusCodeValue,
   useMyTasksTaskListStatus,
-} from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
+} from '@/components/pages/my-tasks/index/store/my-tasks/task-list-status';
 import { SortMenu as TasksHeaderSortMenu } from '@/features/task/components/tasks-header';
 import { TaskListSortStatusCode } from '@/features/task/store/task-list-sort-status';
 

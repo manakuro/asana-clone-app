@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useMyTasksContext } from '@/components/pages/my-tasks/contexts/context';
+import { useMyTasksContext } from '@/components/pages/my-tasks/index/contexts/context';
 import { TasksCalendar } from '@/features/task/components/tasks-calendar/tasks-calendar';
 import { TasksCalendarContent } from '@/features/task/components/tasks-calendar/tasks-calendar-content/tasks-calendar-content';
 import { TasksCalendarList } from '@/features/task/components/tasks-calendar/tasks-calendar-list/tasks-calendar-list';

@@ -4,8 +4,8 @@ import {
   filterByProjectTasks,
   filterTasks,
   sortTasks,
-} from '@/components/pages/my-tasks/store/my-tasks/filters';
-import { isTaskListSortStatusState } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
+} from '@/components/pages/my-tasks/index/store/my-tasks/filters';
+import { isTaskListSortStatusState } from '@/components/pages/my-tasks/index/store/my-tasks/task-list-status';
 import { filterByDueDate } from '@/features/task/store/task';
 import {
   tasksByTeammateIdState,

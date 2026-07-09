@@ -1,7 +1,7 @@
 import type React from 'react';
 import { memo, useCallback, useState } from 'react';
-import { useMyTasksProjectIds } from '@/components/pages/my-tasks/store/my-tasks/projects';
-import { useMyTasksTaskIdsWithNoProject } from '@/components/pages/my-tasks/store/my-tasks/tasks';
+import { useMyTasksProjectIds } from '@/components/pages/my-tasks/index/store/my-tasks/projects';
+import { useMyTasksTaskIdsWithNoProject } from '@/components/pages/my-tasks/index/store/my-tasks/tasks';
 import { Box } from '@/components/ui/box';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';

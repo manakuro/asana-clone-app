@@ -10,7 +10,7 @@ import {
   useState,
 } from 'react';
 import { MainHeader } from '@/components/layout/main-header';
-import { useMyTasksTaskListStatus } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
+import { useMyTasksTaskListStatus } from '@/components/pages/my-tasks/index/store/my-tasks/task-list-status';
 import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';

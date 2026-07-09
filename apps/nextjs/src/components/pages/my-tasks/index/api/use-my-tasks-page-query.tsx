@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useMyTasksResponse } from '@/components/pages/my-tasks/store/my-tasks';
+import { useMyTasksResponse } from '@/components/pages/my-tasks/index/store/my-tasks';
 import { useMe } from '@/features/me/store/me';
 import { useWorkspace } from '@/features/workspace/store/workspace';
 import { MyTasksPageDocument } from '@/graphql/documents';

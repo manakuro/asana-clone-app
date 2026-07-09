@@ -1,5 +1,5 @@
 import { type PropsWithChildren, useEffect, useState } from 'react';
-import { useTeammateTaskTabStatusQuery } from '@/components/pages/my-tasks/api/use-teammate-task-tab-status-query';
+import { useTeammateTaskTabStatusQuery } from '@/components/pages/my-tasks/index/api/use-teammate-task-tab-status-query';
 import { PageLoader } from '@/components/ui/page-loader';
 
 export function BeforeMount(props: PropsWithChildren) {

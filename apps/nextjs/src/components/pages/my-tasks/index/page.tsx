@@ -3,7 +3,7 @@
 import { useParams, usePathname } from 'next/navigation';
 import React, { memo, startTransition, useCallback, useEffect } from 'react';
 import { MainHeader } from '@/components/layout/main-header';
-import { useMyTasksTaskListStatus } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
+import { useMyTasksTaskListStatus } from '@/components/pages/my-tasks/index/store/my-tasks/task-list-status';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/tabs';

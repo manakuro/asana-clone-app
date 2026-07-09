@@ -1,4 +1,4 @@
-import { useMyTasksTaskColumn } from '@/components/pages/my-tasks/store/my-tasks/task-columns';
+import { useMyTasksTaskColumn } from '@/components/pages/my-tasks/index/store/my-tasks/task-columns';
 import { useProjectsTaskColumns } from '@/components/pages/projects/store/projects/task-columns';
 import type { ProjectTaskColumn } from '@/features/project/store/project-task-column';
 import type { TeammateTaskColumn } from '@/features/teammate/store/teammate-task-column';

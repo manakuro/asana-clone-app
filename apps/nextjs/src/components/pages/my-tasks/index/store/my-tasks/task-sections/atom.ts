@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
-import { sortTeammateTaskSections } from '@/components/pages/my-tasks/store/my-tasks/filters';
-import { isTaskListSortStatusState } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
+import { sortTeammateTaskSections } from '@/components/pages/my-tasks/index/store/my-tasks/filters';
+import { isTaskListSortStatusState } from '@/components/pages/my-tasks/index/store/my-tasks/task-list-status';
 import { tasksByTeammateIdState } from '@/features/teammate/store/teammate-task';
 import { isTabStatusState } from '@/features/teammate/store/teammate-task-tab-status';
 import { taskSectionsByTeammateIdState } from '@/features/teammate/store/teammates-task-section';
