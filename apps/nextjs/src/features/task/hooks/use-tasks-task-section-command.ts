@@ -1,5 +1,5 @@
 import { useMyTasksTaskSectionCommand } from '@/components/pages/my-tasks/index/store/my-tasks/task-sections';
-import { useProjectsTaskSectionCommand } from '@/components/pages/projects/store/projects/task-sections';
+import { useProjectsTaskSectionCommand } from '@/components/pages/projects/index/store/projects/task-sections';
 import type {
   DeleteProjectTaskSectionAndDeleteTasksMutation,
   DeleteProjectTaskSectionAndKeepTasksMutation,

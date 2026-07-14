@@ -1,6 +1,6 @@
 import type React from 'react';
 import { memo } from 'react';
-import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
+import { useProjectsProjectId } from '@/components/pages/projects/index/store/projects/project';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { useProjectIdsByTaskId } from '@/features/project/store/project-task';
