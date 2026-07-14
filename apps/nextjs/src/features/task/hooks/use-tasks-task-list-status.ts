@@ -1,5 +1,5 @@
-import { useMyTasksTaskListStatus } from '@/components/pages/my-tasks/store/my-tasks/task-list-status';
-import { useProjectsTaskListStatus } from '@/components/pages/projects/store/projects/task-list-status';
+import { useMyTasksTaskListStatus } from '@/components/pages/my-tasks/index/store/my-tasks/task-list-status';
+import { useProjectsTaskListStatus } from '@/components/pages/projects/index/store/projects/task-list-status';
 import {
   TaskListCompletedStatusCode,
   type TaskListCompletedStatusCodeValue,

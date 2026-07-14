@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { useWorkspaceActivityTasksTaskIds } from '@/components/pages/inbox/store/activity/workspace-activity-tasks';
+import { useWorkspaceActivityTasksTaskIds } from '@/components/pages/inbox/index/store/activity/workspace-activity-tasks';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useCreatedByIdsByTaskIds } from '@/features/task/store/task';
 import { useTeammateNamesByTeammateIds } from '@/features/teammate/store/teammate';

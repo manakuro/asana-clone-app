@@ -1,6 +1,6 @@
 import { useParams, usePathname } from 'next/navigation';
 import { useCallback } from 'react';
-import { useProjectsProjectId } from '@/components/pages/projects/store/projects/project';
+import { useProjectsProjectId } from '@/components/pages/projects/index/store/projects/project';
 import {
   getMyTasksDetailFeedId,
   getMyTasksDetailFeedURL,

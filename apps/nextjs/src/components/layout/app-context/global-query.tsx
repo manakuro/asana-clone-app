@@ -1,5 +1,5 @@
 import type { PropsWithChildren, ReactElement } from 'react';
-import { useTeammateTaskTabStatusQuery } from '@/components/pages/my-tasks/api/use-teammate-task-tab-status-query';
+import { useTeammateTaskTabStatusQuery } from '@/components/pages/my-tasks/index/api/use-teammate-task-tab-status-query';
 import { PageLoader } from '@/components/ui/page-loader';
 import { useFavoriteProjectIdsQuery } from '@/features/me/api/use-favorite-project-ids-query';
 import { useFavoriteWorkspaceIdsQuery } from '@/features/me/api/use-favorite-workspace-ids-query';

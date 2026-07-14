@@ -1,5 +1,5 @@
-import { useMyTasksTaskIdsByDueDate } from '@/components/pages/my-tasks/store/my-tasks/tasks';
-import { useProjectsTaskIdsByDueDate } from '@/components/pages/projects/store/projects/tasks';
+import { useMyTasksTaskIdsByDueDate } from '@/components/pages/my-tasks/index/store/my-tasks/tasks';
+import { useProjectsTaskIdsByDueDate } from '@/components/pages/projects/index/store/projects/tasks';
 import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {

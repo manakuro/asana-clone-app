@@ -1,5 +1,5 @@
-import { useMyTasksFiles } from '@/components/pages/my-tasks/store/my-tasks-files';
-import { useProjectsFiles } from '@/components/pages/projects/store/projects-files';
+import { useMyTasksFiles } from '@/components/pages/my-tasks/index/store/my-tasks-files';
+import { useProjectsFiles } from '@/components/pages/projects/index/store/projects-files';
 import { useTasksContext } from '../components/tasks-provider';
 
 type Result = {

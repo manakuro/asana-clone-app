@@ -2,7 +2,7 @@ import { ApolloProvider as ApolloProviderLibs } from '@apollo/client/react';
 import type { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 import { Modals } from '@/components/layout/modals/modals';
-import { useTeammateTaskTabStatusQuery } from '@/components/pages/my-tasks/api/use-teammate-task-tab-status-query';
+import { useTeammateTaskTabStatusQuery } from '@/components/pages/my-tasks/index/api/use-teammate-task-tab-status-query';
 import { useFavoriteProjectIdsQuery } from '@/features/me/api/use-favorite-project-ids-query';
 import { useFavoriteWorkspaceIdsQuery } from '@/features/me/api/use-favorite-workspace-ids-query';
 import { useMeQuery } from '@/features/me/api/use-me-query';

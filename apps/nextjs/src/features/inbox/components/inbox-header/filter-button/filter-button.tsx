@@ -7,7 +7,7 @@ import {
   INBOX_LIST_FILTER_STATUS_TYPE_UNREAD_ONLY,
   type InboxListFilterStatuses,
   useInboxListStatus,
-} from '@/components/pages/inbox/store/activity/inbox-list-status';
+} from '@/components/pages/inbox/index/store/activity/inbox-list-status';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Menu } from '@/components/ui/menu';

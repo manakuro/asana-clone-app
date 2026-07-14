@@ -1,5 +1,5 @@
-import { useTaskActivityTasksTaskIds } from '@/components/pages/inbox/store/activity/task-activity-tasks';
-import { useArchivedTaskActivityTasksTaskIds } from '@/components/pages/inbox/store/archive/archived-task-activity-tasks';
+import { useTaskActivityTasksTaskIds } from '@/components/pages/inbox/index/store/activity/task-activity-tasks';
+import { useArchivedTaskActivityTasksTaskIds } from '@/components/pages/inbox/index/store/archive/archived-task-activity-tasks';
 import { useInboxContext } from '../../components/inbox';
 
 type Result = {
