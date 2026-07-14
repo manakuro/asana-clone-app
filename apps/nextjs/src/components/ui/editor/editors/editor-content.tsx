@@ -1,4 +1,4 @@
-import { type CSSProperties, memo, useEffect, useLayoutEffect } from 'react';
+import { type CSSProperties, memo, useLayoutEffect } from 'react';
 import { useEditorViewContext } from '@/components/ui/editor/editors/editor-context';
 import 'prosemirror-view/style/prosemirror.css';
 
@@ -19,15 +19,6 @@ export const EditorContent = memo(function EditorContent(props: Props) {
       }
     }
   }, [view, style]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (!view?.dom) return;
-      // Explicitly enable `focus ring` style
-      // @see https://github.com/WICG/focus-visible#2-update-your-css
-      view.dom.classList.add('focus-visible');
-    }, 300);
-  }, [view]);
 
   return null;
 });
