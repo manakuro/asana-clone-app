@@ -24,13 +24,7 @@ export const SearchMenuContent = memo(function SearchMenuContent(
   return (
     <Portal>
       <Popover.Positioner>
-        <Popover.Content
-          className="focus-visible"
-          w="450px"
-          maxH={56}
-          ref={containerRef}
-          {...rest}
-        >
+        <Popover.Content w="450px" maxH={56} ref={containerRef} {...rest}>
           <Popover.Body>
             <Flex flexDirection="column" ref={ref}>
               {children}

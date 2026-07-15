@@ -24,7 +24,6 @@ export const ProjectTeammateMenuContent = memo(
       <Portal>
         <Popover.Positioner>
           <Popover.Content
-            className="focus-visible"
             w="450px"
             maxH={56}
             ref={containerRef}

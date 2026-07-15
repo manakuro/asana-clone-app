@@ -73,9 +73,6 @@ importers:
       firebase:
         specifier: 12.0.0
         version: 12.0.0
-      focus-visible:
-        specifier: 5.2.0
-        version: 5.2.0
       formik:
         specifier: 2.4.9
         version: 2.4.9(@types/react@19.2.10)(react@19.2.4)
@@ -4280,9 +4277,6 @@ packages:
 
   firebase@12.0.0:
     resolution: {integrity: sha512-KV+OrMJpi2uXlqL2zaCcXb7YuQbY/gMIWT1hf8hKeTW1bSumWaHT5qfmn0WTpHwKQa3QEVOtZR2ta9EchcmYuw==}
-
-  focus-visible@5.2.0:
-    resolution: {integrity: sha512-Rwix9pBtC1Nuy5wysTmKy+UjbDJpIfg8eHjw0rjZ1mX4GNLz1Bmd16uDpI3Gk1i70Fgcs8Csg2lPm8HULFg9DQ==}
 
   formdata-polyfill@4.0.10:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
@@ -10922,8 +10916,6 @@ snapshots:
       '@firebase/util': 1.13.0
     transitivePeerDependencies:
       - '@react-native-async-storage/async-storage'
-
-  focus-visible@5.2.0: {}
 
   formdata-polyfill@4.0.10:
     dependencies:
