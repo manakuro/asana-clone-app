@@ -31,6 +31,7 @@ export const useEditorViewContext = () => useContext(EditorViewContext);
 
 export type EditorHandle = {
   setEditable: (editable: () => boolean) => void;
+  reset: () => void;
 };
 
 type Props = {
@@ -70,10 +71,19 @@ function Context({ ref, ...props }: PropsWithChildren<Props>) {
       setEditable: (editable: () => boolean) => {
         viewRef.current?.setProps({ editable });
       },
+      reset: () => {
+        const newState = generateState({
+          doc: props.doc,
+          plugins: props.plugins,
+        });
+        setState(newState);
+        viewRef.current?.updateState(newState);
+      },
     }),
-    [],
+    [props.doc, props.plugins],
   );
 
+  // The view should be created only once.
   // biome-ignore lint/correctness/useExhaustiveDependencies: Avoid unnecessary rendering.
   useEffect(() => {
     if (!editorRef.current) return;

@@ -1,5 +1,9 @@
-import { memo, useCallback, useMemo } from 'react';
-import { Editor, EditorContent } from '@/components/ui/editor';
+import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
+import {
+  Editor,
+  EditorContent,
+  type EditorHandle,
+} from '@/components/ui/editor';
 import { isDescriptionEqual } from '@/features/editor/utils/is-description-equal';
 import { useTask } from '@/features/task/store/task';
 import {
@@ -44,12 +48,19 @@ const DescriptionHandler = memo(function DescriptionHandler(props: Props) {
     [setTask, task.description],
   );
 
-  return <Component onChange={handleChange} initialValue={initialValue} />;
+  return (
+    <Component
+      onChange={handleChange}
+      initialValue={initialValue}
+      taskId={props.taskId}
+    />
+  );
 });
 
 type ComponentProps = {
   onChange: (val: string) => void;
   initialValue: string;
+  taskId: string;
 };
 const Component = memo(function Component(props: ComponentProps) {
   const { onChange, initialValue } = props;
@@ -60,13 +71,26 @@ const Component = memo(function Component(props: ComponentProps) {
     },
     [onChange],
   );
+  const editorRef = useRef<EditorHandle>(null);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: The editor state will be reset only when the task changes
+  useEffect(() => {
+    if (!editorRef.current) return;
+
+    console.log('the editor state will be reset');
+    editorRef.current.reset();
+  }, [props.taskId]);
 
   return (
     <Row>
       <Label>Description</Label>
       <Content>
         <Container>
-          <Editor onChange={handleChange} initialValue={initialValue}>
+          <Editor
+            ref={editorRef}
+            onChange={handleChange}
+            initialValue={initialValue}
+          >
             <EditorContent />
             <Placeholder />
             <ToolBar />
