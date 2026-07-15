@@ -1,7 +1,12 @@
-import { memo, useCallback, useMemo } from 'react';
-import { Editor, EditorContent } from '@/components/ui/editor';
+import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
+import {
+  Editor,
+  EditorContent,
+  type EditorHandle,
+} from '@/components/ui/editor';
 import { isDescriptionEqual } from '@/features/editor/utils/is-description-equal';
 import { useTask } from '@/features/task/store/task';
+import { usePrevious } from '@/hooks/use-previous';
 import {
   parseDescription,
   stringifyDescription,
@@ -44,12 +49,19 @@ const DescriptionHandler = memo(function DescriptionHandler(props: Props) {
     [setTask, task.description],
   );
 
-  return <Component onChange={handleChange} initialValue={initialValue} />;
+  return (
+    <Component
+      onChange={handleChange}
+      initialValue={initialValue}
+      taskId={props.taskId}
+    />
+  );
 });
 
 type ComponentProps = {
   onChange: (val: string) => void;
   initialValue: string;
+  taskId: string;
 };
 const Component = memo(function Component(props: ComponentProps) {
   const { onChange, initialValue } = props;
@@ -60,13 +72,26 @@ const Component = memo(function Component(props: ComponentProps) {
     },
     [onChange],
   );
+  const editorRef = useRef<EditorHandle>(null);
+  const prevTaskId = usePrevious(props.taskId);
+
+  useEffect(() => {
+    if (!editorRef.current) return;
+    if (prevTaskId === props.taskId) return;
+
+    editorRef.current.reset();
+  }, [prevTaskId, props.taskId]);
 
   return (
     <Row>
       <Label>Description</Label>
       <Content>
         <Container>
-          <Editor onChange={handleChange} initialValue={initialValue}>
+          <Editor
+            ref={editorRef}
+            onChange={handleChange}
+            initialValue={initialValue}
+          >
             <EditorContent />
             <Placeholder />
             <ToolBar />
