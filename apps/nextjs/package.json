@@ -49,7 +49,6 @@
     "@react-hook/hover": "4.0.0",
     "@react-hook/latest": "1.0.3",
     "@react-hook/passive-layout-effect": "1.2.1",
-    "@react-hook/resize-observer": "1.2.4",
     "date-fns": "2.23.0",
     "emoji-mart": "3.0.1",
     "emotion-theming": "11.0.0",
