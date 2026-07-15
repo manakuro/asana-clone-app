@@ -75,6 +75,7 @@ const Component = memo(function Component(props: ComponentProps) {
   const editorRef = useRef<EditorHandle>(null);
   const prevTaskId = usePrevious(props.taskId);
 
+  // The editor state will be reset only when the task changes
   useEffect(() => {
     if (!editorRef.current) return;
     if (prevTaskId === props.taskId) return;
