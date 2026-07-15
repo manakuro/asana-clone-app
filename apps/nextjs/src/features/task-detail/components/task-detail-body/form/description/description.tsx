@@ -6,7 +6,6 @@ import {
 } from '@/components/ui/editor';
 import { isDescriptionEqual } from '@/features/editor/utils/is-description-equal';
 import { useTask } from '@/features/task/store/task';
-import { usePrevious } from '@/hooks/use-previous';
 import {
   parseDescription,
   stringifyDescription,
@@ -73,15 +72,14 @@ const Component = memo(function Component(props: ComponentProps) {
     [onChange],
   );
   const editorRef = useRef<EditorHandle>(null);
-  const prevTaskId = usePrevious(props.taskId);
 
-  // The editor state will be reset only when the task changes
+  // biome-ignore lint/correctness/useExhaustiveDependencies: The editor state will be reset only when the task changes
   useEffect(() => {
     if (!editorRef.current) return;
-    if (prevTaskId === props.taskId) return;
 
+    console.log('the editor state will be reset');
     editorRef.current.reset();
-  }, [prevTaskId, props.taskId]);
+  }, [props.taskId]);
 
   return (
     <Row>
