@@ -1,6 +1,6 @@
+import { addMonths, isLastDayOfMonth, subMonths } from 'date-fns';
 import { useCallback, useMemo, useState } from 'react';
 import { getCalendarMatrix } from '@/lib/date';
-import { dateFns } from '@/lib/date-fns';
 import { createContext } from '@/lib/react/create-context';
 import { isHTMLElement } from '@/utils/is-html-element';
 import { useTasksCalendarId } from './use-tasks-calendar-id';
@@ -16,11 +16,11 @@ const useValue = () => {
   }, []);
 
   const onNextMonth = useCallback(() => {
-    setCurrentDate((s) => dateFns.addMonths(s, 1));
+    setCurrentDate((s) => addMonths(s, 1));
   }, []);
 
   const onPrevMonth = useCallback(() => {
-    setCurrentDate((s) => dateFns.subMonths(s, 1));
+    setCurrentDate((s) => subMonths(s, 1));
   }, []);
 
   const setMonth = useCallback((date: Date) => {
@@ -35,11 +35,7 @@ const useValue = () => {
   }, [setMonth, incrementResetCount]);
 
   const calendarRows = useMemo<Date[][]>(
-    () =>
-      getCalendarMatrix(
-        dateFns.subMonths(baseDate, 6),
-        dateFns.addMonths(baseDate, 6),
-      ),
+    () => getCalendarMatrix(subMonths(baseDate, 6), addMonths(baseDate, 6)),
     [baseDate],
   );
 
@@ -47,7 +43,7 @@ const useValue = () => {
     (row: Date[]) => {
       return !!(
         calendarRows
-          .filter((c) => c.some((date) => dateFns.isLastDayOfMonth(date)))
+          .filter((c) => c.some((date) => isLastDayOfMonth(date)))
           .find((c) => getCalendarListId(c[0]) === getCalendarListId(row[0])) ??
         false
       );
@@ -56,12 +52,12 @@ const useValue = () => {
   );
 
   const onVisibleWhenScrollUp = useCallback((id: string) => {
-    setBaseDate((s) => dateFns.subMonths(s, 3));
+    setBaseDate((s) => subMonths(s, 3));
     console.log('handleVisibleWhenScrollUp: ', id);
   }, []);
 
   const onVisibleWhenScrollDown = useCallback((id: string) => {
-    setBaseDate((s) => dateFns.addMonths(s, 3));
+    setBaseDate((s) => addMonths(s, 3));
     console.log('handleVisibleWhenScrollDown: ', id);
   }, []);
 

@@ -1,6 +1,6 @@
+import { formatISO, subDays } from 'date-fns';
 import { memo, useEffect } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
-import { dateFns } from '@/lib/date-fns';
 import { isHTMLElement } from '@/utils/is-html-element';
 import { useTasksCalendarContext } from '../context';
 import { TasksCalendarListItem } from '../tasks-calendar-list-item';
@@ -23,7 +23,7 @@ export const TasksCalendarList = memo(function TasksCalendarList(
 
   useEffect(() => {
     const element = document.getElementById(
-      getCalendarListItemId(dateFns.subDays(new Date(), 7)),
+      getCalendarListItemId(subDays(new Date(), 7)),
     );
     if (!isHTMLElement(element)) return;
 
@@ -41,13 +41,13 @@ export const TasksCalendarList = memo(function TasksCalendarList(
           isSecondRowOfMonth={isSecondRowOfMonth(r)}
           key={`${getCalendarListId(r[0])}-${resetCount}`}
           id={getCalendarListId(r[0])}
-          dateString={dateFns.formatISO(r[0], { representation: 'date' })}
+          dateString={formatISO(r[0], { representation: 'date' })}
         >
           {r.map((date) => (
             <TasksCalendarListItem
               key={getCalendarListItemId(date)}
               id={getCalendarListItemId(date)}
-              dateString={dateFns.formatISO(date, { representation: 'date' })}
+              dateString={formatISO(date, { representation: 'date' })}
             />
           ))}
         </TasksCalendarListRow>
