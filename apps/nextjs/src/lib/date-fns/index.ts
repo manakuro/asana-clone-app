@@ -1,1 +1,2 @@
-export * from './date-fns';
+import * as dateFns from './date-fns';
+export { dateFns };
