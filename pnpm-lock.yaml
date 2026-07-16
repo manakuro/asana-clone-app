@@ -76,6 +76,9 @@ importers:
       jotai:
         specifier: 2.20.1
         version: 2.20.1(@babel/core@7.28.0)(@babel/template@7.28.6)(@types/react@19.2.17)(react@19.2.7)
+      jotai-family:
+        specifier: 1.0.2
+        version: 1.0.2(jotai@2.20.1(@babel/core@7.28.0)(@babel/template@7.28.6)(@types/react@19.2.17)(react@19.2.7))
       lodash-es:
         specifier: 4.18.1
         version: 4.18.1
@@ -4684,6 +4687,12 @@ packages:
   jiti@2.5.1:
     resolution: {integrity: sha512-twQoecYPiVA5K/h6SxtORw/Bs3ar+mLUtoPSc7iMXzQzK8d7eJ/R09wmTwAjiamETn1cXYPGfNnu7DMoHgu12w==}
     hasBin: true
+
+  jotai-family@1.0.2:
+    resolution: {integrity: sha512-U1aTMGxmsmz2Z8gaJD1/ljmMnsmG4/dqrcsfwGbjWV7p6boB9Vy3+75YwUpwPj7GbLNJk9O8rl1VNi8d7+6Rxw==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      jotai: '>=2.9.0'
 
   jotai@2.20.1:
     resolution: {integrity: sha512-dnuKfU/GLi8B28RRMjQ3AfoN7kfzP8o41+AX2FmITZqEMY8PHnjABq+VkEooomLwYaGjda+pgy0yFSjaHX/ZPg==}
@@ -11375,6 +11384,10 @@ snapshots:
     optional: true
 
   jiti@2.5.1: {}
+
+  jotai-family@1.0.2(jotai@2.20.1(@babel/core@7.28.0)(@babel/template@7.28.6)(@types/react@19.2.17)(react@19.2.7)):
+    dependencies:
+      jotai: 2.20.1(@babel/core@7.28.0)(@babel/template@7.28.6)(@types/react@19.2.17)(react@19.2.7)
 
   jotai@2.20.1(@babel/core@7.28.0)(@babel/template@7.28.6)(@types/react@19.2.17)(react@19.2.7):
     optionalDependencies:

@@ -1,6 +1,7 @@
 import deepEqual from 'fast-deep-equal';
 import { atom } from 'jotai';
-import { atomFamily, atomWithReset } from 'jotai/utils';
+import { atomWithReset } from 'jotai/utils';
+import { atomFamily } from 'jotai-family';
 import { createState } from '@/lib/jotai';
 import { getDefaultDescription } from '@/lib/prosemirror/get-default-description';
 import type { Task } from './type';
