@@ -1,5 +1,5 @@
+import { intervalToDuration, isToday, isYesterday } from 'date-fns';
 import { atom } from 'jotai';
-import { dateFns } from '@/lib/date-fns';
 import { createState } from '@/lib/jotai';
 import type { ArchiveActivity } from './type';
 
@@ -32,16 +32,16 @@ export const archiveIdsSortByUpdatedAtState = atom<ArchiveIdsSortByUpdatedAt>(
       })
       .reduce<ArchiveIdsSortByUpdatedAt>(
         (acc, a) => {
-          const duration = dateFns.intervalToDuration({
+          const duration = intervalToDuration({
             start: new Date(),
             end: new Date(a.updatedAt),
           });
 
-          if (dateFns.isToday(new Date(a.updatedAt))) {
+          if (isToday(new Date(a.updatedAt))) {
             acc.today.push(a.id);
             return acc;
           }
-          if (dateFns.isYesterday(new Date(a.updatedAt))) {
+          if (isYesterday(new Date(a.updatedAt))) {
             acc.yesterday.push(a.id);
             return acc;
           }
