@@ -3,17 +3,15 @@ import { Box } from '@/components/ui/box';
 import { Popover } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
 import { useClickOutside } from '@/hooks/use-click-outside';
-import { type BaseEmoji, EmojiPicker } from '@/lib/emoji';
+import { EmojiPicker, type SelectedEmoji } from '@/lib/emoji';
 import { usePopoverEmojiContext } from './context';
-
-import 'emoji-mart/css/emoji-mart.css';
 
 export const Content = memo(function Content() {
   const { onClose } = usePopoverEmojiContext();
   const { ref } = useClickOutside<HTMLDivElement>(onClose);
 
   const handleSelect = useCallback(
-    (emoji: BaseEmoji) => {
+    (emoji: SelectedEmoji) => {
       onClose(emoji);
     },
     [onClose],
@@ -24,7 +22,7 @@ export const Content = memo(function Content() {
       <Popover.Positioner>
         <Box zIndex="popover" w="full" h="full" ref={ref}>
           <Popover.Content boxShadow="none" border="none" w="auto">
-            <EmojiPicker onSelect={handleSelect} title="manato" />
+            <EmojiPicker onEmojiSelect={handleSelect} />
           </Popover.Content>
         </Box>
       </Popover.Positioner>

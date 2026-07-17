@@ -6,6 +6,7 @@ import {
   onEmojiOpen as onOpen,
   setEmojiQuery as setQuery,
 } from '@/features/editor/components/editor-emoji-menu';
+import { type BaseEmoji, getNative } from '@/lib/emoji';
 
 export const suggestEmoji: Suggester = {
   disableDecorations: true,
@@ -32,7 +33,7 @@ export const suggestEmoji: Suggester = {
       return;
     }
 
-    const emoji = `${getEmoji()?.native} `;
+    const emoji = `${getNative(getEmoji() as BaseEmoji)} `;
     console.log(emoji, getEmoji());
     const state = params.view.state;
     const { from, to } = params.range;
