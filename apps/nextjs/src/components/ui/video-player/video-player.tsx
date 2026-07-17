@@ -1,4 +1,4 @@
-import { type SyntheticEvent, useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Box } from '@/components/ui/box';
@@ -27,7 +27,7 @@ const initialState = (): State => ({
 export function VideoPlayer() {
   const { state, onClose } = useVideoPlayer();
   const [videoState, setVideoState] = useState<State>(initialState());
-  const ref = useRef<HTMLVideoElement>(null);
+  const ref = useRef<ReactPlayer>(null);
 
   const handleClose = useCallback(() => {
     setVideoState(initialState());
@@ -38,34 +38,26 @@ export function VideoPlayer() {
     setVideoState((s) => ({ ...s, playing: !videoState.playing }));
   }, [videoState.playing]);
 
-  const handleTimeUpdate = useCallback(
-    (event: SyntheticEvent<HTMLVideoElement>) => {
+  const handleProgress = useCallback(
+    (state: {
+      played: number;
+      playedSeconds: number;
+      loaded: number;
+      loadedSeconds: number;
+    }) => {
       if (videoState.seeking) return;
-      const { currentTime, duration } = event.currentTarget;
-      if (!duration) return;
-      setVideoState((s) => ({ ...s, played: currentTime / duration }));
+      setVideoState((s) => ({ ...s, played: state.played }));
     },
     [videoState.seeking],
   );
 
-  const handleDurationChange = useCallback(
-    (event: SyntheticEvent<HTMLVideoElement>) => {
-      const { duration } = event.currentTarget;
-      setVideoState((s) => ({ ...s, duration }));
-    },
-    [],
-  );
+  const handleDuration = useCallback((duration: number) => {
+    setVideoState((s) => ({ ...s, duration }));
+  }, []);
 
   const seekTo = useCallback(
-    (amount: number, type: 'seconds' | 'fraction' = 'fraction') => {
-      const player = ref.current;
-      if (!player) return;
-      if (type === 'fraction') {
-        if (!player.duration) return;
-        player.currentTime = amount * player.duration;
-      } else {
-        player.currentTime = amount;
-      }
+    (amount: number, type?: 'seconds' | 'fraction') => {
+      ref.current?.seekTo(amount, type);
     },
     [],
   );
@@ -91,12 +83,12 @@ export function VideoPlayer() {
                 <Box w="full" borderTopRadius="md">
                   <ReactPlayer
                     ref={ref}
-                    src={state.src}
+                    url={state.src}
                     width="100%"
                     height="100%"
                     playing={videoState.playing}
-                    onTimeUpdate={handleTimeUpdate}
-                    onDurationChange={handleDurationChange}
+                    onProgress={handleProgress}
+                    onDuration={handleDuration}
                   />
                 </Box>
               </AspectRatio>
@@ -108,7 +100,6 @@ export function VideoPlayer() {
                   aria-label="play button"
                   mr={4}
                   onClick={handlePlay}
-                  variant="subtle"
                 >
                   <Icon
                     icon={videoState.playing ? 'pause' : 'play'}
