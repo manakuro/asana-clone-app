@@ -1,8 +1,8 @@
+import { format, isFirstDayOfMonth, isToday } from 'date-fns';
 import { useMemo } from 'react';
 import type { FlexProps } from '@/components/ui/flex';
 import type { TextProps } from '@/components/ui/text';
 import { useTasksContext } from '@/features/task/components/tasks-provider/tasks-context';
-import { dateFns } from '@/lib/date-fns';
 import { useProjectDueDate } from './use-project-due-date';
 
 type Props = {
@@ -16,21 +16,21 @@ export const useListItemStyle = (props: Props) => {
   const date = useMemo(() => new Date(dateString), [dateString]);
 
   const borderStyle = useMemo<FlexProps>(() => {
-    if (dateFns.isToday(date)) return { borderTopColor: 'cyan.400' };
-    if (dateFns.isFirstDayOfMonth(date)) return { borderTopColor: 'gray.400' };
+    if (isToday(date)) return { borderTopColor: 'cyan.400' };
+    if (isFirstDayOfMonth(date)) return { borderTopColor: 'gray.400' };
     if (isProjectsPage && isProjectDueDate)
       return { borderTopColor: 'orange.400' };
     return {};
   }, [date, isProjectDueDate, isProjectsPage]);
 
   const textStyle = useMemo<TextProps>(() => {
-    if (dateFns.isToday(date)) return { color: 'cyan.400', fontWeight: 'bold' };
+    if (isToday(date)) return { color: 'cyan.400', fontWeight: 'bold' };
     return {};
   }, [date]);
 
   const dateText = useMemo(() => {
-    if (dateFns.isFirstDayOfMonth(date)) return dateFns.format(date, 'MMMM d');
-    return dateFns.format(date, 'd');
+    if (isFirstDayOfMonth(date)) return format(date, 'MMMM d');
+    return format(date, 'd');
   }, [date]);
 
   return {

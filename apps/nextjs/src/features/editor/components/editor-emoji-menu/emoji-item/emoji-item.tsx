@@ -4,7 +4,7 @@ import { Text } from '@/components/ui/text';
 import { useEditorEmojiMenu } from '@/features/editor/components/editor-emoji-menu';
 import { useMenuStyle } from '@/hooks/styles/use-menu-style';
 import { useHover } from '@/hooks/use-hover';
-import type { BaseEmoji } from '@/lib/emoji';
+import { type BaseEmoji, getNative, getShortcodes } from '@/lib/emoji';
 
 type Props = {
   onClick: (val: BaseEmoji) => void;
@@ -42,9 +42,9 @@ export const EmojiItem = memo(function EmojiItem(props: Props) {
       alignItems="center"
       onClick={handleClick}
     >
-      <Text fontSize="sm">{props.emoji.native}</Text>
+      <Text fontSize="sm">{getNative(props.emoji)}</Text>
       <Text ml={2} fontSize="sm" color="fg.muted">
-        {props.emoji.colons}
+        {getShortcodes(props.emoji)}
       </Text>
     </Flex>
   );

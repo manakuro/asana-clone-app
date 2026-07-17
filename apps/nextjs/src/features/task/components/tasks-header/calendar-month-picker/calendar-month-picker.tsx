@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { memo, useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Icon } from '@/components/ui/icon';
@@ -5,13 +6,12 @@ import { IconButton } from '@/components/ui/icon-button';
 import { Popover } from '@/components/ui/popover';
 import { Text } from '@/components/ui/text';
 import { useTasksCalendarContext } from '@/features/task/components/tasks-calendar/context';
-import { dateFns } from '@/lib/date-fns';
 import { Content } from './content';
 
 export const CalendarMonthPicker = memo(function CalendarMonthPicker() {
   const { currentDate } = useTasksCalendarContext();
   const dateText = useMemo(() => {
-    return dateFns.format(currentDate, 'MMMM y');
+    return format(currentDate, 'MMMM y');
   }, [currentDate]);
 
   return (

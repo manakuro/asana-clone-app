@@ -1,4 +1,4 @@
-import { dateFns } from '@/lib/date-fns';
+import { endOfDay, intervalToDuration, isPast, isSameDay } from 'date-fns';
 import type { Task } from './type';
 
 export const sortByDueDate = (tasks: Task[]) => {
@@ -11,18 +11,18 @@ export const sortByDueDate = (tasks: Task[]) => {
 };
 export const filterByDueDateInFiveDays = (tasks: Task[]) => {
   const now = new Date();
-  const start = dateFns.endOfDay(now);
+  const start = endOfDay(now);
 
   return tasks.filter((t) => {
     if (!t.dueDate) return false;
 
     const dueDate = new Date(t.dueDate);
-    if (dateFns.isPast(dueDate)) return false;
+    if (isPast(dueDate)) return false;
 
     return (
-      (dateFns.intervalToDuration({
+      (intervalToDuration({
         start,
-        end: dateFns.endOfDay(dueDate),
+        end: endOfDay(dueDate),
       })?.days ?? 0) <= 5
     );
   });
@@ -31,6 +31,4 @@ export const filterByTeammateId = (teammateId: string) => (tasks: Task[]) =>
   tasks.filter((t) => t.assigneeId === teammateId);
 
 export const filterByDueDate = (dueDate: string) => (tasks: Task[]) =>
-  tasks.filter((t) =>
-    dateFns.isSameDay(new Date(t.dueDate), new Date(dueDate)),
-  );
+  tasks.filter((t) => isSameDay(new Date(t.dueDate), new Date(dueDate)));

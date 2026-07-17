@@ -1,51 +1,60 @@
-import { dateFns } from '@/lib/date-fns';
+import {
+  endOfDay,
+  format,
+  formatISO,
+  intervalToDuration,
+  isThisWeek,
+  isToday,
+  isTomorrow,
+  isYesterday,
+} from 'date-fns';
+import { isBeforeDay } from './isBeforeDay';
 
 export const formatDueDate = (date: string): string => {
   if (!date) return '';
   const dateObj = new Date(date);
 
-  if (dateFns.isYesterday(dateObj)) return 'Yesterday';
-  if (dateFns.isBeforeDay(dateObj, new Date()))
-    return dateFns.format(dateObj, 'MMM d');
+  if (isYesterday(dateObj)) return 'Yesterday';
+  if (isBeforeDay(dateObj, new Date())) return format(dateObj, 'MMM d');
 
-  if (dateFns.isToday(dateObj)) return 'Today';
-  if (dateFns.isTomorrow(dateObj)) return 'Tomorrow';
-  if (dateFns.isThisWeek(dateObj)) return dateFns.format(dateObj, 'EEEE');
+  if (isToday(dateObj)) return 'Today';
+  if (isTomorrow(dateObj)) return 'Tomorrow';
+  if (isThisWeek(dateObj)) return format(dateObj, 'EEEE');
 
-  return dateFns.format(dateObj, 'MMM d');
+  return format(dateObj, 'MMM d');
 };
 
 export const formatCreatedAt = (date: string): string => {
   if (!date) return '';
   const dateObj = new Date(date);
-  return dateFns.format(dateObj, 'MMM d');
+  return format(dateObj, 'MMM d');
 };
 
 export const formatDueDateInput = (date: string): string => {
   if (!date) return '';
   const dateObj = new Date(date);
-  return dateFns.format(dateObj, 'dd/MM/yy');
+  return format(dateObj, 'dd/MM/yy');
 };
 
 export const formatDueTime = (date: string): string =>
-  dateFns.format(new Date(date), 'H:mm aaa');
+  format(new Date(date), 'H:mm aaa');
 
 export const formatDueTimeToLocalTimezone = (date: Date): string =>
-  dateFns.formatISO(dateFns.endOfDay(date));
+  formatISO(endOfDay(date));
 
 export const formatDueTimeToServerTimezone = (date: Date): string => {
-  const endOfDay = dateFns.endOfDay(new Date(date));
-  const endOfDayExcludedMilliseconds = endOfDay.setMilliseconds(0);
+  const end = endOfDay(new Date(date));
+  const endExcludedMilliseconds = end.setMilliseconds(0);
 
-  return new Date(endOfDayExcludedMilliseconds).toISOString();
+  return new Date(endExcludedMilliseconds).toISOString();
 };
 
 export const formatTaskFileCreatedAt = (date: string): string => {
   if (!date) return '';
 
   const dateObj = new Date(date);
-  const day = dateFns.format(dateObj, 'MMM d');
-  const time = dateFns.format(dateObj, 'H:mm aaa');
+  const day = format(dateObj, 'MMM d');
+  const time = format(dateObj, 'H:mm aaa');
 
   return `${day}, at ${time}`;
 };
@@ -54,14 +63,14 @@ export const formatFeedCreatedAt = (date: string): string => {
   if (!date) return '';
 
   const dateObj = new Date(date);
-  const duration = dateFns.intervalToDuration({
+  const duration = intervalToDuration({
     start: new Date(),
     end: dateObj,
   });
 
   if (duration.days) {
     if (duration.days === 1)
-      return `Yesterday at ${dateFns.format(dateObj, 'H:mm aaa')}`;
+      return `Yesterday at ${format(dateObj, 'H:mm aaa')}`;
 
     return `${duration.days} days ago`;
   }

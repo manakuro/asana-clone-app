@@ -1,3 +1,4 @@
+import { intervalToDuration } from 'date-fns';
 import type { Getter } from 'jotai';
 import type { ProjectTaskSection } from '@/features/project/store/project-task-section';
 import type { Task } from '@/features/task/store/task';
@@ -7,7 +8,6 @@ import {
   taskPriorityState,
 } from '@/features/task/store/task-priority';
 import { teammateState } from '@/features/teammate/store/teammate';
-import { dateFns } from '@/lib/date-fns';
 import {
   isTaskListCompletedStatusState,
   isTaskListSortStatusState,
@@ -161,7 +161,7 @@ export const filterByAllCompleted =
   };
 
 const getDuration = (date: string) => {
-  return dateFns.intervalToDuration({
+  return intervalToDuration({
     start: new Date(date),
     end: new Date(),
   });

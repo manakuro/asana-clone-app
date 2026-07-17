@@ -1,3 +1,4 @@
+import { addYears } from 'date-fns';
 import React, { memo, useCallback, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { DatePicker } from '@/components/ui/date-picker';
@@ -5,7 +6,6 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Popover } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
 import { useDisclosure } from '@/lib/chakra-ui';
-import { dateFns } from '@/lib/date-fns';
 import { DueTime } from './due-time';
 
 type Props = {
@@ -17,8 +17,8 @@ type Props = {
   includeDueTime?: boolean;
 };
 
-const MIN_DATE = dateFns.addYears(new Date(), -1);
-const MAX_DATE = dateFns.addYears(new Date(), 1);
+const MIN_DATE = addYears(new Date(), -1);
+const MAX_DATE = addYears(new Date(), 1);
 
 export const Body = memo(function Body(props: Props) {
   const { onChange, onClear } = props;

@@ -1,18 +1,25 @@
-import { dateFns } from '@/lib/date-fns';
+import {
+  eachDayOfInterval,
+  eachWeekOfInterval,
+  endOfISOWeek,
+  endOfMonth,
+  startOfISOWeek,
+  startOfMonth,
+} from 'date-fns';
 
 export const getCalendarMatrix = (start: Date, end: Date) => {
-  const matrix = dateFns.eachWeekOfInterval(
+  const matrix = eachWeekOfInterval(
     {
-      start: dateFns.startOfMonth(start),
-      end: dateFns.endOfMonth(end),
+      start: startOfMonth(start),
+      end: endOfMonth(end),
     },
     { weekStartsOn: 1 },
   );
 
   return matrix.map((weekDay) =>
-    dateFns.eachDayOfInterval({
-      start: dateFns.startOfISOWeek(weekDay),
-      end: dateFns.endOfISOWeek(weekDay),
+    eachDayOfInterval({
+      start: startOfISOWeek(weekDay),
+      end: endOfISOWeek(weekDay),
     }),
   );
 };

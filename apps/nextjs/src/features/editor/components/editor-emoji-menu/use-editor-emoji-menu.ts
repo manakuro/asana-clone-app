@@ -1,14 +1,8 @@
 import { useAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
-import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { type RefObject, useCallback, useEffect, useRef } from 'react';
 import { useResizeObserver } from '@/hooks/use-resize-observer';
-import {
-  type BaseEmoji,
-  type EmojiData,
-  type EmojiSkin,
-  emojiData,
-  frequently,
-} from '@/lib/emoji';
+import { type BaseEmoji, emojis, frequently, searchEmoji } from '@/lib/emoji';
 import { calculateModalPosition } from '@/utils/calculate-modal-position';
 import { getCaretPosition } from '@/utils/get-caret-position';
 
@@ -22,20 +16,15 @@ const DEFAULT_EMOJIS = [
   'sunglasses',
 ];
 const defaultEmojis = (): BaseEmoji[] => {
-  const frequentlyEmojis = frequently.get(2);
+  const frequentlyEmojis = frequently.get({ maxFrequentRows: 2, perLine: 1 });
   const data = frequentlyEmojis.length
     ? frequentlyEmojis.slice(0, 7)
     : DEFAULT_EMOJIS;
 
   return data.map((e) => {
-    const matched = emojiData.emojis[e];
-    if (isEmojiWithSkin(matched)) return matched[1];
-
-    return matched;
+    return emojis[e];
   }) as BaseEmoji[];
 };
-type EmojiWithSkin = { [variant in EmojiSkin]: EmojiData };
-const isEmojiWithSkin = (data: any): data is EmojiWithSkin => !!data[1];
 
 type State = {
   open: boolean;
@@ -56,6 +45,7 @@ const modalState = atomWithReset<State>({
   selectedIndex: 0,
   containerRef: null,
 });
+const emojiState = atomWithReset<BaseEmoji[]>(defaultEmojis());
 
 // NOTE: Export functions in order to execute inside prosemirror's plugins
 // @see src/shared/prosemirror/config/plugins.ts
@@ -80,21 +70,31 @@ const setEmojiRef = (val: BaseEmoji | null) => {
 
 export const useEditorEmojiMenu = () => {
   const [state, setState] = useAtom(modalState);
+  const [emojis, setEmojis] = useAtom(emojiState);
   const resetState = useResetAtom(modalState);
+  const emojisRef = useRef<BaseEmoji[]>(emojis);
 
   const setValue = useCallback((val: BaseEmoji) => {
     setEmojiRef(val);
     onClose();
   }, []);
 
-  const emojis = useMemo<BaseEmoji[]>(() => {
-    if (!state.query) return defaultEmojis();
-    return (
-      (emojiData.search(state.query.toLowerCase()) as BaseEmoji[])?.map(
-        (o) => o,
-      ) || []
-    ).slice(0, 10);
-  }, [state.query]);
+  useEffect(() => {
+    (async () => {
+      if (!state.query) {
+        setEmojis(defaultEmojis());
+        emojisRef.current = defaultEmojis();
+        return;
+      }
+
+      const res = (
+        (await searchEmoji(state.query.toLowerCase()))?.map((o) => o) || []
+      ).slice(0, 10);
+
+      setEmojis(res);
+      emojisRef.current = res;
+    })();
+  }, [state.query, setEmojis]);
 
   const setSelectedIndex = useCallback(
     (val: number) => {
@@ -110,7 +110,7 @@ export const useEditorEmojiMenu = () => {
 
   const { containerRef } = useContainer();
   useQuery();
-  useOnKeyBindings({ emojis, setValue });
+  useOnKeyBindings({ emojisRef, setValue });
   useDisclosure({ reset });
 
   return {
@@ -125,7 +125,7 @@ export const useEditorEmojiMenu = () => {
 };
 
 function useOnKeyBindings(props: {
-  emojis: BaseEmoji[];
+  emojisRef: RefObject<BaseEmoji[]>;
   setValue: (emoji: BaseEmoji) => void;
 }) {
   const [state, setState] = useAtom(modalState);
@@ -145,7 +145,7 @@ function useOnKeyBindings(props: {
 
   onArrowDown = useCallback(() => {
     const selectedIndex = state.selectedIndex + 1;
-    if (selectedIndex > props.emojis.length) {
+    if (selectedIndex > props.emojisRef?.current.length) {
       setState((s) => ({ ...s, selectedIndex: 0 }));
       scrollTo(0);
       return;
@@ -153,22 +153,32 @@ function useOnKeyBindings(props: {
 
     setState((s) => ({ ...s, selectedIndex }));
     scrollTo(selectedIndex);
-  }, [props.emojis, scrollTo, setState, state.selectedIndex]);
+  }, [
+    scrollTo,
+    setState,
+    state.selectedIndex,
+    props.emojisRef?.current.length,
+  ]);
 
   onArrowUp = useCallback(() => {
     const selectedIndex = state.selectedIndex - 1;
     if (selectedIndex < 0) {
-      setState((s) => ({ ...s, selectedIndex: props.emojis.length }));
-      scrollTo(props.emojis.length);
+      setState((s) => ({
+        ...s,
+        selectedIndex: props.emojisRef.current.length,
+      }));
+      scrollTo(props.emojisRef.current.length);
       return;
     }
 
     setState((s) => ({ ...s, selectedIndex }));
     scrollTo(-selectedIndex);
-  }, [props.emojis.length, scrollTo, setState, state.selectedIndex]);
+  }, [props.emojisRef.current.length, scrollTo, setState, state.selectedIndex]);
 
   onEnter = useCallback(() => {
-    const emoji = props.emojis.find((_, i) => i === state.selectedIndex);
+    const emoji = props.emojisRef.current.find(
+      (_, i) => i === state.selectedIndex,
+    );
 
     if (!emoji) return;
 

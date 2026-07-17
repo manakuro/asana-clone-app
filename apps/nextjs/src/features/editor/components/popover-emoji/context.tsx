@@ -1,24 +1,17 @@
 import { useCallback, useState } from 'react';
-import type { BaseEmoji } from '@/lib/emoji';
+import type { SelectedEmoji } from '@/lib/emoji';
 import { createContext } from '@/lib/react/create-context';
 
-type ContextProps = {
-  open: boolean;
-  emoji: BaseEmoji | null;
-  onClose: (data?: BaseEmoji) => void;
-  onOpen: () => Promise<BaseEmoji>;
-};
-
 type Props = {
-  onChange?: (emoji?: BaseEmoji) => void;
+  onChange?: (emoji?: SelectedEmoji) => void;
 };
-const useValue = (props: Props): ContextProps => {
+const useValue = (props: Props) => {
   const [open, setIsOpen] = useState<boolean>(false);
-  const [emoji, setEmoji] = useState<BaseEmoji | null>(null);
-  const [callback, setCallback] = useState<(val?: BaseEmoji) => void>();
+  const [emoji, setEmoji] = useState<SelectedEmoji | null>(null);
+  const [callback, setCallback] = useState<(val?: SelectedEmoji) => void>();
 
   const onClose = useCallback(
-    (data?: BaseEmoji) => {
+    (data?: SelectedEmoji) => {
       setIsOpen(false);
       callback?.(data);
       props.onChange?.(data);
@@ -27,7 +20,7 @@ const useValue = (props: Props): ContextProps => {
     [callback, props],
   );
 
-  const onOpen = useCallback((): Promise<BaseEmoji> => {
+  const onOpen = useCallback((): Promise<SelectedEmoji> => {
     return new Promise((resolve) => {
       setIsOpen(true);
       setCallback(() => resolve);

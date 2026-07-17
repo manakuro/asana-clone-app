@@ -1,15 +1,15 @@
+import { formatISO } from 'date-fns';
 import { useCallback } from 'react';
-import { dateFns } from '@/lib/date-fns';
 
 export const useTasksCalendarId = () => {
   const getCalendarListId = useCallback((date: Date) => {
-    return `calendar-list-${dateFns.formatISO(date, {
+    return `calendar-list-${formatISO(date, {
       representation: 'date',
     })}`;
   }, []);
 
   const getCalendarListItemId = useCallback((date: Date) => {
-    return `calendar-list-item-${dateFns.formatISO(date, {
+    return `calendar-list-item-${formatISO(date, {
       representation: 'date',
     })}`;
   }, []);

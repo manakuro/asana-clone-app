@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Text, type TextProps } from '@/components/ui/text';
-import { formatDueDate } from '@/lib/date';
-import { dateFns } from '@/lib/date-fns';
+import { formatDueDate } from '@/lib/date/format-date';
+import { isBeforeDay } from '@/lib/date/isBeforeDay';
 
 type Props = TextProps & {
   dueDate: string;
@@ -11,7 +11,7 @@ type Props = TextProps & {
 export function DueDate(props: Props) {
   const { dueDate, fallback, ...rest } = props;
   const isBeforeDate = useMemo(
-    () => dateFns.isBeforeDay(new Date(dueDate), new Date()),
+    () => isBeforeDay(new Date(dueDate), new Date()),
     [dueDate],
   );
   const hadDueDate = useMemo(() => !!dueDate, [dueDate]);

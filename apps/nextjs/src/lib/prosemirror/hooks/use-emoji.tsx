@@ -17,7 +17,7 @@ export const useEmoji = (): ToolbarItem => {
       if (!emoji) return false;
 
       const { tr } = state;
-      tr.insertText(emoji.native);
+      tr.insertText(`${emoji.native} `);
       dispatch?.(tr);
       return true;
     },

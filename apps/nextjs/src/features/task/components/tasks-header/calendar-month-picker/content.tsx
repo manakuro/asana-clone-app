@@ -1,3 +1,13 @@
+import {
+  addYears,
+  eachMonthOfInterval,
+  endOfYear,
+  format,
+  formatISO,
+  isSameMonth,
+  startOfYear,
+  subYears,
+} from 'date-fns';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/ui/flex';
@@ -8,7 +18,6 @@ import { Popover, usePopoverContext } from '@/components/ui/popover';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
 import { useTasksCalendarContext } from '@/features/task/components/tasks-calendar/context';
-import { dateFns } from '@/lib/date-fns';
 
 export function Content() {
   const { setOpen } = usePopoverContext();
@@ -16,25 +25,22 @@ export function Content() {
   const [date, setDate] = useState<Date>(currentDate);
 
   const handleNextYear = useCallback(() => {
-    setDate((s) => dateFns.addYears(s, 1));
+    setDate((s) => addYears(s, 1));
   }, []);
 
   const handlePrevYear = useCallback(() => {
-    setDate((s) => dateFns.subYears(s, 1));
+    setDate((s) => subYears(s, 1));
   }, []);
 
   const months = useMemo<Date[]>(() => {
-    const start = dateFns.startOfYear(date);
-    const end = dateFns.endOfYear(date);
-    return dateFns.eachMonthOfInterval({ start, end });
+    const start = startOfYear(date);
+    const end = endOfYear(date);
+    return eachMonthOfInterval({ start, end });
   }, [date]);
 
-  const selectedMonth = useCallback(
-    (d: Date) => dateFns.isSameMonth(date, d),
-    [date],
-  );
+  const selectedMonth = useCallback((d: Date) => isSameMonth(date, d), [date]);
   const currentMonth = useCallback((d: Date) => {
-    return dateFns.isSameMonth(new Date(), d);
+    return isSameMonth(new Date(), d);
   }, []);
   const variant = useCallback(
     (d: Date) => {
@@ -73,7 +79,7 @@ export function Content() {
               </IconButton>
 
               <Text flex={1} fontSize="sm" textAlign="center">
-                {dateFns.format(date, 'y')}
+                {format(date, 'y')}
               </Text>
               <IconButton
                 onClick={handleNextYear}
@@ -88,7 +94,7 @@ export function Content() {
             <Grid templateColumns="repeat(4, 1fr)" gap={2}>
               {months.map((d) => (
                 <Button
-                  key={dateFns.formatISO(d, { representation: 'date' })}
+                  key={formatISO(d, { representation: 'date' })}
                   fontSize="sm"
                   cursor="pointer"
                   textTransform="uppercase"
@@ -99,7 +105,7 @@ export function Content() {
                   variant={variant(d)}
                   colorPalette="teal"
                 >
-                  {dateFns.format(d, 'MMM')}
+                  {format(d, 'MMM')}
                 </Button>
               ))}
             </Grid>
