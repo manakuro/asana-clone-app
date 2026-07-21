@@ -48,11 +48,10 @@ const modalState = atomWithReset<State>({
 const emojiState = atomWithReset<BaseEmoji[]>(defaultEmojis());
 
 // NOTE: Export functions in order to execute inside prosemirror's plugins
-// @see src/shared/prosemirror/config/plugins.ts
+// @see apps/nextjs/src/lib/prosemirror/plugins/suggestions/suggest-emoji.ts
 let onOpen: (options?: { onOpened?: () => void }) => Promise<void> | void;
 let onClose: () => void;
 let setQuery: (query: string) => void;
-let getQuery: () => string;
 let onArrowDown: () => void;
 let onArrowUp: () => void;
 let onEnter: () => void;
@@ -233,7 +232,7 @@ function useDisclosure(props: { reset: () => void }) {
 }
 
 function useQuery() {
-  const [state, setState] = useAtom(modalState);
+  const [_, setState] = useAtom(modalState);
 
   setQuery = useCallback(
     (query) => {
@@ -241,7 +240,6 @@ function useQuery() {
     },
     [setState],
   );
-  getQuery = useCallback(() => state.query, [state.query]);
 }
 
 function useContainer() {
@@ -286,7 +284,6 @@ export {
   onOpen as onEmojiOpen,
   onClose as onEmojiClose,
   setQuery as setEmojiQuery,
-  getQuery as getEmojiQuery,
   onArrowDown as onEmojiArrowDown,
   onArrowUp as onEmojiArrowUp,
   onEnter as onEmojiEnter,
