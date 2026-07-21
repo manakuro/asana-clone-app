@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Help } from '@/components/layout/navigation';
-import { VideoPlayer } from '@/components/ui/video-player';
+import { VideoPlayerDialog } from '@/components/ui/video-player';
 import { EditorEmojiMenu } from '@/features/editor/components/editor-emoji-menu';
 import { EditorLinkModal } from '@/features/editor/components/editor-link-modal/editor-link-modal';
 import { EditorMentionMenu } from '@/features/editor/components/editor-mention-menu';
@@ -16,7 +16,7 @@ export const Modals = memo(function Modals() {
       <InviteModal />
       <ShareWorkspaceModal />
       <Help />
-      <VideoPlayer />
+      <VideoPlayerDialog />
       <EditorLinkModal />
       <EditorMentionMenu />
       <EditorEmojiMenu />

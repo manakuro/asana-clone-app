@@ -1,9 +1,13 @@
+import dynamic from 'next/dynamic';
 import type { PropsWithChildren } from 'react';
 import { ClientOnly } from '@/components/ui/client-only';
 import { Flex } from '@/components/ui/flex';
 import { Popover } from '@/components/ui/popover';
-import { Content } from './content';
 import { Context, usePopoverEmojiContext } from './context';
+
+const LazyContent = dynamic(() =>
+  import('./content').then((mod) => mod.Content),
+);
 
 export function PopoverEmoji(props: PropsWithChildren) {
   return (
@@ -26,7 +30,7 @@ function Component(props: PropsWithChildren) {
         <Popover.Trigger asChild>
           <Flex>{props.children}</Flex>
         </Popover.Trigger>
-        {open && <Content />}
+        {open && <LazyContent />}
       </Popover.Root>
     </ClientOnly>
   );

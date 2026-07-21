@@ -1,2 +1,1 @@
-export * from './editor-link-modal';
-export * from './use-editor-link-modal';
+export { EditorLinkModal } from './editor-link-modal';

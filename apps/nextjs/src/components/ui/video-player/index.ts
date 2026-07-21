@@ -1,2 +1,1 @@
-export * from './use-video-player';
-export * from './video-player';
+export { VideoPlayerDialog } from './video-player-dialog';
