@@ -5,7 +5,7 @@ import {
   onEmojiClose as onClose,
   onEmojiOpen as onOpen,
   setEmojiQuery as setQuery,
-} from '@/features/editor/components/editor-emoji-menu';
+} from '@/features/editor/components/editor-emoji-menu/use-editor-emoji-menu';
 import { type BaseEmoji, getNative } from '@/lib/emoji';
 
 export const suggestEmoji: Suggester = {
