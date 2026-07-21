@@ -1,7 +1,12 @@
+import dynamic from 'next/dynamic';
 import { Dialog } from '@/components/ui/dialog';
 import { Portal } from '@/components/ui/portal';
-import { MenuList } from './menu-list';
 import { useEditorEmojiMenu } from './use-editor-emoji-menu';
+
+const LazyMenuList = dynamic(
+  () => import('./menu-list').then((mod) => mod.MenuList),
+  { ssr: false },
+);
 
 export function EditorEmojiMenu() {
   const { open, onClose } = useEditorEmojiMenu();
@@ -19,7 +24,7 @@ export function EditorEmojiMenu() {
       motionPreset="none"
     >
       <Portal>
-        <Dialog.Positioner>{open && <MenuList />}</Dialog.Positioner>
+        <Dialog.Positioner>{open && <LazyMenuList />}</Dialog.Positioner>
       </Portal>
     </Dialog.Root>
   );
