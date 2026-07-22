@@ -33,8 +33,8 @@ export const Attachments = memo(function Attachments() {
           />
         </WrapItem>
       ))}
-      {uploadingFiles.map((f, i) => (
-        <WrapItem key={`${f.name}-${i}`}>
+      {uploadingFiles.map((f) => (
+        <WrapItem key={`${f.name}-${f.num}`}>
           <AttachmentUploadingBox file={f} size="md" />
         </WrapItem>
       ))}

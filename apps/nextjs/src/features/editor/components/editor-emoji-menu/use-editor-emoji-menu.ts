@@ -281,11 +281,11 @@ function useContainer() {
 }
 
 export {
-  onOpen as onEmojiOpen,
-  onClose as onEmojiClose,
-  setQuery as setEmojiQuery,
   onArrowDown as onEmojiArrowDown,
   onArrowUp as onEmojiArrowUp,
+  onClose as onEmojiClose,
   onEnter as onEmojiEnter,
+  onOpen as onEmojiOpen,
   open as isEmojiOpen,
+  setQuery as setEmojiQuery,
 };

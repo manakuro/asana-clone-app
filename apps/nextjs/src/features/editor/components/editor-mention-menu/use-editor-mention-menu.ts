@@ -253,12 +253,12 @@ function useContainer() {
 }
 
 export {
-  onOpen as onMentionOpen,
-  onClose as onMentionClose,
-  setQuery as setMentionQuery,
   getQuery as getMentionQuery,
   onArrowDown as onMentionArrowDown,
   onArrowUp as onMentionArrowUp,
+  onClose as onMentionClose,
   onEnter as onMentionEnter,
+  onOpen as onMentionOpen,
   open as isMentionOpen,
+  setQuery as setMentionQuery,
 };

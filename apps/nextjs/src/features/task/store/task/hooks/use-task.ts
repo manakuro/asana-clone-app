@@ -65,7 +65,7 @@ export const useTask = (taskId: string) => {
         if (prev.isNew && !prev.name && !input) return;
         if (!prev.isNew && prev.name === input) return;
 
-        const isNew = prev.isNew && !!input ? { isNew: false } : {};
+        const isNew = prev.isNew && input ? { isNew: false } : {};
         await setTask({ name: input, ...isNew });
       },
       [setTask, taskId],
