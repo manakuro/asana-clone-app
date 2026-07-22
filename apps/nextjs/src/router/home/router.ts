@@ -1,7 +1,7 @@
 import { useRouter as useRouterNext } from 'next/navigation';
 import { useCallback } from 'react';
 import type { Options } from '../types';
-import { ROUTE_HOME } from './routes';
+import { ROUTE_HOME, ROUTE_HOME_TASK } from './routes';
 
 export const useRouterHome = () => {
   const router = useRouterNext();
@@ -16,7 +16,7 @@ export const useRouterHome = () => {
 
   const navigateToHomeDetail = useCallback(
     (id: string, options?: Options) => {
-      push(`${ROUTE_HOME.href.pathname()}${id}`, options);
+      push(ROUTE_HOME_TASK.href.pathname(id), options);
     },
     [push],
   );
