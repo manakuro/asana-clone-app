@@ -237,8 +237,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.17)
       '@types/shortid':
-        specifier: 0.0.29
-        version: 0.0.29
+        specifier: 2.2.0
+        version: 2.2.0
       '@types/testing-library__jest-dom':
         specifier: 6.0.0
         version: 6.0.0(@testing-library/dom@10.4.1)
@@ -2896,8 +2896,8 @@ packages:
   '@types/set-cookie-parser@2.4.10':
     resolution: {integrity: sha512-GGmQVGpQWUe5qglJozEjZV/5dyxbOOZ0LHe/lqyWssB88Y4svNfst0uqBVscdDeIKl5Jy5+aPSvy7mI9tYRguw==}
 
-  '@types/shortid@0.0.29':
-    resolution: {integrity: sha512-9BCYD9btg2CY4kPcpMQ+vCR8U6V8f/KvixYD5ZbxoWlkhddNF5IeZMVL3p+QFUkg+Hb+kPAG9Jgk4bnnF1v/Fw==}
+  '@types/shortid@2.2.0':
+    resolution: {integrity: sha512-jBG2FgBxcaSf0h662YloTGA32M8UtNbnTPekUr/eCmWXq0JWQXgNEQ/P5Gf05Cv66QZtE1Ttr83I1AJBPdzCBg==}
 
   '@types/statuses@2.0.6':
     resolution: {integrity: sha512-xMAgYwceFhRA2zY+XbEA7mxYbA093wdiW8Vu6gZPGWy9cmOyU9XesH1tNcEWsKFd5Vzrqx5T3D38PWx1FIIXkA==}
@@ -8943,7 +8943,7 @@ snapshots:
     dependencies:
       '@types/node': 24.10.4
 
-  '@types/shortid@0.0.29': {}
+  '@types/shortid@2.2.0': {}
 
   '@types/statuses@2.0.6': {}
 

@@ -111,7 +111,7 @@
     "@types/raf-schd": "4.0.1",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
-    "@types/shortid": "0.0.29",
+    "@types/shortid": "2.2.0",
     "@types/testing-library__jest-dom": "6.0.0",
     "@types/yargs": "17",
     "@vitejs/plugin-react": "6.0.3",
