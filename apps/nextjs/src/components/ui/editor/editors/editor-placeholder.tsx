@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Text } from '@/components/ui/text';
 import { isContentEmpty } from '@/lib/prosemirror/utils';
@@ -8,14 +8,9 @@ type Props = FlexProps;
 export const EditorPlaceholder = memo(function EditorPlaceholder(props: Props) {
   const { children, ...rest } = props;
   const view = useEditorViewContext();
+  const visible = view && isContentEmpty(view);
 
-  const show = useMemo(() => {
-    if (!view) return true;
-
-    return isContentEmpty(view);
-  }, [view]);
-
-  if (!show) return null;
+  if (!visible) return null;
 
   return (
     <Flex

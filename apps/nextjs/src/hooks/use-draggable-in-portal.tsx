@@ -24,7 +24,7 @@ export const useDraggableInPortal = () => {
     (provided, ...args) => {
       const element = render(provided, ...args);
       if (
-        (provided?.draggableProps?.style as DraggingStyle).position === 'fixed'
+        (provided.draggableProps.style as DraggingStyle).position === 'fixed'
       ) {
         return createPortal(
           element,
