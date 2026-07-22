@@ -29,8 +29,8 @@ const useValue = (props: Props) => {
     if (!isHTMLElement(taskDetailBodyDom)) return;
 
     setReference();
-    const rect = dom.getBoundingClientRect();
     setTimeout(() => {
+      const rect = dom.getBoundingClientRect();
       taskDetailBodyDom.scrollTo({ top: rect.top, behavior: 'smooth' });
     }, 500);
   }, [setReference, taskDetailBodyDom]);

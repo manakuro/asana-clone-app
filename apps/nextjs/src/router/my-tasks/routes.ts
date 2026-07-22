@@ -1,3 +1,5 @@
+import { ulidRegex } from '@/utils/ulid';
+
 export const ROUTE_MY_TASKS = {
   regex: /^\/my_tasks\/?$/iu,
   href: {
@@ -9,6 +11,20 @@ export const ROUTE_MY_TASKS_LIST = {
   regex: /^\/my_tasks\/list\/?$/iu,
   href: {
     pathname: () => '/my_tasks/list' as const,
+  },
+} as const;
+export const ROUTE_MY_TASKS_TASK = {
+  regex: new RegExp(`^/my_tasks/task/${ulidRegex}/?`, 'iu'),
+  href: {
+    pathname: (id: string) => `/my_tasks/task/${id}`,
+    pathnameObj: (id: string) =>
+      ({
+        pathname: '/my_tasks/task/[taskId]',
+        query: { taskId: id },
+      }) as const,
+  },
+  query: {
+    taskId: 'taskId',
   },
 } as const;
 export const ROUTE_MY_TASKS_BOARD = {

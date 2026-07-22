@@ -8,6 +8,7 @@ import {
   ROUTE_PROJECTS_FILES,
   ROUTE_PROJECTS_LIST,
   ROUTE_PROJECTS_OVERVIEW,
+  ROUTE_PROJECTS_TASK,
 } from './routes';
 
 export const isProjectsURL = (pathname: string | null): boolean => {
@@ -34,21 +35,11 @@ export const isProjectsOverviewURL = (pathname: string | null): boolean => {
   return ROUTE_PROJECTS_OVERVIEW.regex.test(pathname || '');
 };
 
-// TODO: Should be verified
 export const isProjectsDetailURL = (
-  params: Params,
+  _: Params,
   pathname: string | null,
 ): boolean => {
-  return (
-    !!params &&
-    !!params[ROUTE_PROJECTS.query.projects]?.length &&
-    !!params[ROUTE_PROJECTS.query.projects]?.[0] &&
-    !isProjectsListURL(pathname) &&
-    !isProjectsBoardURL(pathname) &&
-    !isProjectsCalendarURL(pathname) &&
-    !isProjectsFilesURL(pathname) &&
-    !isProjectsOverviewURL(pathname)
-  );
+  return ROUTE_PROJECTS_TASK.regex.test(pathname || '');
 };
 export const isProjectsDetailURLById = (
   params: Params,
@@ -56,14 +47,8 @@ export const isProjectsDetailURLById = (
   taskId: string,
 ): boolean => {
   return (
-    !!params &&
-    !!params[ROUTE_PROJECTS.query.projects]?.length &&
-    !!params[ROUTE_PROJECTS.query.projects]?.[0] &&
-    params[ROUTE_PROJECTS.query.projects]?.[0] === taskId &&
-    !isProjectsBoardURL(pathname) &&
-    !isProjectsCalendarURL(pathname) &&
-    !isProjectsFilesURL(pathname) &&
-    !isProjectsOverviewURL(pathname)
+    isProjectsDetailURL(params, pathname) &&
+    params[ROUTE_PROJECTS.query.projects]?.[1] === taskId
   );
 };
 
@@ -84,7 +69,7 @@ export const getProjectsDetailId = (
 ): string => {
   return (
     (isProjectsDetailURL(params, pathname) &&
-      (params?.[ROUTE_PROJECTS.query.projects]?.[0] as string)) ||
+      (params?.[ROUTE_PROJECTS.query.projects]?.[1] as string)) ||
     ''
   );
 };
@@ -95,7 +80,7 @@ export const getProjectsDetailFeedId = (
 ): string => {
   return (
     (isProjectsDetailURL(params, pathname) &&
-      (params?.[ROUTE_PROJECTS.query.projects]?.[1] as string)) ||
+      (params?.[ROUTE_PROJECTS.query.projects]?.[3] as string)) ||
     ''
   );
 };
@@ -107,7 +92,7 @@ export const getProjectsDetailFeedURL = (
 ): string => {
   return `${window.location.origin}${ROUTE_PROJECTS.href.pathname(
     id,
-  )}/${taskId}/${taskFeedId}`;
+  )}/task/${taskId}/feed/${taskFeedId}`;
 };
 
 export const getProjectsURL = (id: string): string => {
