@@ -46,7 +46,7 @@
     "@emotion/react": "11.14.0",
     "@graphql-typed-document-node/core": "3.2.0",
     "@hello-pangea/dnd": "18.0.1",
-    "@pdfslick/react": "3.1.0",
+    "@pdfslick/react": "4.0.0",
     "@react-hook/hover": "4.0.0",
     "@react-hook/latest": "1.0.3",
     "@react-hook/passive-layout-effect": "1.2.1",
