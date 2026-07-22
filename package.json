@@ -22,8 +22,8 @@
   "devDependencies": {
     "commitizen": "4.3.2",
     "cz-conventional-changelog": "3.3.0",
-    "lefthook": "2.1.9",
-    "turbo": "2.10.3"
+    "lefthook": "2.1.10",
+    "turbo": "2.10.5"
   },
   "config": {
     "commitizen": {
