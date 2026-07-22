@@ -34,8 +34,8 @@ export const Detail: Story = {
     nextjs: {
       appDirectory: true,
       navigation: {
-        pathname: '/my_tasks/0BA01GK0BWB1Z78B3A3PK795SFJW9',
-        segments: [['my_tasks', ['0BA01GK0BWB1Z78B3A3PK795SFJW9']]],
+        pathname: '/my_tasks/task/0BA01GK0BWB1Z78B3A3PK795SFJW9',
+        segments: [['my_tasks', ['task', '0BA01GK0BWB1Z78B3A3PK795SFJW9']]],
         searchParams: {},
       },
     },

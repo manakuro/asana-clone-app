@@ -16,6 +16,23 @@ export const ROUTE_PROJECTS = {
   },
 } as const;
 
+export const ROUTE_PROJECTS_TASK = {
+  regex: new RegExp(`^/projects/${ulidRegex}/task/${ulidRegex}/?`, 'iu'),
+  href: {
+    pathname: (projectId: string, taskId: string) =>
+      `/projects/${projectId}/task/${taskId}`,
+    pathnameObj: (projectId: string, taskId: string) =>
+      ({
+        pathname: '/projects/[projectId]/task/[taskId]',
+        query: { projectId, taskId },
+      }) as const,
+  },
+  query: {
+    projectId: 'projectId',
+    projects: 'projects',
+  },
+} as const;
+
 export const ROUTE_PROJECTS_LIST = {
   regex: new RegExp(`^/projects/${ulidRegex}/list/?$`, 'iu'),
   href: {

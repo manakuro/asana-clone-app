@@ -2,11 +2,11 @@ import { useRouter as useRouterNext } from 'next/navigation';
 import { useCallback } from 'react';
 import type { Options } from '../types';
 import {
-  ROUTE_MY_TASKS,
   ROUTE_MY_TASKS_BOARD,
   ROUTE_MY_TASKS_CALENDAR,
   ROUTE_MY_TASKS_FILES,
   ROUTE_MY_TASKS_LIST,
+  ROUTE_MY_TASKS_TASK,
 } from './routes';
 
 export const useRouterMyTasks = () => {
@@ -22,7 +22,7 @@ export const useRouterMyTasks = () => {
 
   const navigateToMyTasksTaskDetail = useCallback(
     (id: string, options?: Options) => {
-      push(`${ROUTE_MY_TASKS.href.pathname()}/${id}`, options);
+      push(ROUTE_MY_TASKS_TASK.href.pathname(id), options);
     },
     [push],
   );
@@ -30,7 +30,7 @@ export const useRouterMyTasks = () => {
   const navigateToMyTasksTaskDetailFeed = useCallback(
     (taskId: string, taskFeedId: string, options?: Options) => {
       push(
-        `${ROUTE_MY_TASKS.href.pathname()}/${taskId}/${taskFeedId}`,
+        `${ROUTE_MY_TASKS_TASK.href.pathname(taskId)}/feed/${taskFeedId}`,
         options,
       );
     },

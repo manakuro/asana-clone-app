@@ -23,6 +23,7 @@ export const TaskDetailModal = memo(function TaskDetailModal(props: Props) {
       open={open}
       onOpenChange={(e) => {
         if (!e.open) {
+          props.backToPage();
           onClose();
         }
       }}
