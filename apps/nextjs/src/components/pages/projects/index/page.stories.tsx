@@ -39,10 +39,10 @@ export const Detail: Story = {
       appDirectory: true,
       navigation: {
         pathname:
-          '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/0BA01GK0BWB1Z78B3A3PK795SFJW9',
+          '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/task/0BA01GK0BWB1Z78B3A3PK795SFJW9',
         segments: [
           ['projectId', '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G'],
-          ['projects', ['0BA01GK0BWB1Z78B3A3PK795SFJW9']],
+          ['projects', ['task', '0BA01GK0BWB1Z78B3A3PK795SFJW9']],
         ],
         searchParams: {},
       },
