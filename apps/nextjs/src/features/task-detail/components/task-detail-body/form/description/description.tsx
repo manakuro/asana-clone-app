@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
+import { memo, useCallback, useMemo, useRef } from 'react';
 import {
   Editor,
   EditorContent,
@@ -74,12 +74,12 @@ const Component = memo(function Component(props: ComponentProps) {
   const editorRef = useRef<EditorHandle>(null);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: The editor state will be reset only when the task changes
-  useEffect(() => {
-    if (!editorRef.current) return;
-
-    console.log('the editor state will be reset');
-    editorRef.current.reset();
-  }, [props.taskId]);
+  // useEffect(() => {
+  //   if (!editorRef.current) return;
+  //
+  //   console.log('the editor state will be reset');
+  //   editorRef.current.reset();
+  // }, [props.taskId]);
 
   return (
     <Row>
@@ -90,6 +90,7 @@ const Component = memo(function Component(props: ComponentProps) {
             ref={editorRef}
             onChange={handleChange}
             initialValue={initialValue}
+            key={props.taskId}
           >
             <EditorContent />
             <Placeholder />
