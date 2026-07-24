@@ -15,23 +15,33 @@ export const MonthObserver = memo(function MonthObserver(props: Props) {
     rootMargin: '-19% 0px -79% 0px',
   });
   const isFirst = useRef(true);
+  const prevTopRef = useRef<number | null>(null);
   const { onNextMonth, onPrevMonth } = useTasksCalendarContext();
 
   useEffect(() => {
     if (!isSecondRowOfMonth) return;
     if (!entry) return;
+
+    const currentTop = entry.boundingClientRect.top;
+    const prevTop = prevTopRef.current;
+    prevTopRef.current = currentTop;
+
     if (isFirst.current) {
       isFirst.current = false;
       return;
     }
+    if (prevTop === null) return;
 
-    if (entry.isIntersecting && entry.boundingClientRect.top < 0) {
+    const scrollingDown = currentTop < prevTop;
+    const scrollingUp = currentTop > prevTop;
+
+    if (entry.isIntersecting && scrollingUp) {
       console.log('onPrevMonth!: ', id);
       onPrevMonth(dateString);
       return;
     }
 
-    if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+    if (!entry.isIntersecting && scrollingDown) {
       console.log('onNextMonth!: ', id);
       onNextMonth(dateString);
     }
