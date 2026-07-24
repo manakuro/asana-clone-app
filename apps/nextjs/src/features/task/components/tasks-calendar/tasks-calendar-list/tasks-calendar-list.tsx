@@ -59,6 +59,14 @@ export const TasksCalendarList = memo(function TasksCalendarList(
   );
 });
 
+/**
+ * Development-only overlay that visualizes the IntersectionObserver's
+ * rootMargin zone used by MonthObserver. The red band shows where month
+ * boundary rows must intersect to trigger onPrevMonth/onNextMonth.
+ *
+ * IMPORTANT: top="19%" and bottom="79%" must match the rootMargin values
+ * in month-observer.tsx ('-19% 0px -79% 0px').
+ */
 const debugState = atom<boolean>(false);
 function MonthObserverDebugOverlay() {
   const [debug, setDebug] = useAtom(debugState);

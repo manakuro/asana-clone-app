@@ -17,11 +17,19 @@ const useValue = () => {
 
   const onNextMonth = useCallback((date: string) => {
     const newDate = new Date(date);
+    if (Number.isNaN(newDate.getTime())) {
+      console.error('[onNextMonth] Invalid date string received:', date);
+      return;
+    }
     setCurrentDate(addMonths(newDate, 1));
   }, []);
 
   const onPrevMonth = useCallback((date: string) => {
     const newDate = new Date(date);
+    if (Number.isNaN(newDate.getTime())) {
+      console.error('[onPrevMonth] Invalid date string received:', date);
+      return;
+    }
     setCurrentDate(newDate);
   }, []);
 
@@ -53,11 +61,11 @@ const useValue = () => {
    */
   const isMonthBoundaryRow = useCallback(
     (row: Date[]) => {
-      return !!(
-        calendarRows
-          .filter((c) => c.some((date) => isLastDayOfMonth(date)))
-          .find((c) => getCalendarListId(c[0]) === getCalendarListId(row[0])) ??
-        false
+      const rowId = getCalendarListId(row[0]);
+      return calendarRows.some(
+        (c) =>
+          c.some((date) => isLastDayOfMonth(date)) &&
+          getCalendarListId(c[0]) === rowId,
       );
     },
     [calendarRows, getCalendarListId],
@@ -65,30 +73,22 @@ const useValue = () => {
 
   /**
    * Extends `baseDate` 3 months into the past, growing the range that
-   * `calendarRows` is generated from. Called when the user scrolls up and
-   * reaches the top of the currently rendered range, so more past weeks
-   * become available to scroll into.
+   * `calendarRows` is generated from. Called when the user scrolls near
+   * the top of the currently rendered range (10 rows from the top),
+   * preloading additional past weeks before the user reaches the boundary.
    */
-  const loadPastMonths = useCallback((id: string) => {
+  const loadPastMonths = useCallback((_id: string) => {
     setBaseDate((s) => subMonths(s, 3));
-    console.log(
-      '[loadPastMonths] extending range 3 months into the past, triggered by row: ',
-      id,
-    );
   }, []);
 
   /**
    * Extends `baseDate` 3 months into the future, growing the range that
-   * `calendarRows` is generated from. Called when the user scrolls down and
-   * reaches the bottom of the currently rendered range, so more future weeks
-   * become available to scroll into.
+   * `calendarRows` is generated from. Called when the user scrolls near
+   * the bottom of the currently rendered range (10 rows from the end),
+   * preloading additional future weeks before the user reaches the boundary.
    */
-  const loadFutureMonths = useCallback((id: string) => {
+  const loadFutureMonths = useCallback((_id: string) => {
     setBaseDate((s) => addMonths(s, 3));
-    console.log(
-      '[loadFutureMonths] extending range 3 months into the future, triggered by row: ',
-      id,
-    );
   }, []);
 
   const scrollToDate = useCallback(

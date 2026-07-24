@@ -13,6 +13,8 @@ export const MonthObserver = memo(function MonthObserver(props: Props) {
   const { ref, entry } = useInView({
     skip: !isMonthBoundaryRow,
     initialInView: false,
+    // Creates a narrow 2% observation band starting at 19% from the viewport top.
+    // Toggle MonthObserverDebugOverlay in tasks-calendar-list.tsx to visualize.
     rootMargin: '-19% 0px -79% 0px',
   });
   const isFirstRenderingRef = useRef(true);
@@ -37,16 +39,14 @@ export const MonthObserver = memo(function MonthObserver(props: Props) {
     const scrollingUp = currentTop > prevTop;
 
     if (entry.isIntersecting && scrollingUp) {
-      console.log('onPrevMonth!: ', id);
       onPrevMonth(dateString);
       return;
     }
 
     if (!entry.isIntersecting && scrollingDown) {
-      console.log('onNextMonth!: ', id);
       onNextMonth(dateString);
     }
-  }, [entry, id, onNextMonth, onPrevMonth, dateString, isMonthBoundaryRow]);
+  }, [entry, onNextMonth, onPrevMonth, dateString, isMonthBoundaryRow]);
 
   return <Flex {...rest} ref={ref} flex={1} />;
 });
