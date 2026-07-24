@@ -17,8 +17,8 @@ export const TasksCalendarList = memo(function TasksCalendarList(
   const { getCalendarListId, getCalendarListItemId } = useTasksCalendarId();
   const {
     calendarRows,
-    onVisibleWhenScrollDown,
-    onVisibleWhenScrollUp,
+    loadPastMonths,
+    loadFutureMonths,
     isMonthBoundaryRow,
     resetCount,
   } = useTasksCalendarContext();
@@ -39,8 +39,8 @@ export const TasksCalendarList = memo(function TasksCalendarList(
         <TasksCalendarListRow
           observeScrollUp={i === 10}
           observeScrollDown={i === calendarRows.length - 10}
-          onVisibleWhenScrollUp={onVisibleWhenScrollUp}
-          onVisibleWhenScrollDown={onVisibleWhenScrollDown}
+          onVisibleWhenScrollUp={loadPastMonths}
+          onVisibleWhenScrollDown={loadFutureMonths}
           isMonthBoundaryRow={isMonthBoundaryRow(r)}
           key={`${getCalendarListId(r[0])}-${resetCount}`}
           id={getCalendarListId(r[0])}

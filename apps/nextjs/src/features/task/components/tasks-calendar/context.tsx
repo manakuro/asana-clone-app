@@ -63,14 +63,32 @@ const useValue = () => {
     [calendarRows, getCalendarListId],
   );
 
-  const onVisibleWhenScrollUp = useCallback((id: string) => {
+  /**
+   * Extends `baseDate` 3 months into the past, growing the range that
+   * `calendarRows` is generated from. Called when the user scrolls up and
+   * reaches the top of the currently rendered range, so more past weeks
+   * become available to scroll into.
+   */
+  const loadPastMonths = useCallback((id: string) => {
     setBaseDate((s) => subMonths(s, 3));
-    console.log('handleVisibleWhenScrollUp: ', id);
+    console.log(
+      '[loadPastMonths] extending range 3 months into the past, triggered by row: ',
+      id,
+    );
   }, []);
 
-  const onVisibleWhenScrollDown = useCallback((id: string) => {
+  /**
+   * Extends `baseDate` 3 months into the future, growing the range that
+   * `calendarRows` is generated from. Called when the user scrolls down and
+   * reaches the bottom of the currently rendered range, so more future weeks
+   * become available to scroll into.
+   */
+  const loadFutureMonths = useCallback((id: string) => {
     setBaseDate((s) => addMonths(s, 3));
-    console.log('handleVisibleWhenScrollDown: ', id);
+    console.log(
+      '[loadFutureMonths] extending range 3 months into the future, triggered by row: ',
+      id,
+    );
   }, []);
 
   const scrollToDate = useCallback(
@@ -87,8 +105,8 @@ const useValue = () => {
 
   return {
     calendarRows,
-    onVisibleWhenScrollUp,
-    onVisibleWhenScrollDown,
+    loadPastMonths,
+    loadFutureMonths,
     isMonthBoundaryRow,
     currentDate,
     onNextMonth,
