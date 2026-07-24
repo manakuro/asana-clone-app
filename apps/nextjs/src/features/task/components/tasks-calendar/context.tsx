@@ -41,6 +41,16 @@ const useValue = () => {
     [baseDate],
   );
 
+  /**
+   * Determines whether the given calendar row (a week) contains the last day
+   * of a month.
+   *
+   * The calendar renders a continuous stream of weekly rows spanning multiple
+   * months, rather than being paginated per month. To keep the displayed
+   * month label in sync with scrolling, only these "month boundary" rows are
+   * observed via IntersectionObserver — observing every row would fire
+   * onNextMonth/onPrevMonth multiple times per month.
+   */
   const isMonthBoundaryRow = useCallback(
     (row: Date[]) => {
       return !!(
