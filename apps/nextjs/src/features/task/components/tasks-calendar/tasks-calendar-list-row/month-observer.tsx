@@ -9,43 +9,33 @@ type Props = {
 } & FlexProps;
 
 export const MonthObserver = memo(function MonthObserver(props: Props) {
-  const { isSecondRowOfMonth, id, dateString: _, ...rest } = props;
+  const { isSecondRowOfMonth, id, dateString, ...rest } = props;
   const { ref, entry } = useInView({
     skip: !isSecondRowOfMonth,
+    rootMargin: '-19% 0px -79% 0px',
   });
   const isFirst = useRef(true);
   const { onNextMonth, onPrevMonth } = useTasksCalendarContext();
 
   useEffect(() => {
     if (!isSecondRowOfMonth) return;
-
-    // When scrolling down and the calendar changes to the next month
-    if (
-      !isFirst.current &&
-      !entry?.isIntersecting &&
-      entry?.intersectionRatio === 0 &&
-      entry.boundingClientRect.top < 0 && // top is less than 0 when only scrolling
-      entry.boundingClientRect.bottom > 0 // bottom is more than 0 when only scrolling
-    ) {
-      console.log('down!: ', id);
-      onNextMonth();
-    }
-
-    // When scrolling up and the calendar changes to the previous month
-    if (
-      !isFirst.current &&
-      entry?.isIntersecting &&
-      entry?.intersectionRatio > 0 &&
-      entry.boundingClientRect.top < 0
-    ) {
-      console.log('up!: ', id);
-      onPrevMonth();
-    }
-
-    if (entry && isFirst.current) {
+    if (!entry) return;
+    if (isFirst.current) {
       isFirst.current = false;
+      return;
     }
-  }, [entry, isSecondRowOfMonth, id, onNextMonth, onPrevMonth]);
+
+    if (entry.isIntersecting && entry.boundingClientRect.top < 0) {
+      console.log('onPrevMonth!: ', id);
+      onPrevMonth(dateString);
+      return;
+    }
+
+    if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+      console.log('onNextMonth!: ', id);
+      onNextMonth(dateString);
+    }
+  }, [entry, id, onNextMonth, onPrevMonth, dateString, isSecondRowOfMonth]);
 
   return <Flex {...rest} ref={ref} flex={1} />;
 });

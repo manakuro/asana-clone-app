@@ -15,12 +15,14 @@ const useValue = () => {
     setResetCount((s) => s + 1);
   }, []);
 
-  const onNextMonth = useCallback(() => {
-    setCurrentDate((s) => addMonths(s, 1));
+  const onNextMonth = useCallback((date: string) => {
+    const newDate = new Date(date);
+    setCurrentDate(addMonths(newDate, 1));
   }, []);
 
-  const onPrevMonth = useCallback(() => {
-    setCurrentDate((s) => subMonths(s, 1));
+  const onPrevMonth = useCallback((date: string) => {
+    const newDate = new Date(date);
+    setCurrentDate(newDate);
   }, []);
 
   const setMonth = useCallback((date: Date) => {

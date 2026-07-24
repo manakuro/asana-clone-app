@@ -32,6 +32,7 @@ export const TasksCalendarList = memo(function TasksCalendarList(
 
   return (
     <Flex flex={1} flexDirection="column">
+      <MonthObserverDebugOverlay />
       {calendarRows.map((r, i) => (
         <TasksCalendarListRow
           observeScrollUp={i === 10}
@@ -55,3 +56,24 @@ export const TasksCalendarList = memo(function TasksCalendarList(
     </Flex>
   );
 });
+
+function MonthObserverDebugOverlay() {
+  if (process.env.NODE_ENV === 'production') return null;
+
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        left: 0,
+        right: 0,
+        top: '19%',
+        bottom: '79%',
+        background: 'rgba(255, 0, 0, 0.2)',
+        borderTop: '1px solid red',
+        borderBottom: '1px solid red',
+        pointerEvents: 'none',
+        zIndex: 9999,
+      }}
+    />
+  );
+}
