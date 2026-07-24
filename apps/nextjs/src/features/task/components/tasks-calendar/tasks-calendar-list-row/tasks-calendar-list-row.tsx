@@ -9,7 +9,7 @@ type Props = {
   observeScrollDown?: boolean;
   onVisibleWhenScrollUp: (id: string) => void;
   onVisibleWhenScrollDown: (id: string) => void;
-  isSecondRowOfMonth: boolean;
+  isMonthBoundaryRow: boolean;
   dateString: string;
 } & FlexProps;
 
@@ -21,14 +21,14 @@ export const TasksCalendarListRow = memo(function TasksCalendarListRow(
     observeScrollDown,
     onVisibleWhenScrollUp,
     onVisibleWhenScrollDown,
-    isSecondRowOfMonth,
+    isMonthBoundaryRow,
     dateString,
     ...rest
   } = props;
 
   return (
     <MonthObserver
-      isSecondRowOfMonth={isSecondRowOfMonth}
+      isMonthBoundaryRow={isMonthBoundaryRow}
       dateString={dateString}
       id={props.id}
     >

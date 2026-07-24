@@ -4,48 +4,49 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTasksCalendarContext } from '../context';
 
 type Props = {
-  isSecondRowOfMonth: boolean;
+  isMonthBoundaryRow: boolean;
   dateString: string;
 } & FlexProps;
 
 export const MonthObserver = memo(function MonthObserver(props: Props) {
-  const { isSecondRowOfMonth, id, dateString: _, ...rest } = props;
+  const { isMonthBoundaryRow, id, dateString, ...rest } = props;
   const { ref, entry } = useInView({
-    skip: !isSecondRowOfMonth,
+    skip: !isMonthBoundaryRow,
+    initialInView: false,
+    // Creates a narrow 2% observation band starting at 19% from the viewport top.
+    // Toggle MonthObserverDebugOverlay in tasks-calendar-list.tsx to visualize.
+    rootMargin: '-19% 0px -79% 0px',
   });
-  const isFirst = useRef(true);
+  const isFirstRenderingRef = useRef(true);
+  const prevTopRef = useRef<number | null>(null);
   const { onNextMonth, onPrevMonth } = useTasksCalendarContext();
 
   useEffect(() => {
-    if (!isSecondRowOfMonth) return;
+    if (!isMonthBoundaryRow) return;
+    if (!entry) return;
 
-    // When scrolling down and the calendar changes to the next month
-    if (
-      !isFirst.current &&
-      !entry?.isIntersecting &&
-      entry?.intersectionRatio === 0 &&
-      entry.boundingClientRect.top < 0 && // top is less than 0 when only scrolling
-      entry.boundingClientRect.bottom > 0 // bottom is more than 0 when only scrolling
-    ) {
-      console.log('down!: ', id);
-      onNextMonth();
+    const currentTop = entry.boundingClientRect.top;
+    const prevTop = prevTopRef.current;
+    prevTopRef.current = currentTop;
+
+    if (isFirstRenderingRef.current) {
+      isFirstRenderingRef.current = false;
+      return;
+    }
+    if (prevTop === null) return;
+
+    const scrollingDown = currentTop < prevTop;
+    const scrollingUp = currentTop > prevTop;
+
+    if (entry.isIntersecting && scrollingUp) {
+      onPrevMonth(dateString);
+      return;
     }
 
-    // When scrolling up and the calendar changes to the previous month
-    if (
-      !isFirst.current &&
-      entry?.isIntersecting &&
-      entry?.intersectionRatio > 0 &&
-      entry.boundingClientRect.top < 0
-    ) {
-      console.log('up!: ', id);
-      onPrevMonth();
+    if (!entry.isIntersecting && scrollingDown) {
+      onNextMonth(dateString);
     }
-
-    if (entry && isFirst.current) {
-      isFirst.current = false;
-    }
-  }, [entry, isSecondRowOfMonth, id, onNextMonth, onPrevMonth]);
+  }, [entry, onNextMonth, onPrevMonth, dateString, isMonthBoundaryRow]);
 
   return <Flex {...rest} ref={ref} flex={1} />;
 });
