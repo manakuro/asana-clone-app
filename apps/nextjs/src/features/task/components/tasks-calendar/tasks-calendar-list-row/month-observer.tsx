@@ -14,7 +14,7 @@ export const MonthObserver = memo(function MonthObserver(props: Props) {
     skip: !isMonthBoundaryRow,
     rootMargin: '-19% 0px -79% 0px',
   });
-  const isFirst = useRef(true);
+  const isFirstRenderingRef = useRef(true);
   const prevTopRef = useRef<number | null>(null);
   const { onNextMonth, onPrevMonth } = useTasksCalendarContext();
 
@@ -26,8 +26,8 @@ export const MonthObserver = memo(function MonthObserver(props: Props) {
     const prevTop = prevTopRef.current;
     prevTopRef.current = currentTop;
 
-    if (isFirst.current) {
-      isFirst.current = false;
+    if (isFirstRenderingRef.current) {
+      isFirstRenderingRef.current = false;
       return;
     }
     if (prevTop === null) return;
