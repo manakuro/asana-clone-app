@@ -12,6 +12,7 @@ export const MonthObserver = memo(function MonthObserver(props: Props) {
   const { isMonthBoundaryRow, id, dateString, ...rest } = props;
   const { ref, entry } = useInView({
     skip: !isMonthBoundaryRow,
+    initialInView: false,
     rootMargin: '-19% 0px -79% 0px',
   });
   const isFirstRenderingRef = useRef(true);
