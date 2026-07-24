@@ -1,6 +1,8 @@
 import { formatISO, subDays } from 'date-fns';
+import { atom, useAtom } from 'jotai';
 import { memo, useEffect } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
+import { Switch } from '@/components/ui/switch';
 import { isHTMLElement } from '@/utils/is-html-element';
 import { useTasksCalendarContext } from '../context';
 import { TasksCalendarListItem } from '../tasks-calendar-list-item';
@@ -57,23 +59,39 @@ export const TasksCalendarList = memo(function TasksCalendarList(
   );
 });
 
+const debugState = atom<boolean>(false);
 function MonthObserverDebugOverlay() {
+  const [debug, setDebug] = useAtom(debugState);
+
   if (process.env.NODE_ENV === 'production') return null;
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        top: '19%',
-        bottom: '79%',
-        background: 'rgba(255, 0, 0, 0.2)',
-        borderTop: '1px solid red',
-        borderBottom: '1px solid red',
-        pointerEvents: 'none',
-        zIndex: 9999,
-      }}
-    />
+    <>
+      <Flex position="fixed" top="78px" right="150px" zIndex={9999} padding={2}>
+        <Switch.Root
+          size="sm"
+          checked={debug}
+          onCheckedChange={(e) => setDebug(e.checked)}
+        >
+          <Switch.HiddenInput />
+          <Switch.Control />
+          <Switch.Label>Activate month observer line (debug mode)</Switch.Label>
+        </Switch.Root>
+      </Flex>
+      {debug && (
+        <Flex
+          position="fixed"
+          left={0}
+          right={0}
+          top="19%"
+          bottom="79%"
+          background="rgba(255, 0, 0, 0.2)"
+          borderTop="1px solid red"
+          borderBottom="1px solid red"
+          pointerEvents="none"
+          zIndex={9999}
+        />
+      )}
+    </>
   );
 }
