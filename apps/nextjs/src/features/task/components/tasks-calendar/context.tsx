@@ -41,7 +41,7 @@ const useValue = () => {
     [baseDate],
   );
 
-  const isSecondRowOfMonth = useCallback(
+  const isMonthBoundaryRow = useCallback(
     (row: Date[]) => {
       return !!(
         calendarRows
@@ -79,7 +79,7 @@ const useValue = () => {
     calendarRows,
     onVisibleWhenScrollUp,
     onVisibleWhenScrollDown,
-    isSecondRowOfMonth,
+    isMonthBoundaryRow,
     currentDate,
     onNextMonth,
     onPrevMonth,

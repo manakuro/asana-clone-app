@@ -4,14 +4,14 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTasksCalendarContext } from '../context';
 
 type Props = {
-  isSecondRowOfMonth: boolean;
+  isMonthBoundaryRow: boolean;
   dateString: string;
 } & FlexProps;
 
 export const MonthObserver = memo(function MonthObserver(props: Props) {
-  const { isSecondRowOfMonth, id, dateString, ...rest } = props;
+  const { isMonthBoundaryRow, id, dateString, ...rest } = props;
   const { ref, entry } = useInView({
-    skip: !isSecondRowOfMonth,
+    skip: !isMonthBoundaryRow,
     rootMargin: '-19% 0px -79% 0px',
   });
   const isFirst = useRef(true);
@@ -19,7 +19,7 @@ export const MonthObserver = memo(function MonthObserver(props: Props) {
   const { onNextMonth, onPrevMonth } = useTasksCalendarContext();
 
   useEffect(() => {
-    if (!isSecondRowOfMonth) return;
+    if (!isMonthBoundaryRow) return;
     if (!entry) return;
 
     const currentTop = entry.boundingClientRect.top;
@@ -45,7 +45,7 @@ export const MonthObserver = memo(function MonthObserver(props: Props) {
       console.log('onNextMonth!: ', id);
       onNextMonth(dateString);
     }
-  }, [entry, id, onNextMonth, onPrevMonth, dateString, isSecondRowOfMonth]);
+  }, [entry, id, onNextMonth, onPrevMonth, dateString, isMonthBoundaryRow]);
 
   return <Flex {...rest} ref={ref} flex={1} />;
 });
