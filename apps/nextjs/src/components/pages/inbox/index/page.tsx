@@ -37,18 +37,18 @@ const InboxView = memo(function InboxView() {
   }, [setLoadingTabContent]);
 
   const handleTabsChange = useCallback(
-    async (index: string) => {
+    (index: string) => {
       switch (index as Index) {
         case ACTIVITY_INDEX: {
           setLoading();
-          await navigateToInbox();
+          navigateToInbox();
           setTabIndex(ACTIVITY_INDEX);
 
           break;
         }
         case ARCHIVE_INDEX: {
           setLoading();
-          await navigateToInbox();
+          navigateToInbox();
           setTabIndex(ARCHIVE_INDEX);
           break;
         }

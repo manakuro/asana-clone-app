@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 import {
   useInboxListItem,
@@ -22,10 +22,10 @@ export const useInboxList = (props: Props) => {
   const { isWorkspaceType, isTaskType } = useActivityType();
   const workspaceListTaskIdsResult = useWorkspaceActivityTaskIds(listItem.id);
   const myTaskListTaskIdsResult = useTaskActivityTaskIds(listItem.id);
-  const params = useParams();
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (isInboxDetailURL(params)) return;
+    if (isInboxDetailURL(pathname)) return;
     if (!listItemId) return;
 
     if (isWorkspaceType(listItem.type)) {
@@ -35,7 +35,6 @@ export const useInboxList = (props: Props) => {
       setId(myTaskListTaskIdsResult.taskIds[0]);
     }
   }, [
-    params,
     listItemId,
     listItem.type,
     isTaskType,
@@ -43,5 +42,6 @@ export const useInboxList = (props: Props) => {
     setId,
     myTaskListTaskIdsResult.taskIds,
     workspaceListTaskIdsResult.taskIds,
+    pathname,
   ]);
 };

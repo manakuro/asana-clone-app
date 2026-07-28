@@ -5,8 +5,8 @@ import { useTaskDetailSide } from '@/features/task-detail/components/task-detail
 import type { Params } from '@/lib/nextjs/navigation';
 
 type Props = {
-  isTaskDetailURL: (params: Params, pathname: string | null) => boolean;
-  getTaskDetailId: (params: Params, pathname: string | null) => string;
+  isTaskDetailURL: (pathname: string) => boolean;
+  getTaskDetailId: (pathname: string, params: Params) => string;
   fetchQuery: (variables: { taskId: string }) => Promise<void>;
 };
 
@@ -25,8 +25,8 @@ export const useInboxTaskDetail = (props: Props) => {
   }, [resetId]);
 
   useEffect(() => {
-    if (!isTaskDetailURL(params, pathname)) return;
-    const newId = getTaskDetailId(params, pathname);
+    if (!isTaskDetailURL(pathname)) return;
+    const newId = getTaskDetailId(pathname, params);
     if (taskId === newId) return;
     console.log('useInboxTaskDetail!: ', newId);
 
