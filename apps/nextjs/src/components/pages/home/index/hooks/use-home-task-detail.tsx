@@ -6,8 +6,8 @@ import type { Params } from '@/lib/nextjs/navigation';
 
 type Props = {
   isTaskDetailURL: (pathname: string, params: Params) => boolean;
-  getTaskDetailId: (pathname: string, params: Params) => string;
   fetchQuery: (variables: { taskId: string }) => Promise<void>;
+  taskId: string;
 };
 
 export const useHomeTaskDetail = (props: Props) => {
@@ -15,11 +15,11 @@ export const useHomeTaskDetail = (props: Props) => {
   const pathname = usePathname();
   const { setId, setLoading } = useTaskDetail();
   const { onOpen } = useTaskDetailModal();
-  const { isTaskDetailURL, getTaskDetailId, fetchQuery } = props;
+  const { isTaskDetailURL, fetchQuery, taskId } = props;
 
   useEffect(() => {
     if (!isTaskDetailURL(pathname, params)) return;
-    const newId = getTaskDetailId(pathname, params);
+    const newId = taskId;
     console.log('useHomeDetail!: ', newId);
 
     setLoading(true);
@@ -36,8 +36,8 @@ export const useHomeTaskDetail = (props: Props) => {
     setLoading,
     setId,
     isTaskDetailURL,
-    getTaskDetailId,
     fetchQuery,
     pathname,
+    taskId,
   ]);
 };
