@@ -7,14 +7,13 @@ import type { Params } from '@/lib/nextjs/navigation';
 type Props = {
   isTaskDetailURL: (pathname: string) => boolean;
   getTaskDetailId: (pathname: string, params: Params) => string;
-  fetchQuery: (variables: { taskId: string }) => Promise<void>;
 };
 
 export const useInboxTaskDetail = (props: Props) => {
   const { setId, setLoading, taskId } = useTaskDetail();
   const { resetId } = useTaskDetailResetId();
   const { onOpen } = useTaskDetailSide();
-  const { isTaskDetailURL, getTaskDetailId, fetchQuery } = props;
+  const { isTaskDetailURL, getTaskDetailId } = props;
   const params = useParams();
   const pathname = usePathname();
 
@@ -34,7 +33,6 @@ export const useInboxTaskDetail = (props: Props) => {
     setId(newId);
     onOpen(() => {
       setTimeout(async () => {
-        await fetchQuery({ taskId: newId });
         setLoading(false);
       }, 200);
     });
@@ -47,6 +45,5 @@ export const useInboxTaskDetail = (props: Props) => {
     isTaskDetailURL,
     getTaskDetailId,
     taskId,
-    fetchQuery,
   ]);
 };

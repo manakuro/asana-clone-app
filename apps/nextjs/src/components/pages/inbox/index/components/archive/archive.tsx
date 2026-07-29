@@ -29,7 +29,6 @@ const Component = memo(function Component() {
   useInboxTaskDetail({
     isTaskDetailURL: isInboxDetailURL,
     getTaskDetailId: getInboxDetailId,
-    fetchQuery: async () => {},
   });
 
   if (loading) return <InboxSkeleton />;
