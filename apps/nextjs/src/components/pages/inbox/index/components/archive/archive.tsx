@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, type PropsWithChildren, useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Inbox } from '@/features/inbox/components/inbox';
 import { InboxHeader } from '@/features/inbox/components/inbox-header';
@@ -7,29 +7,21 @@ import { InboxList } from '@/features/inbox/components/inbox-list';
 import { InboxListContent } from '@/features/inbox/components/inbox-list-content';
 import { InboxRight } from '@/features/inbox/components/inbox-right';
 import { InboxSkeleton } from '@/features/inbox/components/inbox-skeleton';
-import { useInboxTaskDetail } from '@/features/inbox/hooks/use-inbox-task-detail';
 import { TasksContext } from '@/features/task/components/tasks-provider/tasks-context';
-import { TaskDetailSide } from '@/features/task-detail/components/task-detail-side';
-import { getInboxDetailId, isInboxDetailURL } from '@/router';
 import { useInboxArchivePageQuery } from '../../api/use-inbox-archive-page-query';
 import { useInboxPageContext } from '../../contexts/context';
 
-export const Archive = memo(function Archive() {
-  return <Component />;
+export const Archive = memo(function Archive({ children }: PropsWithChildren) {
+  return <Component>{children}</Component>;
 });
 
-const Component = memo(function Component() {
+const Component = memo(function Component({ children }: PropsWithChildren) {
   const { loadingTabContent } = useInboxPageContext();
   const { loading: loadingQuery } = useInboxArchivePageQuery();
   const loading = useMemo(
     () => loadingTabContent || loadingQuery,
     [loadingTabContent, loadingQuery],
   );
-
-  useInboxTaskDetail({
-    isTaskDetailURL: isInboxDetailURL,
-    getTaskDetailId: getInboxDetailId,
-  });
 
   if (loading) return <InboxSkeleton />;
 
@@ -44,9 +36,7 @@ const Component = memo(function Component() {
             </Flex>
           </InboxListContent>
         </InboxLeft>
-        <InboxRight>
-          <TaskDetailSide />
-        </InboxRight>
+        <InboxRight>{children}</InboxRight>
       </Inbox>
     </TasksContext>
   );
