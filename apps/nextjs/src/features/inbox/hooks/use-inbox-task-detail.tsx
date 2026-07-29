@@ -1,11 +1,9 @@
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { useTaskDetail, useTaskDetailResetId } from '@/features/task-detail';
-import type { Params } from '@/lib/nextjs/navigation';
 
 type Props = {
   isTaskDetailURL: (pathname: string) => boolean;
-  getTaskDetailId: (pathname: string, params: Params) => string;
   taskId: string;
 };
 
