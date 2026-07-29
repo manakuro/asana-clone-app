@@ -10,7 +10,8 @@ const meta = {
     nextjs: {
       appDirectory: true,
       navigation: {
-        pathname: '/inbox',
+        pathname: '/inbox/task/0BA01GK0BWB1Z78B3A3PK795SFJW9',
+        segments: [['inbox', ['task', '0BA01GK0BWB1Z78B3A3PK795SFJW9']]],
         searchParams: {},
       },
     },
