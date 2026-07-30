@@ -2,7 +2,7 @@ import type React from 'react';
 import { memo, useCallback, useMemo } from 'react';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTaskActivityTaskIds } from '@/features/inbox/hooks';
-import { useRouter } from '@/router';
+import { useRouterInbox } from '@/router/inbox';
 
 type Props = FlexProps & {
   taskActivityId: string;
@@ -12,7 +12,7 @@ export const ClickHandler = memo(function ClickHandler(props: Props) {
   const { taskActivityId } = props;
   const { taskIds } = useTaskActivityTaskIds(taskActivityId);
   const taskId = useMemo(() => taskIds[0], [taskIds]);
-  const { navigateToInboxDetail } = useRouter();
+  const { navigateToInboxDetail } = useRouterInbox();
 
   const handleClick = useCallback(
     async (e: React.MouseEvent<HTMLElement>) => {

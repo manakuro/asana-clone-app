@@ -21,8 +21,8 @@ import {
   isMyTasksDetailURL,
   isMyTasksFilesURL,
   isMyTasksListURL,
-  useRouter,
-} from '@/router';
+  useRouterMyTasks,
+} from '@/router/my-tasks';
 import { useMyTasksDetailPageQuery } from './api/use-my-tasks-detail-page-query';
 import { useMyTasksPageQuery } from './api/use-my-tasks-page-query';
 import { BeforeMount } from './components/before-mount';
@@ -96,7 +96,7 @@ const MyTasksView = memo(function MyTasksView() {
     navigateToMyTasksBoard,
     navigateToMyTasksCalendar,
     navigateToMyTasksFiles,
-  } = useRouter();
+  } = useRouterMyTasks();
   const params = useParams();
   const pathname = usePathname();
   const { isTabStatus, teammateTaskTabStatus } = useTeammateTaskTabStatus();

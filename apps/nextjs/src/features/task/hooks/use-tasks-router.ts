@@ -1,29 +1,32 @@
 import { useParams, usePathname } from 'next/navigation';
 import { useCallback } from 'react';
 import { useProjectsProjectId } from '@/components/pages/projects/index/store/projects/project';
+import { useRouterHome } from '@/router/home';
+import { useRouterInbox } from '@/router/inbox';
 import {
   getMyTasksDetailFeedId,
   getMyTasksDetailFeedURL,
+  isMyTasksDetailURLById,
+  useRouterMyTasks,
+} from '@/router/my-tasks';
+import {
   getProjectsDetailFeedId,
   getProjectsDetailFeedURL,
-  isMyTasksDetailURLById,
   isProjectsDetailURLById,
-  useRouter,
-} from '@/router';
+  useRouterProjects,
+} from '@/router/projects';
 import type { Options } from '@/router/types';
 import { useTasksContext } from '../components/tasks-provider';
 
 export const useTasksRouter = () => {
   const { isMyTasksPage, isHomePage, isInboxPage } = useTasksContext();
   const { projectId } = useProjectsProjectId();
-  const {
-    navigateToHomeDetail,
-    navigateToMyTasksTaskDetail,
-    navigateToProjectsTaskDetail,
-    navigateToProjectsBoard,
-    navigateToMyTasksBoard,
-    navigateToInboxDetail,
-  } = useRouter();
+  const { navigateToHomeDetail } = useRouterHome();
+  const { navigateToInboxDetail } = useRouterInbox();
+  const { navigateToMyTasksTaskDetail, navigateToMyTasksBoard } =
+    useRouterMyTasks();
+  const { navigateToProjectsTaskDetail, navigateToProjectsBoard } =
+    useRouterProjects();
   const params = useParams();
   const pathname = usePathname();
 

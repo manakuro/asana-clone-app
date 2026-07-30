@@ -6,7 +6,7 @@ import { Stack } from '@/components/ui/stack';
 import { TaskDoneTransition } from '@/components/ui/transitions';
 import { useTask } from '@/features/task/store/task';
 import { useHover } from '@/hooks/use-hover';
-import { useRouter } from '@/router';
+import { useRouterInbox } from '@/router/inbox';
 import { ActionButton } from './action-button';
 import { CheckIcon } from './check-icon';
 import { Feed } from './feed';
@@ -24,7 +24,7 @@ export const TaskListItem = memo(function TaskListItem(props: Props) {
   const { taskId, isFirst, isLast } = props;
   const { task } = useTask(taskId);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const { navigateToInboxDetail } = useRouter();
+  const { navigateToInboxDetail } = useRouterInbox();
   const { ref, isHovering } = useHover<HTMLDivElement>();
 
   const startTransition = useCallback(() => {

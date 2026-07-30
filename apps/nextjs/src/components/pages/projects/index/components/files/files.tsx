@@ -7,7 +7,11 @@ import { TasksFilesContent } from '@/features/task/components/tasks-files/tasks-
 import { TasksFilesList } from '@/features/task/components/tasks-files/tasks-files-list/tasks-files-list';
 import { useTasksFilesDetail } from '@/features/task/components/tasks-files/use-tasks-files-detail';
 import { TaskDetailModal } from '@/features/task-detail/components/task-detail-modal';
-import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
+import {
+  getProjectsDetailId,
+  isProjectsDetailURL,
+  useRouterProjects,
+} from '@/router/projects';
 import { useProjectsFilesPageQuery } from '../../api/use-projects-files-page-query';
 import { SkeletonFiles } from './skeleton-files';
 
@@ -27,7 +31,7 @@ const Component = memo(function Component() {
     () => tabContentLoading || queryLoading,
     [tabContentLoading, queryLoading],
   );
-  const { navigateToProjectsFiles } = useRouter();
+  const { navigateToProjectsFiles } = useRouterProjects();
 
   const backToPage = useCallback(async () => {
     await navigateToProjectsFiles(projectId);

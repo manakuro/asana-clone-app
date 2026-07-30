@@ -15,7 +15,11 @@ import {
   TodayButton,
 } from '@/features/task/components/tasks-header';
 import { TaskDetailModal } from '@/features/task-detail/components/task-detail-modal';
-import { getProjectsDetailId, isProjectsDetailURL, useRouter } from '@/router';
+import {
+  getProjectsDetailId,
+  isProjectsDetailURL,
+  useRouterProjects,
+} from '@/router/projects';
 import { SkeletonCalendar } from './skeleton-calendar';
 
 export const Calendar = memo(function Calendar() {
@@ -28,7 +32,7 @@ export const Calendar = memo(function Calendar() {
 
 const Component = memo(function Component() {
   const { tabContentLoading, fetchTaskDetailQuery } = useProjectsPageContext();
-  const { navigateToProjectsCalendar } = useRouter();
+  const { navigateToProjectsCalendar } = useRouterProjects();
   const { projectId } = useProjectsProjectId();
 
   useTasksCalendarDetail({
