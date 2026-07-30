@@ -13,7 +13,11 @@ import {
   TasksHeaderRight,
 } from '@/features/task/components/tasks-header';
 import { TaskDetailDrawer } from '@/features/task-detail/components/task-detail-drawer';
-import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
+import {
+  getMyTasksDetailId,
+  isMyTasksDetailURL,
+  useRouterMyTasks,
+} from '@/router/my-tasks';
 import { SortMenu } from '../tasks-header';
 import { SkeletonBoardContent, SkeletonBoardHeader } from './skeleton-board';
 
@@ -33,7 +37,7 @@ const Component = memo(function Component() {
     endContentLoading,
     contentLoading,
   } = useMyTasksContext();
-  const { navigateToMyTasksBoard } = useRouter();
+  const { navigateToMyTasksBoard } = useRouterMyTasks();
   const { hasClickedOutside } = useTasksBoardDetail({
     isTaskDetailURL: isMyTasksDetailURL,
     getTaskDetailId: getMyTasksDetailId,

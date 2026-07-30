@@ -5,7 +5,7 @@ import { MainHeader } from '@/components/layout/main-header';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { TabPanel, Tabs } from '@/components/ui/tabs';
-import { useRouter } from '@/router';
+import { useRouterInbox } from '@/router/inbox';
 import { Activity } from './components/activity';
 import { Archive } from './components/archive';
 import { Header } from './components/header';
@@ -35,7 +35,7 @@ type InboxViewProps = {
 const InboxView = memo(function InboxView({ task }: InboxViewProps) {
   const { setLoadingTabContent } = useInboxPageContext();
   const [tabIndex, setTabIndex] = React.useState<Index>(ACTIVITY_INDEX);
-  const { navigateToInbox } = useRouter();
+  const { navigateToInbox } = useRouterInbox();
 
   const setLoading = useCallback(() => {
     setLoadingTabContent(true);
