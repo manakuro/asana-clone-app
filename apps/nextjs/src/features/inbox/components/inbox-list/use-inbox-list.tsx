@@ -29,10 +29,16 @@ export const useInboxList = (props: Props) => {
     if (!listItemId) return;
 
     if (isWorkspaceType(listItem.type)) {
-      navigateToInboxDetail(workspaceListTaskIdsResult.taskIds[0]);
+      const taskId = workspaceListTaskIdsResult.taskIds[0];
+      if (taskId) {
+        navigateToInboxDetail(workspaceListTaskIdsResult.taskIds[0]);
+      }
     }
     if (isTaskType(listItem.type)) {
-      navigateToInboxDetail(myTaskListTaskIdsResult.taskIds[0]);
+      const taskId = myTaskListTaskIdsResult.taskIds[0];
+      if (taskId) {
+        navigateToInboxDetail(myTaskListTaskIdsResult.taskIds[0]);
+      }
     }
   }, [
     listItemId,
