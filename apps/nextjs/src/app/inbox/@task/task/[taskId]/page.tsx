@@ -10,7 +10,7 @@ type Params = Promise<{
   taskId: string;
 }>;
 
-export default async function InboxTaskPage({ params }: { params: Params }) {
+export default async function InboxTaskSlot({ params }: { params: Params }) {
   const { taskId } = await params;
   return <Task taskId={taskId} />;
 }

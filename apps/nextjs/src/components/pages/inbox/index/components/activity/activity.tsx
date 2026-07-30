@@ -1,4 +1,4 @@
-import { memo, type PropsWithChildren, useMemo } from 'react';
+import { memo, type ReactNode, useMemo } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Inbox } from '@/features/inbox/components/inbox';
 import {
@@ -16,13 +16,15 @@ import { TasksContext } from '@/features/task/components/tasks-provider/tasks-co
 import { useInboxActivityPageQuery } from '../../api/use-inbox-activity-page-query';
 import { useInboxPageContext } from '../../contexts/context';
 
-export const Activity = memo(function Activity({
-  children,
-}: PropsWithChildren) {
-  return <Component>{children}</Component>;
+type Props = {
+  task: ReactNode;
+};
+
+export const Activity = memo(function Activity({ task }: Props) {
+  return <Component task={task} />;
 });
 
-const Component = memo(function Component({ children }: PropsWithChildren) {
+const Component = memo(function Component({ task }: { task: ReactNode }) {
   const { loadingTabContent } = useInboxPageContext();
   const { loading: loadingQuery } = useInboxActivityPageQuery();
   const loading = useMemo(
@@ -48,7 +50,7 @@ const Component = memo(function Component({ children }: PropsWithChildren) {
             </Flex>
           </InboxListContent>
         </InboxLeft>
-        <InboxRight>{children}</InboxRight>
+        <InboxRight>{task}</InboxRight>
       </Inbox>
     </TasksContext>
   );

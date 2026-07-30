@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo, type PropsWithChildren, useCallback } from 'react';
+import React, { memo, type ReactNode, useCallback } from 'react';
 import { MainHeader } from '@/components/layout/main-header';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
@@ -16,17 +16,23 @@ const ARCHIVE_INDEX = 'archive' as const;
 
 type Index = typeof ACTIVITY_INDEX | typeof ARCHIVE_INDEX;
 
-export const Page = memo(function InboxComponent({
-  children,
-}: PropsWithChildren) {
+type Props = {
+  task?: ReactNode;
+};
+
+export const Page = memo(function InboxComponent({ task }: Props) {
   return (
     <Context>
-      <InboxView>{children}</InboxView>
+      <InboxView task={task} />
     </Context>
   );
 });
 
-const InboxView = memo(function InboxView({ children }: PropsWithChildren) {
+type InboxViewProps = {
+  task: ReactNode;
+};
+
+const InboxView = memo(function InboxView({ task }: InboxViewProps) {
   const { setLoadingTabContent } = useInboxPageContext();
   const [tabIndex, setTabIndex] = React.useState<Index>(ACTIVITY_INDEX);
   const { navigateToInbox } = useRouter();
@@ -76,10 +82,10 @@ const InboxView = memo(function InboxView({ children }: PropsWithChildren) {
         <Flex flex={1}>
           <Flex flex={1}>
             <TabPanel value="activity">
-              <Activity>{children}</Activity>
+              <Activity task={task} />
             </TabPanel>
             <TabPanel value="archive">
-              <Archive>{children}</Archive>
+              <Archive task={task} />
             </TabPanel>
           </Flex>
         </Flex>

@@ -35,9 +35,5 @@ export const Default: Story = {
       },
     },
   },
-  render: () => (
-    <Page>
-      <Task taskId="0BA01GK0BWB1Z78B3A3PK795SFJW9" />
-    </Page>
-  ),
+  render: () => <Page task={<Task taskId="0BA01GK0BWB1Z78B3A3PK795SFJW9" />} />,
 };
