@@ -13,18 +13,7 @@ import {
 import type { Options } from '@/router/types';
 import { useTasksContext } from '../components/tasks-provider';
 
-type Result = {
-  navigateToTaskDetail: (taskId: string, options?: Options) => void;
-  navigateToTaskBoard: (options?: Options) => void;
-  isTaskDetailURLById: (taskId: string) => boolean;
-  getTasksDetailFeedURL: (props: {
-    taskId: string;
-    taskFeedId: string;
-  }) => string;
-  getTasksDetailFeedId: () => string;
-};
-
-export const useTasksRouter = (): Result => {
+export const useTasksRouter = () => {
   const { isMyTasksPage, isHomePage, isInboxPage } = useTasksContext();
   const { projectId } = useProjectsProjectId();
   const {
