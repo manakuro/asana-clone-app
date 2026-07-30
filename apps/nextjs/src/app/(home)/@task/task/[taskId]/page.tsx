@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 type Params = Promise<{ taskId: string }>;
 
-export default async function HomeTask({ params }: { params: Params }) {
+export default async function HomeTaskSlot({ params }: { params: Params }) {
   const { taskId } = await params;
   return <Task taskId={taskId} />;
 }

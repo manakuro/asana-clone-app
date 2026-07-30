@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, type PropsWithChildren } from 'react';
+import { memo, type PropsWithChildren, type ReactNode } from 'react';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
 import { Stack } from '@/components/ui/stack';
@@ -13,7 +13,11 @@ import { RecentProjects } from './components/recent-projects';
 import { SkeletonHome } from './components/skeleton-home';
 import { TasksDueSoon } from './components/tasks-due-soon';
 
-export const Page = memo(function Container({ children }: PropsWithChildren) {
+type Props = PropsWithChildren<{
+  task?: ReactNode;
+}>;
+
+export const Page = memo(function Container({ task }: Props) {
   const { loading } = useHomePageQuery();
 
   return (
@@ -33,7 +37,7 @@ export const Page = memo(function Container({ children }: PropsWithChildren) {
           </Content>
         )}
       </Flex>
-      {children}
+      {task}
     </TasksContext>
   );
 });
