@@ -1,21 +1,16 @@
-import { useParams, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { useTaskDetail, useTaskDetailResetId } from '@/features/task-detail';
-import { useTaskDetailSide } from '@/features/task-detail/components/task-detail-side';
-import type { Params } from '@/lib/nextjs/navigation';
 
 type Props = {
-  isTaskDetailURL: (params: Params, pathname: string | null) => boolean;
-  getTaskDetailId: (params: Params, pathname: string | null) => string;
-  fetchQuery: (variables: { taskId: string }) => Promise<void>;
+  isTaskDetailURL: (pathname: string) => boolean;
+  taskId: string;
 };
 
 export const useInboxTaskDetail = (props: Props) => {
-  const { setId, setLoading, taskId } = useTaskDetail();
+  const { setId, taskId } = useTaskDetail();
   const { resetId } = useTaskDetailResetId();
-  const { onOpen } = useTaskDetailSide();
-  const { isTaskDetailURL, getTaskDetailId, fetchQuery } = props;
-  const params = useParams();
+  const { isTaskDetailURL } = props;
   const pathname = usePathname();
 
   useEffect(() => {
@@ -25,28 +20,11 @@ export const useInboxTaskDetail = (props: Props) => {
   }, [resetId]);
 
   useEffect(() => {
-    if (!isTaskDetailURL(params, pathname)) return;
-    const newId = getTaskDetailId(params, pathname);
+    if (!isTaskDetailURL(pathname)) return;
+    const newId = props.taskId;
     if (taskId === newId) return;
     console.log('useInboxTaskDetail!: ', newId);
 
-    setLoading(true);
     setId(newId);
-    onOpen(() => {
-      setTimeout(async () => {
-        await fetchQuery({ taskId: newId });
-        setLoading(false);
-      }, 200);
-    });
-  }, [
-    params,
-    pathname,
-    onOpen,
-    setLoading,
-    setId,
-    isTaskDetailURL,
-    getTaskDetailId,
-    taskId,
-    fetchQuery,
-  ]);
+  }, [pathname, setId, isTaskDetailURL, taskId, props.taskId]);
 };

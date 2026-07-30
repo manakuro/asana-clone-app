@@ -1,7 +1,7 @@
 import { useRouter as useRouterNext } from 'next/navigation';
 import { useCallback } from 'react';
 import type { Options } from '../types';
-import { ROUTE_INBOX } from './routes';
+import { ROUTE_INBOX, ROUTE_INBOX_TASK } from './routes';
 
 export const useRouterInbox = () => {
   const router = useRouterNext();
@@ -16,7 +16,7 @@ export const useRouterInbox = () => {
 
   const navigateToInboxDetail = useCallback(
     (id: string, options?: Options) => {
-      push(`${ROUTE_INBOX.href.pathname()}/${id}`, options);
+      push(ROUTE_INBOX_TASK.href.pathname(id), options);
     },
     [push],
   );

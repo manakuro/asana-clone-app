@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo, useCallback } from 'react';
+import React, { memo, type ReactNode, useCallback } from 'react';
 import { MainHeader } from '@/components/layout/main-header';
 import { Flex } from '@/components/ui/flex';
 import { Head } from '@/components/ui/head';
@@ -16,15 +16,23 @@ const ARCHIVE_INDEX = 'archive' as const;
 
 type Index = typeof ACTIVITY_INDEX | typeof ARCHIVE_INDEX;
 
-export const Page = memo(function InboxComponent() {
+type Props = {
+  task?: ReactNode;
+};
+
+export const Page = memo(function InboxComponent({ task }: Props) {
   return (
     <Context>
-      <InboxView />
+      <InboxView task={task} />
     </Context>
   );
 });
 
-const InboxView = memo(function InboxView() {
+type InboxViewProps = {
+  task: ReactNode;
+};
+
+const InboxView = memo(function InboxView({ task }: InboxViewProps) {
   const { setLoadingTabContent } = useInboxPageContext();
   const [tabIndex, setTabIndex] = React.useState<Index>(ACTIVITY_INDEX);
   const { navigateToInbox } = useRouter();
@@ -37,18 +45,18 @@ const InboxView = memo(function InboxView() {
   }, [setLoadingTabContent]);
 
   const handleTabsChange = useCallback(
-    async (index: string) => {
+    (index: string) => {
       switch (index as Index) {
         case ACTIVITY_INDEX: {
           setLoading();
-          await navigateToInbox();
+          navigateToInbox();
           setTabIndex(ACTIVITY_INDEX);
 
           break;
         }
         case ARCHIVE_INDEX: {
           setLoading();
-          await navigateToInbox();
+          navigateToInbox();
           setTabIndex(ARCHIVE_INDEX);
           break;
         }
@@ -63,6 +71,8 @@ const InboxView = memo(function InboxView() {
       onValueChange={(e) => handleTabsChange(e.value)}
       flex={1}
       display="flex"
+      lazyMount
+      unmountOnExit
     >
       <Flex data-testid="Inbox" flex={1} flexDirection="column" maxW="full">
         <Head title="inbox" />
@@ -72,10 +82,10 @@ const InboxView = memo(function InboxView() {
         <Flex flex={1}>
           <Flex flex={1}>
             <TabPanel value="activity">
-              <Activity />
+              <Activity task={task} />
             </TabPanel>
             <TabPanel value="archive">
-              <Archive />
+              <Archive task={task} />
             </TabPanel>
           </Flex>
         </Flex>

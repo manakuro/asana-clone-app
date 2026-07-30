@@ -1,18 +1,14 @@
 'use client';
 import type { Params } from '@/lib/nextjs/navigation';
-import { ROUTE_INBOX } from './routes';
+import { ROUTE_INBOX, ROUTE_INBOX_TASK } from './routes';
 
-export const isInboxDetailURL = (params: Params): boolean => {
-  return (
-    !!params &&
-    !!params[ROUTE_INBOX.query]?.length &&
-    !!params[ROUTE_INBOX.query]?.[0]
-  );
+export const isInboxDetailURL = (pathname: string): boolean => {
+  return ROUTE_INBOX_TASK.regex.test(pathname);
 };
-export const getInboxDetailId = (params: Params): string => {
+export const getInboxDetailId = (pathname: string, params: Params): string => {
   return (
-    (isInboxDetailURL(params) &&
-      (params?.[ROUTE_INBOX.query]?.[0] as string)) ||
+    (isInboxDetailURL(pathname) &&
+      (params?.[ROUTE_INBOX.query]?.[1] as string)) ||
     ''
   );
 };

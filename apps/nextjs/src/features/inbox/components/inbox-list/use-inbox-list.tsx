@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 import {
   useInboxListItem,
@@ -8,8 +8,8 @@ import {
   useWorkspaceActivityTaskIds,
 } from '@/features/inbox/hooks';
 import { useActivityType } from '@/features/inbox/store/activity-type';
-import { useTaskDetail } from '@/features/task-detail';
 import { isInboxDetailURL } from '@/router';
+import { useRouterInbox } from '@/router/inbox';
 
 type Props = {
   listItemId?: string;
@@ -17,31 +17,37 @@ type Props = {
 
 export const useInboxList = (props: Props) => {
   const listItemId = useMemo(() => props.listItemId, [props.listItemId]);
-  const { setId } = useTaskDetail();
   const { listItem } = useInboxListItem(listItemId || '');
   const { isWorkspaceType, isTaskType } = useActivityType();
   const workspaceListTaskIdsResult = useWorkspaceActivityTaskIds(listItem.id);
   const myTaskListTaskIdsResult = useTaskActivityTaskIds(listItem.id);
-  const params = useParams();
+  const pathname = usePathname();
+  const { navigateToInboxDetail } = useRouterInbox();
 
   useEffect(() => {
-    if (isInboxDetailURL(params)) return;
+    if (isInboxDetailURL(pathname)) return;
     if (!listItemId) return;
 
     if (isWorkspaceType(listItem.type)) {
-      setId(workspaceListTaskIdsResult.taskIds[0]);
+      const taskId = workspaceListTaskIdsResult.taskIds[0];
+      if (taskId) {
+        navigateToInboxDetail(workspaceListTaskIdsResult.taskIds[0]);
+      }
     }
     if (isTaskType(listItem.type)) {
-      setId(myTaskListTaskIdsResult.taskIds[0]);
+      const taskId = myTaskListTaskIdsResult.taskIds[0];
+      if (taskId) {
+        navigateToInboxDetail(myTaskListTaskIdsResult.taskIds[0]);
+      }
     }
   }, [
-    params,
     listItemId,
     listItem.type,
     isTaskType,
     isWorkspaceType,
-    setId,
     myTaskListTaskIdsResult.taskIds,
     workspaceListTaskIdsResult.taskIds,
+    pathname,
+    navigateToInboxDetail,
   ]);
 };

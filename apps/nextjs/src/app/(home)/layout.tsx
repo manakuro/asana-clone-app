@@ -1,5 +1,11 @@
+import type { ReactNode } from 'react';
 import { Page } from '@/components/pages/home/index';
 
-export default function HomePage() {
-  return <Page />;
+type Props = {
+  children: ReactNode;
+  task: ReactNode;
+};
+
+export default function HomePage({ children, task }: Props) {
+  return <Page task={task}>{children}</Page>;
 }
