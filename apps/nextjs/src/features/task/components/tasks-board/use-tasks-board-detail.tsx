@@ -34,7 +34,7 @@ export const useTasksBoardDetail = (props: Props) => {
       },
       [className],
     );
-  const { onOpen, open } = useTaskDetailDrawer();
+  const { onOpen, open, onClose } = useTaskDetailDrawer();
 
   const openRef = useRef<boolean>(false);
   openRef.current = open;
@@ -44,7 +44,10 @@ export const useTasksBoardDetail = (props: Props) => {
 
   useEffect(() => {
     if (props.tabContentLoading) return;
-    if (!isTaskDetailURL(params, pathname)) return;
+    if (!isTaskDetailURL(params, pathname)) {
+      onClose();
+      return;
+    }
 
     const newId = getTaskDetailId(params, pathname);
     if (openRef.current && taskIdRef.current === newId) return;
@@ -85,6 +88,7 @@ export const useTasksBoardDetail = (props: Props) => {
     getTaskDetailId,
     fetchQuery,
     props.tabContentLoading,
+    onClose,
   ]);
 
   return {

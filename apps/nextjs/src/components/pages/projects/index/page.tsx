@@ -18,13 +18,14 @@ import { TabPanel, Tabs } from '@/components/ui/tabs';
 import { TaskListSortStatusCode } from '@/features/task/store/task-list-sort-status';
 import { usePrevious } from '@/hooks/use-previous';
 import {
+  getProjectsIdFromURL,
   isProjectsBoardURL,
   isProjectsCalendarURL,
   isProjectsFilesURL,
   isProjectsListURL,
-  useRouter,
-} from '@/router';
-import { getProjectsIdFromURL, isProjectsOverviewURL } from '@/router/projects';
+  isProjectsOverviewURL,
+  useRouterProjects,
+} from '@/router/projects';
 import { useProjectsTaskDetailPageQuery } from './api/use-projects-detail-page-query';
 import { useProjectsPageQuery } from './api/use-projects-page-query';
 import { Board } from './components/board';
@@ -102,7 +103,7 @@ const ProjectsView = memo(function ProjectsView() {
     navigateToProjectsCalendar,
     navigateToProjectsFiles,
     navigateToProjectsOverview,
-  } = useRouter();
+  } = useRouterProjects();
   const { isSorted, sortBy } = useMyTasksTaskListStatus();
   const { queryLoading, startTabContentLoading, endTabContentLoading } =
     useProjectsPageContext();

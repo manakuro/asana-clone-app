@@ -34,7 +34,7 @@ export const useTasksListDetail = (props: Props) => {
       },
       [getTasksListBodyElement],
     );
-  const { onOpen, open } = useTaskDetailDrawer();
+  const { onOpen, open, onClose } = useTaskDetailDrawer();
   const { taskId, setId, setLoading } = useTaskDetail();
   const openRef = useRef<boolean>(false);
   openRef.current = open;
@@ -44,7 +44,10 @@ export const useTasksListDetail = (props: Props) => {
 
   useEffect(() => {
     if (props.tabContentLoading) return;
-    if (!isTaskDetailURL(params, pathname)) return;
+    if (!isTaskDetailURL(params, pathname)) {
+      onClose();
+      return;
+    }
 
     const newId = getTaskDetailId(params, pathname);
     if (openRef.current && taskIdRef.current === newId) return;
@@ -84,6 +87,7 @@ export const useTasksListDetail = (props: Props) => {
     props.tabContentLoading,
     setId,
     setLoading,
+    onClose,
   ]);
 
   return {

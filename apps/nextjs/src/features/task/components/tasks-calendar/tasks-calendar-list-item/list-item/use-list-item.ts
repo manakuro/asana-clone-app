@@ -13,7 +13,7 @@ export const useListItem = (props: Props) => {
   const onOpenTaskDetail = useCallback(
     async (e: React.MouseEvent<HTMLElement>) => {
       e.stopPropagation();
-      await navigateToTaskDetail(taskId);
+      navigateToTaskDetail(taskId);
     },
     [navigateToTaskDetail, taskId],
   );

@@ -11,7 +11,7 @@ import { ProjectChip } from '@/features/task/components/project-chip';
 import { useTask } from '@/features/task/store/task';
 import { useClickableHoverStyle } from '@/hooks/styles/use-clickable-hover-style';
 import { formatDueTime } from '@/lib/date';
-import { useRouter } from '@/router';
+import { useRouterHome } from '@/router/home';
 
 type Props = {
   taskId: string;
@@ -22,7 +22,7 @@ export const ListItem = memo(function ListItem(props: Props) {
   const { task, setTaskDueDate, setTask, resetTaskDueDate } = useTask(taskId);
   const { clickableHoverStyle } = useClickableHoverStyle();
   const { projectIds } = useProjectIdsByTaskId(taskId);
-  const { navigateToHomeDetail } = useRouter();
+  const { navigateToHomeDetail } = useRouterHome();
 
   const handleChange = useCallback(
     async (date: Date) => {

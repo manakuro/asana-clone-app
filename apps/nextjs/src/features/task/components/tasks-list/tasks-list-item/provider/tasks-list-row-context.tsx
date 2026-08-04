@@ -2,7 +2,7 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useMountedRef } from '@/hooks/use-mounted-ref';
 import { createContext } from '@/lib/react/create-context';
-import { ROUTE_MY_TASKS } from '@/router';
+import { ROUTE_MY_TASKS_TASK } from '@/router/my-tasks';
 
 type ContextProps = {
   selected: boolean;
@@ -20,7 +20,7 @@ const useValue = (props: Props): ContextProps => {
   useEffect(() => {
     if (!mountedRef.current) return;
 
-    if (params?.[ROUTE_MY_TASKS.query]?.[0] === props.taskId) {
+    if (params?.[ROUTE_MY_TASKS_TASK.query.taskId] === props.taskId) {
       setSelected(true);
       return;
     }

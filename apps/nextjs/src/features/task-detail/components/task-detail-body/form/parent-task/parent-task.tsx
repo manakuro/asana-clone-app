@@ -17,8 +17,8 @@ export const ParentTask = memo(function ParentTask(props: Props) {
   const { clickableHoverLightStyle } = useClickableHoverStyle();
   const { navigateToTaskDetail } = useTasksRouter();
 
-  const handleClick = useCallback(async () => {
-    await navigateToTaskDetail(parentTask.id);
+  const handleClick = useCallback(() => {
+    navigateToTaskDetail(parentTask.id);
   }, [navigateToTaskDetail, parentTask.id]);
 
   if (!isSubtask) return null;

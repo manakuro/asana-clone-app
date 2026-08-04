@@ -19,7 +19,11 @@ import { TasksListHorizontalScrollBorder } from '@/features/task/components/task
 import { TasksListLayout } from '@/features/task/components/tasks-list/tasks-list-layout/tasks-list-layout';
 import { useTasksListDetail } from '@/features/task/components/tasks-list/use-tasks-list-detail';
 import { TaskDetailDrawer } from '@/features/task-detail/components/task-detail-drawer';
-import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
+import {
+  getMyTasksDetailId,
+  isMyTasksDetailURL,
+  useRouterMyTasks,
+} from '@/router/my-tasks';
 import { SortMenu } from '../tasks-header';
 import { SkeletonListContent, SkeletonListHeader } from './skeleton-list';
 
@@ -38,7 +42,7 @@ const Component = memo(function Component() {
     startContentLoading,
     endContentLoading,
   } = useMyTasksContext();
-  const { navigateToMyTasksList } = useRouter();
+  const { navigateToMyTasksList } = useRouterMyTasks();
   const { hasClickedOutside } = useTasksListDetail({
     isTaskDetailURL: isMyTasksDetailURL,
     getTaskDetailId: getMyTasksDetailId,

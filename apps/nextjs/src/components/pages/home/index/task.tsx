@@ -3,7 +3,7 @@
 import { memo, useCallback } from 'react';
 import { useMe } from '@/features/me/store/me';
 import { TaskDetailModal } from '@/features/task-detail/components/task-detail-modal';
-import { isHomeDetailURL, useRouter } from '@/router';
+import { isHomeDetailURL, useRouterHome } from '@/router/home';
 import { useHomeTaskDetailPageQuery } from './api/use-home-task-detail-page-query';
 import { useHomeTaskDetail } from './hooks';
 
@@ -22,7 +22,7 @@ export const Task = memo(function Container({ taskId }: Props) {
     [me.id, refetch],
   );
 
-  const { navigateToHome } = useRouter();
+  const { navigateToHome } = useRouterHome();
 
   useHomeTaskDetail({
     isTaskDetailURL: isHomeDetailURL,

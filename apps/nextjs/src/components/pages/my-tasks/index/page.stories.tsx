@@ -35,7 +35,7 @@ export const Detail: Story = {
       appDirectory: true,
       navigation: {
         pathname: '/my_tasks/task/0BA01GK0BWB1Z78B3A3PK795SFJW9',
-        segments: [['my_tasks', ['task', '0BA01GK0BWB1Z78B3A3PK795SFJW9']]],
+        segments: ['task', ['taskId', '0BA01GK0BWB1Z78B3A3PK795SFJW9']],
         searchParams: {},
       },
     },

@@ -11,8 +11,8 @@ import {
   isWorkspacesCalendarURL,
   isWorkspacesMessageURL,
   isWorkspacesOverviewURL,
-  useRouter,
-} from '@/router';
+  useRouterWorkspace,
+} from '@/router/workspace';
 import { useWorkspacePageQuery } from './api/use-workspace-page-query';
 import { Header } from './components/header';
 import { Overview } from './components/overview';
@@ -46,7 +46,7 @@ const mapURLtoTabIndex = ({ pathname }: { pathname: string | null }): Index => {
 };
 
 const WorkspacesView = memo(function WorkspacesView() {
-  const { navigateToWorkspaceOverview } = useRouter();
+  const { navigateToWorkspaceOverview } = useRouterWorkspace();
   const { loadingQuery, setLoadingTabContent } = useWorkspacesPageContext();
   const pathname = usePathname();
   const [tabIndex, setTabIndex] = useState<Index>(

@@ -1,6 +1,5 @@
 import type { Params } from '@/lib/nextjs/navigation';
 import {
-  ROUTE_MY_TASKS,
   ROUTE_MY_TASKS_BOARD,
   ROUTE_MY_TASKS_CALENDAR,
   ROUTE_MY_TASKS_FILES,
@@ -41,18 +40,22 @@ export const isMyTasksDetailURLById = (
 export const getMyTasksDetailId = (
   params: Params,
   pathname: string | null,
-): string =>
-  (isMyTasksDetailURL(params, pathname) &&
-    (params?.[ROUTE_MY_TASKS.query]?.[1] as string)) ||
-  '';
+): string => {
+  return (
+    (isMyTasksDetailURL(params, pathname) &&
+      (params?.[ROUTE_MY_TASKS_TASK.query.taskId] as string)) ||
+    ''
+  );
+};
 
 export const getMyTasksDetailFeedId = (
   params: Params,
   pathname: string | null,
-): string =>
-  (isMyTasksDetailURL(params, pathname) &&
-    (params?.[ROUTE_MY_TASKS.query]?.[3] as string)) ||
-  '';
+): string => {
+  return (
+    (isMyTasksDetailURL(params, pathname) && (params?.feedId as string)) || ''
+  );
+};
 
 export const getMyTasksDetailFeedURL = (
   taskId: string,

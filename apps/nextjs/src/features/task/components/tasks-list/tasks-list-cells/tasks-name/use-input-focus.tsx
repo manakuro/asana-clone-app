@@ -1,20 +1,8 @@
-import {
-  type Dispatch,
-  type SetStateAction,
-  useCallback,
-  useState,
-} from 'react';
+import { useCallback, useState } from 'react';
 import { useTasksListContext } from '@/features/task/components/tasks-list/context';
 import type { TasksListCellProps } from '@/features/task/components/tasks-list/tasks-list-cell';
 
-export type UseInputFocus = {
-  inputFocused: boolean;
-  setInputFocused: Dispatch<SetStateAction<boolean>>;
-  cellStyle?: TasksListCellProps;
-  onInputFocus: () => void;
-  onInputBlur: () => void;
-};
-export const useInputFocus = (): UseInputFocus => {
+export const useInputFocus = () => {
   const [focused, setFocused] = useState(false);
   const [cellStyle, setCellStyle] = useState<TasksListCellProps>();
   const { stickyStyle } = useTasksListContext();

@@ -48,7 +48,7 @@ export const isProjectsDetailURLById = (
 ): boolean => {
   return (
     isProjectsDetailURL(params, pathname) &&
-    params[ROUTE_PROJECTS.query.projects]?.[1] === taskId
+    params[ROUTE_PROJECTS_TASK.query.taskId] === taskId
   );
 };
 
@@ -69,7 +69,7 @@ export const getProjectsDetailId = (
 ): string => {
   return (
     (isProjectsDetailURL(params, pathname) &&
-      (params?.[ROUTE_PROJECTS.query.projects]?.[1] as string)) ||
+      (params?.[ROUTE_PROJECTS_TASK.query.taskId] as string)) ||
     ''
   );
 };
@@ -79,9 +79,7 @@ export const getProjectsDetailFeedId = (
   pathname: string | null,
 ): string => {
   return (
-    (isProjectsDetailURL(params, pathname) &&
-      (params?.[ROUTE_PROJECTS.query.projects]?.[3] as string)) ||
-    ''
+    (isProjectsDetailURL(params, pathname) && (params?.feedId as string)) || ''
   );
 };
 

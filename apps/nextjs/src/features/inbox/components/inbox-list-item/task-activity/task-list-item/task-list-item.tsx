@@ -4,7 +4,7 @@ import { Flex, type FlexProps } from '@/components/ui/flex';
 import { Stack } from '@/components/ui/stack';
 import { TaskDoneTransition } from '@/components/ui/transitions';
 import { useHover } from '@/hooks/use-hover';
-import { useRouter } from '@/router';
+import { useRouterInbox } from '@/router/inbox';
 import { CheckIcon } from './check-icon';
 import { Feed } from './feed';
 import { Like } from './like';
@@ -20,7 +20,7 @@ type Props = FlexProps & {
 export const TaskListItem = memo(function TaskListItem(props: Props) {
   const { taskId, isFirst, isLast } = props;
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const { navigateToInboxDetail } = useRouter();
+  const { navigateToInboxDetail } = useRouterInbox();
   const { ref, isHovering } = useHover<HTMLDivElement>();
 
   const startTransition = useCallback(() => {

@@ -29,7 +29,7 @@ export const ROUTE_PROJECTS_TASK = {
   },
   query: {
     projectId: 'projectId',
-    projects: 'projects',
+    taskId: 'taskId',
   },
 } as const;
 

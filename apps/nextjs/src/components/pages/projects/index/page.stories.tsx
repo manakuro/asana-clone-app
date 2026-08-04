@@ -42,7 +42,8 @@ export const Detail: Story = {
           '/projects/0AG01GK0BWAWW1RDQ0KJJEKB6HC3G/task/0BA01GK0BWB1Z78B3A3PK795SFJW9',
         segments: [
           ['projectId', '0AG01GK0BWAWW1RDQ0KJJEKB6HC3G'],
-          ['projects', ['task', '0BA01GK0BWB1Z78B3A3PK795SFJW9']],
+          'task',
+          ['taskId', '0BA01GK0BWB1Z78B3A3PK795SFJW9'],
         ],
         searchParams: {},
       },

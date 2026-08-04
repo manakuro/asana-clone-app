@@ -6,7 +6,11 @@ import { TasksFilesContent } from '@/features/task/components/tasks-files/tasks-
 import { TasksFilesList } from '@/features/task/components/tasks-files/tasks-files-list/tasks-files-list';
 import { useTasksFilesDetail } from '@/features/task/components/tasks-files/use-tasks-files-detail';
 import { TaskDetailModal } from '@/features/task-detail/components/task-detail-modal';
-import { getMyTasksDetailId, isMyTasksDetailURL, useRouter } from '@/router';
+import {
+  getMyTasksDetailId,
+  isMyTasksDetailURL,
+  useRouterMyTasks,
+} from '@/router/my-tasks';
 import { SkeletonFiles } from './skeleton-files';
 
 export const Files = memo(function Files() {
@@ -20,7 +24,7 @@ export const Files = memo(function Files() {
 const Component = memo(function Component() {
   const { tabContentLoading, fetchTaskDetailQuery } = useMyTasksContext();
 
-  const { navigateToMyTasksFiles } = useRouter();
+  const { navigateToMyTasksFiles } = useRouterMyTasks();
 
   useTasksFilesDetail({
     isTaskDetailURL: isMyTasksDetailURL,
