@@ -5,7 +5,7 @@ import { useTask } from '@/features/task/store/task';
 import { useTaskListCompletedStatus } from '@/features/task/store/task-list-completed-status';
 import { useHover } from '@/hooks/use-hover';
 import { createContext } from '@/lib/react/create-context';
-import { ROUTE_MY_TASKS } from '@/router';
+import { ROUTE_MY_TASKS_TASK } from '@/router/my-tasks';
 
 type Props = {
   taskId: string;
@@ -30,7 +30,7 @@ const useValue = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    if (params?.[ROUTE_MY_TASKS.query]?.[0] === props.taskId) {
+    if (params?.[ROUTE_MY_TASKS_TASK.query.taskId] === props.taskId) {
       setSelected(true);
       return;
     }
