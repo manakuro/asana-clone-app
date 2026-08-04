@@ -4,7 +4,6 @@ import { Collapsible } from '@/components/ui/collapsible';
 import { Flex, type FlexProps } from '@/components/ui/flex';
 import { useTasksRouter } from '@/features/task/hooks';
 import { useTask } from '@/features/task/store/task';
-import { transitions } from '@/utils/transitions';
 import { useTasksBoardListItemContext } from './provider';
 
 type Props = FlexProps & {
@@ -58,7 +57,6 @@ const Component: React.FC<Props> = memo<Props>((props) => {
         boxShadow: 'sm',
       }}
       cursor="pointer"
-      transition={transitions.base()}
       p={4}
       onClick={handleClick}
       position="relative"
