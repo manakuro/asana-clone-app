@@ -1,9 +1,10 @@
 import { getExpiredAt } from './get-expired-at';
 import { refreshIdToken } from './refresh-id-token';
 import { getStoredToken, setStoredToken } from './token-cookie';
+import type { IdToken } from './types';
 
 type IdTokenResult =
-  | { ok: true; idToken: string }
+  | { ok: true; idToken: IdToken }
   | { ok: false; error: 'no_session' | 'refresh_failed' };
 
 export async function getIdToken(): Promise<IdTokenResult> {

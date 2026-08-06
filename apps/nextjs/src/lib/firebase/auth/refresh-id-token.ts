@@ -1,10 +1,12 @@
 import { config } from '@/config';
+import { createIdToken, createRefreshToken } from './createIdToken';
+import type { IdToken, RefreshToken } from './types';
 
 const SECURE_TOKEN_URL = 'https://securetoken.googleapis.com/v1/token';
 
 type RefreshResult = {
-  idToken: string;
-  refreshToken: string;
+  idToken: IdToken;
+  refreshToken: RefreshToken;
   expiresIn: string;
   userId: string;
 };
@@ -29,8 +31,8 @@ export async function refreshIdToken(
 
   const data = await res.json();
   return {
-    idToken: data.id_token,
-    refreshToken: data.refresh_token,
+    idToken: createIdToken(data.id_token),
+    refreshToken: createRefreshToken(data.refresh_token),
     expiresIn: data.expires_in,
     userId: data.user_id,
   };
