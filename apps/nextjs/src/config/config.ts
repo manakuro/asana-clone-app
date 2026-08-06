@@ -14,4 +14,6 @@ export const config = {
   FIREBASE_APPID: process.env.NEXT_PUBLIC_FIREBASE_APPID as string,
   FIREBASE_MEASUREMENT_ID: process.env
     .NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID as string,
+  FIREBASE_SERVICE_ACCOUNT_KEY: process.env
+    .FIREBASE_SERVICE_ACCOUNT_KEY as string,
 } as const;
