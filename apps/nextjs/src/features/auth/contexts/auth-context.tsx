@@ -1,33 +1,32 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import {
-  onAuthStateChanged,
-  onIdTokenChanged,
-  signInAnonymously,
-} from '@/lib/firebase/auth';
+import { toaster } from '@/lib/chakra-ui/generated/toaster';
+import { getIdTokenAction } from '@/lib/firebase/auth/actions';
 import { createContext } from '@/lib/react/create-context';
 
 const useValue = () => {
   const [idToken, setIdToken] = useState('');
 
   useEffect(() => {
-    const unsubscribeAuthStateChanged = onAuthStateChanged(async (user) => {
-      if (!user) {
-        console.log('signInAnonymously!');
-        await signInAnonymously();
-      }
-    });
-    const unsubscribeIdTokenChanged = onIdTokenChanged(async (user) => {
-      if (!user) return;
-      const id = await user.getIdToken();
-      setIdToken(id);
-    });
+    (async () => {
+      const token = await getIdTokenAction();
+      if (!token.ok) {
+        toaster.error({
+          title: `An error occurred.(${token.error})`,
+          description:
+            'Unable to connect user account. Reloading will be done automatically.',
+          duration: 1000000,
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
 
-    return () => {
-      unsubscribeAuthStateChanged();
-      unsubscribeIdTokenChanged();
-    };
+        return;
+      }
+
+      setIdToken(token.idToken);
+    })();
   }, []);
 
   return {

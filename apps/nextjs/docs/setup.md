@@ -51,7 +51,7 @@ NEXT_PUBLIC_FIREBASE_APPID="your FIREBASE_APPID"
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID="your FIREBASE_MEASUREMENT_ID"
 ```
 
-### 6. Enable Anonymous sign-in
+### 7. Enable Anonymous sign-in
 
 1. Go to the Firebase Console
 2. In the Firebase console, open the Auth section.
@@ -60,3 +60,59 @@ NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID="your FIREBASE_MEASUREMENT_ID"
 Check out the details here.
 
 [Authenticate with Firebase Anonymously Using JavaScript](https://firebase.google.com/docs/auth/web/anonymous-auth)
+
+### 8. Set up Firebase Service Account Key for Server-Side Authentication
+
+The Firebase Service Account Key is required for server-side authentication (e.g., verifying ID tokens in Server Components or API routes).
+
+#### 1. Navigate to Firebase Console Service Accounts
+
+1. Go to the [Firebase Console](https://console.firebase.google.com/)
+2. Select your project
+3. Click the gear icon next to "Project Overview" and select "Project settings"
+4. Navigate to the "Service accounts" tab
+
+#### 2. Generate and Download the Private Key
+
+1. Click the "Generate new private key" button
+2. A confirmation dialog will appear — click "Generate key"
+3. Save the downloaded JSON file securely (e.g., `serviceAccountKey.json`)
+
+> **Warning**: This file contains sensitive credentials. Store it securely and never share it publicly.
+
+#### 3. Convert the JSON to Base64
+
+Run one of the following commands in your terminal:
+
+**macOS/Linux:**
+```bash
+cat path/to/serviceAccountKey.json | base64
+```
+
+**macOS (to avoid newlines in output):**
+```bash
+base64 -i path/to/serviceAccountKey.json
+```
+
+**Linux (to avoid newlines in output):**
+```bash
+base64 -w 0 path/to/serviceAccountKey.json
+```
+
+Copy the entire base64-encoded output string.
+
+#### 4. Add the Base64 String to `.env.local`
+
+Add the following line to your `.env.local` file:
+
+```dotenv
+FIREBASE_SERVICE_ACCOUNT_KEY="<base64-encoded-string>"
+```
+
+Replace `<base64-encoded-string>` with the output from the previous step.
+
+#### 5. Security Reminders
+
+- **Never commit** the JSON file or the environment variable value to version control
+- Ensure `serviceAccountKey.json` is listed in `.gitignore`
+- For production deployments, set this environment variable securely through your hosting provider's secrets management
