@@ -4,7 +4,7 @@ install:
 	brew install pre-commit
 	pre-commit --version
 	pre-commit install
-	go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
+	brew install golangci-lint
 	go install golang.org/x/tools/cmd/goimports@latest
 	go install github.com/cosmtrek/air@v1.51.0
 
