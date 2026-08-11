@@ -1,6 +1,6 @@
 module project-management-demo-backend
 
-go 1.22.1
+go 1.25.1
 
 require (
 	entgo.io/contrib v0.1.0
