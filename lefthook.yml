@@ -17,3 +17,9 @@ pre-commit:
       root: apps/nextjs/
       glob: "*.{ts,tsx}"
       run: npx tsc
+    api/lint:
+      tags: api
+      root: apps/api/
+      glob: "*.go"
+      stage_fixed: true
+      run: golangci-lint run {staged_files}
