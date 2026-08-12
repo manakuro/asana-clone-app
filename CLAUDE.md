@@ -40,15 +40,15 @@ An Asana clone application built as a monorepo with real-time communication usin
 - For guidelines on what goes where, see the `/testing` skill (apps/nextjs only)
 
 ### Backend (apps/api/)
-Use Makefile commands:
-- `make start` - Start development server with Air (hot reload)
-- `make setup_db` - Initialize database
-- `make migrate_schema` - Run database migrations
-- `make seed` - Seed database with test data
-- `make ent_generate` - Generate Ent schema code
-- `make generate` - Generate all Go code
-- `make test_repository` - Run repository tests
-- `make e2e` - Run end-to-end tests
+Use Taskfile commands:
+- `task start` - Start development server with Air (hot reload)
+- `task db:setup` - Initialize database
+- `task db:migrate` - Run database migrations
+- `task db:seed` - Seed database with test data
+- `task generate:ent` - Generate Ent schema code
+- `task generate` - Generate all Go code
+- `task test:repository` - Run repository tests
+- `task test:e2e` - Run end-to-end tests
 
 ## Architecture
 

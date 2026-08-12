@@ -1,0 +1,151 @@
+version: '3'
+
+vars:
+  GO_VERSION: "go1.25.1"
+  DOCKER_IMAGE_NAME: "app"
+  AWS_SERVICE_NAME: "project-management-demo"
+
+tasks:
+  default:
+    desc: "Show available tasks"
+    cmds:
+      - task --list
+
+  # Setup / Installation
+  install:
+    desc: "Install development dependencies"
+    cmds:
+      - brew install yq
+      - brew install golangci-lint
+      - go install golang.org/x/tools/cmd/goimports@latest
+      - go install github.com/cosmtrek/air@v1.51.0
+
+  # Development
+  start:
+    aliases: [dev]
+    desc: "Start development server with hot reload"
+    cmds:
+      - air
+
+  # Database - Setup
+  db:setup:
+    desc: "Initialize local development database"
+    cmds:
+      - ./bin/init_db.sh
+
+  db:setup:test:
+    desc: "Initialize test database"
+    cmds:
+      - ./bin/init_db_test.sh
+
+  db:setup:e2e:
+    desc: "Initialize E2E test database"
+    cmds:
+      - ./bin/init_db_e2e.sh
+
+  # Database - Migration
+  db:migrate:
+    desc: "Run database migrations (local)"
+    cmds:
+      - "{{.GO_VERSION}} run ./cmd/migration/main.go"
+
+  db:migrate:staging:
+    desc: "Run database migrations (staging)"
+    env:
+      APP_ENV: staging
+    cmds:
+      - "{{.GO_VERSION}} run ./cmd/migration/main.go"
+
+  # Database - Seeding
+  db:seed:
+    desc: "Seed local database with test data"
+    cmds:
+      - "{{.GO_VERSION}} run ./cmd/seed/main.go"
+
+  db:seed:staging:
+    desc: "Seed staging database"
+    env:
+      APP_ENV: staging
+    cmds:
+      - "{{.GO_VERSION}} run ./cmd/seed/main.go"
+
+  db:seed:production:
+    desc: "Seed production database"
+    env:
+      APP_ENV: production
+    cmds:
+      - "{{.GO_VERSION}} run ./cmd/seed/main.go"
+
+  # Code Generation
+  generate:
+    desc: "Generate all Go code"
+    cmds:
+      - "{{.GO_VERSION}} generate ./..."
+
+  generate:ent:
+    desc: "Generate Ent ORM code"
+    cmds:
+      - "{{.GO_VERSION}} generate ./ent --feature sql/upsert --idtype string"
+
+  schema:describe:
+    desc: "Describe Ent schema"
+    cmds:
+      - ent describe ./ent/schema
+
+  # Testing
+  test:repository:
+    desc: "Run repository tests"
+    cmds:
+      - "{{.GO_VERSION}} test ./pkg/adapter/repository/..."
+
+  test:e2e:
+    aliases: [e2e]
+    desc: "Run E2E tests"
+    cmds:
+      - "{{.GO_VERSION}} test ./test/e2e/..."
+
+  # Docker / Build
+  docker:clean:
+    desc: "Remove existing Docker image (if exists)"
+    cmds:
+      - docker rmi {{.DOCKER_IMAGE_NAME}} || true
+    silent: true
+
+  docker:build:
+    desc: "Build Docker image"
+    deps: [docker:clean]
+    cmds:
+      - docker build . -t {{.DOCKER_IMAGE_NAME}}
+
+  docker:run:staging:
+    desc: "Run Docker container in staging mode"
+    cmds:
+      - docker run --name {{.DOCKER_IMAGE_NAME}} --rm -it -p 8082:8080 -e APP_ENV=staging {{.DOCKER_IMAGE_NAME}}
+
+  docker:run:production:
+    desc: "Run Docker container in production mode"
+    cmds:
+      - docker run --name {{.DOCKER_IMAGE_NAME}} --rm -it -p 8082:8080 -e APP_ENV=production {{.DOCKER_IMAGE_NAME}}
+
+  # Deployment (AWS Lightsail)
+  deploy:push:
+    desc: "Push Docker image to AWS Lightsail"
+    cmds:
+      - aws lightsail push-container-image --service-name {{.AWS_SERVICE_NAME}} --label app --image {{.DOCKER_IMAGE_NAME}}
+
+  deploy:release:
+    desc: "Deploy to AWS Lightsail"
+    vars:
+      LATEST_IMAGE:
+        sh: aws lightsail get-container-images --service-name {{.AWS_SERVICE_NAME}} | jq -r '.containerImages[0].image'
+    cmds:
+      - jq --arg image "{{.LATEST_IMAGE}}" '.containers.app.image = $image' container.tpl.json > ./container.json
+      - cat ./container.json | jq
+      - aws lightsail create-container-service-deployment --service-name {{.AWS_SERVICE_NAME}} --cli-input-json file://$(pwd)/container.json
+
+  deploy:
+    desc: "Full deployment pipeline (build, push, release)"
+    cmds:
+      - task: docker:build
+      - task: deploy:push
+      - task: deploy:release

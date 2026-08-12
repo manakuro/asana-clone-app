@@ -34,6 +34,20 @@ go1.25.1 version
 go version go1.25.1 darwin/arm64
 ```
 
+## Taskfile Installation
+
+Install Taskfile using Homebrew:
+
+```
+brew install go-task/tap/go-task
+```
+
+Verify the installation:
+
+```
+task --version
+```
+
 ## Docker Setup
 
 ```
@@ -44,25 +58,25 @@ docker compose up
 ## Installation
 
 ```
-make install
+task install
 ```
 
 ## Database Setup
 
 ```
-make setup_db
+task db:setup
 ```
 
 ```
-make migrate_schema
+task db:migrate
 ```
 
 ```
-make seed
+task db:seed
 ```
 
 ## Development
 
 ```
-make start
+task start
 ```
