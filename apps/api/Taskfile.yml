@@ -115,7 +115,7 @@ tasks:
     desc: "Build Docker image"
     deps: [docker:clean]
     cmds:
-      - docker build . -t {{.DOCKER_IMAGE_NAME}}
+      - docker build --platform linux/amd64 . -t {{.DOCKER_IMAGE_NAME}}
 
   docker:run:staging:
     desc: "Run Docker container in staging mode"
