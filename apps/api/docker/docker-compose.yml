@@ -1,7 +1,7 @@
 name: asana-clone-app
 services:
   mysql:
-    container_name: mysql
+    container_name: mysql8.0.23
     image: mysql:8.0.23
     volumes:
       - mysql-data:/var/lib/mysql
@@ -13,7 +13,7 @@ services:
     ports:
       - '3308:3306'
   redis:
-    container_name: redis
+    container_name: redis5.0.7
     image: redis:5.0.7
     volumes:
       - redis-data:/data
