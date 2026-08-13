@@ -60,11 +60,12 @@ func GetData(e *httpexpect.Response) *httpexpect.Value {
 // Path returns a new Value object for child object(s) matching given
 // JSONPath expression.
 // Example 1:
-//  json := `{"users": [{"name": "john"}, {"name": "bob"}]}`
-//  value := NewValue(t, json)
 //
-//  value.Path("$.users[0].name").String().Equal("john")
-//  value.Path("$.users[1].name").String().Equal("bob")
+//	json := `{"users": [{"name": "john"}, {"name": "bob"}]}`
+//	value := NewValue(t, json)
+//
+//	value.Path("$.users[0].name").String().Equal("john")
+//	value.Path("$.users[1].name").String().Equal("bob")
 func GetObject(obj *httpexpect.Object, path string) *httpexpect.Object {
 	return obj.Path("$." + path).Object()
 }

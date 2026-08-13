@@ -7,21 +7,23 @@ type MutationInputField struct {
 }
 
 // MutationInput is used to map ent.Field to GraphQL type in ./graph/ent.graphql.
-//nolint:goimports
-//func (ProjectTask) Annotations() []schema.Annotation {
-//	return []schema.Annotation{
-//		schema.Annotation(
-//			annotation.MutationInput{
-//				Input: []annotation.MutationInputField{
-//					{
-//						Key:  "CreatedBy",
-//						Type: "ulid.ID",
+//
+//	func (ProjectTask) Annotations() []schema.Annotation {
+//		return []schema.Annotation{
+//			schema.Annotation(
+//				annotation.MutationInput{
+//					Input: []annotation.MutationInputField{
+//						{
+//							Key:  "CreatedBy",
+//							Type: "ulid.ID",
+//						},
 //					},
 //				},
-//			},
-//		),
+//			),
+//		}
 //	}
-//}
+//
+//nolint:goimports
 type MutationInput struct {
 	Create  []MutationInputField
 	Update  []MutationInputField

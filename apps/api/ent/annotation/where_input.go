@@ -4,11 +4,11 @@ import "encoding/json"
 
 // WhereInput is used to map ent.Field to GraphQL type in ./graph/ent.graphql.
 //
-//		field.String("created_by").
-//			GoType(ulid.ID("")).
-//			Annotations(
-//				annotation.WhereInput{Type: "ID"},
-//			),
+//	field.String("created_by").
+//		GoType(ulid.ID("")).
+//		Annotations(
+//			annotation.WhereInput{Type: "ID"},
+//		),
 type WhereInput struct {
 	Type string
 }
