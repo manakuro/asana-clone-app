@@ -328,8 +328,8 @@ func New() GlobalIDs {
 	}
 }
 
-var globalIDS = New()
-var maps = structToMap(&globalIDS)
+var globalIDs = New()
+var maps = structToMap(&globalIDs)
 
 // FindTableByID returns table name by passed id.
 func (GlobalIDs) FindTableByID(id string) (string, error) {

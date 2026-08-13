@@ -24,14 +24,14 @@ func (r *deletedTaskRepository) Undelete(ctx context.Context, input model.Undele
 		return nil, model.NewDBError(err)
 	}
 
-	deletedIds := make([]model.ID, len(deletedTasks))
+	deletedIDs := make([]model.ID, len(deletedTasks))
 	for i, t := range deletedTasks {
-		deletedIds[i] = t.ID
+		deletedIDs[i] = t.ID
 	}
 
 	_, err = client.DeletedTask.
 		Delete().
-		Where(deletedtask.IDIn(deletedIds...)).
+		Where(deletedtask.IDIn(deletedIDs...)).
 		Exec(ctx)
 
 	if err != nil {

@@ -33,12 +33,12 @@ func (r *taskFeedRepository) Delete(ctx context.Context, input model.DeleteTaskF
 	}
 
 	if len(taskFeedLikes) > 0 {
-		taskFeedLikeIds := make([]model.ID, len(taskFeedLikes))
+		taskFeedLikeIDs := make([]model.ID, len(taskFeedLikes))
 		for i, t := range taskFeedLikes {
-			taskFeedLikeIds[i] = t.ID
+			taskFeedLikeIDs[i] = t.ID
 		}
 
-		_, err = client.TaskFeedLike.Delete().Where(taskfeedlike.IDIn(taskFeedLikeIds...)).Exec(ctx)
+		_, err = client.TaskFeedLike.Delete().Where(taskfeedlike.IDIn(taskFeedLikeIDs...)).Exec(ctx)
 		if err != nil {
 			return nil, model.NewDBError(err)
 		}
@@ -50,12 +50,12 @@ func (r *taskFeedRepository) Delete(ctx context.Context, input model.DeleteTaskF
 	}
 
 	if len(taskFiles) > 0 {
-		taskFileIds := make([]model.ID, len(taskFiles))
+		taskFileIDs := make([]model.ID, len(taskFiles))
 		for i, t := range taskFiles {
-			taskFileIds[i] = t.ID
+			taskFileIDs[i] = t.ID
 		}
 
-		_, err = client.TaskFile.Delete().Where(taskfile.IDIn(taskFileIds...)).Exec(ctx)
+		_, err = client.TaskFile.Delete().Where(taskfile.IDIn(taskFileIDs...)).Exec(ctx)
 		if err != nil {
 			return nil, model.NewDBError(err)
 		}

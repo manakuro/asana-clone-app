@@ -28,14 +28,14 @@ func (r *mutationResolver) CreateFavoriteProject(ctx context.Context, input ent.
 		return nil, handler.HandleGraphQLError(ctx, err)
 	}
 
-	go func() {
-		ids, _ := r.controller.FavoriteProject.FavoriteProjectIDs(context.Background(), input.TeammateID)
+	go func(detachedCtx context.Context) {
+		ids, _ := r.controller.FavoriteProject.FavoriteProjectIDs(detachedCtx, input.TeammateID)
 		for _, u := range r.subscriptions.FavoriteProjectIDsUpdated {
 			if u.TeammateID == input.TeammateID && u.RequestID != input.RequestID {
 				u.Ch <- ids
 			}
 		}
-	}()
+	}(context.WithoutCancel(ctx))
 
 	return f, nil
 }
@@ -46,14 +46,14 @@ func (r *mutationResolver) DeleteFavoriteProject(ctx context.Context, input mode
 		return nil, handler.HandleGraphQLError(ctx, err)
 	}
 
-	go func() {
-		ids, _ := r.controller.FavoriteProject.FavoriteProjectIDs(context.Background(), input.TeammateID)
+	go func(detachedCtx context.Context) {
+		ids, _ := r.controller.FavoriteProject.FavoriteProjectIDs(detachedCtx, input.TeammateID)
 		for _, u := range r.subscriptions.FavoriteProjectIDsUpdated {
 			if u.TeammateID == input.TeammateID && u.RequestID != input.RequestID {
 				u.Ch <- ids
 			}
 		}
-	}()
+	}(context.WithoutCancel(ctx))
 
 	return f, nil
 }
