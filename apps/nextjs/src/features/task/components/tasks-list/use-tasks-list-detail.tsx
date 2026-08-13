@@ -35,7 +35,7 @@ export const useTasksListDetail = (props: Props) => {
       [getTasksListBodyElement],
     );
   const { onOpen, open, onClose } = useTaskDetailDrawer();
-  const { taskId, setId, setLoading } = useTaskDetail();
+  const { taskId, setId } = useTaskDetail();
   const openRef = useRef<boolean>(false);
   openRef.current = open;
 
@@ -55,28 +55,9 @@ export const useTasksListDetail = (props: Props) => {
     onOpen();
     setId(newId);
 
-    let loadingShown = false;
-    let cancelled = false;
-
-    const timer = setTimeout(() => {
-      if (!cancelled) {
-        loadingShown = true;
-        setLoading(true);
-      }
-    }, 500);
-
     startTransition(async () => {
       await fetchQuery({ taskId: newId });
-      clearTimeout(timer);
-      if (!cancelled && loadingShown) {
-        setLoading(false);
-      }
     });
-
-    return () => {
-      cancelled = true;
-      clearTimeout(timer);
-    };
   }, [
     fetchQuery,
     getTaskDetailId,
@@ -86,7 +67,6 @@ export const useTasksListDetail = (props: Props) => {
     pathname,
     props.tabContentLoading,
     setId,
-    setLoading,
     onClose,
   ]);
 

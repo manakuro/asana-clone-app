@@ -22,4 +22,4 @@ pre-commit:
       root: apps/api/
       glob: "*.go"
       stage_fixed: true
-      run: golangci-lint run {staged_files}
+      run: golangci-lint run ./...

@@ -5,7 +5,7 @@ An Asana clone application for a backend built with Go.
 - [GraphQL Playground](https://project-management-demo.ebad78r3fqm9m.ap-northeast-1.cs.amazonlightsail.com/playground)
 
 ## Tech Stack
-- Go / 1.22.1
+- Go / 1.25.1
 - GraphQL
 - [ent](https://github.com/ent/ent)
 - [gqlgen](https://github.com/99designs/gqlgen)
@@ -19,7 +19,7 @@ Configure your Firebase project by following the setup documentation:
 
 ## Go Installation
 
-Install Go version 1.22.1:
+Install Go version 1.25.1:
 
 ```
 go install golang.org/dl/go1.25.1@latest
@@ -34,6 +34,20 @@ go1.25.1 version
 go version go1.25.1 darwin/arm64
 ```
 
+## Taskfile Installation
+
+Install Taskfile using Homebrew:
+
+```
+brew install go-task/tap/go-task
+```
+
+Verify the installation:
+
+```
+task --version
+```
+
 ## Docker Setup
 
 ```
@@ -44,25 +58,25 @@ docker compose up
 ## Installation
 
 ```
-make install
+task install
 ```
 
 ## Database Setup
 
 ```
-make setup_db
+task db:setup
 ```
 
 ```
-make migrate_schema
+task db:migrate
 ```
 
 ```
-make seed
+task db:seed
 ```
 
 ## Development
 
 ```
-make start
+task start
 ```

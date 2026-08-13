@@ -28,14 +28,14 @@ func (r *mutationResolver) CreateFavoriteWorkspace(ctx context.Context, input en
 		return nil, handler.HandleGraphQLError(ctx, err)
 	}
 
-	go func() {
-		ids, _ := r.controller.FavoriteWorkspace.FavoriteWorkspaceIDs(context.Background(), input.TeammateID, &input.WorkspaceID)
+	go func(detachedCtx context.Context) {
+		ids, _ := r.controller.FavoriteWorkspace.FavoriteWorkspaceIDs(detachedCtx, input.TeammateID, &input.WorkspaceID)
 		for _, u := range r.subscriptions.FavoriteWorkspaceIDsUpdated {
 			if u.TeammateID == input.TeammateID && u.RequestID != input.RequestID {
 				u.Ch <- ids
 			}
 		}
-	}()
+	}(context.WithoutCancel(ctx))
 
 	return f, nil
 }
@@ -46,14 +46,14 @@ func (r *mutationResolver) DeleteFavoriteWorkspace(ctx context.Context, input mo
 		return nil, handler.HandleGraphQLError(ctx, err)
 	}
 
-	go func() {
-		ids, _ := r.controller.FavoriteWorkspace.FavoriteWorkspaceIDs(context.Background(), input.TeammateID, &input.WorkspaceID)
+	go func(detachedCtx context.Context) {
+		ids, _ := r.controller.FavoriteWorkspace.FavoriteWorkspaceIDs(detachedCtx, input.TeammateID, &input.WorkspaceID)
 		for _, u := range r.subscriptions.FavoriteWorkspaceIDsUpdated {
 			if u.TeammateID == input.TeammateID && u.RequestID != input.RequestID {
 				u.Ch <- ids
 			}
 		}
-	}()
+	}(context.WithoutCancel(ctx))
 
 	return f, nil
 }

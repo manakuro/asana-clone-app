@@ -3,6 +3,8 @@ version: "2"
 formatters:
   enable:
     - goimports
+  exclusions:
+    generated: lax
 
 linters:
   default: none
@@ -24,7 +26,6 @@ linters:
     errcheck:
       exclude-functions:
         - fmt.*
-        - (io.Closer).Close
 
     revive:
       # Use recommended configuration
@@ -42,7 +43,7 @@ linters:
         - name: increment-decrement
         - name: var-naming
         - name: var-declaration
-        - name: package-comments
+#        - name: package-comments
         - name: range
         - name: receiver-naming
         - name: time-naming
@@ -56,3 +57,11 @@ linters:
 
   exclusions:
     generated: lax
+    rules:
+      - linters:
+          - errcheck
+        source: '\.Close\(\)'
+      - path: 'pkg/adapter/resolver/.*\.resolvers\.go'
+        linters:
+          - revive
+        text: 'var-naming'

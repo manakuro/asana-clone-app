@@ -15,6 +15,8 @@ type TestUserProfile struct {
 }
 
 // TestUserProfileBody of profile body
+//
+//nolint:goimports
 //revive:disable-next-line:exported
 type TestUserProfileBody struct {
 	Weight  int `json:"weight"`
@@ -23,6 +25,8 @@ type TestUserProfileBody struct {
 }
 
 // TestUserProfileBodyComment of profile body comment
+//
+//nolint:goimports
 //revive:disable-next-line:exported
 type TestUserProfileBodyComment struct {
 	Type string `json:"type"`

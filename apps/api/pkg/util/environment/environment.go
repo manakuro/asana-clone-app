@@ -1,3 +1,4 @@
+// Package environment provides utilities for reading environment configuration.
 package environment
 
 import (

@@ -141,9 +141,9 @@ func WithProjectTask(query *ent.ProjectTaskQuery) {
 	query.WithTask(func(tq *ent.TaskQuery) {
 		WithTask(tq)
 	})
-	query.WithProject(func(pq *ent.ProjectQuery) {
-		WithProject(pq)
-	})
+	//query.WithProject(func(pq *ent.ProjectQuery) {
+	//	WithProject(pq)
+	//})
 }
 
 // WithProjectTeammate eager-loads associations with project teammate entity.

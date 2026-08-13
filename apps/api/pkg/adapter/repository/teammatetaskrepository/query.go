@@ -41,7 +41,7 @@ func (r *teammateTaskRepository) Get(ctx context.Context, where *model.TeammateT
 	}
 
 	fmt.Println("\n\n========================================================================")
-	fmt.Println("duration: ", time.Since(start).String())
+	fmt.Println("【teammateTask - Get】duration: ", time.Since(start).String())
 	fmt.Print("========================================================================\n\n")
 
 	return res, nil
