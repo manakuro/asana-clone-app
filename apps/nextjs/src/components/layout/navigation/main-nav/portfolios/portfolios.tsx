@@ -1,20 +1,16 @@
-import { usePathname } from 'next/navigation';
 import { memo, useMemo } from 'react';
-import { ROUTE_PORTFOLIOS } from '@/router';
 import { NavListItem } from '../../nav-list-item';
 import type { NavListItem as TNavListItem } from '../../type';
 
 export const Portfolios = memo(function Portfolios() {
-  const pathname = usePathname();
-
   const item = useMemo<TNavListItem>(
     () => ({
       name: 'Portfolios',
-      href: ROUTE_PORTFOLIOS.href.pathname(),
+      href: '/',
       icon: 'barChart',
-      isCurrentRoute: () => pathname === ROUTE_PORTFOLIOS.href.pathname(),
+      isCurrentRoute: () => false,
     }),
-    [pathname],
+    [],
   );
 
   return <NavListItem item={item} disabled />;
