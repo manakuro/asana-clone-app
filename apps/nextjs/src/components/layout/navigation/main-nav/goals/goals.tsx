@@ -1,20 +1,16 @@
-import { usePathname } from 'next/navigation';
 import { memo, useMemo } from 'react';
-import { ROUTE_GOALS } from '@/router';
 import { NavListItem } from '../../nav-list-item';
 import type { NavListItem as TNavListItem } from '../../type';
 
 export const Goals = memo(function Goals() {
-  const pathname = usePathname();
-
   const item = useMemo<TNavListItem>(
     () => ({
       name: 'Goals',
-      href: ROUTE_GOALS.href.pathname(),
+      href: '/',
       icon: 'rocket',
-      isCurrentRoute: () => pathname === ROUTE_GOALS.href.pathname(),
+      isCurrentRoute: () => false,
     }),
-    [pathname],
+    [],
   );
 
   return <NavListItem item={item} disabled />;
