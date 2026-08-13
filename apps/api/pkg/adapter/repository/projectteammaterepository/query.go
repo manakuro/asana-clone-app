@@ -2,11 +2,14 @@ package projectteammaterepository
 
 import (
 	"context"
+	"fmt"
 	"project-management-demo-backend/ent"
 	"project-management-demo-backend/pkg/entity/model"
+	"time"
 )
 
 func (r *projectTeammateRepository) Get(ctx context.Context, where *model.ProjectTeammateWhereInput) (*model.ProjectTeammate, error) {
+	start := time.Now()
 	q := r.client.ProjectTeammate.Query()
 
 	q, err := where.Filter(q)
@@ -25,6 +28,10 @@ func (r *projectTeammateRepository) Get(ctx context.Context, where *model.Projec
 		}
 		return nil, model.NewDBError(err)
 	}
+
+	fmt.Println("\n\n========================================================================")
+	fmt.Println("【projectTeammate -  Get】duration: ", time.Since(start).String())
+	fmt.Print("========================================================================\n\n")
 
 	return res, nil
 }

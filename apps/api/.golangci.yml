@@ -24,7 +24,6 @@ linters:
     errcheck:
       exclude-functions:
         - fmt.*
-        - (io.Closer).Close
 
     revive:
       # Use recommended configuration
@@ -56,3 +55,7 @@ linters:
 
   exclusions:
     generated: lax
+    rules:
+      - linters:
+          - errcheck
+        source: '\.Close\(\)'

@@ -2,12 +2,18 @@ package taskrepository
 
 import (
 	"context"
+	"fmt"
 	"project-management-demo-backend/ent"
+	"project-management-demo-backend/pkg/adapter/repository/repositoryutil"
 	"project-management-demo-backend/pkg/entity/model"
+	"time"
 )
 
 func (r *taskRepository) Get(ctx context.Context, where *model.TaskWhereInput) (*model.Task, error) {
+	start := time.Now()
 	q := r.client.Task.Query()
+
+	repositoryutil.WithTask(q)
 
 	q, err := where.Filter(q)
 	if err != nil {
@@ -25,6 +31,10 @@ func (r *taskRepository) Get(ctx context.Context, where *model.TaskWhereInput) (
 		}
 		return nil, model.NewDBError(err)
 	}
+
+	fmt.Println("\n\n========================================================================")
+	fmt.Println("【task - Get】duration: ", time.Since(start).String())
+	fmt.Print("========================================================================\n\n")
 
 	return res, nil
 }

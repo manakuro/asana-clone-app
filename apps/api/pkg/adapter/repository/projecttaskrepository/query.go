@@ -34,7 +34,7 @@ func (r *projectTaskRepository) Get(ctx context.Context, where *model.ProjectTas
 	}
 
 	fmt.Println("\n\n========================================================================")
-	fmt.Println("duration: ", time.Since(start).String())
+	fmt.Println("【projectTask - Get】duration: ", time.Since(start).String())
 	fmt.Print("========================================================================\n\n")
 
 	return res, nil
