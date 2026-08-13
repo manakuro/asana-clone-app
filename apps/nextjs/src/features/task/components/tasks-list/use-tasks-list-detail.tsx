@@ -35,7 +35,7 @@ export const useTasksListDetail = (props: Props) => {
       [getTasksListBodyElement],
     );
   const { onOpen, open, onClose } = useTaskDetailDrawer();
-  const { taskId, setId, setLoading } = useTaskDetail();
+  const { taskId, setId } = useTaskDetail();
   const openRef = useRef<boolean>(false);
   openRef.current = open;
 
