@@ -1,11 +1,11 @@
 name: asana-clone-app
 services:
   mysql:
-    container_name: mysql8.0.23
-    image: mysql:8.0.23
+    container_name: mysql8.4
+    image: mysql:8.4
     volumes:
-      - mysql-data:/var/lib/mysql
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_0900_as_ci --default-authentication-plugin=mysql_native_password
+      - mysql-data-8.4:/var/lib/mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_0900_as_ci
     environment:
       TZ:  "/usr/share/zoneinfo/Asia/Tokyo"
       MYSQL_ROOT_PASSWORD: root
@@ -20,7 +20,7 @@ services:
     ports:
       - '6379:6379'
 volumes:
-  mysql-data:
+  mysql-data-8.4:
     driver: local
   redis-data:
     driver: local
