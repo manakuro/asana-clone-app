@@ -1,3 +1,4 @@
+// Package token provides utilities for generating and validating tokens.
 package token
 
 import "github.com/thanhpk/randstr"

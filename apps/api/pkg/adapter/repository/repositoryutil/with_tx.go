@@ -8,10 +8,10 @@ import (
 )
 
 // WithTx queries database safely with transactions.
-func WithTx(ctx context.Context, client *ent.Client, fn func(tx *ent.Tx) (res interface{}, error error)) (res interface{}, error error) {
-	tx, err := client.Tx(ctx)
-	if err != nil {
-		return nil, err
+func WithTx(ctx context.Context, client *ent.Client, fn func(tx *ent.Tx) (res interface{}, err error)) (res interface{}, err error) {
+	tx, txErr := client.Tx(ctx)
+	if txErr != nil {
+		return nil, txErr
 	}
 
 	defer func() {

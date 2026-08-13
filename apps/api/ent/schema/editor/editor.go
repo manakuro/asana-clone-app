@@ -1,3 +1,4 @@
+// Package editor defines the schema for the editor.
 package editor
 
 import (
