@@ -36,7 +36,9 @@ func (FileTypeMixin) Fields() []ent.Field {
 				"Image", "IMAGE",
 				"PDF", "PDF",
 				"Text", "TEXT",
-			),
+			).Annotations(
+			entgql.Type("FileTypeCode"),
+		),
 	}
 }
 

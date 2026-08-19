@@ -42,7 +42,11 @@ func (TeammateTaskTabStatusMixin) Fields() []ent.Field {
 				"Board", "BOARD",
 				"Calendar", "CALENDAR",
 				"Files", "FILES",
-			).Default("LIST"),
+			).
+			Default("LIST").
+			Annotations(
+				entgql.Type("TeammateTaskTabStatusCode"),
+			),
 	}
 }
 

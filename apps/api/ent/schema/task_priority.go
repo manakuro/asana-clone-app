@@ -41,7 +41,9 @@ func (TaskPriorityMixin) Fields() []ent.Field {
 				"Low", "LOW",
 				"Medium", "MEDIUM",
 				"High", "HIGH",
-			),
+			).Annotations(
+			entgql.Type("TaskPriorityType"),
+		),
 	}
 }
 

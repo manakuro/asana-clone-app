@@ -41,7 +41,9 @@ func (TaskColumnMixin) Fields() []ent.Field {
 				"Priority", "PRIORITY",
 				"Tags", "TAGS",
 				"Custom", "CUSTOM",
-			),
+			).Annotations(
+			entgql.Type("TaskColumnType"),
+		),
 	}
 }
 

@@ -34,7 +34,9 @@ func (ActivityTypeMixin) Fields() []ent.Field {
 			NamedValues(
 				"Task", "TASK",
 				"Workspace", "WORKSPACE",
-			),
+			).Annotations(
+			entgql.Type("ActivityTypeCode"),
+		),
 	}
 }
 

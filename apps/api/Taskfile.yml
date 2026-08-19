@@ -85,7 +85,7 @@ tasks:
   generate:ent:
     desc: "Generate Ent ORM code"
     cmds:
-      - "{{.GO_VERSION}} generate ./ent --feature sql/upsert --idtype string"
+      - "{{.GO_VERSION}} generate ./ent"
 
   schema:describe:
     desc: "Describe Ent schema"
