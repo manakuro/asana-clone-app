@@ -1,3 +1,3 @@
-package main
+package tools
 
-//go:generate gqlgen
+//go:generate go tool gqlgen generate

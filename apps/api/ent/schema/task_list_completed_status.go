@@ -42,7 +42,9 @@ func (TaskListCompletedStatusMixin) Fields() []ent.Field {
 				"Completed2Weeks", "COMPLETED_2_WEEKS",
 				"Completed3Weeks", "COMPLETED_3_WEEKS",
 				"All", "ALL",
-			),
+			).Annotations(
+			entgql.Type("TaskListCompletedStatusCode"),
+		),
 	}
 }
 

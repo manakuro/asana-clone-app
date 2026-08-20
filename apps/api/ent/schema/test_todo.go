@@ -51,7 +51,10 @@ func (TestTodoMixin) Fields() []ent.Field {
 				"InProgress", "IN_PROGRESS",
 				"Completed", "COMPLETED",
 			).
-			Default("IN_PROGRESS"),
+			Default("IN_PROGRESS").
+			Annotations(
+				entgql.Type("TestTodoStatus"),
+			),
 		field.Int("priority").Default(0),
 		field.Time("due_date").
 			Nillable().

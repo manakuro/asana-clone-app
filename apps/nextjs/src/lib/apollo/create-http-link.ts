@@ -1,7 +1,7 @@
 import { ApolloLink, HttpLink } from '@apollo/client/core';
-import { WebSocketLink } from '@apollo/client/link/ws';
+import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { getMainDefinition } from '@apollo/client/utilities';
-import { SubscriptionClient } from 'subscriptions-transport-ws';
+import { createClient } from 'graphql-ws';
 import { config } from '@/config';
 import { websocketErrorHandler } from '@/lib/apollo/error-handler';
 import { isClient } from '@/utils/environment';
@@ -19,18 +19,22 @@ export const createHttpLink = (props: CreateHttpProps) => {
   });
 
   if (isClient()) {
-    const wsClient = new SubscriptionClient(config.API_SUBSCRIPTION_URL, {
+    const wsClient = createClient({
+      url: config.API_SUBSCRIPTION_URL,
       lazy: true,
-      reconnect: true,
+      retryAttempts: Infinity,
+      shouldRetry: () => true,
       connectionParams: () => ({
         authorization: `Bearer ${props.idToken}`,
       }),
-      connectionCallback: async (err) => {
-        const errors = Array.isArray(err) ? err : [err];
-        await websocketErrorHandler(errors);
+      on: {
+        error: (error) => {
+          const errors = Array.isArray(error) ? error : [error];
+          websocketErrorHandler(errors);
+        },
       },
     });
-    const wsLink = new WebSocketLink(wsClient);
+    const wsLink = new GraphQLWsLink(wsClient);
 
     return ApolloLink.split(
       ({ query }) => {

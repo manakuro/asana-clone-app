@@ -41,7 +41,9 @@ func (TaskListSortStatusMixin) Fields() []ent.Field {
 				"Assignee", "ASSIGNEE",
 				"CreationTime", "CREATION_TIME",
 				"Priority", "PRIORITY",
-			),
+			).Annotations(
+			entgql.Type("TaskListSortStatusCode"),
+		),
 	}
 }
 
