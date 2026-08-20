@@ -4,9 +4,12 @@ import { toaster } from '@/lib/chakra-ui/generated/toaster';
 
 let unauthorized = false;
 
-// For websocket
-export const websocketErrorHandler = async (errors: Error[]) => {
-  const authError = errors.find((e) => ~e?.message.indexOf('has expired at'));
+// For websocket - updated for graphql-ws compatibility
+export const websocketErrorHandler = (errors: unknown[]) => {
+  const authError = errors.find((e) => {
+    const message = e instanceof Error ? e.message : String(e);
+    return message.indexOf('has expired at') !== -1;
+  });
   if (authError) {
     console.error('auth error!');
     handleUnauthorizedError();
