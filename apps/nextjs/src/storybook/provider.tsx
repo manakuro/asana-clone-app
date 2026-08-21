@@ -31,7 +31,7 @@ export const Provider = (props: PropsWithChildren) => {
 const ApolloProvider = (props: PropsWithChildren) => {
   const client = useMemo(
     () =>
-      createApolloClient({ idToken: 'token', disablePersistedQueries: true }),
+      createApolloClient({ idToken: 'token', enablePersistedQueries: false }),
     [],
   );
 

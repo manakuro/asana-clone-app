@@ -5,7 +5,7 @@ import { type CreateHttpProps, createHttpLink } from './create-http-link';
 import { createPersistedQueryLink } from './create-persisted-query-link';
 
 export type CreateLinkProps = CreateHttpProps & {
-  disablePersistedQueries?: boolean;
+  enablePersistedQueries?: boolean;
 };
 
 export const createLink = (props: CreateLinkProps) => {
@@ -14,7 +14,8 @@ export const createLink = (props: CreateLinkProps) => {
     createErrorLink(),
   ];
 
-  if (!props.disablePersistedQueries) {
+  const enablePersistedQueries = props.enablePersistedQueries ?? true;
+  if (enablePersistedQueries) {
     links.push(createPersistedQueryLink());
   }
 
