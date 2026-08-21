@@ -58,6 +58,9 @@ importers:
       '@react-hook/passive-layout-effect':
         specifier: 1.2.1
         version: 1.2.1(react@19.2.8)
+      crypto-hash:
+        specifier: 4.0.1
+        version: 4.0.1
       date-fns:
         specifier: 4.4.0
         version: 4.4.0
@@ -3654,6 +3657,10 @@ packages:
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
+
+  crypto-hash@4.0.1:
+    resolution: {integrity: sha512-4u4yl+8C+75Xedf1uMA0J/TTYAqJ54XdyBc1RV3UjCkU2wQjFMsB5ScjRDh3oo21zAwSprcVEDolaGDT8z5G6g==}
+    engines: {node: '>=20'}
 
   css-box-model@1.2.1:
     resolution: {integrity: sha512-a7Vr4Q/kd/aw96bnJG332W9V9LkJO69JRcaCYDUqjp6/z0w6VcZjgAcTbgFxEPfBgdnAwlh3iwu+hLopa+flJw==}
@@ -10109,6 +10116,8 @@ snapshots:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  crypto-hash@4.0.1: {}
 
   css-box-model@1.2.1:
     dependencies:
