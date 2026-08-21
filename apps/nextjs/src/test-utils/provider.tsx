@@ -23,7 +23,10 @@ export const Provider: React.FCWithChildren = (props) => {
 };
 
 function ApolloProvider({ children }: PropsWithChildren) {
-  const client = useMemo(() => createApolloClient({ idToken: '' }), []);
+  const client = useMemo(
+    () => createApolloClient({ idToken: '', enablePersistedQueries: false }),
+    [],
+  );
 
   return <ApolloProviderLibs client={client}>{children}</ApolloProviderLibs>;
 }

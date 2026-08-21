@@ -58,9 +58,12 @@ func New(srv *handler.Server, ctrl controller.Controller, options Options) *echo
 	}
 
 	{
-		g.POST(graphQLPath, echo.WrapHandler(srv), rm.Auth(rm.AuthOptions{
+		graphQLHandler := echo.WrapHandler(srv)
+		authMiddleware := rm.Auth(rm.AuthOptions{
 			Skip: !options.Auth,
-		}))
+		})
+		g.POST(graphQLPath, graphQLHandler, authMiddleware)
+		g.GET(graphQLPath, graphQLHandler, authMiddleware)
 
 		g.POST(graphQLPlaygroundPath, echo.WrapHandler(srv))
 

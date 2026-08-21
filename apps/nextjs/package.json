@@ -37,6 +37,7 @@
     "chakra:typegen": "npx @chakra-ui/cli typegen src/lib/chakra-ui/theme.ts"
   },
   "dependencies": {
+    "crypto-hash": "4.0.1",
     "@apollo/client": "4.2.7",
     "@chakra-ui/react": "3.36.1",
     "@emoji-mart/data": "1.2.1",
