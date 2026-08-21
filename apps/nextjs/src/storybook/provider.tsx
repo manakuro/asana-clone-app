@@ -29,7 +29,11 @@ export const Provider = (props: PropsWithChildren) => {
 };
 
 const ApolloProvider = (props: PropsWithChildren) => {
-  const client = useMemo(() => createApolloClient({ idToken: 'token' }), []);
+  const client = useMemo(
+    () =>
+      createApolloClient({ idToken: 'token', disablePersistedQueries: true }),
+    [],
+  );
 
   return (
     <ApolloProviderLibs client={client}>{props.children}</ApolloProviderLibs>
