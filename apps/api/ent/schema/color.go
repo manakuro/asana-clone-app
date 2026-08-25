@@ -52,14 +52,14 @@ func (Color) Edges() []ent.Edge {
 			),
 		edge.To(projectLightColorsRef, ProjectLightColor.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(projectLightColorsRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_light_color_id"},
 				),
 			),
 		edge.To(taskPrioritiesRef, TaskPriority.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskPrioritiesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_priority_id"},
 				),

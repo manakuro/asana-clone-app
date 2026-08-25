@@ -42,7 +42,7 @@ func (Icon) Edges() []ent.Edge {
 	return []ent.Edge{
 		edge.To(projectIconsRef, ProjectIcon.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(projectIconsRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_icon_id"},
 				),

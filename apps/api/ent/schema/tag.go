@@ -68,7 +68,7 @@ func (Tag) Edges() []ent.Edge {
 			),
 		edge.To(taskTagsRef, TaskTag.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskTagsRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_tag_id"},
 				),
