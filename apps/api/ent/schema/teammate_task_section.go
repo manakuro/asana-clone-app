@@ -69,7 +69,7 @@ func (TeammateTaskSection) Edges() []ent.Edge {
 			),
 		edge.To(teammateTasksRef, TeammateTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(teammateTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "teammate_task_id"},
 				),

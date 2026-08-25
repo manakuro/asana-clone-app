@@ -6150,7 +6150,7 @@ func (_q *TeammateTaskSectionQuery) collectField(ctx context.Context, oneNode bo
 				fieldSeen[teammatetasksection.FieldWorkspaceID] = struct{}{}
 			}
 
-		case "teammatetasks":
+		case "teammateTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
