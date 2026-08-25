@@ -749,7 +749,7 @@ func (_q *ColorQuery) collectField(ctx context.Context, oneNode bool, opCtx *gra
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "projectbasecolors":
+		case "projectBaseColors":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
