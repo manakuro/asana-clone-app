@@ -52,7 +52,7 @@ func (TaskColumn) Edges() []ent.Edge {
 	return []ent.Edge{
 		edge.To(teammateTaskColumnsRef, TeammateTaskColumn.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(teammateTaskColumnsRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "teammate_task_column_id"},
 				),
@@ -60,7 +60,7 @@ func (TaskColumn) Edges() []ent.Edge {
 
 		edge.To(projectTaskColumnsRef, ProjectTaskColumn.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(projectTaskColumnsRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_task_column_id"},
 				),

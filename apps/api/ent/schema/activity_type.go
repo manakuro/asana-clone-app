@@ -45,28 +45,28 @@ func (ActivityType) Edges() []ent.Edge {
 	return []ent.Edge{
 		edge.To(taskActivitiesRef, TaskActivity.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskActivitiesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_activity_id"},
 				),
 			),
 		edge.To(workspaceActivitiesRef, WorkspaceActivity.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(workspaceActivitiesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "workspace_activity_id"},
 				),
 			),
 		edge.To(archivedTaskActivitiesRef, ArchivedTaskActivity.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(archivedTaskActivitiesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "archived_task_activity_id"},
 				),
 			),
 		edge.To(archivedWorkspaceActivitiesRef, ArchivedWorkspaceActivity.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(archivedWorkspaceActivitiesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "archived_workspace_activity_id"},
 				),

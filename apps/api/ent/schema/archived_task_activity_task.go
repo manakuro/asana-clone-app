@@ -46,7 +46,6 @@ func (ArchivedTaskActivityTask) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_id"},
 				),
@@ -57,7 +56,7 @@ func (ArchivedTaskActivityTask) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("archivedTaskActivity"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "archived_task_activity_id"},
 				),

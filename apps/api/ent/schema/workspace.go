@@ -105,7 +105,6 @@ func (Workspace) Edges() []ent.Edge {
 			),
 		edge.To(tagsRef, Tag.Type).
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "tag_id"},
 				),

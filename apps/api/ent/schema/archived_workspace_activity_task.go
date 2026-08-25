@@ -57,7 +57,7 @@ func (ArchivedWorkspaceActivityTask) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("archivedWorkspaceActivity"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "archived_workspace_activity_id"},
 				),

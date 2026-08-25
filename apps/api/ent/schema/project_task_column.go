@@ -54,7 +54,6 @@ func (ProjectTaskColumn) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_id"},
 				),
@@ -65,7 +64,7 @@ func (ProjectTaskColumn) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("taskColumn"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_column_id"},
 				),

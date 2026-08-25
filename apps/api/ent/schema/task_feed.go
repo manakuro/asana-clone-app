@@ -76,14 +76,14 @@ func (TaskFeed) Edges() []ent.Edge {
 			),
 		edge.To(taskFeedLikesRef, TaskFeedLike.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskFeedLikesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_feed_like_id"},
 				),
 			),
 		edge.To(taskFilesRef, TaskFile.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskFilesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_file_id"},
 				),

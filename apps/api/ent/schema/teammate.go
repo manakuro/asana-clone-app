@@ -42,14 +42,12 @@ func (Teammate) Edges() []ent.Edge {
 	return []ent.Edge{
 		edge.To(workspacesRef, Workspace.Type).
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "workspace_id"},
 				),
 			),
 		edge.To(projectsRef, Project.Type).
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_id"},
 				),
@@ -112,7 +110,6 @@ func (Teammate) Edges() []ent.Edge {
 			),
 		edge.To(tasksRef, Task.Type).
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_id"},
 				),
