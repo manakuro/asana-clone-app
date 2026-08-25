@@ -2,11 +2,14 @@ package teammatetaskliststatusrepository
 
 import (
 	"context"
+	"fmt"
 	"project-management-demo-backend/ent"
 	"project-management-demo-backend/pkg/entity/model"
+	"time"
 )
 
 func (r *teammateTaskListStatusRepository) Get(ctx context.Context, where *model.TeammateTaskListStatusWhereInput) (*model.TeammateTaskListStatus, error) {
+	start := time.Now()
 	q := r.client.TeammateTaskListStatus.Query()
 
 	q, err := where.Filter(q)
@@ -25,6 +28,10 @@ func (r *teammateTaskListStatusRepository) Get(ctx context.Context, where *model
 		}
 		return nil, model.NewDBError(err)
 	}
+
+	fmt.Println("\n\n========================================================================")
+	fmt.Println("【teammateTaskListStatus - Get】duration: ", time.Since(start).String())
+	fmt.Print("========================================================================\n\n")
 
 	return res, nil
 }
