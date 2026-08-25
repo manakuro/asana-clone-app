@@ -4515,7 +4515,7 @@ func (_q *TaskFileQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				fieldSeen[taskfile.FieldTaskID] = struct{}{}
 			}
 
-		case "taskfeed":
+		case "taskFeed":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4530,7 +4530,7 @@ func (_q *TaskFileQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				fieldSeen[taskfile.FieldTaskFeedID] = struct{}{}
 			}
 
-		case "filetype":
+		case "fileType":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5694,7 +5694,7 @@ func (_q *TeammateTaskQuery) collectField(ctx context.Context, oneNode bool, opC
 				fieldSeen[teammatetask.FieldTaskID] = struct{}{}
 			}
 
-		case "teammatetasksection":
+		case "teammateTaskSection":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
