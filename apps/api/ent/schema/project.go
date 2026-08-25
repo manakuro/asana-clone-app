@@ -122,7 +122,7 @@ func (Project) Edges() []ent.Edge {
 					annotation.Edge{FieldName: "created_by"},
 				),
 			),
-		edge.To(projectTeammatesRef, ProjectTeammate.Edges).
+		edge.To(projectTeammatesRef, ProjectTeammate.Type).
 			Annotations(
 				entgql.MapsTo(projectTeammatesRef),
 				schema.Annotation(
