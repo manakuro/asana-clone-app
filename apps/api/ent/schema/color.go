@@ -45,7 +45,7 @@ func (Color) Edges() []ent.Edge {
 	return []ent.Edge{
 		edge.To(projectBaseColorsRef, ProjectBaseColor.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(projectBaseColorsRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_base_color_id"},
 				),
