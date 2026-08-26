@@ -50,7 +50,6 @@ func (Tag) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "workspace_id"},
 				),
@@ -61,14 +60,13 @@ func (Tag) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "color_id"},
 				),
 			),
 		edge.To(taskTagsRef, TaskTag.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskTagsRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_tag_id"},
 				),

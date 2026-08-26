@@ -113105,7 +113105,7 @@ func (ec *executionContext) marshalNDeletedTask2projectᚑmanagementᚑdemoᚑba
 	return ec._DeletedTask(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNDeletedTask2ᚕᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐDeletedTaskᚄ(ctx context.Context, sel ast.SelectionSet, v []*ent.DeletedTask) graphql.Marshaler {
+func (ec *executionContext) marshalNDeletedTask2ᚕᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐDeletedTaskᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.DeletedTask) graphql.Marshaler {
 	ret := graphql.MarshalSliceConcurrently(ctx, len(v), 0, false, func(ctx context.Context, i int) graphql.Marshaler {
 		fc := graphql.GetFieldContext(ctx)
 		fc.Result = &v[i]
@@ -113121,7 +113121,7 @@ func (ec *executionContext) marshalNDeletedTask2ᚕᚖprojectᚑmanagementᚑdem
 	return ret
 }
 
-func (ec *executionContext) marshalNDeletedTask2ᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐDeletedTask(ctx context.Context, sel ast.SelectionSet, v *ent.DeletedTask) graphql.Marshaler {
+func (ec *executionContext) marshalNDeletedTask2ᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐDeletedTask(ctx context.Context, sel ast.SelectionSet, v *model.DeletedTask) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			graphql.AddErrorf(ctx, "the requested element is null which the schema does not allow")
@@ -113238,10 +113238,10 @@ func (ec *executionContext) marshalNID2projectᚑmanagementᚑdemoᚑbackendᚋe
 	return v
 }
 
-func (ec *executionContext) unmarshalNID2ᚕprojectᚑmanagementᚑdemoᚑbackendᚋentᚋschemaᚋulidᚐIDᚄ(ctx context.Context, v any) ([]ulid.ID, error) {
+func (ec *executionContext) unmarshalNID2ᚕprojectᚑmanagementᚑdemoᚑbackendᚋentᚋschemaᚋulidᚐIDᚄ(ctx context.Context, v any) ([]model.ID, error) {
 	vSlice := graphql.CoerceList(v)
 	var err error
-	res := make([]ulid.ID, len(vSlice))
+	res := make([]model.ID, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
 		res[i], err = ec.unmarshalNID2projectᚑmanagementᚑdemoᚑbackendᚋentᚋschemaᚋulidᚐID(ctx, vSlice[i])
@@ -113252,7 +113252,7 @@ func (ec *executionContext) unmarshalNID2ᚕprojectᚑmanagementᚑdemoᚑbacken
 	return res, nil
 }
 
-func (ec *executionContext) marshalNID2ᚕprojectᚑmanagementᚑdemoᚑbackendᚋentᚋschemaᚋulidᚐIDᚄ(ctx context.Context, sel ast.SelectionSet, v []ulid.ID) graphql.Marshaler {
+func (ec *executionContext) marshalNID2ᚕprojectᚑmanagementᚑdemoᚑbackendᚋentᚋschemaᚋulidᚐIDᚄ(ctx context.Context, sel ast.SelectionSet, v []model.ID) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	for i := range v {
 		ret[i] = ec.marshalNID2projectᚑmanagementᚑdemoᚑbackendᚋentᚋschemaᚋulidᚐID(ctx, sel, v[i])
@@ -113528,7 +113528,7 @@ func (ec *executionContext) marshalNProjectTask2ᚕᚖprojectᚑmanagementᚑdem
 	return ret
 }
 
-func (ec *executionContext) marshalNProjectTask2ᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐProjectTask(ctx context.Context, sel ast.SelectionSet, v *ent.ProjectTask) graphql.Marshaler {
+func (ec *executionContext) marshalNProjectTask2ᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐProjectTask(ctx context.Context, sel ast.SelectionSet, v *model.ProjectTask) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			graphql.AddErrorf(ctx, "the requested element is null which the schema does not allow")
@@ -114194,7 +114194,7 @@ func (ec *executionContext) marshalNTeammateTask2projectᚑmanagementᚑdemoᚑb
 	return ec._TeammateTask(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNTeammateTask2ᚕᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐTeammateTaskᚄ(ctx context.Context, sel ast.SelectionSet, v []*ent.TeammateTask) graphql.Marshaler {
+func (ec *executionContext) marshalNTeammateTask2ᚕᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐTeammateTaskᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.TeammateTask) graphql.Marshaler {
 	ret := graphql.MarshalSliceConcurrently(ctx, len(v), 0, false, func(ctx context.Context, i int) graphql.Marshaler {
 		fc := graphql.GetFieldContext(ctx)
 		fc.Result = &v[i]
@@ -114210,7 +114210,7 @@ func (ec *executionContext) marshalNTeammateTask2ᚕᚖprojectᚑmanagementᚑde
 	return ret
 }
 
-func (ec *executionContext) marshalNTeammateTask2ᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐTeammateTask(ctx context.Context, sel ast.SelectionSet, v *ent.TeammateTask) graphql.Marshaler {
+func (ec *executionContext) marshalNTeammateTask2ᚖprojectᚑmanagementᚑdemoᚑbackendᚋentᚐTeammateTask(ctx context.Context, sel ast.SelectionSet, v *model.TeammateTask) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			graphql.AddErrorf(ctx, "the requested element is null which the schema does not allow")

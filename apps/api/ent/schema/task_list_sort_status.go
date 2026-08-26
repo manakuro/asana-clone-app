@@ -52,14 +52,14 @@ func (TaskListSortStatus) Edges() []ent.Edge {
 	return []ent.Edge{
 		edge.To(teammateTaskListStatusesRef, TeammateTaskListStatus.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(teammateTaskListStatusesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "teammate_task_list_status_id"},
 				),
 			),
 		edge.To(projectTaskListStatusesRef, ProjectTaskListStatus.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(projectTaskListStatusesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_task_list_status_id"},
 				),

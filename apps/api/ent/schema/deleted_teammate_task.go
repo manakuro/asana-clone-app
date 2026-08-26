@@ -8,8 +8,6 @@ import (
 
 	"entgo.io/ent/dialect"
 
-	"entgo.io/contrib/entgql"
-
 	"entgo.io/ent/schema"
 
 	"entgo.io/ent/schema/edge"
@@ -70,7 +68,6 @@ func (DeletedTeammateTask) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "teammate_id"},
 				),
@@ -81,7 +78,6 @@ func (DeletedTeammateTask) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_id"},
 				),
@@ -92,7 +88,6 @@ func (DeletedTeammateTask) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "workspace_id"},
 				),

@@ -48,14 +48,13 @@ func (ProjectTaskSection) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_id"},
 				),
 			),
 		edge.To(projectTasksRef, ProjectTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(projectTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_task_id"},
 				),

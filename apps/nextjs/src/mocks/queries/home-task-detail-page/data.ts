@@ -121,11 +121,6 @@ export const data = (
                   type: 'doc',
                 },
                 descriptionTitle: "How we'll collaborate",
-                teammateIds: [
-                  '0AC01GK0BWAQM2G89ZEQW6TVYJC17',
-                  '0AC01GK0BWAQM2G89ZEQW6V2CG974',
-                  '0AC01GK0BWAQM2G89ZEQW6XCNRHWV',
-                ],
                 projectTeammates: [
                   {
                     id: '0AH01GK0BWAXJ1S3A8ZD03128ZZYF',

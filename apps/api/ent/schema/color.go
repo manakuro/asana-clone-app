@@ -45,27 +45,26 @@ func (Color) Edges() []ent.Edge {
 	return []ent.Edge{
 		edge.To(projectBaseColorsRef, ProjectBaseColor.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(projectBaseColorsRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_base_color_id"},
 				),
 			),
 		edge.To(projectLightColorsRef, ProjectLightColor.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(projectLightColorsRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_light_color_id"},
 				),
 			),
 		edge.To(taskPrioritiesRef, TaskPriority.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskPrioritiesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_priority_id"},
 				),
 			),
 		edge.To(tagsRef, Tag.Type).Annotations(
-			entgql.Bind(),
 			schema.Annotation(
 				annotation.Edge{FieldName: "tag_id"},
 			),

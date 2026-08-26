@@ -6,7 +6,6 @@ fragment ProjectFragment on Project {
   projectIconId
   description
   descriptionTitle
-  teammateIds
   projectTeammates {
     ...ProjectTeammateFragment
   }

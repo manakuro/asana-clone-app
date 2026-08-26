@@ -99,134 +99,134 @@ func (Task) Edges() []ent.Edge {
 			Unique().
 			Field("task_priority_id").
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("taskPriority"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_priority_id"},
 				),
 			),
 		edge.To("subTasks", Task.Type).
-			Annotations(entgql.Bind()),
+			Annotations(entgql.MapsTo("subTasks")),
 
 		edge.From("parentTask", Task.Type).
 			Ref("subTasks").
 			Field("task_parent_id").
 			Unique().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("parentTask"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_parent_id"},
 				),
 			),
 		edge.To(teammateTasksRef, TeammateTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(teammateTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "teammate_task_id"},
 				),
 			),
 		edge.To(projectTasksRef, ProjectTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(projectTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_task_id"},
 				),
 			),
 		edge.To(taskLikesRef, TaskLike.Type).Annotations(
-			entgql.Bind(),
+			entgql.MapsTo(taskLikesRef),
 			schema.Annotation(
 				annotation.Edge{FieldName: "task_like_id"},
 			),
 		),
 		edge.To(taskTagsRef, TaskTag.Type).Annotations(
-			entgql.Bind(),
+			entgql.MapsTo(taskTagsRef),
 			schema.Annotation(
 				annotation.Edge{FieldName: "task_tag_id"},
 			),
 		),
 		edge.To(taskCollaboratorsRef, TaskCollaborator.Type).Annotations(
-			entgql.Bind(),
+			entgql.MapsTo(taskCollaboratorsRef),
 			schema.Annotation(
 				annotation.Edge{FieldName: "task_collaborator_id"},
 			),
 		),
 		edge.To(taskFeedsRef, TaskFeed.Type).Annotations(
-			entgql.Bind(),
+			entgql.MapsTo(taskFeedsRef),
 			schema.Annotation(
 				annotation.Edge{FieldName: "task_feed_id"},
 			),
 		),
 		edge.To(taskFeedLikesRef, TaskFeedLike.Type).Annotations(
-			entgql.Bind(),
+			entgql.MapsTo(taskFeedLikesRef),
 			schema.Annotation(
 				annotation.Edge{FieldName: "task_feed_like_id"},
 			),
 		),
 		edge.To(taskFilesRef, TaskFile.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskFilesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_file_id"},
 				),
 			),
 		edge.To(deletedTasksRef, DeletedTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(deletedTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "deleted_task_id"},
 				),
 			),
 		edge.To(taskActivityTasksRef, TaskActivityTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskActivityTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_activity_task_id"},
 				),
 			),
 		edge.To(workspaceActivityTasksRef, WorkspaceActivityTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(workspaceActivityTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "workspace_activity_task_id"},
 				),
 			),
 		edge.To(archivedTaskActivityTasksRef, ArchivedTaskActivityTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(archivedTaskActivityTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "archived_activity_task_id"},
 				),
 			),
 		edge.To(archivedWorkspaceActivityTasksRef, ArchivedWorkspaceActivityTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(archivedWorkspaceActivityTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "archived_workspace_activity_task_id"},
 				),
 			),
 		edge.To(deletedTeammateTasksRef, DeletedTeammateTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(deletedTeammateTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "deleted_teammate_task_id"},
 				),
 			),
 		edge.To(deletedProjectTasksRef, DeletedProjectTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(deletedProjectTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "deleted_project_task_id"},
 				),
 			),
 		edge.To(deletedTaskActivityTasksRef, DeletedTaskActivityTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(deletedTaskActivityTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "deleted_task_activity_task_id"},
 				),
 			),
 		edge.To(deletedWorkspaceActivityTasksRef, DeletedWorkspaceActivityTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(deletedWorkspaceActivityTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "deleted_workspace_activity_task_id"},
 				),

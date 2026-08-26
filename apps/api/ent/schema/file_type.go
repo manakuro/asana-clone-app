@@ -47,7 +47,7 @@ func (FileType) Edges() []ent.Edge {
 	return []ent.Edge{
 		edge.To(taskFilesRef, TaskFile.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(taskFilesRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_file_id"},
 				),

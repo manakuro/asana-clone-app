@@ -40,20 +40,31 @@ func (r *taskRepository) Get(ctx context.Context, where *model.TaskWhereInput) (
 }
 
 func (r *taskRepository) List(ctx context.Context) ([]*model.Task, error) {
+	start := time.Now()
 	res, err := r.client.Task.Query().All(ctx)
 	if err != nil {
 		return nil, model.NewDBError(err)
 	}
 
+	fmt.Println("\n\n========================================================================")
+	fmt.Println("【task - List】duration: ", time.Since(start).String())
+	fmt.Print("========================================================================\n\n")
+
 	return res, nil
 }
 
 func (r *taskRepository) ListWithPagination(ctx context.Context, after *model.Cursor, first *int, before *model.Cursor, last *int, where *model.TaskWhereInput) (*model.TaskConnection, error) {
+	start := time.Now()
 	q := r.client.Task.Query()
 
 	res, err := q.Paginate(ctx, after, first, before, last, ent.WithTaskFilter(where.Filter))
 	if err != nil {
 		return nil, model.NewDBError(err)
 	}
+
+	fmt.Println("\n\n========================================================================")
+	fmt.Println("【task - ListWithPagination】duration: ", time.Since(start).String())
+	fmt.Print("========================================================================\n\n")
+
 	return res, nil
 }

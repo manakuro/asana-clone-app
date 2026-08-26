@@ -9,6 +9,7 @@ import (
 )
 
 func (r *teammateTaskSectionRepository) Get(ctx context.Context, where *model.TeammateTaskSectionWhereInput) (*model.TeammateTaskSection, error) {
+	start := time.Now()
 	q := r.client.TeammateTaskSection.Query()
 
 	q, err := where.Filter(q)
@@ -27,6 +28,10 @@ func (r *teammateTaskSectionRepository) Get(ctx context.Context, where *model.Te
 		}
 		return nil, model.NewDBError(err)
 	}
+
+	fmt.Println("\n\n========================================================================")
+	fmt.Println("【teammateTaskSection - Get】duration: ", time.Since(start).String())
+	fmt.Print("========================================================================\n\n")
 
 	return res, nil
 }
@@ -50,7 +55,7 @@ func (r *teammateTaskSectionRepository) ListWithPagination(ctx context.Context, 
 	}
 
 	fmt.Println("\n\n========================================================================")
-	fmt.Println("duration: ", time.Since(start).String())
+	fmt.Println("【teammateTaskSection - ListWithPagination】duration: ", time.Since(start).String())
 	fmt.Print("========================================================================\n\n")
 
 	return res, nil

@@ -56,14 +56,12 @@ func (TaskPriority) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "color_id"},
 				),
 			),
 		edge.To(tasksRef, Task.Type).
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_id"},
 				),

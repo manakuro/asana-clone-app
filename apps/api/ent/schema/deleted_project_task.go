@@ -8,8 +8,6 @@ import (
 
 	"entgo.io/ent/dialect"
 
-	"entgo.io/contrib/entgql"
-
 	"entgo.io/ent/schema"
 
 	"entgo.io/ent/schema/edge"
@@ -68,7 +66,6 @@ func (DeletedProjectTask) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_id"},
 				),
@@ -79,7 +76,6 @@ func (DeletedProjectTask) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_id"},
 				),

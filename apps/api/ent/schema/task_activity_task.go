@@ -57,7 +57,7 @@ func (TaskActivityTask) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("taskActivity"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_activity_id"},
 				),

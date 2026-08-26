@@ -90,11 +90,17 @@ func (r *teammateTaskRepository) TasksDueSoon(ctx context.Context, workspaceID m
 }
 
 func (r *teammateTaskRepository) ListWithPagination(ctx context.Context, after *model.Cursor, first *int, before *model.Cursor, last *int, where *model.TeammateTaskWhereInput) (*model.TeammateTaskConnection, error) {
+	start := time.Now()
 	q := r.client.TeammateTask.Query()
 
 	res, err := q.Paginate(ctx, after, first, before, last, ent.WithTeammateTaskFilter(where.Filter))
 	if err != nil {
 		return nil, model.NewDBError(err)
 	}
+
+	fmt.Println("\n\n========================================================================")
+	fmt.Println("【teammateTask - ListWithPagination】duration: ", time.Since(start).String())
+	fmt.Print("========================================================================\n\n")
+
 	return res, nil
 }

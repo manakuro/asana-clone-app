@@ -60,7 +60,6 @@ func (TaskFile) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_id"},
 				),
@@ -71,7 +70,6 @@ func (TaskFile) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_id"},
 				),
@@ -82,7 +80,7 @@ func (TaskFile) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("taskFeed"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_feed_id"},
 				),
@@ -93,7 +91,7 @@ func (TaskFile) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("fileType"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "file_type_id"},
 				),

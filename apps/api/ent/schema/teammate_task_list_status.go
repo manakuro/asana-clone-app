@@ -74,7 +74,7 @@ func (TeammateTaskListStatus) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("taskListCompletedStatus"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_list_completed_status_id"},
 				),
@@ -85,7 +85,7 @@ func (TeammateTaskListStatus) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("taskListSortStatus"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_list_sort_status_id"},
 				),

@@ -78,7 +78,7 @@ func (TeammateTaskColumn) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("taskColumn"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "task_column_id"},
 				),

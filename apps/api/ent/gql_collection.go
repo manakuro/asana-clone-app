@@ -81,7 +81,7 @@ func (_q *ActivityTypeQuery) collectField(ctx context.Context, oneNode bool, opC
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "taskactivities":
+		case "taskActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -94,7 +94,7 @@ func (_q *ActivityTypeQuery) collectField(ctx context.Context, oneNode bool, opC
 				*wq = *query
 			})
 
-		case "workspaceactivities":
+		case "workspaceActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -107,7 +107,7 @@ func (_q *ActivityTypeQuery) collectField(ctx context.Context, oneNode bool, opC
 				*wq = *query
 			})
 
-		case "archivedtaskactivities":
+		case "archivedTaskActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -120,7 +120,7 @@ func (_q *ActivityTypeQuery) collectField(ctx context.Context, oneNode bool, opC
 				*wq = *query
 			})
 
-		case "archivedworkspaceactivities":
+		case "archivedWorkspaceActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -230,7 +230,7 @@ func (_q *ArchivedTaskActivityQuery) collectField(ctx context.Context, oneNode b
 				fieldSeen[archivedtaskactivity.FieldTeammateID] = struct{}{}
 			}
 
-		case "activitytype":
+		case "activityType":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -260,7 +260,7 @@ func (_q *ArchivedTaskActivityQuery) collectField(ctx context.Context, oneNode b
 				fieldSeen[archivedtaskactivity.FieldWorkspaceID] = struct{}{}
 			}
 
-		case "archivedtaskactivitytasks":
+		case "archivedTaskActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -375,7 +375,7 @@ func (_q *ArchivedTaskActivityTaskQuery) collectField(ctx context.Context, oneNo
 				fieldSeen[archivedtaskactivitytask.FieldTaskID] = struct{}{}
 			}
 
-		case "archivedtaskactivity":
+		case "archivedTaskActivity":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -472,7 +472,7 @@ func (_q *ArchivedWorkspaceActivityQuery) collectField(ctx context.Context, oneN
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "activitytype":
+		case "activityType":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -532,7 +532,7 @@ func (_q *ArchivedWorkspaceActivityQuery) collectField(ctx context.Context, oneN
 				fieldSeen[archivedworkspaceactivity.FieldTeammateID] = struct{}{}
 			}
 
-		case "archivedworkspaceactivitytasks":
+		case "archivedWorkspaceActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -652,7 +652,7 @@ func (_q *ArchivedWorkspaceActivityTaskQuery) collectField(ctx context.Context, 
 				fieldSeen[archivedworkspaceactivitytask.FieldTaskID] = struct{}{}
 			}
 
-		case "archivedworkspaceactivity":
+		case "archivedWorkspaceActivity":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -749,7 +749,7 @@ func (_q *ColorQuery) collectField(ctx context.Context, oneNode bool, opCtx *gra
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "projectbasecolors":
+		case "projectBaseColors":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -762,7 +762,7 @@ func (_q *ColorQuery) collectField(ctx context.Context, oneNode bool, opCtx *gra
 				*wq = *query
 			})
 
-		case "projectlightcolors":
+		case "projectLightColors":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -775,7 +775,7 @@ func (_q *ColorQuery) collectField(ctx context.Context, oneNode bool, opCtx *gra
 				*wq = *query
 			})
 
-		case "taskpriorities":
+		case "taskPriorities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -1732,7 +1732,7 @@ func (_q *FileTypeQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "taskfiles":
+		case "taskFiles":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -1827,7 +1827,7 @@ func (_q *IconQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "projecticons":
+		case "projectIcons":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -1937,7 +1937,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				fieldSeen[project.FieldWorkspaceID] = struct{}{}
 			}
 
-		case "projectbasecolor":
+		case "projectBaseColor":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -1952,7 +1952,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				fieldSeen[project.FieldProjectBaseColorID] = struct{}{}
 			}
 
-		case "projectlightcolor":
+		case "projectLightColor":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -1967,7 +1967,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				fieldSeen[project.FieldProjectLightColorID] = struct{}{}
 			}
 
-		case "projecticon":
+		case "projectIcon":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -1997,7 +1997,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				fieldSeen[project.FieldCreatedBy] = struct{}{}
 			}
 
-		case "projectteammates":
+		case "projectTeammates":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2010,7 +2010,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				*wq = *query
 			})
 
-		case "favoriteprojects":
+		case "favoriteProjects":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2023,7 +2023,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				*wq = *query
 			})
 
-		case "projecttaskcolumns":
+		case "projectTaskColumns":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2036,7 +2036,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				*wq = *query
 			})
 
-		case "projecttaskliststatuses":
+		case "projectTaskListStatuses":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2049,7 +2049,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				*wq = *query
 			})
 
-		case "projecttasksections":
+		case "projectTaskSections":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2062,7 +2062,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				*wq = *query
 			})
 
-		case "projecttasks":
+		case "projectTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2075,7 +2075,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				*wq = *query
 			})
 
-		case "taskfiles":
+		case "taskFiles":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2088,7 +2088,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				*wq = *query
 			})
 
-		case "workspaceactivities":
+		case "workspaceActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2101,7 +2101,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				*wq = *query
 			})
 
-		case "archivedworkspaceactivities":
+		case "archivedWorkspaceActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2114,7 +2114,7 @@ func (_q *ProjectQuery) collectField(ctx context.Context, oneNode bool, opCtx *g
 				*wq = *query
 			})
 
-		case "deletedprojecttasks":
+		case "deletedProjectTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2589,7 +2589,7 @@ func (_q *ProjectTaskQuery) collectField(ctx context.Context, oneNode bool, opCt
 				fieldSeen[projecttask.FieldTaskID] = struct{}{}
 			}
 
-		case "projecttasksection":
+		case "projectTaskSection":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2706,7 +2706,7 @@ func (_q *ProjectTaskColumnQuery) collectField(ctx context.Context, oneNode bool
 				fieldSeen[projecttaskcolumn.FieldProjectID] = struct{}{}
 			}
 
-		case "taskcolumn":
+		case "taskColumn":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2838,7 +2838,7 @@ func (_q *ProjectTaskListStatusQuery) collectField(ctx context.Context, oneNode 
 				fieldSeen[projecttaskliststatus.FieldProjectID] = struct{}{}
 			}
 
-		case "tasklistcompletedstatus":
+		case "taskListCompletedStatus":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2853,7 +2853,7 @@ func (_q *ProjectTaskListStatusQuery) collectField(ctx context.Context, oneNode 
 				fieldSeen[projecttaskliststatus.FieldTaskListCompletedStatusID] = struct{}{}
 			}
 
-		case "tasklistsortstatus":
+		case "taskListSortStatus":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -2970,7 +2970,7 @@ func (_q *ProjectTaskSectionQuery) collectField(ctx context.Context, oneNode boo
 				fieldSeen[projecttasksection.FieldProjectID] = struct{}{}
 			}
 
-		case "projecttasks":
+		case "projectTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3217,7 +3217,7 @@ func (_q *TagQuery) collectField(ctx context.Context, oneNode bool, opCtx *graph
 				fieldSeen[tag.FieldColorID] = struct{}{}
 			}
 
-		case "tasktags":
+		case "taskTags":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3332,7 +3332,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				fieldSeen[task.FieldAssigneeID] = struct{}{}
 			}
 
-		case "taskpriority":
+		case "taskPriority":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3347,7 +3347,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				fieldSeen[task.FieldTaskPriorityID] = struct{}{}
 			}
 
-		case "subtasks":
+		case "subTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3360,7 +3360,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "parenttask":
+		case "parentTask":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3375,7 +3375,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				fieldSeen[task.FieldTaskParentID] = struct{}{}
 			}
 
-		case "teammatetasks":
+		case "teammateTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3388,7 +3388,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "projecttasks":
+		case "projectTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3401,7 +3401,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "tasklikes":
+		case "taskLikes":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3414,7 +3414,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "tasktags":
+		case "taskTags":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3427,7 +3427,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "taskcollaborators":
+		case "taskCollaborators":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3440,7 +3440,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "taskfeeds":
+		case "taskFeeds":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3453,7 +3453,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "taskfeedlikes":
+		case "taskFeedLikes":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3466,7 +3466,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "taskfiles":
+		case "taskFiles":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3479,7 +3479,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "deletedtasksref":
+		case "deletedTasksRef":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3492,7 +3492,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "taskactivitytasks":
+		case "taskActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3505,7 +3505,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "workspaceactivitytasks":
+		case "workspaceActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3518,7 +3518,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "archivedtaskactivitytasks":
+		case "archivedTaskActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3531,7 +3531,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "archivedworkspaceactivitytasks":
+		case "archivedWorkspaceActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3544,7 +3544,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "deletedteammatetasks":
+		case "deletedTeammateTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3557,7 +3557,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "deletedprojecttasks":
+		case "deletedProjectTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3570,7 +3570,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "deletedtaskactivitytasks":
+		case "deletedTaskActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3583,7 +3583,7 @@ func (_q *TaskQuery) collectField(ctx context.Context, oneNode bool, opCtx *grap
 				*wq = *query
 			})
 
-		case "deletedworkspaceactivitytasks":
+		case "deletedWorkspaceActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3738,7 +3738,7 @@ func (_q *TaskActivityQuery) collectField(ctx context.Context, oneNode bool, opC
 				fieldSeen[taskactivity.FieldTeammateID] = struct{}{}
 			}
 
-		case "activitytype":
+		case "activityType":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3768,7 +3768,7 @@ func (_q *TaskActivityQuery) collectField(ctx context.Context, oneNode bool, opC
 				fieldSeen[taskactivity.FieldWorkspaceID] = struct{}{}
 			}
 
-		case "taskactivitytasks":
+		case "taskActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -3883,7 +3883,7 @@ func (_q *TaskActivityTaskQuery) collectField(ctx context.Context, oneNode bool,
 				fieldSeen[taskactivitytask.FieldTaskID] = struct{}{}
 			}
 
-		case "taskactivity":
+		case "taskActivity":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4092,7 +4092,7 @@ func (_q *TaskColumnQuery) collectField(ctx context.Context, oneNode bool, opCtx
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "teammatetaskcolumns":
+		case "teammateTaskColumns":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4105,7 +4105,7 @@ func (_q *TaskColumnQuery) collectField(ctx context.Context, oneNode bool, opCtx
 				*wq = *query
 			})
 
-		case "projecttaskcolumns":
+		case "projectTaskColumns":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4230,7 +4230,7 @@ func (_q *TaskFeedQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				fieldSeen[taskfeed.FieldTeammateID] = struct{}{}
 			}
 
-		case "taskfeedlikes":
+		case "taskFeedLikes":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4243,7 +4243,7 @@ func (_q *TaskFeedQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "taskfiles":
+		case "taskFiles":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4515,7 +4515,7 @@ func (_q *TaskFileQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				fieldSeen[taskfile.FieldTaskID] = struct{}{}
 			}
 
-		case "taskfeed":
+		case "taskFeed":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4530,7 +4530,7 @@ func (_q *TaskFileQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				fieldSeen[taskfile.FieldTaskFeedID] = struct{}{}
 			}
 
-		case "filetype":
+		case "fileType":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4784,7 +4784,7 @@ func (_q *TaskListCompletedStatusQuery) collectField(ctx context.Context, oneNod
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "teammatetaskliststatuses":
+		case "teammateTaskListStatuses":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4797,7 +4797,7 @@ func (_q *TaskListCompletedStatusQuery) collectField(ctx context.Context, oneNod
 				*wq = *query
 			})
 
-		case "projecttaskliststatuses":
+		case "projectTaskListStatuses":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4892,7 +4892,7 @@ func (_q *TaskListSortStatusQuery) collectField(ctx context.Context, oneNode boo
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "teammatetaskliststatuses":
+		case "teammateTaskListStatuses":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -4905,7 +4905,7 @@ func (_q *TaskListSortStatusQuery) collectField(ctx context.Context, oneNode boo
 				*wq = *query
 			})
 
-		case "projecttaskliststatuses":
+		case "projectTaskListStatuses":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5330,7 +5330,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "projectteammates":
+		case "projectTeammates":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5343,7 +5343,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "workspaceteammates":
+		case "workspaceTeammates":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5356,7 +5356,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "favoriteprojects":
+		case "favoriteProjects":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5369,7 +5369,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "favoriteworkspaces":
+		case "favoriteWorkspaces":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5382,7 +5382,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "teammatetasktabstatuses":
+		case "teammateTaskTabStatuses":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5395,7 +5395,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "teammatetaskcolumns":
+		case "teammateTaskColumns":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5408,7 +5408,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "teammatetaskliststatuses":
+		case "teammateTaskListStatuses":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5421,7 +5421,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "teammatetasksections":
+		case "teammateTaskSections":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5447,7 +5447,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "teammatetasks":
+		case "teammateTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5460,7 +5460,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "tasklikes":
+		case "taskLikes":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5473,7 +5473,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "taskcollaborators":
+		case "taskCollaborators":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5486,7 +5486,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "taskfeeds":
+		case "taskFeeds":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5499,7 +5499,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "taskfeedlikes":
+		case "taskFeedLikes":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5512,7 +5512,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "taskactivities":
+		case "taskActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5525,7 +5525,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "workspaceactivities":
+		case "workspaceActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5538,7 +5538,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "archivedtaskactivities":
+		case "archivedTaskActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5551,7 +5551,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "archivedworkspaceactivities":
+		case "archivedWorkspaceActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5564,7 +5564,7 @@ func (_q *TeammateQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 				*wq = *query
 			})
 
-		case "deletedteammatetasks":
+		case "deletedTeammateTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5694,7 +5694,7 @@ func (_q *TeammateTaskQuery) collectField(ctx context.Context, oneNode bool, opC
 				fieldSeen[teammatetask.FieldTaskID] = struct{}{}
 			}
 
-		case "teammatetasksection":
+		case "teammateTaskSection":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5846,7 +5846,7 @@ func (_q *TeammateTaskColumnQuery) collectField(ctx context.Context, oneNode boo
 				fieldSeen[teammatetaskcolumn.FieldWorkspaceID] = struct{}{}
 			}
 
-		case "taskcolumn":
+		case "taskColumn":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -5998,7 +5998,7 @@ func (_q *TeammateTaskListStatusQuery) collectField(ctx context.Context, oneNode
 				fieldSeen[teammatetaskliststatus.FieldTeammateID] = struct{}{}
 			}
 
-		case "tasklistcompletedstatus":
+		case "taskListCompletedStatus":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6013,7 +6013,7 @@ func (_q *TeammateTaskListStatusQuery) collectField(ctx context.Context, oneNode
 				fieldSeen[teammatetaskliststatus.FieldTaskListCompletedStatusID] = struct{}{}
 			}
 
-		case "tasklistsortstatus":
+		case "taskListSortStatus":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6150,7 +6150,7 @@ func (_q *TeammateTaskSectionQuery) collectField(ctx context.Context, oneNode bo
 				fieldSeen[teammatetasksection.FieldWorkspaceID] = struct{}{}
 			}
 
-		case "teammatetasks":
+		case "teammateTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6655,7 +6655,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "workspaceteammates":
+		case "workspaceTeammates":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6668,7 +6668,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "favoriteworkspaces":
+		case "favoriteWorkspaces":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6681,7 +6681,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "teammatetasktabstatuses":
+		case "teammateTaskTabStatuses":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6694,7 +6694,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "teammatetaskliststatuses":
+		case "teammateTaskListStatuses":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6707,7 +6707,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "teammatetasksections":
+		case "teammateTaskSections":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6720,7 +6720,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "tasklikes":
+		case "taskLikes":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6746,7 +6746,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "teammatetaskcolumns":
+		case "teammateTaskColumns":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6759,7 +6759,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "teammatetasks":
+		case "teammateTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6772,7 +6772,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "deletedtasksref":
+		case "deletedTasksRef":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6785,7 +6785,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "workspaceactivities":
+		case "workspaceActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6798,7 +6798,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "taskactivities":
+		case "taskActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6811,7 +6811,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "archivedtaskactivities":
+		case "archivedTaskActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6824,7 +6824,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "archivedworkspaceactivities":
+		case "archivedWorkspaceActivities":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6837,7 +6837,7 @@ func (_q *WorkspaceQuery) collectField(ctx context.Context, oneNode bool, opCtx 
 				*wq = *query
 			})
 
-		case "deletedteammatetasks":
+		case "deletedTeammateTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6937,7 +6937,7 @@ func (_q *WorkspaceActivityQuery) collectField(ctx context.Context, oneNode bool
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "activitytype":
+		case "activityType":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -6997,7 +6997,7 @@ func (_q *WorkspaceActivityQuery) collectField(ctx context.Context, oneNode bool
 				fieldSeen[workspaceactivity.FieldTeammateID] = struct{}{}
 			}
 
-		case "workspaceactivitytasks":
+		case "workspaceActivityTasks":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)
@@ -7117,7 +7117,7 @@ func (_q *WorkspaceActivityTaskQuery) collectField(ctx context.Context, oneNode 
 				fieldSeen[workspaceactivitytask.FieldTaskID] = struct{}{}
 			}
 
-		case "workspaceactivity":
+		case "workspaceActivity":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)

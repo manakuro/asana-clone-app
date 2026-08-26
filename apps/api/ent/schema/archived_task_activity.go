@@ -59,7 +59,7 @@ func (ArchivedTaskActivity) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo("activityType"),
 				schema.Annotation(
 					annotation.Edge{FieldName: "activity_type_id"},
 				),
@@ -77,7 +77,7 @@ func (ArchivedTaskActivity) Edges() []ent.Edge {
 			),
 		edge.To(archivedTaskActivityTasksRef, ArchivedTaskActivityTask.Type).
 			Annotations(
-				entgql.Bind(),
+				entgql.MapsTo(archivedTaskActivityTasksRef),
 				schema.Annotation(
 					annotation.Edge{FieldName: "archived_activity_task_id"},
 				),
