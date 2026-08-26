@@ -10,7 +10,7 @@ type Project implements Node {
   createdBy: ID!
   name: String!
   projectTeammates: [ProjectTeammate!]!
-  teammateIds: [String!]!
+  teammateIds: [String!]! @deprecated(reason: "Use `projectTeammates` instead.")
   description: Map!
   descriptionTitle: String!
   dueDate: String!
