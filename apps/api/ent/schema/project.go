@@ -117,7 +117,6 @@ func (Project) Edges() []ent.Edge {
 			Field("created_by").
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "created_by"},
 				),
