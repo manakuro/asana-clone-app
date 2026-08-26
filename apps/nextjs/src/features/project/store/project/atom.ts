@@ -8,7 +8,6 @@ export const initialState = (): Project => ({
   projectBaseColorId: '',
   projectLightColorId: '',
   projectIconId: '',
-  teammateIds: [],
   description: getDefaultDescription(),
   descriptionTitle: '',
   dueDate: '',
