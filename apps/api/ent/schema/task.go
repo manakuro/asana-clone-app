@@ -89,7 +89,6 @@ func (Task) Edges() []ent.Edge {
 			Unique().
 			Field("assignee_id").
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "assignee_id"},
 				),

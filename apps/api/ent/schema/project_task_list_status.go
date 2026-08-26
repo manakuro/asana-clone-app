@@ -50,7 +50,6 @@ func (ProjectTaskListStatus) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "project_id"},
 				),

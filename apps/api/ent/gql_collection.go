@@ -6372,7 +6372,7 @@ func (_q *TestTodoQuery) collectField(ctx context.Context, oneNode bool, opCtx *
 	for _, field := range graphql.CollectFields(opCtx, collected.Selections, satisfies) {
 		switch field.Name {
 
-		case "testuser":
+		case "testUser":
 			var (
 				alias = field.Alias
 				path  = append(path, alias)

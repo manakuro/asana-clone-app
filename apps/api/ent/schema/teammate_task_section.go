@@ -51,7 +51,6 @@ func (TeammateTaskSection) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "teammate_id"},
 				),
@@ -62,7 +61,6 @@ func (TeammateTaskSection) Edges() []ent.Edge {
 			Unique().
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "workspace_id"},
 				),

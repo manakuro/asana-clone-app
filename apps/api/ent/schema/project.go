@@ -73,7 +73,6 @@ func (Project) Edges() []ent.Edge {
 			Field("workspace_id").
 			Required().
 			Annotations(
-				entgql.Bind(),
 				schema.Annotation(
 					annotation.Edge{FieldName: "workspace_id"},
 				),
