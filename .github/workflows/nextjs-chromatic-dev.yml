@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "apps/nextjs/**"
+      - ".github/workflows/nextjs-chromatic-dev.yml"
 
 jobs:
   chromatic:

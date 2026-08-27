@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - "apps/nextjs/**"
+      - ".github/workflows/nextjs-ci.yml"
 
 jobs:
   test:
