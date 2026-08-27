@@ -1,5 +1,5 @@
 
-name: Chromatic development
+name: 【nextjs】Chromatic development
 on:
   pull_request:
     branches: [main]

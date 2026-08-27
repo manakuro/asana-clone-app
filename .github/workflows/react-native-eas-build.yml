@@ -1,4 +1,4 @@
-name: EAS Build (Preview)
+name: 【react-native】EAS Build (Preview)
 
 on:
   push:

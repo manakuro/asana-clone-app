@@ -1,4 +1,4 @@
-name: Chromatic main
+name: 【nextjs】Chromatic main
 on:
   push:
     branches: [main]

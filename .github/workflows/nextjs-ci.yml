@@ -1,10 +1,10 @@
-name: Frontend CI
+name: 【nextjs】 CI
 on:
   pull_request:
     branches: [main]
     paths:
       - "apps/nextjs/**"
-      - ".github/workflows/frontend-ci.yml"
+      - "nextjs-ci.yml"
 
 jobs:
   test:
