@@ -3,6 +3,8 @@ name: Chromatic development
 on:
   pull_request:
     branches: [main]
+    paths:
+      - "apps/nextjs/**"
 
 jobs:
   chromatic:

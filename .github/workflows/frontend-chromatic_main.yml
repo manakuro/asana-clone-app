@@ -2,6 +2,8 @@ name: Chromatic main
 on:
   push:
     branches: [main]
+    paths:
+      - "apps/nextjs/**"
 
 jobs:
   chromatic:
