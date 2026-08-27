@@ -22,13 +22,14 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: pnpm-lock.yaml
 
+      - name: Allow dtrace-provider build script
+        run: pnpm config set --global --json allowBuilds '{"dtrace-provider":true}'
+
       - uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           packager: pnpm
           token: ${{ secrets.EXPO_TOKEN }}
-        env:
-          npm_config_only_built_dependencies: "dtrace-provider"
 
       - name: Install safe-chain
         run: curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci
