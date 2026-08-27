@@ -17,6 +17,18 @@ pre-commit:
       root: apps/nextjs/
       glob: "*.{ts,tsx}"
       run: npx tsc
+    react-native/lint:
+      tags: react-native
+      root: apps/react-native/
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      stage_fixed: true
+      run: |
+        npx biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+    react-native/tsc:
+      tags: react-native
+      root: apps/react-native/
+      glob: "*.{ts,tsx}"
+      run: npx tsc
     api/lint:
       tags: api
       root: apps/api/
