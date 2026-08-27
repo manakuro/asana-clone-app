@@ -32,17 +32,17 @@ jobs:
           restore-keys: |
             v2-pnpm-
 
-      - name: Run install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
-        env:
-          SAFE_CHAIN_NPM_MINIMUM_PACKAGE_AGE_EXCLUSIONS: ""
-
       - uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           packager: pnpm
           token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Run install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: pnpm install --frozen-lockfile
+        env:
+          SAFE_CHAIN_NPM_MINIMUM_PACKAGE_AGE_EXCLUSIONS: ""
 
       - name: Build on EAS (preview)
         working-directory: apps/react-native
