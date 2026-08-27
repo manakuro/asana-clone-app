@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SAFE_CHAIN_LOGGING: silent
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
