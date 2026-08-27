@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: pnpm/action-setup@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version-file: '.node-version'
@@ -43,6 +41,7 @@ jobs:
       - uses: expo/expo-github-action@v8
         with:
           eas-version: latest
+          packager: pnpm
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Build on EAS (preview)
