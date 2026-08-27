@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SAFE_CHAIN_LOGGING: silent
+      npm_config_only_built_dependencies: "dtrace-provider"
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
