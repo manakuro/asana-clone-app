@@ -1,9 +1,10 @@
-name: Frontend CI
+name: 【nextjs】 CI
 on:
   pull_request:
     branches: [main]
-    paths-ignore:
-      - 'apps/api/**'
+    paths:
+      - "apps/nextjs/**"
+      - ".github/workflows/nextjs-ci.yml"
 
 jobs:
   test:

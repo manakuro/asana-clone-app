@@ -1,7 +1,10 @@
-name: Chromatic main
+name: 【nextjs】Chromatic main
 on:
   push:
     branches: [main]
+    paths:
+      - "apps/nextjs/**"
+      - ".github/workflows/nextjs-chromatic-main.yml"
 
 jobs:
   chromatic:
