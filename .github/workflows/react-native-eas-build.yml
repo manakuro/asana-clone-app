@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SAFE_CHAIN_LOGGING: silent
-      npm_config_only_built_dependencies: "dtrace-provider"
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -28,6 +27,8 @@ jobs:
           eas-version: latest
           packager: pnpm
           token: ${{ secrets.EXPO_TOKEN }}
+        env:
+          npm_config_only_built_dependencies: "dtrace-provider"
 
       - name: Install safe-chain
         run: curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci
