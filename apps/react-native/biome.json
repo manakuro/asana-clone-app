@@ -1,0 +1,49 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+  "extends": ["./node_modules/biome-config/biome.json"],
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!**/node_modules/",
+      "!**/dist/",
+      "!**/.expo/",
+      "!**/web-build/",
+      "!**/ios/",
+      "!**/android/",
+      "!expo-env.d.ts"
+    ]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noForEach": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": [
+        "**/app.config.js",
+        "**/app.config.ts",
+        "**/metro.config.js",
+        "**/babel.config.js",
+        "**/src/app/**/_layout.tsx",
+        "**/src/app/**/index.tsx",
+        "**/src/app/**/*.tsx"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    }
+  ]
+}
