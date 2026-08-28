@@ -52,6 +52,7 @@ jobs:
             --platform android \
             --profile preview \
             --non-interactive \
+            --no-wait \
             --json > build-output.json
           echo "BUILD_URL=$(jq -r '.[0].artifacts.buildUrl' build-output.json)" >> $GITHUB_ENV
 
