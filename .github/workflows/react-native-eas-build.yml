@@ -31,7 +31,8 @@ jobs:
             --non-interactive \
             --no-wait \
             --json > build-output.json
-          echo "BUILD_URL=$(jq -r '.[0].artifacts.buildUrl' build-output.json)" >> $GITHUB_ENV
+          BUILD_ID=$(jq -r '.[0].id' build-output.json)
+          echo "BUILD_URL=https://expo.dev/accounts/manakuro-team/projects/asana-clone-app/builds/$BUILD_ID" >> $GITHUB_ENV
 
       - name: Summary
         run: |
