@@ -11,40 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      SAFE_CHAIN_LOGGING: silent
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
-          cache-dependency-path: pnpm-lock.yaml
-
-      - uses: expo/expo-github-action@v8
-        with:
-          eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
-
-      - name: Install safe-chain
-        run: curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        id: node_modules_cache_id
-        with:
-          path: "**/node_modules"
-          key: v2-pnpm-${{ hashFiles(format('{0}{1}', github.workspace, '/pnpm-lock.yaml')) }}
-          restore-keys: |
-            v2-pnpm-
-
-      - name: Run install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
-        env:
-          SAFE_CHAIN_NPM_MINIMUM_PACKAGE_AGE_EXCLUSIONS: ""
-
+      - name: 🏗 Setup monorepo
+        uses: ./.github/actions/setup
       - name: Build on EAS (preview)
         working-directory: apps/react-native
         run: |
