@@ -15,7 +15,7 @@ jobs:
       SAFE_CHAIN_LOGGING: silent
     steps:
       - uses: actions/checkout@v4
-      - name: 🏗 Setup monorepo
+      - name: Setup monorepo
         uses: ./.github/actions/setup
       - name: Setup Expo
         uses: expo/expo-github-action@v9

@@ -12,25 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - run: npm i -g --force corepack && corepack enable
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
-          cache-dependency-path: pnpm-lock.yaml
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        id: node_modules_cache_id
-        with:
-          path: "**/node_modules"
-          key: v2-pnpm-${{ hashFiles(format('{0}{1}', github.workspace, '/pnpm-lock.yaml')) }}
-          restore-keys: |
-            v2-pnpm-
-      - name: Run install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
+      - name: Setup monorepo
+        uses: ./.github/actions/setup
       - name: Run codegen
         run: pnpm --filter nextjs codegen:ci
       - name: Publish to Chromatic
