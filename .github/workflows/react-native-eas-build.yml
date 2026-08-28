@@ -22,13 +22,9 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: pnpm-lock.yaml
 
-      - name: Allow dtrace-provider build script
-        run: pnpm config set --global --json allowBuilds '{"dtrace-provider":true}'
-
       - uses: expo/expo-github-action@v8
         with:
           eas-version: latest
-          packager: pnpm
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Install safe-chain
@@ -62,4 +58,4 @@ jobs:
       - name: Summary
         run: |
           echo "### 📱 Preview Build" >> $GITHUB_STEP_SUMMARY
-          echo "[インストールリンク]($BUILD_URL)" >> $GITHUB_STEP_SUMMARY
+          echo "[Install link]($BUILD_URL)" >> $GITHUB_STEP_SUMMARY
