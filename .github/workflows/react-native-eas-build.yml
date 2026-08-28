@@ -11,10 +11,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SAFE_CHAIN_LOGGING: silent
     steps:
       - uses: actions/checkout@v4
       - name: 🏗 Setup monorepo
         uses: ./.github/actions/setup
+      - name: Setup Expo
+        uses: expo/expo-github-action@v9
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
       - name: Build on EAS (preview)
         working-directory: apps/react-native
         run: |

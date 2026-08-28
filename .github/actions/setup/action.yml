@@ -1,6 +1,11 @@
 name: Setup Monorepo
 description: Prepare and install everything for the monorepo
 
+inputs:
+  expo-token:
+    description: Expo token to authenticate with
+    required: true
+
 runs:
   using: composite
   steps:
@@ -14,12 +19,6 @@ runs:
         cache: 'pnpm'
         cache-dependency-path: pnpm-lock.yaml
 
-    - name: Setup Expo
-      uses: expo/expo-github-action@v9
-      with:
-        eas-version: latest
-        token: ${{ secrets.EXPO_TOKEN }}
-
     - name: Install safe-chain
       run: curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci
       shell: bash
@@ -31,7 +30,6 @@ runs:
         SAFE_CHAIN_NPM_MINIMUM_PACKAGE_AGE_EXCLUSIONS: ""
         SAFE_CHAIN_LOGGING: silent
 
-    # See: https://turborepo.com/docs/guides/ci-vendors/github-actions#remote-caching-with-github-actionscache
     - name: Restore cache
       uses: actions/cache@v4
       with:
