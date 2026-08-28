@@ -1,0 +1,39 @@
+name: Setup Monorepo
+description: Prepare and install everything for the monorepo
+
+inputs:
+  expo-token:
+    description: Expo token to authenticate with
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.node-version'
+        cache: 'pnpm'
+        cache-dependency-path: pnpm-lock.yaml
+
+    - name: Install safe-chain
+      run: curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci
+      shell: bash
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+      shell: bash
+      env:
+        SAFE_CHAIN_NPM_MINIMUM_PACKAGE_AGE_EXCLUSIONS: ""
+        SAFE_CHAIN_LOGGING: silent
+
+    - name: Restore cache
+      uses: actions/cache@v4
+      with:
+        key: turbo-${{ runner.os }}-${{ github.sha }}
+        restore-keys: |
+          turbo-${{ runner.os }}
+        path: .turbo

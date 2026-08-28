@@ -11,40 +11,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SAFE_CHAIN_LOGGING: silent
     steps:
       - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
-          cache-dependency-path: pnpm-lock.yaml
-
-      - name: Install safe-chain
-        run: curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        id: node_modules_cache_id
-        with:
-          path: "**/node_modules"
-          key: v2-pnpm-${{ hashFiles(format('{0}{1}', github.workspace, '/pnpm-lock.yaml')) }}
-          restore-keys: |
-            v2-pnpm-
-
-      - name: Run install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
-        env:
-          SAFE_CHAIN_NPM_MINIMUM_PACKAGE_AGE_EXCLUSIONS: ""
-
-      - uses: expo/expo-github-action@v8
+      - name: Setup monorepo
+        uses: ./.github/actions/setup
+      - name: Setup Expo
+        uses: expo/expo-github-action@v9
         with:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
-
       - name: Build on EAS (preview)
         working-directory: apps/react-native
         run: |
@@ -52,10 +29,16 @@ jobs:
             --platform android \
             --profile preview \
             --non-interactive \
+            --no-wait \
             --json > build-output.json
-          echo "BUILD_URL=$(jq -r '.[0].artifacts.buildUrl' build-output.json)" >> $GITHUB_ENV
+          BUILD_ID=$(jq -r '.[0].id' build-output.json)
+          echo "BUILD_URL=https://expo.dev/accounts/manakuro-team/projects/asana-clone-app/builds/$BUILD_ID" >> $GITHUB_ENV
 
       - name: Summary
         run: |
+          ENCODED_URL=$(printf '%s' "$BUILD_URL" | jq -sRr @uri)
+          QR_URL="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${ENCODED_URL}"
           echo "### 📱 Preview Build" >> $GITHUB_STEP_SUMMARY
-          echo "[インストールリンク]($BUILD_URL)" >> $GITHUB_STEP_SUMMARY
+          echo "[Install link]($BUILD_URL)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "![QR Code]($QR_URL)" >> $GITHUB_STEP_SUMMARY

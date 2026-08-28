@@ -10,31 +10,12 @@ jobs:
   test:
     name: Build
     runs-on: ubuntu-latest
+    env:
+      SAFE_CHAIN_LOGGING: silent
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - run: npm i -g --force corepack && corepack enable
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
-          cache-dependency-path: pnpm-lock.yaml
-      - name: Install safe-chain
-        run: curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        id: node_modules_cache_id
-        with:
-          path: "**/node_modules"
-          key: v2-pnpm-${{ hashFiles(format('{0}{1}', github.workspace, '/pnpm-lock.yaml')) }}
-          restore-keys: |
-            v2-pnpm-
-      - name: Run install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
-        env:
-          SAFE_CHAIN_NPM_MINIMUM_PACKAGE_AGE_EXCLUSIONS: 'lru-cache'
+      - name: Setup monorepo
+        uses: ./.github/actions/setup
       - name: Cache Playwright browsers
         uses: actions/cache@v4
         id: playwright_cache_id
