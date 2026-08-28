@@ -35,5 +35,9 @@ jobs:
 
       - name: Summary
         run: |
+          ENCODED_URL=$(printf '%s' "$BUILD_URL" | jq -sRr @uri)
+          QR_URL="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${ENCODED_URL}"
           echo "### 📱 Preview Build" >> $GITHUB_STEP_SUMMARY
           echo "[Install link]($BUILD_URL)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "![QR Code]($QR_URL)" >> $GITHUB_STEP_SUMMARY
