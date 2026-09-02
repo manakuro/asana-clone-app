@@ -366,6 +366,18 @@ func (u *DeletedTaskActivityTaskUpsert) UpdateTaskActivityTaskUpdatedAt() *Delet
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedTaskActivityTaskUpsert) SetUpdatedAt(v time.Time) *DeletedTaskActivityTaskUpsert {
+	u.Set(deletedtaskactivitytask.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedTaskActivityTaskUpsert) UpdateUpdatedAt() *DeletedTaskActivityTaskUpsert {
+	u.SetExcluded(deletedtaskactivitytask.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -385,9 +397,6 @@ func (u *DeletedTaskActivityTaskUpsertOne) UpdateNewValues() *DeletedTaskActivit
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(deletedtaskactivitytask.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(deletedtaskactivitytask.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -487,6 +496,20 @@ func (u *DeletedTaskActivityTaskUpsertOne) SetTaskActivityTaskUpdatedAt(v time.T
 func (u *DeletedTaskActivityTaskUpsertOne) UpdateTaskActivityTaskUpdatedAt() *DeletedTaskActivityTaskUpsertOne {
 	return u.Update(func(s *DeletedTaskActivityTaskUpsert) {
 		s.UpdateTaskActivityTaskUpdatedAt()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedTaskActivityTaskUpsertOne) SetUpdatedAt(v time.Time) *DeletedTaskActivityTaskUpsertOne {
+	return u.Update(func(s *DeletedTaskActivityTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedTaskActivityTaskUpsertOne) UpdateUpdatedAt() *DeletedTaskActivityTaskUpsertOne {
+	return u.Update(func(s *DeletedTaskActivityTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -676,9 +699,6 @@ func (u *DeletedTaskActivityTaskUpsertBulk) UpdateNewValues() *DeletedTaskActivi
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(deletedtaskactivitytask.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(deletedtaskactivitytask.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -778,6 +798,20 @@ func (u *DeletedTaskActivityTaskUpsertBulk) SetTaskActivityTaskUpdatedAt(v time.
 func (u *DeletedTaskActivityTaskUpsertBulk) UpdateTaskActivityTaskUpdatedAt() *DeletedTaskActivityTaskUpsertBulk {
 	return u.Update(func(s *DeletedTaskActivityTaskUpsert) {
 		s.UpdateTaskActivityTaskUpdatedAt()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedTaskActivityTaskUpsertBulk) SetUpdatedAt(v time.Time) *DeletedTaskActivityTaskUpsertBulk {
+	return u.Update(func(s *DeletedTaskActivityTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedTaskActivityTaskUpsertBulk) UpdateUpdatedAt() *DeletedTaskActivityTaskUpsertBulk {
+	return u.Update(func(s *DeletedTaskActivityTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

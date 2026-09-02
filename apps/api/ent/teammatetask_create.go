@@ -407,6 +407,18 @@ func (u *TeammateTaskUpsert) UpdateWorkspaceID() *TeammateTaskUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskUpsert) SetUpdatedAt(v time.Time) *TeammateTaskUpsert {
+	u.Set(teammatetask.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskUpsert) UpdateUpdatedAt() *TeammateTaskUpsert {
+	u.SetExcluded(teammatetask.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -426,9 +438,6 @@ func (u *TeammateTaskUpsertOne) UpdateNewValues() *TeammateTaskUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(teammatetask.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(teammatetask.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -514,6 +523,20 @@ func (u *TeammateTaskUpsertOne) SetWorkspaceID(v ulid.ID) *TeammateTaskUpsertOne
 func (u *TeammateTaskUpsertOne) UpdateWorkspaceID() *TeammateTaskUpsertOne {
 	return u.Update(func(s *TeammateTaskUpsert) {
 		s.UpdateWorkspaceID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskUpsertOne) SetUpdatedAt(v time.Time) *TeammateTaskUpsertOne {
+	return u.Update(func(s *TeammateTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskUpsertOne) UpdateUpdatedAt() *TeammateTaskUpsertOne {
+	return u.Update(func(s *TeammateTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -703,9 +726,6 @@ func (u *TeammateTaskUpsertBulk) UpdateNewValues() *TeammateTaskUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(teammatetask.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(teammatetask.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -791,6 +811,20 @@ func (u *TeammateTaskUpsertBulk) SetWorkspaceID(v ulid.ID) *TeammateTaskUpsertBu
 func (u *TeammateTaskUpsertBulk) UpdateWorkspaceID() *TeammateTaskUpsertBulk {
 	return u.Update(func(s *TeammateTaskUpsert) {
 		s.UpdateWorkspaceID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskUpsertBulk) SetUpdatedAt(v time.Time) *TeammateTaskUpsertBulk {
+	return u.Update(func(s *TeammateTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskUpsertBulk) UpdateUpdatedAt() *TeammateTaskUpsertBulk {
+	return u.Update(func(s *TeammateTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

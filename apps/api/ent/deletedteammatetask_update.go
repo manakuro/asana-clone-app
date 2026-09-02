@@ -130,6 +130,12 @@ func (_u *DeletedTeammateTaskUpdate) SetNillableTeammateTaskUpdatedAt(v *time.Ti
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedTeammateTaskUpdate) SetUpdatedAt(v time.Time) *DeletedTeammateTaskUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTeammate sets the "teammate" edge to the Teammate entity.
 func (_u *DeletedTeammateTaskUpdate) SetTeammate(v *Teammate) *DeletedTeammateTaskUpdate {
 	return _u.SetTeammateID(v.ID)
@@ -170,6 +176,7 @@ func (_u *DeletedTeammateTaskUpdate) ClearWorkspace() *DeletedTeammateTaskUpdate
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *DeletedTeammateTaskUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -192,6 +199,14 @@ func (_u *DeletedTeammateTaskUpdate) Exec(ctx context.Context) error {
 func (_u *DeletedTeammateTaskUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *DeletedTeammateTaskUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedteammatetask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -232,6 +247,9 @@ func (_u *DeletedTeammateTaskUpdate) sqlSave(ctx context.Context) (_node int, er
 	}
 	if value, ok := _u.mutation.TeammateTaskUpdatedAt(); ok {
 		_spec.SetField(deletedteammatetask.FieldTeammateTaskUpdatedAt, field.TypeTime, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedteammatetask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -438,6 +456,12 @@ func (_u *DeletedTeammateTaskUpdateOne) SetNillableTeammateTaskUpdatedAt(v *time
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedTeammateTaskUpdateOne) SetUpdatedAt(v time.Time) *DeletedTeammateTaskUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTeammate sets the "teammate" edge to the Teammate entity.
 func (_u *DeletedTeammateTaskUpdateOne) SetTeammate(v *Teammate) *DeletedTeammateTaskUpdateOne {
 	return _u.SetTeammateID(v.ID)
@@ -491,6 +515,7 @@ func (_u *DeletedTeammateTaskUpdateOne) Select(field string, fields ...string) *
 
 // Save executes the query and returns the updated DeletedTeammateTask entity.
 func (_u *DeletedTeammateTaskUpdateOne) Save(ctx context.Context) (*DeletedTeammateTask, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -513,6 +538,14 @@ func (_u *DeletedTeammateTaskUpdateOne) Exec(ctx context.Context) error {
 func (_u *DeletedTeammateTaskUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *DeletedTeammateTaskUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedteammatetask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -570,6 +603,9 @@ func (_u *DeletedTeammateTaskUpdateOne) sqlSave(ctx context.Context) (_node *Del
 	}
 	if value, ok := _u.mutation.TeammateTaskUpdatedAt(); ok {
 		_spec.SetField(deletedteammatetask.FieldTeammateTaskUpdatedAt, field.TypeTime, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedteammatetask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{

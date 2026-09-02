@@ -358,6 +358,18 @@ func (u *TaskPriorityUpsert) UpdatePriorityType() *TaskPriorityUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskPriorityUpsert) SetUpdatedAt(v time.Time) *TaskPriorityUpsert {
+	u.Set(taskpriority.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskPriorityUpsert) UpdateUpdatedAt() *TaskPriorityUpsert {
+	u.SetExcluded(taskpriority.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -377,9 +389,6 @@ func (u *TaskPriorityUpsertOne) UpdateNewValues() *TaskPriorityUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(taskpriority.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(taskpriority.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -451,6 +460,20 @@ func (u *TaskPriorityUpsertOne) SetPriorityType(v taskpriority.PriorityType) *Ta
 func (u *TaskPriorityUpsertOne) UpdatePriorityType() *TaskPriorityUpsertOne {
 	return u.Update(func(s *TaskPriorityUpsert) {
 		s.UpdatePriorityType()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskPriorityUpsertOne) SetUpdatedAt(v time.Time) *TaskPriorityUpsertOne {
+	return u.Update(func(s *TaskPriorityUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskPriorityUpsertOne) UpdateUpdatedAt() *TaskPriorityUpsertOne {
+	return u.Update(func(s *TaskPriorityUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -640,9 +663,6 @@ func (u *TaskPriorityUpsertBulk) UpdateNewValues() *TaskPriorityUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(taskpriority.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(taskpriority.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -714,6 +734,20 @@ func (u *TaskPriorityUpsertBulk) SetPriorityType(v taskpriority.PriorityType) *T
 func (u *TaskPriorityUpsertBulk) UpdatePriorityType() *TaskPriorityUpsertBulk {
 	return u.Update(func(s *TaskPriorityUpsert) {
 		s.UpdatePriorityType()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskPriorityUpsertBulk) SetUpdatedAt(v time.Time) *TaskPriorityUpsertBulk {
+	return u.Update(func(s *TaskPriorityUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskPriorityUpsertBulk) UpdateUpdatedAt() *TaskPriorityUpsertBulk {
+	return u.Update(func(s *TaskPriorityUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

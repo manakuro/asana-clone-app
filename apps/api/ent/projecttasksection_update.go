@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/projecttask"
 	"project-management-demo-backend/ent/projecttasksection"
 	"project-management-demo-backend/ent/schema/ulid"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -55,6 +56,12 @@ func (_u *ProjectTaskSectionUpdate) SetNillableName(v *string) *ProjectTaskSecti
 	if v != nil {
 		_u.SetName(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectTaskSectionUpdate) SetUpdatedAt(v time.Time) *ProjectTaskSectionUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -112,6 +119,7 @@ func (_u *ProjectTaskSectionUpdate) RemoveProjectTasks(v ...*ProjectTask) *Proje
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ProjectTaskSectionUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -134,6 +142,14 @@ func (_u *ProjectTaskSectionUpdate) Exec(ctx context.Context) error {
 func (_u *ProjectTaskSectionUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectTaskSectionUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projecttasksection.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -164,6 +180,9 @@ func (_u *ProjectTaskSectionUpdate) sqlSave(ctx context.Context) (_node int, err
 	}
 	if value, ok := _u.mutation.Name(); ok {
 		_spec.SetField(projecttasksection.FieldName, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projecttasksection.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -287,6 +306,12 @@ func (_u *ProjectTaskSectionUpdateOne) SetNillableName(v *string) *ProjectTaskSe
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectTaskSectionUpdateOne) SetUpdatedAt(v time.Time) *ProjectTaskSectionUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetProject sets the "project" edge to the Project entity.
 func (_u *ProjectTaskSectionUpdateOne) SetProject(v *Project) *ProjectTaskSectionUpdateOne {
 	return _u.SetProjectID(v.ID)
@@ -354,6 +379,7 @@ func (_u *ProjectTaskSectionUpdateOne) Select(field string, fields ...string) *P
 
 // Save executes the query and returns the updated ProjectTaskSection entity.
 func (_u *ProjectTaskSectionUpdateOne) Save(ctx context.Context) (*ProjectTaskSection, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -376,6 +402,14 @@ func (_u *ProjectTaskSectionUpdateOne) Exec(ctx context.Context) error {
 func (_u *ProjectTaskSectionUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectTaskSectionUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projecttasksection.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -423,6 +457,9 @@ func (_u *ProjectTaskSectionUpdateOne) sqlSave(ctx context.Context) (_node *Proj
 	}
 	if value, ok := _u.mutation.Name(); ok {
 		_spec.SetField(projecttasksection.FieldName, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projecttasksection.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{

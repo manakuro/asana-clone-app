@@ -375,6 +375,18 @@ func (u *TagUpsert) UpdateName() *TagUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TagUpsert) SetUpdatedAt(v time.Time) *TagUpsert {
+	u.Set(tag.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TagUpsert) UpdateUpdatedAt() *TagUpsert {
+	u.SetExcluded(tag.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -394,9 +406,6 @@ func (u *TagUpsertOne) UpdateNewValues() *TagUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(tag.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(tag.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -468,6 +477,20 @@ func (u *TagUpsertOne) SetName(v string) *TagUpsertOne {
 func (u *TagUpsertOne) UpdateName() *TagUpsertOne {
 	return u.Update(func(s *TagUpsert) {
 		s.UpdateName()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TagUpsertOne) SetUpdatedAt(v time.Time) *TagUpsertOne {
+	return u.Update(func(s *TagUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TagUpsertOne) UpdateUpdatedAt() *TagUpsertOne {
+	return u.Update(func(s *TagUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -657,9 +680,6 @@ func (u *TagUpsertBulk) UpdateNewValues() *TagUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(tag.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(tag.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -731,6 +751,20 @@ func (u *TagUpsertBulk) SetName(v string) *TagUpsertBulk {
 func (u *TagUpsertBulk) UpdateName() *TagUpsertBulk {
 	return u.Update(func(s *TagUpsert) {
 		s.UpdateName()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TagUpsertBulk) SetUpdatedAt(v time.Time) *TagUpsertBulk {
+	return u.Update(func(s *TagUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TagUpsertBulk) UpdateUpdatedAt() *TagUpsertBulk {
+	return u.Update(func(s *TagUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

@@ -366,6 +366,18 @@ func (u *DeletedWorkspaceActivityTaskUpsert) UpdateWorkspaceActivityTaskUpdatedA
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedWorkspaceActivityTaskUpsert) SetUpdatedAt(v time.Time) *DeletedWorkspaceActivityTaskUpsert {
+	u.Set(deletedworkspaceactivitytask.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedWorkspaceActivityTaskUpsert) UpdateUpdatedAt() *DeletedWorkspaceActivityTaskUpsert {
+	u.SetExcluded(deletedworkspaceactivitytask.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -385,9 +397,6 @@ func (u *DeletedWorkspaceActivityTaskUpsertOne) UpdateNewValues() *DeletedWorksp
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(deletedworkspaceactivitytask.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(deletedworkspaceactivitytask.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -487,6 +496,20 @@ func (u *DeletedWorkspaceActivityTaskUpsertOne) SetWorkspaceActivityTaskUpdatedA
 func (u *DeletedWorkspaceActivityTaskUpsertOne) UpdateWorkspaceActivityTaskUpdatedAt() *DeletedWorkspaceActivityTaskUpsertOne {
 	return u.Update(func(s *DeletedWorkspaceActivityTaskUpsert) {
 		s.UpdateWorkspaceActivityTaskUpdatedAt()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedWorkspaceActivityTaskUpsertOne) SetUpdatedAt(v time.Time) *DeletedWorkspaceActivityTaskUpsertOne {
+	return u.Update(func(s *DeletedWorkspaceActivityTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedWorkspaceActivityTaskUpsertOne) UpdateUpdatedAt() *DeletedWorkspaceActivityTaskUpsertOne {
+	return u.Update(func(s *DeletedWorkspaceActivityTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -676,9 +699,6 @@ func (u *DeletedWorkspaceActivityTaskUpsertBulk) UpdateNewValues() *DeletedWorks
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(deletedworkspaceactivitytask.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(deletedworkspaceactivitytask.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -778,6 +798,20 @@ func (u *DeletedWorkspaceActivityTaskUpsertBulk) SetWorkspaceActivityTaskUpdated
 func (u *DeletedWorkspaceActivityTaskUpsertBulk) UpdateWorkspaceActivityTaskUpdatedAt() *DeletedWorkspaceActivityTaskUpsertBulk {
 	return u.Update(func(s *DeletedWorkspaceActivityTaskUpsert) {
 		s.UpdateWorkspaceActivityTaskUpdatedAt()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedWorkspaceActivityTaskUpsertBulk) SetUpdatedAt(v time.Time) *DeletedWorkspaceActivityTaskUpsertBulk {
+	return u.Update(func(s *DeletedWorkspaceActivityTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedWorkspaceActivityTaskUpsertBulk) UpdateUpdatedAt() *DeletedWorkspaceActivityTaskUpsertBulk {
+	return u.Update(func(s *DeletedWorkspaceActivityTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

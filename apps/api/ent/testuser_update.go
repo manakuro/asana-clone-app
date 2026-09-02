@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/schema/ulid"
 	"project-management-demo-backend/ent/testtodo"
 	"project-management-demo-backend/ent/testuser"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -85,6 +86,12 @@ func (_u *TestUserUpdate) SetDescription(v map[string]interface{}) *TestUserUpda
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TestUserUpdate) SetUpdatedAt(v time.Time) *TestUserUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddTestTodoIDs adds the "testTodos" edge to the TestTodo entity by IDs.
 func (_u *TestUserUpdate) AddTestTodoIDs(ids ...ulid.ID) *TestUserUpdate {
 	_u.mutation.AddTestTodoIDs(ids...)
@@ -128,6 +135,7 @@ func (_u *TestUserUpdate) RemoveTestTodos(v ...*TestTodo) *TestUserUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TestUserUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -150,6 +158,14 @@ func (_u *TestUserUpdate) Exec(ctx context.Context) error {
 func (_u *TestUserUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TestUserUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := testuser.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -189,6 +205,9 @@ func (_u *TestUserUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.Description(); ok {
 		_spec.SetField(testuser.FieldDescription, field.TypeJSON, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(testuser.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TestTodosCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -310,6 +329,12 @@ func (_u *TestUserUpdateOne) SetDescription(v map[string]interface{}) *TestUserU
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TestUserUpdateOne) SetUpdatedAt(v time.Time) *TestUserUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddTestTodoIDs adds the "testTodos" edge to the TestTodo entity by IDs.
 func (_u *TestUserUpdateOne) AddTestTodoIDs(ids ...ulid.ID) *TestUserUpdateOne {
 	_u.mutation.AddTestTodoIDs(ids...)
@@ -366,6 +391,7 @@ func (_u *TestUserUpdateOne) Select(field string, fields ...string) *TestUserUpd
 
 // Save executes the query and returns the updated TestUser entity.
 func (_u *TestUserUpdateOne) Save(ctx context.Context) (*TestUser, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -388,6 +414,14 @@ func (_u *TestUserUpdateOne) Exec(ctx context.Context) error {
 func (_u *TestUserUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TestUserUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := testuser.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -444,6 +478,9 @@ func (_u *TestUserUpdateOne) sqlSave(ctx context.Context) (_node *TestUser, err 
 	}
 	if value, ok := _u.mutation.Description(); ok {
 		_spec.SetField(testuser.FieldDescription, field.TypeJSON, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(testuser.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TestTodosCleared() {
 		edge := &sqlgraph.EdgeSpec{

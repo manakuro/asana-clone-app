@@ -400,6 +400,18 @@ func (u *TeammateTaskSectionUpsert) UpdateAssigned() *TeammateTaskSectionUpsert 
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskSectionUpsert) SetUpdatedAt(v time.Time) *TeammateTaskSectionUpsert {
+	u.Set(teammatetasksection.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskSectionUpsert) UpdateUpdatedAt() *TeammateTaskSectionUpsert {
+	u.SetExcluded(teammatetasksection.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -419,9 +431,6 @@ func (u *TeammateTaskSectionUpsertOne) UpdateNewValues() *TeammateTaskSectionUps
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(teammatetasksection.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(teammatetasksection.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -507,6 +516,20 @@ func (u *TeammateTaskSectionUpsertOne) SetAssigned(v bool) *TeammateTaskSectionU
 func (u *TeammateTaskSectionUpsertOne) UpdateAssigned() *TeammateTaskSectionUpsertOne {
 	return u.Update(func(s *TeammateTaskSectionUpsert) {
 		s.UpdateAssigned()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskSectionUpsertOne) SetUpdatedAt(v time.Time) *TeammateTaskSectionUpsertOne {
+	return u.Update(func(s *TeammateTaskSectionUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskSectionUpsertOne) UpdateUpdatedAt() *TeammateTaskSectionUpsertOne {
+	return u.Update(func(s *TeammateTaskSectionUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -696,9 +719,6 @@ func (u *TeammateTaskSectionUpsertBulk) UpdateNewValues() *TeammateTaskSectionUp
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(teammatetasksection.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(teammatetasksection.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -784,6 +804,20 @@ func (u *TeammateTaskSectionUpsertBulk) SetAssigned(v bool) *TeammateTaskSection
 func (u *TeammateTaskSectionUpsertBulk) UpdateAssigned() *TeammateTaskSectionUpsertBulk {
 	return u.Update(func(s *TeammateTaskSectionUpsert) {
 		s.UpdateAssigned()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskSectionUpsertBulk) SetUpdatedAt(v time.Time) *TeammateTaskSectionUpsertBulk {
+	return u.Update(func(s *TeammateTaskSectionUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskSectionUpsertBulk) UpdateUpdatedAt() *TeammateTaskSectionUpsertBulk {
+	return u.Update(func(s *TeammateTaskSectionUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

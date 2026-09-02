@@ -437,6 +437,18 @@ func (u *ColorUpsert) UpdateHex() *ColorUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ColorUpsert) SetUpdatedAt(v time.Time) *ColorUpsert {
+	u.Set(color.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ColorUpsert) UpdateUpdatedAt() *ColorUpsert {
+	u.SetExcluded(color.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -456,9 +468,6 @@ func (u *ColorUpsertOne) UpdateNewValues() *ColorUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(color.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(color.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -530,6 +539,20 @@ func (u *ColorUpsertOne) SetHex(v string) *ColorUpsertOne {
 func (u *ColorUpsertOne) UpdateHex() *ColorUpsertOne {
 	return u.Update(func(s *ColorUpsert) {
 		s.UpdateHex()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ColorUpsertOne) SetUpdatedAt(v time.Time) *ColorUpsertOne {
+	return u.Update(func(s *ColorUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ColorUpsertOne) UpdateUpdatedAt() *ColorUpsertOne {
+	return u.Update(func(s *ColorUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -719,9 +742,6 @@ func (u *ColorUpsertBulk) UpdateNewValues() *ColorUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(color.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(color.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -793,6 +813,20 @@ func (u *ColorUpsertBulk) SetHex(v string) *ColorUpsertBulk {
 func (u *ColorUpsertBulk) UpdateHex() *ColorUpsertBulk {
 	return u.Update(func(s *ColorUpsert) {
 		s.UpdateHex()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ColorUpsertBulk) SetUpdatedAt(v time.Time) *ColorUpsertBulk {
+	return u.Update(func(s *ColorUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ColorUpsertBulk) UpdateUpdatedAt() *ColorUpsertBulk {
+	return u.Update(func(s *ColorUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

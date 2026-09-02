@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/project"
 	"project-management-demo-backend/ent/projectbasecolor"
 	"project-management-demo-backend/ent/schema/ulid"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -41,6 +42,12 @@ func (_u *ProjectBaseColorUpdate) SetNillableColorID(v *ulid.ID) *ProjectBaseCol
 	if v != nil {
 		_u.SetColorID(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectBaseColorUpdate) SetUpdatedAt(v time.Time) *ProjectBaseColorUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -98,6 +105,7 @@ func (_u *ProjectBaseColorUpdate) ClearColor() *ProjectBaseColorUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ProjectBaseColorUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -123,6 +131,14 @@ func (_u *ProjectBaseColorUpdate) ExecX(ctx context.Context) {
 	}
 }
 
+// defaults sets the default values of the builder before save.
+func (_u *ProjectBaseColorUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projectbasecolor.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
+	}
+}
+
 // check runs all checks and user-defined validators on the builder.
 func (_u *ProjectBaseColorUpdate) check() error {
 	if _u.mutation.ColorCleared() && len(_u.mutation.ColorIDs()) > 0 {
@@ -142,6 +158,9 @@ func (_u *ProjectBaseColorUpdate) sqlSave(ctx context.Context) (_node int, err e
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projectbasecolor.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectsCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -251,6 +270,12 @@ func (_u *ProjectBaseColorUpdateOne) SetNillableColorID(v *ulid.ID) *ProjectBase
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectBaseColorUpdateOne) SetUpdatedAt(v time.Time) *ProjectBaseColorUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddProjectIDs adds the "projects" edge to the Project entity by IDs.
 func (_u *ProjectBaseColorUpdateOne) AddProjectIDs(ids ...ulid.ID) *ProjectBaseColorUpdateOne {
 	_u.mutation.AddProjectIDs(ids...)
@@ -318,6 +343,7 @@ func (_u *ProjectBaseColorUpdateOne) Select(field string, fields ...string) *Pro
 
 // Save executes the query and returns the updated ProjectBaseColor entity.
 func (_u *ProjectBaseColorUpdateOne) Save(ctx context.Context) (*ProjectBaseColor, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -340,6 +366,14 @@ func (_u *ProjectBaseColorUpdateOne) Exec(ctx context.Context) error {
 func (_u *ProjectBaseColorUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectBaseColorUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projectbasecolor.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -379,6 +413,9 @@ func (_u *ProjectBaseColorUpdateOne) sqlSave(ctx context.Context) (_node *Projec
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projectbasecolor.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectsCleared() {
 		edge := &sqlgraph.EdgeSpec{

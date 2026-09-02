@@ -12,6 +12,7 @@ import (
 	"project-management-demo-backend/ent/schema/ulid"
 	"project-management-demo-backend/ent/tasklistcompletedstatus"
 	"project-management-demo-backend/ent/tasklistsortstatus"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -73,6 +74,12 @@ func (_u *ProjectTaskListStatusUpdate) SetNillableTaskListSortStatusID(v *ulid.I
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectTaskListStatusUpdate) SetUpdatedAt(v time.Time) *ProjectTaskListStatusUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetProject sets the "project" edge to the Project entity.
 func (_u *ProjectTaskListStatusUpdate) SetProject(v *Project) *ProjectTaskListStatusUpdate {
 	return _u.SetProjectID(v.ID)
@@ -113,6 +120,7 @@ func (_u *ProjectTaskListStatusUpdate) ClearTaskListSortStatus() *ProjectTaskLis
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ProjectTaskListStatusUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -135,6 +143,14 @@ func (_u *ProjectTaskListStatusUpdate) Exec(ctx context.Context) error {
 func (_u *ProjectTaskListStatusUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectTaskListStatusUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projecttaskliststatus.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -163,6 +179,9 @@ func (_u *ProjectTaskListStatusUpdate) sqlSave(ctx context.Context) (_node int, 
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projecttaskliststatus.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -313,6 +332,12 @@ func (_u *ProjectTaskListStatusUpdateOne) SetNillableTaskListSortStatusID(v *uli
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectTaskListStatusUpdateOne) SetUpdatedAt(v time.Time) *ProjectTaskListStatusUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetProject sets the "project" edge to the Project entity.
 func (_u *ProjectTaskListStatusUpdateOne) SetProject(v *Project) *ProjectTaskListStatusUpdateOne {
 	return _u.SetProjectID(v.ID)
@@ -366,6 +391,7 @@ func (_u *ProjectTaskListStatusUpdateOne) Select(field string, fields ...string)
 
 // Save executes the query and returns the updated ProjectTaskListStatus entity.
 func (_u *ProjectTaskListStatusUpdateOne) Save(ctx context.Context) (*ProjectTaskListStatus, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -388,6 +414,14 @@ func (_u *ProjectTaskListStatusUpdateOne) Exec(ctx context.Context) error {
 func (_u *ProjectTaskListStatusUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectTaskListStatusUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projecttaskliststatus.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -433,6 +467,9 @@ func (_u *ProjectTaskListStatusUpdateOne) sqlSave(ctx context.Context) (_node *P
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projecttaskliststatus.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{

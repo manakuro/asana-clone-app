@@ -313,6 +313,18 @@ func (u *DeletedTaskUpsert) UpdateWorkspaceID() *DeletedTaskUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedTaskUpsert) SetUpdatedAt(v time.Time) *DeletedTaskUpsert {
+	u.Set(deletedtask.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedTaskUpsert) UpdateUpdatedAt() *DeletedTaskUpsert {
+	u.SetExcluded(deletedtask.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -332,9 +344,6 @@ func (u *DeletedTaskUpsertOne) UpdateNewValues() *DeletedTaskUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(deletedtask.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(deletedtask.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -392,6 +401,20 @@ func (u *DeletedTaskUpsertOne) SetWorkspaceID(v ulid.ID) *DeletedTaskUpsertOne {
 func (u *DeletedTaskUpsertOne) UpdateWorkspaceID() *DeletedTaskUpsertOne {
 	return u.Update(func(s *DeletedTaskUpsert) {
 		s.UpdateWorkspaceID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedTaskUpsertOne) SetUpdatedAt(v time.Time) *DeletedTaskUpsertOne {
+	return u.Update(func(s *DeletedTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedTaskUpsertOne) UpdateUpdatedAt() *DeletedTaskUpsertOne {
+	return u.Update(func(s *DeletedTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -581,9 +604,6 @@ func (u *DeletedTaskUpsertBulk) UpdateNewValues() *DeletedTaskUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(deletedtask.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(deletedtask.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -641,6 +661,20 @@ func (u *DeletedTaskUpsertBulk) SetWorkspaceID(v ulid.ID) *DeletedTaskUpsertBulk
 func (u *DeletedTaskUpsertBulk) UpdateWorkspaceID() *DeletedTaskUpsertBulk {
 	return u.Update(func(s *DeletedTaskUpsert) {
 		s.UpdateWorkspaceID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedTaskUpsertBulk) SetUpdatedAt(v time.Time) *DeletedTaskUpsertBulk {
+	return u.Update(func(s *DeletedTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedTaskUpsertBulk) UpdateUpdatedAt() *DeletedTaskUpsertBulk {
+	return u.Update(func(s *DeletedTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

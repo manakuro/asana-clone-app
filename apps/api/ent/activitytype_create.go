@@ -407,6 +407,18 @@ func (u *ActivityTypeUpsert) UpdateTypeCode() *ActivityTypeUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ActivityTypeUpsert) SetUpdatedAt(v time.Time) *ActivityTypeUpsert {
+	u.Set(activitytype.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ActivityTypeUpsert) UpdateUpdatedAt() *ActivityTypeUpsert {
+	u.SetExcluded(activitytype.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -426,9 +438,6 @@ func (u *ActivityTypeUpsertOne) UpdateNewValues() *ActivityTypeUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(activitytype.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(activitytype.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -486,6 +495,20 @@ func (u *ActivityTypeUpsertOne) SetTypeCode(v activitytype.TypeCode) *ActivityTy
 func (u *ActivityTypeUpsertOne) UpdateTypeCode() *ActivityTypeUpsertOne {
 	return u.Update(func(s *ActivityTypeUpsert) {
 		s.UpdateTypeCode()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ActivityTypeUpsertOne) SetUpdatedAt(v time.Time) *ActivityTypeUpsertOne {
+	return u.Update(func(s *ActivityTypeUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ActivityTypeUpsertOne) UpdateUpdatedAt() *ActivityTypeUpsertOne {
+	return u.Update(func(s *ActivityTypeUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -675,9 +698,6 @@ func (u *ActivityTypeUpsertBulk) UpdateNewValues() *ActivityTypeUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(activitytype.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(activitytype.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -735,6 +755,20 @@ func (u *ActivityTypeUpsertBulk) SetTypeCode(v activitytype.TypeCode) *ActivityT
 func (u *ActivityTypeUpsertBulk) UpdateTypeCode() *ActivityTypeUpsertBulk {
 	return u.Update(func(s *ActivityTypeUpsert) {
 		s.UpdateTypeCode()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ActivityTypeUpsertBulk) SetUpdatedAt(v time.Time) *ActivityTypeUpsertBulk {
+	return u.Update(func(s *ActivityTypeUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ActivityTypeUpsertBulk) UpdateUpdatedAt() *ActivityTypeUpsertBulk {
+	return u.Update(func(s *ActivityTypeUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

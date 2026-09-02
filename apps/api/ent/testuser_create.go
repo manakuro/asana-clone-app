@@ -363,6 +363,18 @@ func (u *TestUserUpsert) UpdateDescription() *TestUserUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TestUserUpsert) SetUpdatedAt(v time.Time) *TestUserUpsert {
+	u.Set(testuser.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TestUserUpsert) UpdateUpdatedAt() *TestUserUpsert {
+	u.SetExcluded(testuser.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -382,9 +394,6 @@ func (u *TestUserUpsertOne) UpdateNewValues() *TestUserUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(testuser.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(testuser.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -477,6 +486,20 @@ func (u *TestUserUpsertOne) SetDescription(v map[string]interface{}) *TestUserUp
 func (u *TestUserUpsertOne) UpdateDescription() *TestUserUpsertOne {
 	return u.Update(func(s *TestUserUpsert) {
 		s.UpdateDescription()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TestUserUpsertOne) SetUpdatedAt(v time.Time) *TestUserUpsertOne {
+	return u.Update(func(s *TestUserUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TestUserUpsertOne) UpdateUpdatedAt() *TestUserUpsertOne {
+	return u.Update(func(s *TestUserUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -666,9 +689,6 @@ func (u *TestUserUpsertBulk) UpdateNewValues() *TestUserUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(testuser.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(testuser.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -761,6 +781,20 @@ func (u *TestUserUpsertBulk) SetDescription(v map[string]interface{}) *TestUserU
 func (u *TestUserUpsertBulk) UpdateDescription() *TestUserUpsertBulk {
 	return u.Update(func(s *TestUserUpsert) {
 		s.UpdateDescription()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TestUserUpsertBulk) SetUpdatedAt(v time.Time) *TestUserUpsertBulk {
+	return u.Update(func(s *TestUserUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TestUserUpsertBulk) UpdateUpdatedAt() *TestUserUpsertBulk {
+	return u.Update(func(s *TestUserUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

@@ -64,6 +64,7 @@ type UpdateActivityTypeInput struct {
 	ID                                 ulid.ID
 	Name                               *string
 	TypeCode                           *activitytype.TypeCode
+	UpdatedAt                          *time.Time
 	AddTaskActivityIDs                 []ulid.ID
 	RemoveTaskActivityIDs              []ulid.ID
 	AddWorkspaceActivityIDs            []ulid.ID
@@ -82,6 +83,9 @@ func (i *UpdateActivityTypeInput) Mutate(m *ActivityTypeMutation) {
 	}
 	if v := i.TypeCode; v != nil {
 		m.SetTypeCode(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if ids := i.AddTaskActivityIDs; len(ids) > 0 {
 		m.AddTaskActivityIDs(ids...)
@@ -157,6 +161,7 @@ func (c *ArchivedTaskActivityCreate) SetInput(i CreateArchivedTaskActivityInput)
 // UpdateArchivedTaskActivityInput represents a mutation input for updating archivedtaskactivities.
 type UpdateArchivedTaskActivityInput struct {
 	ID                                ulid.ID
+	UpdatedAt                         *time.Time
 	TeammateID                        *ulid.ID
 	ClearTeammate                     bool
 	ActivityTypeID                    *ulid.ID
@@ -170,6 +175,9 @@ type UpdateArchivedTaskActivityInput struct {
 
 // Mutate applies the UpdateArchivedTaskActivityInput on the ArchivedTaskActivityMutation.
 func (i *UpdateArchivedTaskActivityInput) Mutate(m *ArchivedTaskActivityMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTeammate {
 		m.ClearTeammate()
 	}
@@ -238,6 +246,7 @@ func (c *ArchivedTaskActivityTaskCreate) SetInput(i CreateArchivedTaskActivityTa
 // UpdateArchivedTaskActivityTaskInput represents a mutation input for updating archivedtaskactivitytasks.
 type UpdateArchivedTaskActivityTaskInput struct {
 	ID                        ulid.ID
+	UpdatedAt                 *time.Time
 	TaskID                    *ulid.ID
 	ClearTask                 bool
 	ArchivedTaskActivityID    *ulid.ID
@@ -247,6 +256,9 @@ type UpdateArchivedTaskActivityTaskInput struct {
 
 // Mutate applies the UpdateArchivedTaskActivityTaskInput on the ArchivedTaskActivityTaskMutation.
 func (i *UpdateArchivedTaskActivityTaskInput) Mutate(m *ArchivedTaskActivityTaskMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTask {
 		m.ClearTask()
 	}
@@ -311,6 +323,7 @@ func (c *ArchivedWorkspaceActivityCreate) SetInput(i CreateArchivedWorkspaceActi
 // UpdateArchivedWorkspaceActivityInput represents a mutation input for updating archivedworkspaceactivities.
 type UpdateArchivedWorkspaceActivityInput struct {
 	ID                                     ulid.ID
+	UpdatedAt                              *time.Time
 	ActivityTypeID                         *ulid.ID
 	ClearActivityType                      bool
 	WorkspaceID                            *ulid.ID
@@ -326,6 +339,9 @@ type UpdateArchivedWorkspaceActivityInput struct {
 
 // Mutate applies the UpdateArchivedWorkspaceActivityInput on the ArchivedWorkspaceActivityMutation.
 func (i *UpdateArchivedWorkspaceActivityInput) Mutate(m *ArchivedWorkspaceActivityMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearActivityType {
 		m.ClearActivityType()
 	}
@@ -400,6 +416,7 @@ func (c *ArchivedWorkspaceActivityTaskCreate) SetInput(i CreateArchivedWorkspace
 // UpdateArchivedWorkspaceActivityTaskInput represents a mutation input for updating archivedworkspaceactivitytasks.
 type UpdateArchivedWorkspaceActivityTaskInput struct {
 	ID                             ulid.ID
+	UpdatedAt                      *time.Time
 	TaskID                         *ulid.ID
 	ClearTask                      bool
 	ArchivedWorkspaceActivityID    *ulid.ID
@@ -409,6 +426,9 @@ type UpdateArchivedWorkspaceActivityTaskInput struct {
 
 // Mutate applies the UpdateArchivedWorkspaceActivityTaskInput on the ArchivedWorkspaceActivityTaskMutation.
 func (i *UpdateArchivedWorkspaceActivityTaskInput) Mutate(m *ArchivedWorkspaceActivityTaskMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTask {
 		m.ClearTask()
 	}
@@ -486,6 +506,7 @@ type UpdateColorInput struct {
 	Name                       *string
 	Color                      *string
 	Hex                        *string
+	UpdatedAt                  *time.Time
 	AddProjectBaseColorIDs     []ulid.ID
 	RemoveProjectBaseColorIDs  []ulid.ID
 	AddProjectLightColorIDs    []ulid.ID
@@ -507,6 +528,9 @@ func (i *UpdateColorInput) Mutate(m *ColorMutation) {
 	}
 	if v := i.Hex; v != nil {
 		m.SetHex(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if ids := i.AddProjectBaseColorIDs; len(ids) > 0 {
 		m.AddProjectBaseColorIDs(ids...)
@@ -588,6 +612,7 @@ type UpdateDeletedProjectTaskInput struct {
 	ProjectTaskID        *ulid.ID
 	ProjectTaskCreatedAt *time.Time
 	ProjectTaskUpdatedAt *time.Time
+	UpdatedAt            *time.Time
 	ProjectID            *ulid.ID
 	ClearProject         bool
 	TaskID               *ulid.ID
@@ -608,6 +633,9 @@ func (i *UpdateDeletedProjectTaskInput) Mutate(m *DeletedProjectTaskMutation) {
 	}
 	if v := i.ProjectTaskUpdatedAt; v != nil {
 		m.SetProjectTaskUpdatedAt(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearProject {
 		m.ClearProject()
@@ -665,6 +693,7 @@ func (c *DeletedTaskCreate) SetInput(i CreateDeletedTaskInput) *DeletedTaskCreat
 // UpdateDeletedTaskInput represents a mutation input for updating deletedtasks.
 type UpdateDeletedTaskInput struct {
 	ID             ulid.ID
+	UpdatedAt      *time.Time
 	TaskID         *ulid.ID
 	ClearTask      bool
 	WorkspaceID    *ulid.ID
@@ -674,6 +703,9 @@ type UpdateDeletedTaskInput struct {
 
 // Mutate applies the UpdateDeletedTaskInput on the DeletedTaskMutation.
 func (i *UpdateDeletedTaskInput) Mutate(m *DeletedTaskMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTask {
 		m.ClearTask()
 	}
@@ -740,6 +772,7 @@ type UpdateDeletedTaskActivityTaskInput struct {
 	TaskActivityTaskID        *ulid.ID
 	TaskActivityTaskCreatedAt *time.Time
 	TaskActivityTaskUpdatedAt *time.Time
+	UpdatedAt                 *time.Time
 	TaskID                    *ulid.ID
 	ClearTask                 bool
 	RequestID                 string
@@ -758,6 +791,9 @@ func (i *UpdateDeletedTaskActivityTaskInput) Mutate(m *DeletedTaskActivityTaskMu
 	}
 	if v := i.TaskActivityTaskUpdatedAt; v != nil {
 		m.SetTaskActivityTaskUpdatedAt(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearTask {
 		m.ClearTask()
@@ -823,6 +859,7 @@ type UpdateDeletedTeammateTaskInput struct {
 	TeammateTaskID        *ulid.ID
 	TeammateTaskCreatedAt *time.Time
 	TeammateTaskUpdatedAt *time.Time
+	UpdatedAt             *time.Time
 	TeammateID            *ulid.ID
 	ClearTeammate         bool
 	TaskID                *ulid.ID
@@ -845,6 +882,9 @@ func (i *UpdateDeletedTeammateTaskInput) Mutate(m *DeletedTeammateTaskMutation) 
 	}
 	if v := i.TeammateTaskUpdatedAt; v != nil {
 		m.SetTeammateTaskUpdatedAt(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearTeammate {
 		m.ClearTeammate()
@@ -918,6 +958,7 @@ type UpdateDeletedWorkspaceActivityTaskInput struct {
 	WorkspaceActivityTaskID        *ulid.ID
 	WorkspaceActivityTaskCreatedAt *time.Time
 	WorkspaceActivityTaskUpdatedAt *time.Time
+	UpdatedAt                      *time.Time
 	TaskID                         *ulid.ID
 	ClearTask                      bool
 	RequestID                      string
@@ -936,6 +977,9 @@ func (i *UpdateDeletedWorkspaceActivityTaskInput) Mutate(m *DeletedWorkspaceActi
 	}
 	if v := i.WorkspaceActivityTaskUpdatedAt; v != nil {
 		m.SetWorkspaceActivityTaskUpdatedAt(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearTask {
 		m.ClearTask()
@@ -987,6 +1031,7 @@ func (c *FavoriteProjectCreate) SetInput(i CreateFavoriteProjectInput) *Favorite
 // UpdateFavoriteProjectInput represents a mutation input for updating favoriteprojects.
 type UpdateFavoriteProjectInput struct {
 	ID            ulid.ID
+	UpdatedAt     *time.Time
 	ProjectID     *ulid.ID
 	ClearProject  bool
 	TeammateID    *ulid.ID
@@ -996,6 +1041,9 @@ type UpdateFavoriteProjectInput struct {
 
 // Mutate applies the UpdateFavoriteProjectInput on the FavoriteProjectMutation.
 func (i *UpdateFavoriteProjectInput) Mutate(m *FavoriteProjectMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearProject {
 		m.ClearProject()
 	}
@@ -1052,6 +1100,7 @@ func (c *FavoriteWorkspaceCreate) SetInput(i CreateFavoriteWorkspaceInput) *Favo
 // UpdateFavoriteWorkspaceInput represents a mutation input for updating favoriteworkspaces.
 type UpdateFavoriteWorkspaceInput struct {
 	ID             ulid.ID
+	UpdatedAt      *time.Time
 	WorkspaceID    *ulid.ID
 	ClearWorkspace bool
 	TeammateID     *ulid.ID
@@ -1061,6 +1110,9 @@ type UpdateFavoriteWorkspaceInput struct {
 
 // Mutate applies the UpdateFavoriteWorkspaceInput on the FavoriteWorkspaceMutation.
 func (i *UpdateFavoriteWorkspaceInput) Mutate(m *FavoriteWorkspaceMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearWorkspace {
 		m.ClearWorkspace()
 	}
@@ -1123,6 +1175,7 @@ type UpdateFileTypeInput struct {
 	ID                ulid.ID
 	Name              *string
 	TypeCode          *filetype.TypeCode
+	UpdatedAt         *time.Time
 	AddTaskFileIDs    []ulid.ID
 	RemoveTaskFileIDs []ulid.ID
 	RequestID         string
@@ -1135,6 +1188,9 @@ func (i *UpdateFileTypeInput) Mutate(m *FileTypeMutation) {
 	}
 	if v := i.TypeCode; v != nil {
 		m.SetTypeCode(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if ids := i.AddTaskFileIDs; len(ids) > 0 {
 		m.AddTaskFileIDs(ids...)
@@ -1192,6 +1248,7 @@ type UpdateIconInput struct {
 	ID                   ulid.ID
 	Name                 *string
 	Icon                 *string
+	UpdatedAt            *time.Time
 	AddProjectIconIDs    []ulid.ID
 	RemoveProjectIconIDs []ulid.ID
 	RequestID            string
@@ -1204,6 +1261,9 @@ func (i *UpdateIconInput) Mutate(m *IconMutation) {
 	}
 	if v := i.Icon; v != nil {
 		m.SetIcon(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if ids := i.AddProjectIconIDs; len(ids) > 0 {
 		m.AddProjectIconIDs(ids...)
@@ -1316,6 +1376,7 @@ type UpdateProjectInput struct {
 	DescriptionTitle                   *string
 	DueDate                            *time.Time
 	ClearDueDate                       bool
+	UpdatedAt                          *time.Time
 	WorkspaceID                        *ulid.ID
 	ClearWorkspace                     bool
 	ProjectBaseColorID                 *ulid.ID
@@ -1365,6 +1426,9 @@ func (i *UpdateProjectInput) Mutate(m *ProjectMutation) {
 	}
 	if v := i.DueDate; v != nil {
 		m.SetDueDate(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearWorkspace {
 		m.ClearWorkspace()
@@ -1502,6 +1566,7 @@ func (c *ProjectBaseColorCreate) SetInput(i CreateProjectBaseColorInput) *Projec
 // UpdateProjectBaseColorInput represents a mutation input for updating projectbasecolors.
 type UpdateProjectBaseColorInput struct {
 	ID               ulid.ID
+	UpdatedAt        *time.Time
 	AddProjectIDs    []ulid.ID
 	RemoveProjectIDs []ulid.ID
 	ColorID          *ulid.ID
@@ -1511,6 +1576,9 @@ type UpdateProjectBaseColorInput struct {
 
 // Mutate applies the UpdateProjectBaseColorInput on the ProjectBaseColorMutation.
 func (i *UpdateProjectBaseColorInput) Mutate(m *ProjectBaseColorMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if ids := i.AddProjectIDs; len(ids) > 0 {
 		m.AddProjectIDs(ids...)
 	}
@@ -1569,6 +1637,7 @@ func (c *ProjectIconCreate) SetInput(i CreateProjectIconInput) *ProjectIconCreat
 // UpdateProjectIconInput represents a mutation input for updating projecticons.
 type UpdateProjectIconInput struct {
 	ID               ulid.ID
+	UpdatedAt        *time.Time
 	AddProjectIDs    []ulid.ID
 	RemoveProjectIDs []ulid.ID
 	IconID           *ulid.ID
@@ -1578,6 +1647,9 @@ type UpdateProjectIconInput struct {
 
 // Mutate applies the UpdateProjectIconInput on the ProjectIconMutation.
 func (i *UpdateProjectIconInput) Mutate(m *ProjectIconMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if ids := i.AddProjectIDs; len(ids) > 0 {
 		m.AddProjectIDs(ids...)
 	}
@@ -1636,6 +1708,7 @@ func (c *ProjectLightColorCreate) SetInput(i CreateProjectLightColorInput) *Proj
 // UpdateProjectLightColorInput represents a mutation input for updating projectlightcolors.
 type UpdateProjectLightColorInput struct {
 	ID               ulid.ID
+	UpdatedAt        *time.Time
 	AddProjectIDs    []ulid.ID
 	RemoveProjectIDs []ulid.ID
 	ColorID          *ulid.ID
@@ -1645,6 +1718,9 @@ type UpdateProjectLightColorInput struct {
 
 // Mutate applies the UpdateProjectLightColorInput on the ProjectLightColorMutation.
 func (i *UpdateProjectLightColorInput) Mutate(m *ProjectLightColorMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if ids := i.AddProjectIDs; len(ids) > 0 {
 		m.AddProjectIDs(ids...)
 	}
@@ -1706,6 +1782,7 @@ func (c *ProjectTaskCreate) SetInput(i CreateProjectTaskInput) *ProjectTaskCreat
 // UpdateProjectTaskInput represents a mutation input for updating projecttasks.
 type UpdateProjectTaskInput struct {
 	ID                      ulid.ID
+	UpdatedAt               *time.Time
 	ProjectID               *ulid.ID
 	ClearProject            bool
 	TaskID                  *ulid.ID
@@ -1718,6 +1795,9 @@ type UpdateProjectTaskInput struct {
 
 // Mutate applies the UpdateProjectTaskInput on the ProjectTaskMutation.
 func (i *UpdateProjectTaskInput) Mutate(m *ProjectTaskMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearProject {
 		m.ClearProject()
 	}
@@ -1792,6 +1872,7 @@ type UpdateProjectTaskColumnInput struct {
 	Disabled        *bool
 	Customizable    *bool
 	Order           *int
+	UpdatedAt       *time.Time
 	ProjectID       *ulid.ID
 	ClearProject    bool
 	TaskColumnID    *ulid.ID
@@ -1812,6 +1893,9 @@ func (i *UpdateProjectTaskColumnInput) Mutate(m *ProjectTaskColumnMutation) {
 	}
 	if v := i.Order; v != nil {
 		m.SetOrder(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearProject {
 		m.ClearProject()
@@ -1871,6 +1955,7 @@ func (c *ProjectTaskListStatusCreate) SetInput(i CreateProjectTaskListStatusInpu
 // UpdateProjectTaskListStatusInput represents a mutation input for updating projecttaskliststatusslice.
 type UpdateProjectTaskListStatusInput struct {
 	ID                           ulid.ID
+	UpdatedAt                    *time.Time
 	ProjectID                    *ulid.ID
 	ClearProject                 bool
 	TaskListCompletedStatusID    *ulid.ID
@@ -1882,6 +1967,9 @@ type UpdateProjectTaskListStatusInput struct {
 
 // Mutate applies the UpdateProjectTaskListStatusInput on the ProjectTaskListStatusMutation.
 func (i *UpdateProjectTaskListStatusInput) Mutate(m *ProjectTaskListStatusMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearProject {
 		m.ClearProject()
 	}
@@ -1950,6 +2038,7 @@ func (c *ProjectTaskSectionCreate) SetInput(i CreateProjectTaskSectionInput) *Pr
 type UpdateProjectTaskSectionInput struct {
 	ID                   ulid.ID
 	Name                 *string
+	UpdatedAt            *time.Time
 	ProjectID            *ulid.ID
 	ClearProject         bool
 	AddProjectTaskIDs    []ulid.ID
@@ -1962,6 +2051,9 @@ type UpdateProjectTaskSectionInput struct {
 func (i *UpdateProjectTaskSectionInput) Mutate(m *ProjectTaskSectionMutation) {
 	if v := i.Name; v != nil {
 		m.SetName(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearProject {
 		m.ClearProject()
@@ -2026,6 +2118,7 @@ type UpdateProjectTeammateInput struct {
 	ID            ulid.ID
 	Role          *string
 	IsOwner       *bool
+	UpdatedAt     *time.Time
 	ProjectID     *ulid.ID
 	ClearProject  bool
 	TeammateID    *ulid.ID
@@ -2041,6 +2134,9 @@ func (i *UpdateProjectTeammateInput) Mutate(m *ProjectTeammateMutation) {
 	}
 	if v := i.IsOwner; v != nil {
 		m.SetIsOwner(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearProject {
 		m.ClearProject()
@@ -2105,6 +2201,7 @@ func (c *TagCreate) SetInput(i CreateTagInput) *TagCreate {
 type UpdateTagInput struct {
 	ID               ulid.ID
 	Name             *string
+	UpdatedAt        *time.Time
 	WorkspaceID      *ulid.ID
 	ClearWorkspace   bool
 	ColorID          *ulid.ID
@@ -2118,6 +2215,9 @@ type UpdateTagInput struct {
 func (i *UpdateTagInput) Mutate(m *TagMutation) {
 	if v := i.Name; v != nil {
 		m.SetName(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearWorkspace {
 		m.ClearWorkspace()
@@ -2299,6 +2399,7 @@ type UpdateTaskInput struct {
 	DueTime                                *time.Time
 	ClearDueTime                           bool
 	Description                            map[string]interface{}
+	UpdatedAt                              *time.Time
 	AssigneeID                             *ulid.ID
 	ClearTeammate                          bool
 	TaskPriorityID                         *ulid.ID
@@ -2379,6 +2480,9 @@ func (i *UpdateTaskInput) Mutate(m *TaskMutation) {
 	}
 	if v := i.Description; v != nil {
 		m.SetDescription(v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearTeammate {
 		m.ClearTeammate()
@@ -2556,6 +2660,7 @@ func (c *TaskActivityCreate) SetInput(i CreateTaskActivityInput) *TaskActivityCr
 // UpdateTaskActivityInput represents a mutation input for updating taskactivities.
 type UpdateTaskActivityInput struct {
 	ID                        ulid.ID
+	UpdatedAt                 *time.Time
 	TeammateID                *ulid.ID
 	ClearTeammate             bool
 	ActivityTypeID            *ulid.ID
@@ -2569,6 +2674,9 @@ type UpdateTaskActivityInput struct {
 
 // Mutate applies the UpdateTaskActivityInput on the TaskActivityMutation.
 func (i *UpdateTaskActivityInput) Mutate(m *TaskActivityMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTeammate {
 		m.ClearTeammate()
 	}
@@ -2637,6 +2745,7 @@ func (c *TaskActivityTaskCreate) SetInput(i CreateTaskActivityTaskInput) *TaskAc
 // UpdateTaskActivityTaskInput represents a mutation input for updating taskactivitytasks.
 type UpdateTaskActivityTaskInput struct {
 	ID                ulid.ID
+	UpdatedAt         *time.Time
 	TaskID            *ulid.ID
 	ClearTask         bool
 	TaskActivityID    *ulid.ID
@@ -2646,6 +2755,9 @@ type UpdateTaskActivityTaskInput struct {
 
 // Mutate applies the UpdateTaskActivityTaskInput on the TaskActivityTaskMutation.
 func (i *UpdateTaskActivityTaskInput) Mutate(m *TaskActivityTaskMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTask {
 		m.ClearTask()
 	}
@@ -2703,6 +2815,7 @@ func (c *TaskCollaboratorCreate) SetInput(i CreateTaskCollaboratorInput) *TaskCo
 // UpdateTaskCollaboratorInput represents a mutation input for updating taskcollaborators.
 type UpdateTaskCollaboratorInput struct {
 	ID            ulid.ID
+	UpdatedAt     *time.Time
 	TaskID        *ulid.ID
 	ClearTask     bool
 	TeammateID    *ulid.ID
@@ -2713,6 +2826,9 @@ type UpdateTaskCollaboratorInput struct {
 
 // Mutate applies the UpdateTaskCollaboratorInput on the TaskCollaboratorMutation.
 func (i *UpdateTaskCollaboratorInput) Mutate(m *TaskCollaboratorMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTask {
 		m.ClearTask()
 	}
@@ -2779,6 +2895,7 @@ type UpdateTaskColumnInput struct {
 	ID                          ulid.ID
 	Name                        *string
 	Type                        *taskcolumn.Type
+	UpdatedAt                   *time.Time
 	AddTeammateTaskColumnIDs    []ulid.ID
 	RemoveTeammateTaskColumnIDs []ulid.ID
 	AddProjectTaskColumnIDs     []ulid.ID
@@ -2793,6 +2910,9 @@ func (i *UpdateTaskColumnInput) Mutate(m *TaskColumnMutation) {
 	}
 	if v := i.Type; v != nil {
 		m.SetType(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if ids := i.AddTeammateTaskColumnIDs; len(ids) > 0 {
 		m.AddTeammateTaskColumnIDs(ids...)
@@ -2872,6 +2992,7 @@ type UpdateTaskFeedInput struct {
 	Description           map[string]interface{}
 	IsFirst               *bool
 	IsPinned              *bool
+	UpdatedAt             *time.Time
 	TaskID                *ulid.ID
 	ClearTask             bool
 	TeammateID            *ulid.ID
@@ -2894,6 +3015,9 @@ func (i *UpdateTaskFeedInput) Mutate(m *TaskFeedMutation) {
 	}
 	if v := i.IsPinned; v != nil {
 		m.SetIsPinned(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearTask {
 		m.ClearTask()
@@ -2966,6 +3090,7 @@ func (c *TaskFeedLikeCreate) SetInput(i CreateTaskFeedLikeInput) *TaskFeedLikeCr
 // UpdateTaskFeedLikeInput represents a mutation input for updating taskfeedlikes.
 type UpdateTaskFeedLikeInput struct {
 	ID            ulid.ID
+	UpdatedAt     *time.Time
 	TaskID        *ulid.ID
 	ClearTask     bool
 	TeammateID    *ulid.ID
@@ -2978,6 +3103,9 @@ type UpdateTaskFeedLikeInput struct {
 
 // Mutate applies the UpdateTaskFeedLikeInput on the TaskFeedLikeMutation.
 func (i *UpdateTaskFeedLikeInput) Mutate(m *TaskFeedLikeMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTask {
 		m.ClearTask()
 	}
@@ -3055,6 +3183,7 @@ type UpdateTaskFileInput struct {
 	Name          *string
 	Src           *string
 	Attached      *bool
+	UpdatedAt     *time.Time
 	ProjectID     *ulid.ID
 	ClearProject  bool
 	TaskID        *ulid.ID
@@ -3076,6 +3205,9 @@ func (i *UpdateTaskFileInput) Mutate(m *TaskFileMutation) {
 	}
 	if v := i.Attached; v != nil {
 		m.SetAttached(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearProject {
 		m.ClearProject()
@@ -3147,6 +3279,7 @@ func (c *TaskLikeCreate) SetInput(i CreateTaskLikeInput) *TaskLikeCreate {
 // UpdateTaskLikeInput represents a mutation input for updating tasklikes.
 type UpdateTaskLikeInput struct {
 	ID             ulid.ID
+	UpdatedAt      *time.Time
 	TaskID         *ulid.ID
 	ClearTask      bool
 	TeammateID     *ulid.ID
@@ -3158,6 +3291,9 @@ type UpdateTaskLikeInput struct {
 
 // Mutate applies the UpdateTaskLikeInput on the TaskLikeMutation.
 func (i *UpdateTaskLikeInput) Mutate(m *TaskLikeMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTask {
 		m.ClearTask()
 	}
@@ -3230,6 +3366,7 @@ type UpdateTaskListCompletedStatusInput struct {
 	ID                               ulid.ID
 	Name                             *string
 	StatusCode                       *tasklistcompletedstatus.StatusCode
+	UpdatedAt                        *time.Time
 	AddTeammateTaskListStatuseIDs    []ulid.ID
 	RemoveTeammateTaskListStatuseIDs []ulid.ID
 	AddProjectTaskListStatuseIDs     []ulid.ID
@@ -3244,6 +3381,9 @@ func (i *UpdateTaskListCompletedStatusInput) Mutate(m *TaskListCompletedStatusMu
 	}
 	if v := i.StatusCode; v != nil {
 		m.SetStatusCode(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if ids := i.AddTeammateTaskListStatuseIDs; len(ids) > 0 {
 		m.AddTeammateTaskListStatuseIDs(ids...)
@@ -3311,6 +3451,7 @@ type UpdateTaskListSortStatusInput struct {
 	ID                               ulid.ID
 	Name                             *string
 	StatusCode                       *tasklistsortstatus.StatusCode
+	UpdatedAt                        *time.Time
 	AddTeammateTaskListStatuseIDs    []ulid.ID
 	RemoveTeammateTaskListStatuseIDs []ulid.ID
 	AddProjectTaskListStatuseIDs     []ulid.ID
@@ -3325,6 +3466,9 @@ func (i *UpdateTaskListSortStatusInput) Mutate(m *TaskListSortStatusMutation) {
 	}
 	if v := i.StatusCode; v != nil {
 		m.SetStatusCode(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if ids := i.AddTeammateTaskListStatuseIDs; len(ids) > 0 {
 		m.AddTeammateTaskListStatuseIDs(ids...)
@@ -3390,6 +3534,7 @@ type UpdateTaskPriorityInput struct {
 	ID            ulid.ID
 	Name          *string
 	PriorityType  *taskpriority.PriorityType
+	UpdatedAt     *time.Time
 	ColorID       *ulid.ID
 	ClearColor    bool
 	AddTaskIDs    []ulid.ID
@@ -3404,6 +3549,9 @@ func (i *UpdateTaskPriorityInput) Mutate(m *TaskPriorityMutation) {
 	}
 	if v := i.PriorityType; v != nil {
 		m.SetPriorityType(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearColor {
 		m.ClearColor()
@@ -3460,6 +3608,7 @@ func (c *TaskSectionCreate) SetInput(i CreateTaskSectionInput) *TaskSectionCreat
 type UpdateTaskSectionInput struct {
 	ID        ulid.ID
 	Name      *string
+	UpdatedAt *time.Time
 	RequestID string
 }
 
@@ -3467,6 +3616,9 @@ type UpdateTaskSectionInput struct {
 func (i *UpdateTaskSectionInput) Mutate(m *TaskSectionMutation) {
 	if v := i.Name; v != nil {
 		m.SetName(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 }
 
@@ -3513,6 +3665,7 @@ func (c *TaskTagCreate) SetInput(i CreateTaskTagInput) *TaskTagCreate {
 // UpdateTaskTagInput represents a mutation input for updating tasktags.
 type UpdateTaskTagInput struct {
 	ID          ulid.ID
+	UpdatedAt   *time.Time
 	TaskID      *ulid.ID
 	ClearTask   bool
 	TagID       *ulid.ID
@@ -3523,6 +3676,9 @@ type UpdateTaskTagInput struct {
 
 // Mutate applies the UpdateTaskTagInput on the TaskTagMutation.
 func (i *UpdateTaskTagInput) Mutate(m *TaskTagMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTask {
 		m.ClearTask()
 	}
@@ -3668,6 +3824,7 @@ type UpdateTeammateInput struct {
 	Name                               *string
 	Image                              *string
 	Email                              *string
+	UpdatedAt                          *time.Time
 	AddWorkspaceIDs                    []ulid.ID
 	RemoveWorkspaceIDs                 []ulid.ID
 	AddProjectIDs                      []ulid.ID
@@ -3723,6 +3880,9 @@ func (i *UpdateTeammateInput) Mutate(m *TeammateMutation) {
 	}
 	if v := i.Email; v != nil {
 		m.SetEmail(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if ids := i.AddWorkspaceIDs; len(ids) > 0 {
 		m.AddWorkspaceIDs(ids...)
@@ -3899,6 +4059,7 @@ func (c *TeammateTaskCreate) SetInput(i CreateTeammateTaskInput) *TeammateTaskCr
 // UpdateTeammateTaskInput represents a mutation input for updating teammatetasks.
 type UpdateTeammateTaskInput struct {
 	ID                       ulid.ID
+	UpdatedAt                *time.Time
 	TeammateID               *ulid.ID
 	ClearTeammate            bool
 	TaskID                   *ulid.ID
@@ -3912,6 +4073,9 @@ type UpdateTeammateTaskInput struct {
 
 // Mutate applies the UpdateTeammateTaskInput on the TeammateTaskMutation.
 func (i *UpdateTeammateTaskInput) Mutate(m *TeammateTaskMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTeammate {
 		m.ClearTeammate()
 	}
@@ -3994,6 +4158,7 @@ type UpdateTeammateTaskColumnInput struct {
 	Disabled        *bool
 	Customizable    *bool
 	Order           *int
+	UpdatedAt       *time.Time
 	TeammateID      *ulid.ID
 	ClearTeammate   bool
 	WorkspaceID     *ulid.ID
@@ -4016,6 +4181,9 @@ func (i *UpdateTeammateTaskColumnInput) Mutate(m *TeammateTaskColumnMutation) {
 	}
 	if v := i.Order; v != nil {
 		m.SetOrder(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearTeammate {
 		m.ClearTeammate()
@@ -4083,6 +4251,7 @@ func (c *TeammateTaskListStatusCreate) SetInput(i CreateTeammateTaskListStatusIn
 // UpdateTeammateTaskListStatusInput represents a mutation input for updating teammatetaskliststatusslice.
 type UpdateTeammateTaskListStatusInput struct {
 	ID                           ulid.ID
+	UpdatedAt                    *time.Time
 	WorkspaceID                  *ulid.ID
 	ClearWorkspace               bool
 	TeammateID                   *ulid.ID
@@ -4098,6 +4267,9 @@ type UpdateTeammateTaskListStatusInput struct {
 
 // Mutate applies the UpdateTeammateTaskListStatusInput on the TeammateTaskListStatusMutation.
 func (i *UpdateTeammateTaskListStatusInput) Mutate(m *TeammateTaskListStatusMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearWorkspace {
 		m.ClearWorkspace()
 	}
@@ -4176,6 +4348,7 @@ type UpdateTeammateTaskSectionInput struct {
 	ID                    ulid.ID
 	Name                  *string
 	Assigned              *bool
+	UpdatedAt             *time.Time
 	TeammateID            *ulid.ID
 	ClearTeammate         bool
 	WorkspaceID           *ulid.ID
@@ -4192,6 +4365,9 @@ func (i *UpdateTeammateTaskSectionInput) Mutate(m *TeammateTaskSectionMutation) 
 	}
 	if v := i.Assigned; v != nil {
 		m.SetAssigned(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearTeammate {
 		m.ClearTeammate()
@@ -4260,6 +4436,7 @@ func (c *TeammateTaskTabStatusCreate) SetInput(i CreateTeammateTaskTabStatusInpu
 type UpdateTeammateTaskTabStatusInput struct {
 	ID             ulid.ID
 	StatusCode     *teammatetasktabstatus.StatusCode
+	UpdatedAt      *time.Time
 	WorkspaceID    *ulid.ID
 	ClearWorkspace bool
 	TeammateID     *ulid.ID
@@ -4271,6 +4448,9 @@ type UpdateTeammateTaskTabStatusInput struct {
 func (i *UpdateTeammateTaskTabStatusInput) Mutate(m *TeammateTaskTabStatusMutation) {
 	if v := i.StatusCode; v != nil {
 		m.SetStatusCode(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearWorkspace {
 		m.ClearWorkspace()
@@ -4360,6 +4540,7 @@ type UpdateTestTodoInput struct {
 	Priority       *int
 	DueDate        *time.Time
 	ClearDueDate   bool
+	UpdatedAt      *time.Time
 	TestUserID     *ulid.ID
 	ClearTestUser  bool
 	ParentTodoID   *ulid.ID
@@ -4388,6 +4569,9 @@ func (i *UpdateTestTodoInput) Mutate(m *TestTodoMutation) {
 	}
 	if v := i.DueDate; v != nil {
 		m.SetDueDate(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearTestUser {
 		m.ClearTestUser()
@@ -4463,6 +4647,7 @@ type UpdateTestUserInput struct {
 	Age               *int
 	Profile           *testuserprofile.TestUserProfile
 	Description       map[string]interface{}
+	UpdatedAt         *time.Time
 	AddTestTodoIDs    []ulid.ID
 	RemoveTestTodoIDs []ulid.ID
 	RequestID         string
@@ -4481,6 +4666,9 @@ func (i *UpdateTestUserInput) Mutate(m *TestUserMutation) {
 	}
 	if v := i.Description; v != nil {
 		m.SetDescription(v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if ids := i.AddTestTodoIDs; len(ids) > 0 {
 		m.AddTestTodoIDs(ids...)
@@ -4600,6 +4788,7 @@ type UpdateWorkspaceInput struct {
 	ID                                 ulid.ID
 	Name                               *string
 	Description                        map[string]interface{}
+	UpdatedAt                          *time.Time
 	CreatedBy                          *ulid.ID
 	ClearTeammate                      bool
 	AddProjectIDs                      []ulid.ID
@@ -4644,6 +4833,9 @@ func (i *UpdateWorkspaceInput) Mutate(m *WorkspaceMutation) {
 	}
 	if v := i.Description; v != nil {
 		m.SetDescription(v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearTeammate {
 		m.ClearTeammate()
@@ -4799,6 +4991,7 @@ func (c *WorkspaceActivityCreate) SetInput(i CreateWorkspaceActivityInput) *Work
 // UpdateWorkspaceActivityInput represents a mutation input for updating workspaceactivities.
 type UpdateWorkspaceActivityInput struct {
 	ID                             ulid.ID
+	UpdatedAt                      *time.Time
 	ActivityTypeID                 *ulid.ID
 	ClearActivityType              bool
 	WorkspaceID                    *ulid.ID
@@ -4814,6 +5007,9 @@ type UpdateWorkspaceActivityInput struct {
 
 // Mutate applies the UpdateWorkspaceActivityInput on the WorkspaceActivityMutation.
 func (i *UpdateWorkspaceActivityInput) Mutate(m *WorkspaceActivityMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearActivityType {
 		m.ClearActivityType()
 	}
@@ -4888,6 +5084,7 @@ func (c *WorkspaceActivityTaskCreate) SetInput(i CreateWorkspaceActivityTaskInpu
 // UpdateWorkspaceActivityTaskInput represents a mutation input for updating workspaceactivitytasks.
 type UpdateWorkspaceActivityTaskInput struct {
 	ID                     ulid.ID
+	UpdatedAt              *time.Time
 	TaskID                 *ulid.ID
 	ClearTask              bool
 	WorkspaceActivityID    *ulid.ID
@@ -4897,6 +5094,9 @@ type UpdateWorkspaceActivityTaskInput struct {
 
 // Mutate applies the UpdateWorkspaceActivityTaskInput on the WorkspaceActivityTaskMutation.
 func (i *UpdateWorkspaceActivityTaskInput) Mutate(m *WorkspaceActivityTaskMutation) {
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
+	}
 	if i.ClearTask {
 		m.ClearTask()
 	}
@@ -4959,6 +5159,7 @@ type UpdateWorkspaceTeammateInput struct {
 	ID             ulid.ID
 	Role           *string
 	IsOwner        *bool
+	UpdatedAt      *time.Time
 	WorkspaceID    *ulid.ID
 	ClearWorkspace bool
 	TeammateID     *ulid.ID
@@ -4973,6 +5174,9 @@ func (i *UpdateWorkspaceTeammateInput) Mutate(m *WorkspaceTeammateMutation) {
 	}
 	if v := i.IsOwner; v != nil {
 		m.SetIsOwner(*v)
+	}
+	if v := i.UpdatedAt; v != nil {
+		m.SetUpdatedAt(*v)
 	}
 	if i.ClearWorkspace {
 		m.ClearWorkspace()

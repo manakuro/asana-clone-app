@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/task"
 	"project-management-demo-backend/ent/taskactivity"
 	"project-management-demo-backend/ent/taskactivitytask"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -58,6 +59,12 @@ func (_u *TaskActivityTaskUpdate) SetNillableTaskID(v *ulid.ID) *TaskActivityTas
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskActivityTaskUpdate) SetUpdatedAt(v time.Time) *TaskActivityTaskUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *TaskActivityTaskUpdate) SetTask(v *Task) *TaskActivityTaskUpdate {
 	return _u.SetTaskID(v.ID)
@@ -87,6 +94,7 @@ func (_u *TaskActivityTaskUpdate) ClearTaskActivity() *TaskActivityTaskUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskActivityTaskUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -112,6 +120,14 @@ func (_u *TaskActivityTaskUpdate) ExecX(ctx context.Context) {
 	}
 }
 
+// defaults sets the default values of the builder before save.
+func (_u *TaskActivityTaskUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskactivitytask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
+	}
+}
+
 // check runs all checks and user-defined validators on the builder.
 func (_u *TaskActivityTaskUpdate) check() error {
 	if _u.mutation.TaskCleared() && len(_u.mutation.TaskIDs()) > 0 {
@@ -134,6 +150,9 @@ func (_u *TaskActivityTaskUpdate) sqlSave(ctx context.Context) (_node int, err e
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskactivitytask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -241,6 +260,12 @@ func (_u *TaskActivityTaskUpdateOne) SetNillableTaskID(v *ulid.ID) *TaskActivity
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskActivityTaskUpdateOne) SetUpdatedAt(v time.Time) *TaskActivityTaskUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *TaskActivityTaskUpdateOne) SetTask(v *Task) *TaskActivityTaskUpdateOne {
 	return _u.SetTaskID(v.ID)
@@ -283,6 +308,7 @@ func (_u *TaskActivityTaskUpdateOne) Select(field string, fields ...string) *Tas
 
 // Save executes the query and returns the updated TaskActivityTask entity.
 func (_u *TaskActivityTaskUpdateOne) Save(ctx context.Context) (*TaskActivityTask, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -305,6 +331,14 @@ func (_u *TaskActivityTaskUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskActivityTaskUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskActivityTaskUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskactivitytask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -347,6 +381,9 @@ func (_u *TaskActivityTaskUpdateOne) sqlSave(ctx context.Context) (_node *TaskAc
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskactivitytask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{

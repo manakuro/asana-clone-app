@@ -230,6 +230,12 @@ func (_u *TaskUpdate) SetDescription(v map[string]interface{}) *TaskUpdate {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskUpdate) SetUpdatedAt(v time.Time) *TaskUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTeammateID sets the "teammate" edge to the Teammate entity by ID.
 func (_u *TaskUpdate) SetTeammateID(id ulid.ID) *TaskUpdate {
 	_u.mutation.SetTeammateID(id)
@@ -946,6 +952,7 @@ func (_u *TaskUpdate) RemoveDeletedWorkspaceActivityTasks(v ...*DeletedWorkspace
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -968,6 +975,14 @@ func (_u *TaskUpdate) Exec(ctx context.Context) error {
 func (_u *TaskUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := task.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -1025,6 +1040,9 @@ func (_u *TaskUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.Description(); ok {
 		_spec.SetField(task.FieldDescription, field.TypeJSON, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(task.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -2125,6 +2143,12 @@ func (_u *TaskUpdateOne) SetDescription(v map[string]interface{}) *TaskUpdateOne
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskUpdateOne) SetUpdatedAt(v time.Time) *TaskUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTeammateID sets the "teammate" edge to the Teammate entity by ID.
 func (_u *TaskUpdateOne) SetTeammateID(id ulid.ID) *TaskUpdateOne {
 	_u.mutation.SetTeammateID(id)
@@ -2854,6 +2878,7 @@ func (_u *TaskUpdateOne) Select(field string, fields ...string) *TaskUpdateOne {
 
 // Save executes the query and returns the updated Task entity.
 func (_u *TaskUpdateOne) Save(ctx context.Context) (*Task, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -2876,6 +2901,14 @@ func (_u *TaskUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := task.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -2950,6 +2983,9 @@ func (_u *TaskUpdateOne) sqlSave(ctx context.Context) (_node *Task, err error) {
 	}
 	if value, ok := _u.mutation.Description(); ok {
 		_spec.SetField(task.FieldDescription, field.TypeJSON, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(task.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{

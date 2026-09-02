@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/project"
 	"project-management-demo-backend/ent/schema/ulid"
 	"project-management-demo-backend/ent/teammate"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -58,6 +59,12 @@ func (_u *FavoriteProjectUpdate) SetNillableTeammateID(v *ulid.ID) *FavoriteProj
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *FavoriteProjectUpdate) SetUpdatedAt(v time.Time) *FavoriteProjectUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetProject sets the "project" edge to the Project entity.
 func (_u *FavoriteProjectUpdate) SetProject(v *Project) *FavoriteProjectUpdate {
 	return _u.SetProjectID(v.ID)
@@ -87,6 +94,7 @@ func (_u *FavoriteProjectUpdate) ClearTeammate() *FavoriteProjectUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *FavoriteProjectUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -112,6 +120,14 @@ func (_u *FavoriteProjectUpdate) ExecX(ctx context.Context) {
 	}
 }
 
+// defaults sets the default values of the builder before save.
+func (_u *FavoriteProjectUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := favoriteproject.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
+	}
+}
+
 // check runs all checks and user-defined validators on the builder.
 func (_u *FavoriteProjectUpdate) check() error {
 	if _u.mutation.ProjectCleared() && len(_u.mutation.ProjectIDs()) > 0 {
@@ -134,6 +150,9 @@ func (_u *FavoriteProjectUpdate) sqlSave(ctx context.Context) (_node int, err er
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(favoriteproject.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -241,6 +260,12 @@ func (_u *FavoriteProjectUpdateOne) SetNillableTeammateID(v *ulid.ID) *FavoriteP
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *FavoriteProjectUpdateOne) SetUpdatedAt(v time.Time) *FavoriteProjectUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetProject sets the "project" edge to the Project entity.
 func (_u *FavoriteProjectUpdateOne) SetProject(v *Project) *FavoriteProjectUpdateOne {
 	return _u.SetProjectID(v.ID)
@@ -283,6 +308,7 @@ func (_u *FavoriteProjectUpdateOne) Select(field string, fields ...string) *Favo
 
 // Save executes the query and returns the updated FavoriteProject entity.
 func (_u *FavoriteProjectUpdateOne) Save(ctx context.Context) (*FavoriteProject, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -305,6 +331,14 @@ func (_u *FavoriteProjectUpdateOne) Exec(ctx context.Context) error {
 func (_u *FavoriteProjectUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *FavoriteProjectUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := favoriteproject.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -347,6 +381,9 @@ func (_u *FavoriteProjectUpdateOne) sqlSave(ctx context.Context) (_node *Favorit
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(favoriteproject.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{

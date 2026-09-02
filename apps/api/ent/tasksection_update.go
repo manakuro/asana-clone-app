@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"project-management-demo-backend/ent/predicate"
 	"project-management-demo-backend/ent/tasksection"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -41,6 +42,12 @@ func (_u *TaskSectionUpdate) SetNillableName(v *string) *TaskSectionUpdate {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskSectionUpdate) SetUpdatedAt(v time.Time) *TaskSectionUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // Mutation returns the TaskSectionMutation object of the builder.
 func (_u *TaskSectionUpdate) Mutation() *TaskSectionMutation {
 	return _u.mutation
@@ -48,6 +55,7 @@ func (_u *TaskSectionUpdate) Mutation() *TaskSectionMutation {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskSectionUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -70,6 +78,14 @@ func (_u *TaskSectionUpdate) Exec(ctx context.Context) error {
 func (_u *TaskSectionUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskSectionUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := tasksection.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -97,6 +113,9 @@ func (_u *TaskSectionUpdate) sqlSave(ctx context.Context) (_node int, err error)
 	}
 	if value, ok := _u.mutation.Name(); ok {
 		_spec.SetField(tasksection.FieldName, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(tasksection.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _node, err = sqlgraph.UpdateNodes(ctx, _u.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
@@ -132,6 +151,12 @@ func (_u *TaskSectionUpdateOne) SetNillableName(v *string) *TaskSectionUpdateOne
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskSectionUpdateOne) SetUpdatedAt(v time.Time) *TaskSectionUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // Mutation returns the TaskSectionMutation object of the builder.
 func (_u *TaskSectionUpdateOne) Mutation() *TaskSectionMutation {
 	return _u.mutation
@@ -152,6 +177,7 @@ func (_u *TaskSectionUpdateOne) Select(field string, fields ...string) *TaskSect
 
 // Save executes the query and returns the updated TaskSection entity.
 func (_u *TaskSectionUpdateOne) Save(ctx context.Context) (*TaskSection, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -174,6 +200,14 @@ func (_u *TaskSectionUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskSectionUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskSectionUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := tasksection.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -218,6 +252,9 @@ func (_u *TaskSectionUpdateOne) sqlSave(ctx context.Context) (_node *TaskSection
 	}
 	if value, ok := _u.mutation.Name(); ok {
 		_spec.SetField(tasksection.FieldName, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(tasksection.FieldUpdatedAt, field.TypeTime, value)
 	}
 	_node = &TaskSection{config: _u.config}
 	_spec.Assign = _node.assignValues

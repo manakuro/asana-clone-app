@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/schema/ulid"
 	"project-management-demo-backend/ent/tasklistsortstatus"
 	"project-management-demo-backend/ent/teammatetaskliststatus"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -55,6 +56,12 @@ func (_u *TaskListSortStatusUpdate) SetNillableStatusCode(v *tasklistsortstatus.
 	if v != nil {
 		_u.SetStatusCode(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskListSortStatusUpdate) SetUpdatedAt(v time.Time) *TaskListSortStatusUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -137,6 +144,7 @@ func (_u *TaskListSortStatusUpdate) RemoveProjectTaskListStatuses(v ...*ProjectT
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskListSortStatusUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -159,6 +167,14 @@ func (_u *TaskListSortStatusUpdate) Exec(ctx context.Context) error {
 func (_u *TaskListSortStatusUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskListSortStatusUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := tasklistsortstatus.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -194,6 +210,9 @@ func (_u *TaskListSortStatusUpdate) sqlSave(ctx context.Context) (_node int, err
 	}
 	if value, ok := _u.mutation.StatusCode(); ok {
 		_spec.SetField(tasklistsortstatus.FieldStatusCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(tasklistsortstatus.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateTaskListStatusesCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -333,6 +352,12 @@ func (_u *TaskListSortStatusUpdateOne) SetNillableStatusCode(v *tasklistsortstat
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskListSortStatusUpdateOne) SetUpdatedAt(v time.Time) *TaskListSortStatusUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddTeammateTaskListStatuseIDs adds the "teammateTaskListStatuses" edge to the TeammateTaskListStatus entity by IDs.
 func (_u *TaskListSortStatusUpdateOne) AddTeammateTaskListStatuseIDs(ids ...ulid.ID) *TaskListSortStatusUpdateOne {
 	_u.mutation.AddTeammateTaskListStatuseIDs(ids...)
@@ -425,6 +450,7 @@ func (_u *TaskListSortStatusUpdateOne) Select(field string, fields ...string) *T
 
 // Save executes the query and returns the updated TaskListSortStatus entity.
 func (_u *TaskListSortStatusUpdateOne) Save(ctx context.Context) (*TaskListSortStatus, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -447,6 +473,14 @@ func (_u *TaskListSortStatusUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskListSortStatusUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskListSortStatusUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := tasklistsortstatus.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -499,6 +533,9 @@ func (_u *TaskListSortStatusUpdateOne) sqlSave(ctx context.Context) (_node *Task
 	}
 	if value, ok := _u.mutation.StatusCode(); ok {
 		_spec.SetField(tasklistsortstatus.FieldStatusCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(tasklistsortstatus.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateTaskListStatusesCleared() {
 		edge := &sqlgraph.EdgeSpec{

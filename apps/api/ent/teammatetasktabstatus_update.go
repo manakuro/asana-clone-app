@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/teammate"
 	"project-management-demo-backend/ent/teammatetasktabstatus"
 	"project-management-demo-backend/ent/workspace"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -72,6 +73,12 @@ func (_u *TeammateTaskTabStatusUpdate) SetNillableStatusCode(v *teammatetasktabs
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TeammateTaskTabStatusUpdate) SetUpdatedAt(v time.Time) *TeammateTaskTabStatusUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetWorkspace sets the "workspace" edge to the Workspace entity.
 func (_u *TeammateTaskTabStatusUpdate) SetWorkspace(v *Workspace) *TeammateTaskTabStatusUpdate {
 	return _u.SetWorkspaceID(v.ID)
@@ -101,6 +108,7 @@ func (_u *TeammateTaskTabStatusUpdate) ClearTeammate() *TeammateTaskTabStatusUpd
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TeammateTaskTabStatusUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -123,6 +131,14 @@ func (_u *TeammateTaskTabStatusUpdate) Exec(ctx context.Context) error {
 func (_u *TeammateTaskTabStatusUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TeammateTaskTabStatusUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := teammatetasktabstatus.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -156,6 +172,9 @@ func (_u *TeammateTaskTabStatusUpdate) sqlSave(ctx context.Context) (_node int, 
 	}
 	if value, ok := _u.mutation.StatusCode(); ok {
 		_spec.SetField(teammatetasktabstatus.FieldStatusCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(teammatetasktabstatus.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -277,6 +296,12 @@ func (_u *TeammateTaskTabStatusUpdateOne) SetNillableStatusCode(v *teammatetaskt
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TeammateTaskTabStatusUpdateOne) SetUpdatedAt(v time.Time) *TeammateTaskTabStatusUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetWorkspace sets the "workspace" edge to the Workspace entity.
 func (_u *TeammateTaskTabStatusUpdateOne) SetWorkspace(v *Workspace) *TeammateTaskTabStatusUpdateOne {
 	return _u.SetWorkspaceID(v.ID)
@@ -319,6 +344,7 @@ func (_u *TeammateTaskTabStatusUpdateOne) Select(field string, fields ...string)
 
 // Save executes the query and returns the updated TeammateTaskTabStatus entity.
 func (_u *TeammateTaskTabStatusUpdateOne) Save(ctx context.Context) (*TeammateTaskTabStatus, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -341,6 +367,14 @@ func (_u *TeammateTaskTabStatusUpdateOne) Exec(ctx context.Context) error {
 func (_u *TeammateTaskTabStatusUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TeammateTaskTabStatusUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := teammatetasktabstatus.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -391,6 +425,9 @@ func (_u *TeammateTaskTabStatusUpdateOne) sqlSave(ctx context.Context) (_node *T
 	}
 	if value, ok := _u.mutation.StatusCode(); ok {
 		_spec.SetField(teammatetasktabstatus.FieldStatusCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(teammatetasktabstatus.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{

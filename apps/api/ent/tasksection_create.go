@@ -249,6 +249,18 @@ func (u *TaskSectionUpsert) UpdateName() *TaskSectionUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskSectionUpsert) SetUpdatedAt(v time.Time) *TaskSectionUpsert {
+	u.Set(tasksection.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskSectionUpsert) UpdateUpdatedAt() *TaskSectionUpsert {
+	u.SetExcluded(tasksection.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -268,9 +280,6 @@ func (u *TaskSectionUpsertOne) UpdateNewValues() *TaskSectionUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(tasksection.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(tasksection.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -314,6 +323,20 @@ func (u *TaskSectionUpsertOne) SetName(v string) *TaskSectionUpsertOne {
 func (u *TaskSectionUpsertOne) UpdateName() *TaskSectionUpsertOne {
 	return u.Update(func(s *TaskSectionUpsert) {
 		s.UpdateName()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskSectionUpsertOne) SetUpdatedAt(v time.Time) *TaskSectionUpsertOne {
+	return u.Update(func(s *TaskSectionUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskSectionUpsertOne) UpdateUpdatedAt() *TaskSectionUpsertOne {
+	return u.Update(func(s *TaskSectionUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -503,9 +526,6 @@ func (u *TaskSectionUpsertBulk) UpdateNewValues() *TaskSectionUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(tasksection.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(tasksection.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -549,6 +569,20 @@ func (u *TaskSectionUpsertBulk) SetName(v string) *TaskSectionUpsertBulk {
 func (u *TaskSectionUpsertBulk) UpdateName() *TaskSectionUpsertBulk {
 	return u.Update(func(s *TaskSectionUpsert) {
 		s.UpdateName()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskSectionUpsertBulk) SetUpdatedAt(v time.Time) *TaskSectionUpsertBulk {
+	return u.Update(func(s *TaskSectionUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskSectionUpsertBulk) UpdateUpdatedAt() *TaskSectionUpsertBulk {
+	return u.Update(func(s *TaskSectionUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

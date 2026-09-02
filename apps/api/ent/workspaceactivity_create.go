@@ -439,6 +439,18 @@ func (u *WorkspaceActivityUpsert) UpdateTeammateID() *WorkspaceActivityUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceActivityUpsert) SetUpdatedAt(v time.Time) *WorkspaceActivityUpsert {
+	u.Set(workspaceactivity.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceActivityUpsert) UpdateUpdatedAt() *WorkspaceActivityUpsert {
+	u.SetExcluded(workspaceactivity.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -458,9 +470,6 @@ func (u *WorkspaceActivityUpsertOne) UpdateNewValues() *WorkspaceActivityUpsertO
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(workspaceactivity.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(workspaceactivity.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -546,6 +555,20 @@ func (u *WorkspaceActivityUpsertOne) SetTeammateID(v ulid.ID) *WorkspaceActivity
 func (u *WorkspaceActivityUpsertOne) UpdateTeammateID() *WorkspaceActivityUpsertOne {
 	return u.Update(func(s *WorkspaceActivityUpsert) {
 		s.UpdateTeammateID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceActivityUpsertOne) SetUpdatedAt(v time.Time) *WorkspaceActivityUpsertOne {
+	return u.Update(func(s *WorkspaceActivityUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceActivityUpsertOne) UpdateUpdatedAt() *WorkspaceActivityUpsertOne {
+	return u.Update(func(s *WorkspaceActivityUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -735,9 +758,6 @@ func (u *WorkspaceActivityUpsertBulk) UpdateNewValues() *WorkspaceActivityUpsert
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(workspaceactivity.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(workspaceactivity.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -823,6 +843,20 @@ func (u *WorkspaceActivityUpsertBulk) SetTeammateID(v ulid.ID) *WorkspaceActivit
 func (u *WorkspaceActivityUpsertBulk) UpdateTeammateID() *WorkspaceActivityUpsertBulk {
 	return u.Update(func(s *WorkspaceActivityUpsert) {
 		s.UpdateTeammateID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceActivityUpsertBulk) SetUpdatedAt(v time.Time) *WorkspaceActivityUpsertBulk {
+	return u.Update(func(s *WorkspaceActivityUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceActivityUpsertBulk) UpdateUpdatedAt() *WorkspaceActivityUpsertBulk {
+	return u.Update(func(s *WorkspaceActivityUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

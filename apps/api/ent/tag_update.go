@@ -12,6 +12,7 @@ import (
 	"project-management-demo-backend/ent/tag"
 	"project-management-demo-backend/ent/tasktag"
 	"project-management-demo-backend/ent/workspace"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -70,6 +71,12 @@ func (_u *TagUpdate) SetNillableName(v *string) *TagUpdate {
 	if v != nil {
 		_u.SetName(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TagUpdate) SetUpdatedAt(v time.Time) *TagUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -138,6 +145,7 @@ func (_u *TagUpdate) RemoveTaskTags(v ...*TaskTag) *TagUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TagUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -160,6 +168,14 @@ func (_u *TagUpdate) Exec(ctx context.Context) error {
 func (_u *TagUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TagUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := tag.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -193,6 +209,9 @@ func (_u *TagUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.Name(); ok {
 		_spec.SetField(tag.FieldName, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(tag.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -359,6 +378,12 @@ func (_u *TagUpdateOne) SetNillableName(v *string) *TagUpdateOne {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TagUpdateOne) SetUpdatedAt(v time.Time) *TagUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetWorkspace sets the "workspace" edge to the Workspace entity.
 func (_u *TagUpdateOne) SetWorkspace(v *Workspace) *TagUpdateOne {
 	return _u.SetWorkspaceID(v.ID)
@@ -437,6 +462,7 @@ func (_u *TagUpdateOne) Select(field string, fields ...string) *TagUpdateOne {
 
 // Save executes the query and returns the updated Tag entity.
 func (_u *TagUpdateOne) Save(ctx context.Context) (*Tag, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -459,6 +485,14 @@ func (_u *TagUpdateOne) Exec(ctx context.Context) error {
 func (_u *TagUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TagUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := tag.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -509,6 +543,9 @@ func (_u *TagUpdateOne) sqlSave(ctx context.Context) (_node *Tag, err error) {
 	}
 	if value, ok := _u.mutation.Name(); ok {
 		_spec.SetField(tag.FieldName, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(tag.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{

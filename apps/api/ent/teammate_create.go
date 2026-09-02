@@ -981,6 +981,18 @@ func (u *TeammateUpsert) UpdateEmail() *TeammateUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateUpsert) SetUpdatedAt(v time.Time) *TeammateUpsert {
+	u.Set(teammate.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateUpsert) UpdateUpdatedAt() *TeammateUpsert {
+	u.SetExcluded(teammate.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -1000,9 +1012,6 @@ func (u *TeammateUpsertOne) UpdateNewValues() *TeammateUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(teammate.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(teammate.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -1074,6 +1083,20 @@ func (u *TeammateUpsertOne) SetEmail(v string) *TeammateUpsertOne {
 func (u *TeammateUpsertOne) UpdateEmail() *TeammateUpsertOne {
 	return u.Update(func(s *TeammateUpsert) {
 		s.UpdateEmail()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateUpsertOne) SetUpdatedAt(v time.Time) *TeammateUpsertOne {
+	return u.Update(func(s *TeammateUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateUpsertOne) UpdateUpdatedAt() *TeammateUpsertOne {
+	return u.Update(func(s *TeammateUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -1263,9 +1286,6 @@ func (u *TeammateUpsertBulk) UpdateNewValues() *TeammateUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(teammate.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(teammate.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -1337,6 +1357,20 @@ func (u *TeammateUpsertBulk) SetEmail(v string) *TeammateUpsertBulk {
 func (u *TeammateUpsertBulk) UpdateEmail() *TeammateUpsertBulk {
 	return u.Update(func(s *TeammateUpsert) {
 		s.UpdateEmail()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateUpsertBulk) SetUpdatedAt(v time.Time) *TeammateUpsertBulk {
+	return u.Update(func(s *TeammateUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateUpsertBulk) UpdateUpdatedAt() *TeammateUpsertBulk {
+	return u.Update(func(s *TeammateUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

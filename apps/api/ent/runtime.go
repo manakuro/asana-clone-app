@@ -98,6 +98,8 @@ func init() {
 	activitytypeDescUpdatedAt := activitytypeMixinFields2[1].Descriptor()
 	// activitytype.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	activitytype.DefaultUpdatedAt = activitytypeDescUpdatedAt.Default.(func() time.Time)
+	// activitytype.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	activitytype.UpdateDefaultUpdatedAt = activitytypeDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// activitytypeDescID is the schema descriptor for id field.
 	activitytypeDescID := activitytypeMixinFields0[0].Descriptor()
 	// activitytype.DefaultID holds the default value on creation for the id field.
@@ -117,6 +119,8 @@ func init() {
 	archivedtaskactivityDescUpdatedAt := archivedtaskactivityMixinFields2[1].Descriptor()
 	// archivedtaskactivity.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	archivedtaskactivity.DefaultUpdatedAt = archivedtaskactivityDescUpdatedAt.Default.(func() time.Time)
+	// archivedtaskactivity.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	archivedtaskactivity.UpdateDefaultUpdatedAt = archivedtaskactivityDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// archivedtaskactivityDescID is the schema descriptor for id field.
 	archivedtaskactivityDescID := archivedtaskactivityMixinFields0[0].Descriptor()
 	// archivedtaskactivity.DefaultID holds the default value on creation for the id field.
@@ -136,6 +140,8 @@ func init() {
 	archivedtaskactivitytaskDescUpdatedAt := archivedtaskactivitytaskMixinFields2[1].Descriptor()
 	// archivedtaskactivitytask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	archivedtaskactivitytask.DefaultUpdatedAt = archivedtaskactivitytaskDescUpdatedAt.Default.(func() time.Time)
+	// archivedtaskactivitytask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	archivedtaskactivitytask.UpdateDefaultUpdatedAt = archivedtaskactivitytaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// archivedtaskactivitytaskDescID is the schema descriptor for id field.
 	archivedtaskactivitytaskDescID := archivedtaskactivitytaskMixinFields0[0].Descriptor()
 	// archivedtaskactivitytask.DefaultID holds the default value on creation for the id field.
@@ -155,6 +161,8 @@ func init() {
 	archivedworkspaceactivityDescUpdatedAt := archivedworkspaceactivityMixinFields2[1].Descriptor()
 	// archivedworkspaceactivity.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	archivedworkspaceactivity.DefaultUpdatedAt = archivedworkspaceactivityDescUpdatedAt.Default.(func() time.Time)
+	// archivedworkspaceactivity.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	archivedworkspaceactivity.UpdateDefaultUpdatedAt = archivedworkspaceactivityDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// archivedworkspaceactivityDescID is the schema descriptor for id field.
 	archivedworkspaceactivityDescID := archivedworkspaceactivityMixinFields0[0].Descriptor()
 	// archivedworkspaceactivity.DefaultID holds the default value on creation for the id field.
@@ -174,6 +182,8 @@ func init() {
 	archivedworkspaceactivitytaskDescUpdatedAt := archivedworkspaceactivitytaskMixinFields2[1].Descriptor()
 	// archivedworkspaceactivitytask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	archivedworkspaceactivitytask.DefaultUpdatedAt = archivedworkspaceactivitytaskDescUpdatedAt.Default.(func() time.Time)
+	// archivedworkspaceactivitytask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	archivedworkspaceactivitytask.UpdateDefaultUpdatedAt = archivedworkspaceactivitytaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// archivedworkspaceactivitytaskDescID is the schema descriptor for id field.
 	archivedworkspaceactivitytaskDescID := archivedworkspaceactivitytaskMixinFields0[0].Descriptor()
 	// archivedworkspaceactivitytask.DefaultID holds the default value on creation for the id field.
@@ -249,6 +259,8 @@ func init() {
 	colorDescUpdatedAt := colorMixinFields2[1].Descriptor()
 	// color.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	color.DefaultUpdatedAt = colorDescUpdatedAt.Default.(func() time.Time)
+	// color.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	color.UpdateDefaultUpdatedAt = colorDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// colorDescID is the schema descriptor for id field.
 	colorDescID := colorMixinFields0[0].Descriptor()
 	// color.DefaultID holds the default value on creation for the id field.
@@ -268,6 +280,8 @@ func init() {
 	deletedprojecttaskDescUpdatedAt := deletedprojecttaskMixinFields2[1].Descriptor()
 	// deletedprojecttask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	deletedprojecttask.DefaultUpdatedAt = deletedprojecttaskDescUpdatedAt.Default.(func() time.Time)
+	// deletedprojecttask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	deletedprojecttask.UpdateDefaultUpdatedAt = deletedprojecttaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// deletedprojecttaskDescID is the schema descriptor for id field.
 	deletedprojecttaskDescID := deletedprojecttaskMixinFields0[0].Descriptor()
 	// deletedprojecttask.DefaultID holds the default value on creation for the id field.
@@ -287,6 +301,8 @@ func init() {
 	deletedtaskDescUpdatedAt := deletedtaskMixinFields2[1].Descriptor()
 	// deletedtask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	deletedtask.DefaultUpdatedAt = deletedtaskDescUpdatedAt.Default.(func() time.Time)
+	// deletedtask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	deletedtask.UpdateDefaultUpdatedAt = deletedtaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// deletedtaskDescID is the schema descriptor for id field.
 	deletedtaskDescID := deletedtaskMixinFields0[0].Descriptor()
 	// deletedtask.DefaultID holds the default value on creation for the id field.
@@ -306,6 +322,8 @@ func init() {
 	deletedtaskactivitytaskDescUpdatedAt := deletedtaskactivitytaskMixinFields2[1].Descriptor()
 	// deletedtaskactivitytask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	deletedtaskactivitytask.DefaultUpdatedAt = deletedtaskactivitytaskDescUpdatedAt.Default.(func() time.Time)
+	// deletedtaskactivitytask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	deletedtaskactivitytask.UpdateDefaultUpdatedAt = deletedtaskactivitytaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// deletedtaskactivitytaskDescID is the schema descriptor for id field.
 	deletedtaskactivitytaskDescID := deletedtaskactivitytaskMixinFields0[0].Descriptor()
 	// deletedtaskactivitytask.DefaultID holds the default value on creation for the id field.
@@ -325,6 +343,8 @@ func init() {
 	deletedteammatetaskDescUpdatedAt := deletedteammatetaskMixinFields2[1].Descriptor()
 	// deletedteammatetask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	deletedteammatetask.DefaultUpdatedAt = deletedteammatetaskDescUpdatedAt.Default.(func() time.Time)
+	// deletedteammatetask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	deletedteammatetask.UpdateDefaultUpdatedAt = deletedteammatetaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// deletedteammatetaskDescID is the schema descriptor for id field.
 	deletedteammatetaskDescID := deletedteammatetaskMixinFields0[0].Descriptor()
 	// deletedteammatetask.DefaultID holds the default value on creation for the id field.
@@ -344,6 +364,8 @@ func init() {
 	deletedworkspaceactivitytaskDescUpdatedAt := deletedworkspaceactivitytaskMixinFields2[1].Descriptor()
 	// deletedworkspaceactivitytask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	deletedworkspaceactivitytask.DefaultUpdatedAt = deletedworkspaceactivitytaskDescUpdatedAt.Default.(func() time.Time)
+	// deletedworkspaceactivitytask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	deletedworkspaceactivitytask.UpdateDefaultUpdatedAt = deletedworkspaceactivitytaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// deletedworkspaceactivitytaskDescID is the schema descriptor for id field.
 	deletedworkspaceactivitytaskDescID := deletedworkspaceactivitytaskMixinFields0[0].Descriptor()
 	// deletedworkspaceactivitytask.DefaultID holds the default value on creation for the id field.
@@ -363,6 +385,8 @@ func init() {
 	favoriteprojectDescUpdatedAt := favoriteprojectMixinFields2[1].Descriptor()
 	// favoriteproject.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	favoriteproject.DefaultUpdatedAt = favoriteprojectDescUpdatedAt.Default.(func() time.Time)
+	// favoriteproject.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	favoriteproject.UpdateDefaultUpdatedAt = favoriteprojectDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// favoriteprojectDescID is the schema descriptor for id field.
 	favoriteprojectDescID := favoriteprojectMixinFields0[0].Descriptor()
 	// favoriteproject.DefaultID holds the default value on creation for the id field.
@@ -382,6 +406,8 @@ func init() {
 	favoriteworkspaceDescUpdatedAt := favoriteworkspaceMixinFields2[1].Descriptor()
 	// favoriteworkspace.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	favoriteworkspace.DefaultUpdatedAt = favoriteworkspaceDescUpdatedAt.Default.(func() time.Time)
+	// favoriteworkspace.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	favoriteworkspace.UpdateDefaultUpdatedAt = favoriteworkspaceDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// favoriteworkspaceDescID is the schema descriptor for id field.
 	favoriteworkspaceDescID := favoriteworkspaceMixinFields0[0].Descriptor()
 	// favoriteworkspace.DefaultID holds the default value on creation for the id field.
@@ -421,6 +447,8 @@ func init() {
 	filetypeDescUpdatedAt := filetypeMixinFields2[1].Descriptor()
 	// filetype.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	filetype.DefaultUpdatedAt = filetypeDescUpdatedAt.Default.(func() time.Time)
+	// filetype.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	filetype.UpdateDefaultUpdatedAt = filetypeDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// filetypeDescID is the schema descriptor for id field.
 	filetypeDescID := filetypeMixinFields0[0].Descriptor()
 	// filetype.DefaultID holds the default value on creation for the id field.
@@ -478,6 +506,8 @@ func init() {
 	iconDescUpdatedAt := iconMixinFields2[1].Descriptor()
 	// icon.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	icon.DefaultUpdatedAt = iconDescUpdatedAt.Default.(func() time.Time)
+	// icon.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	icon.UpdateDefaultUpdatedAt = iconDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// iconDescID is the schema descriptor for id field.
 	iconDescID := iconMixinFields0[0].Descriptor()
 	// icon.DefaultID holds the default value on creation for the id field.
@@ -521,6 +551,8 @@ func init() {
 	projectDescUpdatedAt := projectMixinFields2[1].Descriptor()
 	// project.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	project.DefaultUpdatedAt = projectDescUpdatedAt.Default.(func() time.Time)
+	// project.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	project.UpdateDefaultUpdatedAt = projectDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// projectDescID is the schema descriptor for id field.
 	projectDescID := projectMixinFields0[0].Descriptor()
 	// project.DefaultID holds the default value on creation for the id field.
@@ -540,6 +572,8 @@ func init() {
 	projectbasecolorDescUpdatedAt := projectbasecolorMixinFields2[1].Descriptor()
 	// projectbasecolor.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	projectbasecolor.DefaultUpdatedAt = projectbasecolorDescUpdatedAt.Default.(func() time.Time)
+	// projectbasecolor.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	projectbasecolor.UpdateDefaultUpdatedAt = projectbasecolorDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// projectbasecolorDescID is the schema descriptor for id field.
 	projectbasecolorDescID := projectbasecolorMixinFields0[0].Descriptor()
 	// projectbasecolor.DefaultID holds the default value on creation for the id field.
@@ -559,6 +593,8 @@ func init() {
 	projecticonDescUpdatedAt := projecticonMixinFields2[1].Descriptor()
 	// projecticon.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	projecticon.DefaultUpdatedAt = projecticonDescUpdatedAt.Default.(func() time.Time)
+	// projecticon.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	projecticon.UpdateDefaultUpdatedAt = projecticonDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// projecticonDescID is the schema descriptor for id field.
 	projecticonDescID := projecticonMixinFields0[0].Descriptor()
 	// projecticon.DefaultID holds the default value on creation for the id field.
@@ -578,6 +614,8 @@ func init() {
 	projectlightcolorDescUpdatedAt := projectlightcolorMixinFields2[1].Descriptor()
 	// projectlightcolor.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	projectlightcolor.DefaultUpdatedAt = projectlightcolorDescUpdatedAt.Default.(func() time.Time)
+	// projectlightcolor.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	projectlightcolor.UpdateDefaultUpdatedAt = projectlightcolorDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// projectlightcolorDescID is the schema descriptor for id field.
 	projectlightcolorDescID := projectlightcolorMixinFields0[0].Descriptor()
 	// projectlightcolor.DefaultID holds the default value on creation for the id field.
@@ -597,6 +635,8 @@ func init() {
 	projecttaskDescUpdatedAt := projecttaskMixinFields2[1].Descriptor()
 	// projecttask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	projecttask.DefaultUpdatedAt = projecttaskDescUpdatedAt.Default.(func() time.Time)
+	// projecttask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	projecttask.UpdateDefaultUpdatedAt = projecttaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// projecttaskDescID is the schema descriptor for id field.
 	projecttaskDescID := projecttaskMixinFields0[0].Descriptor()
 	// projecttask.DefaultID holds the default value on creation for the id field.
@@ -636,6 +676,8 @@ func init() {
 	projecttaskcolumnDescUpdatedAt := projecttaskcolumnMixinFields2[1].Descriptor()
 	// projecttaskcolumn.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	projecttaskcolumn.DefaultUpdatedAt = projecttaskcolumnDescUpdatedAt.Default.(func() time.Time)
+	// projecttaskcolumn.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	projecttaskcolumn.UpdateDefaultUpdatedAt = projecttaskcolumnDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// projecttaskcolumnDescID is the schema descriptor for id field.
 	projecttaskcolumnDescID := projecttaskcolumnMixinFields0[0].Descriptor()
 	// projecttaskcolumn.DefaultID holds the default value on creation for the id field.
@@ -655,6 +697,8 @@ func init() {
 	projecttaskliststatusDescUpdatedAt := projecttaskliststatusMixinFields2[1].Descriptor()
 	// projecttaskliststatus.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	projecttaskliststatus.DefaultUpdatedAt = projecttaskliststatusDescUpdatedAt.Default.(func() time.Time)
+	// projecttaskliststatus.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	projecttaskliststatus.UpdateDefaultUpdatedAt = projecttaskliststatusDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// projecttaskliststatusDescID is the schema descriptor for id field.
 	projecttaskliststatusDescID := projecttaskliststatusMixinFields0[0].Descriptor()
 	// projecttaskliststatus.DefaultID holds the default value on creation for the id field.
@@ -680,6 +724,8 @@ func init() {
 	projecttasksectionDescUpdatedAt := projecttasksectionMixinFields2[1].Descriptor()
 	// projecttasksection.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	projecttasksection.DefaultUpdatedAt = projecttasksectionDescUpdatedAt.Default.(func() time.Time)
+	// projecttasksection.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	projecttasksection.UpdateDefaultUpdatedAt = projecttasksectionDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// projecttasksectionDescID is the schema descriptor for id field.
 	projecttasksectionDescID := projecttasksectionMixinFields0[0].Descriptor()
 	// projecttasksection.DefaultID holds the default value on creation for the id field.
@@ -705,6 +751,8 @@ func init() {
 	projectteammateDescUpdatedAt := projectteammateMixinFields2[1].Descriptor()
 	// projectteammate.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	projectteammate.DefaultUpdatedAt = projectteammateDescUpdatedAt.Default.(func() time.Time)
+	// projectteammate.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	projectteammate.UpdateDefaultUpdatedAt = projectteammateDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// projectteammateDescID is the schema descriptor for id field.
 	projectteammateDescID := projectteammateMixinFields0[0].Descriptor()
 	// projectteammate.DefaultID holds the default value on creation for the id field.
@@ -744,6 +792,8 @@ func init() {
 	tagDescUpdatedAt := tagMixinFields2[1].Descriptor()
 	// tag.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	tag.DefaultUpdatedAt = tagDescUpdatedAt.Default.(func() time.Time)
+	// tag.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	tag.UpdateDefaultUpdatedAt = tagDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// tagDescID is the schema descriptor for id field.
 	tagDescID := tagMixinFields0[0].Descriptor()
 	// tag.DefaultID holds the default value on creation for the id field.
@@ -777,6 +827,8 @@ func init() {
 	taskDescUpdatedAt := taskMixinFields2[1].Descriptor()
 	// task.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	task.DefaultUpdatedAt = taskDescUpdatedAt.Default.(func() time.Time)
+	// task.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	task.UpdateDefaultUpdatedAt = taskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// taskDescID is the schema descriptor for id field.
 	taskDescID := taskMixinFields0[0].Descriptor()
 	// task.DefaultID holds the default value on creation for the id field.
@@ -796,6 +848,8 @@ func init() {
 	taskactivityDescUpdatedAt := taskactivityMixinFields2[1].Descriptor()
 	// taskactivity.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	taskactivity.DefaultUpdatedAt = taskactivityDescUpdatedAt.Default.(func() time.Time)
+	// taskactivity.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	taskactivity.UpdateDefaultUpdatedAt = taskactivityDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// taskactivityDescID is the schema descriptor for id field.
 	taskactivityDescID := taskactivityMixinFields0[0].Descriptor()
 	// taskactivity.DefaultID holds the default value on creation for the id field.
@@ -815,6 +869,8 @@ func init() {
 	taskactivitytaskDescUpdatedAt := taskactivitytaskMixinFields2[1].Descriptor()
 	// taskactivitytask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	taskactivitytask.DefaultUpdatedAt = taskactivitytaskDescUpdatedAt.Default.(func() time.Time)
+	// taskactivitytask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	taskactivitytask.UpdateDefaultUpdatedAt = taskactivitytaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// taskactivitytaskDescID is the schema descriptor for id field.
 	taskactivitytaskDescID := taskactivitytaskMixinFields0[0].Descriptor()
 	// taskactivitytask.DefaultID holds the default value on creation for the id field.
@@ -834,6 +890,8 @@ func init() {
 	taskcollaboratorDescUpdatedAt := taskcollaboratorMixinFields2[1].Descriptor()
 	// taskcollaborator.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	taskcollaborator.DefaultUpdatedAt = taskcollaboratorDescUpdatedAt.Default.(func() time.Time)
+	// taskcollaborator.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	taskcollaborator.UpdateDefaultUpdatedAt = taskcollaboratorDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// taskcollaboratorDescID is the schema descriptor for id field.
 	taskcollaboratorDescID := taskcollaboratorMixinFields0[0].Descriptor()
 	// taskcollaborator.DefaultID holds the default value on creation for the id field.
@@ -873,6 +931,8 @@ func init() {
 	taskcolumnDescUpdatedAt := taskcolumnMixinFields2[1].Descriptor()
 	// taskcolumn.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	taskcolumn.DefaultUpdatedAt = taskcolumnDescUpdatedAt.Default.(func() time.Time)
+	// taskcolumn.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	taskcolumn.UpdateDefaultUpdatedAt = taskcolumnDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// taskcolumnDescID is the schema descriptor for id field.
 	taskcolumnDescID := taskcolumnMixinFields0[0].Descriptor()
 	// taskcolumn.DefaultID holds the default value on creation for the id field.
@@ -902,6 +962,8 @@ func init() {
 	taskfeedDescUpdatedAt := taskfeedMixinFields2[1].Descriptor()
 	// taskfeed.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	taskfeed.DefaultUpdatedAt = taskfeedDescUpdatedAt.Default.(func() time.Time)
+	// taskfeed.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	taskfeed.UpdateDefaultUpdatedAt = taskfeedDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// taskfeedDescID is the schema descriptor for id field.
 	taskfeedDescID := taskfeedMixinFields0[0].Descriptor()
 	// taskfeed.DefaultID holds the default value on creation for the id field.
@@ -921,6 +983,8 @@ func init() {
 	taskfeedlikeDescUpdatedAt := taskfeedlikeMixinFields2[1].Descriptor()
 	// taskfeedlike.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	taskfeedlike.DefaultUpdatedAt = taskfeedlikeDescUpdatedAt.Default.(func() time.Time)
+	// taskfeedlike.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	taskfeedlike.UpdateDefaultUpdatedAt = taskfeedlikeDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// taskfeedlikeDescID is the schema descriptor for id field.
 	taskfeedlikeDescID := taskfeedlikeMixinFields0[0].Descriptor()
 	// taskfeedlike.DefaultID holds the default value on creation for the id field.
@@ -982,6 +1046,8 @@ func init() {
 	taskfileDescUpdatedAt := taskfileMixinFields2[1].Descriptor()
 	// taskfile.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	taskfile.DefaultUpdatedAt = taskfileDescUpdatedAt.Default.(func() time.Time)
+	// taskfile.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	taskfile.UpdateDefaultUpdatedAt = taskfileDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// taskfileDescID is the schema descriptor for id field.
 	taskfileDescID := taskfileMixinFields0[0].Descriptor()
 	// taskfile.DefaultID holds the default value on creation for the id field.
@@ -1001,6 +1067,8 @@ func init() {
 	tasklikeDescUpdatedAt := tasklikeMixinFields2[1].Descriptor()
 	// tasklike.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	tasklike.DefaultUpdatedAt = tasklikeDescUpdatedAt.Default.(func() time.Time)
+	// tasklike.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	tasklike.UpdateDefaultUpdatedAt = tasklikeDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// tasklikeDescID is the schema descriptor for id field.
 	tasklikeDescID := tasklikeMixinFields0[0].Descriptor()
 	// tasklike.DefaultID holds the default value on creation for the id field.
@@ -1040,6 +1108,8 @@ func init() {
 	tasklistcompletedstatusDescUpdatedAt := tasklistcompletedstatusMixinFields2[1].Descriptor()
 	// tasklistcompletedstatus.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	tasklistcompletedstatus.DefaultUpdatedAt = tasklistcompletedstatusDescUpdatedAt.Default.(func() time.Time)
+	// tasklistcompletedstatus.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	tasklistcompletedstatus.UpdateDefaultUpdatedAt = tasklistcompletedstatusDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// tasklistcompletedstatusDescID is the schema descriptor for id field.
 	tasklistcompletedstatusDescID := tasklistcompletedstatusMixinFields0[0].Descriptor()
 	// tasklistcompletedstatus.DefaultID holds the default value on creation for the id field.
@@ -1079,6 +1149,8 @@ func init() {
 	tasklistsortstatusDescUpdatedAt := tasklistsortstatusMixinFields2[1].Descriptor()
 	// tasklistsortstatus.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	tasklistsortstatus.DefaultUpdatedAt = tasklistsortstatusDescUpdatedAt.Default.(func() time.Time)
+	// tasklistsortstatus.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	tasklistsortstatus.UpdateDefaultUpdatedAt = tasklistsortstatusDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// tasklistsortstatusDescID is the schema descriptor for id field.
 	tasklistsortstatusDescID := tasklistsortstatusMixinFields0[0].Descriptor()
 	// tasklistsortstatus.DefaultID holds the default value on creation for the id field.
@@ -1118,6 +1190,8 @@ func init() {
 	taskpriorityDescUpdatedAt := taskpriorityMixinFields2[1].Descriptor()
 	// taskpriority.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	taskpriority.DefaultUpdatedAt = taskpriorityDescUpdatedAt.Default.(func() time.Time)
+	// taskpriority.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	taskpriority.UpdateDefaultUpdatedAt = taskpriorityDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// taskpriorityDescID is the schema descriptor for id field.
 	taskpriorityDescID := taskpriorityMixinFields0[0].Descriptor()
 	// taskpriority.DefaultID holds the default value on creation for the id field.
@@ -1157,6 +1231,8 @@ func init() {
 	tasksectionDescUpdatedAt := tasksectionMixinFields2[1].Descriptor()
 	// tasksection.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	tasksection.DefaultUpdatedAt = tasksectionDescUpdatedAt.Default.(func() time.Time)
+	// tasksection.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	tasksection.UpdateDefaultUpdatedAt = tasksectionDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// tasksectionDescID is the schema descriptor for id field.
 	tasksectionDescID := tasksectionMixinFields0[0].Descriptor()
 	// tasksection.DefaultID holds the default value on creation for the id field.
@@ -1176,6 +1252,8 @@ func init() {
 	tasktagDescUpdatedAt := tasktagMixinFields2[1].Descriptor()
 	// tasktag.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	tasktag.DefaultUpdatedAt = tasktagDescUpdatedAt.Default.(func() time.Time)
+	// tasktag.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	tasktag.UpdateDefaultUpdatedAt = tasktagDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// tasktagDescID is the schema descriptor for id field.
 	tasktagDescID := tasktagMixinFields0[0].Descriptor()
 	// tasktag.DefaultID holds the default value on creation for the id field.
@@ -1223,6 +1301,8 @@ func init() {
 	teammateDescUpdatedAt := teammateMixinFields2[1].Descriptor()
 	// teammate.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	teammate.DefaultUpdatedAt = teammateDescUpdatedAt.Default.(func() time.Time)
+	// teammate.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	teammate.UpdateDefaultUpdatedAt = teammateDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// teammateDescID is the schema descriptor for id field.
 	teammateDescID := teammateMixinFields0[0].Descriptor()
 	// teammate.DefaultID holds the default value on creation for the id field.
@@ -1242,6 +1322,8 @@ func init() {
 	teammatetaskDescUpdatedAt := teammatetaskMixinFields2[1].Descriptor()
 	// teammatetask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	teammatetask.DefaultUpdatedAt = teammatetaskDescUpdatedAt.Default.(func() time.Time)
+	// teammatetask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	teammatetask.UpdateDefaultUpdatedAt = teammatetaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// teammatetaskDescID is the schema descriptor for id field.
 	teammatetaskDescID := teammatetaskMixinFields0[0].Descriptor()
 	// teammatetask.DefaultID holds the default value on creation for the id field.
@@ -1281,6 +1363,8 @@ func init() {
 	teammatetaskcolumnDescUpdatedAt := teammatetaskcolumnMixinFields2[1].Descriptor()
 	// teammatetaskcolumn.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	teammatetaskcolumn.DefaultUpdatedAt = teammatetaskcolumnDescUpdatedAt.Default.(func() time.Time)
+	// teammatetaskcolumn.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	teammatetaskcolumn.UpdateDefaultUpdatedAt = teammatetaskcolumnDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// teammatetaskcolumnDescID is the schema descriptor for id field.
 	teammatetaskcolumnDescID := teammatetaskcolumnMixinFields0[0].Descriptor()
 	// teammatetaskcolumn.DefaultID holds the default value on creation for the id field.
@@ -1300,6 +1384,8 @@ func init() {
 	teammatetaskliststatusDescUpdatedAt := teammatetaskliststatusMixinFields2[1].Descriptor()
 	// teammatetaskliststatus.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	teammatetaskliststatus.DefaultUpdatedAt = teammatetaskliststatusDescUpdatedAt.Default.(func() time.Time)
+	// teammatetaskliststatus.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	teammatetaskliststatus.UpdateDefaultUpdatedAt = teammatetaskliststatusDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// teammatetaskliststatusDescID is the schema descriptor for id field.
 	teammatetaskliststatusDescID := teammatetaskliststatusMixinFields0[0].Descriptor()
 	// teammatetaskliststatus.DefaultID holds the default value on creation for the id field.
@@ -1325,6 +1411,8 @@ func init() {
 	teammatetasksectionDescUpdatedAt := teammatetasksectionMixinFields2[1].Descriptor()
 	// teammatetasksection.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	teammatetasksection.DefaultUpdatedAt = teammatetasksectionDescUpdatedAt.Default.(func() time.Time)
+	// teammatetasksection.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	teammatetasksection.UpdateDefaultUpdatedAt = teammatetasksectionDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// teammatetasksectionDescID is the schema descriptor for id field.
 	teammatetasksectionDescID := teammatetasksectionMixinFields0[0].Descriptor()
 	// teammatetasksection.DefaultID holds the default value on creation for the id field.
@@ -1346,6 +1434,8 @@ func init() {
 	teammatetasktabstatusDescUpdatedAt := teammatetasktabstatusMixinFields2[1].Descriptor()
 	// teammatetasktabstatus.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	teammatetasktabstatus.DefaultUpdatedAt = teammatetasktabstatusDescUpdatedAt.Default.(func() time.Time)
+	// teammatetasktabstatus.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	teammatetasktabstatus.UpdateDefaultUpdatedAt = teammatetasktabstatusDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// teammatetasktabstatusDescID is the schema descriptor for id field.
 	teammatetasktabstatusDescID := teammatetasktabstatusMixinFields0[0].Descriptor()
 	// teammatetasktabstatus.DefaultID holds the default value on creation for the id field.
@@ -1375,6 +1465,8 @@ func init() {
 	testtodoDescUpdatedAt := testtodoMixinFields2[1].Descriptor()
 	// testtodo.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	testtodo.DefaultUpdatedAt = testtodoDescUpdatedAt.Default.(func() time.Time)
+	// testtodo.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	testtodo.UpdateDefaultUpdatedAt = testtodoDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// testtodoDescID is the schema descriptor for id field.
 	testtodoDescID := testtodoMixinFields0[0].Descriptor()
 	// testtodo.DefaultID holds the default value on creation for the id field.
@@ -1414,6 +1506,8 @@ func init() {
 	testuserDescUpdatedAt := testuserMixinFields2[1].Descriptor()
 	// testuser.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	testuser.DefaultUpdatedAt = testuserDescUpdatedAt.Default.(func() time.Time)
+	// testuser.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	testuser.UpdateDefaultUpdatedAt = testuserDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// testuserDescID is the schema descriptor for id field.
 	testuserDescID := testuserMixinFields0[0].Descriptor()
 	// testuser.DefaultID holds the default value on creation for the id field.
@@ -1453,6 +1547,8 @@ func init() {
 	workspaceDescUpdatedAt := workspaceMixinFields2[1].Descriptor()
 	// workspace.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	workspace.DefaultUpdatedAt = workspaceDescUpdatedAt.Default.(func() time.Time)
+	// workspace.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	workspace.UpdateDefaultUpdatedAt = workspaceDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// workspaceDescID is the schema descriptor for id field.
 	workspaceDescID := workspaceMixinFields0[0].Descriptor()
 	// workspace.DefaultID holds the default value on creation for the id field.
@@ -1472,6 +1568,8 @@ func init() {
 	workspaceactivityDescUpdatedAt := workspaceactivityMixinFields2[1].Descriptor()
 	// workspaceactivity.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	workspaceactivity.DefaultUpdatedAt = workspaceactivityDescUpdatedAt.Default.(func() time.Time)
+	// workspaceactivity.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	workspaceactivity.UpdateDefaultUpdatedAt = workspaceactivityDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// workspaceactivityDescID is the schema descriptor for id field.
 	workspaceactivityDescID := workspaceactivityMixinFields0[0].Descriptor()
 	// workspaceactivity.DefaultID holds the default value on creation for the id field.
@@ -1491,6 +1589,8 @@ func init() {
 	workspaceactivitytaskDescUpdatedAt := workspaceactivitytaskMixinFields2[1].Descriptor()
 	// workspaceactivitytask.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	workspaceactivitytask.DefaultUpdatedAt = workspaceactivitytaskDescUpdatedAt.Default.(func() time.Time)
+	// workspaceactivitytask.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	workspaceactivitytask.UpdateDefaultUpdatedAt = workspaceactivitytaskDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// workspaceactivitytaskDescID is the schema descriptor for id field.
 	workspaceactivitytaskDescID := workspaceactivitytaskMixinFields0[0].Descriptor()
 	// workspaceactivitytask.DefaultID holds the default value on creation for the id field.
@@ -1516,6 +1616,8 @@ func init() {
 	workspaceteammateDescUpdatedAt := workspaceteammateMixinFields2[1].Descriptor()
 	// workspaceteammate.DefaultUpdatedAt holds the default value on creation for the updated_at field.
 	workspaceteammate.DefaultUpdatedAt = workspaceteammateDescUpdatedAt.Default.(func() time.Time)
+	// workspaceteammate.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	workspaceteammate.UpdateDefaultUpdatedAt = workspaceteammateDescUpdatedAt.UpdateDefault.(func() time.Time)
 	// workspaceteammateDescID is the schema descriptor for id field.
 	workspaceteammateDescID := workspaceteammateMixinFields0[0].Descriptor()
 	// workspaceteammate.DefaultID holds the default value on creation for the id field.

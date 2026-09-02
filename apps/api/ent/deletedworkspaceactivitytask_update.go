@@ -100,6 +100,12 @@ func (_u *DeletedWorkspaceActivityTaskUpdate) SetNillableWorkspaceActivityTaskUp
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedWorkspaceActivityTaskUpdate) SetUpdatedAt(v time.Time) *DeletedWorkspaceActivityTaskUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *DeletedWorkspaceActivityTaskUpdate) SetTask(v *Task) *DeletedWorkspaceActivityTaskUpdate {
 	return _u.SetTaskID(v.ID)
@@ -118,6 +124,7 @@ func (_u *DeletedWorkspaceActivityTaskUpdate) ClearTask() *DeletedWorkspaceActiv
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *DeletedWorkspaceActivityTaskUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -140,6 +147,14 @@ func (_u *DeletedWorkspaceActivityTaskUpdate) Exec(ctx context.Context) error {
 func (_u *DeletedWorkspaceActivityTaskUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *DeletedWorkspaceActivityTaskUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedworkspaceactivitytask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -174,6 +189,9 @@ func (_u *DeletedWorkspaceActivityTaskUpdate) sqlSave(ctx context.Context) (_nod
 	}
 	if value, ok := _u.mutation.WorkspaceActivityTaskUpdatedAt(); ok {
 		_spec.SetField(deletedworkspaceactivitytask.FieldWorkspaceActivityTaskUpdatedAt, field.TypeTime, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedworkspaceactivitytask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -294,6 +312,12 @@ func (_u *DeletedWorkspaceActivityTaskUpdateOne) SetNillableWorkspaceActivityTas
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedWorkspaceActivityTaskUpdateOne) SetUpdatedAt(v time.Time) *DeletedWorkspaceActivityTaskUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *DeletedWorkspaceActivityTaskUpdateOne) SetTask(v *Task) *DeletedWorkspaceActivityTaskUpdateOne {
 	return _u.SetTaskID(v.ID)
@@ -325,6 +349,7 @@ func (_u *DeletedWorkspaceActivityTaskUpdateOne) Select(field string, fields ...
 
 // Save executes the query and returns the updated DeletedWorkspaceActivityTask entity.
 func (_u *DeletedWorkspaceActivityTaskUpdateOne) Save(ctx context.Context) (*DeletedWorkspaceActivityTask, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -347,6 +372,14 @@ func (_u *DeletedWorkspaceActivityTaskUpdateOne) Exec(ctx context.Context) error
 func (_u *DeletedWorkspaceActivityTaskUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *DeletedWorkspaceActivityTaskUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedworkspaceactivitytask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -398,6 +431,9 @@ func (_u *DeletedWorkspaceActivityTaskUpdateOne) sqlSave(ctx context.Context) (_
 	}
 	if value, ok := _u.mutation.WorkspaceActivityTaskUpdatedAt(); ok {
 		_spec.SetField(deletedworkspaceactivitytask.FieldWorkspaceActivityTaskUpdatedAt, field.TypeTime, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedworkspaceactivitytask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{

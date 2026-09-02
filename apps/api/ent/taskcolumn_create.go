@@ -343,6 +343,18 @@ func (u *TaskColumnUpsert) UpdateType() *TaskColumnUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskColumnUpsert) SetUpdatedAt(v time.Time) *TaskColumnUpsert {
+	u.Set(taskcolumn.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskColumnUpsert) UpdateUpdatedAt() *TaskColumnUpsert {
+	u.SetExcluded(taskcolumn.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -362,9 +374,6 @@ func (u *TaskColumnUpsertOne) UpdateNewValues() *TaskColumnUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(taskcolumn.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(taskcolumn.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -422,6 +431,20 @@ func (u *TaskColumnUpsertOne) SetType(v taskcolumn.Type) *TaskColumnUpsertOne {
 func (u *TaskColumnUpsertOne) UpdateType() *TaskColumnUpsertOne {
 	return u.Update(func(s *TaskColumnUpsert) {
 		s.UpdateType()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskColumnUpsertOne) SetUpdatedAt(v time.Time) *TaskColumnUpsertOne {
+	return u.Update(func(s *TaskColumnUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskColumnUpsertOne) UpdateUpdatedAt() *TaskColumnUpsertOne {
+	return u.Update(func(s *TaskColumnUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -611,9 +634,6 @@ func (u *TaskColumnUpsertBulk) UpdateNewValues() *TaskColumnUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(taskcolumn.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(taskcolumn.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -671,6 +691,20 @@ func (u *TaskColumnUpsertBulk) SetType(v taskcolumn.Type) *TaskColumnUpsertBulk 
 func (u *TaskColumnUpsertBulk) UpdateType() *TaskColumnUpsertBulk {
 	return u.Update(func(s *TaskColumnUpsert) {
 		s.UpdateType()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskColumnUpsertBulk) SetUpdatedAt(v time.Time) *TaskColumnUpsertBulk {
+	return u.Update(func(s *TaskColumnUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskColumnUpsertBulk) UpdateUpdatedAt() *TaskColumnUpsertBulk {
+	return u.Update(func(s *TaskColumnUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

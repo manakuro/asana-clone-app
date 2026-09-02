@@ -901,6 +901,18 @@ func (u *ProjectUpsert) ClearDueDate() *ProjectUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectUpsert) SetUpdatedAt(v time.Time) *ProjectUpsert {
+	u.Set(project.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectUpsert) UpdateUpdatedAt() *ProjectUpsert {
+	u.SetExcluded(project.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -920,9 +932,6 @@ func (u *ProjectUpsertOne) UpdateNewValues() *ProjectUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(project.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(project.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -1085,6 +1094,20 @@ func (u *ProjectUpsertOne) UpdateDueDate() *ProjectUpsertOne {
 func (u *ProjectUpsertOne) ClearDueDate() *ProjectUpsertOne {
 	return u.Update(func(s *ProjectUpsert) {
 		s.ClearDueDate()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectUpsertOne) SetUpdatedAt(v time.Time) *ProjectUpsertOne {
+	return u.Update(func(s *ProjectUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectUpsertOne) UpdateUpdatedAt() *ProjectUpsertOne {
+	return u.Update(func(s *ProjectUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -1274,9 +1297,6 @@ func (u *ProjectUpsertBulk) UpdateNewValues() *ProjectUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(project.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(project.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -1439,6 +1459,20 @@ func (u *ProjectUpsertBulk) UpdateDueDate() *ProjectUpsertBulk {
 func (u *ProjectUpsertBulk) ClearDueDate() *ProjectUpsertBulk {
 	return u.Update(func(s *ProjectUpsert) {
 		s.ClearDueDate()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectUpsertBulk) SetUpdatedAt(v time.Time) *ProjectUpsertBulk {
+	return u.Update(func(s *ProjectUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectUpsertBulk) UpdateUpdatedAt() *ProjectUpsertBulk {
+	return u.Update(func(s *ProjectUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

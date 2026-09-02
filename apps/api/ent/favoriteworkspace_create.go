@@ -313,6 +313,18 @@ func (u *FavoriteWorkspaceUpsert) UpdateTeammateID() *FavoriteWorkspaceUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *FavoriteWorkspaceUpsert) SetUpdatedAt(v time.Time) *FavoriteWorkspaceUpsert {
+	u.Set(favoriteworkspace.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *FavoriteWorkspaceUpsert) UpdateUpdatedAt() *FavoriteWorkspaceUpsert {
+	u.SetExcluded(favoriteworkspace.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -332,9 +344,6 @@ func (u *FavoriteWorkspaceUpsertOne) UpdateNewValues() *FavoriteWorkspaceUpsertO
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(favoriteworkspace.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(favoriteworkspace.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -392,6 +401,20 @@ func (u *FavoriteWorkspaceUpsertOne) SetTeammateID(v ulid.ID) *FavoriteWorkspace
 func (u *FavoriteWorkspaceUpsertOne) UpdateTeammateID() *FavoriteWorkspaceUpsertOne {
 	return u.Update(func(s *FavoriteWorkspaceUpsert) {
 		s.UpdateTeammateID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *FavoriteWorkspaceUpsertOne) SetUpdatedAt(v time.Time) *FavoriteWorkspaceUpsertOne {
+	return u.Update(func(s *FavoriteWorkspaceUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *FavoriteWorkspaceUpsertOne) UpdateUpdatedAt() *FavoriteWorkspaceUpsertOne {
+	return u.Update(func(s *FavoriteWorkspaceUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -581,9 +604,6 @@ func (u *FavoriteWorkspaceUpsertBulk) UpdateNewValues() *FavoriteWorkspaceUpsert
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(favoriteworkspace.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(favoriteworkspace.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -641,6 +661,20 @@ func (u *FavoriteWorkspaceUpsertBulk) SetTeammateID(v ulid.ID) *FavoriteWorkspac
 func (u *FavoriteWorkspaceUpsertBulk) UpdateTeammateID() *FavoriteWorkspaceUpsertBulk {
 	return u.Update(func(s *FavoriteWorkspaceUpsert) {
 		s.UpdateTeammateID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *FavoriteWorkspaceUpsertBulk) SetUpdatedAt(v time.Time) *FavoriteWorkspaceUpsertBulk {
+	return u.Update(func(s *FavoriteWorkspaceUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *FavoriteWorkspaceUpsertBulk) UpdateUpdatedAt() *FavoriteWorkspaceUpsertBulk {
+	return u.Update(func(s *FavoriteWorkspaceUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

@@ -839,6 +839,18 @@ func (u *WorkspaceUpsert) UpdateDescription() *WorkspaceUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceUpsert) SetUpdatedAt(v time.Time) *WorkspaceUpsert {
+	u.Set(workspace.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceUpsert) UpdateUpdatedAt() *WorkspaceUpsert {
+	u.SetExcluded(workspace.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -858,9 +870,6 @@ func (u *WorkspaceUpsertOne) UpdateNewValues() *WorkspaceUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(workspace.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(workspace.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -932,6 +941,20 @@ func (u *WorkspaceUpsertOne) SetDescription(v map[string]interface{}) *Workspace
 func (u *WorkspaceUpsertOne) UpdateDescription() *WorkspaceUpsertOne {
 	return u.Update(func(s *WorkspaceUpsert) {
 		s.UpdateDescription()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceUpsertOne) SetUpdatedAt(v time.Time) *WorkspaceUpsertOne {
+	return u.Update(func(s *WorkspaceUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceUpsertOne) UpdateUpdatedAt() *WorkspaceUpsertOne {
+	return u.Update(func(s *WorkspaceUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -1121,9 +1144,6 @@ func (u *WorkspaceUpsertBulk) UpdateNewValues() *WorkspaceUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(workspace.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(workspace.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -1195,6 +1215,20 @@ func (u *WorkspaceUpsertBulk) SetDescription(v map[string]interface{}) *Workspac
 func (u *WorkspaceUpsertBulk) UpdateDescription() *WorkspaceUpsertBulk {
 	return u.Update(func(s *WorkspaceUpsert) {
 		s.UpdateDescription()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceUpsertBulk) SetUpdatedAt(v time.Time) *WorkspaceUpsertBulk {
+	return u.Update(func(s *WorkspaceUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceUpsertBulk) UpdateUpdatedAt() *WorkspaceUpsertBulk {
+	return u.Update(func(s *WorkspaceUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

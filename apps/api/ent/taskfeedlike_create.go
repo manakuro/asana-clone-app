@@ -366,6 +366,18 @@ func (u *TaskFeedLikeUpsert) UpdateTaskFeedID() *TaskFeedLikeUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskFeedLikeUpsert) SetUpdatedAt(v time.Time) *TaskFeedLikeUpsert {
+	u.Set(taskfeedlike.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskFeedLikeUpsert) UpdateUpdatedAt() *TaskFeedLikeUpsert {
+	u.SetExcluded(taskfeedlike.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -385,9 +397,6 @@ func (u *TaskFeedLikeUpsertOne) UpdateNewValues() *TaskFeedLikeUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(taskfeedlike.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(taskfeedlike.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -459,6 +468,20 @@ func (u *TaskFeedLikeUpsertOne) SetTaskFeedID(v ulid.ID) *TaskFeedLikeUpsertOne 
 func (u *TaskFeedLikeUpsertOne) UpdateTaskFeedID() *TaskFeedLikeUpsertOne {
 	return u.Update(func(s *TaskFeedLikeUpsert) {
 		s.UpdateTaskFeedID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskFeedLikeUpsertOne) SetUpdatedAt(v time.Time) *TaskFeedLikeUpsertOne {
+	return u.Update(func(s *TaskFeedLikeUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskFeedLikeUpsertOne) UpdateUpdatedAt() *TaskFeedLikeUpsertOne {
+	return u.Update(func(s *TaskFeedLikeUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -648,9 +671,6 @@ func (u *TaskFeedLikeUpsertBulk) UpdateNewValues() *TaskFeedLikeUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(taskfeedlike.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(taskfeedlike.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -722,6 +742,20 @@ func (u *TaskFeedLikeUpsertBulk) SetTaskFeedID(v ulid.ID) *TaskFeedLikeUpsertBul
 func (u *TaskFeedLikeUpsertBulk) UpdateTaskFeedID() *TaskFeedLikeUpsertBulk {
 	return u.Update(func(s *TaskFeedLikeUpsert) {
 		s.UpdateTaskFeedID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskFeedLikeUpsertBulk) SetUpdatedAt(v time.Time) *TaskFeedLikeUpsertBulk {
+	return u.Update(func(s *TaskFeedLikeUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskFeedLikeUpsertBulk) UpdateUpdatedAt() *TaskFeedLikeUpsertBulk {
+	return u.Update(func(s *TaskFeedLikeUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

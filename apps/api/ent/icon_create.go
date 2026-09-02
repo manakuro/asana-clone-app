@@ -311,6 +311,18 @@ func (u *IconUpsert) UpdateIcon() *IconUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *IconUpsert) SetUpdatedAt(v time.Time) *IconUpsert {
+	u.Set(icon.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *IconUpsert) UpdateUpdatedAt() *IconUpsert {
+	u.SetExcluded(icon.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -330,9 +342,6 @@ func (u *IconUpsertOne) UpdateNewValues() *IconUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(icon.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(icon.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -390,6 +399,20 @@ func (u *IconUpsertOne) SetIcon(v string) *IconUpsertOne {
 func (u *IconUpsertOne) UpdateIcon() *IconUpsertOne {
 	return u.Update(func(s *IconUpsert) {
 		s.UpdateIcon()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *IconUpsertOne) SetUpdatedAt(v time.Time) *IconUpsertOne {
+	return u.Update(func(s *IconUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *IconUpsertOne) UpdateUpdatedAt() *IconUpsertOne {
+	return u.Update(func(s *IconUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -579,9 +602,6 @@ func (u *IconUpsertBulk) UpdateNewValues() *IconUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(icon.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(icon.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -639,6 +659,20 @@ func (u *IconUpsertBulk) SetIcon(v string) *IconUpsertBulk {
 func (u *IconUpsertBulk) UpdateIcon() *IconUpsertBulk {
 	return u.Update(func(s *IconUpsert) {
 		s.UpdateIcon()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *IconUpsertBulk) SetUpdatedAt(v time.Time) *IconUpsertBulk {
+	return u.Update(func(s *IconUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *IconUpsertBulk) UpdateUpdatedAt() *IconUpsertBulk {
+	return u.Update(func(s *IconUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

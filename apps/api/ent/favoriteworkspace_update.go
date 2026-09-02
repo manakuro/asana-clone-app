@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/schema/ulid"
 	"project-management-demo-backend/ent/teammate"
 	"project-management-demo-backend/ent/workspace"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -58,6 +59,12 @@ func (_u *FavoriteWorkspaceUpdate) SetNillableTeammateID(v *ulid.ID) *FavoriteWo
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *FavoriteWorkspaceUpdate) SetUpdatedAt(v time.Time) *FavoriteWorkspaceUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetWorkspace sets the "workspace" edge to the Workspace entity.
 func (_u *FavoriteWorkspaceUpdate) SetWorkspace(v *Workspace) *FavoriteWorkspaceUpdate {
 	return _u.SetWorkspaceID(v.ID)
@@ -87,6 +94,7 @@ func (_u *FavoriteWorkspaceUpdate) ClearTeammate() *FavoriteWorkspaceUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *FavoriteWorkspaceUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -112,6 +120,14 @@ func (_u *FavoriteWorkspaceUpdate) ExecX(ctx context.Context) {
 	}
 }
 
+// defaults sets the default values of the builder before save.
+func (_u *FavoriteWorkspaceUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := favoriteworkspace.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
+	}
+}
+
 // check runs all checks and user-defined validators on the builder.
 func (_u *FavoriteWorkspaceUpdate) check() error {
 	if _u.mutation.WorkspaceCleared() && len(_u.mutation.WorkspaceIDs()) > 0 {
@@ -134,6 +150,9 @@ func (_u *FavoriteWorkspaceUpdate) sqlSave(ctx context.Context) (_node int, err 
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(favoriteworkspace.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -241,6 +260,12 @@ func (_u *FavoriteWorkspaceUpdateOne) SetNillableTeammateID(v *ulid.ID) *Favorit
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *FavoriteWorkspaceUpdateOne) SetUpdatedAt(v time.Time) *FavoriteWorkspaceUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetWorkspace sets the "workspace" edge to the Workspace entity.
 func (_u *FavoriteWorkspaceUpdateOne) SetWorkspace(v *Workspace) *FavoriteWorkspaceUpdateOne {
 	return _u.SetWorkspaceID(v.ID)
@@ -283,6 +308,7 @@ func (_u *FavoriteWorkspaceUpdateOne) Select(field string, fields ...string) *Fa
 
 // Save executes the query and returns the updated FavoriteWorkspace entity.
 func (_u *FavoriteWorkspaceUpdateOne) Save(ctx context.Context) (*FavoriteWorkspace, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -305,6 +331,14 @@ func (_u *FavoriteWorkspaceUpdateOne) Exec(ctx context.Context) error {
 func (_u *FavoriteWorkspaceUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *FavoriteWorkspaceUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := favoriteworkspace.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -347,6 +381,9 @@ func (_u *FavoriteWorkspaceUpdateOne) sqlSave(ctx context.Context) (_node *Favor
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(favoriteworkspace.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{

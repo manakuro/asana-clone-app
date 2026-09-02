@@ -413,6 +413,18 @@ func (u *DeletedProjectTaskUpsert) UpdateProjectTaskUpdatedAt() *DeletedProjectT
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedProjectTaskUpsert) SetUpdatedAt(v time.Time) *DeletedProjectTaskUpsert {
+	u.Set(deletedprojecttask.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedProjectTaskUpsert) UpdateUpdatedAt() *DeletedProjectTaskUpsert {
+	u.SetExcluded(deletedprojecttask.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -432,9 +444,6 @@ func (u *DeletedProjectTaskUpsertOne) UpdateNewValues() *DeletedProjectTaskUpser
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(deletedprojecttask.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(deletedprojecttask.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -548,6 +557,20 @@ func (u *DeletedProjectTaskUpsertOne) SetProjectTaskUpdatedAt(v time.Time) *Dele
 func (u *DeletedProjectTaskUpsertOne) UpdateProjectTaskUpdatedAt() *DeletedProjectTaskUpsertOne {
 	return u.Update(func(s *DeletedProjectTaskUpsert) {
 		s.UpdateProjectTaskUpdatedAt()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedProjectTaskUpsertOne) SetUpdatedAt(v time.Time) *DeletedProjectTaskUpsertOne {
+	return u.Update(func(s *DeletedProjectTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedProjectTaskUpsertOne) UpdateUpdatedAt() *DeletedProjectTaskUpsertOne {
+	return u.Update(func(s *DeletedProjectTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -737,9 +760,6 @@ func (u *DeletedProjectTaskUpsertBulk) UpdateNewValues() *DeletedProjectTaskUpse
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(deletedprojecttask.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(deletedprojecttask.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -853,6 +873,20 @@ func (u *DeletedProjectTaskUpsertBulk) SetProjectTaskUpdatedAt(v time.Time) *Del
 func (u *DeletedProjectTaskUpsertBulk) UpdateProjectTaskUpdatedAt() *DeletedProjectTaskUpsertBulk {
 	return u.Update(func(s *DeletedProjectTaskUpsert) {
 		s.UpdateProjectTaskUpdatedAt()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *DeletedProjectTaskUpsertBulk) SetUpdatedAt(v time.Time) *DeletedProjectTaskUpsertBulk {
+	return u.Update(func(s *DeletedProjectTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *DeletedProjectTaskUpsertBulk) UpdateUpdatedAt() *DeletedProjectTaskUpsertBulk {
+	return u.Update(func(s *DeletedProjectTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

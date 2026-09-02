@@ -168,6 +168,12 @@ func (_u *ProjectUpdate) ClearDueDate() *ProjectUpdate {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectUpdate) SetUpdatedAt(v time.Time) *ProjectUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetWorkspace sets the "workspace" edge to the Workspace entity.
 func (_u *ProjectUpdate) SetWorkspace(v *Workspace) *ProjectUpdate {
 	return _u.SetWorkspaceID(v.ID)
@@ -596,6 +602,7 @@ func (_u *ProjectUpdate) RemoveDeletedProjectTasks(v ...*DeletedProjectTask) *Pr
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ProjectUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -618,6 +625,14 @@ func (_u *ProjectUpdate) Exec(ctx context.Context) error {
 func (_u *ProjectUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := project.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -677,6 +692,9 @@ func (_u *ProjectUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if _u.mutation.DueDateCleared() {
 		_spec.ClearField(project.FieldDueDate, field.TypeTime)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(project.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -1417,6 +1435,12 @@ func (_u *ProjectUpdateOne) ClearDueDate() *ProjectUpdateOne {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectUpdateOne) SetUpdatedAt(v time.Time) *ProjectUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetWorkspace sets the "workspace" edge to the Workspace entity.
 func (_u *ProjectUpdateOne) SetWorkspace(v *Workspace) *ProjectUpdateOne {
 	return _u.SetWorkspaceID(v.ID)
@@ -1858,6 +1882,7 @@ func (_u *ProjectUpdateOne) Select(field string, fields ...string) *ProjectUpdat
 
 // Save executes the query and returns the updated Project entity.
 func (_u *ProjectUpdateOne) Save(ctx context.Context) (*Project, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -1880,6 +1905,14 @@ func (_u *ProjectUpdateOne) Exec(ctx context.Context) error {
 func (_u *ProjectUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := project.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -1956,6 +1989,9 @@ func (_u *ProjectUpdateOne) sqlSave(ctx context.Context) (_node *Project, err er
 	}
 	if _u.mutation.DueDateCleared() {
 		_spec.ClearField(project.FieldDueDate, field.TypeTime)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(project.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{

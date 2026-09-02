@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/schema/ulid"
 	"project-management-demo-backend/ent/task"
 	"project-management-demo-backend/ent/workspace"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -58,6 +59,12 @@ func (_u *DeletedTaskUpdate) SetNillableWorkspaceID(v *ulid.ID) *DeletedTaskUpda
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedTaskUpdate) SetUpdatedAt(v time.Time) *DeletedTaskUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *DeletedTaskUpdate) SetTask(v *Task) *DeletedTaskUpdate {
 	return _u.SetTaskID(v.ID)
@@ -87,6 +94,7 @@ func (_u *DeletedTaskUpdate) ClearWorkspace() *DeletedTaskUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *DeletedTaskUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -112,6 +120,14 @@ func (_u *DeletedTaskUpdate) ExecX(ctx context.Context) {
 	}
 }
 
+// defaults sets the default values of the builder before save.
+func (_u *DeletedTaskUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedtask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
+	}
+}
+
 // check runs all checks and user-defined validators on the builder.
 func (_u *DeletedTaskUpdate) check() error {
 	if _u.mutation.TaskCleared() && len(_u.mutation.TaskIDs()) > 0 {
@@ -134,6 +150,9 @@ func (_u *DeletedTaskUpdate) sqlSave(ctx context.Context) (_node int, err error)
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedtask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -241,6 +260,12 @@ func (_u *DeletedTaskUpdateOne) SetNillableWorkspaceID(v *ulid.ID) *DeletedTaskU
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedTaskUpdateOne) SetUpdatedAt(v time.Time) *DeletedTaskUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *DeletedTaskUpdateOne) SetTask(v *Task) *DeletedTaskUpdateOne {
 	return _u.SetTaskID(v.ID)
@@ -283,6 +308,7 @@ func (_u *DeletedTaskUpdateOne) Select(field string, fields ...string) *DeletedT
 
 // Save executes the query and returns the updated DeletedTask entity.
 func (_u *DeletedTaskUpdateOne) Save(ctx context.Context) (*DeletedTask, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -305,6 +331,14 @@ func (_u *DeletedTaskUpdateOne) Exec(ctx context.Context) error {
 func (_u *DeletedTaskUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *DeletedTaskUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedtask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -347,6 +381,9 @@ func (_u *DeletedTaskUpdateOne) sqlSave(ctx context.Context) (_node *DeletedTask
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedtask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{

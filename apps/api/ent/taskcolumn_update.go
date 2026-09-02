@@ -11,6 +11,7 @@ import (
 	"project-management-demo-backend/ent/schema/ulid"
 	"project-management-demo-backend/ent/taskcolumn"
 	"project-management-demo-backend/ent/teammatetaskcolumn"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -55,6 +56,12 @@ func (_u *TaskColumnUpdate) SetNillableType(v *taskcolumn.Type) *TaskColumnUpdat
 	if v != nil {
 		_u.SetType(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskColumnUpdate) SetUpdatedAt(v time.Time) *TaskColumnUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -137,6 +144,7 @@ func (_u *TaskColumnUpdate) RemoveProjectTaskColumns(v ...*ProjectTaskColumn) *T
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskColumnUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -159,6 +167,14 @@ func (_u *TaskColumnUpdate) Exec(ctx context.Context) error {
 func (_u *TaskColumnUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskColumnUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskcolumn.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -194,6 +210,9 @@ func (_u *TaskColumnUpdate) sqlSave(ctx context.Context) (_node int, err error) 
 	}
 	if value, ok := _u.mutation.GetType(); ok {
 		_spec.SetField(taskcolumn.FieldType, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskcolumn.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateTaskColumnsCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -333,6 +352,12 @@ func (_u *TaskColumnUpdateOne) SetNillableType(v *taskcolumn.Type) *TaskColumnUp
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskColumnUpdateOne) SetUpdatedAt(v time.Time) *TaskColumnUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddTeammateTaskColumnIDs adds the "teammateTaskColumns" edge to the TeammateTaskColumn entity by IDs.
 func (_u *TaskColumnUpdateOne) AddTeammateTaskColumnIDs(ids ...ulid.ID) *TaskColumnUpdateOne {
 	_u.mutation.AddTeammateTaskColumnIDs(ids...)
@@ -425,6 +450,7 @@ func (_u *TaskColumnUpdateOne) Select(field string, fields ...string) *TaskColum
 
 // Save executes the query and returns the updated TaskColumn entity.
 func (_u *TaskColumnUpdateOne) Save(ctx context.Context) (*TaskColumn, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -447,6 +473,14 @@ func (_u *TaskColumnUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskColumnUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskColumnUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskcolumn.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -499,6 +533,9 @@ func (_u *TaskColumnUpdateOne) sqlSave(ctx context.Context) (_node *TaskColumn, 
 	}
 	if value, ok := _u.mutation.GetType(); ok {
 		_spec.SetField(taskcolumn.FieldType, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskcolumn.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateTaskColumnsCleared() {
 		edge := &sqlgraph.EdgeSpec{

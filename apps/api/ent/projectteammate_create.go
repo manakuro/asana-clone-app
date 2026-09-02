@@ -368,6 +368,18 @@ func (u *ProjectTeammateUpsert) UpdateIsOwner() *ProjectTeammateUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectTeammateUpsert) SetUpdatedAt(v time.Time) *ProjectTeammateUpsert {
+	u.Set(projectteammate.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectTeammateUpsert) UpdateUpdatedAt() *ProjectTeammateUpsert {
+	u.SetExcluded(projectteammate.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -387,9 +399,6 @@ func (u *ProjectTeammateUpsertOne) UpdateNewValues() *ProjectTeammateUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(projectteammate.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(projectteammate.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -475,6 +484,20 @@ func (u *ProjectTeammateUpsertOne) SetIsOwner(v bool) *ProjectTeammateUpsertOne 
 func (u *ProjectTeammateUpsertOne) UpdateIsOwner() *ProjectTeammateUpsertOne {
 	return u.Update(func(s *ProjectTeammateUpsert) {
 		s.UpdateIsOwner()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectTeammateUpsertOne) SetUpdatedAt(v time.Time) *ProjectTeammateUpsertOne {
+	return u.Update(func(s *ProjectTeammateUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectTeammateUpsertOne) UpdateUpdatedAt() *ProjectTeammateUpsertOne {
+	return u.Update(func(s *ProjectTeammateUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -664,9 +687,6 @@ func (u *ProjectTeammateUpsertBulk) UpdateNewValues() *ProjectTeammateUpsertBulk
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(projectteammate.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(projectteammate.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -752,6 +772,20 @@ func (u *ProjectTeammateUpsertBulk) SetIsOwner(v bool) *ProjectTeammateUpsertBul
 func (u *ProjectTeammateUpsertBulk) UpdateIsOwner() *ProjectTeammateUpsertBulk {
 	return u.Update(func(s *ProjectTeammateUpsert) {
 		s.UpdateIsOwner()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectTeammateUpsertBulk) SetUpdatedAt(v time.Time) *ProjectTeammateUpsertBulk {
+	return u.Update(func(s *ProjectTeammateUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectTeammateUpsertBulk) UpdateUpdatedAt() *ProjectTeammateUpsertBulk {
+	return u.Update(func(s *ProjectTeammateUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

@@ -1248,6 +1248,18 @@ func (u *TaskUpsert) UpdateDescription() *TaskUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskUpsert) SetUpdatedAt(v time.Time) *TaskUpsert {
+	u.Set(task.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskUpsert) UpdateUpdatedAt() *TaskUpsert {
+	u.SetExcluded(task.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -1267,9 +1279,6 @@ func (u *TaskUpsertOne) UpdateNewValues() *TaskUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(task.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(task.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -1498,6 +1507,20 @@ func (u *TaskUpsertOne) UpdateDescription() *TaskUpsertOne {
 	})
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskUpsertOne) SetUpdatedAt(v time.Time) *TaskUpsertOne {
+	return u.Update(func(s *TaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskUpsertOne) UpdateUpdatedAt() *TaskUpsertOne {
+	return u.Update(func(s *TaskUpsert) {
+		s.UpdateUpdatedAt()
+	})
+}
+
 // Exec executes the query.
 func (u *TaskUpsertOne) Exec(ctx context.Context) error {
 	if len(u.create.conflict) == 0 {
@@ -1683,9 +1706,6 @@ func (u *TaskUpsertBulk) UpdateNewValues() *TaskUpsertBulk {
 			}
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(task.FieldCreatedAt)
-			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(task.FieldUpdatedAt)
 			}
 		}
 	}))
@@ -1912,6 +1932,20 @@ func (u *TaskUpsertBulk) SetDescription(v map[string]interface{}) *TaskUpsertBul
 func (u *TaskUpsertBulk) UpdateDescription() *TaskUpsertBulk {
 	return u.Update(func(s *TaskUpsert) {
 		s.UpdateDescription()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskUpsertBulk) SetUpdatedAt(v time.Time) *TaskUpsertBulk {
+	return u.Update(func(s *TaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskUpsertBulk) UpdateUpdatedAt() *TaskUpsertBulk {
+	return u.Update(func(s *TaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

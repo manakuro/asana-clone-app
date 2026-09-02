@@ -10,6 +10,7 @@ import (
 	"project-management-demo-backend/ent/predicate"
 	"project-management-demo-backend/ent/schema/ulid"
 	"project-management-demo-backend/ent/taskfile"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -57,6 +58,12 @@ func (_u *FileTypeUpdate) SetNillableTypeCode(v *filetype.TypeCode) *FileTypeUpd
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *FileTypeUpdate) SetUpdatedAt(v time.Time) *FileTypeUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddTaskFileIDs adds the "taskFiles" edge to the TaskFile entity by IDs.
 func (_u *FileTypeUpdate) AddTaskFileIDs(ids ...ulid.ID) *FileTypeUpdate {
 	_u.mutation.AddTaskFileIDs(ids...)
@@ -100,6 +107,7 @@ func (_u *FileTypeUpdate) RemoveTaskFiles(v ...*TaskFile) *FileTypeUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *FileTypeUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -122,6 +130,14 @@ func (_u *FileTypeUpdate) Exec(ctx context.Context) error {
 func (_u *FileTypeUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *FileTypeUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := filetype.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -157,6 +173,9 @@ func (_u *FileTypeUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.TypeCode(); ok {
 		_spec.SetField(filetype.FieldTypeCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(filetype.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskFilesCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -251,6 +270,12 @@ func (_u *FileTypeUpdateOne) SetNillableTypeCode(v *filetype.TypeCode) *FileType
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *FileTypeUpdateOne) SetUpdatedAt(v time.Time) *FileTypeUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddTaskFileIDs adds the "taskFiles" edge to the TaskFile entity by IDs.
 func (_u *FileTypeUpdateOne) AddTaskFileIDs(ids ...ulid.ID) *FileTypeUpdateOne {
 	_u.mutation.AddTaskFileIDs(ids...)
@@ -307,6 +332,7 @@ func (_u *FileTypeUpdateOne) Select(field string, fields ...string) *FileTypeUpd
 
 // Save executes the query and returns the updated FileType entity.
 func (_u *FileTypeUpdateOne) Save(ctx context.Context) (*FileType, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -329,6 +355,14 @@ func (_u *FileTypeUpdateOne) Exec(ctx context.Context) error {
 func (_u *FileTypeUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *FileTypeUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := filetype.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -381,6 +415,9 @@ func (_u *FileTypeUpdateOne) sqlSave(ctx context.Context) (_node *FileType, err 
 	}
 	if value, ok := _u.mutation.TypeCode(); ok {
 		_spec.SetField(filetype.FieldTypeCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(filetype.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskFilesCleared() {
 		edge := &sqlgraph.EdgeSpec{

@@ -407,6 +407,18 @@ func (u *TeammateTaskListStatusUpsert) UpdateTaskListSortStatusID() *TeammateTas
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskListStatusUpsert) SetUpdatedAt(v time.Time) *TeammateTaskListStatusUpsert {
+	u.Set(teammatetaskliststatus.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskListStatusUpsert) UpdateUpdatedAt() *TeammateTaskListStatusUpsert {
+	u.SetExcluded(teammatetaskliststatus.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -426,9 +438,6 @@ func (u *TeammateTaskListStatusUpsertOne) UpdateNewValues() *TeammateTaskListSta
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(teammatetaskliststatus.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(teammatetaskliststatus.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -514,6 +523,20 @@ func (u *TeammateTaskListStatusUpsertOne) SetTaskListSortStatusID(v ulid.ID) *Te
 func (u *TeammateTaskListStatusUpsertOne) UpdateTaskListSortStatusID() *TeammateTaskListStatusUpsertOne {
 	return u.Update(func(s *TeammateTaskListStatusUpsert) {
 		s.UpdateTaskListSortStatusID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskListStatusUpsertOne) SetUpdatedAt(v time.Time) *TeammateTaskListStatusUpsertOne {
+	return u.Update(func(s *TeammateTaskListStatusUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskListStatusUpsertOne) UpdateUpdatedAt() *TeammateTaskListStatusUpsertOne {
+	return u.Update(func(s *TeammateTaskListStatusUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -703,9 +726,6 @@ func (u *TeammateTaskListStatusUpsertBulk) UpdateNewValues() *TeammateTaskListSt
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(teammatetaskliststatus.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(teammatetaskliststatus.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -791,6 +811,20 @@ func (u *TeammateTaskListStatusUpsertBulk) SetTaskListSortStatusID(v ulid.ID) *T
 func (u *TeammateTaskListStatusUpsertBulk) UpdateTaskListSortStatusID() *TeammateTaskListStatusUpsertBulk {
 	return u.Update(func(s *TeammateTaskListStatusUpsert) {
 		s.UpdateTaskListSortStatusID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskListStatusUpsertBulk) SetUpdatedAt(v time.Time) *TeammateTaskListStatusUpsertBulk {
+	return u.Update(func(s *TeammateTaskListStatusUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskListStatusUpsertBulk) UpdateUpdatedAt() *TeammateTaskListStatusUpsertBulk {
+	return u.Update(func(s *TeammateTaskListStatusUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

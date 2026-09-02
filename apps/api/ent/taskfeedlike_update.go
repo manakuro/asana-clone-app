@@ -12,6 +12,7 @@ import (
 	"project-management-demo-backend/ent/taskfeed"
 	"project-management-demo-backend/ent/taskfeedlike"
 	"project-management-demo-backend/ent/teammate"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -73,6 +74,12 @@ func (_u *TaskFeedLikeUpdate) SetNillableTaskFeedID(v *ulid.ID) *TaskFeedLikeUpd
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskFeedLikeUpdate) SetUpdatedAt(v time.Time) *TaskFeedLikeUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *TaskFeedLikeUpdate) SetTask(v *Task) *TaskFeedLikeUpdate {
 	return _u.SetTaskID(v.ID)
@@ -119,6 +126,7 @@ func (_u *TaskFeedLikeUpdate) ClearFeed() *TaskFeedLikeUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskFeedLikeUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -141,6 +149,14 @@ func (_u *TaskFeedLikeUpdate) Exec(ctx context.Context) error {
 func (_u *TaskFeedLikeUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskFeedLikeUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskfeedlike.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -169,6 +185,9 @@ func (_u *TaskFeedLikeUpdate) sqlSave(ctx context.Context) (_node int, err error
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskfeedlike.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -319,6 +338,12 @@ func (_u *TaskFeedLikeUpdateOne) SetNillableTaskFeedID(v *ulid.ID) *TaskFeedLike
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskFeedLikeUpdateOne) SetUpdatedAt(v time.Time) *TaskFeedLikeUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *TaskFeedLikeUpdateOne) SetTask(v *Task) *TaskFeedLikeUpdateOne {
 	return _u.SetTaskID(v.ID)
@@ -378,6 +403,7 @@ func (_u *TaskFeedLikeUpdateOne) Select(field string, fields ...string) *TaskFee
 
 // Save executes the query and returns the updated TaskFeedLike entity.
 func (_u *TaskFeedLikeUpdateOne) Save(ctx context.Context) (*TaskFeedLike, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -400,6 +426,14 @@ func (_u *TaskFeedLikeUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskFeedLikeUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskFeedLikeUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskfeedlike.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -445,6 +479,9 @@ func (_u *TaskFeedLikeUpdateOne) sqlSave(ctx context.Context) (_node *TaskFeedLi
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskfeedlike.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{

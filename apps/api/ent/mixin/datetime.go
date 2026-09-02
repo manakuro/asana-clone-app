@@ -25,14 +25,14 @@ func (m DatetimeMixin) Fields() []ent.Field {
 		field.Time("created_at").
 			Default(time.Now).
 			SchemaType(map[string]string{
-				dialect.MySQL: "datetime DEFAULT CURRENT_TIMESTAMP",
+				dialect.MySQL: "datetime",
 			}).
 			Immutable(),
 		field.Time("updated_at").
 			Default(time.Now).
+			UpdateDefault(time.Now).
 			SchemaType(map[string]string{
-				dialect.MySQL: "datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
-			}).
-			Immutable(),
+				dialect.MySQL: "datetime",
+			}),
 	}
 }

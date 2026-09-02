@@ -298,6 +298,18 @@ func (u *ProjectIconUpsert) UpdateIconID() *ProjectIconUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectIconUpsert) SetUpdatedAt(v time.Time) *ProjectIconUpsert {
+	u.Set(projecticon.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectIconUpsert) UpdateUpdatedAt() *ProjectIconUpsert {
+	u.SetExcluded(projecticon.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -317,9 +329,6 @@ func (u *ProjectIconUpsertOne) UpdateNewValues() *ProjectIconUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(projecticon.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(projecticon.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -363,6 +372,20 @@ func (u *ProjectIconUpsertOne) SetIconID(v ulid.ID) *ProjectIconUpsertOne {
 func (u *ProjectIconUpsertOne) UpdateIconID() *ProjectIconUpsertOne {
 	return u.Update(func(s *ProjectIconUpsert) {
 		s.UpdateIconID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectIconUpsertOne) SetUpdatedAt(v time.Time) *ProjectIconUpsertOne {
+	return u.Update(func(s *ProjectIconUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectIconUpsertOne) UpdateUpdatedAt() *ProjectIconUpsertOne {
+	return u.Update(func(s *ProjectIconUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -552,9 +575,6 @@ func (u *ProjectIconUpsertBulk) UpdateNewValues() *ProjectIconUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(projecticon.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(projecticon.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -598,6 +618,20 @@ func (u *ProjectIconUpsertBulk) SetIconID(v ulid.ID) *ProjectIconUpsertBulk {
 func (u *ProjectIconUpsertBulk) UpdateIconID() *ProjectIconUpsertBulk {
 	return u.Update(func(s *ProjectIconUpsert) {
 		s.UpdateIconID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectIconUpsertBulk) SetUpdatedAt(v time.Time) *ProjectIconUpsertBulk {
+	return u.Update(func(s *ProjectIconUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectIconUpsertBulk) UpdateUpdatedAt() *ProjectIconUpsertBulk {
+	return u.Update(func(s *ProjectIconUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

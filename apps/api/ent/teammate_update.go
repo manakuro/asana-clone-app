@@ -30,6 +30,7 @@ import (
 	"project-management-demo-backend/ent/workspace"
 	"project-management-demo-backend/ent/workspaceactivity"
 	"project-management-demo-backend/ent/workspaceteammate"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -88,6 +89,12 @@ func (_u *TeammateUpdate) SetNillableEmail(v *string) *TeammateUpdate {
 	if v != nil {
 		_u.SetEmail(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TeammateUpdate) SetUpdatedAt(v time.Time) *TeammateUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -854,6 +861,7 @@ func (_u *TeammateUpdate) RemoveDeletedTeammateTasks(v ...*DeletedTeammateTask) 
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TeammateUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -876,6 +884,14 @@ func (_u *TeammateUpdate) Exec(ctx context.Context) error {
 func (_u *TeammateUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TeammateUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := teammate.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -919,6 +935,9 @@ func (_u *TeammateUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.Email(); ok {
 		_spec.SetField(teammate.FieldEmail, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(teammate.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspacesCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -1927,6 +1946,12 @@ func (_u *TeammateUpdateOne) SetNillableEmail(v *string) *TeammateUpdateOne {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TeammateUpdateOne) SetUpdatedAt(v time.Time) *TeammateUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddWorkspaceIDs adds the "workspaces" edge to the Workspace entity by IDs.
 func (_u *TeammateUpdateOne) AddWorkspaceIDs(ids ...ulid.ID) *TeammateUpdateOne {
 	_u.mutation.AddWorkspaceIDs(ids...)
@@ -2703,6 +2728,7 @@ func (_u *TeammateUpdateOne) Select(field string, fields ...string) *TeammateUpd
 
 // Save executes the query and returns the updated Teammate entity.
 func (_u *TeammateUpdateOne) Save(ctx context.Context) (*Teammate, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -2725,6 +2751,14 @@ func (_u *TeammateUpdateOne) Exec(ctx context.Context) error {
 func (_u *TeammateUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TeammateUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := teammate.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -2785,6 +2819,9 @@ func (_u *TeammateUpdateOne) sqlSave(ctx context.Context) (_node *Teammate, err 
 	}
 	if value, ok := _u.mutation.Email(); ok {
 		_spec.SetField(teammate.FieldEmail, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(teammate.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspacesCleared() {
 		edge := &sqlgraph.EdgeSpec{

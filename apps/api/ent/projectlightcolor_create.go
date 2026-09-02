@@ -298,6 +298,18 @@ func (u *ProjectLightColorUpsert) UpdateColorID() *ProjectLightColorUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectLightColorUpsert) SetUpdatedAt(v time.Time) *ProjectLightColorUpsert {
+	u.Set(projectlightcolor.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectLightColorUpsert) UpdateUpdatedAt() *ProjectLightColorUpsert {
+	u.SetExcluded(projectlightcolor.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -317,9 +329,6 @@ func (u *ProjectLightColorUpsertOne) UpdateNewValues() *ProjectLightColorUpsertO
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(projectlightcolor.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(projectlightcolor.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -363,6 +372,20 @@ func (u *ProjectLightColorUpsertOne) SetColorID(v ulid.ID) *ProjectLightColorUps
 func (u *ProjectLightColorUpsertOne) UpdateColorID() *ProjectLightColorUpsertOne {
 	return u.Update(func(s *ProjectLightColorUpsert) {
 		s.UpdateColorID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectLightColorUpsertOne) SetUpdatedAt(v time.Time) *ProjectLightColorUpsertOne {
+	return u.Update(func(s *ProjectLightColorUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectLightColorUpsertOne) UpdateUpdatedAt() *ProjectLightColorUpsertOne {
+	return u.Update(func(s *ProjectLightColorUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -552,9 +575,6 @@ func (u *ProjectLightColorUpsertBulk) UpdateNewValues() *ProjectLightColorUpsert
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(projectlightcolor.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(projectlightcolor.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -598,6 +618,20 @@ func (u *ProjectLightColorUpsertBulk) SetColorID(v ulid.ID) *ProjectLightColorUp
 func (u *ProjectLightColorUpsertBulk) UpdateColorID() *ProjectLightColorUpsertBulk {
 	return u.Update(func(s *ProjectLightColorUpsert) {
 		s.UpdateColorID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectLightColorUpsertBulk) SetUpdatedAt(v time.Time) *ProjectLightColorUpsertBulk {
+	return u.Update(func(s *ProjectLightColorUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectLightColorUpsertBulk) UpdateUpdatedAt() *ProjectLightColorUpsertBulk {
+	return u.Update(func(s *ProjectLightColorUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
