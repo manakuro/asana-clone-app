@@ -1,4 +1,4 @@
-name: 【react-native】EAS Build (Preview)
+name: 【react-native】EAS Build & Update (Preview)
 
 on:
   push:
@@ -9,10 +9,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     env:
       SAFE_CHAIN_LOGGING: silent
+    concurrency:
+      group: react-native-eas-deploy-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup monorepo
@@ -22,23 +24,31 @@ jobs:
         with:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
-      - name: Build on EAS (preview)
-        working-directory: apps/react-native
-        run: |
-          eas build \
-            --platform android \
-            --profile preview \
-            --non-interactive \
-            --no-wait \
-            --json > build-output.json
-          BUILD_ID=$(jq -r '.[0].id' build-output.json)
-          echo "BUILD_URL=https://expo.dev/accounts/manakuro-team/projects/asana-clone-app/builds/$BUILD_ID" >> $GITHUB_ENV
 
-      - name: Summary
+      # Compares the current commit's fingerprint against existing EAS builds:
+      # - fingerprint unchanged (JS-only change) -> reuse the existing build, only publish an EAS Update
+      # - fingerprint changed (native change) -> start a new EAS Build, then publish an EAS Update
+      - name: Build (if native changed) & publish update
+        id: deploy
+        uses: expo/expo-github-action/continuous-deploy-fingerprint@v9
+        with:
+          profile: preview
+          branch: preview
+          platform: android
+          working-directory: apps/react-native
+
+      - name: Summary (new build)
+        if: steps.deploy.outputs.android-build-id != ''
         run: |
+          BUILD_URL="https://expo.dev/accounts/manakuro-team/projects/asana-clone-app/builds/${{ steps.deploy.outputs.android-build-id }}"
           ENCODED_URL=$(printf '%s' "$BUILD_URL" | jq -sRr @uri)
           QR_URL="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${ENCODED_URL}"
-          echo "### 📱 Preview Build" >> $GITHUB_STEP_SUMMARY
+          echo "### 📱 New Preview Build (native code changed)" >> $GITHUB_STEP_SUMMARY
           echo "[Install link]($BUILD_URL)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "![QR Code]($QR_URL)" >> $GITHUB_STEP_SUMMARY
+
+      - name: Summary (update only)
+        if: steps.deploy.outputs.android-build-id == ''
+        run: |
+          echo "### ⚡ OTA update published (no native change, existing preview build reused)" >> $GITHUB_STEP_SUMMARY
