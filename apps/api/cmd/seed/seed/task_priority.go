@@ -1,11 +1,11 @@
 package seed
 
 import (
+	"asana-clone-app/cmd/seed/seedutil"
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/taskpriority"
 	"context"
 	"log"
-	"project-management-demo-backend/cmd/seed/seedutil"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/taskpriority"
 )
 
 var taskPriorityFeed = struct {

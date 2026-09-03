@@ -4,8 +4,8 @@
 package main
 
 import (
+	"asana-clone-app/ent/annotation"
 	"log"
-	"project-management-demo-backend/ent/annotation"
 
 	"entgo.io/contrib/entgql"
 	"entgo.io/ent/entc"

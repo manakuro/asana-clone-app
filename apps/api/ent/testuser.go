@@ -3,11 +3,11 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/testuserprofile"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/testuser"
 	"encoding/json"
 	"fmt"
-	"project-management-demo-backend/ent/schema/testuserprofile"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/testuser"
 	"strings"
 	"time"
 

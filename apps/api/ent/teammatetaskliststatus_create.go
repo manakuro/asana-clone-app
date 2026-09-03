@@ -3,15 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/tasklistcompletedstatus"
+	"asana-clone-app/ent/tasklistsortstatus"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/teammatetaskliststatus"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/tasklistcompletedstatus"
-	"project-management-demo-backend/ent/tasklistsortstatus"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/teammatetaskliststatus"
-	"project-management-demo-backend/ent/workspace"
 	"time"
 
 	"entgo.io/ent/dialect"

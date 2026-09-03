@@ -1,9 +1,9 @@
 package handler
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"errors"
 	"net/http"
-	"project-management-demo-backend/pkg/entity/model"
 
 	"github.com/labstack/echo/v4"
 )

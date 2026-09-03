@@ -1,8 +1,8 @@
 package activitytyperepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *activityTypeRepository) Create(ctx context.Context, input model.CreateActivityTypeInput) (*model.ActivityType, error) {

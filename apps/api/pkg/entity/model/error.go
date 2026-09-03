@@ -1,8 +1,8 @@
 package model
 
 import (
+	"asana-clone-app/pkg/util/environment"
 	"fmt"
-	"project-management-demo-backend/pkg/util/environment"
 
 	"github.com/pkg/errors"
 )

@@ -9,8 +9,8 @@ import (
 	"firebase.google.com/go/auth"
 	"google.golang.org/api/option"
 
-	"project-management-demo-backend/config"
-	"project-management-demo-backend/pkg/entity/model"
+	"asana-clone-app/config"
+	"asana-clone-app/pkg/entity/model"
 )
 
 type key string

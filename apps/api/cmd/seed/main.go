@@ -1,8 +1,8 @@
 package main
 
 import (
-	"project-management-demo-backend/cmd/seed/seed"
-	"project-management-demo-backend/config"
+	"asana-clone-app/cmd/seed/seed"
+	"asana-clone-app/config"
 )
 
 func main() {

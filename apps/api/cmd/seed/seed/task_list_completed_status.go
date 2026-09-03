@@ -1,10 +1,10 @@
 package seed
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/tasklistcompletedstatus"
 	"context"
 	"log"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/tasklistcompletedstatus"
 )
 
 var taskListCompletedStatusFeed = struct {

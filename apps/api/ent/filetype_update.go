@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/filetype"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/taskfile"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/filetype"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/taskfile"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

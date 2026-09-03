@@ -1,8 +1,8 @@
 package repositoryutil
 
 import (
+	"asana-clone-app/ent"
 	"context"
-	"project-management-demo-backend/ent"
 
 	"github.com/pkg/errors"
 )

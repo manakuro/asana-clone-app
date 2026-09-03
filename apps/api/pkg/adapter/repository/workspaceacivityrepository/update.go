@@ -1,9 +1,9 @@
 package workspaceacivityrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *workspaceActivityRepository) Update(ctx context.Context, input model.UpdateWorkspaceActivityInput) (*model.WorkspaceActivity, error) {

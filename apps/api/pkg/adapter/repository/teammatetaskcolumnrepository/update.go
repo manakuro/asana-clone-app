@@ -1,12 +1,12 @@
 package teammatetaskcolumnrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammatetaskcolumn"
+	"asana-clone-app/pkg/adapter/repository/repositoryutil"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammatetaskcolumn"
-	"project-management-demo-backend/pkg/adapter/repository/repositoryutil"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *teammateTaskColumnRepository) Update(ctx context.Context, input model.UpdateTeammateTaskColumnInput) (*model.TeammateTaskColumn, error) {

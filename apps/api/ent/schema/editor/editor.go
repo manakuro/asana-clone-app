@@ -2,10 +2,10 @@
 package editor
 
 import (
+	"asana-clone-app/pkg/util/conversion"
 	"encoding/json"
 	"fmt"
 	"io"
-	"project-management-demo-backend/pkg/util/conversion"
 )
 
 // Attrs is a custom attributes

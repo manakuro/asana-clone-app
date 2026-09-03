@@ -3,12 +3,12 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskfeed"
+	"asana-clone-app/ent/teammate"
 	"encoding/json"
 	"fmt"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskfeed"
-	"project-management-demo-backend/ent/teammate"
 	"strings"
 	"time"
 

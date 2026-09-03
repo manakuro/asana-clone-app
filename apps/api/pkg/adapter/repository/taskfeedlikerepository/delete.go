@@ -1,10 +1,10 @@
 package taskfeedlikerepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/taskfeedlike"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/taskfeedlike"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskFeedLikeRepository) Delete(ctx context.Context, input model.DeleteTaskFeedLikeInput) (*model.TaskFeedLike, error) {

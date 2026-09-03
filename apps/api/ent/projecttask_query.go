@@ -3,15 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projecttask"
+	"asana-clone-app/ent/projecttasksection"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
 	"context"
 	"fmt"
 	"math"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projecttask"
-	"project-management-demo-backend/ent/projecttasksection"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"

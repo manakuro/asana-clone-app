@@ -1,8 +1,8 @@
 package tasklistsortstatusrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskListSortStatusRepository) Create(ctx context.Context, input model.CreateTaskListSortStatusInput) (*model.TaskListSortStatus, error) {

@@ -1,9 +1,9 @@
 package testuserrepository
 
 import (
+	"asana-clone-app/pkg/adapter/repository/repositoryutil"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/adapter/repository/repositoryutil"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *testUserRepository) Create(ctx context.Context, input model.CreateTestUserInput) (*model.TestUser, error) {

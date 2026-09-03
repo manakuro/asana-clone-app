@@ -1,10 +1,10 @@
 package seed
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/infrastructure/datastore"
 	"context"
 	"log"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/infrastructure/datastore"
 )
 
 // Seed truncate table and generates new data.

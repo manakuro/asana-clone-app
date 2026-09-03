@@ -3,15 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projectbasecolor"
+	"asana-clone-app/ent/projecticon"
+	"asana-clone-app/ent/projectlightcolor"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
 	"encoding/json"
 	"fmt"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projectbasecolor"
-	"project-management-demo-backend/ent/projecticon"
-	"project-management-demo-backend/ent/projectlightcolor"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
 	"strings"
 	"time"
 

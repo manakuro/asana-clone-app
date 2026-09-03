@@ -1,10 +1,10 @@
 package merepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *meRepository) Get(ctx context.Context, id model.ID) (*model.Me, error) {

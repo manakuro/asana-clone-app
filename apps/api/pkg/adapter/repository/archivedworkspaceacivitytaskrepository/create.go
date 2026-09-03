@@ -1,8 +1,8 @@
 package archivedworkspaceacivitytaskrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *archivedWorkspaceActivityTaskRepository) Create(ctx context.Context, input model.CreateArchivedWorkspaceActivityTaskInput) (*model.ArchivedWorkspaceActivityTask, error) {

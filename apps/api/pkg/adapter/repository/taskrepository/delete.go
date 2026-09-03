@@ -1,16 +1,16 @@
 package taskrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/deletedtask"
+	"asana-clone-app/ent/projecttask"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskactivitytask"
+	"asana-clone-app/ent/teammatetask"
+	"asana-clone-app/ent/workspaceactivitytask"
+	"asana-clone-app/pkg/adapter/repository/repositoryutil"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/deletedtask"
-	"project-management-demo-backend/ent/projecttask"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskactivitytask"
-	"project-management-demo-backend/ent/teammatetask"
-	"project-management-demo-backend/ent/workspaceactivitytask"
-	"project-management-demo-backend/pkg/adapter/repository/repositoryutil"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskRepository) Delete(ctx context.Context, input model.DeleteTaskInput) (*model.DeleteTaskPayload, error) {

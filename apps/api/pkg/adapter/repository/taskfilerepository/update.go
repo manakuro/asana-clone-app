@@ -1,9 +1,9 @@
 package taskfilerepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskFileRepository) Update(ctx context.Context, input model.UpdateTaskFileInput) (*model.TaskFile, error) {

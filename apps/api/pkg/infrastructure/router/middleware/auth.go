@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"project-management-demo-backend/pkg/entity/model"
-	"project-management-demo-backend/pkg/infrastructure/router/handler"
-	"project-management-demo-backend/pkg/util/auth"
+	"asana-clone-app/pkg/entity/model"
+	"asana-clone-app/pkg/infrastructure/router/handler"
+	"asana-clone-app/pkg/util/auth"
 
 	"github.com/labstack/echo/v4"
 )

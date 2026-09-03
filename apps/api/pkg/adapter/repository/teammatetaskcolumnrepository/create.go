@@ -1,8 +1,8 @@
 package teammatetaskcolumnrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *teammateTaskColumnRepository) Create(ctx context.Context, input model.CreateTeammateTaskColumnInput) (*model.TeammateTaskColumn, error) {

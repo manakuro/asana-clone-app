@@ -1,8 +1,8 @@
 package repository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 // Activity is interface of repository

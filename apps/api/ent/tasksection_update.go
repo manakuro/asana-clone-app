@@ -3,11 +3,11 @@
 package ent
 
 import (
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/tasksection"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/tasksection"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

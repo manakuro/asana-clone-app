@@ -3,14 +3,14 @@
 package ent
 
 import (
+	"asana-clone-app/ent/deletedtask"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/deletedtask"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/workspace"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

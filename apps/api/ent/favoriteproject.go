@@ -3,11 +3,11 @@
 package ent
 
 import (
+	"asana-clone-app/ent/favoriteproject"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
 	"fmt"
-	"project-management-demo-backend/ent/favoriteproject"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
 	"strings"
 	"time"
 

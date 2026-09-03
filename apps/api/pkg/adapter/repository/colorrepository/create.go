@@ -1,8 +1,8 @@
 package colorrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *colorRepository) Create(ctx context.Context, input model.CreateColorInput) (*model.Color, error) {

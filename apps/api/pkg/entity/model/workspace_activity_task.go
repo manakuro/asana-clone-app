@@ -1,7 +1,7 @@
 package model
 
 import (
-	"project-management-demo-backend/ent"
+	"asana-clone-app/ent"
 )
 
 // WorkspaceActivityTask is the model entity for the WorkspaceActivityTask schema

@@ -1,9 +1,9 @@
 package archivedtaskacivitytaskrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *archivedArchivedTaskActivityTaskRepository) Update(ctx context.Context, input model.UpdateArchivedTaskActivityTaskInput) (*model.ArchivedTaskActivityTask, error) {

@@ -1,8 +1,8 @@
 package iconrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *iconRepository) Create(ctx context.Context, input model.CreateIconInput) (*model.Icon, error) {

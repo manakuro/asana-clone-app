@@ -1,10 +1,10 @@
 package seed
 
 import (
+	"asana-clone-app/cmd/seed/seedutil"
+	"asana-clone-app/ent"
 	"context"
 	"log"
-	"project-management-demo-backend/cmd/seed/seedutil"
-	"project-management-demo-backend/ent"
 )
 
 // TeammateTaskTabStatus generates teammate task tab status data.

@@ -1,11 +1,11 @@
 package taskcollaboratorrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/taskcollaborator"
+	"asana-clone-app/pkg/adapter/repository/repositoryutil"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/taskcollaborator"
-	"project-management-demo-backend/pkg/adapter/repository/repositoryutil"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskCollaboratorRepository) Delete(ctx context.Context, input model.DeleteTaskCollaboratorInput) (*model.TaskCollaborator, error) {

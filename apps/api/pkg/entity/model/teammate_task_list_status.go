@@ -1,7 +1,7 @@
 package model
 
 import (
-	"project-management-demo-backend/ent"
+	"asana-clone-app/ent"
 )
 
 // TeammateTaskListStatus is the model entity for the TeammateTaskListStatus schema

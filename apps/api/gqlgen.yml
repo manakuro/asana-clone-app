@@ -35,8 +35,8 @@ resolver:
 # gqlgen will search for any type names in the schema in these go packages
 # if they match it will use them, otherwise it will generate them.
 autobind:
-  - project-management-demo-backend/pkg/entity/model
-  - project-management-demo-backend/ent
+  - asana-clone-app/pkg/entity/model
+  - asana-clone-app/ent
 
 # This section declares type mapping between the GraphQL and go type systems
 #
@@ -46,7 +46,7 @@ autobind:
 models:
   ID:
     model:
-       -  project-management-demo-backend/pkg/entity/model.ID
+       -  asana-clone-app/pkg/entity/model.ID
   Int:
     model:
       - github.com/99designs/gqlgen/graphql.Int
@@ -54,32 +54,32 @@ models:
       - github.com/99designs/gqlgen/graphql.Int32
   Node:
       model:
-        - project-management-demo-backend/pkg/entity/model.Node
+        - asana-clone-app/pkg/entity/model.Node
   TestTodoStatus:
       model:
-        - project-management-demo-backend/ent/testtodo.Status
+        - asana-clone-app/ent/testtodo.Status
   TeammateTaskTabStatusCode:
       model:
-        - project-management-demo-backend/ent/teammatetasktabstatus.StatusCode
+        - asana-clone-app/ent/teammatetasktabstatus.StatusCode
   TaskColumnType:
     model:
-        - project-management-demo-backend/ent/taskcolumn.Type
+        - asana-clone-app/ent/taskcolumn.Type
   TaskListCompletedStatusCode:
     model:
-      - project-management-demo-backend/ent/tasklistcompletedstatus.StatusCode
+      - asana-clone-app/ent/tasklistcompletedstatus.StatusCode
   TaskListSortStatusCode:
     model:
-      - project-management-demo-backend/ent/tasklistsortstatus.StatusCode
+      - asana-clone-app/ent/tasklistsortstatus.StatusCode
   TaskPriorityType:
     model:
-      - project-management-demo-backend/ent/taskpriority.PriorityType
+      - asana-clone-app/ent/taskpriority.PriorityType
   FileTypeCode:
     model:
-      - project-management-demo-backend/ent/filetype.TypeCode
+      - asana-clone-app/ent/filetype.TypeCode
   DeletedTaskType:
     model:
-      - project-management-demo-backend/ent/deletedtask.TaskType
+      - asana-clone-app/ent/deletedtask.TaskType
   ActivityTypeCode:
     model:
-      - project-management-demo-backend/ent/activitytype.TypeCode
+      - asana-clone-app/ent/activitytype.TypeCode
 

@@ -1,10 +1,10 @@
 package deletedtaskrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/deletedtask"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/deletedtask"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *deletedTaskRepository) Delete(ctx context.Context, input model.DeleteDeletedTaskInput) (*model.DeletedTask, error) {

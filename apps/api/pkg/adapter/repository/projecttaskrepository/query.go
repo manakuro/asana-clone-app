@@ -1,11 +1,11 @@
 package projecttaskrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/adapter/repository/repositoryutil"
+	"asana-clone-app/pkg/entity/model"
 	"context"
 	"fmt"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/adapter/repository/repositoryutil"
-	"project-management-demo-backend/pkg/entity/model"
 	"time"
 )
 

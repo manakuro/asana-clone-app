@@ -1,15 +1,15 @@
 package main
 
 import (
+	"asana-clone-app/config"
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/adapter/controller"
+	"asana-clone-app/pkg/infrastructure/datastore"
+	"asana-clone-app/pkg/infrastructure/graphql"
+	"asana-clone-app/pkg/infrastructure/router"
+	"asana-clone-app/pkg/registry"
 	"log"
 	"os"
-	"project-management-demo-backend/config"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/adapter/controller"
-	"project-management-demo-backend/pkg/infrastructure/datastore"
-	"project-management-demo-backend/pkg/infrastructure/graphql"
-	"project-management-demo-backend/pkg/infrastructure/router"
-	"project-management-demo-backend/pkg/registry"
 )
 
 func main() {

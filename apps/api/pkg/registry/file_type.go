@@ -1,9 +1,9 @@
 package registry
 
 import (
-	"project-management-demo-backend/pkg/adapter/controller"
-	"project-management-demo-backend/pkg/adapter/repository/filetyperepository"
-	"project-management-demo-backend/pkg/usecase/usecase"
+	"asana-clone-app/pkg/adapter/controller"
+	"asana-clone-app/pkg/adapter/repository/filetyperepository"
+	"asana-clone-app/pkg/usecase/usecase"
 )
 
 func (r *registry) NewFileTypeController() controller.FileType {

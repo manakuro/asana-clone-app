@@ -3,9 +3,9 @@
 package hook
 
 import (
+	"asana-clone-app/ent"
 	"context"
 	"fmt"
-	"project-management-demo-backend/ent"
 )
 
 // The ActivityTypeFunc type is an adapter to allow the use of ordinary

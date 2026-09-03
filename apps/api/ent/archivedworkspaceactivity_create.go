@@ -3,16 +3,16 @@
 package ent
 
 import (
+	"asana-clone-app/ent/activitytype"
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/ent/archivedworkspaceactivitytask"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/activitytype"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/ent/archivedworkspaceactivitytask"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
 	"time"
 
 	"entgo.io/ent/dialect"

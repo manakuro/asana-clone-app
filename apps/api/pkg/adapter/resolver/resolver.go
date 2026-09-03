@@ -1,10 +1,10 @@
 package resolver
 
 import (
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/graph/generated"
-	"project-management-demo-backend/pkg/adapter/controller"
-	"project-management-demo-backend/pkg/util/subscription"
+	"asana-clone-app/ent"
+	"asana-clone-app/graph/generated"
+	"asana-clone-app/pkg/adapter/controller"
+	"asana-clone-app/pkg/util/subscription"
 	"sync"
 
 	"github.com/99designs/gqlgen/graphql"

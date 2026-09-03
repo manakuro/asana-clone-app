@@ -1,12 +1,12 @@
 package mutation_test
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/infrastructure/router"
+	"asana-clone-app/testutil"
+	"asana-clone-app/testutil/e2e"
 	"context"
 	"net/http"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/infrastructure/router"
-	"project-management-demo-backend/testutil"
-	"project-management-demo-backend/testutil/e2e"
 	"testing"
 
 	"github.com/gavv/httpexpect/v2"

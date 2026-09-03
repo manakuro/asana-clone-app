@@ -1,10 +1,10 @@
 package favoriteworkspacerepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/favoriteworkspace"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/favoriteworkspace"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *favoriteWorkspaceRepository) Get(ctx context.Context, where *model.FavoriteWorkspaceWhereInput) (*model.FavoriteWorkspace, error) {

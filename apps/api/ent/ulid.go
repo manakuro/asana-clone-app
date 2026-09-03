@@ -1,10 +1,10 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/pkg/const/globalid"
 	"context"
 	"fmt"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/pkg/const/globalid"
 )
 
 var globalIDs = globalid.New()

@@ -1,7 +1,7 @@
 package testutil
 
 import (
-	"project-management-demo-backend/config"
+	"asana-clone-app/config"
 )
 
 // ReadConfig reads config file for test.

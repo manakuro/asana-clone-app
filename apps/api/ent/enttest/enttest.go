@@ -5,11 +5,11 @@ package enttest
 import (
 	"context"
 
-	"project-management-demo-backend/ent"
+	"asana-clone-app/ent"
 	// required by schema hooks.
-	_ "project-management-demo-backend/ent/runtime"
+	_ "asana-clone-app/ent/runtime"
 
-	"project-management-demo-backend/ent/migrate"
+	"asana-clone-app/ent/migrate"
 
 	"entgo.io/ent/dialect/sql/schema"
 )

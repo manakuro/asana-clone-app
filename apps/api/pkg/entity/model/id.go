@@ -1,7 +1,7 @@
 package model
 
 import (
-	"project-management-demo-backend/ent/schema/ulid"
+	"asana-clone-app/ent/schema/ulid"
 )
 
 // ID implements a PULID - a prefixed ULID.

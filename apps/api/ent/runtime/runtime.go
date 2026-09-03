@@ -2,7 +2,7 @@
 
 package runtime
 
-// The schema-stitching logic is generated in project-management-demo-backend/ent/runtime.go
+// The schema-stitching logic is generated in asana-clone-app/ent/runtime.go
 
 const (
 	Version = "v0.14.6"                                         // Version of ent codegen.

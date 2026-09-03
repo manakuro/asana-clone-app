@@ -1,8 +1,8 @@
 package registry
 
 import (
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/adapter/controller"
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/adapter/controller"
 )
 
 type registry struct {

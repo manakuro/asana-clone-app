@@ -1,15 +1,15 @@
 package mentionrepository
 
 import (
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projecttask"
+	"asana-clone-app/ent/projectteammate"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
+	"asana-clone-app/pkg/entity/model"
 	"context"
 	"log"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projecttask"
-	"project-management-demo-backend/ent/projectteammate"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
-	"project-management-demo-backend/pkg/entity/model"
 
 	"entgo.io/ent/dialect/sql"
 )

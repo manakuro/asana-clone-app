@@ -1,8 +1,8 @@
 package subscription
 
 import (
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/entity/model"
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/entity/model"
 
 	"github.com/thanhpk/randstr"
 )

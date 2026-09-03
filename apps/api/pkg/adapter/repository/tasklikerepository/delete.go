@@ -1,10 +1,10 @@
 package tasklikerepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/tasklike"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/tasklike"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskLikeRepository) Delete(ctx context.Context, input model.DeleteTaskLikeInput) (*model.TaskLike, error) {

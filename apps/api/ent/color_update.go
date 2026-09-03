@@ -3,16 +3,16 @@
 package ent
 
 import (
+	"asana-clone-app/ent/color"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/projectbasecolor"
+	"asana-clone-app/ent/projectlightcolor"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/tag"
+	"asana-clone-app/ent/taskpriority"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/color"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/projectbasecolor"
-	"project-management-demo-backend/ent/projectlightcolor"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/tag"
-	"project-management-demo-backend/ent/taskpriority"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

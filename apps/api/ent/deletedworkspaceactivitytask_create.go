@@ -3,12 +3,12 @@
 package ent
 
 import (
+	"asana-clone-app/ent/deletedworkspaceactivitytask"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/deletedworkspaceactivitytask"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
 	"time"
 
 	"entgo.io/ent/dialect"

@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projecttask"
+	"asana-clone-app/ent/projecttasksection"
+	"asana-clone-app/ent/schema/ulid"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projecttask"
-	"project-management-demo-backend/ent/projecttasksection"
-	"project-management-demo-backend/ent/schema/ulid"
 	"time"
 
 	"entgo.io/ent/dialect"

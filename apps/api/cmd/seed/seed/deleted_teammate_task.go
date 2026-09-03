@@ -1,9 +1,9 @@
 package seed
 
 import (
+	"asana-clone-app/ent"
 	"context"
 	"log"
-	"project-management-demo-backend/ent"
 )
 
 // DeletedTeammateTask generates activity data.

@@ -1,7 +1,7 @@
 package model
 
 import (
-	"project-management-demo-backend/ent/schema/editor"
+	"asana-clone-app/ent/schema/editor"
 )
 
 // EditorDescription is an editor description

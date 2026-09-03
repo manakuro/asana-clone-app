@@ -1,8 +1,8 @@
 package taskrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskRepository) Create(ctx context.Context, input model.CreateTaskInput) (*model.Task, error) {

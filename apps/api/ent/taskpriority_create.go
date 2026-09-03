@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/color"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskpriority"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/color"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskpriority"
 	"time"
 
 	"entgo.io/ent/dialect"

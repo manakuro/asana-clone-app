@@ -1,15 +1,15 @@
 package teammatetaskrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/teammatetask"
+	"asana-clone-app/ent/teammatetasksection"
+	"asana-clone-app/pkg/adapter/repository/repositoryutil"
+	"asana-clone-app/pkg/entity/model"
+	"asana-clone-app/pkg/util/datetime"
 	"context"
 	"fmt"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/teammatetask"
-	"project-management-demo-backend/ent/teammatetasksection"
-	"project-management-demo-backend/pkg/adapter/repository/repositoryutil"
-	"project-management-demo-backend/pkg/entity/model"
-	"project-management-demo-backend/pkg/util/datetime"
 	"time"
 )
 

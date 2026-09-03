@@ -3,7 +3,7 @@
 package taskfile
 
 import (
-	"project-management-demo-backend/ent/schema/ulid"
+	"asana-clone-app/ent/schema/ulid"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

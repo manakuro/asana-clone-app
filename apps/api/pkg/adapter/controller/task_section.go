@@ -1,9 +1,9 @@
 package controller
 
 import (
+	"asana-clone-app/pkg/entity/model"
+	"asana-clone-app/pkg/usecase/usecase"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
-	"project-management-demo-backend/pkg/usecase/usecase"
 )
 
 // TaskSection is an interface of controller.

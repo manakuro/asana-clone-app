@@ -1,6 +1,6 @@
 package model
 
-import "project-management-demo-backend/ent"
+import "asana-clone-app/ent"
 
 // Node wraps the basic Node method.
 type Node = ent.Noder

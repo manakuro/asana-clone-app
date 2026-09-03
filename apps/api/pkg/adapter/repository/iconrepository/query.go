@@ -1,10 +1,10 @@
 package iconrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/icon"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/icon"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *iconRepository) Get(ctx context.Context, id model.ID) (*model.Icon, error) {

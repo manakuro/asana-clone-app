@@ -1,9 +1,9 @@
 package handler
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
 	"errors"
-	"project-management-demo-backend/pkg/entity/model"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/vektah/gqlparser/v2/gqlerror"

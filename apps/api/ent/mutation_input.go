@@ -3,16 +3,16 @@
 package ent
 
 import (
-	"project-management-demo-backend/ent/activitytype"
-	"project-management-demo-backend/ent/filetype"
-	"project-management-demo-backend/ent/schema/testuserprofile"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/taskcolumn"
-	"project-management-demo-backend/ent/tasklistcompletedstatus"
-	"project-management-demo-backend/ent/tasklistsortstatus"
-	"project-management-demo-backend/ent/taskpriority"
-	"project-management-demo-backend/ent/teammatetasktabstatus"
-	"project-management-demo-backend/ent/testtodo"
+	"asana-clone-app/ent/activitytype"
+	"asana-clone-app/ent/filetype"
+	"asana-clone-app/ent/schema/testuserprofile"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/taskcolumn"
+	"asana-clone-app/ent/tasklistcompletedstatus"
+	"asana-clone-app/ent/tasklistsortstatus"
+	"asana-clone-app/ent/taskpriority"
+	"asana-clone-app/ent/teammatetasktabstatus"
+	"asana-clone-app/ent/testtodo"
 	"time"
 )
 

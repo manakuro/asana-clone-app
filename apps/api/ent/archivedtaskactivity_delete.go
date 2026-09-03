@@ -3,9 +3,9 @@
 package ent
 
 import (
+	"asana-clone-app/ent/archivedtaskactivity"
+	"asana-clone-app/ent/predicate"
 	"context"
-	"project-management-demo-backend/ent/archivedtaskactivity"
-	"project-management-demo-backend/ent/predicate"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"

@@ -1,8 +1,8 @@
 package taskfilerepository
 
 import (
-	"project-management-demo-backend/ent"
-	ur "project-management-demo-backend/pkg/usecase/repository"
+	"asana-clone-app/ent"
+	ur "asana-clone-app/pkg/usecase/repository"
 )
 
 type taskFileRepository struct {
