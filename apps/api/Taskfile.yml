@@ -49,23 +49,16 @@ tasks:
     cmds:
       - "{{.GO_VERSION}} run ./cmd/migration/main.go"
 
-  db:migrate:staging:
-    desc: "Run database migrations (staging)"
+  db:migrate:production:
+    desc: "Run database migrations (production)"
     env:
-      APP_ENV: staging
+      APP_ENV: production
     cmds:
       - "{{.GO_VERSION}} run ./cmd/migration/main.go"
 
   # Database - Seeding
   db:seed:
     desc: "Seed local database with test data"
-    cmds:
-      - "{{.GO_VERSION}} run ./cmd/seed/main.go"
-
-  db:seed:staging:
-    desc: "Seed staging database"
-    env:
-      APP_ENV: staging
     cmds:
       - "{{.GO_VERSION}} run ./cmd/seed/main.go"
 
