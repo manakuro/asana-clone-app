@@ -1,13 +1,13 @@
 package taskfeedrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/taskfeed"
+	"asana-clone-app/ent/taskfeedlike"
+	"asana-clone-app/ent/taskfile"
+	"asana-clone-app/pkg/adapter/repository/repositoryutil"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/taskfeed"
-	"project-management-demo-backend/ent/taskfeedlike"
-	"project-management-demo-backend/ent/taskfile"
-	"project-management-demo-backend/pkg/adapter/repository/repositoryutil"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskFeedRepository) Delete(ctx context.Context, input model.DeleteTaskFeedInput) (*model.DeleteTaskFeedInputPayload, error) {

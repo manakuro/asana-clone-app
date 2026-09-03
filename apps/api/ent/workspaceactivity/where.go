@@ -3,8 +3,8 @@
 package workspaceactivity
 
 import (
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

@@ -1,11 +1,11 @@
 package datastore
 
 import (
+	"asana-clone-app/config"
+	"asana-clone-app/ent"
 	"crypto/tls"
 	"fmt"
 	"log"
-	"project-management-demo-backend/config"
-	"project-management-demo-backend/ent"
 
 	"entgo.io/ent/dialect"
 

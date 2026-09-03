@@ -1,14 +1,14 @@
 package activityrepository
 
 import (
+	"asana-clone-app/ent/activitytype"
+	"asana-clone-app/ent/taskactivity"
+	"asana-clone-app/ent/taskactivitytask"
+	"asana-clone-app/ent/workspaceactivity"
+	"asana-clone-app/ent/workspaceactivitytask"
+	"asana-clone-app/pkg/entity/model"
 	"context"
 	"log"
-	"project-management-demo-backend/ent/activitytype"
-	"project-management-demo-backend/ent/taskactivity"
-	"project-management-demo-backend/ent/taskactivitytask"
-	"project-management-demo-backend/ent/workspaceactivity"
-	"project-management-demo-backend/ent/workspaceactivitytask"
-	"project-management-demo-backend/pkg/entity/model"
 
 	"entgo.io/ent/dialect/sql"
 )

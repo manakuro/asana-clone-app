@@ -1,9 +1,9 @@
 package router
 
 import (
+	"asana-clone-app/pkg/adapter/controller"
+	rm "asana-clone-app/pkg/infrastructure/router/middleware"
 	"net/http"
-	"project-management-demo-backend/pkg/adapter/controller"
-	rm "project-management-demo-backend/pkg/infrastructure/router/middleware"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"

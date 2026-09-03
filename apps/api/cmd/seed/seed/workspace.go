@@ -1,11 +1,11 @@
 package seed
 
 import (
+	"asana-clone-app/cmd/seed/seedutil"
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/teammate"
 	"context"
 	"log"
-	"project-management-demo-backend/cmd/seed/seedutil"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/teammate"
 )
 
 // Workspace generates workspace data.

@@ -1,9 +1,9 @@
 package taskfeedrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskFeedRepository) Get(ctx context.Context, where *model.TaskFeedWhereInput) (*model.TaskFeed, error) {

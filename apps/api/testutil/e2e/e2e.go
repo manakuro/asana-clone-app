@@ -1,13 +1,13 @@
 package e2e
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/adapter/controller"
+	"asana-clone-app/pkg/infrastructure/graphql"
+	"asana-clone-app/pkg/infrastructure/router"
+	"asana-clone-app/pkg/registry"
+	"asana-clone-app/testutil"
 	"net/http/httptest"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/adapter/controller"
-	"project-management-demo-backend/pkg/infrastructure/graphql"
-	"project-management-demo-backend/pkg/infrastructure/router"
-	"project-management-demo-backend/pkg/registry"
-	"project-management-demo-backend/testutil"
 	"testing"
 
 	"github.com/gavv/httpexpect/v2"

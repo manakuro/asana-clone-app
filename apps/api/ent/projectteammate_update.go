@@ -3,14 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projectteammate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projectteammate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -86,6 +87,12 @@ func (_u *ProjectTeammateUpdate) SetNillableIsOwner(v *bool) *ProjectTeammateUpd
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectTeammateUpdate) SetUpdatedAt(v time.Time) *ProjectTeammateUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetProject sets the "project" edge to the Project entity.
 func (_u *ProjectTeammateUpdate) SetProject(v *Project) *ProjectTeammateUpdate {
 	return _u.SetProjectID(v.ID)
@@ -115,6 +122,7 @@ func (_u *ProjectTeammateUpdate) ClearTeammate() *ProjectTeammateUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ProjectTeammateUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -137,6 +145,14 @@ func (_u *ProjectTeammateUpdate) Exec(ctx context.Context) error {
 func (_u *ProjectTeammateUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectTeammateUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projectteammate.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -173,6 +189,9 @@ func (_u *ProjectTeammateUpdate) sqlSave(ctx context.Context) (_node int, err er
 	}
 	if value, ok := _u.mutation.IsOwner(); ok {
 		_spec.SetField(projectteammate.FieldIsOwner, field.TypeBool, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projectteammate.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -308,6 +327,12 @@ func (_u *ProjectTeammateUpdateOne) SetNillableIsOwner(v *bool) *ProjectTeammate
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectTeammateUpdateOne) SetUpdatedAt(v time.Time) *ProjectTeammateUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetProject sets the "project" edge to the Project entity.
 func (_u *ProjectTeammateUpdateOne) SetProject(v *Project) *ProjectTeammateUpdateOne {
 	return _u.SetProjectID(v.ID)
@@ -350,6 +375,7 @@ func (_u *ProjectTeammateUpdateOne) Select(field string, fields ...string) *Proj
 
 // Save executes the query and returns the updated ProjectTeammate entity.
 func (_u *ProjectTeammateUpdateOne) Save(ctx context.Context) (*ProjectTeammate, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -372,6 +398,14 @@ func (_u *ProjectTeammateUpdateOne) Exec(ctx context.Context) error {
 func (_u *ProjectTeammateUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectTeammateUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projectteammate.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -425,6 +459,9 @@ func (_u *ProjectTeammateUpdateOne) sqlSave(ctx context.Context) (_node *Project
 	}
 	if value, ok := _u.mutation.IsOwner(); ok {
 		_spec.SetField(projectteammate.FieldIsOwner, field.TypeBool, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projectteammate.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{

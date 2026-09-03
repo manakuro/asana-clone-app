@@ -1,8 +1,8 @@
 package model
 
 import (
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/schema/ulid"
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/schema/ulid"
 )
 
 // DeletedTeammateTask is the model entity for the DeletedTeammateTask schema.

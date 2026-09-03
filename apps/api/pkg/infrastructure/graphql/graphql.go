@@ -1,12 +1,12 @@
 package graphql
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/adapter/controller"
+	"asana-clone-app/pkg/adapter/resolver"
+	"asana-clone-app/pkg/entity/model"
+	"asana-clone-app/pkg/util/auth"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/adapter/controller"
-	"project-management-demo-backend/pkg/adapter/resolver"
-	"project-management-demo-backend/pkg/entity/model"
-	"project-management-demo-backend/pkg/util/auth"
 	"time"
 
 	"entgo.io/contrib/entgql"

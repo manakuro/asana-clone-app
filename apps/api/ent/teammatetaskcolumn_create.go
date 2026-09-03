@@ -3,14 +3,14 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/taskcolumn"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/teammatetaskcolumn"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/taskcolumn"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/teammatetaskcolumn"
-	"project-management-demo-backend/ent/workspace"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -471,6 +471,18 @@ func (u *TeammateTaskColumnUpsert) AddOrder(v int) *TeammateTaskColumnUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskColumnUpsert) SetUpdatedAt(v time.Time) *TeammateTaskColumnUpsert {
+	u.Set(teammatetaskcolumn.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskColumnUpsert) UpdateUpdatedAt() *TeammateTaskColumnUpsert {
+	u.SetExcluded(teammatetaskcolumn.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -490,9 +502,6 @@ func (u *TeammateTaskColumnUpsertOne) UpdateNewValues() *TeammateTaskColumnUpser
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(teammatetaskcolumn.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(teammatetaskcolumn.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -627,6 +636,20 @@ func (u *TeammateTaskColumnUpsertOne) AddOrder(v int) *TeammateTaskColumnUpsertO
 func (u *TeammateTaskColumnUpsertOne) UpdateOrder() *TeammateTaskColumnUpsertOne {
 	return u.Update(func(s *TeammateTaskColumnUpsert) {
 		s.UpdateOrder()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskColumnUpsertOne) SetUpdatedAt(v time.Time) *TeammateTaskColumnUpsertOne {
+	return u.Update(func(s *TeammateTaskColumnUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskColumnUpsertOne) UpdateUpdatedAt() *TeammateTaskColumnUpsertOne {
+	return u.Update(func(s *TeammateTaskColumnUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -816,9 +839,6 @@ func (u *TeammateTaskColumnUpsertBulk) UpdateNewValues() *TeammateTaskColumnUpse
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(teammatetaskcolumn.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(teammatetaskcolumn.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -953,6 +973,20 @@ func (u *TeammateTaskColumnUpsertBulk) AddOrder(v int) *TeammateTaskColumnUpsert
 func (u *TeammateTaskColumnUpsertBulk) UpdateOrder() *TeammateTaskColumnUpsertBulk {
 	return u.Update(func(s *TeammateTaskColumnUpsert) {
 		s.UpdateOrder()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskColumnUpsertBulk) SetUpdatedAt(v time.Time) *TeammateTaskColumnUpsertBulk {
+	return u.Update(func(s *TeammateTaskColumnUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskColumnUpsertBulk) UpdateUpdatedAt() *TeammateTaskColumnUpsertBulk {
+	return u.Update(func(s *TeammateTaskColumnUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

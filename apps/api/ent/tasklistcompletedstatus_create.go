@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/projecttaskliststatus"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/tasklistcompletedstatus"
+	"asana-clone-app/ent/teammatetaskliststatus"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/projecttaskliststatus"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/tasklistcompletedstatus"
-	"project-management-demo-backend/ent/teammatetaskliststatus"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -343,6 +343,18 @@ func (u *TaskListCompletedStatusUpsert) UpdateStatusCode() *TaskListCompletedSta
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskListCompletedStatusUpsert) SetUpdatedAt(v time.Time) *TaskListCompletedStatusUpsert {
+	u.Set(tasklistcompletedstatus.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskListCompletedStatusUpsert) UpdateUpdatedAt() *TaskListCompletedStatusUpsert {
+	u.SetExcluded(tasklistcompletedstatus.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -362,9 +374,6 @@ func (u *TaskListCompletedStatusUpsertOne) UpdateNewValues() *TaskListCompletedS
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(tasklistcompletedstatus.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(tasklistcompletedstatus.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -422,6 +431,20 @@ func (u *TaskListCompletedStatusUpsertOne) SetStatusCode(v tasklistcompletedstat
 func (u *TaskListCompletedStatusUpsertOne) UpdateStatusCode() *TaskListCompletedStatusUpsertOne {
 	return u.Update(func(s *TaskListCompletedStatusUpsert) {
 		s.UpdateStatusCode()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskListCompletedStatusUpsertOne) SetUpdatedAt(v time.Time) *TaskListCompletedStatusUpsertOne {
+	return u.Update(func(s *TaskListCompletedStatusUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskListCompletedStatusUpsertOne) UpdateUpdatedAt() *TaskListCompletedStatusUpsertOne {
+	return u.Update(func(s *TaskListCompletedStatusUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -611,9 +634,6 @@ func (u *TaskListCompletedStatusUpsertBulk) UpdateNewValues() *TaskListCompleted
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(tasklistcompletedstatus.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(tasklistcompletedstatus.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -671,6 +691,20 @@ func (u *TaskListCompletedStatusUpsertBulk) SetStatusCode(v tasklistcompletedsta
 func (u *TaskListCompletedStatusUpsertBulk) UpdateStatusCode() *TaskListCompletedStatusUpsertBulk {
 	return u.Update(func(s *TaskListCompletedStatusUpsert) {
 		s.UpdateStatusCode()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskListCompletedStatusUpsertBulk) SetUpdatedAt(v time.Time) *TaskListCompletedStatusUpsertBulk {
+	return u.Update(func(s *TaskListCompletedStatusUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskListCompletedStatusUpsertBulk) UpdateUpdatedAt() *TaskListCompletedStatusUpsertBulk {
+	return u.Update(func(s *TaskListCompletedStatusUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

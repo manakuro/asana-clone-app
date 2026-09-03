@@ -1,10 +1,10 @@
 package schema
 
 import (
-	"project-management-demo-backend/ent/annotation"
-	"project-management-demo-backend/ent/mixin"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/pkg/const/globalid"
+	"asana-clone-app/ent/annotation"
+	"asana-clone-app/ent/mixin"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/pkg/const/globalid"
 
 	"entgo.io/contrib/entgql"
 

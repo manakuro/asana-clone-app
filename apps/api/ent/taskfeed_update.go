@@ -3,16 +3,17 @@
 package ent
 
 import (
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskfeed"
+	"asana-clone-app/ent/taskfeedlike"
+	"asana-clone-app/ent/taskfile"
+	"asana-clone-app/ent/teammate"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskfeed"
-	"project-management-demo-backend/ent/taskfeedlike"
-	"project-management-demo-backend/ent/taskfile"
-	"project-management-demo-backend/ent/teammate"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -91,6 +92,12 @@ func (_u *TaskFeedUpdate) SetNillableIsPinned(v *bool) *TaskFeedUpdate {
 	if v != nil {
 		_u.SetIsPinned(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskFeedUpdate) SetUpdatedAt(v time.Time) *TaskFeedUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -195,6 +202,7 @@ func (_u *TaskFeedUpdate) RemoveTaskFiles(v ...*TaskFile) *TaskFeedUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskFeedUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -217,6 +225,14 @@ func (_u *TaskFeedUpdate) Exec(ctx context.Context) error {
 func (_u *TaskFeedUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskFeedUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskfeed.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -251,6 +267,9 @@ func (_u *TaskFeedUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.IsPinned(); ok {
 		_spec.SetField(taskfeed.FieldIsPinned, field.TypeBool, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskfeed.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -482,6 +501,12 @@ func (_u *TaskFeedUpdateOne) SetNillableIsPinned(v *bool) *TaskFeedUpdateOne {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskFeedUpdateOne) SetUpdatedAt(v time.Time) *TaskFeedUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *TaskFeedUpdateOne) SetTask(v *Task) *TaskFeedUpdateOne {
 	return _u.SetTaskID(v.ID)
@@ -596,6 +621,7 @@ func (_u *TaskFeedUpdateOne) Select(field string, fields ...string) *TaskFeedUpd
 
 // Save executes the query and returns the updated TaskFeed entity.
 func (_u *TaskFeedUpdateOne) Save(ctx context.Context) (*TaskFeed, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -618,6 +644,14 @@ func (_u *TaskFeedUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskFeedUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskFeedUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskfeed.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -669,6 +703,9 @@ func (_u *TaskFeedUpdateOne) sqlSave(ctx context.Context) (_node *TaskFeed, err 
 	}
 	if value, ok := _u.mutation.IsPinned(); ok {
 		_spec.SetField(taskfeed.FieldIsPinned, field.TypeBool, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskfeed.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{

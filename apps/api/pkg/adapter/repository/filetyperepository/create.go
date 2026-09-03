@@ -1,8 +1,8 @@
 package filetyperepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *fileTypeRepository) Create(ctx context.Context, input model.CreateFileTypeInput) (*model.FileType, error) {

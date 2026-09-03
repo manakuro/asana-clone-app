@@ -3,10 +3,10 @@
 package ent
 
 import (
+	"asana-clone-app/ent/color"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/taskpriority"
 	"fmt"
-	"project-management-demo-backend/ent/color"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/taskpriority"
 	"strings"
 	"time"
 

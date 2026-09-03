@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS project_management_demo;
-CREATE DATABASE project_management_demo CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+DROP DATABASE IF EXISTS asana_clone_app;
+CREATE DATABASE asana_clone_app CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;

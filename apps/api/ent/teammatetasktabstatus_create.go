@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/teammatetasktabstatus"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/teammatetasktabstatus"
-	"project-management-demo-backend/ent/workspace"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -355,6 +355,18 @@ func (u *TeammateTaskTabStatusUpsert) UpdateStatusCode() *TeammateTaskTabStatusU
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskTabStatusUpsert) SetUpdatedAt(v time.Time) *TeammateTaskTabStatusUpsert {
+	u.Set(teammatetasktabstatus.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskTabStatusUpsert) UpdateUpdatedAt() *TeammateTaskTabStatusUpsert {
+	u.SetExcluded(teammatetasktabstatus.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -374,9 +386,6 @@ func (u *TeammateTaskTabStatusUpsertOne) UpdateNewValues() *TeammateTaskTabStatu
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(teammatetasktabstatus.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(teammatetasktabstatus.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -448,6 +457,20 @@ func (u *TeammateTaskTabStatusUpsertOne) SetStatusCode(v teammatetasktabstatus.S
 func (u *TeammateTaskTabStatusUpsertOne) UpdateStatusCode() *TeammateTaskTabStatusUpsertOne {
 	return u.Update(func(s *TeammateTaskTabStatusUpsert) {
 		s.UpdateStatusCode()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskTabStatusUpsertOne) SetUpdatedAt(v time.Time) *TeammateTaskTabStatusUpsertOne {
+	return u.Update(func(s *TeammateTaskTabStatusUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskTabStatusUpsertOne) UpdateUpdatedAt() *TeammateTaskTabStatusUpsertOne {
+	return u.Update(func(s *TeammateTaskTabStatusUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -637,9 +660,6 @@ func (u *TeammateTaskTabStatusUpsertBulk) UpdateNewValues() *TeammateTaskTabStat
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(teammatetasktabstatus.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(teammatetasktabstatus.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -711,6 +731,20 @@ func (u *TeammateTaskTabStatusUpsertBulk) SetStatusCode(v teammatetasktabstatus.
 func (u *TeammateTaskTabStatusUpsertBulk) UpdateStatusCode() *TeammateTaskTabStatusUpsertBulk {
 	return u.Update(func(s *TeammateTaskTabStatusUpsert) {
 		s.UpdateStatusCode()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateTaskTabStatusUpsertBulk) SetUpdatedAt(v time.Time) *TeammateTaskTabStatusUpsertBulk {
+	return u.Update(func(s *TeammateTaskTabStatusUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateTaskTabStatusUpsertBulk) UpdateUpdatedAt() *TeammateTaskTabStatusUpsertBulk {
+	return u.Update(func(s *TeammateTaskTabStatusUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

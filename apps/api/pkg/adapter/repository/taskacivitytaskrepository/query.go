@@ -1,9 +1,9 @@
 package taskacivitytaskrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskActivityTaskRepository) Get(ctx context.Context, where *model.TaskActivityTaskWhereInput) (*model.TaskActivityTask, error) {

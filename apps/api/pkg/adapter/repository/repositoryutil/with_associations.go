@@ -1,7 +1,7 @@
 package repositoryutil
 
 import (
-	"project-management-demo-backend/ent"
+	"asana-clone-app/ent"
 )
 
 // WithTaskAll eager-loads associations with task entity.

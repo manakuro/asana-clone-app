@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/testtodo"
+	"asana-clone-app/ent/testuser"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/testtodo"
-	"project-management-demo-backend/ent/testuser"
 	"time"
 
 	"entgo.io/ent/dialect/sql"
@@ -153,6 +153,12 @@ func (_u *TestTodoUpdate) ClearDueDate() *TestTodoUpdate {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TestTodoUpdate) SetUpdatedAt(v time.Time) *TestTodoUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTestUser sets the "testUser" edge to the TestUser entity.
 func (_u *TestTodoUpdate) SetTestUser(v *TestUser) *TestTodoUpdate {
 	return _u.SetTestUserID(v.ID)
@@ -232,6 +238,7 @@ func (_u *TestTodoUpdate) RemoveChildren(v ...*TestTodo) *TestTodoUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TestTodoUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -254,6 +261,14 @@ func (_u *TestTodoUpdate) Exec(ctx context.Context) error {
 func (_u *TestTodoUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TestTodoUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := testtodo.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -299,6 +314,9 @@ func (_u *TestTodoUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if _u.mutation.DueDateCleared() {
 		_spec.ClearField(testtodo.FieldDueDate, field.TypeTime)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(testtodo.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TestUserCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -546,6 +564,12 @@ func (_u *TestTodoUpdateOne) ClearDueDate() *TestTodoUpdateOne {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TestTodoUpdateOne) SetUpdatedAt(v time.Time) *TestTodoUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTestUser sets the "testUser" edge to the TestUser entity.
 func (_u *TestTodoUpdateOne) SetTestUser(v *TestUser) *TestTodoUpdateOne {
 	return _u.SetTestUserID(v.ID)
@@ -638,6 +662,7 @@ func (_u *TestTodoUpdateOne) Select(field string, fields ...string) *TestTodoUpd
 
 // Save executes the query and returns the updated TestTodo entity.
 func (_u *TestTodoUpdateOne) Save(ctx context.Context) (*TestTodo, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -660,6 +685,14 @@ func (_u *TestTodoUpdateOne) Exec(ctx context.Context) error {
 func (_u *TestTodoUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TestTodoUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := testtodo.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -722,6 +755,9 @@ func (_u *TestTodoUpdateOne) sqlSave(ctx context.Context) (_node *TestTodo, err 
 	}
 	if _u.mutation.DueDateCleared() {
 		_spec.ClearField(testtodo.FieldDueDate, field.TypeTime)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(testtodo.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TestUserCleared() {
 		edge := &sqlgraph.EdgeSpec{

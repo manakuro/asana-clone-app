@@ -1,0 +1,21 @@
+appEnv: production
+
+# Apply to your environment and rename this file to `config.production.yml`
+database:
+  user:
+  password:
+  net: tcp
+  addr:
+  dbname: asana_clone_app
+  allowNativePasswords: true
+  params:
+    parseTime: true
+    charset: utf8mb4
+    loc: Asia/Tokyo
+    tls:
+
+firebase:
+  serviceKey: .keys/firebase-service-key.production.json
+
+server:
+  address: 8080

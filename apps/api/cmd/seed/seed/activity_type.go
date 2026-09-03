@@ -1,10 +1,10 @@
 package seed
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/activitytype"
 	"context"
 	"log"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/activitytype"
 )
 
 var activityTypeSeed = struct {

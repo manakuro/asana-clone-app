@@ -1,8 +1,8 @@
 package deletedtaskrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *deletedTaskRepository) Create(ctx context.Context, input model.CreateDeletedTaskInput) (*model.DeletedTask, error) {

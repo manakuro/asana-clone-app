@@ -3,11 +3,11 @@
 package ent
 
 import (
+	"asana-clone-app/ent/deletedtask"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/workspace"
 	"fmt"
-	"project-management-demo-backend/ent/deletedtask"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/workspace"
 	"strings"
 	"time"
 

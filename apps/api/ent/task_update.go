@@ -3,31 +3,31 @@
 package ent
 
 import (
+	"asana-clone-app/ent/archivedtaskactivitytask"
+	"asana-clone-app/ent/archivedworkspaceactivitytask"
+	"asana-clone-app/ent/deletedprojecttask"
+	"asana-clone-app/ent/deletedtask"
+	"asana-clone-app/ent/deletedtaskactivitytask"
+	"asana-clone-app/ent/deletedteammatetask"
+	"asana-clone-app/ent/deletedworkspaceactivitytask"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/projecttask"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskactivitytask"
+	"asana-clone-app/ent/taskcollaborator"
+	"asana-clone-app/ent/taskfeed"
+	"asana-clone-app/ent/taskfeedlike"
+	"asana-clone-app/ent/taskfile"
+	"asana-clone-app/ent/tasklike"
+	"asana-clone-app/ent/taskpriority"
+	"asana-clone-app/ent/tasktag"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/teammatetask"
+	"asana-clone-app/ent/workspaceactivitytask"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/archivedtaskactivitytask"
-	"project-management-demo-backend/ent/archivedworkspaceactivitytask"
-	"project-management-demo-backend/ent/deletedprojecttask"
-	"project-management-demo-backend/ent/deletedtask"
-	"project-management-demo-backend/ent/deletedtaskactivitytask"
-	"project-management-demo-backend/ent/deletedteammatetask"
-	"project-management-demo-backend/ent/deletedworkspaceactivitytask"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/projecttask"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskactivitytask"
-	"project-management-demo-backend/ent/taskcollaborator"
-	"project-management-demo-backend/ent/taskfeed"
-	"project-management-demo-backend/ent/taskfeedlike"
-	"project-management-demo-backend/ent/taskfile"
-	"project-management-demo-backend/ent/tasklike"
-	"project-management-demo-backend/ent/taskpriority"
-	"project-management-demo-backend/ent/tasktag"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/teammatetask"
-	"project-management-demo-backend/ent/workspaceactivitytask"
 	"time"
 
 	"entgo.io/ent/dialect/sql"
@@ -227,6 +227,12 @@ func (_u *TaskUpdate) ClearDueTime() *TaskUpdate {
 // SetDescription sets the "description" field.
 func (_u *TaskUpdate) SetDescription(v map[string]interface{}) *TaskUpdate {
 	_u.mutation.SetDescription(v)
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskUpdate) SetUpdatedAt(v time.Time) *TaskUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -946,6 +952,7 @@ func (_u *TaskUpdate) RemoveDeletedWorkspaceActivityTasks(v ...*DeletedWorkspace
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -968,6 +975,14 @@ func (_u *TaskUpdate) Exec(ctx context.Context) error {
 func (_u *TaskUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := task.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -1025,6 +1040,9 @@ func (_u *TaskUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.Description(); ok {
 		_spec.SetField(task.FieldDescription, field.TypeJSON, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(task.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -2125,6 +2143,12 @@ func (_u *TaskUpdateOne) SetDescription(v map[string]interface{}) *TaskUpdateOne
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskUpdateOne) SetUpdatedAt(v time.Time) *TaskUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTeammateID sets the "teammate" edge to the Teammate entity by ID.
 func (_u *TaskUpdateOne) SetTeammateID(id ulid.ID) *TaskUpdateOne {
 	_u.mutation.SetTeammateID(id)
@@ -2854,6 +2878,7 @@ func (_u *TaskUpdateOne) Select(field string, fields ...string) *TaskUpdateOne {
 
 // Save executes the query and returns the updated Task entity.
 func (_u *TaskUpdateOne) Save(ctx context.Context) (*Task, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -2876,6 +2901,14 @@ func (_u *TaskUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := task.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -2950,6 +2983,9 @@ func (_u *TaskUpdateOne) sqlSave(ctx context.Context) (_node *Task, err error) {
 	}
 	if value, ok := _u.mutation.Description(); ok {
 		_spec.SetField(task.FieldDescription, field.TypeJSON, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(task.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{

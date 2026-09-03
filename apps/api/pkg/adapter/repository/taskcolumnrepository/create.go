@@ -1,8 +1,8 @@
 package taskcolumnrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskColumnRepository) Create(ctx context.Context, input model.CreateTaskColumnInput) (*model.TaskColumn, error) {

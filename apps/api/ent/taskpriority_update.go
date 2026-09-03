@@ -3,14 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/color"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskpriority"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/color"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskpriority"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -72,6 +73,12 @@ func (_u *TaskPriorityUpdate) SetNillablePriorityType(v *taskpriority.PriorityTy
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskPriorityUpdate) SetUpdatedAt(v time.Time) *TaskPriorityUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetColor sets the "color" edge to the Color entity.
 func (_u *TaskPriorityUpdate) SetColor(v *Color) *TaskPriorityUpdate {
 	return _u.SetColorID(v.ID)
@@ -126,6 +133,7 @@ func (_u *TaskPriorityUpdate) RemoveTasks(v ...*Task) *TaskPriorityUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskPriorityUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -148,6 +156,14 @@ func (_u *TaskPriorityUpdate) Exec(ctx context.Context) error {
 func (_u *TaskPriorityUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskPriorityUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskpriority.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -186,6 +202,9 @@ func (_u *TaskPriorityUpdate) sqlSave(ctx context.Context) (_node int, err error
 	}
 	if value, ok := _u.mutation.PriorityType(); ok {
 		_spec.SetField(taskpriority.FieldPriorityType, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskpriority.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ColorCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -323,6 +342,12 @@ func (_u *TaskPriorityUpdateOne) SetNillablePriorityType(v *taskpriority.Priorit
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskPriorityUpdateOne) SetUpdatedAt(v time.Time) *TaskPriorityUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetColor sets the "color" edge to the Color entity.
 func (_u *TaskPriorityUpdateOne) SetColor(v *Color) *TaskPriorityUpdateOne {
 	return _u.SetColorID(v.ID)
@@ -390,6 +415,7 @@ func (_u *TaskPriorityUpdateOne) Select(field string, fields ...string) *TaskPri
 
 // Save executes the query and returns the updated TaskPriority entity.
 func (_u *TaskPriorityUpdateOne) Save(ctx context.Context) (*TaskPriority, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -412,6 +438,14 @@ func (_u *TaskPriorityUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskPriorityUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskPriorityUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskpriority.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -467,6 +501,9 @@ func (_u *TaskPriorityUpdateOne) sqlSave(ctx context.Context) (_node *TaskPriori
 	}
 	if value, ok := _u.mutation.PriorityType(); ok {
 		_spec.SetField(taskpriority.FieldPriorityType, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskpriority.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ColorCleared() {
 		edge := &sqlgraph.EdgeSpec{

@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
+	"asana-clone-app/ent/workspaceteammate"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
-	"project-management-demo-backend/ent/workspaceteammate"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -368,6 +368,18 @@ func (u *WorkspaceTeammateUpsert) UpdateIsOwner() *WorkspaceTeammateUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceTeammateUpsert) SetUpdatedAt(v time.Time) *WorkspaceTeammateUpsert {
+	u.Set(workspaceteammate.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceTeammateUpsert) UpdateUpdatedAt() *WorkspaceTeammateUpsert {
+	u.SetExcluded(workspaceteammate.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -387,9 +399,6 @@ func (u *WorkspaceTeammateUpsertOne) UpdateNewValues() *WorkspaceTeammateUpsertO
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(workspaceteammate.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(workspaceteammate.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -475,6 +484,20 @@ func (u *WorkspaceTeammateUpsertOne) SetIsOwner(v bool) *WorkspaceTeammateUpsert
 func (u *WorkspaceTeammateUpsertOne) UpdateIsOwner() *WorkspaceTeammateUpsertOne {
 	return u.Update(func(s *WorkspaceTeammateUpsert) {
 		s.UpdateIsOwner()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceTeammateUpsertOne) SetUpdatedAt(v time.Time) *WorkspaceTeammateUpsertOne {
+	return u.Update(func(s *WorkspaceTeammateUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceTeammateUpsertOne) UpdateUpdatedAt() *WorkspaceTeammateUpsertOne {
+	return u.Update(func(s *WorkspaceTeammateUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -664,9 +687,6 @@ func (u *WorkspaceTeammateUpsertBulk) UpdateNewValues() *WorkspaceTeammateUpsert
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(workspaceteammate.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(workspaceteammate.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -752,6 +772,20 @@ func (u *WorkspaceTeammateUpsertBulk) SetIsOwner(v bool) *WorkspaceTeammateUpser
 func (u *WorkspaceTeammateUpsertBulk) UpdateIsOwner() *WorkspaceTeammateUpsertBulk {
 	return u.Update(func(s *WorkspaceTeammateUpsert) {
 		s.UpdateIsOwner()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceTeammateUpsertBulk) SetUpdatedAt(v time.Time) *WorkspaceTeammateUpsertBulk {
+	return u.Update(func(s *WorkspaceTeammateUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceTeammateUpsertBulk) UpdateUpdatedAt() *WorkspaceTeammateUpsertBulk {
+	return u.Update(func(s *WorkspaceTeammateUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

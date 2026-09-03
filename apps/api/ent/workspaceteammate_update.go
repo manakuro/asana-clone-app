@@ -3,14 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
+	"asana-clone-app/ent/workspaceteammate"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
-	"project-management-demo-backend/ent/workspaceteammate"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -86,6 +87,12 @@ func (_u *WorkspaceTeammateUpdate) SetNillableIsOwner(v *bool) *WorkspaceTeammat
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *WorkspaceTeammateUpdate) SetUpdatedAt(v time.Time) *WorkspaceTeammateUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetWorkspace sets the "workspace" edge to the Workspace entity.
 func (_u *WorkspaceTeammateUpdate) SetWorkspace(v *Workspace) *WorkspaceTeammateUpdate {
 	return _u.SetWorkspaceID(v.ID)
@@ -115,6 +122,7 @@ func (_u *WorkspaceTeammateUpdate) ClearTeammate() *WorkspaceTeammateUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *WorkspaceTeammateUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -137,6 +145,14 @@ func (_u *WorkspaceTeammateUpdate) Exec(ctx context.Context) error {
 func (_u *WorkspaceTeammateUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *WorkspaceTeammateUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := workspaceteammate.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -173,6 +189,9 @@ func (_u *WorkspaceTeammateUpdate) sqlSave(ctx context.Context) (_node int, err 
 	}
 	if value, ok := _u.mutation.IsOwner(); ok {
 		_spec.SetField(workspaceteammate.FieldIsOwner, field.TypeBool, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(workspaceteammate.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -308,6 +327,12 @@ func (_u *WorkspaceTeammateUpdateOne) SetNillableIsOwner(v *bool) *WorkspaceTeam
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *WorkspaceTeammateUpdateOne) SetUpdatedAt(v time.Time) *WorkspaceTeammateUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetWorkspace sets the "workspace" edge to the Workspace entity.
 func (_u *WorkspaceTeammateUpdateOne) SetWorkspace(v *Workspace) *WorkspaceTeammateUpdateOne {
 	return _u.SetWorkspaceID(v.ID)
@@ -350,6 +375,7 @@ func (_u *WorkspaceTeammateUpdateOne) Select(field string, fields ...string) *Wo
 
 // Save executes the query and returns the updated WorkspaceTeammate entity.
 func (_u *WorkspaceTeammateUpdateOne) Save(ctx context.Context) (*WorkspaceTeammate, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -372,6 +398,14 @@ func (_u *WorkspaceTeammateUpdateOne) Exec(ctx context.Context) error {
 func (_u *WorkspaceTeammateUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *WorkspaceTeammateUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := workspaceteammate.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -425,6 +459,9 @@ func (_u *WorkspaceTeammateUpdateOne) sqlSave(ctx context.Context) (_node *Works
 	}
 	if value, ok := _u.mutation.IsOwner(); ok {
 		_spec.SetField(workspaceteammate.FieldIsOwner, field.TypeBool, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(workspaceteammate.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.WorkspaceCleared() {
 		edge := &sqlgraph.EdgeSpec{

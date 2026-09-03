@@ -3,13 +3,14 @@
 package ent
 
 import (
+	"asana-clone-app/ent/icon"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/projecticon"
+	"asana-clone-app/ent/schema/ulid"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/icon"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/projecticon"
-	"project-management-demo-backend/ent/schema/ulid"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -57,6 +58,12 @@ func (_u *IconUpdate) SetNillableIcon(v *string) *IconUpdate {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *IconUpdate) SetUpdatedAt(v time.Time) *IconUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddProjectIconIDs adds the "projectIcons" edge to the ProjectIcon entity by IDs.
 func (_u *IconUpdate) AddProjectIconIDs(ids ...ulid.ID) *IconUpdate {
 	_u.mutation.AddProjectIconIDs(ids...)
@@ -100,6 +107,7 @@ func (_u *IconUpdate) RemoveProjectIcons(v ...*ProjectIcon) *IconUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *IconUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -122,6 +130,14 @@ func (_u *IconUpdate) Exec(ctx context.Context) error {
 func (_u *IconUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *IconUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := icon.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -157,6 +173,9 @@ func (_u *IconUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.Icon(); ok {
 		_spec.SetField(icon.FieldIcon, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(icon.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectIconsCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -251,6 +270,12 @@ func (_u *IconUpdateOne) SetNillableIcon(v *string) *IconUpdateOne {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *IconUpdateOne) SetUpdatedAt(v time.Time) *IconUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddProjectIconIDs adds the "projectIcons" edge to the ProjectIcon entity by IDs.
 func (_u *IconUpdateOne) AddProjectIconIDs(ids ...ulid.ID) *IconUpdateOne {
 	_u.mutation.AddProjectIconIDs(ids...)
@@ -307,6 +332,7 @@ func (_u *IconUpdateOne) Select(field string, fields ...string) *IconUpdateOne {
 
 // Save executes the query and returns the updated Icon entity.
 func (_u *IconUpdateOne) Save(ctx context.Context) (*Icon, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -329,6 +355,14 @@ func (_u *IconUpdateOne) Exec(ctx context.Context) error {
 func (_u *IconUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *IconUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := icon.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -381,6 +415,9 @@ func (_u *IconUpdateOne) sqlSave(ctx context.Context) (_node *Icon, err error) {
 	}
 	if value, ok := _u.mutation.Icon(); ok {
 		_spec.SetField(icon.FieldIcon, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(icon.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectIconsCleared() {
 		edge := &sqlgraph.EdgeSpec{

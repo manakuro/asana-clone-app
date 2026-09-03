@@ -1,10 +1,10 @@
 package favoriteprojectrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/favoriteproject"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/favoriteproject"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *favoriteProjectRepository) Delete(ctx context.Context, input model.DeleteFavoriteProjectInput) (*model.FavoriteProject, error) {

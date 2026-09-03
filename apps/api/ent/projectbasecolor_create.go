@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/color"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projectbasecolor"
+	"asana-clone-app/ent/schema/ulid"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/color"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projectbasecolor"
-	"project-management-demo-backend/ent/schema/ulid"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -298,6 +298,18 @@ func (u *ProjectBaseColorUpsert) UpdateColorID() *ProjectBaseColorUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectBaseColorUpsert) SetUpdatedAt(v time.Time) *ProjectBaseColorUpsert {
+	u.Set(projectbasecolor.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectBaseColorUpsert) UpdateUpdatedAt() *ProjectBaseColorUpsert {
+	u.SetExcluded(projectbasecolor.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -317,9 +329,6 @@ func (u *ProjectBaseColorUpsertOne) UpdateNewValues() *ProjectBaseColorUpsertOne
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(projectbasecolor.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(projectbasecolor.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -363,6 +372,20 @@ func (u *ProjectBaseColorUpsertOne) SetColorID(v ulid.ID) *ProjectBaseColorUpser
 func (u *ProjectBaseColorUpsertOne) UpdateColorID() *ProjectBaseColorUpsertOne {
 	return u.Update(func(s *ProjectBaseColorUpsert) {
 		s.UpdateColorID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectBaseColorUpsertOne) SetUpdatedAt(v time.Time) *ProjectBaseColorUpsertOne {
+	return u.Update(func(s *ProjectBaseColorUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectBaseColorUpsertOne) UpdateUpdatedAt() *ProjectBaseColorUpsertOne {
+	return u.Update(func(s *ProjectBaseColorUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -552,9 +575,6 @@ func (u *ProjectBaseColorUpsertBulk) UpdateNewValues() *ProjectBaseColorUpsertBu
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(projectbasecolor.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(projectbasecolor.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -598,6 +618,20 @@ func (u *ProjectBaseColorUpsertBulk) SetColorID(v ulid.ID) *ProjectBaseColorUpse
 func (u *ProjectBaseColorUpsertBulk) UpdateColorID() *ProjectBaseColorUpsertBulk {
 	return u.Update(func(s *ProjectBaseColorUpsert) {
 		s.UpdateColorID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectBaseColorUpsertBulk) SetUpdatedAt(v time.Time) *ProjectBaseColorUpsertBulk {
+	return u.Update(func(s *ProjectBaseColorUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectBaseColorUpsertBulk) UpdateUpdatedAt() *ProjectBaseColorUpsertBulk {
+	return u.Update(func(s *ProjectBaseColorUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

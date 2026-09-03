@@ -1,8 +1,8 @@
 package taskpriorityrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskPriorityRepository) Create(ctx context.Context, input model.CreateTaskPriorityInput) (*model.TaskPriority, error) {

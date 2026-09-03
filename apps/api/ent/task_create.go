@@ -3,30 +3,30 @@
 package ent
 
 import (
+	"asana-clone-app/ent/archivedtaskactivitytask"
+	"asana-clone-app/ent/archivedworkspaceactivitytask"
+	"asana-clone-app/ent/deletedprojecttask"
+	"asana-clone-app/ent/deletedtask"
+	"asana-clone-app/ent/deletedtaskactivitytask"
+	"asana-clone-app/ent/deletedteammatetask"
+	"asana-clone-app/ent/deletedworkspaceactivitytask"
+	"asana-clone-app/ent/projecttask"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskactivitytask"
+	"asana-clone-app/ent/taskcollaborator"
+	"asana-clone-app/ent/taskfeed"
+	"asana-clone-app/ent/taskfeedlike"
+	"asana-clone-app/ent/taskfile"
+	"asana-clone-app/ent/tasklike"
+	"asana-clone-app/ent/taskpriority"
+	"asana-clone-app/ent/tasktag"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/teammatetask"
+	"asana-clone-app/ent/workspaceactivitytask"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/archivedtaskactivitytask"
-	"project-management-demo-backend/ent/archivedworkspaceactivitytask"
-	"project-management-demo-backend/ent/deletedprojecttask"
-	"project-management-demo-backend/ent/deletedtask"
-	"project-management-demo-backend/ent/deletedtaskactivitytask"
-	"project-management-demo-backend/ent/deletedteammatetask"
-	"project-management-demo-backend/ent/deletedworkspaceactivitytask"
-	"project-management-demo-backend/ent/projecttask"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskactivitytask"
-	"project-management-demo-backend/ent/taskcollaborator"
-	"project-management-demo-backend/ent/taskfeed"
-	"project-management-demo-backend/ent/taskfeedlike"
-	"project-management-demo-backend/ent/taskfile"
-	"project-management-demo-backend/ent/tasklike"
-	"project-management-demo-backend/ent/taskpriority"
-	"project-management-demo-backend/ent/tasktag"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/teammatetask"
-	"project-management-demo-backend/ent/workspaceactivitytask"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -1248,6 +1248,18 @@ func (u *TaskUpsert) UpdateDescription() *TaskUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskUpsert) SetUpdatedAt(v time.Time) *TaskUpsert {
+	u.Set(task.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskUpsert) UpdateUpdatedAt() *TaskUpsert {
+	u.SetExcluded(task.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -1267,9 +1279,6 @@ func (u *TaskUpsertOne) UpdateNewValues() *TaskUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(task.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(task.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -1498,6 +1507,20 @@ func (u *TaskUpsertOne) UpdateDescription() *TaskUpsertOne {
 	})
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskUpsertOne) SetUpdatedAt(v time.Time) *TaskUpsertOne {
+	return u.Update(func(s *TaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskUpsertOne) UpdateUpdatedAt() *TaskUpsertOne {
+	return u.Update(func(s *TaskUpsert) {
+		s.UpdateUpdatedAt()
+	})
+}
+
 // Exec executes the query.
 func (u *TaskUpsertOne) Exec(ctx context.Context) error {
 	if len(u.create.conflict) == 0 {
@@ -1683,9 +1706,6 @@ func (u *TaskUpsertBulk) UpdateNewValues() *TaskUpsertBulk {
 			}
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(task.FieldCreatedAt)
-			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(task.FieldUpdatedAt)
 			}
 		}
 	}))
@@ -1912,6 +1932,20 @@ func (u *TaskUpsertBulk) SetDescription(v map[string]interface{}) *TaskUpsertBul
 func (u *TaskUpsertBulk) UpdateDescription() *TaskUpsertBulk {
 	return u.Update(func(s *TaskUpsert) {
 		s.UpdateDescription()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskUpsertBulk) SetUpdatedAt(v time.Time) *TaskUpsertBulk {
+	return u.Update(func(s *TaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskUpsertBulk) UpdateUpdatedAt() *TaskUpsertBulk {
+	return u.Update(func(s *TaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

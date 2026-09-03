@@ -1,12 +1,12 @@
 package main
 
 import (
+	"asana-clone-app/config"
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/migrate"
+	"asana-clone-app/pkg/infrastructure/datastore"
 	"context"
 	"log"
-	"project-management-demo-backend/config"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/migrate"
-	"project-management-demo-backend/pkg/infrastructure/datastore"
 )
 
 func main() {

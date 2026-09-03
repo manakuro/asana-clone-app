@@ -2,7 +2,7 @@
 package environment
 
 import (
-	"project-management-demo-backend/config"
+	"asana-clone-app/config"
 )
 
 // IsDev returns APP_ENV in development mode

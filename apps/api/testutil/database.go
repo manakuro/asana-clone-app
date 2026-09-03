@@ -1,10 +1,10 @@
 package testutil
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/enttest"
+	"asana-clone-app/pkg/infrastructure/datastore"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/enttest"
-	"project-management-demo-backend/pkg/infrastructure/datastore"
 	"testing"
 
 	"entgo.io/ent/dialect"

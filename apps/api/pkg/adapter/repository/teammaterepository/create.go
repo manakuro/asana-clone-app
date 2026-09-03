@@ -1,8 +1,8 @@
 package teammaterepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *teammateRepository) Create(ctx context.Context, input model.CreateTeammateInput) (*model.Teammate, error) {

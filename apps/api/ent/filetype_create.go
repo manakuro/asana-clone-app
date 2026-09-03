@@ -3,12 +3,12 @@
 package ent
 
 import (
+	"asana-clone-app/ent/filetype"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/taskfile"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/filetype"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/taskfile"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -311,6 +311,18 @@ func (u *FileTypeUpsert) UpdateTypeCode() *FileTypeUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *FileTypeUpsert) SetUpdatedAt(v time.Time) *FileTypeUpsert {
+	u.Set(filetype.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *FileTypeUpsert) UpdateUpdatedAt() *FileTypeUpsert {
+	u.SetExcluded(filetype.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -330,9 +342,6 @@ func (u *FileTypeUpsertOne) UpdateNewValues() *FileTypeUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(filetype.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(filetype.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -390,6 +399,20 @@ func (u *FileTypeUpsertOne) SetTypeCode(v filetype.TypeCode) *FileTypeUpsertOne 
 func (u *FileTypeUpsertOne) UpdateTypeCode() *FileTypeUpsertOne {
 	return u.Update(func(s *FileTypeUpsert) {
 		s.UpdateTypeCode()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *FileTypeUpsertOne) SetUpdatedAt(v time.Time) *FileTypeUpsertOne {
+	return u.Update(func(s *FileTypeUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *FileTypeUpsertOne) UpdateUpdatedAt() *FileTypeUpsertOne {
+	return u.Update(func(s *FileTypeUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -579,9 +602,6 @@ func (u *FileTypeUpsertBulk) UpdateNewValues() *FileTypeUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(filetype.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(filetype.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -639,6 +659,20 @@ func (u *FileTypeUpsertBulk) SetTypeCode(v filetype.TypeCode) *FileTypeUpsertBul
 func (u *FileTypeUpsertBulk) UpdateTypeCode() *FileTypeUpsertBulk {
 	return u.Update(func(s *FileTypeUpsert) {
 		s.UpdateTypeCode()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *FileTypeUpsertBulk) SetUpdatedAt(v time.Time) *FileTypeUpsertBulk {
+	return u.Update(func(s *FileTypeUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *FileTypeUpsertBulk) UpdateUpdatedAt() *FileTypeUpsertBulk {
+	return u.Update(func(s *FileTypeUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

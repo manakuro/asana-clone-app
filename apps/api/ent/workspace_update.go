@@ -3,29 +3,30 @@
 package ent
 
 import (
+	"asana-clone-app/ent/archivedtaskactivity"
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/ent/deletedtask"
+	"asana-clone-app/ent/deletedteammatetask"
+	"asana-clone-app/ent/favoriteworkspace"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/tag"
+	"asana-clone-app/ent/taskactivity"
+	"asana-clone-app/ent/tasklike"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/teammatetask"
+	"asana-clone-app/ent/teammatetaskcolumn"
+	"asana-clone-app/ent/teammatetaskliststatus"
+	"asana-clone-app/ent/teammatetasksection"
+	"asana-clone-app/ent/teammatetasktabstatus"
+	"asana-clone-app/ent/workspace"
+	"asana-clone-app/ent/workspaceactivity"
+	"asana-clone-app/ent/workspaceteammate"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/archivedtaskactivity"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/ent/deletedtask"
-	"project-management-demo-backend/ent/deletedteammatetask"
-	"project-management-demo-backend/ent/favoriteworkspace"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/tag"
-	"project-management-demo-backend/ent/taskactivity"
-	"project-management-demo-backend/ent/tasklike"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/teammatetask"
-	"project-management-demo-backend/ent/teammatetaskcolumn"
-	"project-management-demo-backend/ent/teammatetaskliststatus"
-	"project-management-demo-backend/ent/teammatetasksection"
-	"project-management-demo-backend/ent/teammatetasktabstatus"
-	"project-management-demo-backend/ent/workspace"
-	"project-management-demo-backend/ent/workspaceactivity"
-	"project-management-demo-backend/ent/workspaceteammate"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -76,6 +77,12 @@ func (_u *WorkspaceUpdate) SetNillableName(v *string) *WorkspaceUpdate {
 // SetDescription sets the "description" field.
 func (_u *WorkspaceUpdate) SetDescription(v map[string]interface{}) *WorkspaceUpdate {
 	_u.mutation.SetDescription(v)
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *WorkspaceUpdate) SetUpdatedAt(v time.Time) *WorkspaceUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -679,6 +686,7 @@ func (_u *WorkspaceUpdate) RemoveDeletedTeammateTasks(v ...*DeletedTeammateTask)
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *WorkspaceUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -701,6 +709,14 @@ func (_u *WorkspaceUpdate) Exec(ctx context.Context) error {
 func (_u *WorkspaceUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *WorkspaceUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := workspace.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -734,6 +750,9 @@ func (_u *WorkspaceUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	}
 	if value, ok := _u.mutation.Description(); ok {
 		_spec.SetField(workspace.FieldDescription, field.TypeJSON, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(workspace.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -1538,6 +1557,12 @@ func (_u *WorkspaceUpdateOne) SetDescription(v map[string]interface{}) *Workspac
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *WorkspaceUpdateOne) SetUpdatedAt(v time.Time) *WorkspaceUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTeammateID sets the "teammate" edge to the Teammate entity by ID.
 func (_u *WorkspaceUpdateOne) SetTeammateID(id ulid.ID) *WorkspaceUpdateOne {
 	_u.mutation.SetTeammateID(id)
@@ -2151,6 +2176,7 @@ func (_u *WorkspaceUpdateOne) Select(field string, fields ...string) *WorkspaceU
 
 // Save executes the query and returns the updated Workspace entity.
 func (_u *WorkspaceUpdateOne) Save(ctx context.Context) (*Workspace, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -2173,6 +2199,14 @@ func (_u *WorkspaceUpdateOne) Exec(ctx context.Context) error {
 func (_u *WorkspaceUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *WorkspaceUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := workspace.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -2223,6 +2257,9 @@ func (_u *WorkspaceUpdateOne) sqlSave(ctx context.Context) (_node *Workspace, er
 	}
 	if value, ok := _u.mutation.Description(); ok {
 		_spec.SetField(workspace.FieldDescription, field.TypeJSON, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(workspace.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{

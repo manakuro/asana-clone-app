@@ -3,14 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskcollaborator"
+	"asana-clone-app/ent/teammate"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskcollaborator"
-	"project-management-demo-backend/ent/teammate"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -58,6 +59,12 @@ func (_u *TaskCollaboratorUpdate) SetNillableTeammateID(v *ulid.ID) *TaskCollabo
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskCollaboratorUpdate) SetUpdatedAt(v time.Time) *TaskCollaboratorUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *TaskCollaboratorUpdate) SetTask(v *Task) *TaskCollaboratorUpdate {
 	return _u.SetTaskID(v.ID)
@@ -87,6 +94,7 @@ func (_u *TaskCollaboratorUpdate) ClearTeammate() *TaskCollaboratorUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskCollaboratorUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -112,6 +120,14 @@ func (_u *TaskCollaboratorUpdate) ExecX(ctx context.Context) {
 	}
 }
 
+// defaults sets the default values of the builder before save.
+func (_u *TaskCollaboratorUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskcollaborator.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
+	}
+}
+
 // check runs all checks and user-defined validators on the builder.
 func (_u *TaskCollaboratorUpdate) check() error {
 	if _u.mutation.TaskCleared() && len(_u.mutation.TaskIDs()) > 0 {
@@ -134,6 +150,9 @@ func (_u *TaskCollaboratorUpdate) sqlSave(ctx context.Context) (_node int, err e
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskcollaborator.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -241,6 +260,12 @@ func (_u *TaskCollaboratorUpdateOne) SetNillableTeammateID(v *ulid.ID) *TaskColl
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskCollaboratorUpdateOne) SetUpdatedAt(v time.Time) *TaskCollaboratorUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *TaskCollaboratorUpdateOne) SetTask(v *Task) *TaskCollaboratorUpdateOne {
 	return _u.SetTaskID(v.ID)
@@ -283,6 +308,7 @@ func (_u *TaskCollaboratorUpdateOne) Select(field string, fields ...string) *Tas
 
 // Save executes the query and returns the updated TaskCollaborator entity.
 func (_u *TaskCollaboratorUpdateOne) Save(ctx context.Context) (*TaskCollaborator, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -305,6 +331,14 @@ func (_u *TaskCollaboratorUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskCollaboratorUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskCollaboratorUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskcollaborator.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -347,6 +381,9 @@ func (_u *TaskCollaboratorUpdateOne) sqlSave(ctx context.Context) (_node *TaskCo
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskcollaborator.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{

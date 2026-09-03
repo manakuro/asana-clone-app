@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskactivity"
+	"asana-clone-app/ent/taskactivitytask"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskactivity"
-	"project-management-demo-backend/ent/taskactivitytask"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -313,6 +313,18 @@ func (u *TaskActivityTaskUpsert) UpdateTaskID() *TaskActivityTaskUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskActivityTaskUpsert) SetUpdatedAt(v time.Time) *TaskActivityTaskUpsert {
+	u.Set(taskactivitytask.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskActivityTaskUpsert) UpdateUpdatedAt() *TaskActivityTaskUpsert {
+	u.SetExcluded(taskactivitytask.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -332,9 +344,6 @@ func (u *TaskActivityTaskUpsertOne) UpdateNewValues() *TaskActivityTaskUpsertOne
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(taskactivitytask.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(taskactivitytask.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -392,6 +401,20 @@ func (u *TaskActivityTaskUpsertOne) SetTaskID(v ulid.ID) *TaskActivityTaskUpsert
 func (u *TaskActivityTaskUpsertOne) UpdateTaskID() *TaskActivityTaskUpsertOne {
 	return u.Update(func(s *TaskActivityTaskUpsert) {
 		s.UpdateTaskID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskActivityTaskUpsertOne) SetUpdatedAt(v time.Time) *TaskActivityTaskUpsertOne {
+	return u.Update(func(s *TaskActivityTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskActivityTaskUpsertOne) UpdateUpdatedAt() *TaskActivityTaskUpsertOne {
+	return u.Update(func(s *TaskActivityTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -581,9 +604,6 @@ func (u *TaskActivityTaskUpsertBulk) UpdateNewValues() *TaskActivityTaskUpsertBu
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(taskactivitytask.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(taskactivitytask.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -641,6 +661,20 @@ func (u *TaskActivityTaskUpsertBulk) SetTaskID(v ulid.ID) *TaskActivityTaskUpser
 func (u *TaskActivityTaskUpsertBulk) UpdateTaskID() *TaskActivityTaskUpsertBulk {
 	return u.Update(func(s *TaskActivityTaskUpsert) {
 		s.UpdateTaskID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskActivityTaskUpsertBulk) SetUpdatedAt(v time.Time) *TaskActivityTaskUpsertBulk {
+	return u.Update(func(s *TaskActivityTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskActivityTaskUpsertBulk) UpdateUpdatedAt() *TaskActivityTaskUpsertBulk {
+	return u.Update(func(s *TaskActivityTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

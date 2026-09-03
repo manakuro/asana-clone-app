@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/deletedtaskactivitytask"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/deletedtaskactivitytask"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
 	"time"
 
 	"entgo.io/ent/dialect/sql"
@@ -100,6 +100,12 @@ func (_u *DeletedTaskActivityTaskUpdate) SetNillableTaskActivityTaskUpdatedAt(v 
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedTaskActivityTaskUpdate) SetUpdatedAt(v time.Time) *DeletedTaskActivityTaskUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *DeletedTaskActivityTaskUpdate) SetTask(v *Task) *DeletedTaskActivityTaskUpdate {
 	return _u.SetTaskID(v.ID)
@@ -118,6 +124,7 @@ func (_u *DeletedTaskActivityTaskUpdate) ClearTask() *DeletedTaskActivityTaskUpd
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *DeletedTaskActivityTaskUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -140,6 +147,14 @@ func (_u *DeletedTaskActivityTaskUpdate) Exec(ctx context.Context) error {
 func (_u *DeletedTaskActivityTaskUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *DeletedTaskActivityTaskUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedtaskactivitytask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -174,6 +189,9 @@ func (_u *DeletedTaskActivityTaskUpdate) sqlSave(ctx context.Context) (_node int
 	}
 	if value, ok := _u.mutation.TaskActivityTaskUpdatedAt(); ok {
 		_spec.SetField(deletedtaskactivitytask.FieldTaskActivityTaskUpdatedAt, field.TypeTime, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedtaskactivitytask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -294,6 +312,12 @@ func (_u *DeletedTaskActivityTaskUpdateOne) SetNillableTaskActivityTaskUpdatedAt
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedTaskActivityTaskUpdateOne) SetUpdatedAt(v time.Time) *DeletedTaskActivityTaskUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *DeletedTaskActivityTaskUpdateOne) SetTask(v *Task) *DeletedTaskActivityTaskUpdateOne {
 	return _u.SetTaskID(v.ID)
@@ -325,6 +349,7 @@ func (_u *DeletedTaskActivityTaskUpdateOne) Select(field string, fields ...strin
 
 // Save executes the query and returns the updated DeletedTaskActivityTask entity.
 func (_u *DeletedTaskActivityTaskUpdateOne) Save(ctx context.Context) (*DeletedTaskActivityTask, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -347,6 +372,14 @@ func (_u *DeletedTaskActivityTaskUpdateOne) Exec(ctx context.Context) error {
 func (_u *DeletedTaskActivityTaskUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *DeletedTaskActivityTaskUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedtaskactivitytask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -398,6 +431,9 @@ func (_u *DeletedTaskActivityTaskUpdateOne) sqlSave(ctx context.Context) (_node 
 	}
 	if value, ok := _u.mutation.TaskActivityTaskUpdatedAt(); ok {
 		_spec.SetField(deletedtaskactivitytask.FieldTaskActivityTaskUpdatedAt, field.TypeTime, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedtaskactivitytask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{

@@ -1,11 +1,11 @@
 package seed
 
 import (
+	"asana-clone-app/cmd/seed/seedutil"
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/util/datetime"
 	"context"
 	"log"
-	"project-management-demo-backend/cmd/seed/seedutil"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/util/datetime"
 	"time"
 )
 

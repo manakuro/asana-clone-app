@@ -1,12 +1,12 @@
 package archivedactivityrepository
 
 import (
+	"asana-clone-app/ent/activitytype"
+	"asana-clone-app/ent/archivedtaskactivity"
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/pkg/entity/model"
 	"context"
 	"log"
-	"project-management-demo-backend/ent/activitytype"
-	"project-management-demo-backend/ent/archivedtaskactivity"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/pkg/entity/model"
 
 	"entgo.io/ent/dialect/sql"
 )

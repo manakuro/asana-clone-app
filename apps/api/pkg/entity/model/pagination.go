@@ -1,6 +1,6 @@
 package model
 
-import "project-management-demo-backend/ent"
+import "asana-clone-app/ent"
 
 // Cursor of an edge type.
 type Cursor = ent.Cursor

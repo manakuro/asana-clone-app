@@ -3,14 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/icon"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projecticon"
+	"asana-clone-app/ent/schema/ulid"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/icon"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projecticon"
-	"project-management-demo-backend/ent/schema/ulid"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -41,6 +42,12 @@ func (_u *ProjectIconUpdate) SetNillableIconID(v *ulid.ID) *ProjectIconUpdate {
 	if v != nil {
 		_u.SetIconID(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectIconUpdate) SetUpdatedAt(v time.Time) *ProjectIconUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -98,6 +105,7 @@ func (_u *ProjectIconUpdate) ClearIcon() *ProjectIconUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ProjectIconUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -123,6 +131,14 @@ func (_u *ProjectIconUpdate) ExecX(ctx context.Context) {
 	}
 }
 
+// defaults sets the default values of the builder before save.
+func (_u *ProjectIconUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projecticon.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
+	}
+}
+
 // check runs all checks and user-defined validators on the builder.
 func (_u *ProjectIconUpdate) check() error {
 	if _u.mutation.IconCleared() && len(_u.mutation.IconIDs()) > 0 {
@@ -142,6 +158,9 @@ func (_u *ProjectIconUpdate) sqlSave(ctx context.Context) (_node int, err error)
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projecticon.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectsCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -251,6 +270,12 @@ func (_u *ProjectIconUpdateOne) SetNillableIconID(v *ulid.ID) *ProjectIconUpdate
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectIconUpdateOne) SetUpdatedAt(v time.Time) *ProjectIconUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddProjectIDs adds the "projects" edge to the Project entity by IDs.
 func (_u *ProjectIconUpdateOne) AddProjectIDs(ids ...ulid.ID) *ProjectIconUpdateOne {
 	_u.mutation.AddProjectIDs(ids...)
@@ -318,6 +343,7 @@ func (_u *ProjectIconUpdateOne) Select(field string, fields ...string) *ProjectI
 
 // Save executes the query and returns the updated ProjectIcon entity.
 func (_u *ProjectIconUpdateOne) Save(ctx context.Context) (*ProjectIcon, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -340,6 +366,14 @@ func (_u *ProjectIconUpdateOne) Exec(ctx context.Context) error {
 func (_u *ProjectIconUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectIconUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projecticon.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -379,6 +413,9 @@ func (_u *ProjectIconUpdateOne) sqlSave(ctx context.Context) (_node *ProjectIcon
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projecticon.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectsCleared() {
 		edge := &sqlgraph.EdgeSpec{

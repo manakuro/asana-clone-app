@@ -1,9 +1,9 @@
 package registry
 
 import (
-	"project-management-demo-backend/pkg/adapter/controller"
-	"project-management-demo-backend/pkg/adapter/repository/projecttasksectionrepository"
-	"project-management-demo-backend/pkg/usecase/usecase"
+	"asana-clone-app/pkg/adapter/controller"
+	"asana-clone-app/pkg/adapter/repository/projecttasksectionrepository"
+	"asana-clone-app/pkg/usecase/usecase"
 )
 
 func (r *registry) NewProjectTaskSectionController() controller.ProjectTaskSection {

@@ -3,16 +3,17 @@
 package ent
 
 import (
+	"asana-clone-app/ent/activitytype"
+	"asana-clone-app/ent/archivedtaskactivity"
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/taskactivity"
+	"asana-clone-app/ent/workspaceactivity"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/activitytype"
-	"project-management-demo-backend/ent/archivedtaskactivity"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/taskactivity"
-	"project-management-demo-backend/ent/workspaceactivity"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -57,6 +58,12 @@ func (_u *ActivityTypeUpdate) SetNillableTypeCode(v *activitytype.TypeCode) *Act
 	if v != nil {
 		_u.SetTypeCode(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ActivityTypeUpdate) SetUpdatedAt(v time.Time) *ActivityTypeUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -211,6 +218,7 @@ func (_u *ActivityTypeUpdate) RemoveArchivedWorkspaceActivities(v ...*ArchivedWo
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ActivityTypeUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -233,6 +241,14 @@ func (_u *ActivityTypeUpdate) Exec(ctx context.Context) error {
 func (_u *ActivityTypeUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ActivityTypeUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := activitytype.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -268,6 +284,9 @@ func (_u *ActivityTypeUpdate) sqlSave(ctx context.Context) (_node int, err error
 	}
 	if value, ok := _u.mutation.TypeCode(); ok {
 		_spec.SetField(activitytype.FieldTypeCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(activitytype.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskActivitiesCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -497,6 +516,12 @@ func (_u *ActivityTypeUpdateOne) SetNillableTypeCode(v *activitytype.TypeCode) *
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ActivityTypeUpdateOne) SetUpdatedAt(v time.Time) *ActivityTypeUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddTaskActivityIDs adds the "taskActivities" edge to the TaskActivity entity by IDs.
 func (_u *ActivityTypeUpdateOne) AddTaskActivityIDs(ids ...ulid.ID) *ActivityTypeUpdateOne {
 	_u.mutation.AddTaskActivityIDs(ids...)
@@ -661,6 +686,7 @@ func (_u *ActivityTypeUpdateOne) Select(field string, fields ...string) *Activit
 
 // Save executes the query and returns the updated ActivityType entity.
 func (_u *ActivityTypeUpdateOne) Save(ctx context.Context) (*ActivityType, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -683,6 +709,14 @@ func (_u *ActivityTypeUpdateOne) Exec(ctx context.Context) error {
 func (_u *ActivityTypeUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ActivityTypeUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := activitytype.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -735,6 +769,9 @@ func (_u *ActivityTypeUpdateOne) sqlSave(ctx context.Context) (_node *ActivityTy
 	}
 	if value, ok := _u.mutation.TypeCode(); ok {
 		_spec.SetField(activitytype.FieldTypeCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(activitytype.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskActivitiesCleared() {
 		edge := &sqlgraph.EdgeSpec{

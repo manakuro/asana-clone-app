@@ -1,10 +1,10 @@
 package testuserrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/testuser"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/testuser"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *testUserRepository) Get(ctx context.Context, id model.ID, age *int) (*model.TestUser, error) {

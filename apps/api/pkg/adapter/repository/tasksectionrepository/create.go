@@ -1,8 +1,8 @@
 package tasksectionrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskSectionRepository) Create(ctx context.Context, input model.CreateTaskSectionInput) (*model.TaskSection, error) {

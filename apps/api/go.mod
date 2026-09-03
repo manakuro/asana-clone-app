@@ -1,4 +1,4 @@
-module project-management-demo-backend
+module asana-clone-app
 
 go 1.25.1
 

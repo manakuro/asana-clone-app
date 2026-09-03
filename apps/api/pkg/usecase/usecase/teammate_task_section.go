@@ -1,9 +1,9 @@
 package usecase
 
 import (
+	"asana-clone-app/pkg/entity/model"
+	"asana-clone-app/pkg/usecase/repository"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
-	"project-management-demo-backend/pkg/usecase/repository"
 )
 
 type teammateTaskSectionUsecase struct {

@@ -3,16 +3,17 @@
 package ent
 
 import (
+	"asana-clone-app/ent/activitytype"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/taskactivity"
+	"asana-clone-app/ent/taskactivitytask"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/activitytype"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/taskactivity"
-	"project-management-demo-backend/ent/taskactivitytask"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -71,6 +72,12 @@ func (_u *TaskActivityUpdate) SetNillableWorkspaceID(v *ulid.ID) *TaskActivityUp
 	if v != nil {
 		_u.SetWorkspaceID(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskActivityUpdate) SetUpdatedAt(v time.Time) *TaskActivityUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -150,6 +157,7 @@ func (_u *TaskActivityUpdate) RemoveTaskActivityTasks(v ...*TaskActivityTask) *T
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskActivityUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -172,6 +180,14 @@ func (_u *TaskActivityUpdate) Exec(ctx context.Context) error {
 func (_u *TaskActivityUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskActivityUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskactivity.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -200,6 +216,9 @@ func (_u *TaskActivityUpdate) sqlSave(ctx context.Context) (_node int, err error
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskactivity.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -395,6 +414,12 @@ func (_u *TaskActivityUpdateOne) SetNillableWorkspaceID(v *ulid.ID) *TaskActivit
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskActivityUpdateOne) SetUpdatedAt(v time.Time) *TaskActivityUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTeammate sets the "teammate" edge to the Teammate entity.
 func (_u *TaskActivityUpdateOne) SetTeammate(v *Teammate) *TaskActivityUpdateOne {
 	return _u.SetTeammateID(v.ID)
@@ -484,6 +509,7 @@ func (_u *TaskActivityUpdateOne) Select(field string, fields ...string) *TaskAct
 
 // Save executes the query and returns the updated TaskActivity entity.
 func (_u *TaskActivityUpdateOne) Save(ctx context.Context) (*TaskActivity, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -506,6 +532,14 @@ func (_u *TaskActivityUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskActivityUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskActivityUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := taskactivity.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -551,6 +585,9 @@ func (_u *TaskActivityUpdateOne) sqlSave(ctx context.Context) (_node *TaskActivi
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(taskactivity.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{

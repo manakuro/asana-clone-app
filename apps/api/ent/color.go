@@ -3,9 +3,9 @@
 package ent
 
 import (
+	"asana-clone-app/ent/color"
+	"asana-clone-app/ent/schema/ulid"
 	"fmt"
-	"project-management-demo-backend/ent/color"
-	"project-management-demo-backend/ent/schema/ulid"
 	"strings"
 	"time"
 

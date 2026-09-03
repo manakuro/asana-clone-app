@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/tag"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/tasktag"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/tag"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/tasktag"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -313,6 +313,18 @@ func (u *TaskTagUpsert) UpdateTagID() *TaskTagUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskTagUpsert) SetUpdatedAt(v time.Time) *TaskTagUpsert {
+	u.Set(tasktag.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskTagUpsert) UpdateUpdatedAt() *TaskTagUpsert {
+	u.SetExcluded(tasktag.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -332,9 +344,6 @@ func (u *TaskTagUpsertOne) UpdateNewValues() *TaskTagUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(tasktag.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(tasktag.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -392,6 +401,20 @@ func (u *TaskTagUpsertOne) SetTagID(v ulid.ID) *TaskTagUpsertOne {
 func (u *TaskTagUpsertOne) UpdateTagID() *TaskTagUpsertOne {
 	return u.Update(func(s *TaskTagUpsert) {
 		s.UpdateTagID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskTagUpsertOne) SetUpdatedAt(v time.Time) *TaskTagUpsertOne {
+	return u.Update(func(s *TaskTagUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskTagUpsertOne) UpdateUpdatedAt() *TaskTagUpsertOne {
+	return u.Update(func(s *TaskTagUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -581,9 +604,6 @@ func (u *TaskTagUpsertBulk) UpdateNewValues() *TaskTagUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(tasktag.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(tasktag.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -641,6 +661,20 @@ func (u *TaskTagUpsertBulk) SetTagID(v ulid.ID) *TaskTagUpsertBulk {
 func (u *TaskTagUpsertBulk) UpdateTagID() *TaskTagUpsertBulk {
 	return u.Update(func(s *TaskTagUpsert) {
 		s.UpdateTagID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TaskTagUpsertBulk) SetUpdatedAt(v time.Time) *TaskTagUpsertBulk {
+	return u.Update(func(s *TaskTagUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TaskTagUpsertBulk) UpdateUpdatedAt() *TaskTagUpsertBulk {
+	return u.Update(func(s *TaskTagUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

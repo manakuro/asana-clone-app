@@ -3,12 +3,12 @@
 package ent
 
 import (
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/testtodo"
+	"asana-clone-app/ent/testuser"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/testtodo"
-	"project-management-demo-backend/ent/testuser"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -556,6 +556,18 @@ func (u *TestTodoUpsert) ClearDueDate() *TestTodoUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TestTodoUpsert) SetUpdatedAt(v time.Time) *TestTodoUpsert {
+	u.Set(testtodo.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TestTodoUpsert) UpdateUpdatedAt() *TestTodoUpsert {
+	u.SetExcluded(testtodo.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -575,9 +587,6 @@ func (u *TestTodoUpsertOne) UpdateNewValues() *TestTodoUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(testtodo.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(testtodo.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -733,6 +742,20 @@ func (u *TestTodoUpsertOne) UpdateDueDate() *TestTodoUpsertOne {
 func (u *TestTodoUpsertOne) ClearDueDate() *TestTodoUpsertOne {
 	return u.Update(func(s *TestTodoUpsert) {
 		s.ClearDueDate()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TestTodoUpsertOne) SetUpdatedAt(v time.Time) *TestTodoUpsertOne {
+	return u.Update(func(s *TestTodoUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TestTodoUpsertOne) UpdateUpdatedAt() *TestTodoUpsertOne {
+	return u.Update(func(s *TestTodoUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -922,9 +945,6 @@ func (u *TestTodoUpsertBulk) UpdateNewValues() *TestTodoUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(testtodo.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(testtodo.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -1080,6 +1100,20 @@ func (u *TestTodoUpsertBulk) UpdateDueDate() *TestTodoUpsertBulk {
 func (u *TestTodoUpsertBulk) ClearDueDate() *TestTodoUpsertBulk {
 	return u.Update(func(s *TestTodoUpsert) {
 		s.ClearDueDate()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TestTodoUpsertBulk) SetUpdatedAt(v time.Time) *TestTodoUpsertBulk {
+	return u.Update(func(s *TestTodoUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TestTodoUpsertBulk) UpdateUpdatedAt() *TestTodoUpsertBulk {
+	return u.Update(func(s *TestTodoUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

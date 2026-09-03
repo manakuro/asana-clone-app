@@ -3,28 +3,28 @@
 package ent
 
 import (
+	"asana-clone-app/ent/archivedtaskactivity"
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/ent/deletedtask"
+	"asana-clone-app/ent/deletedteammatetask"
+	"asana-clone-app/ent/favoriteworkspace"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/tag"
+	"asana-clone-app/ent/taskactivity"
+	"asana-clone-app/ent/tasklike"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/teammatetask"
+	"asana-clone-app/ent/teammatetaskcolumn"
+	"asana-clone-app/ent/teammatetaskliststatus"
+	"asana-clone-app/ent/teammatetasksection"
+	"asana-clone-app/ent/teammatetasktabstatus"
+	"asana-clone-app/ent/workspace"
+	"asana-clone-app/ent/workspaceactivity"
+	"asana-clone-app/ent/workspaceteammate"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/archivedtaskactivity"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/ent/deletedtask"
-	"project-management-demo-backend/ent/deletedteammatetask"
-	"project-management-demo-backend/ent/favoriteworkspace"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/tag"
-	"project-management-demo-backend/ent/taskactivity"
-	"project-management-demo-backend/ent/tasklike"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/teammatetask"
-	"project-management-demo-backend/ent/teammatetaskcolumn"
-	"project-management-demo-backend/ent/teammatetaskliststatus"
-	"project-management-demo-backend/ent/teammatetasksection"
-	"project-management-demo-backend/ent/teammatetasktabstatus"
-	"project-management-demo-backend/ent/workspace"
-	"project-management-demo-backend/ent/workspaceactivity"
-	"project-management-demo-backend/ent/workspaceteammate"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -839,6 +839,18 @@ func (u *WorkspaceUpsert) UpdateDescription() *WorkspaceUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceUpsert) SetUpdatedAt(v time.Time) *WorkspaceUpsert {
+	u.Set(workspace.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceUpsert) UpdateUpdatedAt() *WorkspaceUpsert {
+	u.SetExcluded(workspace.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -858,9 +870,6 @@ func (u *WorkspaceUpsertOne) UpdateNewValues() *WorkspaceUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(workspace.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(workspace.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -932,6 +941,20 @@ func (u *WorkspaceUpsertOne) SetDescription(v map[string]interface{}) *Workspace
 func (u *WorkspaceUpsertOne) UpdateDescription() *WorkspaceUpsertOne {
 	return u.Update(func(s *WorkspaceUpsert) {
 		s.UpdateDescription()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceUpsertOne) SetUpdatedAt(v time.Time) *WorkspaceUpsertOne {
+	return u.Update(func(s *WorkspaceUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceUpsertOne) UpdateUpdatedAt() *WorkspaceUpsertOne {
+	return u.Update(func(s *WorkspaceUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -1121,9 +1144,6 @@ func (u *WorkspaceUpsertBulk) UpdateNewValues() *WorkspaceUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(workspace.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(workspace.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -1195,6 +1215,20 @@ func (u *WorkspaceUpsertBulk) SetDescription(v map[string]interface{}) *Workspac
 func (u *WorkspaceUpsertBulk) UpdateDescription() *WorkspaceUpsertBulk {
 	return u.Update(func(s *WorkspaceUpsert) {
 		s.UpdateDescription()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *WorkspaceUpsertBulk) SetUpdatedAt(v time.Time) *WorkspaceUpsertBulk {
+	return u.Update(func(s *WorkspaceUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *WorkspaceUpsertBulk) UpdateUpdatedAt() *WorkspaceUpsertBulk {
+	return u.Update(func(s *WorkspaceUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

@@ -1,15 +1,15 @@
 package taskrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/deletedprojecttask"
+	"asana-clone-app/ent/deletedtask"
+	"asana-clone-app/ent/deletedtaskactivitytask"
+	"asana-clone-app/ent/deletedteammatetask"
+	"asana-clone-app/ent/deletedworkspaceactivitytask"
+	"asana-clone-app/pkg/adapter/repository/repositoryutil"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/deletedprojecttask"
-	"project-management-demo-backend/ent/deletedtask"
-	"project-management-demo-backend/ent/deletedtaskactivitytask"
-	"project-management-demo-backend/ent/deletedteammatetask"
-	"project-management-demo-backend/ent/deletedworkspaceactivitytask"
-	"project-management-demo-backend/pkg/adapter/repository/repositoryutil"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskRepository) UndeleteAll(ctx context.Context, input model.UndeleteAllTaskInput) (*model.UndeleteAllTaskPayload, error) {

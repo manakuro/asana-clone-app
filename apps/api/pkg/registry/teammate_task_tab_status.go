@@ -1,9 +1,9 @@
 package registry
 
 import (
-	"project-management-demo-backend/pkg/adapter/controller"
-	"project-management-demo-backend/pkg/adapter/repository/teammatetasktabstatusrepository"
-	"project-management-demo-backend/pkg/usecase/usecase"
+	"asana-clone-app/pkg/adapter/controller"
+	"asana-clone-app/pkg/adapter/repository/teammatetasktabstatusrepository"
+	"asana-clone-app/pkg/usecase/usecase"
 )
 
 func (r *registry) NewTeammateTaskTabStatusController() controller.TeammateTaskTabStatus {

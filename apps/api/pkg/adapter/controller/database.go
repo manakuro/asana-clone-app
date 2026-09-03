@@ -1,8 +1,8 @@
 package controller
 
 import (
+	"asana-clone-app/cmd/seed/seed"
 	"net/http"
-	"project-management-demo-backend/cmd/seed/seed"
 )
 
 type databaseController struct{}

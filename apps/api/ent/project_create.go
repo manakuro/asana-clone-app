@@ -3,26 +3,26 @@
 package ent
 
 import (
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/ent/deletedprojecttask"
+	"asana-clone-app/ent/favoriteproject"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projectbasecolor"
+	"asana-clone-app/ent/projecticon"
+	"asana-clone-app/ent/projectlightcolor"
+	"asana-clone-app/ent/projecttask"
+	"asana-clone-app/ent/projecttaskcolumn"
+	"asana-clone-app/ent/projecttaskliststatus"
+	"asana-clone-app/ent/projecttasksection"
+	"asana-clone-app/ent/projectteammate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/taskfile"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
+	"asana-clone-app/ent/workspaceactivity"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/ent/deletedprojecttask"
-	"project-management-demo-backend/ent/favoriteproject"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projectbasecolor"
-	"project-management-demo-backend/ent/projecticon"
-	"project-management-demo-backend/ent/projectlightcolor"
-	"project-management-demo-backend/ent/projecttask"
-	"project-management-demo-backend/ent/projecttaskcolumn"
-	"project-management-demo-backend/ent/projecttaskliststatus"
-	"project-management-demo-backend/ent/projecttasksection"
-	"project-management-demo-backend/ent/projectteammate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/taskfile"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
-	"project-management-demo-backend/ent/workspaceactivity"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -901,6 +901,18 @@ func (u *ProjectUpsert) ClearDueDate() *ProjectUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectUpsert) SetUpdatedAt(v time.Time) *ProjectUpsert {
+	u.Set(project.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectUpsert) UpdateUpdatedAt() *ProjectUpsert {
+	u.SetExcluded(project.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -920,9 +932,6 @@ func (u *ProjectUpsertOne) UpdateNewValues() *ProjectUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(project.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(project.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -1085,6 +1094,20 @@ func (u *ProjectUpsertOne) UpdateDueDate() *ProjectUpsertOne {
 func (u *ProjectUpsertOne) ClearDueDate() *ProjectUpsertOne {
 	return u.Update(func(s *ProjectUpsert) {
 		s.ClearDueDate()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectUpsertOne) SetUpdatedAt(v time.Time) *ProjectUpsertOne {
+	return u.Update(func(s *ProjectUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectUpsertOne) UpdateUpdatedAt() *ProjectUpsertOne {
+	return u.Update(func(s *ProjectUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -1274,9 +1297,6 @@ func (u *ProjectUpsertBulk) UpdateNewValues() *ProjectUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(project.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(project.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -1439,6 +1459,20 @@ func (u *ProjectUpsertBulk) UpdateDueDate() *ProjectUpsertBulk {
 func (u *ProjectUpsertBulk) ClearDueDate() *ProjectUpsertBulk {
 	return u.Update(func(s *ProjectUpsert) {
 		s.ClearDueDate()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectUpsertBulk) SetUpdatedAt(v time.Time) *ProjectUpsertBulk {
+	return u.Update(func(s *ProjectUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectUpsertBulk) UpdateUpdatedAt() *ProjectUpsertBulk {
+	return u.Update(func(s *ProjectUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

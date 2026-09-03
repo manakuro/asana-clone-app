@@ -3,7 +3,7 @@
 package projectteammate
 
 import (
-	"project-management-demo-backend/ent/schema/ulid"
+	"asana-clone-app/ent/schema/ulid"
 	"time"
 
 	"entgo.io/ent/dialect/sql"
@@ -77,6 +77,8 @@ var (
 	DefaultCreatedAt func() time.Time
 	// DefaultUpdatedAt holds the default value on creation for the "updated_at" field.
 	DefaultUpdatedAt func() time.Time
+	// UpdateDefaultUpdatedAt holds the default value on update for the "updated_at" field.
+	UpdateDefaultUpdatedAt func() time.Time
 	// DefaultID holds the default value on creation for the "id" field.
 	DefaultID func() ulid.ID
 )

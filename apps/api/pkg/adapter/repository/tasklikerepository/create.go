@@ -1,8 +1,8 @@
 package tasklikerepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskLikeRepository) Create(ctx context.Context, input model.CreateTaskLikeInput) (*model.TaskLike, error) {

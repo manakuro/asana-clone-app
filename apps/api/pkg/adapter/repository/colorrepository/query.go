@@ -1,10 +1,10 @@
 package colorrepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/color"
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/color"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *colorRepository) Get(ctx context.Context, id model.ID) (*model.Color, error) {

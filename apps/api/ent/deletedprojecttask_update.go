@@ -3,14 +3,14 @@
 package ent
 
 import (
+	"asana-clone-app/ent/deletedprojecttask"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/deletedprojecttask"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
 	"time"
 
 	"entgo.io/ent/dialect/sql"
@@ -115,6 +115,12 @@ func (_u *DeletedProjectTaskUpdate) SetNillableProjectTaskUpdatedAt(v *time.Time
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedProjectTaskUpdate) SetUpdatedAt(v time.Time) *DeletedProjectTaskUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetProject sets the "project" edge to the Project entity.
 func (_u *DeletedProjectTaskUpdate) SetProject(v *Project) *DeletedProjectTaskUpdate {
 	return _u.SetProjectID(v.ID)
@@ -144,6 +150,7 @@ func (_u *DeletedProjectTaskUpdate) ClearTask() *DeletedProjectTaskUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *DeletedProjectTaskUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -166,6 +173,14 @@ func (_u *DeletedProjectTaskUpdate) Exec(ctx context.Context) error {
 func (_u *DeletedProjectTaskUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *DeletedProjectTaskUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedprojecttask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -203,6 +218,9 @@ func (_u *DeletedProjectTaskUpdate) sqlSave(ctx context.Context) (_node int, err
 	}
 	if value, ok := _u.mutation.ProjectTaskUpdatedAt(); ok {
 		_spec.SetField(deletedprojecttask.FieldProjectTaskUpdatedAt, field.TypeTime, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedprojecttask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -366,6 +384,12 @@ func (_u *DeletedProjectTaskUpdateOne) SetNillableProjectTaskUpdatedAt(v *time.T
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *DeletedProjectTaskUpdateOne) SetUpdatedAt(v time.Time) *DeletedProjectTaskUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetProject sets the "project" edge to the Project entity.
 func (_u *DeletedProjectTaskUpdateOne) SetProject(v *Project) *DeletedProjectTaskUpdateOne {
 	return _u.SetProjectID(v.ID)
@@ -408,6 +432,7 @@ func (_u *DeletedProjectTaskUpdateOne) Select(field string, fields ...string) *D
 
 // Save executes the query and returns the updated DeletedProjectTask entity.
 func (_u *DeletedProjectTaskUpdateOne) Save(ctx context.Context) (*DeletedProjectTask, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -430,6 +455,14 @@ func (_u *DeletedProjectTaskUpdateOne) Exec(ctx context.Context) error {
 func (_u *DeletedProjectTaskUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *DeletedProjectTaskUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := deletedprojecttask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -484,6 +517,9 @@ func (_u *DeletedProjectTaskUpdateOne) sqlSave(ctx context.Context) (_node *Dele
 	}
 	if value, ok := _u.mutation.ProjectTaskUpdatedAt(); ok {
 		_spec.SetField(deletedprojecttask.FieldProjectTaskUpdatedAt, field.TypeTime, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(deletedprojecttask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectCleared() {
 		edge := &sqlgraph.EdgeSpec{

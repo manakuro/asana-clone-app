@@ -3,17 +3,17 @@
 package ent
 
 import (
+	"asana-clone-app/ent/activitytype"
+	"asana-clone-app/ent/archivedtaskactivity"
+	"asana-clone-app/ent/archivedtaskactivitytask"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"database/sql/driver"
 	"fmt"
 	"math"
-	"project-management-demo-backend/ent/activitytype"
-	"project-management-demo-backend/ent/archivedtaskactivity"
-	"project-management-demo-backend/ent/archivedtaskactivitytask"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"

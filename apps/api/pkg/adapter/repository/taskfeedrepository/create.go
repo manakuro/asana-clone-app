@@ -1,8 +1,8 @@
 package taskfeedrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *taskFeedRepository) Create(ctx context.Context, input model.CreateTaskFeedInput) (*model.TaskFeed, error) {

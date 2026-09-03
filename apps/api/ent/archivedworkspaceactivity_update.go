@@ -3,17 +3,18 @@
 package ent
 
 import (
+	"asana-clone-app/ent/activitytype"
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/ent/archivedworkspaceactivitytask"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/activitytype"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/ent/archivedworkspaceactivitytask"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -86,6 +87,12 @@ func (_u *ArchivedWorkspaceActivityUpdate) SetNillableTeammateID(v *ulid.ID) *Ar
 	if v != nil {
 		_u.SetTeammateID(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ArchivedWorkspaceActivityUpdate) SetUpdatedAt(v time.Time) *ArchivedWorkspaceActivityUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -176,6 +183,7 @@ func (_u *ArchivedWorkspaceActivityUpdate) RemoveArchivedWorkspaceActivityTasks(
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ArchivedWorkspaceActivityUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -198,6 +206,14 @@ func (_u *ArchivedWorkspaceActivityUpdate) Exec(ctx context.Context) error {
 func (_u *ArchivedWorkspaceActivityUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ArchivedWorkspaceActivityUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := archivedworkspaceactivity.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -229,6 +245,9 @@ func (_u *ArchivedWorkspaceActivityUpdate) sqlSave(ctx context.Context) (_node i
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(archivedworkspaceactivity.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ActivityTypeCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -467,6 +486,12 @@ func (_u *ArchivedWorkspaceActivityUpdateOne) SetNillableTeammateID(v *ulid.ID) 
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ArchivedWorkspaceActivityUpdateOne) SetUpdatedAt(v time.Time) *ArchivedWorkspaceActivityUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetActivityType sets the "activityType" edge to the ActivityType entity.
 func (_u *ArchivedWorkspaceActivityUpdateOne) SetActivityType(v *ActivityType) *ArchivedWorkspaceActivityUpdateOne {
 	return _u.SetActivityTypeID(v.ID)
@@ -567,6 +592,7 @@ func (_u *ArchivedWorkspaceActivityUpdateOne) Select(field string, fields ...str
 
 // Save executes the query and returns the updated ArchivedWorkspaceActivity entity.
 func (_u *ArchivedWorkspaceActivityUpdateOne) Save(ctx context.Context) (*ArchivedWorkspaceActivity, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -589,6 +615,14 @@ func (_u *ArchivedWorkspaceActivityUpdateOne) Exec(ctx context.Context) error {
 func (_u *ArchivedWorkspaceActivityUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ArchivedWorkspaceActivityUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := archivedworkspaceactivity.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -637,6 +671,9 @@ func (_u *ArchivedWorkspaceActivityUpdateOne) sqlSave(ctx context.Context) (_nod
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(archivedworkspaceactivity.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ActivityTypeCleared() {
 		edge := &sqlgraph.EdgeSpec{

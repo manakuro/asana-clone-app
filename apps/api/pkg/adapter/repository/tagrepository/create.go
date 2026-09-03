@@ -1,8 +1,8 @@
 package tagrepository
 
 import (
+	"asana-clone-app/pkg/entity/model"
 	"context"
-	"project-management-demo-backend/pkg/entity/model"
 )
 
 func (r *tagRepository) Create(ctx context.Context, input model.CreateTagInput) (*model.Tag, error) {

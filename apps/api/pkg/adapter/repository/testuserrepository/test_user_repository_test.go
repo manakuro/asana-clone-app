@@ -1,11 +1,11 @@
 package testuserrepository_test
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/pkg/adapter/repository/testuserrepository"
+	"asana-clone-app/pkg/entity/model"
+	"asana-clone-app/testutil"
 	"context"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/pkg/adapter/repository/testuserrepository"
-	"project-management-demo-backend/pkg/entity/model"
-	"project-management-demo-backend/testutil"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

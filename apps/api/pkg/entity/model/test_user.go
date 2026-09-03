@@ -1,8 +1,8 @@
 package model
 
 import (
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/schema/testuserprofile"
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/schema/testuserprofile"
 )
 
 // TestUser is the model entity for the TestUser schema.

@@ -5,7 +5,7 @@ database:
   password: root
   net: tcp
   addr: 127.0.0.1:3308
-  dbname: project_management_demo_test
+  dbname: asana_clone_app_test
   allowNativePasswords: true
   params:
     parseTime: true

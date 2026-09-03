@@ -3,32 +3,32 @@
 package ent
 
 import (
+	"asana-clone-app/ent/archivedtaskactivity"
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/ent/deletedteammatetask"
+	"asana-clone-app/ent/favoriteproject"
+	"asana-clone-app/ent/favoriteworkspace"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projectteammate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
+	"asana-clone-app/ent/taskactivity"
+	"asana-clone-app/ent/taskcollaborator"
+	"asana-clone-app/ent/taskfeed"
+	"asana-clone-app/ent/taskfeedlike"
+	"asana-clone-app/ent/tasklike"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/teammatetask"
+	"asana-clone-app/ent/teammatetaskcolumn"
+	"asana-clone-app/ent/teammatetaskliststatus"
+	"asana-clone-app/ent/teammatetasksection"
+	"asana-clone-app/ent/teammatetasktabstatus"
+	"asana-clone-app/ent/workspace"
+	"asana-clone-app/ent/workspaceactivity"
+	"asana-clone-app/ent/workspaceteammate"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/archivedtaskactivity"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/ent/deletedteammatetask"
-	"project-management-demo-backend/ent/favoriteproject"
-	"project-management-demo-backend/ent/favoriteworkspace"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projectteammate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
-	"project-management-demo-backend/ent/taskactivity"
-	"project-management-demo-backend/ent/taskcollaborator"
-	"project-management-demo-backend/ent/taskfeed"
-	"project-management-demo-backend/ent/taskfeedlike"
-	"project-management-demo-backend/ent/tasklike"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/teammatetask"
-	"project-management-demo-backend/ent/teammatetaskcolumn"
-	"project-management-demo-backend/ent/teammatetaskliststatus"
-	"project-management-demo-backend/ent/teammatetasksection"
-	"project-management-demo-backend/ent/teammatetasktabstatus"
-	"project-management-demo-backend/ent/workspace"
-	"project-management-demo-backend/ent/workspaceactivity"
-	"project-management-demo-backend/ent/workspaceteammate"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -981,6 +981,18 @@ func (u *TeammateUpsert) UpdateEmail() *TeammateUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateUpsert) SetUpdatedAt(v time.Time) *TeammateUpsert {
+	u.Set(teammate.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateUpsert) UpdateUpdatedAt() *TeammateUpsert {
+	u.SetExcluded(teammate.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -1000,9 +1012,6 @@ func (u *TeammateUpsertOne) UpdateNewValues() *TeammateUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(teammate.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(teammate.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -1074,6 +1083,20 @@ func (u *TeammateUpsertOne) SetEmail(v string) *TeammateUpsertOne {
 func (u *TeammateUpsertOne) UpdateEmail() *TeammateUpsertOne {
 	return u.Update(func(s *TeammateUpsert) {
 		s.UpdateEmail()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateUpsertOne) SetUpdatedAt(v time.Time) *TeammateUpsertOne {
+	return u.Update(func(s *TeammateUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateUpsertOne) UpdateUpdatedAt() *TeammateUpsertOne {
+	return u.Update(func(s *TeammateUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -1263,9 +1286,6 @@ func (u *TeammateUpsertBulk) UpdateNewValues() *TeammateUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(teammate.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(teammate.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -1337,6 +1357,20 @@ func (u *TeammateUpsertBulk) SetEmail(v string) *TeammateUpsertBulk {
 func (u *TeammateUpsertBulk) UpdateEmail() *TeammateUpsertBulk {
 	return u.Update(func(s *TeammateUpsert) {
 		s.UpdateEmail()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *TeammateUpsertBulk) SetUpdatedAt(v time.Time) *TeammateUpsertBulk {
+	return u.Update(func(s *TeammateUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *TeammateUpsertBulk) UpdateUpdatedAt() *TeammateUpsertBulk {
+	return u.Update(func(s *TeammateUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

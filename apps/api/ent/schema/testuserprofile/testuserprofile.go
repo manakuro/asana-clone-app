@@ -1,10 +1,10 @@
 package testuserprofile
 
 import (
+	"asana-clone-app/pkg/util/conversion"
 	"encoding/json"
 	"fmt"
 	"io"
-	"project-management-demo-backend/pkg/util/conversion"
 )
 
 // TestUserProfile of profile

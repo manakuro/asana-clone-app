@@ -3,14 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/ent/archivedworkspaceactivitytask"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/ent/archivedworkspaceactivitytask"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -58,6 +59,12 @@ func (_u *ArchivedWorkspaceActivityTaskUpdate) SetNillableTaskID(v *ulid.ID) *Ar
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ArchivedWorkspaceActivityTaskUpdate) SetUpdatedAt(v time.Time) *ArchivedWorkspaceActivityTaskUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *ArchivedWorkspaceActivityTaskUpdate) SetTask(v *Task) *ArchivedWorkspaceActivityTaskUpdate {
 	return _u.SetTaskID(v.ID)
@@ -87,6 +94,7 @@ func (_u *ArchivedWorkspaceActivityTaskUpdate) ClearArchivedWorkspaceActivity() 
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ArchivedWorkspaceActivityTaskUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -112,6 +120,14 @@ func (_u *ArchivedWorkspaceActivityTaskUpdate) ExecX(ctx context.Context) {
 	}
 }
 
+// defaults sets the default values of the builder before save.
+func (_u *ArchivedWorkspaceActivityTaskUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := archivedworkspaceactivitytask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
+	}
+}
+
 // check runs all checks and user-defined validators on the builder.
 func (_u *ArchivedWorkspaceActivityTaskUpdate) check() error {
 	if _u.mutation.TaskCleared() && len(_u.mutation.TaskIDs()) > 0 {
@@ -134,6 +150,9 @@ func (_u *ArchivedWorkspaceActivityTaskUpdate) sqlSave(ctx context.Context) (_no
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(archivedworkspaceactivitytask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -241,6 +260,12 @@ func (_u *ArchivedWorkspaceActivityTaskUpdateOne) SetNillableTaskID(v *ulid.ID) 
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ArchivedWorkspaceActivityTaskUpdateOne) SetUpdatedAt(v time.Time) *ArchivedWorkspaceActivityTaskUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTask sets the "task" edge to the Task entity.
 func (_u *ArchivedWorkspaceActivityTaskUpdateOne) SetTask(v *Task) *ArchivedWorkspaceActivityTaskUpdateOne {
 	return _u.SetTaskID(v.ID)
@@ -283,6 +308,7 @@ func (_u *ArchivedWorkspaceActivityTaskUpdateOne) Select(field string, fields ..
 
 // Save executes the query and returns the updated ArchivedWorkspaceActivityTask entity.
 func (_u *ArchivedWorkspaceActivityTaskUpdateOne) Save(ctx context.Context) (*ArchivedWorkspaceActivityTask, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -305,6 +331,14 @@ func (_u *ArchivedWorkspaceActivityTaskUpdateOne) Exec(ctx context.Context) erro
 func (_u *ArchivedWorkspaceActivityTaskUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ArchivedWorkspaceActivityTaskUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := archivedworkspaceactivitytask.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -347,6 +381,9 @@ func (_u *ArchivedWorkspaceActivityTaskUpdateOne) sqlSave(ctx context.Context) (
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(archivedworkspaceactivitytask.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TaskCleared() {
 		edge := &sqlgraph.EdgeSpec{

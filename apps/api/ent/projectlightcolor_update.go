@@ -3,14 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/color"
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projectlightcolor"
+	"asana-clone-app/ent/schema/ulid"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/color"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projectlightcolor"
-	"project-management-demo-backend/ent/schema/ulid"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -41,6 +42,12 @@ func (_u *ProjectLightColorUpdate) SetNillableColorID(v *ulid.ID) *ProjectLightC
 	if v != nil {
 		_u.SetColorID(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectLightColorUpdate) SetUpdatedAt(v time.Time) *ProjectLightColorUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -98,6 +105,7 @@ func (_u *ProjectLightColorUpdate) ClearColor() *ProjectLightColorUpdate {
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *ProjectLightColorUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -123,6 +131,14 @@ func (_u *ProjectLightColorUpdate) ExecX(ctx context.Context) {
 	}
 }
 
+// defaults sets the default values of the builder before save.
+func (_u *ProjectLightColorUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projectlightcolor.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
+	}
+}
+
 // check runs all checks and user-defined validators on the builder.
 func (_u *ProjectLightColorUpdate) check() error {
 	if _u.mutation.ColorCleared() && len(_u.mutation.ColorIDs()) > 0 {
@@ -142,6 +158,9 @@ func (_u *ProjectLightColorUpdate) sqlSave(ctx context.Context) (_node int, err 
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projectlightcolor.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectsCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -251,6 +270,12 @@ func (_u *ProjectLightColorUpdateOne) SetNillableColorID(v *ulid.ID) *ProjectLig
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *ProjectLightColorUpdateOne) SetUpdatedAt(v time.Time) *ProjectLightColorUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddProjectIDs adds the "projects" edge to the Project entity by IDs.
 func (_u *ProjectLightColorUpdateOne) AddProjectIDs(ids ...ulid.ID) *ProjectLightColorUpdateOne {
 	_u.mutation.AddProjectIDs(ids...)
@@ -318,6 +343,7 @@ func (_u *ProjectLightColorUpdateOne) Select(field string, fields ...string) *Pr
 
 // Save executes the query and returns the updated ProjectLightColor entity.
 func (_u *ProjectLightColorUpdateOne) Save(ctx context.Context) (*ProjectLightColor, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -340,6 +366,14 @@ func (_u *ProjectLightColorUpdateOne) Exec(ctx context.Context) error {
 func (_u *ProjectLightColorUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *ProjectLightColorUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := projectlightcolor.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -379,6 +413,9 @@ func (_u *ProjectLightColorUpdateOne) sqlSave(ctx context.Context) (_node *Proje
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(projectlightcolor.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.ProjectsCleared() {
 		edge := &sqlgraph.EdgeSpec{

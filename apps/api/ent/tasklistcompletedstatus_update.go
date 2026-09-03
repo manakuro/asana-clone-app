@@ -3,14 +3,15 @@
 package ent
 
 import (
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/projecttaskliststatus"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/tasklistcompletedstatus"
+	"asana-clone-app/ent/teammatetaskliststatus"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/projecttaskliststatus"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/tasklistcompletedstatus"
-	"project-management-demo-backend/ent/teammatetaskliststatus"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -55,6 +56,12 @@ func (_u *TaskListCompletedStatusUpdate) SetNillableStatusCode(v *tasklistcomple
 	if v != nil {
 		_u.SetStatusCode(*v)
 	}
+	return _u
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskListCompletedStatusUpdate) SetUpdatedAt(v time.Time) *TaskListCompletedStatusUpdate {
+	_u.mutation.SetUpdatedAt(v)
 	return _u
 }
 
@@ -137,6 +144,7 @@ func (_u *TaskListCompletedStatusUpdate) RemoveProjectTaskListStatuses(v ...*Pro
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TaskListCompletedStatusUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -159,6 +167,14 @@ func (_u *TaskListCompletedStatusUpdate) Exec(ctx context.Context) error {
 func (_u *TaskListCompletedStatusUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskListCompletedStatusUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := tasklistcompletedstatus.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -194,6 +210,9 @@ func (_u *TaskListCompletedStatusUpdate) sqlSave(ctx context.Context) (_node int
 	}
 	if value, ok := _u.mutation.StatusCode(); ok {
 		_spec.SetField(tasklistcompletedstatus.FieldStatusCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(tasklistcompletedstatus.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateTaskListStatusesCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -333,6 +352,12 @@ func (_u *TaskListCompletedStatusUpdateOne) SetNillableStatusCode(v *tasklistcom
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TaskListCompletedStatusUpdateOne) SetUpdatedAt(v time.Time) *TaskListCompletedStatusUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // AddTeammateTaskListStatuseIDs adds the "teammateTaskListStatuses" edge to the TeammateTaskListStatus entity by IDs.
 func (_u *TaskListCompletedStatusUpdateOne) AddTeammateTaskListStatuseIDs(ids ...ulid.ID) *TaskListCompletedStatusUpdateOne {
 	_u.mutation.AddTeammateTaskListStatuseIDs(ids...)
@@ -425,6 +450,7 @@ func (_u *TaskListCompletedStatusUpdateOne) Select(field string, fields ...strin
 
 // Save executes the query and returns the updated TaskListCompletedStatus entity.
 func (_u *TaskListCompletedStatusUpdateOne) Save(ctx context.Context) (*TaskListCompletedStatus, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -447,6 +473,14 @@ func (_u *TaskListCompletedStatusUpdateOne) Exec(ctx context.Context) error {
 func (_u *TaskListCompletedStatusUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TaskListCompletedStatusUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := tasklistcompletedstatus.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -499,6 +533,9 @@ func (_u *TaskListCompletedStatusUpdateOne) sqlSave(ctx context.Context) (_node 
 	}
 	if value, ok := _u.mutation.StatusCode(); ok {
 		_spec.SetField(tasklistcompletedstatus.FieldStatusCode, field.TypeEnum, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(tasklistcompletedstatus.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateTaskListStatusesCleared() {
 		edge := &sqlgraph.EdgeSpec{

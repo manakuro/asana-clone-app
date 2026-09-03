@@ -3,15 +3,16 @@
 package ent
 
 import (
+	"asana-clone-app/ent/predicate"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/taskcolumn"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/teammatetaskcolumn"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/predicate"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/taskcolumn"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/teammatetaskcolumn"
-	"project-management-demo-backend/ent/workspace"
+	"time"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
@@ -136,6 +137,12 @@ func (_u *TeammateTaskColumnUpdate) AddOrder(v int) *TeammateTaskColumnUpdate {
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TeammateTaskColumnUpdate) SetUpdatedAt(v time.Time) *TeammateTaskColumnUpdate {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTeammate sets the "teammate" edge to the Teammate entity.
 func (_u *TeammateTaskColumnUpdate) SetTeammate(v *Teammate) *TeammateTaskColumnUpdate {
 	return _u.SetTeammateID(v.ID)
@@ -176,6 +183,7 @@ func (_u *TeammateTaskColumnUpdate) ClearTaskColumn() *TeammateTaskColumnUpdate 
 
 // Save executes the query and returns the number of nodes affected by the update operation.
 func (_u *TeammateTaskColumnUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -198,6 +206,14 @@ func (_u *TeammateTaskColumnUpdate) Exec(ctx context.Context) error {
 func (_u *TeammateTaskColumnUpdate) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TeammateTaskColumnUpdate) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := teammatetaskcolumn.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -246,6 +262,9 @@ func (_u *TeammateTaskColumnUpdate) sqlSave(ctx context.Context) (_node int, err
 	}
 	if value, ok := _u.mutation.AddedOrder(); ok {
 		_spec.AddField(teammatetaskcolumn.FieldOrder, field.TypeInt, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(teammatetaskcolumn.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{
@@ -459,6 +478,12 @@ func (_u *TeammateTaskColumnUpdateOne) AddOrder(v int) *TeammateTaskColumnUpdate
 	return _u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (_u *TeammateTaskColumnUpdateOne) SetUpdatedAt(v time.Time) *TeammateTaskColumnUpdateOne {
+	_u.mutation.SetUpdatedAt(v)
+	return _u
+}
+
 // SetTeammate sets the "teammate" edge to the Teammate entity.
 func (_u *TeammateTaskColumnUpdateOne) SetTeammate(v *Teammate) *TeammateTaskColumnUpdateOne {
 	return _u.SetTeammateID(v.ID)
@@ -512,6 +537,7 @@ func (_u *TeammateTaskColumnUpdateOne) Select(field string, fields ...string) *T
 
 // Save executes the query and returns the updated TeammateTaskColumn entity.
 func (_u *TeammateTaskColumnUpdateOne) Save(ctx context.Context) (*TeammateTaskColumn, error) {
+	_u.defaults()
 	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
@@ -534,6 +560,14 @@ func (_u *TeammateTaskColumnUpdateOne) Exec(ctx context.Context) error {
 func (_u *TeammateTaskColumnUpdateOne) ExecX(ctx context.Context) {
 	if err := _u.Exec(ctx); err != nil {
 		panic(err)
+	}
+}
+
+// defaults sets the default values of the builder before save.
+func (_u *TeammateTaskColumnUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdatedAt(); !ok {
+		v := teammatetaskcolumn.UpdateDefaultUpdatedAt()
+		_u.mutation.SetUpdatedAt(v)
 	}
 }
 
@@ -599,6 +633,9 @@ func (_u *TeammateTaskColumnUpdateOne) sqlSave(ctx context.Context) (_node *Team
 	}
 	if value, ok := _u.mutation.AddedOrder(); ok {
 		_spec.AddField(teammatetaskcolumn.FieldOrder, field.TypeInt, value)
+	}
+	if value, ok := _u.mutation.UpdatedAt(); ok {
+		_spec.SetField(teammatetaskcolumn.FieldUpdatedAt, field.TypeTime, value)
 	}
 	if _u.mutation.TeammateCleared() {
 		edge := &sqlgraph.EdgeSpec{

@@ -3,13 +3,13 @@
 package ent
 
 import (
+	"asana-clone-app/ent/favoriteproject"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/favoriteproject"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -313,6 +313,18 @@ func (u *FavoriteProjectUpsert) UpdateTeammateID() *FavoriteProjectUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *FavoriteProjectUpsert) SetUpdatedAt(v time.Time) *FavoriteProjectUpsert {
+	u.Set(favoriteproject.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *FavoriteProjectUpsert) UpdateUpdatedAt() *FavoriteProjectUpsert {
+	u.SetExcluded(favoriteproject.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -332,9 +344,6 @@ func (u *FavoriteProjectUpsertOne) UpdateNewValues() *FavoriteProjectUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(favoriteproject.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(favoriteproject.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -392,6 +401,20 @@ func (u *FavoriteProjectUpsertOne) SetTeammateID(v ulid.ID) *FavoriteProjectUpse
 func (u *FavoriteProjectUpsertOne) UpdateTeammateID() *FavoriteProjectUpsertOne {
 	return u.Update(func(s *FavoriteProjectUpsert) {
 		s.UpdateTeammateID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *FavoriteProjectUpsertOne) SetUpdatedAt(v time.Time) *FavoriteProjectUpsertOne {
+	return u.Update(func(s *FavoriteProjectUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *FavoriteProjectUpsertOne) UpdateUpdatedAt() *FavoriteProjectUpsertOne {
+	return u.Update(func(s *FavoriteProjectUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -581,9 +604,6 @@ func (u *FavoriteProjectUpsertBulk) UpdateNewValues() *FavoriteProjectUpsertBulk
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(favoriteproject.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(favoriteproject.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -641,6 +661,20 @@ func (u *FavoriteProjectUpsertBulk) SetTeammateID(v ulid.ID) *FavoriteProjectUps
 func (u *FavoriteProjectUpsertBulk) UpdateTeammateID() *FavoriteProjectUpsertBulk {
 	return u.Update(func(s *FavoriteProjectUpsert) {
 		s.UpdateTeammateID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *FavoriteProjectUpsertBulk) SetUpdatedAt(v time.Time) *FavoriteProjectUpsertBulk {
+	return u.Update(func(s *FavoriteProjectUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *FavoriteProjectUpsertBulk) UpdateUpdatedAt() *FavoriteProjectUpsertBulk {
+	return u.Update(func(s *FavoriteProjectUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

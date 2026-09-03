@@ -7,7 +7,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"project-management-demo-backend/pkg/entity/model"
+	"asana-clone-app/pkg/entity/model"
 )
 
 var codeToStatusMap = map[string]int{

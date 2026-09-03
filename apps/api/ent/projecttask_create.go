@@ -3,14 +3,14 @@
 package ent
 
 import (
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/projecttask"
+	"asana-clone-app/ent/projecttasksection"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/task"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/projecttask"
-	"project-management-demo-backend/ent/projecttasksection"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/task"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -360,6 +360,18 @@ func (u *ProjectTaskUpsert) UpdateProjectTaskSectionID() *ProjectTaskUpsert {
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectTaskUpsert) SetUpdatedAt(v time.Time) *ProjectTaskUpsert {
+	u.Set(projecttask.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectTaskUpsert) UpdateUpdatedAt() *ProjectTaskUpsert {
+	u.SetExcluded(projecttask.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -379,9 +391,6 @@ func (u *ProjectTaskUpsertOne) UpdateNewValues() *ProjectTaskUpsertOne {
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(projecttask.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(projecttask.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -453,6 +462,20 @@ func (u *ProjectTaskUpsertOne) SetProjectTaskSectionID(v ulid.ID) *ProjectTaskUp
 func (u *ProjectTaskUpsertOne) UpdateProjectTaskSectionID() *ProjectTaskUpsertOne {
 	return u.Update(func(s *ProjectTaskUpsert) {
 		s.UpdateProjectTaskSectionID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectTaskUpsertOne) SetUpdatedAt(v time.Time) *ProjectTaskUpsertOne {
+	return u.Update(func(s *ProjectTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectTaskUpsertOne) UpdateUpdatedAt() *ProjectTaskUpsertOne {
+	return u.Update(func(s *ProjectTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -642,9 +665,6 @@ func (u *ProjectTaskUpsertBulk) UpdateNewValues() *ProjectTaskUpsertBulk {
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(projecttask.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(projecttask.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -716,6 +736,20 @@ func (u *ProjectTaskUpsertBulk) SetProjectTaskSectionID(v ulid.ID) *ProjectTaskU
 func (u *ProjectTaskUpsertBulk) UpdateProjectTaskSectionID() *ProjectTaskUpsertBulk {
 	return u.Update(func(s *ProjectTaskUpsert) {
 		s.UpdateProjectTaskSectionID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ProjectTaskUpsertBulk) SetUpdatedAt(v time.Time) *ProjectTaskUpsertBulk {
+	return u.Update(func(s *ProjectTaskUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ProjectTaskUpsertBulk) UpdateUpdatedAt() *ProjectTaskUpsertBulk {
+	return u.Update(func(s *ProjectTaskUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

@@ -1,7 +1,7 @@
 package mixin
 
 import (
-	"project-management-demo-backend/ent/schema/ulid"
+	"asana-clone-app/ent/schema/ulid"
 
 	"entgo.io/ent"
 	"entgo.io/ent/schema"

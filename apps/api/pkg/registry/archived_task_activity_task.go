@@ -1,9 +1,9 @@
 package registry
 
 import (
-	"project-management-demo-backend/pkg/adapter/controller"
-	"project-management-demo-backend/pkg/adapter/repository/archivedtaskacivitytaskrepository"
-	"project-management-demo-backend/pkg/usecase/usecase"
+	"asana-clone-app/pkg/adapter/controller"
+	"asana-clone-app/pkg/adapter/repository/archivedtaskacivitytaskrepository"
+	"asana-clone-app/pkg/usecase/usecase"
 )
 
 func (r *registry) NewArchivedTaskActivityTaskController() controller.ArchivedTaskActivityTask {

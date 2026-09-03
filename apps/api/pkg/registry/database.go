@@ -1,7 +1,7 @@
 package registry
 
 import (
-	"project-management-demo-backend/pkg/adapter/controller"
+	"asana-clone-app/pkg/adapter/controller"
 )
 
 func (r *registry) NewDatabaseController() controller.Database {

@@ -1,10 +1,10 @@
 package controller
 
 import (
+	"asana-clone-app/pkg/adapter/handler"
+	"asana-clone-app/pkg/entity/model"
+	uauth "asana-clone-app/pkg/util/auth"
 	"net/http"
-	"project-management-demo-backend/pkg/adapter/handler"
-	"project-management-demo-backend/pkg/entity/model"
-	uauth "project-management-demo-backend/pkg/util/auth"
 )
 
 type authController struct{}

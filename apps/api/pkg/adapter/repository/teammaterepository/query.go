@@ -1,11 +1,11 @@
 package teammaterepository
 
 import (
+	"asana-clone-app/ent"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/pkg/entity/model"
 	"context"
 	"fmt"
-	"project-management-demo-backend/ent"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/pkg/entity/model"
 	"time"
 )
 

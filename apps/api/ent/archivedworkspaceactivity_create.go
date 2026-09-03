@@ -3,16 +3,16 @@
 package ent
 
 import (
+	"asana-clone-app/ent/activitytype"
+	"asana-clone-app/ent/archivedworkspaceactivity"
+	"asana-clone-app/ent/archivedworkspaceactivitytask"
+	"asana-clone-app/ent/project"
+	"asana-clone-app/ent/schema/ulid"
+	"asana-clone-app/ent/teammate"
+	"asana-clone-app/ent/workspace"
 	"context"
 	"errors"
 	"fmt"
-	"project-management-demo-backend/ent/activitytype"
-	"project-management-demo-backend/ent/archivedworkspaceactivity"
-	"project-management-demo-backend/ent/archivedworkspaceactivitytask"
-	"project-management-demo-backend/ent/project"
-	"project-management-demo-backend/ent/schema/ulid"
-	"project-management-demo-backend/ent/teammate"
-	"project-management-demo-backend/ent/workspace"
 	"time"
 
 	"entgo.io/ent/dialect"
@@ -439,6 +439,18 @@ func (u *ArchivedWorkspaceActivityUpsert) UpdateTeammateID() *ArchivedWorkspaceA
 	return u
 }
 
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ArchivedWorkspaceActivityUpsert) SetUpdatedAt(v time.Time) *ArchivedWorkspaceActivityUpsert {
+	u.Set(archivedworkspaceactivity.FieldUpdatedAt, v)
+	return u
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ArchivedWorkspaceActivityUpsert) UpdateUpdatedAt() *ArchivedWorkspaceActivityUpsert {
+	u.SetExcluded(archivedworkspaceactivity.FieldUpdatedAt)
+	return u
+}
+
 // UpdateNewValues updates the mutable fields using the new values that were set on create except the ID field.
 // Using this option is equivalent to using:
 //
@@ -458,9 +470,6 @@ func (u *ArchivedWorkspaceActivityUpsertOne) UpdateNewValues() *ArchivedWorkspac
 		}
 		if _, exists := u.create.mutation.CreatedAt(); exists {
 			s.SetIgnore(archivedworkspaceactivity.FieldCreatedAt)
-		}
-		if _, exists := u.create.mutation.UpdatedAt(); exists {
-			s.SetIgnore(archivedworkspaceactivity.FieldUpdatedAt)
 		}
 	}))
 	return u
@@ -546,6 +555,20 @@ func (u *ArchivedWorkspaceActivityUpsertOne) SetTeammateID(v ulid.ID) *ArchivedW
 func (u *ArchivedWorkspaceActivityUpsertOne) UpdateTeammateID() *ArchivedWorkspaceActivityUpsertOne {
 	return u.Update(func(s *ArchivedWorkspaceActivityUpsert) {
 		s.UpdateTeammateID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ArchivedWorkspaceActivityUpsertOne) SetUpdatedAt(v time.Time) *ArchivedWorkspaceActivityUpsertOne {
+	return u.Update(func(s *ArchivedWorkspaceActivityUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ArchivedWorkspaceActivityUpsertOne) UpdateUpdatedAt() *ArchivedWorkspaceActivityUpsertOne {
+	return u.Update(func(s *ArchivedWorkspaceActivityUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 
@@ -735,9 +758,6 @@ func (u *ArchivedWorkspaceActivityUpsertBulk) UpdateNewValues() *ArchivedWorkspa
 			if _, exists := b.mutation.CreatedAt(); exists {
 				s.SetIgnore(archivedworkspaceactivity.FieldCreatedAt)
 			}
-			if _, exists := b.mutation.UpdatedAt(); exists {
-				s.SetIgnore(archivedworkspaceactivity.FieldUpdatedAt)
-			}
 		}
 	}))
 	return u
@@ -823,6 +843,20 @@ func (u *ArchivedWorkspaceActivityUpsertBulk) SetTeammateID(v ulid.ID) *Archived
 func (u *ArchivedWorkspaceActivityUpsertBulk) UpdateTeammateID() *ArchivedWorkspaceActivityUpsertBulk {
 	return u.Update(func(s *ArchivedWorkspaceActivityUpsert) {
 		s.UpdateTeammateID()
+	})
+}
+
+// SetUpdatedAt sets the "updated_at" field.
+func (u *ArchivedWorkspaceActivityUpsertBulk) SetUpdatedAt(v time.Time) *ArchivedWorkspaceActivityUpsertBulk {
+	return u.Update(func(s *ArchivedWorkspaceActivityUpsert) {
+		s.SetUpdatedAt(v)
+	})
+}
+
+// UpdateUpdatedAt sets the "updated_at" field to the value that was provided on create.
+func (u *ArchivedWorkspaceActivityUpsertBulk) UpdateUpdatedAt() *ArchivedWorkspaceActivityUpsertBulk {
+	return u.Update(func(s *ArchivedWorkspaceActivityUpsert) {
+		s.UpdateUpdatedAt()
 	})
 }
 

@@ -1,8 +1,8 @@
 package schema
 
 import (
-	"project-management-demo-backend/ent/mixin"
-	"project-management-demo-backend/pkg/const/globalid"
+	"asana-clone-app/ent/mixin"
+	"asana-clone-app/pkg/const/globalid"
 
 	"entgo.io/ent"
 	"entgo.io/ent/schema/field"
