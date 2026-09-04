@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "57.0.13",
+    "@react-native-firebase/app": "26.3.3",
+    "@react-native-firebase/auth": "26.3.3",
     "expo": "57.0.16",
+    "expo-build-properties": "57.0.16",
     "expo-constants": "57.0.14",
     "expo-dev-client": "57.0.15",
     "expo-device": "57.0.1",
