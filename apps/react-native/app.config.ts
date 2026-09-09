@@ -9,12 +9,20 @@ const FIREBASE_FILES: Record<
   { ios: string; android: string }
 > = {
   development: {
-    ios: './.keys/GoogleService-Info.development.plist',
-    android: './.keys/google-services.development.json',
+    ios:
+      process.env.GOOGLE_SERVICES_PLIST ??
+      './.keys/GoogleService-Info.development.plist',
+    android:
+      process.env.GOOGLE_SERVICES_JSON ??
+      './.keys/google-services.development.json',
   },
   preview: {
-    ios: './.keys/GoogleService-Info.preview.plist',
-    android: './.keys/google-services.preview.json',
+    ios:
+      process.env.GOOGLE_SERVICES_PLIST ??
+      './.keys/GoogleService-Info.preview.plist',
+    android:
+      process.env.GOOGLE_SERVICES_JSON ??
+      './.keys/google-services.preview.json',
   },
 };
 
