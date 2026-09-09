@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import Animated, { Easing, Keyframe } from 'react-native-reanimated';
 import { scheduleOnRN } from 'react-native-worklets';
-import { useAuthContext } from '@/features/auth/contexts/auth-context';
 
 const INITIAL_SCALE_FACTOR = Dimensions.get('screen').height / 90;
 const DURATION = 600;
@@ -12,9 +11,7 @@ const DURATION = 600;
 export function AnimatedSplashOverlay() {
   const [animate, setAnimate] = useState(false);
   const [visible, setVisible] = useState(true);
-  const { idToken } = useAuthContext();
 
-  if (!idToken) return null;
   if (!visible) return null;
 
   const splashKeyframe = new Keyframe({
