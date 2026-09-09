@@ -4,13 +4,17 @@ import { getAuth } from '@react-native-firebase/auth';
 import { signInAnonymously } from '@/lib/firebase/auth/sign-in-anonymously';
 
 // For websocket - updated for graphql-ws compatibility
-export const websocketErrorHandler = (errors: unknown[]) => {
+export const websocketErrorHandler = (
+  errors: unknown[],
+  onAuthError: () => void,
+) => {
   const authError = errors.find((e) => {
     const message = e instanceof Error ? e.message : String(e);
     return message.indexOf('has expired at') !== -1;
   });
   if (authError) {
     console.error('auth error!');
+    onAuthError();
   }
 };
 

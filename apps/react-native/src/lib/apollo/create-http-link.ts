@@ -23,6 +23,8 @@ export const createHttpLink = () => {
     new HttpLink({ uri: config.API_URL }),
   ]);
 
+  let gracefullyRestart = () => {};
+
   const wsClient = createClient({
     url: config.API_SUBSCRIPTION_URL,
     lazy: true,
@@ -32,9 +34,24 @@ export const createHttpLink = () => {
       authorization: `Bearer ${await getAuth().currentUser?.getIdToken()}`,
     }),
     on: {
+      connected: (socket) => {
+        gracefullyRestart = () => {
+          if (
+            socket instanceof WebSocket &&
+            socket.readyState === WebSocket.OPEN
+          ) {
+            socket.close(4205, 'Client Restart');
+          }
+        };
+      },
       error: (error) => {
         const errors = Array.isArray(error) ? error : [error];
-        websocketErrorHandler(errors);
+        websocketErrorHandler(errors, async () => {
+          try {
+            await getAuth().currentUser?.getIdToken(true);
+          } catch {}
+          gracefullyRestart();
+        });
       },
     },
   });
