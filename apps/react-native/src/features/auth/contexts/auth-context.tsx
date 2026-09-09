@@ -8,7 +8,6 @@ const useValue = () => {
 
   useEffect(() => {
     return onAuthStateChanged(async (user) => {
-      console.log('user', user);
       if (user) {
         const token = await user.getIdToken();
         setIdToken(token);
