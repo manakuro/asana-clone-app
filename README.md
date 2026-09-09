@@ -3,7 +3,7 @@
 # Asana clone app
 An Asana clone application as a portfolio project, built with real-time communication with WebSockets and seamless updates with Optimistic UI.
 
-- [Live Demo](https://project-management-demo.manatoworks.me/)
+- [Live Demo](https://asanacloneapp.codelly.dev/)
 - [Storybook](https://main--63894befbaf58840c037c246.chromatic.com)
 
 ## Development Environment
