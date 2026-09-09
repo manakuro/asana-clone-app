@@ -4,22 +4,21 @@ import { signInAnonymously } from '@/lib/firebase/auth/sign-in-anonymously';
 import { createContext } from '@/lib/react/create-context';
 
 const useValue = () => {
-  const [idToken, setIdToken] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     return onAuthStateChanged(async (user) => {
-      if (user) {
-        const token = await user.getIdToken();
-        setIdToken(token);
-      } else {
+      if (!user) {
         console.log('sign in anonymously');
         await signInAnonymously();
+        return;
       }
+      setIsAuthenticated(true);
     });
   }, []);
 
   return {
-    idToken,
+    isAuthenticated,
   };
 };
 export const { Context: AuthContext, useContext: useAuthContext } =

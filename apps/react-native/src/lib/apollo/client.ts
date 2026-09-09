@@ -3,7 +3,7 @@ import { type CreateLinkProps, createLink } from './create-link';
 
 type Props = CreateLinkProps;
 let client: ApolloClient;
-export const createApolloClient = (props: Props) => {
+export const createApolloClient = (props?: Props) => {
   if (!client) {
     client = new ApolloClient({
       link: createLink(props),
@@ -26,8 +26,4 @@ export const createApolloClient = (props: Props) => {
   }
 
   return client;
-};
-
-export const setErrorToken = () => {
-  client.setLink(createLink({ idToken: 'test' }));
 };

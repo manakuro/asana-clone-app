@@ -1,7 +1,7 @@
-import { CombinedGraphQLErrors, ServerError } from '@apollo/client';
+import { CombinedGraphQLErrors, Observable, ServerError } from '@apollo/client';
 import type { ErrorLink } from '@apollo/client/link/error';
-
-let unauthorized = false;
+import { getAuth } from '@react-native-firebase/auth';
+import { signInAnonymously } from '@/lib/firebase/auth/sign-in-anonymously';
 
 // For websocket - updated for graphql-ws compatibility
 export const websocketErrorHandler = (errors: unknown[]) => {
@@ -11,13 +11,14 @@ export const websocketErrorHandler = (errors: unknown[]) => {
   });
   if (authError) {
     console.error('auth error!');
-    handleUnauthorizedError();
   }
 };
 
 // For graphql
 export const graphqlErrorHandler = ({
   error,
+  operation,
+  forward,
 }: ErrorLink.ErrorHandlerOptions) => {
   if (CombinedGraphQLErrors.is(error)) {
     error.errors.forEach(({ message, locations, path }) => {
@@ -28,24 +29,33 @@ export const graphqlErrorHandler = ({
   }
 
   if (ServerError.is(error) && error?.statusCode === 401) {
-    handleUnauthorizedError();
+    return new Observable((observer) => {
+      (async () => {
+        try {
+          let user = getAuth().currentUser;
+          let newToken: string;
+
+          try {
+            if (!user) throw new Error('no current user');
+            newToken = await user.getIdToken(true);
+          } catch {
+            await signInAnonymously();
+            user = getAuth().currentUser;
+            newToken = (await user?.getIdToken(true)) || '';
+          }
+
+          const oldHeaders = operation.getContext().headers;
+          operation.setContext({
+            headers: { ...oldHeaders, authorization: `Bearer ${newToken}` },
+          });
+
+          forward(operation).subscribe(observer);
+        } catch (e) {
+          observer.error(e);
+        }
+      })();
+    });
   }
 
   if (ServerError.is(error)) console.log(`[Network error]: ${error.message}`);
-};
-
-const handleUnauthorizedError = () => {
-  if (unauthorized) return;
-
-  // toaster.error({
-  //   title: 'An error occurred.',
-  //   description:
-  //     'Unable to connect user account. Reloading will be done automatically.',
-  //   duration: 1000000,
-  // });
-  // setTimeout(() => {
-  //   window.location.reload();
-  // }, 3000);
-
-  unauthorized = true;
 };

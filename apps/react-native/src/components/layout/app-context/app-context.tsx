@@ -15,8 +15,8 @@ export function AppContext({ children }: PropsWithChildren) {
 }
 
 function Inner({ children }: PropsWithChildren) {
-  const { idToken } = useAuthContext();
-  if (!idToken) {
+  const { isAuthenticated } = useAuthContext();
+  if (!isAuthenticated) {
     return null;
   }
 
