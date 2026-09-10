@@ -1,9 +1,13 @@
 import { PersistedQueryLink } from '@apollo/client/link/persisted-queries';
-import { sha256 } from 'crypto-hash';
+import * as Crypto from 'expo-crypto';
 
 export const createPersistedQueryLink = () => {
   return new PersistedQueryLink({
-    sha256,
+    sha256: (queryString) =>
+      Crypto.digestStringAsync(
+        Crypto.CryptoDigestAlgorithm.SHA256,
+        queryString,
+      ),
     useGETForHashedQueries: true,
   });
 };
