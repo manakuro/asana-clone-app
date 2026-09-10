@@ -332,6 +332,9 @@ importers:
       '@expo/ui':
         specifier: 57.0.13
         version: 57.0.13(@babel/core@7.29.7(supports-color@8.1.1))(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(expo@57.0.16)(react-dom@19.2.3(react@19.2.3))(react-native-worklets@0.10.1(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)(supports-color@8.1.1))(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
+      '@graphql-typed-document-node/core':
+        specifier: 3.2.0
+        version: 3.2.0(graphql@17.0.2)
       '@react-native-firebase/app':
         specifier: 26.3.3
         version: 26.3.3(expo@57.0.16)(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
@@ -389,6 +392,9 @@ importers:
       expo-web-browser:
         specifier: 57.0.2
         version: 57.0.2(expo@57.0.16)(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))
+      graphql:
+        specifier: 17.0.2
+        version: 17.0.2
       graphql-ws:
         specifier: 6.2.1
         version: 6.2.1(graphql@17.0.2)(ws@8.21.1)
@@ -423,12 +429,45 @@ importers:
       '@biomejs/biome':
         specifier: 2.5.4
         version: 2.5.4
+      '@graphql-codegen/cli':
+        specifier: 7.2.0
+        version: 7.2.0(@parcel/watcher@2.6.0)(@types/node@24.10.4)(cosmiconfig-toml-loader@1.0.0)(graphql@17.0.2)(supports-color@8.1.1)(typescript@6.0.3)
+      '@graphql-codegen/introspection':
+        specifier: 6.1.0
+        version: 6.1.0(graphql@17.0.2)
+      '@graphql-codegen/schema-ast':
+        specifier: 6.1.0
+        version: 6.1.0(graphql@17.0.2)
+      '@graphql-codegen/typed-document-node':
+        specifier: 7.1.0
+        version: 7.1.0(graphql@17.0.2)
+      '@graphql-codegen/typescript':
+        specifier: 6.1.0
+        version: 6.1.0(graphql@17.0.2)
+      '@graphql-codegen/typescript-operations':
+        specifier: 6.1.1
+        version: 6.1.1(graphql@17.0.2)
+      '@parcel/watcher':
+        specifier: 2.6.0
+        version: 2.6.0
+      '@types/node':
+        specifier: 24.10.4
+        version: 24.10.4
       '@types/react':
         specifier: 19.2.17
         version: 19.2.17
       biome-config:
         specifier: workspace:*
         version: link:../../packages/biome-config
+      consola:
+        specifier: 3.4.2
+        version: 3.4.2
+      env-cmd:
+        specifier: 11.0.0
+        version: 11.0.0
+      tsx:
+        specifier: 4.23.13
+        version: 4.23.13
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -8222,6 +8261,11 @@ packages:
 
   tsx@4.23.1:
     resolution: {integrity: sha512-GQHnkIfxyx1wYCOS/wonik5MVRZU9hi1TEZmzGZSCJB1y9YgoZ8H6itNE/u4suE+yLmOzuE4E5S4TZ/ZX2wcWQ==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+
+  tsx@4.23.13:
+    resolution: {integrity: sha512-BL5MGkRln6aDYhb0xbQlEAGw743BaZYWdbWtdJOBriYJboKgUUYCadFp2/FpBBZquBC/ezNBn7wMMPx7FDZUDw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -17823,6 +17867,12 @@ snapshots:
   tslib@2.8.1: {}
 
   tsx@4.23.1:
+    dependencies:
+      esbuild: 0.28.1
+    optionalDependencies:
+      fsevents: 2.3.3
+
+  tsx@4.23.13:
     dependencies:
       esbuild: 0.28.1
     optionalDependencies:
