@@ -1,5 +1,8 @@
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
+import { log } from '@/lib/logger';
+
+const configLog = log.extend('config');
 
 const resolveDevApiHost = () => {
   const debuggerHost = Constants.expoConfig?.hostUri?.split(':')[0];
@@ -33,3 +36,9 @@ export const config = {
   API_URL,
   API_SUBSCRIPTION_URL,
 } as const;
+
+if (__DEV__) {
+  configLog.debug('APP_VARIANT          :', config.APP_VARIANT);
+  configLog.debug('API_URL              :', config.API_URL);
+  configLog.debug('API_SUBSCRIPTION_URL :', config.API_SUBSCRIPTION_URL);
+}
