@@ -11,5 +11,6 @@ export const useMeQuery = () => {
     me,
     refetch: queryResult.refetch,
     loading: queryResult.loading,
+    error: queryResult.error,
   };
 };

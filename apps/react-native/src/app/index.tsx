@@ -7,7 +7,6 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-import { useAuthContext } from '@/features/auth/contexts/auth-context';
 import { useMeQuery } from '@/features/me/api/use-me-query';
 
 function getDevMenuHint() {
@@ -30,10 +29,8 @@ function getDevMenuHint() {
 }
 
 export default function HomeScreen() {
-  const { me } = useMeQuery();
-  const { isAuthenticated } = useAuthContext();
-  console.log('isAuthenticated: ', isAuthenticated);
-  console.log('me: ', me);
+  const { me, error } = useMeQuery();
+  console.log('me: ', me, error);
 
   return (
     <ThemedView style={styles.container}>
