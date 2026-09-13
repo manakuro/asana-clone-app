@@ -3,6 +3,8 @@
 # Asana clone app
 An Asana clone application as a portfolio project, built with real-time communication with WebSockets and seamless updates with Optimistic UI.
 
+> This is a personal learning project inspired by Asana's UI and features, and is not affiliated with, endorsed by, or connected to Asana, Inc. in any way.
+
 - [Live Demo](https://asanacloneapp.codelly.dev/)
 - [Storybook](https://main--63894befbaf58840c037c246.chromatic.com)
 
@@ -59,3 +61,6 @@ Use commit c491a94f as a reference for this work.
 In Claude Code, run the `/ai_instructions` command.
 
 ![ai_instructions-1](./docs/ai-instructions-1.png)
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
