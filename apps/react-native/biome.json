@@ -4,14 +4,18 @@
   "files": {
     "ignoreUnknown": false,
     "includes": [
-      "**",
       "!**/node_modules/",
       "!**/dist/",
       "!**/.expo/",
       "!**/web-build/",
       "!**/ios/",
       "!**/android/",
-      "!expo-env.d.ts"
+      "!expo-env.d.ts",
+      "!**/src/graphql/documents/index.ts",
+      "!**/src/graphql/enums/index.ts",
+      "!**/src/graphql/types/index.ts",
+      "!**/src/graphql/types/index.mock.ts",
+      "!**/src/graphql/__schema__.graphql"
     ]
   },
   "linter": {

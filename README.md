@@ -7,6 +7,7 @@ An Asana clone application as a portfolio project, built with real-time communic
 
 - [Live Demo](https://asanacloneapp.codelly.dev/)
 - [Storybook](https://main--63894befbaf58840c037c246.chromatic.com)
+- [GraphQL Playground](https://project-management-demo.ebad78r3fqm9m.ap-northeast-1.cs.amazonlightsail.com/playground)
 
 ## Development Environment
 - Node.js 24.18.0
