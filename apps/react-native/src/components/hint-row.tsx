@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
-import { Spacing } from '@/constants/theme';
+import { Spacing } from '@/theme/globals';
 import { useColor } from '@/theme/use-color';
 
 type HintRowProps = {
@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   codeSnippet: {
-    borderRadius: Spacing.two,
-    paddingVertical: Spacing.half,
-    paddingHorizontal: Spacing.two,
+    borderRadius: Spacing.sm,
+    paddingVertical: Spacing['2xs'],
+    paddingHorizontal: Spacing.sm,
   },
 });

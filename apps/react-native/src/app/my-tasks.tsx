@@ -5,21 +5,21 @@ import { AnimatedIcon } from '@/components/animated-icon';
 import { HintRow } from '@/components/hint-row';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 import { useMeQuery } from '@/features/me/api/use-me-query';
+import { BottomTabInset, MaxContentWidth, Spacing } from '@/theme/globals';
 import { useColor } from '@/theme/use-color';
 
 function getDevMenuHint() {
   if (Device.isDevice) {
     return (
-      <Text variant="subtitle">
+      <Text variant="caption">
         shake device or press <Text variant="caption">m</Text> in terminal
       </Text>
     );
   }
   const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
   return (
-    <Text variant="subtitle">
+    <Text variant="caption">
       press <Text variant="caption">{shortcut}</Text>
     </Text>
   );
@@ -68,18 +68,18 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
-    paddingHorizontal: Spacing.four,
+    paddingHorizontal: Spacing.lg,
     alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
+    gap: Spacing.md,
+    paddingBottom: BottomTabInset + Spacing.md,
     maxWidth: MaxContentWidth,
   },
   heroSection: {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+    paddingHorizontal: Spacing.lg,
+    gap: Spacing.lg,
   },
   title: {
     textAlign: 'center',
@@ -88,10 +88,10 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   stepContainer: {
-    gap: Spacing.three,
+    gap: Spacing.md,
     alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.lg,
+    borderRadius: Spacing.lg,
   },
 });
