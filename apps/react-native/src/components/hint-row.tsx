@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Text } from '@/components/ui/text';
+import { View } from '@/components/ui/view';
 import { Spacing } from '@/constants/theme';
-import { ThemedText } from './themed-text';
-import { ThemedView } from './themed-view';
+import { useColor } from '@/theme/use-color';
 
 type HintRowProps = {
   title?: string;
@@ -13,12 +14,14 @@ export function HintRow({
   title = 'Try editing',
   hint = 'app/index.tsx',
 }: HintRowProps) {
+  const muted = useColor('muted');
+
   return (
     <View style={styles.stepRow}>
-      <ThemedText type="small">{title}</ThemedText>
-      <ThemedView type="backgroundSelected" style={styles.codeSnippet}>
-        <ThemedText themeColor="textSecondary">{hint}</ThemedText>
-      </ThemedView>
+      <Text variant="subtitle">{title}</Text>
+      <View style={[styles.codeSnippet, { backgroundColor: muted }]}>
+        <Text variant="subtitle">{hint}</Text>
+      </View>
     </View>
   );
 }

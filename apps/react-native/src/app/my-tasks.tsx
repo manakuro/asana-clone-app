@@ -3,61 +3,60 @@ import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AnimatedIcon } from '@/components/animated-icon';
 import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { Text } from '@/components/ui/text';
+import { View } from '@/components/ui/view';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 import { useMeQuery } from '@/features/me/api/use-me-query';
+import { useColor } from '@/theme/use-color';
 
 function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
   if (Device.isDevice) {
     return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
+      <Text variant="subtitle">
+        shake device or press <Text variant="caption">m</Text> in terminal
+      </Text>
     );
   }
   const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
+    <Text variant="subtitle">
+      press <Text variant="caption">{shortcut}</Text>
+    </Text>
   );
 }
 
 export default function HomeScreen() {
   const { me, error } = useMeQuery();
+  const card = useColor('card');
   console.log('me: ', me, error);
 
   return (
-    <ThemedView style={styles.container}>
+    <View style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
+        <View style={styles.heroSection}>
           <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
+          <Text variant="title" style={styles.title}>
             Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+          </Text>
+        </View>
 
-        <ThemedText type="code" style={styles.code}>
+        <Text variant="subtitle" style={styles.code}>
           get started
-        </ThemedText>
+        </Text>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
+        <View style={[styles.stepContainer, { backgroundColor: card }]}>
           <HintRow
             title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
+            hint={<Text variant="caption">src/app/index.tsx</Text>}
           />
           <HintRow title="Dev tools" hint={getDevMenuHint()} />
           <HintRow
             title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
+            hint={<Text variant="caption">npm run reset-project</Text>}
           />
-        </ThemedView>
+        </View>
       </SafeAreaView>
-    </ThemedView>
+    </View>
   );
 }
 
