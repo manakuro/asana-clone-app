@@ -68,18 +68,18 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: Spacing['6'],
     alignItems: 'center',
-    gap: Spacing.md,
-    paddingBottom: BottomTabInset + Spacing.md,
+    gap: Spacing['4'],
+    paddingBottom: BottomTabInset + Spacing['4'],
     maxWidth: MaxContentWidth,
   },
   heroSection: {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    paddingHorizontal: Spacing.lg,
-    gap: Spacing.lg,
+    paddingHorizontal: Spacing['6'],
+    gap: Spacing['6'],
   },
   title: {
     textAlign: 'center',
@@ -88,10 +88,10 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   stepContainer: {
-    gap: Spacing.md,
+    gap: Spacing['4'],
     alignSelf: 'stretch',
-    paddingHorizontal: Spacing.md,
-    paddingVertical: Spacing.lg,
-    borderRadius: Spacing.lg,
+    paddingHorizontal: Spacing['4'],
+    paddingVertical: Spacing['6'],
+    borderRadius: Spacing['6'],
   },
 });
