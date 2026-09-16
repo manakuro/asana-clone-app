@@ -16,9 +16,15 @@ type TextVariant =
   | 'link';
 
 interface TextProps extends RNTextProps {
+  /**
+   * - body
+   * - title
+   * - subtitle
+   * - caption
+   * - heading
+   * - link
+   */
   variant?: TextVariant;
-  lightColor?: string;
-  darkColor?: string;
   children: React.ReactNode;
 }
 
@@ -26,14 +32,8 @@ const headingVariants: TextVariant[] = ['heading', 'title', 'subtitle'];
 
 export const Text = React.memo(
   forwardRef<RNText, TextProps>(
-    (
-      { variant = 'body', lightColor, darkColor, style, children, ...props },
-      ref,
-    ) => {
-      const textColor = useColor('text', {
-        light: lightColor,
-        dark: darkColor,
-      });
+    ({ variant = 'body', style, children, ...props }, ref) => {
+      const textColor = useColor('text');
       const mutedColor = useColor('textMuted');
       const defaultAccessibilityRole = headingVariants.includes(variant)
         ? 'header'
@@ -66,7 +66,7 @@ export const Text = React.memo(
           case 'caption':
             return {
               ...baseStyle,
-              fontSize: FONT_SIZE,
+              fontSize: 14,
               fontWeight: '400',
               color: mutedColor,
             };
@@ -77,7 +77,7 @@ export const Text = React.memo(
               fontWeight: '500',
               textDecorationLine: 'underline',
             };
-          default: // 'body'
+          case 'body':
             return {
               ...baseStyle,
               fontSize: FONT_SIZE,

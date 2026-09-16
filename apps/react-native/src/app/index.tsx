@@ -12,14 +12,14 @@ import { useColor } from '@/theme/use-color';
 function getDevMenuHint() {
   if (Device.isDevice) {
     return (
-      <Text variant="subtitle">
+      <Text variant="caption">
         shake device or press <Text variant="caption">m</Text> in terminal
       </Text>
     );
   }
   const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
   return (
-    <Text variant="subtitle">
+    <Text variant="caption">
       press <Text variant="caption">{shortcut}</Text>
     </Text>
   );

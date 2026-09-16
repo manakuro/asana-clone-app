@@ -18,9 +18,9 @@ export function HintRow({
 
   return (
     <View style={styles.stepRow}>
-      <Text variant="subtitle">{title}</Text>
+      <Text variant="body">{title}</Text>
       <View style={[styles.codeSnippet, { backgroundColor: muted }]}>
-        <Text variant="subtitle">{hint}</Text>
+        <Text variant="caption">{hint}</Text>
       </View>
     </View>
   );
