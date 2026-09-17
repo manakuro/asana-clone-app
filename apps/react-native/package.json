@@ -41,6 +41,7 @@
     "expo-system-ui": "57.0.2",
     "expo-updates": "57.0.11",
     "expo-web-browser": "57.0.2",
+    "expo-haptics": "57.0.3",
     "graphql": "17.0.2",
     "graphql-ws": "6.2.1",
     "react": "19.2.3",
@@ -52,7 +53,8 @@
     "react-native-safe-area-context": "5.7.0",
     "react-native-screens": "4.26.2",
     "react-native-web": "0.21.2",
-    "react-native-worklets": "0.10.1"
+    "react-native-worklets": "0.10.1",
+    "lucide-react-native": "1.46.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.4",

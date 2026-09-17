@@ -130,6 +130,10 @@ export const ColorTokens = {
 } as const;
 
 export const Colors = {
+  primary: {
+    light: ColorTokens['teal.500'],
+    dark: ColorTokens['teal.400'],
+  },
   bg: {
     light: {
       default: ColorTokens.white,
