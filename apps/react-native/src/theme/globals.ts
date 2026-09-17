@@ -1,9 +1,9 @@
 import { Platform } from 'react-native';
 
-export const HEIGHT = 48;
-export const FONT_SIZE = 17;
-export const BORDER_RADIUS = 26;
-export const CORNERS = 999;
+export const Height = 48;
+export const FontSize = 17;
+export const BorderRadius = 26;
+export const Corners = 999;
 
 /**
  * Spacing values used throughout the app, aligned with Chakra UI's spacing tokens.

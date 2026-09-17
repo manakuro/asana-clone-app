@@ -4,7 +4,7 @@ import {
   type TextProps as RNTextProps,
   type TextStyle,
 } from 'react-native';
-import { FONT_SIZE } from '@/theme/globals';
+import { FontSize } from '@/theme/globals';
 import { useColor } from '@/theme/use-color';
 
 type TextVariant =
@@ -73,14 +73,14 @@ export const Text = React.memo(
           case 'link':
             return {
               ...baseStyle,
-              fontSize: FONT_SIZE,
+              fontSize: FontSize,
               fontWeight: '500',
               textDecorationLine: 'underline',
             };
           case 'body':
             return {
               ...baseStyle,
-              fontSize: FONT_SIZE,
+              fontSize: FontSize,
               fontWeight: '400',
             };
         }

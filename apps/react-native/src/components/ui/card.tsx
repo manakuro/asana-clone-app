@@ -8,7 +8,7 @@ import type {
 } from 'react-native';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
-import { BORDER_RADIUS } from '@/theme/globals';
+import { BorderRadius } from '@/theme/globals';
 import { useColor } from '@/theme/use-color';
 
 interface CardProps extends RNViewProps {
@@ -30,7 +30,7 @@ export const Card = memo(function Card({
         {
           width: '100%',
           backgroundColor: cardColor,
-          borderRadius: BORDER_RADIUS,
+          borderRadius: BorderRadius,
           padding: 18,
           shadowColor: foregroundColor,
           shadowOffset: { width: 0, height: 2 },
