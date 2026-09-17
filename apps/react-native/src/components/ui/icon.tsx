@@ -15,11 +15,11 @@ export function Icon({
   accessible = false,
   ...rest
 }: Props) {
-  const { color } = useColor();
+  const { colors } = useColor();
 
   return (
     <IconComponent
-      color={color.fg.default}
+      color={colors.fg.default}
       size={size}
       strokeWidth={strokeWidth}
       strokeLinecap="round"

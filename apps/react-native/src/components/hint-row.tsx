@@ -14,12 +14,12 @@ export function HintRow({
   title = 'Try editing',
   hint = 'app/index.tsx',
 }: HintRowProps) {
-  const { color } = useColor();
+  const { colors } = useColor();
 
   return (
     <View style={styles.stepRow}>
       <Text variant="body">{title}</Text>
-      <View style={[styles.codeSnippet, { backgroundColor: color.bg.muted }]}>
+      <View style={[styles.codeSnippet, { backgroundColor: colors.bg.muted }]}>
         <Text variant="caption">{hint}</Text>
       </View>
     </View>

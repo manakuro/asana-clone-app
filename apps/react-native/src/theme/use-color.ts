@@ -6,7 +6,7 @@ export function useColor(colorScheme?: ColorScheme) {
   const appColorScheme = useColorScheme() ?? 'dark';
   const theme = colorScheme ?? appColorScheme;
 
-  const color = {
+  const colors = {
     bg: Colors.bg[theme],
     fg: Colors.fg[theme],
     border: Colors.border[theme],
@@ -16,6 +16,6 @@ export function useColor(colorScheme?: ColorScheme) {
   };
 
   return {
-    color,
+    colors,
   };
 }

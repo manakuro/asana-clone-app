@@ -150,10 +150,10 @@ export function Spinner({
     [barAnim1, barAnim2, barAnim3, barAnim4],
   );
 
-  const { color: themeColor } = useColor();
+  const { colors } = useColor();
 
   const config = sizeConfig[size];
-  const spinnerColor = color || themeColor.fg.default;
+  const spinnerColor = color || colors.fg.default;
   const animationDuration = speedConfig[speed];
 
   // Rotation animation
@@ -331,7 +331,7 @@ export function Spinner({
           style={[
             styles.label,
             {
-              color: themeColor.fg.default,
+              color: colors.fg.default,
               fontSize: config.fontSize,
             },
           ]}
@@ -352,7 +352,7 @@ export function LoadingOverlay({
   ...spinnerProps
 }: LoadingOverlayProps) {
   const opacity = useSharedValue(0);
-  const { color } = useColor();
+  const { colors } = useColor();
 
   useEffect(() => {
     opacity.value = withTiming(visible ? 1 : 0, {
@@ -368,7 +368,7 @@ export function LoadingOverlay({
 
   const defaultBackdropColor =
     backdropColor ||
-    `${color.bg.default}${Math.round(backdropOpacity * 255)
+    `${colors.bg.default}${Math.round(backdropOpacity * 255)
       .toString(16)
       .padStart(2, '0')}`;
 
@@ -382,7 +382,7 @@ export function LoadingOverlay({
       pointerEvents={visible ? 'auto' : 'none'}
     >
       <View
-        style={[styles.overlayContent, { backgroundColor: color.bg.default }]}
+        style={[styles.overlayContent, { backgroundColor: colors.bg.default }]}
       >
         <Spinner {...spinnerProps} />
       </View>
@@ -412,13 +412,13 @@ export function ButtonSpinner({
   variant = 'default',
   color,
 }: Omit<SpinnerProps, 'label' | 'showLabel'>) {
-  const { color: colorTheme } = useColor();
+  const { colors } = useColor();
 
   return (
     <Spinner
       size={size}
       variant={variant}
-      color={color || colorTheme.fg.default}
+      color={color || colors.fg.default}
       style={styles.buttonSpinner}
     />
   );

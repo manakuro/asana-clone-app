@@ -27,7 +27,7 @@ function getDevMenuHint() {
 
 export default function HomeScreen() {
   const { me, error } = useMeQuery();
-  const { color } = useColor();
+  const { colors } = useColor();
   console.log('me: ', me, error);
 
   return (
@@ -45,7 +45,7 @@ export default function HomeScreen() {
         </Text>
 
         <View
-          style={[styles.stepContainer, { backgroundColor: color.bg.subtle }]}
+          style={[styles.stepContainer, { backgroundColor: colors.bg.subtle }]}
         >
           <HintRow
             title="Try editing"

@@ -106,9 +106,9 @@ export const AvatarFallback = memo(function AvatarFallback({
   textStyle,
 }: AvatarFallbackProps) {
   const { status } = useAvatarContext();
-  const { color } = useColor();
-  const mutedColor = color.bg.muted;
-  const mutedForegroundColor = color.fg.default;
+  const { colors } = useColor();
+  const mutedColor = colors.bg.muted;
+  const mutedForegroundColor = colors.fg.default;
 
   if (status === 'loaded') return null;
 

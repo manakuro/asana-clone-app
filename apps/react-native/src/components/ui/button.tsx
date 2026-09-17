@@ -69,15 +69,15 @@ export const Button = forwardRef<View, ButtonProps>(
     ref,
   ) => {
     const feedback = useHaptics(haptic);
-    const { color } = useColor();
-    const primaryColor = color.bg.default;
-    const primaryForegroundColor = color.fg.default;
-    const secondaryColor = color.bg.subtle;
-    const secondaryForegroundColor = color.fg.default;
-    const destructiveColor = color.tokens['red.500'];
-    const destructiveForegroundColor = color.tokens.white;
-    const greenColor = color.tokens['green.500'];
-    const borderColor = color.border.default;
+    const { colors } = useColor();
+    const primaryColor = colors.bg.default;
+    const primaryForegroundColor = colors.fg.default;
+    const secondaryColor = colors.bg.subtle;
+    const secondaryForegroundColor = colors.fg.default;
+    const destructiveColor = colors.tokens['red.500'];
+    const destructiveForegroundColor = colors.tokens.white;
+    const greenColor = colors.tokens['green.500'];
+    const borderColor = colors.border.default;
 
     // Animation values for liquid glass effect
     const scale = useSharedValue(1);

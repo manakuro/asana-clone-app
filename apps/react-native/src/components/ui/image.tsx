@@ -53,10 +53,10 @@ export const Image = forwardRef<ExpoImage, ImageProps>(
     const [hasError, setHasError] = useState(false);
 
     // Theme colors
-    const { color } = useColor();
-    const backgroundColor = color.bg.muted;
-    const textColor = color.fg.default;
-    const primaryColor = color.bg.default;
+    const { colors } = useColor();
+    const backgroundColor = colors.bg.muted;
+    const textColor = colors.fg.default;
+    const primaryColor = colors.bg.default;
 
     // Get border radius based on variant
     const getBorderRadius = () => {
