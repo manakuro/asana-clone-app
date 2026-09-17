@@ -1,201 +1,229 @@
-const lightColors = {
-  // Base colors
-  background: '#FFFFFF',
-  foreground: '#000000',
+/**
+ * Color design tokens for the React Native design system,
+ * based on Chakra UI's Color Tokens / Semantic Tokens.
+ *
+ * Reference: https://www.chakra-ui.com/docs/theming/colors
+ */
 
-  // Card colors
-  card: '#F2F2F7',
-  cardForeground: '#000000',
+export const ColorTokens = {
+  white: '#ffffff',
+  black: '#000000',
+  'gray.50': '#fafafa',
+  'gray.100': '#f4f4f5',
+  'gray.200': '#e4e4e7',
+  'gray.300': '#d4d4d8',
+  'gray.400': '#a1a1aa',
+  'gray.500': '#71717a',
+  'gray.600': '#52525b',
+  'gray.700': '#3f3f46',
+  'gray.800': '#27272a',
+  'gray.900': '#18181b',
+  'gray.950': '#111111',
 
-  // Popover colors
-  popover: '#F2F2F7',
-  popoverForeground: '#000000',
+  'red.50': '#fef2f2',
+  'red.100': '#fee2e2',
+  'red.200': '#fecaca',
+  'red.300': '#fca5a5',
+  'red.400': '#f87171',
+  'red.500': '#ef4444',
+  'red.600': '#dc2626',
+  'red.700': '#991919',
+  'red.800': '#511111',
+  'red.900': '#300c0c',
+  'red.950': '#1f0808',
 
-  // Primary colors
-  primary: '#18181b',
-  primaryForeground: '#FFFFFF',
+  'orange.50': '#fff7ed',
+  'orange.100': '#ffedd5',
+  'orange.200': '#fed7aa',
+  'orange.300': '#fdba74',
+  'orange.400': '#fb923c',
+  'orange.500': '#f97316',
+  'orange.600': '#ea580c',
+  'orange.700': '#92310a',
+  'orange.800': '#6c2710',
+  'orange.900': '#3b1106',
+  'orange.950': '#220a04',
 
-  // Secondary colors
-  secondary: '#F2F2F7',
-  secondaryForeground: '#18181b',
+  'yellow.50': '#fefce8',
+  'yellow.100': '#fef9c3',
+  'yellow.200': '#fef08a',
+  'yellow.300': '#fde047',
+  'yellow.400': '#facc15',
+  'yellow.500': '#eab308',
+  'yellow.600': '#ca8a04',
+  'yellow.700': '#845209',
+  'yellow.800': '#713f12',
+  'yellow.900': '#422006',
+  'yellow.950': '#281304',
 
-  // Muted colors
-  muted: '#78788033',
-  mutedForeground: '#71717a',
+  'green.50': '#f0fdf4',
+  'green.100': '#dcfce7',
+  'green.200': '#bbf7d0',
+  'green.300': '#86efac',
+  'green.400': '#4ade80',
+  'green.500': '#22c55e',
+  'green.600': '#16a34a',
+  'green.700': '#116932',
+  'green.800': '#124a28',
+  'green.900': '#042713',
+  'green.950': '#03190c',
 
-  // Accent colors
-  accent: '#F2F2F7',
-  accentForeground: '#18181b',
+  'teal.50': '#f0fdfa',
+  'teal.100': '#ccfbf1',
+  'teal.200': '#99f6e4',
+  'teal.300': '#5eead4',
+  'teal.400': '#2dd4bf',
+  'teal.500': '#14b8a6',
+  'teal.600': '#0d9488',
+  'teal.700': '#0c5d56',
+  'teal.800': '#114240',
+  'teal.900': '#032726',
+  'teal.950': '#021716',
 
-  // Destructive colors
-  destructive: '#ef4444',
-  destructiveForeground: '#FFFFFF',
+  'blue.50': '#eff6ff',
+  'blue.100': '#dbeafe',
+  'blue.200': '#bfdbfe',
+  'blue.300': '#a3cfff',
+  'blue.400': '#60a5fa',
+  'blue.500': '#3b82f6',
+  'blue.600': '#2563eb',
+  'blue.700': '#173da6',
+  'blue.800': '#1a3478',
+  'blue.900': '#14204a',
+  'blue.950': '#0c142e',
 
-  // Border and input
-  border: '#C6C6C8',
-  input: '#e4e4e7',
-  ring: '#a1a1aa',
+  'cyan.50': '#ecfeff',
+  'cyan.100': '#cffafe',
+  'cyan.200': '#a5f3fc',
+  'cyan.300': '#67e8f9',
+  'cyan.400': '#22d3ee',
+  'cyan.500': '#06b6d4',
+  'cyan.600': '#0891b2',
+  'cyan.700': '#0c5c72',
+  'cyan.800': '#134152',
+  'cyan.900': '#072a38',
+  'cyan.950': '#051b24',
 
-  // Text colors
-  text: '#000000',
-  textMuted: '#71717a',
+  'purple.50': '#faf5ff',
+  'purple.100': '#f3e8ff',
+  'purple.200': '#e9d5ff',
+  'purple.300': '#d8b4fe',
+  'purple.400': '#c084fc',
+  'purple.500': '#a855f7',
+  'purple.600': '#9333ea',
+  'purple.700': '#641ba3',
+  'purple.800': '#4a1772',
+  'purple.900': '#2f0553',
+  'purple.950': '#1a032e',
 
-  // Legacy support for existing components
-  tint: '#18181b',
-  icon: '#71717a',
-  tabIconDefault: '#71717a',
-  tabIconSelected: '#18181b',
-
-  // Default buttons, links, Send button, selected tabs
-  blue: '#007AFF',
-
-  // Success states, FaceTime buttons, completed tasks
-  green: '#34C759',
-
-  // Delete buttons, error states, critical alerts
-  red: '#FF3B30',
-
-  // VoiceOver highlights, warning states
-  orange: '#FF9500',
-
-  // Notes app accent, Reminders highlights
-  yellow: '#FFCC00',
-
-  // Pink accent color for various UI elements
-  pink: '#FF2D92',
-
-  // Purple accent for creative apps and features
-  purple: '#AF52DE',
-
-  // Teal accent for communication features
-  teal: '#5AC8FA',
-
-  // Indigo accent for system features
-  indigo: '#5856D6',
-
-  // Semantic states
-  success: '#22c55e',
-  successForeground: '#ffffff',
-  warning: '#f59e0b',
-  warningForeground: '#ffffff',
-  info: '#3b82f6',
-  infoForeground: '#ffffff',
-  error: '#ef4444',
-  errorForeground: '#ffffff',
-};
-
-const darkColors = {
-  // Base colors
-  background: '#000000',
-  foreground: '#FFFFFF',
-
-  // Card colors
-  card: '#1C1C1E',
-  cardForeground: '#FFFFFF',
-
-  // Popover colors
-  popover: '#18181b',
-  popoverForeground: '#FFFFFF',
-
-  // Primary colors
-  primary: '#e4e4e7',
-  primaryForeground: '#18181b',
-
-  // Secondary colors
-  secondary: '#1C1C1E',
-  secondaryForeground: '#FFFFFF',
-
-  // Muted colors
-  muted: '#78788033',
-  mutedForeground: '#a1a1aa',
-
-  // Accent colors
-  accent: '#1C1C1E',
-  accentForeground: '#FFFFFF',
-
-  // Destructive colors
-  destructive: '#dc2626',
-  destructiveForeground: '#FFFFFF',
-
-  // Border and input - using alpha values for better blending
-  border: '#38383A',
-  input: 'rgba(255, 255, 255, 0.15)',
-  ring: '#71717a',
-
-  // Text colors
-  text: '#FFFFFF',
-  textMuted: '#a1a1aa',
-
-  // Legacy support for existing components
-  tint: '#FFFFFF',
-  icon: '#a1a1aa',
-  tabIconDefault: '#a1a1aa',
-  tabIconSelected: '#FFFFFF',
-
-  // Default buttons, links, Send button, selected tabs
-  blue: '#0A84FF',
-
-  // Success states, FaceTime buttons, completed tasks
-  green: '#30D158',
-
-  // Delete buttons, error states, critical alerts
-  red: '#FF453A',
-
-  // VoiceOver highlights, warning states
-  orange: '#FF9F0A',
-
-  // Notes app accent, Reminders highlights
-  yellow: '#FFD60A',
-
-  // Pink accent color for various UI elements
-  pink: '#FF375F',
-
-  // Purple accent for creative apps and features
-  purple: '#BF5AF2',
-
-  // Teal accent for communication features
-  teal: '#64D2FF',
-
-  // Indigo accent for system features
-  indigo: '#5E5CE6',
-
-  // Semantic states
-  success: '#16a34a',
-  successForeground: '#ffffff',
-  warning: '#d97706',
-  warningForeground: '#ffffff',
-  info: '#2563eb',
-  infoForeground: '#ffffff',
-  error: '#dc2626',
-  errorForeground: '#ffffff',
-};
+  'pink.50': '#fdf2f8',
+  'pink.100': '#fce7f3',
+  'pink.200': '#fbcfe8',
+  'pink.300': '#f9a8d4',
+  'pink.400': '#f472b6',
+  'pink.500': '#ec4899',
+  'pink.600': '#db2777',
+  'pink.700': '#a41752',
+  'pink.800': '#6d0e34',
+  'pink.900': '#45061f',
+  'pink.950': '#2c0514',
+} as const;
 
 export const Colors = {
-  light: lightColors,
-  dark: darkColors,
-};
+  bg: {
+    light: {
+      default: ColorTokens.white,
+      subtle: ColorTokens['gray.50'],
+      muted: ColorTokens['gray.100'],
+      emphasized: ColorTokens['gray.200'],
+      inverted: ColorTokens['gray.950'],
+      panel: ColorTokens.white,
+      error: ColorTokens['red.50'],
+      warning: ColorTokens['yellow.50'],
+      success: ColorTokens['green.50'],
+      info: ColorTokens['blue.50'],
+    },
+    dark: {
+      default: ColorTokens['gray.950'],
+      subtle: ColorTokens['gray.900'],
+      muted: ColorTokens['gray.800'],
+      emphasized: ColorTokens['gray.700'],
+      inverted: ColorTokens.white,
+      panel: ColorTokens['gray.900'],
+      error: ColorTokens['red.950'],
+      warning: ColorTokens['yellow.950'],
+      success: ColorTokens['green.950'],
+      info: ColorTokens['blue.950'],
+    },
+  },
+  border: {
+    light: {
+      default: ColorTokens['gray.200'],
+      muted: ColorTokens['gray.100'],
+      subtle: ColorTokens['gray.50'],
+      emphasized: ColorTokens['gray.300'],
+      inverted: ColorTokens['gray.800'],
+      error: ColorTokens['red.500'],
+      warning: ColorTokens['yellow.500'],
+      success: ColorTokens['green.500'],
+      info: ColorTokens['blue.500'],
+    },
+    dark: {
+      default: ColorTokens['gray.800'],
+      muted: ColorTokens['gray.900'],
+      subtle: ColorTokens['gray.950'],
+      emphasized: ColorTokens['gray.700'],
+      inverted: ColorTokens['gray.200'],
+      error: ColorTokens['red.400'],
+      warning: ColorTokens['yellow.400'],
+      success: ColorTokens['green.400'],
+      info: ColorTokens['blue.400'],
+    },
+  },
+  fg: {
+    light: {
+      default: ColorTokens.black,
+      muted: ColorTokens['gray.600'],
+      subtle: ColorTokens['gray.400'],
+      inverted: ColorTokens['gray.50'],
+      error: ColorTokens['red.500'],
+      warning: ColorTokens['yellow.600'],
+      success: ColorTokens['green.600'],
+      info: ColorTokens['blue.600'],
+    },
+    dark: {
+      default: ColorTokens['gray.50'],
+      muted: ColorTokens['gray.400'],
+      subtle: ColorTokens['gray.500'],
+      inverted: ColorTokens['gray.900'],
+      error: ColorTokens['red.400'],
+      warning: ColorTokens['yellow.300'],
+      success: ColorTokens['green.300'],
+      info: ColorTokens['blue.300'],
+    },
+  },
+  gray: {
+    light: {
+      contrast: ColorTokens.white,
+      fg: ColorTokens['gray.800'],
+      subtle: ColorTokens['gray.100'],
+      muted: ColorTokens['gray.200'],
+      emphasized: ColorTokens['gray.300'],
+      solid: ColorTokens['gray.900'],
+      focusRing: ColorTokens['gray.400'],
+      border: ColorTokens['gray.200'],
+    },
+    dark: {
+      contrast: ColorTokens['gray.950'],
+      fg: ColorTokens['gray.200'],
+      subtle: ColorTokens['gray.900'],
+      muted: ColorTokens['gray.800'],
+      emphasized: ColorTokens['gray.700'],
+      solid: ColorTokens.white,
+      focusRing: ColorTokens['gray.400'],
+      border: ColorTokens['gray.800'],
+    },
+  },
+} as const;
 
-// Export individual color schemes for easier access
-export { darkColors, lightColors };
-
-// Utility type for color keys
-export type ColorKeys = keyof typeof lightColors;
-
-// Helper function to get color with opacity (useful for React Native)
-export const withOpacity = (color: string, opacity: number) => {
-  // Handle rgba colors
-  if (color.startsWith('rgba')) {
-    return color;
-  }
-
-  // Handle hex colors
-  if (color.startsWith('#')) {
-    const hex = color.replace('#', '');
-    const r = parseInt(hex.substr(0, 2), 16);
-    const g = parseInt(hex.substr(2, 2), 16);
-    const b = parseInt(hex.substr(4, 2), 16);
-    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-  }
-
-  return color;
-};
+export type ColorTokenKey = keyof typeof ColorTokens;
