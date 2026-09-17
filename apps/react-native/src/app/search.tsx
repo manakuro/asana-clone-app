@@ -27,7 +27,7 @@ function getDevMenuHint() {
 
 export default function HomeScreen() {
   const { me, error } = useMeQuery();
-  const card = useColor('card');
+  const { color } = useColor();
   console.log('me: ', me, error);
 
   return (
@@ -44,7 +44,9 @@ export default function HomeScreen() {
           get started
         </Text>
 
-        <View style={[styles.stepContainer, { backgroundColor: card }]}>
+        <View
+          style={[styles.stepContainer, { backgroundColor: color.bg.subtle }]}
+        >
           <HintRow
             title="Try editing"
             hint={<Text variant="caption">src/app/index.tsx</Text>}

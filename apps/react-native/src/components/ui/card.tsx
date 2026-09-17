@@ -21,18 +21,17 @@ export const Card = memo(function Card({
   style,
   ...props
 }: CardProps) {
-  const cardColor = useColor('card');
-  const foregroundColor = useColor('foreground');
+  const { color } = useColor();
 
   return (
     <View
       style={[
         {
           width: '100%',
-          backgroundColor: cardColor,
+          backgroundColor: color.bg.subtle,
           borderRadius: BorderRadius,
           padding: 18,
-          shadowColor: foregroundColor,
+          shadowColor: color.fg.default,
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: 0.05,
           shadowRadius: 3,

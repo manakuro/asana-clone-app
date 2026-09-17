@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import {
   createContext,
   useCallback,
@@ -62,7 +63,7 @@ function syncNativeAppearance(mode: Mode) {
 }
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
   /** Supply to persist the choice across launches. Omit and it resets. */
   storage?: ModeStorage;
   storageKey?: string;

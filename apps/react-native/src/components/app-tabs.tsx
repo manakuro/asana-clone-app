@@ -2,15 +2,13 @@ import { NativeTabs } from 'expo-router/unstable-native-tabs';
 import { useColor } from '@/theme/use-color';
 
 export default function AppTabs() {
-  const background = useColor('background');
-  const secondary = useColor('secondary');
-  const text = useColor('text');
+  const { color } = useColor();
 
   return (
     <NativeTabs
-      backgroundColor={background}
-      indicatorColor={secondary}
-      labelStyle={{ selected: { color: text } }}
+      backgroundColor={color.bg.default}
+      indicatorColor={color.bg.emphasized}
+      labelStyle={{ selected: { color: color.fg.default } }}
       tabBarRespectsIMEInsets
     >
       <NativeTabs.Trigger name="index">

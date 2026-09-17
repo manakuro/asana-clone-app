@@ -33,15 +33,14 @@ const headingVariants: TextVariant[] = ['heading', 'title', 'subtitle'];
 export const Text = React.memo(
   forwardRef<RNText, TextProps>(
     ({ variant = 'body', style, children, ...props }, ref) => {
-      const textColor = useColor('text');
-      const mutedColor = useColor('textMuted');
+      const { color } = useColor();
       const defaultAccessibilityRole = headingVariants.includes(variant)
         ? 'header'
         : undefined;
 
       const getTextStyle = (): TextStyle => {
         const baseStyle: TextStyle = {
-          color: textColor,
+          color: color.fg.default,
         };
 
         switch (variant) {
@@ -68,7 +67,7 @@ export const Text = React.memo(
               ...baseStyle,
               fontSize: 14,
               fontWeight: '400',
-              color: mutedColor,
+              color: color.fg.muted,
             };
           case 'link':
             return {
