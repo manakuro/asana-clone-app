@@ -6,7 +6,7 @@ import { HintRow } from '@/components/hint-row';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/theme/globals';
+import { BottomTabInset, MaxContentWidth, Spacing } from '@/theme/tokens';
 import { useColor } from '@/theme/use-color';
 
 function getDevMenuHint() {

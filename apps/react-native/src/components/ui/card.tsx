@@ -8,7 +8,7 @@ import type {
 } from 'react-native';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
-import { BorderRadius } from '@/theme/globals';
+import { BorderRadius } from '@/theme/tokens';
 import { useColor } from '@/theme/use-color';
 
 interface CardProps extends RNViewProps {
