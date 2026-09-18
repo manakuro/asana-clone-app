@@ -131,8 +131,14 @@ export const ColorTokens = {
 
 export const Colors = {
   primary: {
-    light: ColorTokens['teal.500'],
-    dark: ColorTokens['teal.400'],
+    light: {
+      bg: ColorTokens['gray.950'],
+      fg: ColorTokens.white,
+    },
+    dark: {
+      bg: ColorTokens.white,
+      fg: ColorTokens['gray.950'],
+    },
   },
   bg: {
     light: {
