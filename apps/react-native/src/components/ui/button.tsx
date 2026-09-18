@@ -74,9 +74,9 @@ export const Button = forwardRef<View, ButtonProps>(
     const primaryForegroundColor = colors.primary.fg;
     const secondaryColor = colors.bg.subtle;
     const secondaryForegroundColor = colors.fg.default;
-    const destructiveColor = colors.tokens['red.500'];
+    const destructiveColor = colors.red.solid;
     const destructiveForegroundColor = colors.tokens.white;
-    const greenColor = colors.tokens['green.500'];
+    const greenColor = colors.green.solid;
     const borderColor = colors.border.default;
 
     // Animation values for liquid glass effect

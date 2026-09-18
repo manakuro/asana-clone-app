@@ -148,7 +148,7 @@ export function DatePicker(props: DatePickerProps) {
   const textMutedColor = colors.fg.muted;
   const mutedForegroundColor = colors.fg.muted;
   const textColor = colors.fg.default;
-  const errorColor = colors.tokens['red.500'];
+  const errorColor = colors.red.solid;
 
   const formatDisplayValue = useCallback(() => {
     if (mode === 'range') {

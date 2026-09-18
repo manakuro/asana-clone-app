@@ -139,7 +139,7 @@ function AndroidActionSheet({
   const textColor = colors.fg.default;
   const mutedColor = colors.fg.muted;
   const borderColor = colors.border.default;
-  const destructiveColor = colors.tokens['red.500'];
+  const destructiveColor = colors.red.solid;
 
   useEffect(() => {
     if (visible) {

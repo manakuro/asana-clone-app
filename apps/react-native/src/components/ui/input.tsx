@@ -60,7 +60,7 @@ export const Input = forwardRef<TextInput, InputProps>(
     const muted = colors.fg.muted;
     const borderColor = colors.border.default;
     const primary = colors.primary.bg;
-    const danger = colors.tokens['red.500'];
+    const danger = colors.red.solid;
 
     const isTextarea = type === 'textarea';
 
@@ -312,7 +312,7 @@ export const GroupedInput = ({
   const { colors } = useColor();
   const border = colors.border.default;
   const background = colors.bg.subtle;
-  const danger = colors.tokens['red.500'];
+  const danger = colors.red.solid;
 
   const childrenArray = React.Children.toArray(children);
 
@@ -422,7 +422,7 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
     const text = colors.fg.default;
     const muted = colors.fg.muted;
     const primary = colors.primary.bg;
-    const danger = colors.tokens['red.500'];
+    const danger = colors.red.solid;
 
     const isTextarea = type === 'textarea';
 
