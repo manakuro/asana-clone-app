@@ -42,6 +42,7 @@
     "expo-updates": "57.0.11",
     "expo-web-browser": "57.0.2",
     "expo-haptics": "57.0.3",
+    "expo-blur": "57.0.3",
     "graphql": "17.0.2",
     "graphql-ws": "6.2.1",
     "react": "19.2.3",

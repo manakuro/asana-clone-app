@@ -100,8 +100,8 @@ export function PopoverTrigger({
     if (triggerRef.current) {
       triggerRef.current.measure(
         (
-          x: number,
-          y: number,
+          _x: number,
+          _y: number,
           width: number,
           height: number,
           pageX: number,

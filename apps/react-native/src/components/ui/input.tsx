@@ -91,13 +91,12 @@ export const Input = forwardRef<TextInput, InputProps>(
             borderColor: error ? danger : isFocused ? primary : borderColor,
             backgroundColor: 'transparent',
           };
-        case 'filled':
         default:
           return {
             ...baseStyle,
             borderWidth: 1,
             borderColor: error ? danger : cardColor,
-            backgroundColor: disabled ? muted + '20' : cardColor,
+            backgroundColor: disabled ? `${muted}20` : cardColor,
           };
       }
     };
@@ -202,7 +201,7 @@ export const Input = forwardRef<TextInput, InputProps>(
                 multiline
                 numberOfLines={rows}
                 style={[getInputStyle(), inputStyle]}
-                placeholderTextColor={error ? danger + '99' : muted}
+                placeholderTextColor={error ? `${danger}99` : muted}
                 placeholder={placeholder || 'Type your message...'}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
@@ -417,7 +416,7 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
     },
     ref,
   ) => {
-    const [isFocused, setIsFocused] = useState(false);
+    const [_isFocused, setIsFocused] = useState(false);
 
     const { colors } = useColor();
     const text = colors.fg.default;
@@ -526,7 +525,7 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
                   },
                   inputStyle,
                 ]}
-                placeholderTextColor={error ? danger + '99' : muted}
+                placeholderTextColor={error ? `${danger}99` : muted}
                 placeholder={placeholder || 'Type your message...'}
                 editable={!disabled}
                 selectionColor={primary}
@@ -591,7 +590,7 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
                     inputStyle,
                   ]}
                   placeholder={placeholder}
-                  placeholderTextColor={error ? danger + '99' : muted}
+                  placeholderTextColor={error ? `${danger}99` : muted}
                   editable={!disabled}
                   selectionColor={primary}
                   onFocus={handleFocus}
