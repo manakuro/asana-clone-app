@@ -59,7 +59,7 @@ export const Input = forwardRef<TextInput, InputProps>(
     const textColor = colors.fg.default;
     const muted = colors.fg.muted;
     const borderColor = colors.border.default;
-    const primary = colors.bg.inverted;
+    const primary = colors.primary.bg;
     const danger = colors.tokens['red.500'];
 
     const isTextarea = type === 'textarea';
@@ -421,7 +421,7 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
     const { colors } = useColor();
     const text = colors.fg.default;
     const muted = colors.fg.muted;
-    const primary = colors.bg.inverted;
+    const primary = colors.primary.bg;
     const danger = colors.tokens['red.500'];
 
     const isTextarea = type === 'textarea';

@@ -446,7 +446,7 @@ export function TabsTrigger({
   }, [value, registerTab, unregisterTab]);
 
   const { colors } = useColor();
-  const primaryColor = colors.bg.inverted;
+  const primaryColor = colors.primary.bg;
   const mutedForegroundColor = colors.fg.muted;
   const backgroundColor = colors.bg.default;
 

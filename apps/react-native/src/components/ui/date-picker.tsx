@@ -142,8 +142,8 @@ export function DatePicker(props: DatePickerProps) {
   const { colors } = useColor();
   const cardColor = colors.bg.subtle;
   const borderColor = colors.border.default;
-  const primaryColor = colors.bg.inverted;
-  const primaryForegroundColor = colors.fg.inverted;
+  const primaryColor = colors.primary.bg;
+  const primaryForegroundColor = colors.primary.fg;
   const mutedColor = colors.bg.muted;
   const textMutedColor = colors.fg.muted;
   const mutedForegroundColor = colors.fg.muted;

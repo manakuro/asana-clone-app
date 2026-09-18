@@ -473,7 +473,7 @@ export function CarouselIndicators({
   style,
 }: CarouselIndicatorsProps) {
   const { colors } = useColor();
-  const primaryColor = colors.bg.inverted;
+  const primaryColor = colors.primary.bg;
   const secondaryColor = colors.bg.subtle;
 
   return (
@@ -517,7 +517,7 @@ export function CarouselArrow({
   style,
 }: CarouselArrowProps) {
   const { colors } = useColor();
-  const primaryColor = colors.bg.inverted;
+  const primaryColor = colors.primary.bg;
 
   return (
     <TouchableOpacity
