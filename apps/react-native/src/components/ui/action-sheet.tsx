@@ -1,0 +1,431 @@
+import React, { useEffect, useState } from 'react';
+import {
+  ActionSheetIOS,
+  Dimensions,
+  Modal,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  type ViewStyle,
+} from 'react-native';
+import Animated, {
+  Easing,
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { scheduleOnRN } from 'react-native-worklets/src/threads';
+import { Text } from '@/components/ui/text';
+import { View } from '@/components/ui/view';
+import { useHaptics } from '@/hooks/use-haptics';
+import { BorderRadius, FontSize } from '@/theme/tokens';
+import { useColor } from '@/theme/use-color';
+
+export interface ActionSheetOption {
+  title: string;
+  onPress: () => void;
+  destructive?: boolean;
+  disabled?: boolean;
+  icon?: React.ReactNode;
+}
+
+interface ActionSheetProps {
+  visible: boolean;
+  onClose: () => void;
+  title?: string;
+  message?: string;
+  options: ActionSheetOption[];
+  cancelButtonTitle?: string;
+  style?: ViewStyle;
+  haptic?: boolean;
+}
+
+export function ActionSheet({
+  visible,
+  onClose,
+  title,
+  message,
+  options,
+  cancelButtonTitle = 'Cancel',
+  style,
+  haptic = true,
+}: ActionSheetProps) {
+  // Called above the platform branch below so the hook order stays stable.
+  const feedback = useHaptics(haptic);
+
+  useEffect(() => {
+    // Use iOS native ActionSheet on iOS
+    if (Platform.OS === 'ios') {
+      // Return null for iOS as we use the native ActionSheet
+      return;
+    }
+
+    if (visible) {
+      const optionTitles = options.map((option) => option.title);
+      const destructiveButtonIndex = options.findIndex(
+        (option) => option.destructive,
+      );
+      const disabledButtonIndices = options
+        .map((option, index) => (option.disabled ? index : -1))
+        .filter((index) => index !== -1);
+
+      ActionSheetIOS.showActionSheetWithOptions(
+        {
+          title,
+          message,
+          options: [...optionTitles, cancelButtonTitle],
+          cancelButtonIndex: optionTitles.length,
+          destructiveButtonIndex:
+            destructiveButtonIndex !== -1 ? destructiveButtonIndex : undefined,
+          disabledButtonIndices:
+            disabledButtonIndices.length > 0
+              ? disabledButtonIndices
+              : undefined,
+        },
+        (buttonIndex) => {
+          if (buttonIndex < optionTitles.length) {
+            // ActionSheetIOS emits no haptic of its own.
+            feedback(
+              options[buttonIndex].destructive ? 'warning' : 'selection',
+            );
+            options[buttonIndex].onPress();
+          }
+          onClose();
+        },
+      );
+    }
+  }, [visible, title, message, options, cancelButtonTitle, onClose, feedback]);
+
+  // Custom implementation for Android and other platforms
+  return (
+    <AndroidActionSheet
+      {...{
+        visible,
+        onClose,
+        title,
+        message,
+        options,
+        cancelButtonTitle,
+        style,
+        haptic,
+      }}
+    />
+  );
+}
+
+// Custom ActionSheet implementation for Android using react-native-reanimated
+function AndroidActionSheet({
+  visible,
+  onClose,
+  title,
+  message,
+  options,
+  cancelButtonTitle,
+  style,
+  haptic = true,
+}: ActionSheetProps) {
+  const [isSheetVisible, setIsSheetVisible] = useState(visible);
+  const feedback = useHaptics(haptic);
+  const progress = useSharedValue(0);
+  const screenHeight = Dimensions.get('window').height;
+  const insets = useSafeAreaInsets();
+
+  const { colors } = useColor();
+  const cardColor = colors.bg.subtle;
+  const textColor = colors.fg.default;
+  const mutedColor = colors.fg.muted;
+  const borderColor = colors.border.default;
+  const destructiveColor = colors.tokens['red.500'];
+
+  useEffect(() => {
+    if (visible) {
+      setIsSheetVisible(true);
+      progress.value = withTiming(1, {
+        duration: 300,
+        easing: Easing.out(Easing.quad),
+      });
+    } else {
+      // Animate out, then set the modal to invisible after the animation is done
+      progress.value = withTiming(
+        0,
+        { duration: 250, easing: Easing.in(Easing.quad) },
+        (finished) => {
+          if (finished) {
+            scheduleOnRN(setIsSheetVisible, false);
+          }
+        },
+      );
+    }
+  }, [visible, progress]);
+
+  // Animated style for the backdrop
+  const backdropAnimatedStyle = useAnimatedStyle(() => ({
+    opacity: progress.value,
+  }));
+
+  // Animated style for the sheet itself (slide up/down)
+  const sheetAnimatedStyle = useAnimatedStyle(() => {
+    const translateY = interpolate(progress.value, [0, 1], [screenHeight, 0]);
+    return {
+      transform: [{ translateY }],
+    };
+  });
+
+  const handleOptionPress = (option: ActionSheetOption) => {
+    if (!option.disabled) {
+      feedback(option.destructive ? 'warning' : 'selection');
+      option.onPress();
+      onClose();
+    }
+  };
+
+  // Dismissing is not a selection, so it stays silent.
+  const handleBackdropPress = () => {
+    onClose();
+  };
+
+  // Render null if the sheet is not supposed to be visible
+  if (!isSheetVisible) {
+    return null;
+  }
+
+  return (
+    <Modal
+      transparent
+      visible={isSheetVisible}
+      animationType="none"
+      statusBarTranslucent
+      onRequestClose={onClose}
+    >
+      <View style={styles.container}>
+        <Animated.View style={[styles.backdrop, backdropAnimatedStyle]}>
+          <Pressable
+            style={styles.backdropPressable}
+            onPress={handleBackdropPress}
+          />
+        </Animated.View>
+
+        <Animated.View
+          style={[
+            styles.sheet,
+            {
+              backgroundColor: cardColor,
+              paddingBottom: Math.max(insets.bottom, 16),
+            },
+            sheetAnimatedStyle,
+            style,
+          ]}
+        >
+          {/* Header */}
+          {(title || message) && (
+            <View style={styles.header}>
+              {title && (
+                <Text
+                  style={[styles.title, { color: textColor }]}
+                  numberOfLines={2}
+                >
+                  {title}
+                </Text>
+              )}
+              {message && (
+                <Text
+                  style={[styles.message, { color: mutedColor }]}
+                  numberOfLines={3}
+                >
+                  {message}
+                </Text>
+              )}
+            </View>
+          )}
+
+          {/* Options */}
+          <ScrollView
+            style={styles.optionsContainer}
+            showsVerticalScrollIndicator={false}
+          >
+            {options.map((option, index) => (
+              <TouchableOpacity
+                key={JSON.stringify(option)}
+                style={[
+                  styles.option,
+                  { borderBottomColor: borderColor },
+                  index === options.length - 1 && styles.lastOption,
+                  option.disabled && styles.disabledOption,
+                ]}
+                onPress={() => handleOptionPress(option)}
+                disabled={option.disabled}
+                activeOpacity={0.6}
+                accessibilityRole="menuitem"
+                accessibilityState={{ disabled: option.disabled }}
+                accessibilityLabel={option.title}
+              >
+                <View style={styles.optionContent}>
+                  {option.icon && (
+                    <View style={styles.optionIcon}>{option.icon}</View>
+                  )}
+                  <Text
+                    style={[
+                      styles.optionText,
+                      {
+                        color: option.destructive
+                          ? destructiveColor
+                          : option.disabled
+                            ? mutedColor
+                            : textColor,
+                      },
+                    ]}
+                    numberOfLines={1}
+                  >
+                    {option.title}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+
+          {/* Cancel Button */}
+          <View
+            style={[styles.cancelContainer, { borderTopColor: borderColor }]}
+          >
+            <TouchableOpacity
+              style={styles.cancelButton}
+              onPress={onClose}
+              activeOpacity={0.6}
+              accessibilityRole="button"
+              accessibilityLabel={cancelButtonTitle}
+            >
+              <Text style={[styles.cancelText, { color: textColor }]}>
+                {cancelButtonTitle}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </Animated.View>
+      </View>
+    </Modal>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  backdrop: {
+    ...StyleSheet.absoluteFill,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  backdropPressable: {
+    flex: 1,
+  },
+  sheet: {
+    borderTopLeftRadius: BorderRadius,
+    borderTopRightRadius: BorderRadius,
+    maxHeight: '80%',
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: -2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 10,
+  },
+  header: {
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 16,
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: 4,
+  },
+  message: {
+    fontSize: FontSize - 1,
+    textAlign: 'center',
+    lineHeight: 20,
+  },
+  optionsContainer: {
+    maxHeight: 300,
+  },
+  option: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+  },
+  lastOption: {
+    borderBottomWidth: 0,
+  },
+  disabledOption: {
+    opacity: 0.5,
+  },
+  optionContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  optionIcon: {
+    marginRight: 12,
+    width: 24,
+    height: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  optionText: {
+    fontSize: FontSize,
+    fontWeight: '500',
+    flex: 1,
+  },
+  cancelContainer: {
+    borderTopWidth: StyleSheet.hairlineWidth,
+    marginTop: 8,
+  },
+  cancelButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    alignItems: 'center',
+  },
+  cancelText: {
+    fontSize: FontSize,
+    fontWeight: '600',
+  },
+});
+
+// Hook for easier ActionSheet usage (No changes needed here)
+export function useActionSheet() {
+  const [isVisible, setIsVisible] = React.useState(false);
+  const [config, setConfig] = React.useState<
+    Omit<ActionSheetProps, 'visible' | 'onClose'>
+  >({
+    options: [],
+  });
+
+  const show = React.useCallback(
+    (actionSheetConfig: Omit<ActionSheetProps, 'visible' | 'onClose'>) => {
+      setConfig(actionSheetConfig);
+      setIsVisible(true);
+    },
+    [],
+  );
+
+  const hide = React.useCallback(() => {
+    setIsVisible(false);
+  }, []);
+
+  const ActionSheetComponent = React.useMemo(
+    () => <ActionSheet visible={isVisible} onClose={hide} {...config} />,
+    [isVisible, hide, config],
+  );
+
+  return {
+    show,
+    hide,
+    ActionSheet: ActionSheetComponent,
+    isVisible,
+  };
+}
