@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Spacing } from '@/constants/theme';
-import { ThemedText } from './themed-text';
-import { ThemedView } from './themed-view';
+import { StyleSheet } from 'react-native';
+import { Text } from '@/components/ui/text';
+import { View } from '@/components/ui/view';
+import { Spacing } from '@/theme/tokens';
+import { useColor } from '@/theme/use-color';
 
 type HintRowProps = {
   title?: string;
@@ -13,12 +14,14 @@ export function HintRow({
   title = 'Try editing',
   hint = 'app/index.tsx',
 }: HintRowProps) {
+  const { colors } = useColor();
+
   return (
     <View style={styles.stepRow}>
-      <ThemedText type="small">{title}</ThemedText>
-      <ThemedView type="backgroundSelected" style={styles.codeSnippet}>
-        <ThemedText themeColor="textSecondary">{hint}</ThemedText>
-      </ThemedView>
+      <Text variant="body">{title}</Text>
+      <View style={[styles.codeSnippet, { backgroundColor: colors.bg.muted }]}>
+        <Text variant="caption">{hint}</Text>
+      </View>
     </View>
   );
 }
@@ -29,8 +32,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   codeSnippet: {
-    borderRadius: Spacing.two,
-    paddingVertical: Spacing.half,
-    paddingHorizontal: Spacing.two,
+    borderRadius: Spacing['2'],
+    paddingVertical: Spacing['0.5'],
+    paddingHorizontal: Spacing['2'],
   },
 });

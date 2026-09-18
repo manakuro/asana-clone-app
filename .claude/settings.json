@@ -1,4 +1,7 @@
 {
+  "enabledPlugins": {
+    "expo@claude-plugins-official": true
+  },
   "permissions": {
     "allow": [
       "Bash(find:*)",

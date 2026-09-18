@@ -14,3 +14,5 @@ Include the following information:
 Read the context from the current branch name and commit history to create an appropriate description.
 
 Screenshots are not required.
+
+Do not include the `🤖 Generated with Claude Code` footer or the link at the end of the PR description.
