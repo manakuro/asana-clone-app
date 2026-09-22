@@ -12,7 +12,7 @@ import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
-import { Spacing } from '@/theme/tokens';
+import { Radii, Spacing } from '@/theme/tokens';
 import { useColor } from '@/theme/use-color';
 import { CardLink } from './components/card-link';
 
@@ -71,6 +71,9 @@ export function Page() {
             </View>
           </CardLink>
         </View>
+        <View
+          style={[styles.list, { backgroundColor: colors.bg.subtle }]}
+        ></View>
       </View>
     </PageContainer>
   );
@@ -108,7 +111,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: Spacing['4'],
     paddingHorizontal: Spacing['4'],
-    marginTop: Spacing['6'],
+    marginTop: Spacing['5'],
   },
   link: {
     alignItems: 'center',
@@ -118,5 +121,11 @@ const styles = StyleSheet.create({
   linkContent: {
     gap: Spacing['1'],
     alignItems: 'center',
+  },
+  list: {
+    flex: 1,
+    marginTop: Spacing['5'],
+    borderTopStartRadius: Radii['3xl'],
+    borderTopEndRadius: Radii['3xl'],
   },
 });

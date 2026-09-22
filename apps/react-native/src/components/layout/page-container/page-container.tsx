@@ -1,15 +1,20 @@
 import type { PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View } from '@/components/ui/view';
 import { Spacing } from '@/theme/tokens';
 
 export function PageContainer({ children }: PropsWithChildren) {
-  return <SafeAreaView style={styles.safeArea}>{children}</SafeAreaView>;
+  const insets = useSafeAreaInsets();
+  return (
+    <View style={[styles.root, { paddingTop: insets.top + Spacing['4'] }]}>
+      {children}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
+  root: {
     flex: 1,
-    paddingTop: Spacing['4'],
   },
 });
