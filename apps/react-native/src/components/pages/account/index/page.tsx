@@ -1,4 +1,6 @@
 import {
+  BellIcon,
+  CalendarIcon,
   ChevronRightIcon,
   EllipsisIcon,
   PencilIcon,
@@ -12,11 +14,11 @@ import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
 import { Spacing } from '@/theme/tokens';
 import { useColor } from '@/theme/use-color';
+import { CardLink } from './components/card-link';
 
 export function Page() {
-  const { me, error } = useMeQuery();
+  const { me } = useMeQuery();
   const { colors } = useColor();
-  console.log('me: ', me, error);
 
   return (
     <PageContainer>
@@ -51,6 +53,24 @@ export function Page() {
             <Text variant="caption">{me?.email}</Text>
           </View>
         </View>
+        <View style={styles.links}>
+          <CardLink>
+            <View style={styles.linkContent}>
+              <Icon name={CalendarIcon} />
+              <Text variant="caption" style={{ color: colors.fg.default }}>
+                Out of office
+              </Text>
+            </View>
+          </CardLink>
+          <CardLink>
+            <View style={styles.linkContent}>
+              <Icon name={BellIcon} />
+              <Text variant="caption" style={{ color: colors.fg.default }}>
+                Do not disturb
+              </Text>
+            </View>
+          </CardLink>
+        </View>
       </View>
     </PageContainer>
   );
@@ -83,5 +103,21 @@ const styles = StyleSheet.create({
   },
   nameIcon: {
     marginTop: 3,
+  },
+  links: {
+    flexDirection: 'row',
+    gap: Spacing['4'],
+    paddingHorizontal: Spacing['4'],
+    marginTop: Spacing['4'],
+  },
+  link: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  linkContent: {
+    gap: Spacing['1'],
+    alignItems: 'center',
+    padding: Spacing['4'],
   },
 });
