@@ -107,7 +107,7 @@ export function SearchBar({
   return (
     <View style={[baseStyle, containerStyle]}>
       {/* Left Icon */}
-      {leftIcon || <Icon name={Search} size={16} color={muted} />}
+      {leftIcon || <Icon name={Search} sizeValue={16} color={muted} />}
 
       {/* Text Input */}
       <TextInput
@@ -145,7 +145,7 @@ export function SearchBar({
           accessibilityRole="button"
           accessibilityLabel="Clear search"
         >
-          <Icon name={X} size={16} color={cardColor} strokeWidth={2} />
+          <Icon name={X} sizeValue={16} color={cardColor} strokeWidth={2} />
         </TouchableOpacity>
       )}
 

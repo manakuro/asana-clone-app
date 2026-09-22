@@ -168,7 +168,7 @@ export const Input = forwardRef<TextInput, InputProps>(
                     {icon && (
                       <Icon
                         name={icon}
-                        size={16}
+                        sizeValue={16}
                         color={error ? danger : muted}
                       />
                     )}
@@ -231,7 +231,11 @@ export const Input = forwardRef<TextInput, InputProps>(
                 pointerEvents="none"
               >
                 {icon && (
-                  <Icon name={icon} size={16} color={error ? danger : muted} />
+                  <Icon
+                    name={icon}
+                    sizeValue={16}
+                    color={error ? danger : muted}
+                  />
                 )}
                 {label && (
                   <Text
@@ -482,7 +486,7 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
                     {icon && (
                       <Icon
                         name={icon}
-                        size={16}
+                        sizeValue={16}
                         color={error ? danger : muted}
                       />
                     )}
@@ -556,7 +560,11 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
                 pointerEvents="none"
               >
                 {icon && (
-                  <Icon name={icon} size={16} color={error ? danger : muted} />
+                  <Icon
+                    name={icon}
+                    sizeValue={16}
+                    color={error ? danger : muted}
+                  />
                 )}
                 {label && (
                   <Text

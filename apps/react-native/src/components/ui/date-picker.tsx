@@ -1058,13 +1058,13 @@ export function DatePicker(props: DatePickerProps) {
             }}
           >
             {mode === 'time' ? (
-              <Icon name={Clock} size={20} strokeWidth={1} />
+              <Icon name={Clock} sizeValue={20} strokeWidth={1} />
             ) : mode === 'datetime' ? (
-              <Icon name={CalendarClock} size={20} strokeWidth={1} />
+              <Icon name={CalendarClock} sizeValue={20} strokeWidth={1} />
             ) : mode === 'range' ? (
-              <Icon name={CalendarRange} size={20} strokeWidth={1} />
+              <Icon name={CalendarRange} sizeValue={20} strokeWidth={1} />
             ) : (
-              <Icon name={Calendar} size={20} strokeWidth={1} />
+              <Icon name={Calendar} sizeValue={20} strokeWidth={1} />
             )}
 
             {/* Label takes 1/3 of available width when present */}

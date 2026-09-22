@@ -1,4 +1,8 @@
-import { EllipsisIcon, PencilIcon } from 'lucide-react-native';
+import {
+  ChevronRightIcon,
+  EllipsisIcon,
+  PencilIcon,
+} from 'lucide-react-native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { PageContainer } from '@/components/layout/page-container';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -28,7 +32,7 @@ export function Page() {
             <Icon name={EllipsisIcon} />
           </TouchableOpacity>
         </View>
-        <View style={styles.avatarContainer}>
+        <View style={styles.account}>
           <Avatar size={90}>
             <AvatarImage
               source={{
@@ -39,6 +43,13 @@ export function Page() {
 
             <AvatarFallback>{me?.name}</AvatarFallback>
           </Avatar>
+          <View style={styles.accountContent}>
+            <View style={styles.name}>
+              <Text variant="subtitle">{me?.name}</Text>
+              <Icon style={styles.nameIcon} name={ChevronRightIcon} size="sm" />
+            </View>
+            <Text variant="caption">{me?.email}</Text>
+          </View>
         </View>
       </View>
     </PageContainer>
@@ -57,9 +68,20 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
   },
-  avatarContainer: {
-    justifyContent: 'center',
+  account: {
     alignItems: 'center',
     marginTop: Spacing['9'],
+    gap: Spacing['4'],
+  },
+  accountContent: {
+    alignItems: 'center',
+  },
+  name: {
+    flexDirection: 'row',
+    gap: Spacing['1'],
+    alignItems: 'center',
+  },
+  nameIcon: {
+    marginTop: 3,
   },
 });
