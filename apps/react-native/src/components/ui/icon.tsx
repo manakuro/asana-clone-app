@@ -19,7 +19,7 @@ export function Icon({
 
   return (
     <IconComponent
-      color={colors.fg.default}
+      color={colors.fg.muted}
       size={size}
       strokeWidth={strokeWidth}
       strokeLinecap="round"

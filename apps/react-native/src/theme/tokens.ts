@@ -14,6 +14,8 @@ export const Corners = 999;
  * - 4: 16
  * - 6: 24
  * - 8: 32
+ * - 9: 36
+ * - 10: 40
  */
 export const Spacing = {
   '0.5': 2,
@@ -22,7 +24,9 @@ export const Spacing = {
   '4': 16,
   '6': 24,
   '8': 32,
-};
+  '9': 36,
+  '10': 40,
+} as const;
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;

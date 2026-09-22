@@ -17,12 +17,12 @@ type TextVariant =
 
 interface TextProps extends RNTextProps {
   /**
-   * - body
-   * - title
-   * - subtitle
-   * - caption
-   * - heading
-   * - link
+   * - heading: 28
+   * - title: 24
+   * - subtitle: 19
+   * - body: 17
+   * - caption: 14
+   * - link: 17
    */
   variant?: TextVariant;
   children: React.ReactNode;

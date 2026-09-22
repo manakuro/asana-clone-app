@@ -1,29 +1,13 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { AnimatedIcon } from '@/components/ui/animated-icon';
-import { HintRow } from '@/components/ui/hint-row';
+import { EllipsisIcon, PencilIcon } from 'lucide-react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { PageContainer } from '@/components/layout/page-container';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/theme/tokens';
+import { Spacing } from '@/theme/tokens';
 import { useColor } from '@/theme/use-color';
-
-function getDevMenuHint() {
-  if (Device.isDevice) {
-    return (
-      <Text variant="caption">
-        shake device or press <Text variant="caption">m</Text> in terminal
-      </Text>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <Text variant="caption">
-      press <Text variant="caption">{shortcut}</Text>
-    </Text>
-  );
-}
 
 export function Page() {
   const { me, error } = useMeQuery();
@@ -31,69 +15,51 @@ export function Page() {
   console.log('me: ', me, error);
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.heroSection}>
-          <AnimatedIcon />
-          <Text variant="title" style={styles.title}>
-            Welcome to&nbsp;Expo
+    <PageContainer>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity>
+            <Icon name={PencilIcon} />
+          </TouchableOpacity>
+          <Text variant="subtitle" style={styles.title}>
+            Account
           </Text>
+          <TouchableOpacity>
+            <Icon name={EllipsisIcon} />
+          </TouchableOpacity>
         </View>
+        <View style={styles.avatarContainer}>
+          <Avatar size={90}>
+            <AvatarImage
+              source={{
+                uri: `https://asanacloneapp.codelly.dev${me?.image}`,
+              }}
+              style={{ backgroundColor: colors.fg.muted }}
+            />
 
-        <Text variant="subtitle" style={styles.code}>
-          get started
-        </Text>
-
-        <View
-          style={[styles.stepContainer, { backgroundColor: colors.bg.subtle }]}
-        >
-          <HintRow
-            title="Try editing"
-            hint={<Text variant="caption">src/app/index.tsx</Text>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<Text variant="caption">npm run reset-project</Text>}
-          />
+            <AvatarFallback>{me?.name}</AvatarFallback>
+          </Avatar>
         </View>
-      </SafeAreaView>
-    </View>
+      </View>
+    </PageContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+  },
+  header: {
     flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
     paddingHorizontal: Spacing['6'],
-    alignItems: 'center',
-    gap: Spacing['4'],
-    paddingBottom: BottomTabInset + Spacing['4'],
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing['6'],
-    gap: Spacing['6'],
   },
   title: {
     textAlign: 'center',
+    flex: 1,
   },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing['4'],
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing['4'],
-    paddingVertical: Spacing['6'],
-    borderRadius: Spacing['6'],
+  avatarContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: Spacing['9'],
   },
 });
