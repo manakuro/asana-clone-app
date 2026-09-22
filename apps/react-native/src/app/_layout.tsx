@@ -5,8 +5,8 @@ import {
 } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useColorScheme } from 'react-native';
-import AppTabs from '@/components/app-tabs';
 import { AppContext } from '@/components/layout/app-context';
+import { AppTabs } from '@/components/layout/app-tabs';
 import { ThemeProvider } from '@/theme/theme-provider';
 
 SplashScreen.preventAutoHideAsync();
