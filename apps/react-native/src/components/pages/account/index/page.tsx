@@ -54,7 +54,7 @@ export function Page() {
           </View>
         </View>
         <View style={styles.links}>
-          <CardLink>
+          <CardLink onPress={() => {}}>
             <View style={styles.linkContent}>
               <Icon name={CalendarIcon} />
               <Text variant="caption" style={{ color: colors.fg.default }}>
@@ -62,7 +62,7 @@ export function Page() {
               </Text>
             </View>
           </CardLink>
-          <CardLink>
+          <CardLink onPress={() => {}}>
             <View style={styles.linkContent}>
               <Icon name={BellIcon} />
               <Text variant="caption" style={{ color: colors.fg.default }}>
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: Spacing['4'],
     paddingHorizontal: Spacing['4'],
-    marginTop: Spacing['4'],
+    marginTop: Spacing['6'],
   },
   link: {
     alignItems: 'center',
@@ -118,6 +118,5 @@ const styles = StyleSheet.create({
   linkContent: {
     gap: Spacing['1'],
     alignItems: 'center',
-    padding: Spacing['4'],
   },
 });
