@@ -1,10 +1,14 @@
-import { Colors, ColorTokens } from './tokens/colors';
+import {
+  type Colors,
+  colorTokens,
+  colors as themeColors,
+} from './tokens/colors';
 import { useColorScheme } from './use-color-scheme';
 
 type ColorScheme = ReturnType<typeof useColorScheme>;
 
 type ThemedColors = {
-  [K in keyof typeof Colors]: (typeof Colors)[K][ColorScheme];
+  [K in keyof Colors]: Colors[K][ColorScheme];
 };
 
 export function useColor(colorScheme?: ColorScheme) {
@@ -12,16 +16,16 @@ export function useColor(colorScheme?: ColorScheme) {
   const theme = (colorScheme ?? appColorScheme) as ColorScheme;
 
   const colors = Object.fromEntries(
-    (Object.keys(Colors) as (keyof typeof Colors)[]).map((key) => [
+    (Object.keys(themeColors) as (keyof Colors)[]).map((key) => [
       key,
-      Colors[key][theme],
+      themeColors[key][theme],
     ]),
   ) as ThemedColors;
 
   return {
     colors: {
       ...colors,
-      tokens: ColorTokens,
+      tokens: colorTokens,
     },
   };
 }

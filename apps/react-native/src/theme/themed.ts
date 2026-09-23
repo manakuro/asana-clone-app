@@ -1,6 +1,6 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import { getSnapshot } from './store/color-mode-store';
-import { Colors, type ColorToken } from './tokens/colors';
+import { type ColorToken, colors } from './tokens/colors';
 import { type RadiusToken, radii } from './tokens/radii';
 
 type ColorKeys =
@@ -23,11 +23,11 @@ type TokenizeStyle<T extends object> = Omit<T, ColorKeys | 'borderRadius'> & {
 function getThemedColors() {
   const { scheme } = getSnapshot();
   return Object.fromEntries(
-    (Object.keys(Colors) as (keyof typeof Colors)[]).map((key) => [
+    (Object.keys(colors) as (keyof typeof colors)[]).map((key) => [
       key,
-      Colors[key][scheme],
+      colors[key][scheme],
     ]),
-  ) as { [K in keyof typeof Colors]: (typeof Colors)[K][typeof scheme] };
+  ) as { [K in keyof typeof colors]: (typeof colors)[K][typeof scheme] };
 }
 
 function resolveColor(colors: Record<string, unknown>, path: string): string {
