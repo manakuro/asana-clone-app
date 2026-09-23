@@ -8,46 +8,46 @@ import {
   useSyncExternalStore,
 } from 'react';
 import {
+  type ColorMode,
   getSnapshot,
-  type Mode,
-  setMode as setStoreMode,
+  setColorMode as setStoreMode,
   subscribe,
 } from './store/color-mode-store';
 
-export type { Mode };
+export type { ColorMode };
 
-export type ModeStorage = {
+export type ColorModeStorage = {
   getItem: (key: string) => string | null | Promise<string | null>;
   setItem: (key: string, value: string) => void | Promise<void>;
 };
 
-type ModeContextValue = {
-  mode: Mode;
-  setMode: (mode: Mode) => void;
+type ColorModeContextValue = {
+  mode: ColorMode;
+  setMode: (mode: ColorMode) => void;
   scheme: 'light' | 'dark';
 };
 
-const ModeContext = createContext<ModeContextValue | null>(null);
+const ModeContext = createContext<ColorModeContextValue | null>(null);
 
-const isMode = (value: unknown): value is Mode =>
+const isColorMode = (value: unknown): value is ColorMode =>
   value === 'light' || value === 'dark' || value === 'system';
 
 type Props = {
   children: ReactNode;
-  storage?: ModeStorage;
+  storage?: ColorModeStorage;
   storageKey?: string;
-  defaultMode?: Mode;
+  defaultColorMode?: ColorMode;
 };
 
-export const ModeProvider = ({
+export const ColorModeProvider = ({
   children,
   storage,
   storageKey = 'bna-ui.mode',
-  defaultMode = 'system',
+  defaultColorMode = 'system',
 }: Props) => {
   useEffect(() => {
-    setStoreMode(defaultMode);
-  }, [defaultMode]);
+    setStoreMode(defaultColorMode);
+  }, [defaultColorMode]);
 
   const { mode, scheme } = useSyncExternalStore(
     subscribe,
@@ -62,7 +62,7 @@ export const ModeProvider = ({
     Promise.resolve()
       .then(() => storage.getItem(storageKey))
       .then((saved) => {
-        if (cancelled || !isMode(saved)) return;
+        if (cancelled || !isColorMode(saved)) return;
         setStoreMode(saved);
       })
       .catch(() => {});
@@ -72,8 +72,8 @@ export const ModeProvider = ({
     };
   }, [storage, storageKey]);
 
-  const setMode = useCallback(
-    (next: Mode) => {
+  const setColorMode = useCallback(
+    (next: ColorMode) => {
       setStoreMode(next);
       if (storage) {
         Promise.resolve()
@@ -84,14 +84,14 @@ export const ModeProvider = ({
     [storage, storageKey],
   );
 
-  const value = useMemo<ModeContextValue>(
-    () => ({ mode, setMode, scheme }),
-    [mode, setMode, scheme],
+  const value = useMemo<ColorModeContextValue>(
+    () => ({ mode, setMode: setColorMode, scheme }),
+    [mode, setColorMode, scheme],
   );
 
   return <ModeContext.Provider value={value}>{children}</ModeContext.Provider>;
 };
 
-export function useModeContext(): ModeContextValue | null {
+export function useColorModeContext(): ColorModeContextValue | null {
   return useContext(ModeContext);
 }

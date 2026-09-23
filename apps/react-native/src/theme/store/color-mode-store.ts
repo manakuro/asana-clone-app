@@ -1,21 +1,21 @@
 import { Appearance } from 'react-native';
 
-export type Mode = 'light' | 'dark' | 'system';
+export type ColorMode = 'light' | 'dark' | 'system';
 type Scheme = 'light' | 'dark';
-type State = { mode: Mode; scheme: Scheme };
+type State = { mode: ColorMode; scheme: Scheme };
 
-const isMode = (value: unknown): value is Mode =>
+const isColorMode = (value: unknown): value is ColorMode =>
   value === 'light' || value === 'dark' || value === 'system';
 
 function systemScheme(): Scheme {
   return Appearance.getColorScheme() === 'dark' ? 'dark' : 'light';
 }
 
-function computeScheme(mode: Mode): Scheme {
+function computeScheme(mode: ColorMode): Scheme {
   return mode === 'system' ? systemScheme() : mode;
 }
 
-function syncNativeAppearance(mode: Mode) {
+function syncNativeAppearance(mode: ColorMode) {
   if (typeof Appearance.setColorScheme !== 'function') return;
   Appearance.setColorScheme(mode === 'system' ? 'unspecified' : mode);
 }
@@ -42,8 +42,8 @@ export function getSnapshot(): State {
   return state;
 }
 
-export function setMode(mode: Mode) {
-  if (!isMode(mode)) return;
+export function setColorMode(mode: ColorMode) {
+  if (!isColorMode(mode)) return;
   state = { mode, scheme: computeScheme(mode) };
   syncNativeAppearance(mode);
   emit();

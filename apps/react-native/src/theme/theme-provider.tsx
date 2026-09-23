@@ -6,9 +6,9 @@ import {
 import type React from 'react';
 import { useMemo } from 'react';
 import {
-  type Mode,
-  ModeProvider,
-  type ModeStorage,
+  type ColorMode,
+  ColorModeProvider,
+  type ColorModeStorage,
 } from './color-mode-provider';
 import { _deprecated_colors } from './tokens/_deprecated_colors';
 import { useColorScheme } from './use-color-scheme';
@@ -16,9 +16,9 @@ import { useColorScheme } from './use-color-scheme';
 type Props = {
   children: React.ReactNode;
   /** Supply to persist the theme choice across launches. Omit and it resets. */
-  storage?: ModeStorage;
+  storage?: ColorModeStorage;
   storageKey?: string;
-  defaultMode?: Mode;
+  defaultMode?: ColorMode;
 };
 
 /**
@@ -34,13 +34,13 @@ export const ThemeProvider = ({
   storageKey,
   defaultMode,
 }: Props) => (
-  <ModeProvider
+  <ColorModeProvider
     storage={storage}
     storageKey={storageKey}
-    defaultMode={defaultMode}
+    defaultColorMode={defaultMode}
   >
     <NavigationTheme>{children}</NavigationTheme>
-  </ModeProvider>
+  </ColorModeProvider>
 );
 
 const NavigationTheme = ({ children }: { children: React.ReactNode }) => {

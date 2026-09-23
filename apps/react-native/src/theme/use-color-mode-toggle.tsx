@@ -1,4 +1,4 @@
-import { useModeContext } from './color-mode-provider';
+import { useColorModeContext } from './color-mode-provider';
 
 /**
  * Reads and writes the app-wide theme mode held by `ModeProvider`.
@@ -10,7 +10,7 @@ import { useModeContext } from './color-mode-provider';
  * toggle work on web, where `Appearance` is read-only.
  */
 export function useColorModeToggle() {
-  const context = useModeContext();
+  const context = useColorModeContext();
 
   if (!context) {
     throw new Error(
