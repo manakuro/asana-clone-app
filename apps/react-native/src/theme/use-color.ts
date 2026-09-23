@@ -1,4 +1,4 @@
-import { Colors, ColorTokens } from './colors';
+import { Colors, ColorTokens } from './tokens/colors';
 import { useColorScheme } from './use-color-scheme';
 
 type ColorScheme = ReturnType<typeof useColorScheme>;

@@ -3,9 +3,10 @@ import {
   DefaultTheme,
   ThemeProvider as RNThemeProvider,
 } from 'expo-router/react-navigation';
+import type React from 'react';
 import { useMemo } from 'react';
-import { _deprecated_colors } from './_deprecated_colors';
 import { type Mode, ModeProvider, type ModeStorage } from './mode-provider';
+import { _deprecated_colors } from './tokens/_deprecated_colors';
 import { useColorScheme } from './use-color-scheme';
 
 type Props = {
