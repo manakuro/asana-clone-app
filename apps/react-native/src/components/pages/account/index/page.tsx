@@ -14,7 +14,7 @@ import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
 import { themed } from '@/theme/themed';
-import { Radii } from '@/theme/tokens/radii';
+import { radii } from '@/theme/tokens/radii';
 import { spacing } from '@/theme/tokens/spacing';
 import { useColor } from '@/theme/use-color';
 import { CardLink } from './components/card-link';
@@ -119,8 +119,8 @@ export function Page() {
             themed.view({
               flex: 1,
               marginTop: spacing['5'],
-              borderTopStartRadius: Radii['3xl'],
-              borderTopEndRadius: Radii['3xl'],
+              borderTopStartRadius: radii['3xl'],
+              borderTopEndRadius: radii['3xl'],
               paddingHorizontal: spacing['4'],
               paddingTop: spacing['4'],
               gap: spacing['4'],

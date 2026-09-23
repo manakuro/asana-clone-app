@@ -1,7 +1,7 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import { getSnapshot } from './store/color-mode-store';
 import { Colors, type ColorToken } from './tokens/colors';
-import { Radii, type RadiusToken } from './tokens/radii';
+import { type RadiusToken, radii } from './tokens/radii';
 
 type ColorKeys =
   | 'color'
@@ -38,7 +38,7 @@ function resolveColor(colors: Record<string, unknown>, path: string): string {
 }
 
 function resolveRadius(value: RadiusToken | number): number {
-  return typeof value === 'number' ? value : Radii[value];
+  return typeof value === 'number' ? value : radii[value];
 }
 
 const COLOR_KEYS: ColorKeys[] = [

@@ -14,7 +14,7 @@
  * - 4xl: 32
  * - full: 9999
  */
-export const Radii = {
+export const radii = {
   none: 0,
   '2xs': 1,
   xs: 2,
@@ -28,4 +28,4 @@ export const Radii = {
   full: 9999,
 } as const;
 
-export type RadiusToken = keyof typeof Radii;
+export type RadiusToken = keyof typeof radii;
