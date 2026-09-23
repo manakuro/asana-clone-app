@@ -1,6 +1,6 @@
 import { getSnapshot } from '../store/color-mode-store';
 import { colors } from '../tokens/colors';
-import type { ColorKeys, TokenizeStyle } from './types';
+import type { ColorKeys } from './types';
 
 function getThemedColors() {
   const { scheme } = getSnapshot();
@@ -31,17 +31,20 @@ const COLOR_KEYS: ColorKeys[] = [
   'shadowColor',
 ];
 
-export function resolveColorStyle<T extends object>(
-  input: TokenizeStyle<T>,
-): T {
+export function resolveColorStyle(
+  input: Record<string, unknown>,
+): Record<string, unknown> {
   const colors = getThemedColors();
-  const result = { ...input } as Record<string, unknown>;
+  let result = input as Record<string, unknown>;
 
   for (const key of COLOR_KEYS) {
     if (typeof (input as Record<string, unknown>)[key] === 'string') {
+      if (result === input) {
+        result = { ...input };
+      }
       result[key] = resolveColor(colors, result[key] as string);
     }
   }
 
-  return result as T;
+  return result;
 }

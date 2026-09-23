@@ -20,10 +20,13 @@ const RADIUS_KEYS: RadiusKeys[] = [
 export function resolveRadiusStyle(
   input: Record<string, unknown>,
 ): Record<string, unknown> {
-  const result = { ...input };
+  let result = input;
 
   for (const key of RADIUS_KEYS) {
     if (key in result) {
+      if (result === input) {
+        result = { ...input };
+      }
       result[key] = radii[result[key] as RadiusToken];
     }
   }

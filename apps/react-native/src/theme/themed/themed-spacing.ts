@@ -38,10 +38,13 @@ function resolveSpacing(value: unknown): unknown {
 export function resolveSpacingStyle(
   input: Record<string, unknown>,
 ): Record<string, unknown> {
-  const result = { ...input };
+  let result = { ...input };
 
   for (const key of SPACING_KEYS) {
     if (key in result) {
+      if (result === input) {
+        result = { ...input };
+      }
       result[key] = resolveSpacing(result[key]);
     }
   }
