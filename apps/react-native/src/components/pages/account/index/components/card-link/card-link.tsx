@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
-import { Radii, Spacing } from '@/theme/tokens';
+import { Radii } from '@/theme/tokens/radii';
+import { Spacing } from '@/theme/tokens/spacing';
 import { useColor } from '@/theme/use-color';
 
 type Props = {

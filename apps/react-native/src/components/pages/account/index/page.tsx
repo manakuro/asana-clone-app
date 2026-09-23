@@ -12,7 +12,8 @@ import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
-import { Radii, Spacing } from '@/theme/tokens';
+import { Radii } from '@/theme/tokens/radii';
+import { Spacing } from '@/theme/tokens/spacing';
 import { useColor } from '@/theme/use-color';
 import { CardLink } from './components/card-link';
 

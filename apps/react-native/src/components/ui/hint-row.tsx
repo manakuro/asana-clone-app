@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
-import { Spacing } from '@/theme/tokens';
+import { Spacing } from '@/theme/tokens/spacing';
 import { useColor } from '@/theme/use-color';
 
 type HintRowProps = {
