@@ -1,73 +1,12 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
-import { getSnapshot } from '../store/color-mode-store';
-import { type ColorToken, colors } from '../tokens/colors';
-import { type RadiusToken, radii } from '../tokens/radii';
-
-type ColorKeys =
-  | 'color'
-  | 'backgroundColor'
-  | 'borderColor'
-  | 'borderTopColor'
-  | 'borderBottomColor'
-  | 'borderLeftColor'
-  | 'borderRightColor'
-  | 'tintColor'
-  | 'shadowColor';
-
-type TokenizeStyle<T extends object> = Omit<T, ColorKeys | 'borderRadius'> & {
-  [K in ColorKeys & keyof T]?: ColorToken;
-} & {
-  borderRadius?: RadiusToken | number;
-};
-
-function getThemedColors() {
-  const { scheme } = getSnapshot();
-  return Object.fromEntries(
-    (Object.keys(colors) as (keyof typeof colors)[]).map((key) => [
-      key,
-      colors[key][scheme],
-    ]),
-  ) as { [K in keyof typeof colors]: (typeof colors)[K][typeof scheme] };
-}
-
-function resolveColor(colors: Record<string, unknown>, path: string): string {
-  const value = path
-    .split('.')
-    .reduce<unknown>((acc, key) => (acc as any)?.[key], colors);
-  return typeof value === 'string' ? value : path;
-}
-
-function resolveRadius(value: RadiusToken | number): number {
-  return typeof value === 'number' ? value : radii[value];
-}
-
-const COLOR_KEYS: ColorKeys[] = [
-  'color',
-  'backgroundColor',
-  'borderColor',
-  'borderTopColor',
-  'borderBottomColor',
-  'borderLeftColor',
-  'borderRightColor',
-  'tintColor',
-  'shadowColor',
-];
+import { resolveColorStyle } from './themed-color';
+import { resolveRadiusStyle } from './themed-radius';
+import type { TokenizeStyle } from './types';
 
 function resolveStyle<T extends object>(input: TokenizeStyle<T>): T {
-  const colors = getThemedColors();
-  const result = { ...input } as Record<string, unknown>;
-
-  for (const key of COLOR_KEYS) {
-    if (typeof result[key] === 'string') {
-      result[key] = resolveColor(colors, result[key] as string);
-    }
-  }
-  if (result.borderRadius !== undefined) {
-    result.borderRadius = resolveRadius(
-      result.borderRadius as RadiusToken | number,
-    );
-  }
-
+  let result = { ...input } as Record<string, unknown>;
+  result = resolveColorStyle(result);
+  result = resolveRadiusStyle(result);
   return result as T;
 }
 
