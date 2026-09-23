@@ -1,12 +1,4 @@
-import { type Mode, useModeContext } from './mode-provider';
-
-interface UseModeToggleReturn {
-  isDark: boolean;
-  mode: Mode;
-  setMode: (mode: Mode) => void;
-  currentMode: 'light' | 'dark';
-  toggleMode: () => void;
-}
+import { useModeContext } from './color-mode-provider';
 
 /**
  * Reads and writes the app-wide theme mode held by `ModeProvider`.
@@ -17,7 +9,7 @@ interface UseModeToggleReturn {
  * dark, and two toggles on screen disagreed. Sharing the state also makes the
  * toggle work on web, where `Appearance` is read-only.
  */
-export function useModeToggle(): UseModeToggleReturn {
+export function useColorModeToggle() {
   const context = useModeContext();
 
   if (!context) {

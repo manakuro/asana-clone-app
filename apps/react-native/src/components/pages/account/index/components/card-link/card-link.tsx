@@ -1,26 +1,28 @@
 import type { PropsWithChildren } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable } from 'react-native';
+import { styles } from '@/theme/styles';
 import { Radii } from '@/theme/tokens/radii';
 import { Spacing } from '@/theme/tokens/spacing';
-import { useColor } from '@/theme/use-color';
 
 type Props = {
   onPress: () => void;
 };
 
 export function CardLink({ children, onPress }: PropsWithChildren<Props>) {
-  const { colors } = useColor();
-
   return (
     <Pressable
       style={({ pressed }) => [
-        styles.link,
-        {
-          borderColor: colors.fg.muted,
+        styles.view({
+          alignItems: 'center',
+          justifyContent: 'center',
+          flex: 1,
+          paddingVertical: Spacing['5'],
+          paddingHorizontal: Spacing['4'],
+          borderColor: 'fg.muted',
           borderWidth: 1,
           borderRadius: Radii.xl,
-          backgroundColor: pressed ? colors.bg.muted : colors.bg.subtle,
-        },
+          backgroundColor: pressed ? 'bg.muted' : 'bg.subtle',
+        }),
       ]}
       onPress={onPress}
     >
@@ -28,13 +30,3 @@ export function CardLink({ children, onPress }: PropsWithChildren<Props>) {
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  link: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingVertical: Spacing['5'],
-    paddingHorizontal: Spacing['4'],
-  },
-});

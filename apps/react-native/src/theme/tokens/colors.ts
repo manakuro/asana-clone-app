@@ -447,3 +447,13 @@ export const Colors = {
 } as const;
 
 export type ColorTokenKey = keyof typeof ColorTokens;
+
+/**
+ * All valid color token paths, e.g. 'fg.default' | 'bg.subtle' | 'primary.bg' | ...
+ * Derived from `Colors`, so adding/removing a token here automatically
+ * updates the type everywhere it's used (e.g. the `color`/`backgroundColor`
+ * props in `useStyle`/`styles`).
+ */
+export type ColorToken = {
+  [Group in keyof typeof Colors]: `${Group & string}.${keyof (typeof Colors)[Group]['light'] & string}`;
+}[keyof typeof Colors];

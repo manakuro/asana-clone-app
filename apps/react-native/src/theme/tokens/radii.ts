@@ -27,3 +27,5 @@ export const Radii = {
   '4xl': 32,
   full: 9999,
 } as const;
+
+export type RadiusToken = keyof typeof Radii;

@@ -5,7 +5,11 @@ import {
 } from 'expo-router/react-navigation';
 import type React from 'react';
 import { useMemo } from 'react';
-import { type Mode, ModeProvider, type ModeStorage } from './mode-provider';
+import {
+  type Mode,
+  ModeProvider,
+  type ModeStorage,
+} from './color-mode-provider';
 import { _deprecated_colors } from './tokens/_deprecated_colors';
 import { useColorScheme } from './use-color-scheme';
 

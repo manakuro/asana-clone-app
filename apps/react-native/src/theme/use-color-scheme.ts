@@ -1,5 +1,5 @@
 import { useColorScheme as useRNColorScheme } from 'react-native';
-import { useModeContext } from '@/theme/mode-provider';
+import { useModeContext } from '@/theme/color-mode-provider';
 
 /**
  * The one place the app's colour scheme is decided.
