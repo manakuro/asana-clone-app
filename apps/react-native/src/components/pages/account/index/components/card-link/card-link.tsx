@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { Pressable } from 'react-native';
-import { styles } from '@/theme/styles';
+import { themed } from '@/theme/themed';
 import { Radii } from '@/theme/tokens/radii';
 import { Spacing } from '@/theme/tokens/spacing';
 
@@ -12,7 +12,7 @@ export function CardLink({ children, onPress }: PropsWithChildren<Props>) {
   return (
     <Pressable
       style={({ pressed }) => [
-        styles.view({
+        themed.view({
           alignItems: 'center',
           justifyContent: 'center',
           flex: 1,
