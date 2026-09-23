@@ -15,7 +15,7 @@ import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
 import { themed } from '@/theme/themed';
 import { Radii } from '@/theme/tokens/radii';
-import { Spacing } from '@/theme/tokens/spacing';
+import { spacing } from '@/theme/tokens/spacing';
 import { useColor } from '@/theme/use-color';
 import { CardLink } from './components/card-link';
 
@@ -29,7 +29,7 @@ export function Page() {
         <View
           style={themed.view({
             flexDirection: 'row',
-            paddingHorizontal: Spacing['4'],
+            paddingHorizontal: spacing['4'],
           })}
         >
           <TouchableOpacity>
@@ -51,8 +51,8 @@ export function Page() {
         <View
           style={themed.view({
             alignItems: 'center',
-            marginTop: Spacing['9'],
-            gap: Spacing['4'],
+            marginTop: spacing['9'],
+            gap: spacing['4'],
           })}
         >
           <Avatar size={90}>
@@ -73,7 +73,7 @@ export function Page() {
             <View
               style={themed.view({
                 flexDirection: 'row',
-                gap: Spacing['1'],
+                gap: spacing['1'],
                 alignItems: 'center',
               })}
             >
@@ -92,9 +92,9 @@ export function Page() {
         <View
           style={themed.view({
             flexDirection: 'row',
-            gap: Spacing['4'],
-            paddingHorizontal: Spacing['4'],
-            marginTop: Spacing['5'],
+            gap: spacing['4'],
+            paddingHorizontal: spacing['4'],
+            marginTop: spacing['5'],
           })}
         >
           <CardLink onPress={() => {}}>
@@ -118,12 +118,12 @@ export function Page() {
           style={[
             themed.view({
               flex: 1,
-              marginTop: Spacing['5'],
+              marginTop: spacing['5'],
               borderTopStartRadius: Radii['3xl'],
               borderTopEndRadius: Radii['3xl'],
-              paddingHorizontal: Spacing['4'],
-              paddingTop: Spacing['4'],
-              gap: Spacing['4'],
+              paddingHorizontal: spacing['4'],
+              paddingTop: spacing['4'],
+              gap: spacing['4'],
               backgroundColor: 'bg.subtle',
             }),
           ]}
@@ -136,12 +136,12 @@ export function Page() {
           >
             Account
           </Text>
-          <View style={themed.view({ gap: Spacing['2'] })}>
+          <View style={themed.view({ gap: spacing['2'] })}>
             <View
               style={themed.view({
                 flexDirection: 'row',
                 alignItems: 'center',
-                gap: Spacing['4'],
+                gap: spacing['4'],
               })}
             >
               <Avatar>
@@ -167,7 +167,7 @@ export function Page() {
 
 const styles = StyleSheet.create({
   linkContent: themed.view({
-    gap: Spacing['1'],
+    gap: spacing['1'],
     alignItems: 'center',
   }),
 });

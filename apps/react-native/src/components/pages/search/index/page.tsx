@@ -10,7 +10,7 @@ import {
   BottomTabInset,
   MaxContentWidth,
 } from '@/theme/tokens/_deprecated_tokens';
-import { Spacing } from '@/theme/tokens/spacing';
+import { spacing } from '@/theme/tokens/spacing';
 import { useColor } from '@/theme/use-color';
 
 function getDevMenuHint() {
@@ -74,18 +74,18 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
-    paddingHorizontal: Spacing['6'],
+    paddingHorizontal: spacing['6'],
     alignItems: 'center',
-    gap: Spacing['4'],
-    paddingBottom: BottomTabInset + Spacing['4'],
+    gap: spacing['4'],
+    paddingBottom: BottomTabInset + spacing['4'],
     maxWidth: MaxContentWidth,
   },
   heroSection: {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    paddingHorizontal: Spacing['6'],
-    gap: Spacing['6'],
+    paddingHorizontal: spacing['6'],
+    gap: spacing['6'],
   },
   title: {
     textAlign: 'center',
@@ -94,10 +94,10 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   stepContainer: {
-    gap: Spacing['4'],
+    gap: spacing['4'],
     alignSelf: 'stretch',
-    paddingHorizontal: Spacing['4'],
-    paddingVertical: Spacing['6'],
-    borderRadius: Spacing['6'],
+    paddingHorizontal: spacing['4'],
+    paddingVertical: spacing['6'],
+    borderRadius: spacing['6'],
   },
 });

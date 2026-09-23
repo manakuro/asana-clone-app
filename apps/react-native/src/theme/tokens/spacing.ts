@@ -11,7 +11,7 @@
  * - 9: 36
  * - 10: 40
  */
-export const Spacing = {
+export const spacing = {
   '0.5': 2,
   '1': 4,
   '2': 8,
