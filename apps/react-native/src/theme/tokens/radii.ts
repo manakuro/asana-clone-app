@@ -1,5 +1,5 @@
 /**
- * Radii values used throughout the app, aligned with Chakra UI's spacing tokens.
+ * Radius values used throughout the app, aligned with Chakra UI's spacing tokens.
  * https://www.chakra-ui.com/docs/theming/radii
  *
  * - none: 0
