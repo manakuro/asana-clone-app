@@ -1,7 +1,7 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
-import { getSnapshot } from './store/color-mode-store';
-import { type ColorToken, colors } from './tokens/colors';
-import { type RadiusToken, radii } from './tokens/radii';
+import { getSnapshot } from '../store/color-mode-store';
+import { type ColorToken, colors } from '../tokens/colors';
+import { type RadiusToken, radii } from '../tokens/radii';
 
 type ColorKeys =
   | 'color'
