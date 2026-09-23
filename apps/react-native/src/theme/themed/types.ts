@@ -10,8 +10,26 @@ export type ColorKeys =
   | 'borderBottomColor'
   | 'borderLeftColor'
   | 'borderRightColor'
+  | 'borderStartColor'
+  | 'borderEndColor'
   | 'tintColor'
-  | 'shadowColor';
+  | 'shadowColor'
+  | 'outlineColor';
+
+export type RadiusKeys =
+  | 'borderRadius'
+  | 'borderTopLeftRadius'
+  | 'borderTopRightRadius'
+  | 'borderTopStartRadius'
+  | 'borderTopEndRadius'
+  | 'borderBottomLeftRadius'
+  | 'borderBottomRightRadius'
+  | 'borderBottomStartRadius'
+  | 'borderBottomEndRadius'
+  | 'borderStartStartRadius'
+  | 'borderStartEndRadius'
+  | 'borderEndStartRadius'
+  | 'borderEndEndRadius';
 
 export type SpacingKeys =
   | 'padding'
@@ -38,11 +56,11 @@ export type SpacingKeys =
 
 export type TokenizeStyle<T extends object> = Omit<
   T,
-  ColorKeys | 'borderRadius' | SpacingKeys
+  ColorKeys | RadiusKeys | SpacingKeys
 > & {
   [K in ColorKeys & keyof T]?: ColorToken;
 } & {
-  borderRadius?: RadiusToken;
+  [K in RadiusKeys & keyof T]?: RadiusToken;
 } & {
   [K in SpacingKeys & keyof T]?: SpacingToken;
 };

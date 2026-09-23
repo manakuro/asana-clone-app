@@ -1,20 +1,32 @@
 import { type RadiusToken, radii } from '@/theme/tokens/radii';
-import type { TokenizeStyle } from './types';
+import type { RadiusKeys } from './types';
 
-function resolveRadius(value: RadiusToken | number): number {
-  return typeof value === 'number' ? value : radii[value];
-}
+const RADIUS_KEYS: RadiusKeys[] = [
+  'borderRadius',
+  'borderTopLeftRadius',
+  'borderTopRightRadius',
+  'borderTopStartRadius',
+  'borderTopEndRadius',
+  'borderBottomLeftRadius',
+  'borderBottomRightRadius',
+  'borderBottomStartRadius',
+  'borderBottomEndRadius',
+  'borderStartStartRadius',
+  'borderStartEndRadius',
+  'borderEndStartRadius',
+  'borderEndEndRadius',
+];
 
-export function resolveRadiusStyle<T extends object>(
-  input: TokenizeStyle<T>,
-): T {
-  if (input.borderRadius !== undefined) {
-    const result = { ...input } as Record<string, unknown>;
-    result.borderRadius = resolveRadius(
-      result.borderRadius as RadiusToken | number,
-    );
-    return result as T;
+export function resolveRadiusStyle(
+  input: Record<string, unknown>,
+): Record<string, unknown> {
+  const result = { ...input };
+
+  for (const key of RADIUS_KEYS) {
+    if (key in result) {
+      result[key] = radii[result[key] as RadiusToken];
+    }
   }
 
-  return input as T;
+  return result;
 }

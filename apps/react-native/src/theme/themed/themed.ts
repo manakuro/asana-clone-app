@@ -16,4 +16,4 @@ export const themed = {
   view: (input: TokenizeStyle<ViewStyle>) => resolveStyle<ViewStyle>(input),
   text: (input: TokenizeStyle<TextStyle>) => resolveStyle<TextStyle>(input),
   image: (input: TokenizeStyle<ImageStyle>) => resolveStyle<ImageStyle>(input),
-};
+} as const;
