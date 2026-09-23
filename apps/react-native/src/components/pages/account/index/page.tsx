@@ -1,6 +1,7 @@
 import {
   BellIcon,
   CalendarIcon,
+  CheckIcon,
   ChevronRightIcon,
   EllipsisIcon,
   PencilIcon,
@@ -72,9 +73,28 @@ export function Page() {
             </View>
           </CardLink>
         </View>
-        <View
-          style={[styles.list, { backgroundColor: colors.bg.subtle }]}
-        ></View>
+        <View style={[styles.list, { backgroundColor: colors.bg.subtle }]}>
+          <Text variant="caption" style={styles.listLabel}>
+            Account
+          </Text>
+          <View style={styles.accountList}>
+            <View style={styles.accountListItem}>
+              <Avatar>
+                <AvatarImage
+                  source={{
+                    uri: `https://asanacloneapp.codelly.dev${me?.image}`,
+                  }}
+                  style={{ backgroundColor: colors.fg.muted }}
+                />
+                <AvatarFallback>{me?.name}</AvatarFallback>
+              </Avatar>
+              <View style={styles.accountListItemTitle}>
+                <Text variant="subtitle">My Workspace</Text>
+              </View>
+              <Icon name={CheckIcon} color={colors.teal.solid} />
+            </View>
+          </View>
+        </View>
       </View>
     </PageContainer>
   );
@@ -86,7 +106,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    paddingHorizontal: Spacing['6'],
+    paddingHorizontal: Spacing['4'],
   },
   title: {
     textAlign: 'center',
@@ -128,5 +148,22 @@ const styles = StyleSheet.create({
     marginTop: Spacing['5'],
     borderTopStartRadius: Radii['3xl'],
     borderTopEndRadius: Radii['3xl'],
+    paddingHorizontal: Spacing['4'],
+    paddingTop: Spacing['4'],
+    gap: Spacing['4'],
+  },
+  listLabel: {
+    fontWeight: '600',
+  },
+  accountList: {
+    gap: Spacing['2'],
+  },
+  accountListItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing['4'],
+  },
+  accountListItemTitle: {
+    flex: 1,
   },
 });
