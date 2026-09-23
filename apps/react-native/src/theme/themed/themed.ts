@@ -1,4 +1,5 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
+import { createTextVariants } from './text-variants';
 import { resolveColorStyle } from './themed-color';
 import { resolveRadiusStyle } from './themed-radius';
 import { resolveSpacingStyle } from './themed-spacing';
@@ -12,8 +13,13 @@ function resolveStyle<T extends object>(input: TokenizeStyle<T>): T {
   return result as T;
 }
 
+const text = Object.assign(
+  (input: TokenizeStyle<TextStyle> = {}) => resolveStyle<TextStyle>(input),
+  createTextVariants((input) => resolveStyle<TextStyle>(input)),
+);
+
 export const themed = {
   view: (input: TokenizeStyle<ViewStyle>) => resolveStyle<ViewStyle>(input),
-  text: (input: TokenizeStyle<TextStyle>) => resolveStyle<TextStyle>(input),
+  text,
   image: (input: TokenizeStyle<ImageStyle>) => resolveStyle<ImageStyle>(input),
-} as const;
+};
