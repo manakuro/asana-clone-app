@@ -13,6 +13,7 @@ import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
+import { themed } from '@/theme/themed';
 import { Radii } from '@/theme/tokens/radii';
 import { Spacing } from '@/theme/tokens/spacing';
 import { useColor } from '@/theme/use-color';
@@ -24,19 +25,36 @@ export function Page() {
 
   return (
     <PageContainer>
-      <View style={styles.container}>
-        <View style={styles.header}>
+      <View style={themed.view({ flex: 1 })}>
+        <View
+          style={themed.view({
+            flexDirection: 'row',
+            paddingHorizontal: Spacing['4'],
+          })}
+        >
           <TouchableOpacity>
             <Icon name={PencilIcon} />
           </TouchableOpacity>
-          <Text variant="subtitle" style={styles.title}>
+          <Text
+            variant="subtitle"
+            style={themed.text({
+              textAlign: 'center',
+              flex: 1,
+            })}
+          >
             Account
           </Text>
           <TouchableOpacity>
             <Icon name={EllipsisIcon} />
           </TouchableOpacity>
         </View>
-        <View style={styles.account}>
+        <View
+          style={themed.view({
+            alignItems: 'center',
+            marginTop: Spacing['9'],
+            gap: Spacing['4'],
+          })}
+        >
           <Avatar size={90}>
             <AvatarImage
               source={{
@@ -47,15 +65,38 @@ export function Page() {
 
             <AvatarFallback>{me?.name}</AvatarFallback>
           </Avatar>
-          <View style={styles.accountContent}>
-            <View style={styles.name}>
+          <View
+            style={themed.view({
+              alignItems: 'center',
+            })}
+          >
+            <View
+              style={themed.view({
+                flexDirection: 'row',
+                gap: Spacing['1'],
+                alignItems: 'center',
+              })}
+            >
               <Text variant="subtitle">{me?.name}</Text>
-              <Icon style={styles.nameIcon} name={ChevronRightIcon} size="sm" />
+              <Icon
+                style={themed.view({
+                  marginTop: 3,
+                })}
+                name={ChevronRightIcon}
+                size="sm"
+              />
             </View>
             <Text variant="caption">{me?.email}</Text>
           </View>
         </View>
-        <View style={styles.links}>
+        <View
+          style={themed.view({
+            flexDirection: 'row',
+            gap: Spacing['4'],
+            paddingHorizontal: Spacing['4'],
+            marginTop: Spacing['5'],
+          })}
+        >
           <CardLink onPress={() => {}}>
             <View style={styles.linkContent}>
               <Icon name={CalendarIcon} />
@@ -73,12 +114,36 @@ export function Page() {
             </View>
           </CardLink>
         </View>
-        <View style={[styles.list, { backgroundColor: colors.bg.subtle }]}>
-          <Text variant="caption" style={styles.listLabel}>
+        <View
+          style={[
+            themed.view({
+              flex: 1,
+              marginTop: Spacing['5'],
+              borderTopStartRadius: Radii['3xl'],
+              borderTopEndRadius: Radii['3xl'],
+              paddingHorizontal: Spacing['4'],
+              paddingTop: Spacing['4'],
+              gap: Spacing['4'],
+              backgroundColor: 'bg.subtle',
+            }),
+          ]}
+        >
+          <Text
+            variant="caption"
+            style={themed.text({
+              fontWeight: '600',
+            })}
+          >
             Account
           </Text>
-          <View style={styles.accountList}>
-            <View style={styles.accountListItem}>
+          <View style={themed.view({ gap: Spacing['2'] })}>
+            <View
+              style={themed.view({
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: Spacing['4'],
+              })}
+            >
               <Avatar>
                 <AvatarImage
                   source={{
@@ -88,7 +153,7 @@ export function Page() {
                 />
                 <AvatarFallback>{me?.name}</AvatarFallback>
               </Avatar>
-              <View style={styles.accountListItemTitle}>
+              <View style={themed.view({ flex: 1 })}>
                 <Text variant="subtitle">My Workspace</Text>
               </View>
               <Icon name={CheckIcon} color={colors.teal.solid} />
@@ -101,69 +166,8 @@ export function Page() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    paddingHorizontal: Spacing['4'],
-  },
-  title: {
-    textAlign: 'center',
-    flex: 1,
-  },
-  account: {
-    alignItems: 'center',
-    marginTop: Spacing['9'],
-    gap: Spacing['4'],
-  },
-  accountContent: {
-    alignItems: 'center',
-  },
-  name: {
-    flexDirection: 'row',
+  linkContent: themed.view({
     gap: Spacing['1'],
     alignItems: 'center',
-  },
-  nameIcon: {
-    marginTop: 3,
-  },
-  links: {
-    flexDirection: 'row',
-    gap: Spacing['4'],
-    paddingHorizontal: Spacing['4'],
-    marginTop: Spacing['5'],
-  },
-  link: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-  linkContent: {
-    gap: Spacing['1'],
-    alignItems: 'center',
-  },
-  list: {
-    flex: 1,
-    marginTop: Spacing['5'],
-    borderTopStartRadius: Radii['3xl'],
-    borderTopEndRadius: Radii['3xl'],
-    paddingHorizontal: Spacing['4'],
-    paddingTop: Spacing['4'],
-    gap: Spacing['4'],
-  },
-  listLabel: {
-    fontWeight: '600',
-  },
-  accountList: {
-    gap: Spacing['2'],
-  },
-  accountListItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing['4'],
-  },
-  accountListItemTitle: {
-    flex: 1,
-  },
+  }),
 });
