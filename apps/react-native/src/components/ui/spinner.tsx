@@ -17,7 +17,11 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { Text } from '@/components/ui/text';
-import { BorderRadius, Corners, FontSize } from '@/theme/tokens';
+import {
+  BorderRadius,
+  Corners,
+  FontSize,
+} from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 // Types

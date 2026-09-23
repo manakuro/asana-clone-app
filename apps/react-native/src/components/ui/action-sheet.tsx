@@ -22,7 +22,7 @@ import { scheduleOnRN } from 'react-native-worklets/src/threads';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useHaptics } from '@/hooks/use-haptics';
-import { BorderRadius, FontSize } from '@/theme/tokens';
+import { BorderRadius, FontSize } from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 export interface ActionSheetOption {

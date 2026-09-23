@@ -7,7 +7,7 @@ import { forwardRef, useState } from 'react';
 import { ActivityIndicator, StyleSheet } from 'react-native';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
-import { BorderRadius, Corners } from '@/theme/tokens';
+import { BorderRadius, Corners } from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 export interface ImageProps extends Omit<ExpoImageProps, 'style'> {

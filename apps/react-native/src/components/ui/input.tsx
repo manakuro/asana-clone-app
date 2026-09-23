@@ -10,7 +10,12 @@ import {
 } from 'react-native';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { BorderRadius, Corners, FontSize, Height } from '@/theme/tokens';
+import {
+  BorderRadius,
+  Corners,
+  FontSize,
+  Height,
+} from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 export interface InputProps extends Omit<TextInputProps, 'style'> {

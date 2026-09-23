@@ -12,7 +12,7 @@ import type { TextStyle, ViewStyle } from 'react-native';
 import { Image } from '@/components/ui/image';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
-import { FontSize } from '@/theme/tokens';
+import { FontSize } from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 type AvatarImageStatus = 'loading' | 'loaded' | 'error';

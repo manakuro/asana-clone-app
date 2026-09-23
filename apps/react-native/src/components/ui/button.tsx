@@ -18,7 +18,7 @@ import { Icon } from '@/components/ui/icon';
 import { ButtonSpinner, type SpinnerVariant } from '@/components/ui/spinner';
 import { Text } from '@/components/ui/text';
 import { useHaptics } from '@/hooks/use-haptics';
-import { Corners, FontSize, Height } from '@/theme/tokens';
+import { Corners, FontSize, Height } from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 export type ButtonVariant =

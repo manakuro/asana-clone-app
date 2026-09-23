@@ -4,7 +4,7 @@ import {
   type TextProps as RNTextProps,
   type TextStyle,
 } from 'react-native';
-import { FontSize } from '@/theme/tokens';
+import { FontSize } from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 type TextVariant =

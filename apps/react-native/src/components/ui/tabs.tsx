@@ -26,7 +26,12 @@ import { scheduleOnRN } from 'react-native-worklets/src/threads';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useHaptics } from '@/hooks/use-haptics';
-import { BorderRadius, Corners, FontSize, Height } from '@/theme/tokens';
+import {
+  BorderRadius,
+  Corners,
+  FontSize,
+  Height,
+} from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 // Types

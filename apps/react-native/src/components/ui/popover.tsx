@@ -16,7 +16,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { Button } from '@/components/ui/button';
-import { BorderRadius } from '@/theme/tokens';
+import { BorderRadius } from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 // Context for sharing state between popover components

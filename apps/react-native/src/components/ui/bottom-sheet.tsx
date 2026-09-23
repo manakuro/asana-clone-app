@@ -22,7 +22,7 @@ import { scheduleOnRN } from 'react-native-worklets/src/threads';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useKeyboardHeight } from '@/hooks/use-keyboard-height';
-import { BorderRadius } from '@/theme/tokens';
+import { BorderRadius } from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 type BottomSheetContentProps = {

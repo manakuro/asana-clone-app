@@ -19,7 +19,7 @@ import {
 } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { View } from '@/components/ui/view';
-import { BorderRadius } from '@/theme/tokens';
+import { BorderRadius } from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 interface CarouselProps {

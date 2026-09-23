@@ -7,7 +7,7 @@ import Animated, {
   withRepeat,
   withTiming,
 } from 'react-native-reanimated';
-import { BorderRadius, Corners } from '@/theme/tokens';
+import { BorderRadius, Corners } from '@/theme/tokens/_deprecated_tokens';
 import { useColor } from '@/theme/use-color';
 
 interface SkeletonProps {
