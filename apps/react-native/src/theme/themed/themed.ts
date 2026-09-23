@@ -5,7 +5,7 @@ import { resolveSpacingStyle } from './themed-spacing';
 import type { TokenizeStyle } from './types';
 
 function resolveStyle<T extends object>(input: TokenizeStyle<T>): T {
-  let result = { ...input } as Record<string, unknown>;
+  let result = input as Record<string, unknown>;
   result = resolveColorStyle(result);
   result = resolveRadiusStyle(result);
   result = resolveSpacingStyle(result);
