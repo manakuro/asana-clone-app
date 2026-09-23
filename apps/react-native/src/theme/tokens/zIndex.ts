@@ -16,7 +16,7 @@
  * - tooltip: 1800
  * - max: 2147483647
  */
-export const ZIndex = {
+export const zIndex = {
   hide: -1,
   base: 0,
   docked: 10,
@@ -32,4 +32,4 @@ export const ZIndex = {
   max: 2147483647,
 } as const;
 
-export type ZIndexToken = keyof typeof ZIndex;
+export type ZIndexToken = keyof typeof zIndex;
