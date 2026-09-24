@@ -7,7 +7,9 @@ type TextTokens<T extends ThemeConfig> = T['tokens'] extends { text: infer Tx }
 
 export type TextVariants<T extends ThemeConfig> = {
   [Role in keyof TextTokens<T>]: {
-    [Size in keyof TextTokens<T>[Role]]: (override?: TokenizeStyle<T, TextStyle>) => TextStyle;
+    [Size in keyof TextTokens<T>[Role]]: (
+      override?: TokenizeStyle<T, TextStyle>,
+    ) => TextStyle;
   };
 };
 
@@ -23,7 +25,10 @@ export function createTextVariants<T extends ThemeConfig>(
   config: T,
   resolve: (input: Record<string, unknown>) => TextStyle,
 ): TextVariants<T> {
-  const textTokens = (config.tokens?.text ?? {}) as Record<string, Record<string, TextStyle>>;
+  const textTokens = (config.tokens?.text ?? {}) as Record<
+    string,
+    Record<string, TextStyle>
+  >;
   const roles = Object.keys(textTokens);
 
   return Object.fromEntries(

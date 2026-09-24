@@ -15,7 +15,9 @@ export function createScaleResolver(
     return (input: Record<string, unknown>) => input;
   }
 
-  return function resolveScaleStyle(input: Record<string, unknown>): Record<string, unknown> {
+  return function resolveScaleStyle(
+    input: Record<string, unknown>,
+  ): Record<string, unknown> {
     let result = input;
 
     for (const prop of props) {

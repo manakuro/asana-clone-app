@@ -1,3 +1,4 @@
+import { spacing } from '@react-native-themed/chakra-ui-tokens';
 import * as Device from 'expo-device';
 import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -10,7 +11,6 @@ import {
   BottomTabInset,
   MaxContentWidth,
 } from '@/theme/tokens/_deprecated_tokens';
-import { spacing } from '@react-native-themed/chakra-ui-tokens';
 import { useColor } from '@/theme/use-color';
 
 function getDevMenuHint() {
