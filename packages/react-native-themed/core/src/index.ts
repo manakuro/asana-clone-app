@@ -4,6 +4,7 @@ export { defineTheme } from './define-theme';
 export { extendTheme } from './extend-theme';
 export type { TextVariants } from './text-variants';
 export type {
+  CheckTextRefs,
   ColorToken,
   FontSizeToken,
   FontWeightToken,
@@ -13,7 +14,7 @@ export type {
   ShadowPresetToken,
   ShadowToken,
   SpacingToken,
+  TextToken,
   ThemeConfig,
   TokenizeStyle,
-  TypescaleToken,
 } from './types';

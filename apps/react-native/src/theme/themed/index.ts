@@ -5,7 +5,7 @@ import { getSnapshot } from '../store/color-mode-store';
 
 /**
  * `chakraUiTheme` supplies colors/radii/spacing/fontSizes/etc; `materialDesignTheme`
- * supplies the `text` type-scale. Later themes win per key, so app-local
+ * supplies the `semanticTokens.text` type-scale. Later themes win per key, so app-local
  * overrides can be appended here later as a third argument.
  */
 export const themeConfig = extendTheme(chakraUiTheme, materialDesignTheme);

@@ -1,15 +1,15 @@
 import type { ThemeConfig } from './types';
 
 /**
- * Flat token categories: a one-level merge (`{ ...a, ...b }`, `b` wins per
- * key) is enough. `text` (under `tokens`) and `semanticTokens.colors` are
- * nested two levels deep and merged one level deeper — see `MergeNested`.
+ * Flat `tokens` categories: a one-level merge (`{ ...a, ...b }`, `b` wins per
+ * key) is enough. `semanticTokens` categories are nested two levels deep and
+ * merged one level deeper — see `NESTED_SEMANTIC_CATEGORY_KEYS`.
  *
- * Kept as an explicit, bounded list rather than a fully generic recursive
+ * Kept as explicit, bounded lists rather than a fully generic recursive
  * `DeepMerge<A, B>` over the whole config: the category set is fixed and
  * known, and a fully generic deep-merge type over this shape risks TS
- * type-checker performance issues. Tradeoff: this list is duplicated here and
- * at the type level (`MergeTokens` below).
+ * type-checker performance issues. Tradeoff: these lists are duplicated here
+ * and at the type level (`MergeTokens` / `MergeSemanticTokens` below).
  */
 const FLAT_CATEGORY_KEYS = [
   'colors',
@@ -22,6 +22,14 @@ const FLAT_CATEGORY_KEYS = [
   'zIndices',
   'shadows',
 ] as const;
+
+/**
+ * Two-level `semanticTokens` categories (`colors.<group>.<token>`,
+ * `text.<role>.<size>`): outer keys are merged, inner keys are replaced whole,
+ * so overriding `text.display.lg` keeps `display.md`/`display.sm` and every
+ * other role.
+ */
+const NESTED_SEMANTIC_CATEGORY_KEYS = ['colors', 'text'] as const;
 
 function mergeFlat(
   a: Record<string, unknown> | undefined,
@@ -65,9 +73,6 @@ function mergeTokens(
     if (value) merged[key] = value;
   }
 
-  const text = mergeNested(a.text, b.text);
-  if (text) merged.text = text;
-
   return merged as ThemeConfig['tokens'];
 }
 
@@ -75,8 +80,14 @@ function mergeSemanticTokens(
   a: ThemeConfig['semanticTokens'],
   b: ThemeConfig['semanticTokens'],
 ): ThemeConfig['semanticTokens'] {
-  const colors = mergeNested(a?.colors, b?.colors);
-  return colors ? { colors } : {};
+  const merged: Record<string, unknown> = {};
+
+  for (const key of NESTED_SEMANTIC_CATEGORY_KEYS) {
+    const value = mergeNested(a?.[key], b?.[key]);
+    if (value) merged[key] = value;
+  }
+
+  return merged as ThemeConfig['semanticTokens'];
 }
 
 function mergeThemeConfig(a: ThemeConfig, b: ThemeConfig): ThemeConfig {
@@ -134,17 +145,16 @@ type MergeTokens<A, B> = {
   letterSpacings: MergeFlatToken<A, B, 'letterSpacings'>;
   zIndices: MergeFlatToken<A, B, 'zIndices'>;
   shadows: MergeFlatToken<A, B, 'shadows'>;
-  text: MergeNested<
-    Category<A, 'tokens', 'text'>,
-    Category<B, 'tokens', 'text'>
-  >;
 };
 
+type MergeNestedSemanticToken<A, B, K extends PropertyKey> = MergeNested<
+  Category<A, 'semanticTokens', K>,
+  Category<B, 'semanticTokens', K>
+>;
+
 type MergeSemanticTokens<A, B> = {
-  colors: MergeNested<
-    Category<A, 'semanticTokens', 'colors'>,
-    Category<B, 'semanticTokens', 'colors'>
-  >;
+  colors: MergeNestedSemanticToken<A, B, 'colors'>;
+  text: MergeNestedSemanticToken<A, B, 'text'>;
 };
 
 type Prettify<T> = { [K in keyof T]: T[K] } & {};
@@ -177,7 +187,9 @@ export type ExtendAll<Ts extends readonly ThemeConfig[]> = ExtendAllHelper<Ts>;
  *
  * ```ts
  * const config = extendTheme(materialDesignTheme, chakraUiTheme, {
- *   tokens: { text: { display: { lg: { fontSize: 60 } } } },
+ *   semanticTokens: {
+ *     text: { display: { lg: { fontSize: 60, lineHeight: 68 } } },
+ *   },
  * });
  * ```
  */

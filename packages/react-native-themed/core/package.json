@@ -8,7 +8,9 @@
   "scripts": {
     "lint": "biome check src",
     "lint:fix": "biome check --write --unsafe src",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "test": "vitest",
+    "test:ci": "vitest run"
   },
   "peerDependencies": {
     "react-native": "*"
@@ -18,6 +20,7 @@
     "react-native": "catalog:",
     "@biomejs/biome": "2.5.4",
     "biome-config": "workspace:*",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
   }
 }

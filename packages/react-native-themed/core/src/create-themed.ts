@@ -14,7 +14,7 @@ import {
   SPACING_KEYS,
 } from './style-props';
 import { createTextVariants } from './text-variants';
-import type { ThemeConfig, TokenizeStyle } from './types';
+import type { CheckTextRefs, ThemeConfig, TokenizeStyle } from './types';
 
 export type { ColorScheme };
 
@@ -36,7 +36,7 @@ export type CreateThemedOptions = {
  * plain functions out.
  */
 export function createThemed<const T extends ThemeConfig>(
-  config: T,
+  config: T & CheckTextRefs<T>,
   options: CreateThemedOptions = {},
 ) {
   const getScheme = options.getColorScheme ?? (() => 'light' as const);

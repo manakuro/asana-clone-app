@@ -10,7 +10,11 @@ import { defineTheme } from '@react-native-themed/core';
  * this baseline scale.
  */
 export const materialDesignTheme = defineTheme({
-  tokens: {
+  // Type-scale styles are role-named (MD3 also places them under
+  // `md.sys.typescale.*`, not the reference layer), so they live in
+  // `semanticTokens`. Values stay raw: MD3 has its own scale and does not
+  // reference another theme's primitives.
+  semanticTokens: {
     text: {
       display: {
         lg: {
@@ -117,4 +121,4 @@ export const materialDesignTheme = defineTheme({
 });
 
 /** The raw type-scale table, for consumers that want it outside `themed`. */
-export const typescale = materialDesignTheme.tokens.text;
+export const typescale = materialDesignTheme.semanticTokens.text;

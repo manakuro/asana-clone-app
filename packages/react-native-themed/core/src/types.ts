@@ -20,17 +20,29 @@ export type ShadowToken = Pick<
   | 'elevation'
 >;
 
-/** One `role`/`size` entry in `tokens.text` (Material Design 3 type-scale shape). */
-export type TypescaleToken = Pick<
-  TextStyle,
-  'fontSize' | 'lineHeight' | 'letterSpacing' | 'fontWeight'
->;
+/**
+ * One `role`/`size` entry in `semanticTokens.text` (Material Design 3
+ * type-scale shape). Each field is either a key of the matching primitive
+ * scale in `tokens` (e.g. `fontSize: 'lg'`) or a raw value. Keys are plain
+ * `string` here because `ThemeConfig` is only a constraint; `createThemed`
+ * checks them against the final config's scales (see `CheckTextRefs`).
+ *
+ * No `color`: typography and color are independent axes, combined by the
+ * component-variant layer rather than baked into the type scale.
+ */
+export type TextToken = {
+  fontSize?: string | number;
+  lineHeight?: string | number;
+  letterSpacing?: string | number;
+  fontWeight?: string | TextStyle['fontWeight'];
+};
 
 /**
  * The shape a theme package (or an app's local override) must satisfy.
- * `tokens` holds values that don't change with color scheme; `semanticTokens`
- * holds values that do (currently only `colors`), mirroring Chakra UI's
- * `tokens` vs `semanticTokens` distinction.
+ * `tokens` holds primitive values (the smallest design-system units);
+ * `semanticTokens` holds role-named values built on top of them — the
+ * scheme-dependent `colors` and the `text` type scale — mirroring Chakra
+ * UI's `tokens` vs `semanticTokens` distinction.
  */
 export type ThemeConfig = {
   tokens?: {
@@ -43,12 +55,12 @@ export type ThemeConfig = {
     letterSpacings?: Record<string, number>;
     zIndices?: Record<string, number>;
     shadows?: Record<string, ShadowToken>;
-    /** role -> size -> style, e.g. `text.title.md`. */
-    text?: Record<string, Record<string, TypescaleToken>>;
   };
   semanticTokens?: {
     /** group -> token -> scheme, e.g. `colors.fg.default.light`. */
     colors?: Record<string, Record<string, { light: string; dark: string }>>;
+    /** role -> size -> style, e.g. `text.title.md`. */
+    text?: Record<string, Record<string, TextToken>>;
   };
 };
 
@@ -109,6 +121,33 @@ export type ShadowPresetToken<T extends ThemeConfig> = T['tokens'] extends {
 }
   ? keyof S & string
   : never;
+
+/** `TextToken` with its key fields narrowed to the scale keys `T` defines. */
+type TypedTextToken<T extends ThemeConfig> = {
+  fontSize?: FontSizeToken<T> | number;
+  lineHeight?: LineHeightToken<T> | number;
+  letterSpacing?: LetterSpacingToken<T> | number;
+  fontWeight?: FontWeightToken<T> | TextStyle['fontWeight'];
+};
+
+/**
+ * Intersected with `createThemed`'s `config` so a `semanticTokens.text`
+ * preset referencing a scale key `T` doesn't define (e.g. `fontSize: 'nope'`)
+ * fails to compile. Checked there rather than in `defineTheme` because a
+ * partial theme may legally reference keys supplied by another theme it is
+ * later merged with; only the final config knows the full key set.
+ */
+export type CheckTextRefs<T extends ThemeConfig> = T['semanticTokens'] extends {
+  text: infer Tx;
+}
+  ? {
+      semanticTokens: {
+        text: {
+          [Role in keyof Tx]: { [Size in keyof Tx[Role]]: TypedTextToken<T> };
+        };
+      };
+    }
+  : unknown;
 
 /**
  * Rewrites `S` (a `ViewStyle`/`TextStyle`/`ImageStyle`) so its token-bearing

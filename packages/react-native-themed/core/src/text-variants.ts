@@ -1,7 +1,9 @@
 import type { TextStyle } from 'react-native';
-import type { ThemeConfig, TokenizeStyle } from './types';
+import type { TextToken, ThemeConfig, TokenizeStyle } from './types';
 
-type TextTokens<T extends ThemeConfig> = T['tokens'] extends { text: infer Tx }
+type TextTokens<T extends ThemeConfig> = T['semanticTokens'] extends {
+  text: infer Tx;
+}
   ? Tx
   : Record<string, never>;
 
@@ -15,19 +17,20 @@ export type TextVariants<T extends ThemeConfig> = {
 
 /**
  * Builds `themed.text.<role>.<size>(override?)` by iterating whatever
- * roles/sizes `config.tokens.text` defines — no hand-written per-variant
+ * roles/sizes `config.semanticTokens.text` defines — no hand-written per-variant
  * code, so a theme package's own role/size vocabulary flows straight through
  * to this typing. Each variant merges its preset with the caller's override
  * (preset first, override wins) and runs the result through the same
- * `resolve` as `themed.text()` itself.
+ * `resolve` as `themed.text()` itself, so presets referencing scale keys
+ * (e.g. `fontSize: 'lg'`) resolve exactly like caller-passed tokens.
  */
 export function createTextVariants<T extends ThemeConfig>(
   config: T,
   resolve: (input: Record<string, unknown>) => TextStyle,
 ): TextVariants<T> {
-  const textTokens = (config.tokens?.text ?? {}) as Record<
+  const textTokens = (config.semanticTokens?.text ?? {}) as Record<
     string,
-    Record<string, TextStyle>
+    Record<string, TextToken>
   >;
   const roles = Object.keys(textTokens);
 
