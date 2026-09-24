@@ -1,5 +1,5 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
-import { createColorResolver, type Scheme } from './resolvers/color';
+import { type ColorScheme, createColorResolver } from './resolvers/color';
 import { createScaleResolver } from './resolvers/scale-resolver';
 import { createShadowResolver } from './resolvers/shadow';
 import {
@@ -13,7 +13,7 @@ import {
 import { createTextVariants } from './text-variants';
 import type { ThemeConfig, TokenizeStyle } from './types';
 
-export type { Scheme };
+export type { ColorScheme };
 
 export type CreateThemedOptions = {
   /**
@@ -24,7 +24,7 @@ export type CreateThemedOptions = {
    * colorModeStore.getSnapshot().scheme`). Defaults to always `'light'`.
    *
    */
-  getScheme?: () => Scheme;
+  getColorScheme?: () => ColorScheme;
 };
 
 /**
@@ -36,16 +36,25 @@ export function createThemed<const T extends ThemeConfig>(
   config: T,
   options: CreateThemedOptions = {},
 ) {
-  const getScheme = options.getScheme ?? (() => 'light' as const);
+  const getScheme = options.getColorScheme ?? (() => 'light' as const);
   const tokens = config.tokens ?? {};
 
   const resolveColor = createColorResolver(config, getScheme);
   const resolveRadius = createScaleResolver(RADIUS_KEYS, tokens.radii);
   const resolveSpacing = createScaleResolver(SPACING_KEYS, tokens.spacing);
   const resolveFontSize = createScaleResolver(FONT_SIZE_KEYS, tokens.fontSizes);
-  const resolveFontWeight = createScaleResolver(FONT_WEIGHT_KEYS, tokens.fontWeights);
-  const resolveLineHeight = createScaleResolver(LINE_HEIGHT_KEYS, tokens.lineHeights);
-  const resolveLetterSpacing = createScaleResolver(LETTER_SPACING_KEYS, tokens.letterSpacings);
+  const resolveFontWeight = createScaleResolver(
+    FONT_WEIGHT_KEYS,
+    tokens.fontWeights,
+  );
+  const resolveLineHeight = createScaleResolver(
+    LINE_HEIGHT_KEYS,
+    tokens.lineHeights,
+  );
+  const resolveLetterSpacing = createScaleResolver(
+    LETTER_SPACING_KEYS,
+    tokens.letterSpacings,
+  );
   const resolveShadow = createShadowResolver(tokens.shadows);
 
   // Chains every resolver; if none apply, the original input passes through

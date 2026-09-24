@@ -16,5 +16,5 @@ export const themeConfig = extendTheme(chakraUiTheme, materialDesignTheme);
  * without `createThemed` itself needing any React integration.
  */
 export const themed = createThemed(themeConfig, {
-  getScheme: () => getSnapshot().scheme,
+  getColorScheme: () => getSnapshot().scheme,
 });
