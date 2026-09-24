@@ -1,4 +1,3 @@
-import type { ColorScheme } from '@react-native-themed/core';
 import type { ReactNode } from 'react';
 import {
   createContext,
@@ -11,7 +10,6 @@ import {
 import {
   type ColorMode,
   getSnapshot,
-  isColorMode,
   setColorMode as setStoreMode,
   subscribe,
 } from './store/color-mode-store';
@@ -26,10 +24,13 @@ export type ColorModeStorage = {
 type ColorModeContextValue = {
   mode: ColorMode;
   setMode: (mode: ColorMode) => void;
-  scheme: ColorScheme;
+  scheme: 'light' | 'dark';
 };
 
 const ModeContext = createContext<ColorModeContextValue | null>(null);
+
+const isColorMode = (value: unknown): value is ColorMode =>
+  value === 'light' || value === 'dark' || value === 'system';
 
 type Props = {
   children: ReactNode;

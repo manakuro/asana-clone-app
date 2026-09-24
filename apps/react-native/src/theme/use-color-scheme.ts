@@ -1,4 +1,3 @@
-import type { ColorScheme } from '@react-native-themed/core';
 import { useColorScheme as useRNColorScheme } from 'react-native';
 import { useColorModeContext } from '@/theme/color-mode-provider';
 
@@ -16,7 +15,7 @@ import { useColorModeContext } from '@/theme/color-mode-provider';
  * keys — so collapse the third value here, once, and let every consumer keep
  * indexing with a two-value union.
  */
-export function useColorScheme(): ColorScheme {
+export function useColorScheme(): 'light' | 'dark' {
   const system = useRNColorScheme() === 'dark' ? 'dark' : 'light';
   return useColorModeContext()?.scheme ?? system;
 }

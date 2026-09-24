@@ -76,7 +76,7 @@ export type LetterSpacingKeys = (typeof LETTER_SPACING_KEYS)[number];
 
 /**
  * The real RN style properties the virtual `shadow` prop expands into.
- * Not resolved as a scale category itself — see `resolvers/shadow-resolver.ts`.
+ * Not resolved as a scale category itself — see `resolvers/shadow.ts`.
  */
 export const SHADOW_STYLE_PROPS = [
   'shadowColor',

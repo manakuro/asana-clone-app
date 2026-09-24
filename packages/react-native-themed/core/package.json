@@ -11,6 +11,7 @@
     "tsc": "tsc --noEmit"
   },
   "peerDependencies": {
+    "react": "*",
     "react-native": "*"
   },
   "devDependencies": {

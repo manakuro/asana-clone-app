@@ -20,19 +20,19 @@ export type { ColorScheme };
 
 export type CreateThemedOptions = {
   /**
-   * Read lazily (at most once per `themed.*` call) when a semantic color
-   * token is resolved. A plain function rather than React Context or an
-   * app-level provider, so `createThemed` stays usable outside React —
-   * callers wire it to whatever external store they already use for
-   * light/dark switching (e.g. `() => getSnapshot().scheme`). Defaults to
-   * always `'light'`.
+   * Read on every `themed.*` call to resolve semantic color tokens. A plain
+   * function rather than React Context or a `ModeProvider`, so `createThemed`
+   * stays usable outside React — callers wire it to whatever external store
+   * they already use for light/dark switching (e.g. `() =>
+   * colorModeStore.getSnapshot().scheme`). Defaults to always `'light'`.
+   *
    */
   getColorScheme?: () => ColorScheme;
 };
 
 /**
  * Builds `{ view, text, image }` from a fully resolved `ThemeConfig`. No
- * React integration here (see `getColorScheme` above) — this is plain data in,
+ * React integration here (see `getScheme` above) — this is plain data in,
  * plain functions out.
  */
 export function createThemed<const T extends ThemeConfig>(
@@ -75,21 +75,11 @@ export function createThemed<const T extends ThemeConfig>(
     return result as S;
   }
 
-  const baseText = (input: TokenizeStyle<T, TextStyle> = {}) =>
-    resolveStyle<TextStyle>(input as Record<string, unknown>);
-  const variants = createTextVariants(config, (input) =>
-    resolveStyle<TextStyle>(input),
+  const text = Object.assign(
+    (input: TokenizeStyle<T, TextStyle> = {}) =>
+      resolveStyle<TextStyle>(input as Record<string, unknown>),
+    createTextVariants(config, (input) => resolveStyle<TextStyle>(input)),
   );
-  // `Object.assign` would throw for roles that collide with non-writable
-  // function properties (`name`, `length`); defineProperty overrides them.
-  for (const [role, sizes] of Object.entries(variants)) {
-    Object.defineProperty(baseText, role, {
-      value: sizes,
-      enumerable: true,
-      configurable: true,
-    });
-  }
-  const text = baseText as typeof baseText & typeof variants;
 
   return {
     view: (input: TokenizeStyle<T, ViewStyle>) =>
