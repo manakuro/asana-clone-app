@@ -2,7 +2,7 @@ import {
   type Colors,
   colorTokens,
   colors as themeColors,
-} from './tokens/colors';
+} from '@react-native-themed/chakra-ui-tokens';
 import { useColorScheme } from './use-color-scheme';
 
 type ColorScheme = ReturnType<typeof useColorScheme>;

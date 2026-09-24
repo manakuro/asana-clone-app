@@ -10,7 +10,7 @@ import {
   BottomTabInset,
   MaxContentWidth,
 } from '@/theme/tokens/_deprecated_tokens';
-import { spacing } from '@/theme/tokens/spacing';
+import { spacing } from '@react-native-themed/chakra-ui-tokens';
 import { useColor } from '@/theme/use-color';
 
 function getDevMenuHint() {
