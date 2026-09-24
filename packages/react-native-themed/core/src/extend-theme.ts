@@ -9,8 +9,7 @@ import type { ThemeConfig } from './types';
  * `DeepMerge<A, B>` over the whole config: the category set is fixed and
  * known, and a fully generic deep-merge type over this shape risks TS
  * type-checker performance issues. Tradeoff: this list is duplicated here and
- * at the type level (`MergeTokens` below) — see Open Question 4 in
- * AI_INSTRUCTIONS.md.
+ * at the type level (`MergeTokens` below).
  */
 const FLAT_CATEGORY_KEYS = [
   'colors',
@@ -34,18 +33,19 @@ function mergeFlat(
 }
 
 /** Merges one level deeper, preserving untouched outer keys on both sides. */
-function mergeNested(
-  a: Record<string, Record<string, unknown>> | undefined,
-  b: Record<string, Record<string, unknown>> | undefined,
-): Record<string, Record<string, unknown>> | undefined {
-  if (!a) return b;
-  if (!b) return a;
+function mergeNested<
+  A extends Record<string, Record<string, unknown>> | undefined,
+  B extends Record<string, Record<string, unknown>> | undefined,
+>(a: A, b: B): MergeNested<A, B> {
+  const result: Record<string, Record<string, unknown>> = { ...(a as object) };
 
-  const result: Record<string, Record<string, unknown>> = { ...a };
-  for (const key of Object.keys(b)) {
-    result[key] = { ...a[key], ...b[key] };
+  for (const key of Object.keys(b ?? {})) {
+    const bValue = (b as Record<string, Record<string, unknown>>)[key];
+    result[key] =
+      key in result ? { ...(result[key] as object), ...bValue } : bValue;
   }
-  return result;
+
+  return result as MergeNested<A, B>;
 }
 
 function mergeTokens(
@@ -88,7 +88,9 @@ function mergeThemeConfig(a: ThemeConfig, b: ThemeConfig): ThemeConfig {
 
 // --- type-level merge, mirroring the runtime merge above ---
 
-type Field<T, K extends PropertyKey> = T extends { [P in K]?: infer V } ? V : undefined;
+type Field<T, K extends PropertyKey> = T extends { [P in K]?: infer V }
+  ? V
+  : undefined;
 
 type MergeFlat<A, B> = [A] extends [undefined]
   ? B
@@ -113,16 +115,34 @@ type MergeNested<A, B> = [A] extends [undefined]
 type MergeTokens<A extends ThemeConfig, B extends ThemeConfig> = {
   colors: MergeFlat<Field<A['tokens'], 'colors'>, Field<B['tokens'], 'colors'>>;
   radii: MergeFlat<Field<A['tokens'], 'radii'>, Field<B['tokens'], 'radii'>>;
-  spacing: MergeFlat<Field<A['tokens'], 'spacing'>, Field<B['tokens'], 'spacing'>>;
-  fontSizes: MergeFlat<Field<A['tokens'], 'fontSizes'>, Field<B['tokens'], 'fontSizes'>>;
-  fontWeights: MergeFlat<Field<A['tokens'], 'fontWeights'>, Field<B['tokens'], 'fontWeights'>>;
-  lineHeights: MergeFlat<Field<A['tokens'], 'lineHeights'>, Field<B['tokens'], 'lineHeights'>>;
+  spacing: MergeFlat<
+    Field<A['tokens'], 'spacing'>,
+    Field<B['tokens'], 'spacing'>
+  >;
+  fontSizes: MergeFlat<
+    Field<A['tokens'], 'fontSizes'>,
+    Field<B['tokens'], 'fontSizes'>
+  >;
+  fontWeights: MergeFlat<
+    Field<A['tokens'], 'fontWeights'>,
+    Field<B['tokens'], 'fontWeights'>
+  >;
+  lineHeights: MergeFlat<
+    Field<A['tokens'], 'lineHeights'>,
+    Field<B['tokens'], 'lineHeights'>
+  >;
   letterSpacings: MergeFlat<
     Field<A['tokens'], 'letterSpacings'>,
     Field<B['tokens'], 'letterSpacings'>
   >;
-  zIndices: MergeFlat<Field<A['tokens'], 'zIndices'>, Field<B['tokens'], 'zIndices'>>;
-  shadows: MergeFlat<Field<A['tokens'], 'shadows'>, Field<B['tokens'], 'shadows'>>;
+  zIndices: MergeFlat<
+    Field<A['tokens'], 'zIndices'>,
+    Field<B['tokens'], 'zIndices'>
+  >;
+  shadows: MergeFlat<
+    Field<A['tokens'], 'shadows'>,
+    Field<B['tokens'], 'shadows'>
+  >;
   text: MergeNested<Field<A['tokens'], 'text'>, Field<B['tokens'], 'text'>>;
 };
 
@@ -133,23 +153,26 @@ type MergeSemanticTokens<A extends ThemeConfig, B extends ThemeConfig> = {
   >;
 };
 
-type Merge2<A extends ThemeConfig, B extends ThemeConfig> = {
-  tokens: MergeTokens<A, B>;
-  semanticTokens: MergeSemanticTokens<A, B>;
-};
+type Prettify<T> = { [K in keyof T]: T[K] } & {};
 
-/** Left-to-right fold over the type level, mirroring the runtime `reduce`. */
-export type ExtendAll<Ts extends readonly ThemeConfig[]> = Ts extends readonly [
-  infer Only extends ThemeConfig,
+type Merge2<A extends ThemeConfig, B extends ThemeConfig> = Prettify<{
+  tokens: Prettify<MergeTokens<A, B>>;
+  semanticTokens: Prettify<MergeSemanticTokens<A, B>>;
+}>;
+
+/** Internal recursion — no per-step assignability check against ThemeConfig. */
+type ExtendAllHelper<Ts extends readonly unknown[]> = Ts extends readonly [
+  infer Only,
 ]
   ? Only
-  : Ts extends readonly [
-        infer First extends ThemeConfig,
-        infer Second extends ThemeConfig,
-        ...infer Rest extends ThemeConfig[],
-      ]
-    ? ExtendAll<[Merge2<First, Second>, ...Rest]>
+  : Ts extends readonly [infer First, infer Second, ...infer Rest]
+    ? ExtendAllHelper<
+        [Merge2<First & ThemeConfig, Second & ThemeConfig>, ...Rest]
+      >
     : ThemeConfig;
+
+/** Left-to-right fold over the type level, mirroring the runtime `reduce`. */
+export type ExtendAll<Ts extends readonly ThemeConfig[]> = ExtendAllHelper<Ts>;
 
 /**
  * Merges N `ThemeConfig`s, folding left-to-right so later themes override
@@ -161,8 +184,10 @@ export type ExtendAll<Ts extends readonly ThemeConfig[]> = Ts extends readonly [
  * });
  * ```
  */
-export function extendTheme<const Ts extends readonly [ThemeConfig, ...ThemeConfig[]]>(
-  ...themes: Ts
-): ExtendAll<Ts> {
-  return themes.reduce((acc, theme) => mergeThemeConfig(acc, theme)) as ExtendAll<Ts>;
+export function extendTheme<
+  const Ts extends readonly [ThemeConfig, ...ThemeConfig[]],
+>(...themes: Ts): ExtendAll<Ts> {
+  return themes.reduce((acc, theme) =>
+    mergeThemeConfig(acc, theme),
+  ) as ExtendAll<Ts>;
 }

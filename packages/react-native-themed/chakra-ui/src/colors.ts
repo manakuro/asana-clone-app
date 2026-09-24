@@ -446,7 +446,7 @@ export type ColorTokenKey = keyof typeof colorTokens;
 
 type SemanticColors = {
   [Group in keyof Colors]: {
-    [Token in keyof Colors[Group]['light']]: {
+    [Token in keyof Colors[Group]['light'] & keyof Colors[Group]['dark']]: {
       light: Colors[Group]['light'][Token];
       dark: Colors[Group]['dark'][Token];
     };
@@ -461,7 +461,10 @@ type SemanticColors = {
  * order (error-prone) while keeping the source data in its natural shape.
  */
 export function invertColorScheme(input: Colors): SemanticColors {
-  const result = {} as Record<string, Record<string, { light: string; dark: string }>>;
+  const result = {} as Record<
+    string,
+    Record<string, { light: string; dark: string }>
+  >;
 
   for (const group of Object.keys(input) as (keyof Colors)[]) {
     const { light, dark } = input[group];

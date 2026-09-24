@@ -13,7 +13,11 @@ import type {
 /** One shadow preset — expands into these real RN style props. */
 export type ShadowToken = Pick<
   ViewStyle,
-  'shadowColor' | 'shadowOffset' | 'shadowOpacity' | 'shadowRadius' | 'elevation'
+  | 'shadowColor'
+  | 'shadowOffset'
+  | 'shadowOpacity'
+  | 'shadowRadius'
+  | 'elevation'
 >;
 
 /** One `role`/`size` entry in `tokens.text` (Material Design 3 type-scale shape). */
@@ -48,26 +52,36 @@ export type ThemeConfig = {
   };
 };
 
-type SemanticColorGroups = NonNullable<NonNullable<ThemeConfig['semanticTokens']>['colors']>;
+type SemanticColorGroups = NonNullable<
+  NonNullable<ThemeConfig['semanticTokens']>['colors']
+>;
 
 /** Valid `'group.token'` color paths for `T`, e.g. `'fg.default' | 'bg.subtle'`. */
 export type ColorToken<T extends ThemeConfig> = T['semanticTokens'] extends {
   colors: infer Groups;
 }
   ? Groups extends SemanticColorGroups
-    ? { [Group in keyof Groups]: `${Group & string}.${keyof Groups[Group] & string}` }[keyof Groups]
+    ? {
+        [Group in keyof Groups]: `${Group & string}.${keyof Groups[Group] & string}`;
+      }[keyof Groups]
     : never
   : never;
 
-export type RadiusToken<T extends ThemeConfig> = T['tokens'] extends { radii: infer R }
+export type RadiusToken<T extends ThemeConfig> = T['tokens'] extends {
+  radii: infer R;
+}
   ? keyof R & string
   : never;
 
-export type SpacingToken<T extends ThemeConfig> = T['tokens'] extends { spacing: infer S }
+export type SpacingToken<T extends ThemeConfig> = T['tokens'] extends {
+  spacing: infer S;
+}
   ? keyof S & (string | number)
   : never;
 
-export type FontSizeToken<T extends ThemeConfig> = T['tokens'] extends { fontSizes: infer F }
+export type FontSizeToken<T extends ThemeConfig> = T['tokens'] extends {
+  fontSizes: infer F;
+}
   ? keyof F & string
   : never;
 
@@ -77,7 +91,9 @@ export type FontWeightToken<T extends ThemeConfig> = T['tokens'] extends {
   ? keyof F & string
   : never;
 
-export type LineHeightToken<T extends ThemeConfig> = T['tokens'] extends { lineHeights: infer L }
+export type LineHeightToken<T extends ThemeConfig> = T['tokens'] extends {
+  lineHeights: infer L;
+}
   ? keyof L & string
   : never;
 
@@ -88,7 +104,9 @@ export type LetterSpacingToken<T extends ThemeConfig> = T['tokens'] extends {
   : never;
 
 /** Names in `tokens.shadows` — what the virtual `shadow` prop accepts. */
-export type ShadowPresetToken<T extends ThemeConfig> = T['tokens'] extends { shadows: infer S }
+export type ShadowPresetToken<T extends ThemeConfig> = T['tokens'] extends {
+  shadows: infer S;
+}
   ? keyof S & string
   : never;
 
@@ -101,8 +119,7 @@ export type ShadowPresetToken<T extends ThemeConfig> = T['tokens'] extends { sha
  *   object passed alongside this one in a `style` array, not squeezed
  *   through the token system.
  * - `fontSize`/`fontWeight`/`lineHeight`/`letterSpacing` accept a token OR a
- *   raw value, asymmetric with the above — see Open Question 1 in
- *   AI_INSTRUCTIONS.md.
+ *   raw value, asymmetric with the above.
  * - The virtual `shadow` prop only appears when `S` structurally has real
  *   shadow style props (e.g. `ViewStyle`), gated via `ShadowStyleProps`.
  */
@@ -124,12 +141,14 @@ export type TokenizeStyle<T extends ThemeConfig, S extends object> = Omit<
 } & {
   [K in FontSizeKeys & keyof S]?: FontSizeToken<T> | number;
 } & {
-  [K in FontWeightKeys & keyof S]?: FontWeightToken<T> | TextStyle['fontWeight'];
+  [K in FontWeightKeys & keyof S]?:
+    | FontWeightToken<T>
+    | TextStyle['fontWeight'];
 } & {
   [K in LineHeightKeys & keyof S]?: LineHeightToken<T> | number;
 } & {
   [K in LetterSpacingKeys & keyof S]?: LetterSpacingToken<T> | number;
 } & (Extract<ShadowStyleProps, keyof S> extends never
-  ? // biome-ignore lint/complexity/noBannedTypes: intentional "no extra prop" branch
-    {}
-  : { shadow?: ShadowPresetToken<T> });
+    ? // biome-ignore lint/complexity/noBannedTypes: intentional "no extra prop" branch
+      {}
+    : { shadow?: ShadowPresetToken<T> });
