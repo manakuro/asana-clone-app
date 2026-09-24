@@ -15,8 +15,8 @@
     "react-native": "*"
   },
   "devDependencies": {
-    "react": "19.2.3",
-    "react-native": "0.86.2",
+    "react": "catalog:",
+    "react-native": "catalog:",
     "@biomejs/biome": "2.5.4",
     "biome-config": "workspace:*",
     "typescript": "6.0.3"

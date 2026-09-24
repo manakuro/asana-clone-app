@@ -2,6 +2,11 @@ packages:
   - apps/*
   - packages/**
 
+catalog:
+  react-native: 0.86.2
+  react: 19.2.3
+  react-dom: 19.2.3
+
 allowBuilds:
   '@firebase/util': true
   '@parcel/watcher': true

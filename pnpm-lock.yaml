@@ -4,6 +4,18 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    react:
+      specifier: 19.2.3
+      version: 19.2.3
+    react-dom:
+      specifier: 19.2.3
+      version: 19.2.3
+    react-native:
+      specifier: 0.86.2
+      version: 0.86.2
+
 importers:
 
   .:
@@ -417,13 +429,13 @@ importers:
         specifier: 1.46.0
         version: 1.46.0(react-native-svg@15.15.5(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
       react:
-        specifier: 19.2.3
+        specifier: 'catalog:'
         version: 19.2.3
       react-dom:
-        specifier: 19.2.3
+        specifier: 'catalog:'
         version: 19.2.3(react@19.2.3)
       react-native:
-        specifier: 0.86.2
+        specifier: 'catalog:'
         version: 0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1)
       react-native-gesture-handler:
         specifier: 2.32.0
@@ -524,10 +536,10 @@ importers:
         specifier: workspace:*
         version: link:../../biome-config
       react:
-        specifier: 19.2.3
+        specifier: 'catalog:'
         version: 19.2.3
       react-native:
-        specifier: 0.86.2
+        specifier: 'catalog:'
         version: 0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1)
       typescript:
         specifier: 6.0.3
