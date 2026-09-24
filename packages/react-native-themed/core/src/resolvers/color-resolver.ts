@@ -34,8 +34,11 @@ export function createColorResolver(
       const dot = value.indexOf('.');
       if (dot === -1) continue;
 
-      const entry = groups[value.slice(0, dot)]?.[value.slice(dot + 1)];
-      if (!entry) continue;
+      const group = value.slice(0, dot);
+      const token = value.slice(dot + 1);
+      if (!Object.hasOwn(groups, group)) continue;
+      if (!Object.hasOwn(groups[group], token)) continue;
+      const entry = groups[group][token];
 
       scheme ??= getColorScheme();
       if (result === input) {

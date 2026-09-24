@@ -117,7 +117,9 @@ export type ShadowPresetToken<T extends ThemeConfig> = T['tokens'] extends {
  * - `color`/`radii`/`spacing` families are token-only — no raw-value
  *   fallback. A genuinely one-off value belongs in a second plain style
  *   object passed alongside this one in a `style` array, not squeezed
- *   through the token system.
+ *   through the token system. The one exception is `spacing`, which also
+ *   takes `'auto'` and percentages since those are layout keywords rather
+ *   than arbitrary sizes.
  * - `fontSize`/`fontWeight`/`lineHeight`/`letterSpacing` accept a token OR a
  *   raw value, asymmetric with the above.
  * - The virtual `shadow` prop only appears when `S` structurally has real
@@ -137,7 +139,7 @@ export type TokenizeStyle<T extends ThemeConfig, S extends object> = Omit<
 } & {
   [K in RadiusKeys & keyof S]?: RadiusToken<T>;
 } & {
-  [K in SpacingKeys & keyof S]?: SpacingToken<T>;
+  [K in SpacingKeys & keyof S]?: SpacingToken<T> | 'auto' | `${number}%`;
 } & {
   [K in FontSizeKeys & keyof S]?: FontSizeToken<T> | number;
 } & {

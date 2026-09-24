@@ -12,8 +12,8 @@ type ThemedColors = {
 };
 
 export function useColor(colorScheme?: ColorScheme) {
-  const appColorScheme = useColorScheme() ?? 'dark';
-  const theme = (colorScheme ?? appColorScheme) as ColorScheme;
+  const appColorScheme = useColorScheme();
+  const theme = colorScheme ?? appColorScheme;
 
   const colors = Object.fromEntries(
     (Object.keys(themeColors) as (keyof Colors)[]).map((key) => [

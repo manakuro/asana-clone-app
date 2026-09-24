@@ -1,10 +1,10 @@
+import type { ColorScheme as Scheme } from '@react-native-themed/core';
 import { Appearance } from 'react-native';
 
 export type ColorMode = 'light' | 'dark' | 'system';
-type Scheme = 'light' | 'dark';
-type State = { mode: ColorMode; scheme: Scheme };
+type State = Readonly<{ mode: ColorMode; scheme: Scheme }>;
 
-const isColorMode = (value: unknown): value is ColorMode =>
+export const isColorMode = (value: unknown): value is ColorMode =>
   value === 'light' || value === 'dark' || value === 'system';
 
 function systemScheme(): Scheme {
@@ -44,7 +44,9 @@ export function getSnapshot(): State {
 
 export function setColorMode(mode: ColorMode) {
   if (!isColorMode(mode)) return;
-  state = { mode, scheme: computeScheme(mode) };
+  // Sync first: when returning to 'system', `Appearance.getColorScheme()`
+  // still reports the old override until it's reset to 'unspecified'.
   syncNativeAppearance(mode);
+  state = { mode, scheme: computeScheme(mode) };
   emit();
 }
