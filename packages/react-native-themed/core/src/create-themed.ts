@@ -1,7 +1,10 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
-import { type ColorScheme, createColorResolver } from './resolvers/color';
+import {
+  type ColorScheme,
+  createColorResolver,
+} from './resolvers/color-resolver';
 import { createScaleResolver } from './resolvers/scale-resolver';
-import { createShadowResolver } from './resolvers/shadow';
+import { createShadowResolver } from './resolvers/shadow-resolver';
 import {
   FONT_SIZE_KEYS,
   FONT_WEIGHT_KEYS,
