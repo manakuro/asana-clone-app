@@ -11,10 +11,12 @@
     "tsc": "tsc --noEmit"
   },
   "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-native": ">=0.76.0"
+    "react": "*",
+    "react-native": "*"
   },
   "devDependencies": {
+    "react": "19.2.3",
+    "react-native": "0.86.2",
     "@biomejs/biome": "2.5.4",
     "biome-config": "workspace:*",
     "typescript": "6.0.3"
