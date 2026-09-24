@@ -516,6 +516,13 @@ importers:
         version: 6.0.3
 
   packages/react-native-themed/core:
+    dependencies:
+      react:
+        specifier: '>=18.0.0'
+        version: 19.2.8
+      react-native:
+        specifier: '>=0.76.0'
+        version: 0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.8)(supports-color@8.1.1)
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.4
@@ -523,9 +530,6 @@ importers:
       biome-config:
         specifier: workspace:*
         version: link:../../biome-config
-      react-native:
-        specifier: 0.86.2
-        version: 0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.8)(supports-color@8.1.1)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
