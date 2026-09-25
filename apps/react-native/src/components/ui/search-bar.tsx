@@ -12,8 +12,8 @@ import {
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
+import { useThemed } from '@/theme/themed';
 import { Corners, FontSize, Height } from '@/theme/tokens/_deprecated_tokens';
-import { useColor } from '@/theme/use-color';
 
 interface SearchBarProps extends Omit<TextInputProps, 'style'> {
   loading?: boolean;
@@ -47,7 +47,7 @@ export function SearchBar({
   const inputRef = useRef<TextInput>(null);
 
   // Theme colors
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const cardColor = colors.bg.subtle;
   const textColor = colors.fg.default;
   const muted = colors.fg.muted;
@@ -172,7 +172,7 @@ export function SearchBarWithSuggestions({
   ...searchBarProps
 }: SearchBarWithSuggestionsProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const cardColor = colors.bg.subtle;
   const borderColor = colors.border.default;
 

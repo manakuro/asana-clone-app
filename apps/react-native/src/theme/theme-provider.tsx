@@ -1,3 +1,4 @@
+import type { ColorMode, ColorModeStorage } from '@react-native-themed/core';
 import {
   DarkTheme,
   DefaultTheme,
@@ -5,13 +6,8 @@ import {
 } from 'expo-router/react-navigation';
 import type React from 'react';
 import { useMemo } from 'react';
-import {
-  type ColorMode,
-  ColorModeProvider,
-  type ColorModeStorage,
-} from './color-mode-provider';
+import { ThemedProvider, useThemed } from './themed';
 import { _deprecated_colors } from './tokens/_deprecated_colors';
-import { useColorScheme } from './use-color-scheme';
 
 type Props = {
   children: React.ReactNode;
@@ -22,11 +18,11 @@ type Props = {
 };
 
 /**
- * Mounts `ModeProvider` — the app-wide source of truth for light/dark/system —
+ * Mounts `ThemedProvider` — the app-wide source of truth for light/dark/system —
  * and maps the resolved scheme onto React Navigation's theme.
  *
  * The navigation half is a separate component because it calls
- * `useColorScheme()`, which has to read that context from *inside* the provider.
+ * `useThemed()`, which has to read that context from *inside* the provider.
  */
 export const ThemeProvider = ({
   children,
@@ -34,17 +30,17 @@ export const ThemeProvider = ({
   storageKey,
   defaultMode,
 }: Props) => (
-  <ColorModeProvider
+  <ThemedProvider
     storage={storage}
     storageKey={storageKey}
     defaultColorMode={defaultMode}
   >
     <NavigationTheme>{children}</NavigationTheme>
-  </ColorModeProvider>
+  </ThemedProvider>
 );
 
 const NavigationTheme = ({ children }: { children: React.ReactNode }) => {
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useThemed();
 
   // Rebuilding this on every render invalidates every useTheme() consumer
   // app-wide, since ThemeProvider is mounted at the root — memoize on the

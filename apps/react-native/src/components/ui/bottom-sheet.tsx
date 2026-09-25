@@ -22,8 +22,8 @@ import { scheduleOnRN } from 'react-native-worklets/src/threads';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useKeyboardHeight } from '@/hooks/use-keyboard-height';
+import { useThemed } from '@/theme/themed';
 import { BorderRadius } from '@/theme/tokens/_deprecated_tokens';
-import { useColor } from '@/theme/use-color';
 
 type BottomSheetContentProps = {
   children: React.ReactNode;
@@ -138,7 +138,7 @@ export function BottomSheet({
   style,
   disablePanGesture = false,
 }: BottomSheetProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const cardColor = colors.bg.subtle;
   const mutedColor = colors.bg.muted;
   const { keyboardHeight, isKeyboardVisible } = useKeyboardHeight();

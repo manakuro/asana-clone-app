@@ -1,6 +1,6 @@
 import type { LucideProps } from 'lucide-react-native';
 import type React from 'react';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
 
 export type Props = LucideProps & {
   lightColor?: string;
@@ -39,7 +39,7 @@ export function Icon({
   sizeValue,
   ...rest
 }: Props) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   return (
     <IconComponent
       color={colors.fg.muted}

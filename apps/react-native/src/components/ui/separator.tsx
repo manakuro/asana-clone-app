@@ -1,6 +1,6 @@
 import type { ViewStyle } from 'react-native';
 import { View } from '@/components/ui/view';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
 
 interface SeparatorProps {
   orientation?: 'horizontal' | 'vertical';
@@ -11,7 +11,7 @@ export function Separator({
   orientation = 'horizontal',
   style,
 }: SeparatorProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const borderColor = colors.border.default;
 
   return (

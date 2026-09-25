@@ -26,13 +26,13 @@ import { scheduleOnRN } from 'react-native-worklets/src/threads';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useHaptics } from '@/hooks/use-haptics';
+import { useThemed } from '@/theme/themed';
 import {
   BorderRadius,
   Corners,
   FontSize,
   Height,
 } from '@/theme/tokens/_deprecated_tokens';
-import { useColor } from '@/theme/use-color';
 
 // Types
 interface TabsContextType {
@@ -396,7 +396,7 @@ function CarouselContainer({
 
 export function TabsList({ children, style }: TabsListProps) {
   const { orientation } = useTabsContext();
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const backgroundColor = colors.bg.muted;
 
   return (
@@ -450,7 +450,7 @@ export function TabsTrigger({
     return () => unregisterTab(value);
   }, [value, registerTab, unregisterTab]);
 
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const primaryColor = colors.primary.bg;
   const mutedForegroundColor = colors.fg.muted;
   const backgroundColor = colors.bg.default;

@@ -19,8 +19,8 @@ import {
 } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { View } from '@/components/ui/view';
+import { useThemed } from '@/theme/themed';
 import { BorderRadius } from '@/theme/tokens/_deprecated_tokens';
-import { useColor } from '@/theme/use-color';
 
 interface CarouselProps {
   children: React.ReactNode[];
@@ -442,7 +442,7 @@ export function CarouselContent({ children, style }: CarouselContentProps) {
 
 // Carousel Item Component - Auto height to fit content
 export function CarouselItem({ children, style }: CarouselItemProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const backgroundColor = colors.bg.subtle;
   const borderColor = colors.border.default;
 
@@ -472,7 +472,7 @@ export function CarouselIndicators({
   onPress,
   style,
 }: CarouselIndicatorsProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const primaryColor = colors.primary.bg;
   const secondaryColor = colors.bg.subtle;
 
@@ -516,7 +516,7 @@ export function CarouselArrow({
   disabled = false,
   style,
 }: CarouselArrowProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const primaryColor = colors.primary.bg;
 
   return (

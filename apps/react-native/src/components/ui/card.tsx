@@ -8,8 +8,8 @@ import type {
 } from 'react-native';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
+import { useThemed } from '@/theme/themed';
 import { BorderRadius } from '@/theme/tokens/_deprecated_tokens';
-import { useColor } from '@/theme/use-color';
 
 interface CardProps extends RNViewProps {
   children: ReactNode;
@@ -21,7 +21,7 @@ export const Card = memo(function Card({
   style,
   ...props
 }: CardProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
 
   return (
     <View

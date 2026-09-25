@@ -7,11 +7,11 @@ import { HintRow } from '@/components/ui/hint-row';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
+import { useThemed } from '@/theme/themed';
 import {
   BottomTabInset,
   MaxContentWidth,
 } from '@/theme/tokens/_deprecated_tokens';
-import { useColor } from '@/theme/use-color';
 
 function getDevMenuHint() {
   if (Device.isDevice) {
@@ -31,7 +31,7 @@ function getDevMenuHint() {
 
 export function Page() {
   const { me, error } = useMeQuery();
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   console.log('me: ', me, error);
 
   return (

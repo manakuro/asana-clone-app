@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { createThemed } from './create-themed';
+import { createThemedStyles } from './create-themed-styles';
 import { defineTheme } from './define-theme';
 
 const config = defineTheme({
@@ -25,7 +25,7 @@ const config = defineTheme({
 });
 
 describe('createThemed / themed.text.<role>.<size>', () => {
-  const themed = createThemed(config);
+  const themed = createThemedStyles(config, 'light');
 
   it('resolves token keys in a preset through tokens.*', () => {
     expect(themed.text.title.md()).toEqual({
@@ -71,12 +71,12 @@ describe('createThemed / themed.text.<role>.<size>', () => {
       semanticTokens: { text: { title: { md: { fontSize: 'nope' } } } },
     });
     // @ts-expect-error -- 'nope' is not a key of tokens.fontSizes
-    createThemed(invalid);
+    createThemedStyles(invalid, 'light');
 
     const noScale = defineTheme({
       semanticTokens: { text: { title: { md: { lineHeight: 'short' } } } },
     });
     // @ts-expect-error -- no tokens.lineHeights, so only raw numbers are valid
-    createThemed(noScale);
+    createThemedStyles(noScale, 'light');
   });
 });

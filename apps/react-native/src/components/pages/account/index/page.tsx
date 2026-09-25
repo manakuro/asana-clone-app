@@ -6,20 +6,26 @@ import {
   EllipsisIcon,
   PencilIcon,
 } from 'lucide-react-native';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { PageContainer } from '@/components/layout/page-container';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useMeQuery } from '@/features/me/api/use-me-query';
-import { themed } from '@/theme/themed';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
 import { CardLink } from './components/card-link';
 
 export function Page() {
   const { me } = useMeQuery();
-  const { colors } = useColor();
+  const {
+    themed,
+    semanticTokens: { colors },
+  } = useThemed();
+  const linkContentStyle = themed.view({
+    gap: 1,
+    alignItems: 'center',
+  });
 
   return (
     <PageContainer>
@@ -96,7 +102,7 @@ export function Page() {
           })}
         >
           <CardLink onPress={() => {}}>
-            <View style={styles.linkContent}>
+            <View style={linkContentStyle}>
               <Icon name={CalendarIcon} />
               <Text variant="caption" style={{ color: colors.fg.default }}>
                 Out of office
@@ -104,7 +110,7 @@ export function Page() {
             </View>
           </CardLink>
           <CardLink onPress={() => {}}>
-            <View style={styles.linkContent}>
+            <View style={linkContentStyle}>
               <Icon name={BellIcon} />
               <Text variant="caption" style={{ color: colors.fg.default }}>
                 Do not disturb
@@ -162,10 +168,3 @@ export function Page() {
     </PageContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  linkContent: themed.view({
-    gap: 1,
-    alignItems: 'center',
-  }),
-});

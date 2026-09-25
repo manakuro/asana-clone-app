@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { createThemed } from './create-themed';
+import { createThemedStyles } from './create-themed-styles';
 import { defineTheme } from './define-theme';
 import { extendTheme } from './extend-theme';
 
@@ -67,7 +67,7 @@ describe('extendTheme / semanticTokens.text', () => {
     const config = extendTheme(baseTheme, {
       semanticTokens: { text: { caption: { sm: { fontSize: 'md' } } } },
     });
-    const themed = createThemed(config);
+    const themed = createThemedStyles(config, 'light');
 
     expectTypeOf(config.semanticTokens.text).toHaveProperty('caption');
     expectTypeOf(themed.text.caption.sm).toBeFunction();

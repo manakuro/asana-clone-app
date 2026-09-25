@@ -1,12 +1,13 @@
 import type { PropsWithChildren } from 'react';
 import { Pressable } from 'react-native';
-import { themed } from '@/theme/themed';
+import { useThemed } from '@/theme/themed';
 
 type Props = {
   onPress: () => void;
 };
 
 export function CardLink({ children, onPress }: PropsWithChildren<Props>) {
+  const { themed } = useThemed();
   return (
     <Pressable
       style={({ pressed }) => [

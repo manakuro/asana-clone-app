@@ -1,5 +1,13 @@
-export type { ColorScheme, CreateThemedOptions } from './create-themed';
+export type {
+  ColorMode,
+  ColorModeStorage,
+  ColorScheme,
+  ThemedProviderProps,
+  UseColorModeResult,
+  UseThemedResult,
+} from './create-themed';
 export { createThemed } from './create-themed';
+export { createThemedStyles } from './create-themed-styles';
 export { defineTheme } from './define-theme';
 export { extendTheme } from './extend-theme';
 export type { TextVariants } from './text-variants';

@@ -7,8 +7,8 @@ import Animated, {
   withRepeat,
   withTiming,
 } from 'react-native-reanimated';
+import { useThemed } from '@/theme/themed';
 import { BorderRadius, Corners } from '@/theme/tokens/_deprecated_tokens';
-import { useColor } from '@/theme/use-color';
 
 interface SkeletonProps {
   width?: number | string;
@@ -23,7 +23,7 @@ export const Skeleton = React.memo(function Skeleton({
   style,
   variant = 'default',
 }: SkeletonProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const mutedColor = colors.bg.muted;
   // Start the opacity at its lowest point
   const opacity = useSharedValue(0.5);
