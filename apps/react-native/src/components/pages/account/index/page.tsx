@@ -18,10 +18,7 @@ import { CardLink } from './components/card-link';
 
 export function Page() {
   const { me } = useMeQuery();
-  const {
-    themed,
-    semanticTokens: { colors },
-  } = useThemed();
+  const { themed, semanticTokens } = useThemed();
   const linkContentStyle = themed.view({
     gap: 1,
     alignItems: 'center',
@@ -64,7 +61,7 @@ export function Page() {
               source={{
                 uri: `https://asanacloneapp.codelly.dev${me?.image}`,
               }}
-              style={{ backgroundColor: colors.fg.muted }}
+              style={{ backgroundColor: semanticTokens.colors.fg.muted }}
             />
 
             <AvatarFallback>{me?.name}</AvatarFallback>
@@ -104,7 +101,12 @@ export function Page() {
           <CardLink onPress={() => {}}>
             <View style={linkContentStyle}>
               <Icon name={CalendarIcon} />
-              <Text variant="caption" style={{ color: colors.fg.default }}>
+              <Text
+                variant="caption"
+                style={themed.text({
+                  color: 'fg.default',
+                })}
+              >
                 Out of office
               </Text>
             </View>
@@ -112,7 +114,12 @@ export function Page() {
           <CardLink onPress={() => {}}>
             <View style={linkContentStyle}>
               <Icon name={BellIcon} />
-              <Text variant="caption" style={{ color: colors.fg.default }}>
+              <Text
+                variant="caption"
+                style={themed.text({
+                  color: 'fg.default',
+                })}
+              >
                 Do not disturb
               </Text>
             </View>
@@ -153,14 +160,14 @@ export function Page() {
                   source={{
                     uri: `https://asanacloneapp.codelly.dev${me?.image}`,
                   }}
-                  style={{ backgroundColor: colors.fg.muted }}
+                  style={{ backgroundColor: semanticTokens.colors.fg.muted }}
                 />
                 <AvatarFallback>{me?.name}</AvatarFallback>
               </Avatar>
               <View style={themed.view({ flex: 1 })}>
                 <Text variant="subtitle">My Workspace</Text>
               </View>
-              <Icon name={CheckIcon} color={colors.teal.solid} />
+              <Icon name={CheckIcon} color={semanticTokens.colors.teal.solid} />
             </View>
           </View>
         </View>
