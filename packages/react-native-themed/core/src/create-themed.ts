@@ -43,27 +43,48 @@ type ConfigTokens<T> = T extends { tokens: infer Tk }
   ? Tk
   : Record<string, never>;
 
-type ResolvedSemanticColors<T> = T extends {
+/**
+ * group -> token -> the config's value for scheme `S`, keeping literal types
+ * (e.g. `'#0d9488'`) when the config declares them `as const`.
+ */
+type ResolvedSemanticColors<T, S extends ColorScheme> = T extends {
   semanticTokens: { colors: infer G };
 }
-  ? { [Group in keyof G]: { [Token in keyof G[Group]]: string } }
+  ? {
+      [Group in keyof G]: {
+        [Token in keyof G[Group]]: G[Group][Token] extends {
+          [K in S]: infer V;
+        }
+          ? V
+          : string;
+      };
+    }
   : Record<string, never>;
 
 type SemanticText<T> = T extends { semanticTokens: { text: infer Tx } }
   ? Tx
   : Record<string, never>;
 
-export type UseThemedResult<T extends ThemeConfig> = {
+type ThemedResultFor<T extends ThemeConfig, S extends ColorScheme> = {
   themed: ReturnType<typeof createThemedStyles<T>>;
   /** Primitive, scheme-independent tokens exactly as in the config. */
   tokens: ConfigTokens<T>;
   /** Semantic tokens with colors resolved for the current scheme. */
   semanticTokens: {
-    colors: ResolvedSemanticColors<T>;
+    colors: ResolvedSemanticColors<T, S>;
     text: SemanticText<T>;
   };
-  colorScheme: ColorScheme;
+  colorScheme: S;
 };
+
+/**
+ * Discriminated by `colorScheme`: without narrowing, a semantic color is the
+ * union of its light and dark values; checking `colorScheme` narrows it to
+ * one.
+ */
+export type UseThemedResult<T extends ThemeConfig> =
+  | ThemedResultFor<T, 'light'>
+  | ThemedResultFor<T, 'dark'>;
 
 export type UseColorModeResult = {
   mode: ColorMode;
@@ -100,7 +121,7 @@ export function createThemed<const T extends ThemeConfig>(
 ) {
   // Precomputed once per scheme so `useThemed()` returns referentially
   // stable objects until the scheme actually changes.
-  const build = (colorScheme: ColorScheme) =>
+  const build = <S extends ColorScheme>(colorScheme: S) =>
     ({
       themed: createThemedStyles<T>(config, colorScheme),
       tokens: config.tokens ?? {},
@@ -109,8 +130,11 @@ export function createThemed<const T extends ThemeConfig>(
         text: config.semanticTokens?.text ?? {},
       },
       colorScheme,
-    }) as UseThemedResult<T>;
-  const themes: Record<ColorScheme, UseThemedResult<T>> = {
+    }) as ThemedResultFor<T, S>;
+  const themes: {
+    light: ThemedResultFor<T, 'light'>;
+    dark: ThemedResultFor<T, 'dark'>;
+  } = {
     light: build('light'),
     dark: build('dark'),
   };
