@@ -66,7 +66,7 @@ type SemanticText<T> = T extends { semanticTokens: { text: infer Tx } }
   : Record<string, never>;
 
 type ThemedResultFor<T extends ThemeConfig, S extends ColorScheme> = {
-  themed: ReturnType<typeof createThemedStyles<T>>;
+  themed: ReturnType<typeof createThemedStyles<T, S>>;
   /** Primitive, scheme-independent tokens exactly as in the config. */
   tokens: ConfigTokens<T>;
   /** Semantic tokens with colors resolved for the current scheme. */
@@ -123,7 +123,7 @@ export function createThemed<const T extends ThemeConfig>(
   // stable objects until the scheme actually changes.
   const build = <S extends ColorScheme>(colorScheme: S) =>
     ({
-      themed: createThemedStyles<T>(config, colorScheme),
+      themed: createThemedStyles<T, S>(config, colorScheme),
       tokens: config.tokens ?? {},
       semanticTokens: {
         colors: resolveSemanticColors(config, colorScheme),

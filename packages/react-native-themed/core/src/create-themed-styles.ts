@@ -1,4 +1,5 @@
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
+import type { NoExtraKeys, ResolvedStyle } from './resolved-style';
 import {
   type ColorScheme,
   createColorResolver,
@@ -23,10 +24,10 @@ import type { CheckTextRefs, ThemeConfig, TokenizeStyle } from './types';
  * `useThemed()`, so components re-render (and pick up new colors) when the
  * scheme changes.
  */
-export function createThemedStyles<const T extends ThemeConfig>(
-  config: T & CheckTextRefs<T>,
-  scheme: ColorScheme,
-) {
+export function createThemedStyles<
+  const T extends ThemeConfig,
+  S extends ColorScheme = ColorScheme,
+>(config: T & CheckTextRefs<T>, scheme: S) {
   const tokens = config.tokens ?? {};
 
   const resolveColor = createColorResolver(config, scheme);
@@ -62,8 +63,15 @@ export function createThemedStyles<const T extends ThemeConfig>(
     return result as S;
   }
 
-  const baseText = (input: TokenizeStyle<T, TextStyle> = {}) =>
-    resolveStyle<TextStyle>(input as Record<string, unknown>);
+  type ViewInput = TokenizeStyle<T, ViewStyle>;
+  type TextInput = TokenizeStyle<T, TextStyle>;
+  type ImageInput = TokenizeStyle<T, ImageStyle>;
+
+  // Generic over the literal input so the return type carries the resolved
+  // values (e.g. `backgroundColor: '#fafafa'`), not just `ViewStyle`.
+  const baseText = <I extends TextInput = Record<never, never>>(
+    input: I & NoExtraKeys<I, TextInput> = {} as I & NoExtraKeys<I, TextInput>,
+  ) => resolveStyle<ResolvedStyle<T, S, I>>(input as Record<string, unknown>);
   const variants = createTextVariants(config, (input) =>
     resolveStyle<TextStyle>(input),
   );
@@ -79,10 +87,10 @@ export function createThemedStyles<const T extends ThemeConfig>(
   const text = baseText as typeof baseText & typeof variants;
 
   return {
-    view: (input: TokenizeStyle<T, ViewStyle>) =>
-      resolveStyle<ViewStyle>(input as Record<string, unknown>),
+    view: <I extends ViewInput>(input: I & NoExtraKeys<I, ViewInput>) =>
+      resolveStyle<ResolvedStyle<T, S, I>>(input as Record<string, unknown>),
     text,
-    image: (input: TokenizeStyle<T, ImageStyle>) =>
-      resolveStyle<ImageStyle>(input as Record<string, unknown>),
+    image: <I extends ImageInput>(input: I & NoExtraKeys<I, ImageInput>) =>
+      resolveStyle<ResolvedStyle<T, S, I>>(input as Record<string, unknown>),
   };
 }
