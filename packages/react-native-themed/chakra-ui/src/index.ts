@@ -1,5 +1,5 @@
 import { defineTheme } from '@react-native-themed/core';
-import { colors, colorTokens, semanticColors } from './colors';
+import { colorTokens, semanticColors } from './colors';
 import {
   fontSizes,
   fontWeights,
@@ -30,13 +30,13 @@ export const chakraUiTheme = defineTheme({
 
 export type { Colors, ColorTokenKey } from './colors';
 export {
-  colors,
   colorTokens,
   fontSizes,
   fontWeights,
   letterSpacings,
   lineHeights,
   radii,
+  semanticColors,
   shadows,
   spacing,
   zIndices,
