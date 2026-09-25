@@ -183,9 +183,9 @@ export function createThemed<const T extends ThemeConfig>(
     // `createElement` instead of JSX so consumers type-checking this source
     // (it ships as `.ts`) don't need a `jsx` compiler option.
     return createElement(
-      SchemeContext.Provider,
+      SchemeContext,
       { value: scheme },
-      createElement(ModeContext.Provider, { value: modeValue }, children),
+      createElement(ModeContext, { value: modeValue }, children),
     );
   }
 
