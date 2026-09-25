@@ -145,19 +145,19 @@ export const colorTokens = {
  */
 export const semanticColors = {
   primary: {
-    bg: { light: colorTokens['gray.950'], dark: colorTokens.white },
-    fg: { light: colorTokens.white, dark: colorTokens['gray.950'] },
+    bg: { light: colorTokens.black, dark: colorTokens.white },
+    fg: { light: colorTokens.white, dark: colorTokens.black },
   },
   bg: {
-    default: { light: colorTokens.white, dark: colorTokens['gray.950'] },
-    subtle: { light: colorTokens['gray.50'], dark: colorTokens['gray.900'] },
-    muted: { light: colorTokens['gray.100'], dark: colorTokens['gray.800'] },
+    default: { light: colorTokens.white, dark: colorTokens.black },
+    subtle: { light: colorTokens['gray.50'], dark: colorTokens['gray.950'] },
+    muted: { light: colorTokens['gray.100'], dark: colorTokens['gray.900'] },
     emphasized: {
       light: colorTokens['gray.200'],
       dark: colorTokens['gray.700'],
     },
-    inverted: { light: colorTokens['gray.950'], dark: colorTokens.white },
-    panel: { light: colorTokens.white, dark: colorTokens['gray.900'] },
+    inverted: { light: colorTokens.black, dark: colorTokens.white },
+    panel: { light: colorTokens.white, dark: colorTokens['gray.950'] },
     error: { light: colorTokens['red.50'], dark: colorTokens['red.950'] },
     warning: {
       light: colorTokens['yellow.50'],
@@ -177,8 +177,8 @@ export const semanticColors = {
     inverted: { light: colorTokens['gray.800'], dark: colorTokens['gray.200'] },
     error: { light: colorTokens['red.500'], dark: colorTokens['red.400'] },
     warning: {
-      light: colorTokens['yellow.500'],
-      dark: colorTokens['yellow.400'],
+      light: colorTokens['orange.500'],
+      dark: colorTokens['orange.400'],
     },
     success: {
       light: colorTokens['green.500'],
@@ -190,11 +190,11 @@ export const semanticColors = {
     default: { light: colorTokens.black, dark: colorTokens['gray.50'] },
     muted: { light: colorTokens['gray.600'], dark: colorTokens['gray.400'] },
     subtle: { light: colorTokens['gray.400'], dark: colorTokens['gray.500'] },
-    inverted: { light: colorTokens['gray.50'], dark: colorTokens['gray.900'] },
+    inverted: { light: colorTokens['gray.50'], dark: colorTokens.black },
     error: { light: colorTokens['red.500'], dark: colorTokens['red.400'] },
     warning: {
-      light: colorTokens['yellow.600'],
-      dark: colorTokens['yellow.300'],
+      light: colorTokens['orange.600'],
+      dark: colorTokens['orange.300'],
     },
     success: {
       light: colorTokens['green.600'],
@@ -203,7 +203,7 @@ export const semanticColors = {
     info: { light: colorTokens['blue.600'], dark: colorTokens['blue.300'] },
   },
   gray: {
-    contrast: { light: colorTokens.white, dark: colorTokens['gray.950'] },
+    contrast: { light: colorTokens.white, dark: colorTokens.black },
     fg: { light: colorTokens['gray.800'], dark: colorTokens['gray.200'] },
     subtle: { light: colorTokens['gray.100'], dark: colorTokens['gray.900'] },
     muted: { light: colorTokens['gray.200'], dark: colorTokens['gray.800'] },
@@ -227,50 +227,6 @@ export const semanticColors = {
     solid: { light: colorTokens['red.600'], dark: colorTokens['red.600'] },
     focusRing: { light: colorTokens['red.500'], dark: colorTokens['red.500'] },
     border: { light: colorTokens['red.500'], dark: colorTokens['red.400'] },
-  },
-  orange: {
-    contrast: { light: colorTokens.white, dark: colorTokens.black },
-    fg: { light: colorTokens['orange.700'], dark: colorTokens['orange.300'] },
-    subtle: {
-      light: colorTokens['orange.100'],
-      dark: colorTokens['orange.900'],
-    },
-    muted: {
-      light: colorTokens['orange.200'],
-      dark: colorTokens['orange.800'],
-    },
-    emphasized: {
-      light: colorTokens['orange.300'],
-      dark: colorTokens['orange.700'],
-    },
-    solid: {
-      light: colorTokens['orange.600'],
-      dark: colorTokens['orange.500'],
-    },
-    focusRing: {
-      light: colorTokens['orange.500'],
-      dark: colorTokens['orange.500'],
-    },
-    border: {
-      light: colorTokens['orange.500'],
-      dark: colorTokens['orange.400'],
-    },
-  },
-  teal: {
-    contrast: { light: colorTokens.white, dark: colorTokens.white },
-    fg: { light: colorTokens['teal.700'], dark: colorTokens['teal.300'] },
-    subtle: { light: colorTokens['teal.100'], dark: colorTokens['teal.900'] },
-    muted: { light: colorTokens['teal.200'], dark: colorTokens['teal.800'] },
-    emphasized: {
-      light: colorTokens['teal.300'],
-      dark: colorTokens['teal.700'],
-    },
-    solid: { light: colorTokens['teal.600'], dark: colorTokens['teal.600'] },
-    focusRing: {
-      light: colorTokens['teal.500'],
-      dark: colorTokens['teal.500'],
-    },
-    border: { light: colorTokens['teal.500'], dark: colorTokens['teal.400'] },
   },
   pink: {
     contrast: { light: colorTokens.white, dark: colorTokens.white },
@@ -348,6 +304,22 @@ export const semanticColors = {
     },
     border: { light: colorTokens['blue.500'], dark: colorTokens['blue.400'] },
   },
+  teal: {
+    contrast: { light: colorTokens.white, dark: colorTokens.white },
+    fg: { light: colorTokens['teal.700'], dark: colorTokens['teal.300'] },
+    subtle: { light: colorTokens['teal.100'], dark: colorTokens['teal.900'] },
+    muted: { light: colorTokens['teal.200'], dark: colorTokens['teal.800'] },
+    emphasized: {
+      light: colorTokens['teal.300'],
+      dark: colorTokens['teal.700'],
+    },
+    solid: { light: colorTokens['teal.600'], dark: colorTokens['teal.600'] },
+    focusRing: {
+      light: colorTokens['teal.500'],
+      dark: colorTokens['teal.500'],
+    },
+    border: { light: colorTokens['teal.500'], dark: colorTokens['teal.400'] },
+  },
   green: {
     contrast: { light: colorTokens.white, dark: colorTokens.white },
     fg: { light: colorTokens['green.700'], dark: colorTokens['green.300'] },
@@ -390,6 +362,34 @@ export const semanticColors = {
     border: {
       light: colorTokens['yellow.500'],
       dark: colorTokens['yellow.500'],
+    },
+  },
+  orange: {
+    contrast: { light: colorTokens.white, dark: colorTokens.black },
+    fg: { light: colorTokens['orange.700'], dark: colorTokens['orange.300'] },
+    subtle: {
+      light: colorTokens['orange.100'],
+      dark: colorTokens['orange.900'],
+    },
+    muted: {
+      light: colorTokens['orange.200'],
+      dark: colorTokens['orange.800'],
+    },
+    emphasized: {
+      light: colorTokens['orange.300'],
+      dark: colorTokens['orange.700'],
+    },
+    solid: {
+      light: colorTokens['orange.600'],
+      dark: colorTokens['orange.600'],
+    },
+    focusRing: {
+      light: colorTokens['orange.500'],
+      dark: colorTokens['orange.500'],
+    },
+    border: {
+      light: colorTokens['orange.500'],
+      dark: colorTokens['orange.400'],
     },
   },
 } as const;
