@@ -17,8 +17,13 @@ import { ScrollView } from '@/components/ui/scroll-view';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useHaptics } from '@/hooks/use-haptics';
-import { BorderRadius, Corners, FontSize, Height } from '@/theme/tokens';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
+import {
+  BorderRadius,
+  Corners,
+  FontSize,
+  Height,
+} from '@/theme/tokens/_deprecated_tokens';
 
 export interface DateRange {
   startDate: Date | null;
@@ -139,7 +144,7 @@ export function DatePicker(props: DatePickerProps) {
   );
 
   // Theme colors
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const cardColor = colors.bg.subtle;
   const borderColor = colors.border.default;
   const primaryColor = colors.primary.bg;
@@ -1058,13 +1063,13 @@ export function DatePicker(props: DatePickerProps) {
             }}
           >
             {mode === 'time' ? (
-              <Icon name={Clock} size={20} strokeWidth={1} />
+              <Icon name={Clock} sizeValue={20} strokeWidth={1} />
             ) : mode === 'datetime' ? (
-              <Icon name={CalendarClock} size={20} strokeWidth={1} />
+              <Icon name={CalendarClock} sizeValue={20} strokeWidth={1} />
             ) : mode === 'range' ? (
-              <Icon name={CalendarRange} size={20} strokeWidth={1} />
+              <Icon name={CalendarRange} sizeValue={20} strokeWidth={1} />
             ) : (
-              <Icon name={Calendar} size={20} strokeWidth={1} />
+              <Icon name={Calendar} sizeValue={20} strokeWidth={1} />
             )}
 
             {/* Label takes 1/3 of available width when present */}

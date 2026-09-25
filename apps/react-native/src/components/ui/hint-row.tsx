@@ -1,9 +1,9 @@
+import { spacing } from '@react-native-themed/chakra-ui-tokens';
 import type { ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
-import { Spacing } from '@/theme/tokens';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
 
 type HintRowProps = {
   title?: string;
@@ -14,7 +14,7 @@ export function HintRow({
   title = 'Try editing',
   hint = 'app/index.tsx',
 }: HintRowProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
 
   return (
     <View style={styles.stepRow}>
@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   codeSnippet: {
-    borderRadius: Spacing['2'],
-    paddingVertical: Spacing['0.5'],
-    paddingHorizontal: Spacing['2'],
+    borderRadius: spacing['2'],
+    paddingVertical: spacing['0.5'],
+    paddingHorizontal: spacing['2'],
   },
 });

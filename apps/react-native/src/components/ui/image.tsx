@@ -7,8 +7,8 @@ import { forwardRef, useState } from 'react';
 import { ActivityIndicator, StyleSheet } from 'react-native';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
-import { BorderRadius, Corners } from '@/theme/tokens';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
+import { BorderRadius, Corners } from '@/theme/tokens/_deprecated_tokens';
 
 export interface ImageProps extends Omit<ExpoImageProps, 'style'> {
   variant?: 'rounded' | 'circle' | 'default';
@@ -53,7 +53,7 @@ export const Image = forwardRef<ExpoImage, ImageProps>(
     const [hasError, setHasError] = useState(false);
 
     // Theme colors
-    const { colors } = useColor();
+    const { colors } = useThemed().semanticTokens;
     const backgroundColor = colors.bg.muted;
     const textColor = colors.fg.default;
     const primaryColor = colors.primary.bg;

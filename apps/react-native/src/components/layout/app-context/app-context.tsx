@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { AnimatedSplashOverlay } from '@/components/ui/animated-icon';
 import {
   AuthContext,
   useAuthContext,

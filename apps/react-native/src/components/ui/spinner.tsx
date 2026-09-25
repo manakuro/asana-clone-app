@@ -17,8 +17,12 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { Text } from '@/components/ui/text';
-import { BorderRadius, Corners, FontSize } from '@/theme/tokens';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
+import {
+  BorderRadius,
+  Corners,
+  FontSize,
+} from '@/theme/tokens/_deprecated_tokens';
 
 // Types
 type SpinnerSize = 'default' | 'sm' | 'lg' | 'icon';
@@ -150,7 +154,7 @@ export function Spinner({
     [barAnim1, barAnim2, barAnim3, barAnim4],
   );
 
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
 
   const config = sizeConfig[size];
   const spinnerColor = color || colors.fg.default;
@@ -352,7 +356,7 @@ export function LoadingOverlay({
   ...spinnerProps
 }: LoadingOverlayProps) {
   const opacity = useSharedValue(0);
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
 
   useEffect(() => {
     opacity.value = withTiming(visible ? 1 : 0, {
@@ -412,7 +416,7 @@ export function ButtonSpinner({
   variant = 'default',
   color,
 }: Omit<SpinnerProps, 'label' | 'showLabel'>) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
 
   return (
     <Spinner

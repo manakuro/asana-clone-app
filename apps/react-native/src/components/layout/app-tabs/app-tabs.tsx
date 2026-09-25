@@ -1,8 +1,8 @@
 import { NativeTabs } from 'expo-router/unstable-native-tabs';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
 
-export default function AppTabs() {
-  const { colors } = useColor();
+export function AppTabs() {
+  const { colors } = useThemed().semanticTokens;
 
   return (
     <NativeTabs

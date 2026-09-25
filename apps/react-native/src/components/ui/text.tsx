@@ -4,8 +4,8 @@ import {
   type TextProps as RNTextProps,
   type TextStyle,
 } from 'react-native';
-import { FontSize } from '@/theme/tokens';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
+import { FontSize } from '@/theme/tokens/_deprecated_tokens';
 
 type TextVariant =
   | 'body'
@@ -17,12 +17,12 @@ type TextVariant =
 
 interface TextProps extends RNTextProps {
   /**
-   * - body
-   * - title
-   * - subtitle
-   * - caption
-   * - heading
-   * - link
+   * - heading: 28
+   * - title: 24
+   * - subtitle: 19
+   * - body: 17
+   * - caption: 14
+   * - link: 17
    */
   variant?: TextVariant;
   children: React.ReactNode;
@@ -33,7 +33,7 @@ const headingVariants: TextVariant[] = ['heading', 'title', 'subtitle'];
 export const Text = React.memo(
   forwardRef<RNText, TextProps>(
     ({ variant = 'body', style, children, ...props }, ref) => {
-      const { colors } = useColor();
+      const { colors } = useThemed().semanticTokens;
       const defaultAccessibilityRole = headingVariants.includes(variant)
         ? 'header'
         : undefined;

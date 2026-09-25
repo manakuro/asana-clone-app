@@ -21,7 +21,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
 
 export type AlertDialogProps = {
   isVisible: boolean;
@@ -53,7 +53,7 @@ export function AlertDialog({
   showCancelButton = true,
   style,
 }: AlertDialogProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const cardColor = colors.bg.subtle;
   const [modalVisible, setModalVisible] = React.useState(false);
   const backdropOpacity = useSharedValue(0);

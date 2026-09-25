@@ -16,8 +16,8 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { Button } from '@/components/ui/button';
-import { BorderRadius } from '@/theme/tokens';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
+import { BorderRadius } from '@/theme/tokens/_deprecated_tokens';
 
 // Context for sharing state between popover components
 interface PopoverContextType {
@@ -166,7 +166,7 @@ export function PopoverContent({
 }: PopoverContentProps) {
   const { isOpen, setIsOpen, triggerLayout } = usePopover();
   const [contentSize, setContentSize] = useState({ width: 0, height: 0 });
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const popoverColor = colors.bg.subtle;
   const borderColor = colors.border.default;
 
@@ -356,7 +356,7 @@ interface PopoverHeaderProps {
 }
 
 export function PopoverHeader({ children, style }: PopoverHeaderProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const borderColor = colors.border.default;
 
   return (
@@ -383,7 +383,7 @@ interface PopoverFooterProps {
 }
 
 export function PopoverFooter({ children, style }: PopoverFooterProps) {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const borderColor = colors.border.default;
 
   return (

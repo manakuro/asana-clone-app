@@ -10,8 +10,13 @@ import {
 } from 'react-native';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
-import { BorderRadius, Corners, FontSize, Height } from '@/theme/tokens';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
+import {
+  BorderRadius,
+  Corners,
+  FontSize,
+  Height,
+} from '@/theme/tokens/_deprecated_tokens';
 
 export interface InputProps extends Omit<TextInputProps, 'style'> {
   label?: string;
@@ -54,7 +59,7 @@ export const Input = forwardRef<TextInput, InputProps>(
     const [isFocused, setIsFocused] = useState(false);
 
     // Theme colors
-    const { colors } = useColor();
+    const { colors } = useThemed().semanticTokens;
     const cardColor = colors.bg.subtle;
     const textColor = colors.fg.default;
     const muted = colors.fg.muted;
@@ -168,7 +173,7 @@ export const Input = forwardRef<TextInput, InputProps>(
                     {icon && (
                       <Icon
                         name={icon}
-                        size={16}
+                        sizeValue={16}
                         color={error ? danger : muted}
                       />
                     )}
@@ -231,7 +236,11 @@ export const Input = forwardRef<TextInput, InputProps>(
                 pointerEvents="none"
               >
                 {icon && (
-                  <Icon name={icon} size={16} color={error ? danger : muted} />
+                  <Icon
+                    name={icon}
+                    sizeValue={16}
+                    color={error ? danger : muted}
+                  />
                 )}
                 {label && (
                   <Text
@@ -309,7 +318,7 @@ export const GroupedInput = ({
   title,
   titleStyle,
 }: GroupedInputProps) => {
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const border = colors.border.default;
   const background = colors.bg.subtle;
   const danger = colors.red.solid;
@@ -418,7 +427,7 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
   ) => {
     const [_isFocused, setIsFocused] = useState(false);
 
-    const { colors } = useColor();
+    const { colors } = useThemed().semanticTokens;
     const text = colors.fg.default;
     const muted = colors.fg.muted;
     const primary = colors.primary.bg;
@@ -482,7 +491,7 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
                     {icon && (
                       <Icon
                         name={icon}
-                        size={16}
+                        sizeValue={16}
                         color={error ? danger : muted}
                       />
                     )}
@@ -556,7 +565,11 @@ export const GroupedInputItem = forwardRef<TextInput, GroupedInputItemProps>(
                 pointerEvents="none"
               >
                 {icon && (
-                  <Icon name={icon} size={16} color={error ? danger : muted} />
+                  <Icon
+                    name={icon}
+                    sizeValue={16}
+                    color={error ? danger : muted}
+                  />
                 )}
                 {label && (
                   <Text

@@ -18,8 +18,8 @@ import { Icon } from '@/components/ui/icon';
 import { ButtonSpinner, type SpinnerVariant } from '@/components/ui/spinner';
 import { Text } from '@/components/ui/text';
 import { useHaptics } from '@/hooks/use-haptics';
-import { Corners, FontSize, Height } from '@/theme/tokens';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
+import { Corners, FontSize, Height } from '@/theme/tokens/_deprecated_tokens';
 
 export type ButtonVariant =
   | 'default'
@@ -69,13 +69,16 @@ export const Button = forwardRef<View, ButtonProps>(
     ref,
   ) => {
     const feedback = useHaptics(haptic);
-    const { colors } = useColor();
+    const {
+      tokens,
+      semanticTokens: { colors },
+    } = useThemed();
     const primaryColor = colors.primary.bg;
     const primaryForegroundColor = colors.primary.fg;
     const secondaryColor = colors.bg.subtle;
     const secondaryForegroundColor = colors.fg.default;
     const destructiveColor = colors.red.solid;
-    const destructiveForegroundColor = colors.tokens.white;
+    const destructiveForegroundColor = tokens.colors.white;
     const greenColor = colors.green.solid;
     const borderColor = colors.border.default;
 
@@ -351,7 +354,7 @@ export const Button = forwardRef<View, ButtonProps>(
               style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}
             >
               {icon && (
-                <Icon name={icon} color={contentColor} size={iconSize} />
+                <Icon name={icon} color={contentColor} sizeValue={iconSize} />
               )}
               <Text style={[finalTextStyle, textStyle]}>{children}</Text>
             </View>
@@ -360,7 +363,7 @@ export const Button = forwardRef<View, ButtonProps>(
               style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}
             >
               {icon && (
-                <Icon name={icon} color={contentColor} size={iconSize} />
+                <Icon name={icon} color={contentColor} sizeValue={iconSize} />
               )}
               {children}
             </View>
@@ -387,7 +390,9 @@ export const Button = forwardRef<View, ButtonProps>(
           />
         ) : typeof children === 'string' ? (
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-            {icon && <Icon name={icon} color={contentColor} size={iconSize} />}
+            {icon && (
+              <Icon name={icon} color={contentColor} sizeValue={iconSize} />
+            )}
             <Text style={[finalTextStyle, textStyle]}>{children}</Text>
           </View>
         ) : (

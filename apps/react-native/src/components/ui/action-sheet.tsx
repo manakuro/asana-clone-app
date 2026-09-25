@@ -22,8 +22,8 @@ import { scheduleOnRN } from 'react-native-worklets/src/threads';
 import { Text } from '@/components/ui/text';
 import { View } from '@/components/ui/view';
 import { useHaptics } from '@/hooks/use-haptics';
-import { BorderRadius, FontSize } from '@/theme/tokens';
-import { useColor } from '@/theme/use-color';
+import { useThemed } from '@/theme/themed';
+import { BorderRadius, FontSize } from '@/theme/tokens/_deprecated_tokens';
 
 export interface ActionSheetOption {
   title: string;
@@ -134,7 +134,7 @@ function AndroidActionSheet({
   const screenHeight = Dimensions.get('window').height;
   const insets = useSafeAreaInsets();
 
-  const { colors } = useColor();
+  const { colors } = useThemed().semanticTokens;
   const cardColor = colors.bg.subtle;
   const textColor = colors.fg.default;
   const mutedColor = colors.fg.muted;
