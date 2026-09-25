@@ -61,7 +61,9 @@ export function Page() {
               source={{
                 uri: `https://asanacloneapp.codelly.dev${me?.image}`,
               }}
-              style={{ backgroundColor: semanticTokens.colors.fg.muted }}
+              style={themed.image({
+                backgroundColor: 'fg.muted',
+              })}
             />
 
             <AvatarFallback>{me?.name}</AvatarFallback>
@@ -160,7 +162,9 @@ export function Page() {
                   source={{
                     uri: `https://asanacloneapp.codelly.dev${me?.image}`,
                   }}
-                  style={{ backgroundColor: semanticTokens.colors.fg.muted }}
+                  style={themed.image({
+                    backgroundColor: 'fg.muted',
+                  })}
                 />
                 <AvatarFallback>{me?.name}</AvatarFallback>
               </Avatar>
