@@ -15,6 +15,7 @@
     "test:ci": "vitest run"
   },
   "dependencies": {
+    "@clack/prompts": "1.8.1",
     "@react-native-themed/core": "workspace:*",
     "jiti": "2.7.0"
   },

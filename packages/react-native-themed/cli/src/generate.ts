@@ -52,7 +52,7 @@ export function generate({
   config,
   themeImport,
   coreSpecifier = '@react-native-themed/core',
-  command = 'react-native-themed typegen',
+  command = 'react-native-themed codegen',
 }: GenerateOptions): string {
   const tokens = config.tokens ?? {};
   const semanticColors = config.semanticTokens?.colors ?? {};

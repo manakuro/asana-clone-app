@@ -23,7 +23,7 @@ export type ShadowToken = Pick<
  * One `role`/`size` entry in `semanticTokens.text` (Material Design 3
  * type-scale shape). Each field is either a key of the matching primitive
  * scale in `tokens` (e.g. `fontSize: 'lg'`) or a raw value. References are
- * validated by `@react-native-themed/cli typegen` against the final config,
+ * validated by `@react-native-themed/cli codegen` against the final config,
  * since a partial theme may reference keys supplied by another theme it is
  * later merged with.
  *
@@ -70,7 +70,7 @@ export type ThemeConfig = {
 
 /**
  * Exact token types for one theme. Written by
- * `@react-native-themed/cli typegen` from the evaluated config, never by
+ * `@react-native-themed/cli codegen` from the evaluated config, never by
  * hand, so core never has to infer token names from literal types.
  */
 export type ThemedSchema = {
@@ -118,7 +118,7 @@ export type ThemedStyles<S extends ThemedSchema> = {
 };
 
 // ---------------------------------------------------------------------------
-// Fallback when typegen has not been run: usable, but no token names
+// Fallback when codegen has not been run: usable, but no token names
 // ---------------------------------------------------------------------------
 
 type LooseTokenKeys =

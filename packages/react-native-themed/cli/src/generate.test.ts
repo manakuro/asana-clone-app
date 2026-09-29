@@ -8,7 +8,7 @@ const fixture = () =>
   generate({
     config: themeConfig,
     themeImport: { specifier: './theme', exportName: 'themeConfig' },
-    command: 'react-native-themed typegen src/__fixtures__/theme.ts',
+    command: 'react-native-themed codegen src/__fixtures__/theme.ts',
   });
 
 describe('generate', () => {

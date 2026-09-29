@@ -10,8 +10,8 @@ import { materialDesignTheme } from '@react-native-themed/material-design-tokens
  * supplies the `semanticTokens.text` type-scale. Later themes win per key, so app-local
  * overrides can be appended here later as a third argument.
  *
- * `themed.gen.ts` is generated from this file (`pnpm typegen`, also run on
- * install via `prepare`) — re-run it after editing. Import only from
+ * `themed.gen.ts` is generated from this file by `pnpm themed:codegen` (also
+ * run on install via `prepare`) — re-run it after editing. Import only from
  * `@react-native-themed/core/config` here: the CLI evaluates this file in
  * plain Node, without `react-native`.
  */

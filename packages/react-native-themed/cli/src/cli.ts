@@ -1,11 +1,9 @@
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { parseArgs } from 'node:util';
-import { generate } from './generate';
-import { loadTheme } from './load-theme';
-import { validateTheme } from './validate';
+import { parseArgs, styleText } from 'node:util';
+import * as p from '@clack/prompts';
+import { CodegenError, codegen, type TokenCounts } from './codegen';
 
-const USAGE = `Usage: react-native-themed typegen <theme-file> [options]
+const USAGE = `Usage: react-native-themed codegen <theme-file> [options]
 
 Generates typed \`themed\` bindings (themed.gen.ts) from a theme config.
 
@@ -17,18 +15,36 @@ Options:
                         (default: @react-native-themed/core)
   -h, --help            Show this help`;
 
-/** `./theme` style specifier from the output file to the theme file. */
-function importSpecifier(fromFile: string, toFile: string): string {
-  const rel = path
-    .relative(path.dirname(fromFile), toFile)
-    .split(path.sep)
-    .join('/')
-    .replace(/\.[cm]?[jt]sx?$/, '');
-  return rel.startsWith('.') ? rel : `./${rel}`;
+const dim = (text: string) => styleText('dim', text);
+
+/** Paths as the user typed them: relative to where the command ran. */
+const display = (file: string) =>
+  path.relative(process.cwd(), file).split(path.sep).join('/');
+
+const COUNT_LABELS: [keyof TokenCounts, string][] = [
+  ['colors', 'colors'],
+  ['radii', 'radii'],
+  ['spacing', 'spacing'],
+  ['shadows', 'shadows'],
+  ['textPresets', 'text presets'],
+];
+
+/** `54 colors · 11 radii · 35 spacing`, skipping empty categories. */
+export function formatCounts(counts: TokenCounts): string {
+  const parts = COUNT_LABELS.filter(([key]) => counts[key] > 0).map(
+    ([key, label]) => `${counts[key]} ${label}`,
+  );
+  return parts.length > 0 ? parts.join(' · ') : 'no tokens';
 }
 
-async function typegen(args: string[]): Promise<void> {
-  const { values, positionals } = parseArgs({
+const STAGE_TITLES = {
+  load: 'Failed to load theme',
+  validate: 'Invalid theme config',
+  write: 'Failed to write output',
+} as const;
+
+const parseCodegenArgs = (args: string[]) =>
+  parseArgs({
     args,
     allowPositionals: true,
     options: {
@@ -39,63 +55,84 @@ async function typegen(args: string[]): Promise<void> {
     },
   });
 
+async function runCodegen(args: string[]): Promise<void> {
+  let parsed: ReturnType<typeof parseCodegenArgs>;
+  try {
+    parsed = parseCodegenArgs(args);
+  } catch (error) {
+    // e.g. an unknown option or a missing option value
+    console.error(`${error instanceof Error ? error.message : error}\n`);
+    console.log(USAGE);
+    process.exitCode = 1;
+    return;
+  }
+  const { values, positionals } = parsed;
+
   if (values.help || positionals.length !== 1) {
     console.log(USAGE);
     if (!values.help) process.exitCode = 1;
     return;
   }
 
-  const themeFile = path.resolve(positionals[0]);
-  if (!existsSync(themeFile)) throw new Error(`Not found: ${themeFile}`);
-  const outFile = path.resolve(
-    values.out ?? path.join(path.dirname(themeFile), 'themed.gen.ts'),
-  );
+  const startedAt = performance.now();
+  p.intro('react-native-themed ⚡️');
 
-  const { config, exportName } = await loadTheme(themeFile, values.export);
-
-  const problems = validateTheme(config);
-  if (problems.length > 0) {
-    throw new Error(
-      `Invalid theme config:\n${problems.map((p) => `  - ${p}`).join('\n')}`,
+  try {
+    await codegen(
+      {
+        themeFile: positionals[0],
+        outFile: values.out,
+        exportName: values.export,
+        coreSpecifier: values.core,
+      },
+      {
+        loaded: ({ themeFile, exportName }) =>
+          p.log.step(
+            `✅ Loaded theme  ${dim(`${display(themeFile)} (${exportName})`)}`,
+          ),
+        validated: (counts) =>
+          p.log.step(`✅ Validated tokens  ${dim(formatCounts(counts))}`),
+        written: ({ outFile, changed }) =>
+          p.log.step(
+            changed
+              ? `✅ Generated ${display(outFile)}`
+              : `⏭️  ${display(outFile)} ${dim('is up to date')}`,
+          ),
+      },
     );
-  }
-
-  const source = generate({
-    config,
-    themeImport: {
-      specifier: importSpecifier(outFile, themeFile),
-      exportName,
-    },
-    coreSpecifier: values.core,
-    command: `react-native-themed typegen ${path.relative(process.cwd(), themeFile)}`,
-  });
-
-  // Skip identical writes so Metro/tsc watchers don't churn.
-  const current = existsSync(outFile) ? readFileSync(outFile, 'utf8') : null;
-  const rel = path.relative(process.cwd(), outFile);
-  if (current === source) {
-    console.log(`react-native-themed: ${rel} is up to date`);
+  } catch (error) {
+    if (error instanceof CodegenError) {
+      const details = error.details.map((d) => dim(`  - ${d}`));
+      const title =
+        error.stage === 'validate'
+          ? STAGE_TITLES.validate
+          : `${STAGE_TITLES[error.stage]}: ${error.message}`;
+      p.log.error([`❌ ${title}`, ...details].join('\n'));
+    } else {
+      p.log.error(`❌ ${error instanceof Error ? error.message : error}`);
+    }
+    p.cancel('Failed');
+    process.exitCode = 1;
     return;
   }
-  writeFileSync(outFile, source);
-  console.log(`react-native-themed: wrote ${rel}`);
+
+  p.outro(`🎉 Done in ${Math.round(performance.now() - startedAt)}ms`);
 }
 
 export async function main(argv: string[]): Promise<void> {
   const [command, ...rest] = argv;
-  try {
-    switch (command) {
-      case 'typegen':
-        await typegen(rest);
-        break;
-      default:
-        console.log(USAGE);
-        process.exitCode = command ? 1 : 0;
-    }
-  } catch (error) {
-    console.error(
-      `react-native-themed: ${error instanceof Error ? error.message : error}`,
-    );
-    process.exitCode = 1;
+  switch (command) {
+    case 'codegen':
+      await runCodegen(rest);
+      break;
+    case undefined:
+    case '-h':
+    case '--help':
+      console.log(USAGE);
+      break;
+    default:
+      console.error(`Unknown command: ${command}\n`);
+      console.log(USAGE);
+      process.exitCode = 1;
   }
 }

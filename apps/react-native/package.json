@@ -17,8 +17,8 @@
     "codegen:ci": "graphql-codegen --config codegen.ts",
     "env:pull": "eas env:pull --environment development",
     "tsc": "tsc",
-    "typegen": "react-native-themed typegen src/theme/themed/theme.ts",
-    "prepare": "pnpm typegen"
+    "themed:codegen": "react-native-themed codegen src/theme/themed/theme.ts",
+    "prepare": "pnpm themed:codegen"
   },
   "dependencies": {
     "@apollo/client": "4.2.12",

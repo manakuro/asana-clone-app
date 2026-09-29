@@ -84,7 +84,7 @@ const warnControlledSetMode = () => {
  * themes) is scoped to this call, so several instances can coexist.
  *
  * `S` is supplied by the generated `themed.gen.ts`
- * (`@react-native-themed/cli typegen`); without it tokens are loosely typed.
+ * (`@react-native-themed/cli codegen`); without it tokens are loosely typed.
  */
 export function createThemed<S extends ThemedSchema = LooseSchema>(
   config: ThemeConfig,

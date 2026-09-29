@@ -2,7 +2,7 @@
  * `@react-native-themed/core/config` — the React/RN-free part of core.
  *
  * Theme files (and theme packages) import from here so
- * `@react-native-themed/cli typegen` can evaluate them in plain Node without
+ * `@react-native-themed/cli codegen` can evaluate them in plain Node without
  * loading `react-native`.
  */
 export { defineTheme } from './define-theme';
