@@ -402,6 +402,12 @@ Call as `themed.text.<role>.<size>(override?)`. The override is merged on top an
 | `md` | 12 | 16 | 0.5 | 500 |
 | `sm` | 11 | 16 | 0.5 | 500 |
 
+### test-caption
+
+| size | fontSize | lineHeight | letterSpacing | fontWeight |
+|:--|--:|--:|--:|--:|
+| `sm` | 14 | – | – | 500 |
+
 ## Primitive colors
 
 Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`; prefer semantic colors.

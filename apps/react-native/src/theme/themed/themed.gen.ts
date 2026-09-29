@@ -2990,6 +2990,23 @@ export interface ThemedTextVariants {
      */
     sm: TextVariant;
   };
+  /**
+   * `semanticTokens.text.test-caption`
+   *
+   * | size | fontSize | lineHeight | letterSpacing | fontWeight |
+   * |:--|--:|--:|--:|--:|
+   * | `sm` | 14 | – | – | 500 |
+   */
+  'test-caption': {
+    /**
+     * `semanticTokens.text.test-caption.sm`
+     *
+     * | fontSize | lineHeight | letterSpacing | fontWeight |
+     * |--:|--:|--:|--:|
+     * | 14 | – | – | 500 |
+     */
+    sm: TextVariant;
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -4077,6 +4094,12 @@ export interface ThemedSemanticTokens {
         lineHeight: 16;
         letterSpacing: 0.5;
         fontWeight: '500';
+      };
+    };
+    'test-caption': {
+      sm: {
+        fontSize: 14;
+        fontWeight: 500;
       };
     };
   };

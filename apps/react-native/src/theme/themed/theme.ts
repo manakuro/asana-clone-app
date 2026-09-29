@@ -26,5 +26,16 @@ export const themeConfig = extendTheme(chakraUiTheme, materialDesignTheme, {
         default: { light: colorTokens.white, dark: colorTokens['gray.950'] },
       },
     },
+    text: {
+      /**
+       * `test-caption` is a custom type-scale for captions. It is used only for CLI testing.
+       */
+      'test-caption': {
+        sm: {
+          fontSize: 14,
+          fontWeight: 500,
+        },
+      },
+    },
   },
 });
