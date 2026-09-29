@@ -38,4 +38,7 @@ export const themeConfig = extendTheme(chakraUiTheme, materialDesignTheme, {
       },
     },
   },
+  defaults: {
+    fontSize: 'md',
+  },
 });
