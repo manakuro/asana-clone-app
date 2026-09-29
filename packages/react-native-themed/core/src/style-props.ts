@@ -98,7 +98,7 @@ export type ZIndexKeys = (typeof Z_INDEX_KEYS)[number];
 
 /**
  * The real RN style properties the virtual `shadow` prop expands into.
- * Not resolved as a scale category itself — see `resolvers/shadow-resolver.ts`.
+ * Not resolved as a scale category itself — see `resolvers/style-resolver.ts`.
  */
 export const SHADOW_STYLE_PROPS = [
   'shadowColor',

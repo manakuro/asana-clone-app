@@ -93,6 +93,7 @@ function usageSection(model: TokenModel, genFile: string): Section {
       '- `zIndex` accepts a z-index token or a raw number.',
       '- **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.',
       '- Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.',
+      '- **Performance:** calling `themed.*()` inline on every render is fine. Built-in components compare `style` by value, and a call costs well under a microsecond. Memoize with `useMemo(() => themed.view({ ... }), [themed])` only when the style must keep the same reference: when it is passed to a `React.memo` component, passed as a list prop such as `contentContainerStyle` / `ListHeaderComponentStyle`, or used as a hook dependency. `themed` itself only changes when the color scheme does.',
       '- Do not edit the generated files. Change the theme file and re-run the codegen command instead.',
     ],
   };

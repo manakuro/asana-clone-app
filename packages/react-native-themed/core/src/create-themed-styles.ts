@@ -1,22 +1,6 @@
 import type { TextStyle } from 'react-native';
-import {
-  type ColorScheme,
-  createColorResolver,
-} from './resolvers/color-resolver';
-import {
-  createLineHeightResolver,
-  resolveBaseFontSize,
-} from './resolvers/line-height-resolver';
-import { createScaleResolver } from './resolvers/scale-resolver';
-import { createShadowResolver } from './resolvers/shadow-resolver';
-import {
-  FONT_SIZE_KEYS,
-  FONT_WEIGHT_KEYS,
-  LETTER_SPACING_KEYS,
-  RADIUS_KEYS,
-  SPACING_KEYS,
-  Z_INDEX_KEYS,
-} from './style-props';
+import type { ColorScheme } from './resolvers/color-resolver';
+import { createStyleResolver } from './resolvers/style-resolver';
 import { createTextVariants } from './text-variants';
 import type {
   LooseSchema,
@@ -39,43 +23,8 @@ export function createThemedStyles<S extends ThemedSchema = LooseSchema>(
   config: ThemeConfig,
   scheme: ColorScheme,
 ): ThemedStyles<S> {
-  const tokens = config.tokens ?? {};
-
-  const resolveColor = createColorResolver(config, scheme);
-  const resolveRadius = createScaleResolver(RADIUS_KEYS, tokens.radii);
-  const resolveSpacing = createScaleResolver(SPACING_KEYS, tokens.spacing);
-  const resolveFontSize = createScaleResolver(FONT_SIZE_KEYS, tokens.fontSizes);
-  const resolveFontWeight = createScaleResolver(
-    FONT_WEIGHT_KEYS,
-    tokens.fontWeights,
-  );
-  // Ratio tokens need the resolved fontSize, so this runs after it.
-  const resolveLineHeight = createLineHeightResolver(
-    tokens.lineHeights,
-    resolveBaseFontSize(config),
-  );
-  const resolveLetterSpacing = createScaleResolver(
-    LETTER_SPACING_KEYS,
-    tokens.letterSpacings,
-  );
-  const resolveZIndex = createScaleResolver(Z_INDEX_KEYS, tokens.zIndices);
-  const resolveShadow = createShadowResolver(tokens.shadows);
-
-  // Chains every resolver; if none apply, the original input passes through
-  // with zero copies end-to-end (each resolver is itself copy-on-write).
-  function resolveStyle(input: object): Record<string, unknown> {
-    let result = input as Record<string, unknown>;
-    result = resolveColor(result);
-    result = resolveRadius(result);
-    result = resolveSpacing(result);
-    result = resolveFontSize(result);
-    result = resolveLineHeight(result);
-    result = resolveLetterSpacing(result);
-    result = resolveFontWeight(result);
-    result = resolveZIndex(result);
-    result = resolveShadow(result);
-    return result;
-  }
+  // One pass over the input's keys per call; see `createStyleResolver`.
+  const resolveStyle = createStyleResolver(config, scheme);
 
   const text = (input: object = {}) => resolveStyle(input) as TextStyle;
   const variants = createTextVariants(

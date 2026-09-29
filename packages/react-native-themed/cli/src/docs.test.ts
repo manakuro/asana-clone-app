@@ -47,6 +47,12 @@ describe('generateDocs', () => {
     );
   });
 
+  it('tells when to memoize a themed style', () => {
+    expect(fixture()).toContain(
+      'useMemo(() => themed.view({ ... }), [themed])',
+    );
+  });
+
   it('omits sections the theme does not define', () => {
     const docs = generateDocs({
       config: { tokens: { radii: { sm: 4 } } },

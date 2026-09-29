@@ -95,6 +95,31 @@ describe('createThemedStyles / themed.view', () => {
     expect(themed.view({ zIndex: 5 })).toEqual({ zIndex: 5 });
   });
 
+  it('never mutates the input', () => {
+    const themed = createThemedStyles(config, 'light');
+    const input = { backgroundColor: 'fg.default', padding: 1, shadow: 'sm' };
+    const snapshot = { ...input };
+    themed.view(input);
+    expect(input).toEqual(snapshot);
+  });
+
+  it('lets a shadow preset win over explicit shadow props, in any key order', () => {
+    const themed = createThemedStyles(config, 'light');
+    expect(themed.view({ shadow: 'sm', shadowColor: 'fg.default' })).toEqual(
+      themed.view({ shadowColor: 'fg.default', shadow: 'sm' }),
+    );
+    expect(
+      themed.view({ shadow: 'sm', shadowColor: 'fg.default' }).shadowColor,
+    ).toBe('#000');
+  });
+
+  it('drops an unknown shadow preset and keeps unknown tokens as-is', () => {
+    const themed = createThemedStyles(config, 'light');
+    expect(themed.view({ shadow: 'nope', padding: 99 } as never)).toEqual({
+      padding: 99,
+    });
+  });
+
   it('passes through an input without tokens unchanged (no copy)', () => {
     const themed = createThemedStyles(config, 'light');
     const input = { flex: 1 };
