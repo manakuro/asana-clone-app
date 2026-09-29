@@ -1,4 +1,4 @@
-import { defineTheme } from '@react-native-themed/core';
+import { defineTheme } from '@react-native-themed/core/config';
 import { colorTokens, semanticColors } from './colors';
 import {
   fontSizes,

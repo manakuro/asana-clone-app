@@ -16,7 +16,9 @@
     "codegen:download": "env-cmd -f ./.env.local tsx scripts/codegen/download.ts",
     "codegen:ci": "graphql-codegen --config codegen.ts",
     "env:pull": "eas env:pull --environment development",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "typegen": "react-native-themed typegen src/theme/themed/theme.ts",
+    "prepare": "pnpm typegen"
   },
   "dependencies": {
     "@apollo/client": "4.2.12",
@@ -69,6 +71,7 @@
     "@graphql-codegen/typescript": "6.1.0",
     "@graphql-codegen/typescript-operations": "6.1.1",
     "@parcel/watcher": "2.6.0",
+    "@react-native-themed/cli": "workspace:*",
     "@types/node": "24.10.4",
     "@types/react": "19.2.17",
     "biome-config": "workspace:*",

@@ -1,15 +1,29 @@
-import { describe, expect, expectTypeOf, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { createThemedStyles } from './create-themed-styles';
 import { defineTheme } from './define-theme';
 
 const config = defineTheme({
   tokens: {
+    radii: { md: 6 },
+    spacing: { 1: 4, 0.5: 2 },
     fontSizes: { md: 16, lg: 18 },
     fontWeights: { normal: '400', semibold: '600' },
     lineHeights: { short: 1.375 },
     letterSpacings: { wide: 0.4 },
+    shadows: {
+      sm: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+      },
+    },
   },
   semanticTokens: {
+    colors: {
+      fg: { default: { light: '#111', dark: '#fff' } },
+    },
     text: {
       title: {
         md: {
@@ -24,7 +38,38 @@ const config = defineTheme({
   },
 });
 
-describe('createThemed / themed.text.<role>.<size>', () => {
+describe('createThemedStyles / themed.view', () => {
+  it('resolves color, radius, spacing and shadow tokens', () => {
+    const themed = createThemedStyles(config, 'dark');
+    expect(
+      themed.view({
+        backgroundColor: 'fg.default',
+        borderRadius: 'md',
+        padding: 1,
+        margin: 0.5,
+        shadow: 'sm',
+      }),
+    ).toEqual({
+      backgroundColor: '#fff',
+      borderRadius: 6,
+      padding: 4,
+      margin: 2,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 1 },
+      shadowOpacity: 0.1,
+      shadowRadius: 2,
+      elevation: 2,
+    });
+  });
+
+  it('passes through an input without tokens unchanged (no copy)', () => {
+    const themed = createThemedStyles(config, 'light');
+    const input = { flex: 1 };
+    expect(themed.view(input)).toBe(input);
+  });
+});
+
+describe('createThemedStyles / themed.text.<role>.<size>', () => {
   const themed = createThemedStyles(config, 'light');
 
   it('resolves token keys in a preset through tokens.*', () => {
@@ -55,28 +100,7 @@ describe('createThemed / themed.text.<role>.<size>', () => {
     );
   });
 
-  it('infers roles and sizes from the config type', () => {
-    expectTypeOf(themed.text.title.md).toBeFunction();
-    expectTypeOf(themed.text.title.sm).toBeFunction();
-
-    // @ts-expect-error -- undefined size
-    themed.text.title.xxl;
-    // @ts-expect-error -- undefined role
-    themed.text.nope;
-  });
-
-  it('rejects presets referencing scale keys the config does not define', () => {
-    const invalid = defineTheme({
-      tokens: { fontSizes: { md: 16 } },
-      semanticTokens: { text: { title: { md: { fontSize: 'nope' } } } },
-    });
-    // @ts-expect-error -- 'nope' is not a key of tokens.fontSizes
-    createThemedStyles(invalid, 'light');
-
-    const noScale = defineTheme({
-      semanticTokens: { text: { title: { md: { lineHeight: 'short' } } } },
-    });
-    // @ts-expect-error -- no tokens.lineHeights, so only raw numbers are valid
-    createThemedStyles(noScale, 'light');
+  it('keeps themed.text callable without a preset', () => {
+    expect(themed.text({ color: 'fg.default' })).toEqual({ color: '#111' });
   });
 });

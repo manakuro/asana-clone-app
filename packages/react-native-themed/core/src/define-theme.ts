@@ -1,34 +1,14 @@
 import type { ThemeConfig } from './types';
 
-type TokensShape = NonNullable<ThemeConfig['tokens']>;
-type SemanticTokensShape = NonNullable<ThemeConfig['semanticTokens']>;
-
-/** Maps every key of `T` not in `Shape` to `never`, so typos fail to compile. */
-type NoExtraKeys<T, Shape> = {
-  [K in Exclude<keyof T, keyof Shape>]: never;
-};
-
 /**
- * `const T extends ThemeConfig` alone doesn't reject excess keys (a misspelled
- * `radius` or `semanticToken` is silently accepted), so check the top level
- * and both token categories explicitly.
+ * Identity function used purely as a type gate: checks `config` against
+ * `ThemeConfig` (object literals get the usual excess-property check, so a
+ * misspelled `radius` or `semanticToken` fails to compile).
+ *
+ * The return type is deliberately the plain `ThemeConfig` — exact token
+ * names come from the generated `themed.gen.ts`, not from literal-type
+ * inference here.
  */
-type StrictThemeConfig<T> = NoExtraKeys<T, ThemeConfig> &
-  (T extends { tokens: infer Tk }
-    ? { tokens: NoExtraKeys<Tk, TokensShape> }
-    : unknown) &
-  (T extends { semanticTokens: infer St }
-    ? { semanticTokens: NoExtraKeys<St, SemanticTokensShape> }
-    : unknown);
-
-/**
- * Identity function used purely as a type gate: it checks `config` against
- * `ThemeConfig` (`satisfies`-style, rejecting unknown keys) while preserving
- * the literal types of everything passed in, so `createThemed`/`extendTheme`
- * can infer exact token names from whatever theme package uses this.
- */
-export function defineTheme<const T extends ThemeConfig>(
-  config: T & StrictThemeConfig<T>,
-): T {
+export function defineTheme(config: ThemeConfig): ThemeConfig {
   return config;
 }

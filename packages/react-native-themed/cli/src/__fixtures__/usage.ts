@@ -1,0 +1,66 @@
+/**
+ * Type-level tests for the generated fixture (checked by `tsc`, not run).
+ * Every `@ts-expect-error` must actually fail, so a regression in either the
+ * generator or core's `TokenizeStyle` breaks `pnpm tsc`.
+ */
+import type { TextStyle, ViewStyle } from 'react-native';
+import { useThemed } from './themed.gen';
+
+export function usage() {
+  const { themed, tokens, semanticTokens } = useThemed();
+
+  // --- accepted ---
+  const view: ViewStyle = themed.view({
+    backgroundColor: 'bg.default',
+    borderRadius: 'md',
+    padding: 4,
+    marginHorizontal: 0.5,
+    gap: 'px',
+    shadow: 'sm',
+    flex: 1,
+  });
+  themed.view({ padding: 'auto', margin: '10%' });
+  const text: TextStyle = themed.text({
+    color: 'fg.muted',
+    fontSize: 'lg',
+    fontWeight: 'semibold',
+    lineHeight: 'short',
+    letterSpacing: 'wide',
+  });
+  themed.text({ fontSize: 13, fontWeight: '300', lineHeight: 20 });
+  themed.text();
+  themed.text.title.md();
+  themed.text.body.md({ color: 'fg.default' });
+  themed.image({ tintColor: 'fg.default', borderRadius: 'full' });
+
+  const white: '#ffffff' = tokens.colors.white;
+  const md: 16 = tokens.fontSizes.md;
+  const fg: string = semanticTokens.colors.fg.default;
+  const preset: 'md' = semanticTokens.text.title.md.fontSize;
+
+  // --- rejected ---
+  // @ts-expect-error unknown color token
+  themed.view({ backgroundColor: 'bg.unknown' });
+  // @ts-expect-error colors are token-only
+  themed.view({ backgroundColor: '#fff' });
+  // @ts-expect-error unknown spacing token
+  themed.view({ padding: 3 });
+  // @ts-expect-error unknown radius token
+  themed.view({ borderRadius: 'xl' });
+  // @ts-expect-error `color` is not a View style
+  themed.view({ color: 'fg.default' });
+  // @ts-expect-error unknown shadow preset
+  themed.view({ shadow: 'xl' });
+  // @ts-expect-error typo in a style prop
+  themed.view({ backgroundColour: 'bg.default' });
+  // @ts-expect-error unknown size
+  themed.text.title.lg();
+  // @ts-expect-error unknown role
+  themed.text.display;
+  // @ts-expect-error unknown primitive token
+  tokens.colors.black;
+  // @ts-expect-error unknown semantic color group
+  semanticTokens.colors.border;
+
+  return { view, text, white, md, fg, preset };
+}

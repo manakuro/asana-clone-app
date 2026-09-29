@@ -1,4 +1,4 @@
-import type { ShadowToken } from '@react-native-themed/core';
+import type { ShadowToken } from '@react-native-themed/core/config';
 import { colorTokens } from './colors';
 
 /**

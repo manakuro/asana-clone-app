@@ -1,5 +1,4 @@
-import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
-import type { NoExtraKeys, ResolvedStyle } from './resolved-style';
+import type { TextStyle } from 'react-native';
 import {
   type ColorScheme,
   createColorResolver,
@@ -15,7 +14,12 @@ import {
   SPACING_KEYS,
 } from './style-props';
 import { createTextVariants } from './text-variants';
-import type { CheckTextRefs, ThemeConfig, TokenizeStyle } from './types';
+import type {
+  LooseSchema,
+  ThemeConfig,
+  ThemedSchema,
+  ThemedStyles,
+} from './types';
 
 /**
  * Builds `{ view, text, image }` from a fully resolved `ThemeConfig` for one
@@ -23,11 +27,14 @@ import type { CheckTextRefs, ThemeConfig, TokenizeStyle } from './types';
  * `createThemed` calls this once per scheme and hands the result out through
  * `useThemed()`, so components re-render (and pick up new colors) when the
  * scheme changes.
+ *
+ * `S` comes from the generated `themed.gen.ts`; without it every token
+ * prop is loosely typed (`LooseSchema`).
  */
-export function createThemedStyles<
-  const T extends ThemeConfig,
-  S extends ColorScheme = ColorScheme,
->(config: T & CheckTextRefs<T>, scheme: S) {
+export function createThemedStyles<S extends ThemedSchema = LooseSchema>(
+  config: ThemeConfig,
+  scheme: ColorScheme,
+): ThemedStyles<S> {
   const tokens = config.tokens ?? {};
 
   const resolveColor = createColorResolver(config, scheme);
@@ -50,8 +57,8 @@ export function createThemedStyles<
 
   // Chains every resolver; if none apply, the original input passes through
   // with zero copies end-to-end (each resolver is itself copy-on-write).
-  function resolveStyle<S extends object>(input: Record<string, unknown>): S {
-    let result = input;
+  function resolveStyle(input: object): Record<string, unknown> {
+    let result = input as Record<string, unknown>;
     result = resolveColor(result);
     result = resolveRadius(result);
     result = resolveSpacing(result);
@@ -60,37 +67,27 @@ export function createThemedStyles<
     result = resolveLetterSpacing(result);
     result = resolveFontWeight(result);
     result = resolveShadow(result);
-    return result as S;
+    return result;
   }
 
-  type ViewInput = TokenizeStyle<T, ViewStyle>;
-  type TextInput = TokenizeStyle<T, TextStyle>;
-  type ImageInput = TokenizeStyle<T, ImageStyle>;
-
-  // Generic over the literal input so the return type carries the resolved
-  // values (e.g. `backgroundColor: '#fafafa'`), not just `ViewStyle`.
-  const baseText = <I extends TextInput = Record<never, never>>(
-    input: I & NoExtraKeys<I, TextInput> = {} as I & NoExtraKeys<I, TextInput>,
-  ) => resolveStyle<ResolvedStyle<T, S, I>>(input as Record<string, unknown>);
-  const variants = createTextVariants(config, (input) =>
-    resolveStyle<TextStyle>(input),
+  const text = (input: object = {}) => resolveStyle(input) as TextStyle;
+  const variants = createTextVariants(
+    config,
+    (input) => resolveStyle(input) as TextStyle,
   );
   // `Object.assign` would throw for roles that collide with non-writable
   // function properties (`name`, `length`); defineProperty overrides them.
   for (const [role, sizes] of Object.entries(variants)) {
-    Object.defineProperty(baseText, role, {
+    Object.defineProperty(text, role, {
       value: sizes,
       enumerable: true,
       configurable: true,
     });
   }
-  const text = baseText as typeof baseText & typeof variants;
 
   return {
-    view: <I extends ViewInput>(input: I & NoExtraKeys<I, ViewInput>) =>
-      resolveStyle<ResolvedStyle<T, S, I>>(input as Record<string, unknown>),
+    view: resolveStyle,
+    image: resolveStyle,
     text,
-    image: <I extends ImageInput>(input: I & NoExtraKeys<I, ImageInput>) =>
-      resolveStyle<ResolvedStyle<T, S, I>>(input as Record<string, unknown>),
-  };
+  } as unknown as ThemedStyles<S>;
 }

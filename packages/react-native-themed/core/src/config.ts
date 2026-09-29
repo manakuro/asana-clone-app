@@ -1,0 +1,28 @@
+/**
+ * `@react-native-themed/core/config` — the React/RN-free part of core.
+ *
+ * Theme files (and theme packages) import from here so
+ * `@react-native-themed/cli typegen` can evaluate them in plain Node without
+ * loading `react-native`.
+ */
+export { defineTheme } from './define-theme';
+export { extendTheme } from './extend-theme';
+export {
+  COLOR_KEYS,
+  FONT_SIZE_KEYS,
+  FONT_WEIGHT_KEYS,
+  LETTER_SPACING_KEYS,
+  LINE_HEIGHT_KEYS,
+  RADIUS_KEYS,
+  SHADOW_STYLE_PROPS,
+  SPACING_KEYS,
+} from './style-props';
+export type {
+  LooseSchema,
+  ShadowToken,
+  TextToken,
+  ThemeConfig,
+  ThemedSchema,
+  ThemedStyles,
+  TokenizeStyle,
+} from './types';

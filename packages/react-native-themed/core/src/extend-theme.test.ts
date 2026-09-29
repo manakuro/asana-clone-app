@@ -1,4 +1,4 @@
-import { describe, expect, expectTypeOf, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { createThemedStyles } from './create-themed-styles';
 import { defineTheme } from './define-theme';
 import { extendTheme } from './extend-theme';
@@ -26,21 +26,13 @@ describe('extendTheme / semanticTokens.text', () => {
     const config = extendTheme(baseTheme, {
       semanticTokens: { text: { display: { lg: { fontSize: 60 } } } },
     });
+    const text = config.semanticTokens?.text;
 
     // The size-level entry is replaced whole, not merged field by field.
-    expect(config.semanticTokens.text.display.lg).toEqual({ fontSize: 60 });
-    expect(config.semanticTokens.text.display.md).toEqual({
-      fontSize: 45,
-      lineHeight: 52,
-    });
-    expect(config.semanticTokens.text.display.sm).toEqual({
-      fontSize: 36,
-      lineHeight: 44,
-    });
-    expect(config.semanticTokens.text.body.md).toEqual({
-      fontSize: 14,
-      lineHeight: 20,
-    });
+    expect(text?.display.lg).toEqual({ fontSize: 60 });
+    expect(text?.display.md).toEqual({ fontSize: 45, lineHeight: 52 });
+    expect(text?.display.sm).toEqual({ fontSize: 36, lineHeight: 44 });
+    expect(text?.body.md).toEqual({ fontSize: 14, lineHeight: 20 });
   });
 
   it('lets later themes win', () => {
@@ -49,18 +41,19 @@ describe('extendTheme / semanticTokens.text', () => {
       { semanticTokens: { text: { display: { lg: { fontSize: 60 } } } } },
       { semanticTokens: { text: { display: { lg: { fontSize: 72 } } } } },
     );
+    const text = config.semanticTokens?.text;
 
-    expect(config.semanticTokens.text.display.lg).toEqual({ fontSize: 72 });
-    expect(config.semanticTokens.text.display.md.fontSize).toBe(45);
+    expect(text?.display.lg).toEqual({ fontSize: 72 });
+    expect(text?.display.md.fontSize).toBe(45);
   });
 
-  it('no longer carries a text category under tokens', () => {
+  it('merges flat token categories one level deep', () => {
     const config = extendTheme(baseTheme, {
       tokens: { fontSizes: { xl: 20 } },
     });
 
     expect(config.tokens).not.toHaveProperty('text');
-    expect(config.tokens.fontSizes).toEqual({ md: 16, lg: 18, xl: 20 });
+    expect(config.tokens?.fontSizes).toEqual({ md: 16, lg: 18, xl: 20 });
   });
 
   it('surfaces a text group added by a local theme in themed.text.*', () => {
@@ -69,9 +62,7 @@ describe('extendTheme / semanticTokens.text', () => {
     });
     const themed = createThemedStyles(config, 'light');
 
-    expectTypeOf(config.semanticTokens.text).toHaveProperty('caption');
-    expectTypeOf(themed.text.caption.sm).toBeFunction();
-    expectTypeOf(themed.text.display.lg).toBeFunction();
     expect(themed.text.caption.sm()).toEqual({ fontSize: 16 });
+    expect(themed.text.display.lg()).toEqual({ fontSize: 57, lineHeight: 64 });
   });
 });

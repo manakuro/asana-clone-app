@@ -1,4 +1,4 @@
-import type { TextStyle, ViewStyle } from 'react-native';
+import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import type {
   ColorKeys,
   FontSizeKeys,
@@ -6,7 +6,6 @@ import type {
   LetterSpacingKeys,
   LineHeightKeys,
   RadiusKeys,
-  ShadowStyleProps,
   SpacingKeys,
 } from './style-props';
 
@@ -23,9 +22,10 @@ export type ShadowToken = Pick<
 /**
  * One `role`/`size` entry in `semanticTokens.text` (Material Design 3
  * type-scale shape). Each field is either a key of the matching primitive
- * scale in `tokens` (e.g. `fontSize: 'lg'`) or a raw value. Keys are plain
- * `string` here because `ThemeConfig` is only a constraint; `createThemed`
- * checks them against the final config's scales (see `CheckTextRefs`).
+ * scale in `tokens` (e.g. `fontSize: 'lg'`) or a raw value. References are
+ * validated by `@react-native-themed/cli typegen` against the final config,
+ * since a partial theme may reference keys supplied by another theme it is
+ * later merged with.
  *
  * No `color`: typography and color are independent axes, combined by the
  * component-variant layer rather than baked into the type scale.
@@ -64,108 +64,64 @@ export type ThemeConfig = {
   };
 };
 
-type SemanticColorGroups = NonNullable<
-  NonNullable<ThemeConfig['semanticTokens']>['colors']
->;
+// ---------------------------------------------------------------------------
+// Schema — the slot the generated `themed.gen.ts` fills in
+// ---------------------------------------------------------------------------
 
-/** Valid `'group.token'` color paths for `T`, e.g. `'fg.default' | 'bg.subtle'`. */
-export type ColorToken<T extends ThemeConfig> = T['semanticTokens'] extends {
-  colors: infer Groups;
-}
-  ? Groups extends SemanticColorGroups
-    ? {
-        [Group in keyof Groups]: `${Group & string}.${keyof Groups[Group] & string}`;
-      }[keyof Groups]
-    : never
-  : never;
-
-export type RadiusToken<T extends ThemeConfig> = T['tokens'] extends {
-  radii: infer R;
-}
-  ? keyof R & string
-  : never;
-
-export type SpacingToken<T extends ThemeConfig> = T['tokens'] extends {
-  spacing: infer S;
-}
-  ? keyof S & (string | number)
-  : never;
-
-export type FontSizeToken<T extends ThemeConfig> = T['tokens'] extends {
-  fontSizes: infer F;
-}
-  ? keyof F & string
-  : never;
-
-export type FontWeightToken<T extends ThemeConfig> = T['tokens'] extends {
-  fontWeights: infer F;
-}
-  ? keyof F & string
-  : never;
-
-export type LineHeightToken<T extends ThemeConfig> = T['tokens'] extends {
-  lineHeights: infer L;
-}
-  ? keyof L & string
-  : never;
-
-export type LetterSpacingToken<T extends ThemeConfig> = T['tokens'] extends {
-  letterSpacings: infer L;
-}
-  ? keyof L & string
-  : never;
-
-/** Names in `tokens.shadows` — what the virtual `shadow` prop accepts. */
-export type ShadowPresetToken<T extends ThemeConfig> = T['tokens'] extends {
-  shadows: infer S;
-}
-  ? keyof S & string
-  : never;
-
-/** `TextToken` with its key fields narrowed to the scale keys `T` defines. */
-type TypedTextToken<T extends ThemeConfig> = {
-  fontSize?: FontSizeToken<T> | number;
-  lineHeight?: LineHeightToken<T> | number;
-  letterSpacing?: LetterSpacingToken<T> | number;
-  fontWeight?: FontWeightToken<T> | TextStyle['fontWeight'];
+/**
+ * Exact token types for one theme. Written by
+ * `@react-native-themed/cli typegen` from the evaluated config, never by
+ * hand, so core never has to infer token names from literal types.
+ */
+export type ThemedSchema = {
+  /**
+   * Every token-aware style prop (plus the virtual `shadow`). Each primitive
+   * only picks the props its RN style type actually has — see `TokenizeStyle`.
+   */
+  style: object;
+  /** `themed.text.<role>.<size>(override?)` */
+  textVariants: object;
+  /** `useThemed().tokens` */
+  tokens: object;
+  /** `useThemed().semanticTokens`, colors resolved for the current scheme. */
+  semanticTokens: object;
 };
 
 /**
- * Intersected with `createThemed`'s `config` so a `semanticTokens.text`
- * preset referencing a scale key `T` doesn't define (e.g. `fontSize: 'nope'`)
- * fails to compile. Checked there rather than in `defineTheme` because a
- * partial theme may legally reference keys supplied by another theme it is
- * later merged with; only the final config knows the full key set.
- */
-export type CheckTextRefs<T extends ThemeConfig> = T['semanticTokens'] extends {
-  text: infer Tx;
-}
-  ? {
-      semanticTokens: {
-        text: {
-          [Role in keyof Tx]: { [Size in keyof Tx[Role]]: TypedTextToken<T> };
-        };
-      };
-    }
-  : unknown;
-
-/**
- * Rewrites `S` (a `ViewStyle`/`TextStyle`/`ImageStyle`) so its token-bearing
- * properties accept a token name from `T` instead of a raw value.
+ * Swaps `Base`'s token-bearing props for the token-aware ones in `P`.
+ * `Omit` + `Pick` only — one level, no recursion. `Pick` is homomorphic, so
+ * the generated JSDoc (token tables) survives into editor hovers.
  *
- * - `color`/`radii`/`spacing` families are token-only — no raw-value
- *   fallback. A genuinely one-off value belongs in a second plain style
- *   object passed alongside this one in a `style` array, not squeezed
- *   through the token system. The one exception is `spacing`, which also
- *   takes `'auto'` and percentages since those are layout keywords rather
- *   than arbitrary sizes.
- * - `fontSize`/`fontWeight`/`lineHeight`/`letterSpacing` accept a token OR a
- *   raw value, asymmetric with the above.
- * - The virtual `shadow` prop only appears when `S` structurally has real
- *   shadow style props (e.g. `ViewStyle`), gated via `ShadowStyleProps`.
+ * Only props `Base` actually has are picked (e.g. no `color` on `View`); the
+ * virtual `shadow` prop is kept when `Base` has real shadow props.
  */
-export type TokenizeStyle<T extends ThemeConfig, S extends object> = Omit<
-  S,
+export type TokenizeStyle<Base, P> = Omit<Base, keyof P> &
+  Pick<
+    P,
+    Extract<
+      keyof P,
+      keyof Base | ('shadowColor' extends keyof Base ? 'shadow' : never)
+    >
+  >;
+
+export type ThemedStyles<S extends ThemedSchema> = {
+  /** Resolves token values in a `View` style. */
+  view: (style: TokenizeStyle<ViewStyle, S['style']>) => ViewStyle;
+  /** Resolves token values in an `Image` style. */
+  image: (style: TokenizeStyle<ImageStyle, S['style']>) => ImageStyle;
+  /**
+   * Resolves token values in a `Text` style. Typography presets are
+   * available as `themed.text.<role>.<size>(override?)`.
+   */
+  text: ((style?: TokenizeStyle<TextStyle, S['style']>) => TextStyle) &
+    S['textVariants'];
+};
+
+// ---------------------------------------------------------------------------
+// Fallback when typegen has not been run: usable, but no token names
+// ---------------------------------------------------------------------------
+
+type LooseTokenKeys =
   | ColorKeys
   | RadiusKeys
   | SpacingKeys
@@ -173,23 +129,22 @@ export type TokenizeStyle<T extends ThemeConfig, S extends object> = Omit<
   | FontWeightKeys
   | LineHeightKeys
   | LetterSpacingKeys
-> & {
-  [K in ColorKeys & keyof S]?: ColorToken<T>;
-} & {
-  [K in RadiusKeys & keyof S]?: RadiusToken<T>;
-} & {
-  [K in SpacingKeys & keyof S]?: SpacingToken<T> | 'auto' | `${number}%`;
-} & {
-  [K in FontSizeKeys & keyof S]?: FontSizeToken<T> | number;
-} & {
-  [K in FontWeightKeys & keyof S]?:
-    | FontWeightToken<T>
-    | TextStyle['fontWeight'];
-} & {
-  [K in LineHeightKeys & keyof S]?: LineHeightToken<T> | number;
-} & {
-  [K in LetterSpacingKeys & keyof S]?: LetterSpacingToken<T> | number;
-} & (Extract<ShadowStyleProps, keyof S> extends never
-    ? // biome-ignore lint/complexity/noBannedTypes: intentional "no extra prop" branch
-      {}
-    : { shadow?: ShadowPresetToken<T> });
+  | 'shadow';
+
+type LooseStyle = { [K in LooseTokenKeys]?: string | number };
+
+export type LooseSchema = {
+  style: LooseStyle;
+  textVariants: Record<
+    string,
+    Record<
+      string,
+      (override?: TokenizeStyle<TextStyle, LooseStyle>) => TextStyle
+    >
+  >;
+  tokens: NonNullable<ThemeConfig['tokens']>;
+  semanticTokens: {
+    colors: Record<string, Record<string, string>>;
+    text: NonNullable<NonNullable<ThemeConfig['semanticTokens']>['text']>;
+  };
+};
