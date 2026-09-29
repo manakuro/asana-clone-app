@@ -36,6 +36,7 @@ function Card() {
 - For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.
 - **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.
 - **Typography:** prefer the presets `themed.text.<role>.<size>(override?)`. `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
+- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.body.md({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.
 - **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.
 - Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.
 - Do not edit the generated files. Change the theme file and re-run the codegen command instead.
@@ -102,12 +103,12 @@ For `fontWeight`.
 
 ## Line heights
 
-For `lineHeight`.
+For `lineHeight`. Ratios of `fontSize`: a token resolves to `fontSize × ratio`, using the style's own `fontSize` or else the default font size, `md` (16). A raw number is an absolute line height.
 
 | token | value |
 |:--|--:|
-| `short` | 1.375 |
-| `moderate` | 1.5 |
+| `short` | ×1.375 |
+| `moderate` | ×1.5 |
 
 ## Letter spacings
 
@@ -141,7 +142,7 @@ Call as `themed.text.<role>.<size>(override?)`. The override is merged on top an
 
 | size | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
-| `md` | `sm` (14) | `moderate` (1.5) | – | – |
+| `md` | `sm` (14) | `moderate` (×1.5 → 21) | – | – |
 
 ## Primitive colors
 

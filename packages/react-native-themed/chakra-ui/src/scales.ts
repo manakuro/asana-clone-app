@@ -97,8 +97,9 @@ export const fontWeights = {
 } as const;
 
 /**
- * Line height scale, aligned with Chakra UI's lineHeights tokens (unitless
- * ratios, as Chakra defines them).
+ * Line height scale, aligned with Chakra UI's lineHeights tokens: unitless
+ * ratios, as Chakra defines them. `themed` resolves a token to
+ * `fontSize × ratio` (see `defaults.fontSize` for styles without a fontSize).
  */
 export const lineHeights = {
   shorter: 1.25,

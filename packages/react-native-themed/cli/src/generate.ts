@@ -12,6 +12,8 @@ import { code, jsdoc, member, table, typeLiteral, union } from './emit';
 import {
   buildModel,
   colorTable,
+  lineHeightNote,
+  lineHeightRows,
   PRESET_FIELDS,
   scaleTable,
   shadowTable,
@@ -75,6 +77,13 @@ export function generate({
     code(`tokens.${source}`),
     '',
     ...scaleTable(rows),
+  ];
+  const lineHeightDoc = [
+    lineHeightNote(model),
+    '',
+    code('tokens.lineHeights'),
+    '',
+    ...scaleTable(lineHeightRows(model)),
   ];
   const shadowDoc = [
     'Virtual prop: expands to `shadowColor` / `shadowOffset` / `shadowOpacity` / `shadowRadius` / `elevation`.',
@@ -176,7 +185,7 @@ ${props(RADIUS_KEYS, 'RadiusToken', scaleDoc('radii', model.radii))}
 ${props(SPACING_KEYS, SPACING_TYPE, scaleDoc('spacing', model.spacing))}
 ${props(FONT_SIZE_KEYS, 'FontSizeToken | number', scaleDoc('fontSizes', model.fontSizes))}
 ${props(FONT_WEIGHT_KEYS, "FontWeightToken | TextStyle['fontWeight']", scaleDoc('fontWeights', model.fontWeights))}
-${props(LINE_HEIGHT_KEYS, 'LineHeightToken | number', scaleDoc('lineHeights', model.lineHeights))}
+${props(LINE_HEIGHT_KEYS, 'LineHeightToken | number', lineHeightDoc)}
 ${props(LETTER_SPACING_KEYS, 'LetterSpacingToken | number', scaleDoc('letterSpacings', model.letterSpacings))}
 ${props(['shadow'], 'ShadowToken', shadowDoc)}
 }

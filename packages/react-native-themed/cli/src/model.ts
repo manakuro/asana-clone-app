@@ -1,7 +1,9 @@
-import type {
-  ShadowToken,
-  TextToken,
-  ThemeConfig,
+import {
+  RN_DEFAULT_FONT_SIZE,
+  resolveBaseFontSize,
+  type ShadowToken,
+  type TextToken,
+  type ThemeConfig,
 } from '@react-native-themed/core/config';
 import { code, orderedEntries, table } from './emit';
 
@@ -25,6 +27,8 @@ export type TokenModel = {
   primitiveColors: [string, string][];
   /** `semanticTokens.text`, each preset cell already rendered. */
   text: { role: string; sizes: { size: string; cells: string[] }[] }[];
+  /** `defaults.fontSize` resolved, for line-height ratios without a fontSize. */
+  baseFontSize: { value: number; label: string };
 };
 
 export const PRESET_FIELDS = [
@@ -44,16 +48,44 @@ export function buildModel(config: ThemeConfig): TokenModel {
     letterSpacing: tokens.letterSpacings,
     fontWeight: tokens.fontWeights,
   } as const;
-  /** `'lg'` -> `` `lg` (18) `` so a table shows what a reference means. */
+  const baseFontSize = resolveBaseFontSize(config);
+  const fontSizeOf = (preset: TextToken) => {
+    const { fontSize } = preset;
+    if (typeof fontSize === 'number') return fontSize;
+    const scale = tokens.fontSizes;
+    return typeof fontSize === 'string' &&
+      scale &&
+      Object.hasOwn(scale, fontSize)
+      ? scale[fontSize]
+      : baseFontSize;
+  };
+
+  /**
+   * `'lg'` -> `` `lg` (18) `` so a table shows what a reference means. A
+   * line-height token is a ratio, so it also shows the computed value:
+   * `` `short` (×1.375 → 24.75) ``.
+   */
   const presetCell = (preset: TextToken, field: keyof typeof scaleFor) => {
     const value = preset[field];
     if (value === undefined) return '–';
     const scale = scaleFor[field] as Record<string, unknown> | undefined;
     if (typeof value === 'string' && scale && Object.hasOwn(scale, value)) {
+      if (field === 'lineHeight') {
+        const ratio = scale[value] as number;
+        return `${code(value)} (×${ratio} → ${round2(fontSizeOf(preset) * ratio)})`;
+      }
       return `${code(value)} (${scale[value]})`;
     }
     return String(value);
   };
+
+  const baseKey = config.defaults?.fontSize;
+  const baseLabel =
+    typeof baseKey === 'string'
+      ? `${code(baseKey)} (${baseFontSize})`
+      : typeof baseKey === 'number'
+        ? String(baseKey)
+        : `${RN_DEFAULT_FONT_SIZE} (React Native default)`;
 
   return {
     colors: Object.entries(config.semanticTokens?.colors ?? {}).flatMap(
@@ -83,7 +115,20 @@ export function buildModel(config: ThemeConfig): TokenModel {
         })),
       }),
     ),
+    baseFontSize: { value: baseFontSize, label: baseLabel },
   };
+}
+
+const round2 = (value: number) => Math.round(value * 100) / 100;
+
+/** Line heights are ratios of `fontSize`; show them as `×1.375`. */
+export function lineHeightRows(model: TokenModel): [string, string][] {
+  return model.lineHeights.map(([k, v]) => [k, `×${v}`]);
+}
+
+/** One sentence explaining how a line-height token resolves. */
+export function lineHeightNote(model: TokenModel): string {
+  return `Ratios of \`fontSize\`: a token resolves to \`fontSize × ratio\`, using the style's own \`fontSize\` or else the default font size, ${model.baseFontSize.label}. A raw number is an absolute line height.`;
 }
 
 // ---------------------------------------------------------------------------

@@ -3,13 +3,16 @@ import {
   type ColorScheme,
   createColorResolver,
 } from './resolvers/color-resolver';
+import {
+  createLineHeightResolver,
+  resolveBaseFontSize,
+} from './resolvers/line-height-resolver';
 import { createScaleResolver } from './resolvers/scale-resolver';
 import { createShadowResolver } from './resolvers/shadow-resolver';
 import {
   FONT_SIZE_KEYS,
   FONT_WEIGHT_KEYS,
   LETTER_SPACING_KEYS,
-  LINE_HEIGHT_KEYS,
   RADIUS_KEYS,
   SPACING_KEYS,
 } from './style-props';
@@ -45,9 +48,10 @@ export function createThemedStyles<S extends ThemedSchema = LooseSchema>(
     FONT_WEIGHT_KEYS,
     tokens.fontWeights,
   );
-  const resolveLineHeight = createScaleResolver(
-    LINE_HEIGHT_KEYS,
+  // Ratio tokens need the resolved fontSize, so this runs after it.
+  const resolveLineHeight = createLineHeightResolver(
     tokens.lineHeights,
+    resolveBaseFontSize(config),
   );
   const resolveLetterSpacing = createScaleResolver(
     LETTER_SPACING_KEYS,

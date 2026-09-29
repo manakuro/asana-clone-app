@@ -26,6 +26,11 @@ export const chakraUiTheme = defineTheme({
   semanticTokens: {
     colors: semanticColors,
   },
+  // Chakra's body text size; `lineHeights` are ratios of it when a style has
+  // no `fontSize` of its own.
+  defaults: {
+    fontSize: 'md',
+  },
 });
 
 export type { Colors, ColorTokenKey } from './colors';

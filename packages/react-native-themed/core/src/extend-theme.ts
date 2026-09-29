@@ -77,9 +77,11 @@ function mergeSemanticTokens(
 }
 
 function mergeThemeConfig(a: ThemeConfig, b: ThemeConfig): ThemeConfig {
+  const defaults = mergeFlat(a.defaults, b.defaults);
   return {
     tokens: mergeTokens(a.tokens, b.tokens),
     semanticTokens: mergeSemanticTokens(a.semanticTokens, b.semanticTokens),
+    ...(defaults ? { defaults } : {}),
   };
 }
 

@@ -43,4 +43,19 @@ describe('validateTheme', () => {
       "semanticTokens.colors.fg.default: must define both 'light' and 'dark' strings",
     ]);
   });
+
+  it('rejects a defaults.fontSize that is not a fontSizes key', () => {
+    expect(
+      validateTheme({
+        tokens: { fontSizes: { md: 16 } },
+        defaults: { fontSize: 'base' },
+      }),
+    ).toEqual(["defaults.fontSize: 'base' is not a key of tokens.fontSizes"]);
+    expect(
+      validateTheme({
+        tokens: { fontSizes: { md: 16 } },
+        defaults: { fontSize: 'md' },
+      }),
+    ).toEqual([]);
+  });
 });

@@ -62,6 +62,16 @@ export function validateTheme(config: ThemeConfig): string[] {
     }
   }
 
+  const baseFontSize = config.defaults?.fontSize;
+  if (
+    typeof baseFontSize === 'string' &&
+    !(tokens.fontSizes && Object.hasOwn(tokens.fontSizes, baseFontSize))
+  ) {
+    problems.push(
+      `defaults.fontSize: '${baseFontSize}' is not a key of tokens.fontSizes`,
+    );
+  }
+
   for (const [group, colors] of Object.entries(
     config.semanticTokens?.colors ?? {},
   )) {

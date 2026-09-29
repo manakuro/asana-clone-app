@@ -585,12 +585,14 @@ export interface ThemedStyleProps {
    */
   fontWeight?: FontWeightToken | TextStyle['fontWeight'];
   /**
+   * Ratios of `fontSize`: a token resolves to `fontSize × ratio`, using the style's own `fontSize` or else the default font size, `md` (16). A raw number is an absolute line height.
+   *
    * `tokens.lineHeights`
    *
    * | token | value |
    * |:--|--:|
-   * | `short` | 1.375 |
-   * | `moderate` | 1.5 |
+   * | `short` | ×1.375 |
+   * | `moderate` | ×1.5 |
    */
   lineHeight?: LineHeightToken | number;
   /**
@@ -654,7 +656,7 @@ export interface ThemedTextVariants {
    *
    * | size | fontSize | lineHeight | letterSpacing | fontWeight |
    * |:--|--:|--:|--:|--:|
-   * | `md` | `sm` (14) | `moderate` (1.5) | – | – |
+   * | `md` | `sm` (14) | `moderate` (×1.5 → 21) | – | – |
    */
   body: {
     /**
@@ -662,7 +664,7 @@ export interface ThemedTextVariants {
      *
      * | fontSize | lineHeight | letterSpacing | fontWeight |
      * |--:|--:|--:|--:|
-     * | `sm` (14) | `moderate` (1.5) | – | – |
+     * | `sm` (14) | `moderate` (×1.5 → 21) | – | – |
      */
     md: TextVariant;
   };

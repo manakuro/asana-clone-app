@@ -52,4 +52,6 @@ const typography = defineTheme({
   },
 });
 
-export const themeConfig = extendTheme(scales, typography);
+export const themeConfig = extendTheme(scales, typography, {
+  defaults: { fontSize: 'md' },
+});

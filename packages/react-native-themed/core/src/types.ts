@@ -31,9 +31,16 @@ export type ShadowToken = Pick<
  * component-variant layer rather than baked into the type scale.
  */
 export type TextToken = {
+  /** A `tokens.fontSizes` key (`'lg'`) or a raw size (`18`). */
   fontSize?: string | number;
+  /**
+   * A `tokens.lineHeights` key (`'short'` — a ratio of `fontSize`) or a raw,
+   * absolute line height (`24`).
+   */
   lineHeight?: string | number;
+  /** A `tokens.letterSpacings` key (`'wide'`) or a raw value (`0.15`). */
   letterSpacing?: string | number;
+  /** A `tokens.fontWeights` key (`'semibold'`) or a raw RN weight (`'600'`). */
   fontWeight?: string | TextStyle['fontWeight'];
 };
 
@@ -45,22 +52,137 @@ export type TextToken = {
  * UI's `tokens` vs `semanticTokens` distinction.
  */
 export type ThemeConfig = {
+  /**
+   * Primitive, scheme-independent values. Keys are the token names used in
+   * styles (`themed.view({ padding: 4 })`).
+   */
   tokens?: {
+    /**
+     * Fixed colors, read via `useThemed().tokens.colors`. Not accepted by
+     * `themed.*()` — styles use `semanticTokens.colors`.
+     *
+     * @example
+     * colors: { white: '#ffffff', 'gray.50': '#fafafa', 'gray.950': '#111111' }
+     */
     colors?: Record<string, string>;
+    /**
+     * For `borderRadius` and every corner-radius variant.
+     *
+     * @example
+     * radii: { none: 0, sm: 4, md: 6, lg: 8, full: 9999 }
+     */
     radii?: Record<string, number>;
+    /**
+     * For `padding*`, `margin*`, `gap`, `rowGap` and `columnGap`. Numeric
+     * keys are used as numbers: `themed.view({ padding: 4 })`.
+     *
+     * @example
+     * spacing: { px: 1, 0: 0, 0.5: 2, 1: 4, 2: 8, 4: 16 }
+     */
     spacing?: Record<string, number>;
+    /**
+     * For `fontSize`.
+     *
+     * @example
+     * fontSizes: { sm: 14, md: 16, lg: 18, xl: 20 }
+     */
     fontSizes?: Record<string, number>;
+    /**
+     * For `fontWeight`.
+     *
+     * @example
+     * fontWeights: { normal: '400', medium: '500', semibold: '600', bold: '700' }
+     */
     fontWeights?: Record<string, TextStyle['fontWeight']>;
+    /**
+     * For `lineHeight`, as **ratios of `fontSize`** (like CSS unitless
+     * line-height). A token resolves to `fontSize × ratio`, using the
+     * `fontSize` in the same style or else `defaults.fontSize`. A raw number
+     * passed to `lineHeight` stays an absolute value, as in React Native.
+     *
+     * @example
+     * lineHeights: { shorter: 1.25, short: 1.375, moderate: 1.5, tall: 1.625 }
+     * // themed.text({ fontSize: 'lg', lineHeight: 'short' })
+     * // → { fontSize: 18, lineHeight: 24.75 }
+     */
     lineHeights?: Record<string, number>;
+    /**
+     * For `letterSpacing`, in points.
+     *
+     * @example
+     * letterSpacings: { tight: -0.4, normal: 0, wide: 0.4 }
+     */
     letterSpacings?: Record<string, number>;
+    /**
+     * Not a style prop; read via `useThemed().tokens.zIndices`.
+     *
+     * @example
+     * zIndices: { base: 0, dropdown: 1000, modal: 1400, toast: 1700 }
+     */
     zIndices?: Record<string, number>;
+    /**
+     * Presets for the virtual `shadow` prop, which expands to these RN props.
+     *
+     * @example
+     * shadows: {
+     *   sm: {
+     *     shadowColor: '#000000',
+     *     shadowOffset: { width: 0, height: 1 },
+     *     shadowOpacity: 0.1,
+     *     shadowRadius: 2,
+     *     elevation: 2,
+     *   },
+     * }
+     */
     shadows?: Record<string, ShadowToken>;
   };
+  /** Role-named values built on top of `tokens`. */
   semanticTokens?: {
-    /** group -> token -> scheme, e.g. `colors.fg.default.light`. */
+    /**
+     * group -> token -> scheme. Used in styles as `'group.token'`
+     * (`themed.view({ backgroundColor: 'bg.subtle' })`) and switched with
+     * the current light/dark scheme.
+     *
+     * @example
+     * colors: {
+     *   bg: {
+     *     default: { light: '#ffffff', dark: '#111111' },
+     *     subtle: { light: '#fafafa', dark: '#18181b' },
+     *   },
+     *   fg: {
+     *     default: { light: '#111111', dark: '#fafafa' },
+     *   },
+     * }
+     */
     colors?: Record<string, Record<string, { light: string; dark: string }>>;
-    /** role -> size -> style, e.g. `text.title.md`. */
+    /**
+     * role -> size -> typography preset, used as
+     * `themed.text.<role>.<size>(override?)`. Fields reference `tokens`
+     * keys or take raw values (see `TextToken`).
+     *
+     * @example
+     * text: {
+     *   title: {
+     *     md: { fontSize: 'md', lineHeight: 'moderate', fontWeight: 'semibold' },
+     *     sm: { fontSize: 14, lineHeight: 20, fontWeight: '500' },
+     *   },
+     * }
+     */
     text?: Record<string, Record<string, TextToken>>;
+  };
+  /** Theme-wide defaults. */
+  defaults?: {
+    /**
+     * The base font size: a `tokens.fontSizes` key or a raw size. Used to
+     * resolve a `lineHeight` token when the style has no `fontSize` of its
+     * own. Falls back to 14 (React Native's default) when unset.
+     *
+     * @example
+     * defaults: { fontSize: 'md' }
+     * // with fontSizes.md = 16:
+     * // themed.text({ lineHeight: 'short' }) → { lineHeight: 22 } (16 × 1.375)
+     */
+    fontSize?: string | number;
   };
 };
 

@@ -2764,15 +2764,17 @@ export interface ThemedStyleProps {
    */
   fontWeight?: FontWeightToken | TextStyle['fontWeight'];
   /**
+   * Ratios of `fontSize`: a token resolves to `fontSize × ratio`, using the style's own `fontSize` or else the default font size, `md` (16). A raw number is an absolute line height.
+   *
    * `tokens.lineHeights`
    *
    * | token | value |
    * |:--|--:|
-   * | `shorter` | 1.25 |
-   * | `short` | 1.375 |
-   * | `moderate` | 1.5 |
-   * | `tall` | 1.625 |
-   * | `taller` | 2 |
+   * | `shorter` | ×1.25 |
+   * | `short` | ×1.375 |
+   * | `moderate` | ×1.5 |
+   * | `tall` | ×1.625 |
+   * | `taller` | ×2 |
    */
   lineHeight?: LineHeightToken | number;
   /**

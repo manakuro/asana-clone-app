@@ -76,7 +76,7 @@ describe('createThemedStyles / themed.text.<role>.<size>', () => {
     expect(themed.text.title.md()).toEqual({
       fontSize: 18,
       fontWeight: '600',
-      lineHeight: 1.375,
+      lineHeight: 24.75, // 18 × 1.375
       letterSpacing: 0.4,
     });
   });
@@ -94,7 +94,7 @@ describe('createThemedStyles / themed.text.<role>.<size>', () => {
       {
         fontSize: 16,
         fontWeight: '700',
-        lineHeight: 1.375,
+        lineHeight: 22, // recomputed for the overridden fontSize: 16 × 1.375
         letterSpacing: 0.4,
       },
     );
@@ -102,5 +102,48 @@ describe('createThemedStyles / themed.text.<role>.<size>', () => {
 
   it('keeps themed.text callable without a preset', () => {
     expect(themed.text({ color: 'fg.default' })).toEqual({ color: '#111' });
+  });
+});
+
+describe('createThemedStyles / lineHeight ratios', () => {
+  it('multiplies a lineHeight token by the fontSize in the same style', () => {
+    const themed = createThemedStyles(config, 'light');
+    expect(themed.text({ fontSize: 'md', lineHeight: 'short' })).toEqual({
+      fontSize: 16,
+      lineHeight: 22,
+    });
+    expect(themed.text({ fontSize: 20, lineHeight: 'short' })).toEqual({
+      fontSize: 20,
+      lineHeight: 27.5,
+    });
+  });
+
+  it('keeps a raw lineHeight number absolute', () => {
+    const themed = createThemedStyles(config, 'light');
+    expect(themed.text({ fontSize: 'lg', lineHeight: 30 })).toEqual({
+      fontSize: 18,
+      lineHeight: 30,
+    });
+  });
+
+  it('falls back to defaults.fontSize (a fontSizes key or a number)', () => {
+    const byKey = createThemedStyles(
+      defineTheme({ ...config, defaults: { fontSize: 'lg' } }),
+      'light',
+    );
+    expect(byKey.text({ lineHeight: 'short' })).toEqual({ lineHeight: 24.75 });
+
+    const byNumber = createThemedStyles(
+      defineTheme({ ...config, defaults: { fontSize: 12 } }),
+      'light',
+    );
+    expect(byNumber.text({ lineHeight: 'short' })).toEqual({
+      lineHeight: 16.5,
+    });
+  });
+
+  it("falls back to React Native's default (14) without defaults", () => {
+    const themed = createThemedStyles(config, 'light');
+    expect(themed.text({ lineHeight: 'short' })).toEqual({ lineHeight: 19.25 });
   });
 });

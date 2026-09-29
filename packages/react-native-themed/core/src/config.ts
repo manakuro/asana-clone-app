@@ -8,6 +8,10 @@
 export { defineTheme } from './define-theme';
 export { extendTheme } from './extend-theme';
 export {
+  RN_DEFAULT_FONT_SIZE,
+  resolveBaseFontSize,
+} from './resolvers/line-height-resolver';
+export {
   COLOR_KEYS,
   FONT_SIZE_KEYS,
   FONT_WEIGHT_KEYS,

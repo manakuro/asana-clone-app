@@ -3,6 +3,8 @@ import { code, table } from './emit';
 import {
   buildModel,
   colorTable,
+  lineHeightNote,
+  lineHeightRows,
   scaleTable,
   shadowTable,
   type TokenModel,
@@ -81,6 +83,7 @@ function usageSection(model: TokenModel, genFile: string): Section {
       '- For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.',
       "- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.",
       '- **Typography:** prefer the presets `themed.text.<role>.<size>(override?)`. `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.',
+      "- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.body.md({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.",
       '- **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.',
       '- Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.',
       '- Do not edit the generated files. Change the theme file and re-run the codegen command instead.',
@@ -186,7 +189,11 @@ export function generateDocs({
     ),
     scaleSection('Font sizes', 'For `fontSize`.', model.fontSizes),
     scaleSection('Font weights', 'For `fontWeight`.', model.fontWeights),
-    scaleSection('Line heights', 'For `lineHeight`.', model.lineHeights),
+    scaleSection(
+      'Line heights',
+      `For \`lineHeight\`. ${lineHeightNote(model)}`,
+      lineHeightRows(model),
+    ),
     scaleSection(
       'Letter spacings',
       'For `letterSpacing`.',

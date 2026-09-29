@@ -66,3 +66,18 @@ describe('extendTheme / semanticTokens.text', () => {
     expect(themed.text.display.lg()).toEqual({ fontSize: 57, lineHeight: 64 });
   });
 });
+
+describe('extendTheme / defaults', () => {
+  it('merges defaults with later themes winning', () => {
+    expect(
+      extendTheme(baseTheme, { defaults: { fontSize: 'md' } }).defaults,
+    ).toEqual({ fontSize: 'md' });
+    expect(
+      extendTheme(
+        { defaults: { fontSize: 'md' } },
+        { defaults: { fontSize: 18 } },
+      ).defaults,
+    ).toEqual({ fontSize: 18 });
+    expect(extendTheme(baseTheme, {})).not.toHaveProperty('defaults');
+  });
+});
