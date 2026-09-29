@@ -49,6 +49,33 @@ describe('codegen', () => {
     );
   });
 
+  it('also writes the docs when requested', async () => {
+    const outFile = tmpOut();
+    const docsFile = path.join(path.dirname(outFile), 'docs/themed.md');
+    const events: string[] = [];
+
+    const result = await codegen(
+      { themeFile: fixtureTheme, outFile, docsFile },
+      { docsWritten: ({ changed }) => events.push(`docs:${changed}`) },
+    );
+
+    expect(events).toEqual(['docs:true']);
+    expect(result.docs).toEqual({ file: docsFile, changed: true });
+    expect(readFileSync(docsFile, 'utf8')).toContain('# Theme tokens');
+    expect(readFileSync(outFile, 'utf8')).toMatch(/--docs .*docs\/themed\.md/);
+
+    const again = await codegen({ themeFile: fixtureTheme, outFile, docsFile });
+    expect(again.docs?.changed).toBe(false);
+  });
+
+  it('writes no docs unless asked', async () => {
+    const result = await codegen({
+      themeFile: fixtureTheme,
+      outFile: tmpOut(),
+    });
+    expect(result.docs).toBeUndefined();
+  });
+
   it('skips the write when the output is already up to date', async () => {
     const outFile = tmpOut();
     await codegen({ themeFile: fixtureTheme, outFile });

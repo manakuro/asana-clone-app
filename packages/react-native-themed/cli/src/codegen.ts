@@ -1,6 +1,7 @@
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import type { ThemeConfig } from '@react-native-themed/core/config';
+import { generateDocs } from './docs';
 import { generate } from './generate';
 import { loadTheme } from './load-theme';
 import { validateTheme } from './validate';
@@ -14,6 +15,8 @@ export type CodegenOptions = {
   exportName?: string;
   /** Core module specifier used by the generated file. */
   coreSpecifier?: string;
+  /** Also write the Markdown token reference here (opt-in). */
+  docsFile?: string;
   cwd?: string;
 };
 
@@ -36,6 +39,8 @@ export type CodegenResult = {
   counts: TokenCounts;
   /** `false` when the output was already up to date (nothing written). */
   changed: boolean;
+  /** Present when `docsFile` was requested. */
+  docs?: { file: string; changed: boolean };
 };
 
 /** Which step failed, so the CLI can say where things went wrong. */
@@ -60,6 +65,7 @@ export type CodegenReporter = {
   loaded?: (info: { themeFile: string; exportName: string }) => void;
   validated?: (counts: TokenCounts) => void;
   written?: (info: { outFile: string; changed: boolean }) => void;
+  docsWritten?: (info: { docsFile: string; changed: boolean }) => void;
 };
 
 const size = (table: object | undefined) => Object.keys(table ?? {}).length;
@@ -90,6 +96,22 @@ function importSpecifier(fromFile: string, toFile: string): string {
     .join('/')
     .replace(/\.[cm]?[jt]sx?$/, '');
   return rel.startsWith('.') ? rel : `./${rel}`;
+}
+
+/** Writes only when the content differs; returns whether it wrote. */
+function writeIfChanged(file: string, content: string): boolean {
+  const current = existsSync(file) ? readFileSync(file, 'utf8') : null;
+  if (current === content) return false;
+  try {
+    mkdirSync(path.dirname(file), { recursive: true });
+    writeFileSync(file, content);
+  } catch (error) {
+    throw new CodegenError(
+      'write',
+      error instanceof Error ? error.message : String(error),
+    );
+  }
+  return true;
 }
 
 /**
@@ -133,29 +155,38 @@ export async function codegen(
   reporter.validated?.(counts);
 
   // --- generate & write -----------------------------------------------------
+  const toPosix = (file: string) =>
+    path.relative(cwd, file).split(path.sep).join('/');
+  const command = [
+    'react-native-themed codegen',
+    toPosix(themeFile),
+    ...(options.outFile ? ['--out', toPosix(outFile)] : []),
+    ...(options.docsFile
+      ? ['--docs', toPosix(path.resolve(cwd, options.docsFile))]
+      : []),
+  ].join(' ');
+
   const source = generate({
     config,
     themeImport: { specifier: importSpecifier(outFile, themeFile), exportName },
     coreSpecifier: options.coreSpecifier,
-    command: `react-native-themed codegen ${path
-      .relative(cwd, themeFile)
-      .split(path.sep)
-      .join('/')}`,
+    command,
   });
-
-  const current = existsSync(outFile) ? readFileSync(outFile, 'utf8') : null;
-  const changed = current !== source;
-  if (changed) {
-    try {
-      writeFileSync(outFile, source);
-    } catch (error) {
-      throw new CodegenError(
-        'write',
-        error instanceof Error ? error.message : String(error),
-      );
-    }
-  }
+  const changed = writeIfChanged(outFile, source);
   reporter.written?.({ outFile, changed });
 
-  return { themeFile, exportName, outFile, counts, changed };
+  let docs: CodegenResult['docs'];
+  if (options.docsFile) {
+    const docsFile = path.resolve(cwd, options.docsFile);
+    const markdown = generateDocs({
+      config,
+      themeFile: toPosix(themeFile),
+      genFile: toPosix(outFile),
+      command,
+    });
+    docs = { file: docsFile, changed: writeIfChanged(docsFile, markdown) };
+    reporter.docsWritten?.({ docsFile, changed: docs.changed });
+  }
+
+  return { themeFile, exportName, outFile, counts, changed, docs };
 }

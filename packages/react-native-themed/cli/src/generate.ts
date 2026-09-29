@@ -6,18 +6,17 @@ import {
   LINE_HEIGHT_KEYS,
   RADIUS_KEYS,
   SPACING_KEYS,
-  type TextToken,
   type ThemeConfig,
 } from '@react-native-themed/core/config';
+import { code, jsdoc, member, table, typeLiteral, union } from './emit';
 import {
-  code,
-  jsdoc,
-  member,
-  orderedEntries,
-  table,
-  typeLiteral,
-  union,
-} from './emit';
+  buildModel,
+  colorTable,
+  PRESET_FIELDS,
+  scaleTable,
+  shadowTable,
+  textRoleTable,
+} from './model';
 
 export type GenerateOptions = {
   config: ThemeConfig;
@@ -57,21 +56,8 @@ export function generate({
   const tokens = config.tokens ?? {};
   const semanticColors = config.semanticTokens?.colors ?? {};
   const semanticText = config.semanticTokens?.text ?? {};
+  const model = buildModel(config);
 
-  // --- token names, in display order ---------------------------------------
-  const colorRows = Object.entries(semanticColors).flatMap(([group, names]) =>
-    Object.entries(names).map(
-      ([name, v]) => [`${group}.${name}`, v.light, v.dark] as const,
-    ),
-  );
-  const byValue = (v: number) => v;
-  const radii = orderedEntries(tokens.radii, byValue);
-  const spacing = orderedEntries(tokens.spacing, byValue);
-  const fontSizes = orderedEntries(tokens.fontSizes, byValue);
-  const fontWeights = orderedEntries(tokens.fontWeights, (v) => Number(v) || 0);
-  const lineHeights = orderedEntries(tokens.lineHeights, byValue);
-  const letterSpacings = orderedEntries(tokens.letterSpacings, byValue);
-  const shadows = Object.entries(tokens.shadows ?? {});
   const typeAlias = (name: string, names: string[]) => {
     const body = union(names);
     return `export type ${name} =${body.startsWith('\n') ? '' : ' '}${body};`;
@@ -83,38 +69,19 @@ export function generate({
   const colorDoc = [
     code('semanticTokens.colors'),
     '',
-    ...table(
-      ['token', 'light', 'dark'],
-      ['left', 'left', 'left'],
-      colorRows.map(([k, light, dark]) => [code(k), light, dark]),
-    ),
+    ...colorTable(model.colors),
   ];
   const scaleDoc = (source: string, rows: [string, unknown][]) => [
     code(`tokens.${source}`),
     '',
-    ...table(
-      ['token', 'value'],
-      ['left', 'right'],
-      rows.map(([k, v]) => [code(k), String(v)]),
-    ),
+    ...scaleTable(rows),
   ];
   const shadowDoc = [
     'Virtual prop: expands to `shadowColor` / `shadowOffset` / `shadowOpacity` / `shadowRadius` / `elevation`.',
     '',
     code('tokens.shadows'),
     '',
-    ...table(
-      ['token', 'offset (x, y)', 'radius', 'opacity', 'elevation', 'color'],
-      ['left', 'right', 'right', 'right', 'right', 'left'],
-      shadows.map(([k, s]) => [
-        code(k),
-        `${s.shadowOffset?.width ?? 0}, ${s.shadowOffset?.height ?? 0}`,
-        String(s.shadowRadius ?? '–'),
-        String(s.shadowOpacity ?? '–'),
-        String(s.elevation ?? '–'),
-        String(s.shadowColor ?? '–'),
-      ]),
-    ),
+    ...shadowTable(model.shadows),
   ];
 
   const props = (names: readonly string[], type: string, doc: string[]) =>
@@ -123,54 +90,28 @@ export function generate({
       .join('\n');
 
   // --- typography presets ---------------------------------------------------
-  const scaleFor = {
-    fontSize: tokens.fontSizes,
-    lineHeight: tokens.lineHeights,
-    letterSpacing: tokens.letterSpacings,
-    fontWeight: tokens.fontWeights,
-  } as const;
-  const presetFields = Object.keys(scaleFor) as (keyof typeof scaleFor)[];
-  /** `'lg'` -> `` `lg` (18) `` so the table shows what a reference means. */
-  const presetCell = (preset: TextToken, field: keyof typeof scaleFor) => {
-    const value = preset[field];
-    if (value === undefined) return '–';
-    const scale = scaleFor[field] as Record<string, unknown> | undefined;
-    if (typeof value === 'string' && scale && Object.hasOwn(scale, value)) {
-      return `${code(value)} (${scale[value]})`;
-    }
-    return String(value);
-  };
-
-  const variants = Object.entries(semanticText)
-    .map(([role, sizes]) => {
-      const sizeEntries = Object.entries(sizes);
+  const variants = model.text
+    .map((role) => {
       const roleDoc = [
-        code(`semanticTokens.text.${role}`),
+        code(`semanticTokens.text.${role.role}`),
         '',
-        ...table(
-          ['size', ...presetFields],
-          ['left', 'right', 'right', 'right', 'right'],
-          sizeEntries.map(([size, p]) => [
-            code(size),
-            ...presetFields.map((f) => presetCell(p, f)),
-          ]),
-        ),
+        ...textRoleTable(role),
       ];
-      const sizeMembers = sizeEntries
-        .map(([size, p]) => {
+      const sizeMembers = role.sizes
+        .map(({ size, cells }) => {
           const doc = [
-            code(`semanticTokens.text.${role}.${size}`),
+            code(`semanticTokens.text.${role.role}.${size}`),
             '',
             ...table(
-              presetFields,
+              [...PRESET_FIELDS],
               ['right', 'right', 'right', 'right'],
-              [presetFields.map((f) => presetCell(p, f))],
+              [cells],
             ),
           ];
           return `${jsdoc(doc, INDENT.repeat(2))}\n${INDENT.repeat(2)}${member(size)}: TextVariant;`;
         })
         .join('\n');
-      return `${jsdoc(roleDoc, INDENT)}\n${INDENT}${member(role)}: {\n${sizeMembers}\n${INDENT}};`;
+      return `${jsdoc(roleDoc, INDENT)}\n${INDENT}${member(role.role)}: {\n${sizeMembers}\n${INDENT}};`;
     })
     .join('\n');
 
@@ -212,14 +153,17 @@ ${themeImportLine}
 // Token names
 // ---------------------------------------------------------------------------
 
-${typeAlias('ColorToken', keys(colorRows))}
-${typeAlias('RadiusToken', keys(radii))}
-${typeAlias('SpacingToken', keys(spacing))}
-${typeAlias('FontSizeToken', keys(fontSizes))}
-${typeAlias('FontWeightToken', keys(fontWeights))}
-${typeAlias('LineHeightToken', keys(lineHeights))}
-${typeAlias('LetterSpacingToken', keys(letterSpacings))}
-${typeAlias('ShadowToken', keys(shadows))}
+${typeAlias(
+  'ColorToken',
+  model.colors.map((c) => c.token),
+)}
+${typeAlias('RadiusToken', keys(model.radii))}
+${typeAlias('SpacingToken', keys(model.spacing))}
+${typeAlias('FontSizeToken', keys(model.fontSizes))}
+${typeAlias('FontWeightToken', keys(model.fontWeights))}
+${typeAlias('LineHeightToken', keys(model.lineHeights))}
+${typeAlias('LetterSpacingToken', keys(model.letterSpacings))}
+${typeAlias('ShadowToken', keys(model.shadows))}
 
 // ---------------------------------------------------------------------------
 // Token-aware style props. Each primitive picks the ones its RN style type
@@ -228,12 +172,12 @@ ${typeAlias('ShadowToken', keys(shadows))}
 
 export interface ThemedStyleProps {
 ${props(COLOR_KEYS, 'ColorToken', colorDoc)}
-${props(RADIUS_KEYS, 'RadiusToken', scaleDoc('radii', radii))}
-${props(SPACING_KEYS, SPACING_TYPE, scaleDoc('spacing', spacing))}
-${props(FONT_SIZE_KEYS, 'FontSizeToken | number', scaleDoc('fontSizes', fontSizes))}
-${props(FONT_WEIGHT_KEYS, "FontWeightToken | TextStyle['fontWeight']", scaleDoc('fontWeights', fontWeights))}
-${props(LINE_HEIGHT_KEYS, 'LineHeightToken | number', scaleDoc('lineHeights', lineHeights))}
-${props(LETTER_SPACING_KEYS, 'LetterSpacingToken | number', scaleDoc('letterSpacings', letterSpacings))}
+${props(RADIUS_KEYS, 'RadiusToken', scaleDoc('radii', model.radii))}
+${props(SPACING_KEYS, SPACING_TYPE, scaleDoc('spacing', model.spacing))}
+${props(FONT_SIZE_KEYS, 'FontSizeToken | number', scaleDoc('fontSizes', model.fontSizes))}
+${props(FONT_WEIGHT_KEYS, "FontWeightToken | TextStyle['fontWeight']", scaleDoc('fontWeights', model.fontWeights))}
+${props(LINE_HEIGHT_KEYS, 'LineHeightToken | number', scaleDoc('lineHeights', model.lineHeights))}
+${props(LETTER_SPACING_KEYS, 'LetterSpacingToken | number', scaleDoc('letterSpacings', model.letterSpacings))}
 ${props(['shadow'], 'ShadowToken', shadowDoc)}
 }
 

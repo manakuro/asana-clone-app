@@ -9,6 +9,8 @@ Generates typed \`themed\` bindings (themed.gen.ts) from a theme config.
 
 Options:
   -o, --out <file>      Output file (default: <theme-dir>/themed.gen.ts)
+  -d, --docs <file>     Also write a Markdown token reference for AI
+                        agents and humans (e.g. docs/themed.md)
   -e, --export <name>   Export holding the config (default: the default
                         export, or the only ThemeConfig-looking export)
       --core <module>   Core module specifier used by the generated file
@@ -49,6 +51,7 @@ const parseCodegenArgs = (args: string[]) =>
     allowPositionals: true,
     options: {
       out: { type: 'string', short: 'o' },
+      docs: { type: 'string', short: 'd' },
       export: { type: 'string', short: 'e' },
       core: { type: 'string' },
       help: { type: 'boolean', short: 'h' },
@@ -84,6 +87,7 @@ async function runCodegen(args: string[]): Promise<void> {
         outFile: values.out,
         exportName: values.export,
         coreSpecifier: values.core,
+        docsFile: values.docs,
       },
       {
         loaded: ({ themeFile, exportName }) =>
@@ -97,6 +101,12 @@ async function runCodegen(args: string[]): Promise<void> {
             changed
               ? `✅ Generated ${display(outFile)}`
               : `⏭️  ${display(outFile)} ${dim('is up to date')}`,
+          ),
+        docsWritten: ({ docsFile, changed }) =>
+          p.log.step(
+            changed
+              ? `✅ Generated ${display(docsFile)}`
+              : `⏭️  ${display(docsFile)} ${dim('is up to date')}`,
           ),
       },
     );

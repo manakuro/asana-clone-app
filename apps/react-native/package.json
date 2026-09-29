@@ -17,7 +17,7 @@
     "codegen:ci": "graphql-codegen --config codegen.ts",
     "env:pull": "eas env:pull --environment development",
     "tsc": "tsc",
-    "themed:codegen": "react-native-themed codegen src/theme/themed/theme.ts",
+    "themed:codegen": "react-native-themed codegen src/theme/themed/theme.ts --docs docs/themed.md",
     "prepare": "pnpm themed:codegen"
   },
   "dependencies": {
