@@ -1,6 +1,9 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import type { ThemeConfig } from '@react-native-themed/core/config';
+import {
+  type ThemeConfig,
+  walkTextPresets,
+} from '@react-native-themed/core/config';
 import { generateDocs } from './docs';
 import { generate } from './generate';
 import { loadTheme } from './load-theme';
@@ -70,6 +73,14 @@ export type CodegenReporter = {
 
 const size = (table: object | undefined) => Object.keys(table ?? {}).length;
 
+function countPresets(config: ThemeConfig): number {
+  let count = 0;
+  walkTextPresets(config.semanticTokens?.text, () => {
+    count += 1;
+  });
+  return count;
+}
+
 export function countTokens(config: ThemeConfig): TokenCounts {
   const tokens = config.tokens ?? {};
   const nested = (table: Record<string, object> | undefined) =>
@@ -84,7 +95,7 @@ export function countTokens(config: ThemeConfig): TokenCounts {
     lineHeights: size(tokens.lineHeights),
     letterSpacings: size(tokens.letterSpacings),
     shadows: size(tokens.shadows),
-    textPresets: nested(config.semanticTokens?.text),
+    textPresets: countPresets(config),
   };
 }
 

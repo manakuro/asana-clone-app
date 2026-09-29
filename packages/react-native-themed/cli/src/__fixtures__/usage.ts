@@ -31,6 +31,9 @@ export function usage() {
   themed.text();
   themed.text.title.md();
   themed.text.body.md({ color: 'fg.default' });
+  themed.text.caption();
+  themed.text.heading.display.lg({ color: 'fg.muted' });
+  themed.text.heading.page();
   themed.image({ tintColor: 'fg.default', borderRadius: 'full' });
 
   const white: '#ffffff' = tokens.colors.white;
@@ -57,6 +60,10 @@ export function usage() {
   themed.text.title.lg();
   // @ts-expect-error unknown role
   themed.text.display;
+  // @ts-expect-error a group is not callable
+  themed.text.heading();
+  // @ts-expect-error unknown nested preset
+  themed.text.heading.display.sm();
   // @ts-expect-error unknown primitive token
   tokens.colors.black;
   // @ts-expect-error unknown semantic color group

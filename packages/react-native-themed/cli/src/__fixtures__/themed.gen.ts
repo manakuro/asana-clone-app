@@ -617,7 +617,7 @@ export interface ThemedStyleProps {
 }
 
 // ---------------------------------------------------------------------------
-// Typography presets: themed.text.<role>.<size>(override?)
+// Typography presets: themed.text.<path>(override?)
 // ---------------------------------------------------------------------------
 
 type TextVariant = (
@@ -628,10 +628,10 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.title`
    *
-   * | size | fontSize | lineHeight | letterSpacing | fontWeight |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
    * |:--|--:|--:|--:|--:|
-   * | `md` | `md` (16) | 24 | 0.15 | `semibold` (600) |
-   * | `sm` | 14 | 20 | – | 500 |
+   * | `title.md` | `md` (16) | 24 | 0.15 | `semibold` (600) |
+   * | `title.sm` | 14 | 20 | – | 500 |
    */
   title: {
     /**
@@ -654,9 +654,9 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.body`
    *
-   * | size | fontSize | lineHeight | letterSpacing | fontWeight |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
    * |:--|--:|--:|--:|--:|
-   * | `md` | `sm` (14) | `moderate` (×1.5 → 21) | – | – |
+   * | `body.md` | `sm` (14) | `moderate` (×1.5 → 21) | – | – |
    */
   body: {
     /**
@@ -667,6 +667,48 @@ export interface ThemedTextVariants {
      * | `sm` (14) | `moderate` (×1.5 → 21) | – | – |
      */
     md: TextVariant;
+  };
+  /**
+   * `semanticTokens.text.caption`
+   *
+   * | fontSize | lineHeight | letterSpacing | fontWeight |
+   * |--:|--:|--:|--:|
+   * | `sm` (14) | – | `wide` (0.4) | – |
+   */
+  caption: TextVariant;
+  /**
+   * `semanticTokens.text.heading`
+   *
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
+   * |:--|--:|--:|--:|--:|
+   * | `heading.page` | `lg` (18) | `short` (×1.375 → 24.75) | – | – |
+   */
+  heading: {
+    /**
+     * `semanticTokens.text.heading.display`
+     *
+     * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
+     * |:--|--:|--:|--:|--:|
+     * | `heading.display.lg` | 36 | 44 | – | `semibold` (600) |
+     */
+    display: {
+      /**
+       * `semanticTokens.text.heading.display.lg`
+       *
+       * | fontSize | lineHeight | letterSpacing | fontWeight |
+       * |--:|--:|--:|--:|
+       * | 36 | 44 | – | `semibold` (600) |
+       */
+      lg: TextVariant;
+    };
+    /**
+     * `semanticTokens.text.heading.page`
+     *
+     * | fontSize | lineHeight | letterSpacing | fontWeight |
+     * |--:|--:|--:|--:|
+     * | `lg` (18) | `short` (×1.375 → 24.75) | – | – |
+     */
+    page: TextVariant;
   };
 }
 
@@ -773,6 +815,23 @@ export interface ThemedSemanticTokens {
       md: {
         fontSize: 'sm';
         lineHeight: 'moderate';
+      };
+    };
+    caption: {
+      fontSize: 'sm';
+      letterSpacing: 'wide';
+    };
+    heading: {
+      display: {
+        lg: {
+          fontSize: 36;
+          lineHeight: 44;
+          fontWeight: 'semibold';
+        };
+      };
+      page: {
+        fontSize: 'lg';
+        lineHeight: 'short';
       };
     };
   };

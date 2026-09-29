@@ -147,3 +147,33 @@ describe('createThemedStyles / lineHeight ratios', () => {
     expect(themed.text({ lineHeight: 'short' })).toEqual({ lineHeight: 19.25 });
   });
 });
+
+describe('createThemedStyles / text presets at any depth', () => {
+  const themed = createThemedStyles(
+    defineTheme({
+      tokens: { fontSizes: { xs: 12, xl: 20 } },
+      semanticTokens: {
+        text: {
+          caption: { fontSize: 'xs', fontWeight: '500' },
+          heading: {
+            display: { lg: { fontSize: 'xl', fontWeight: 'bold' } },
+            page: { fontSize: 24 },
+          },
+        },
+      },
+    }),
+    'light',
+  );
+
+  it('calls a top-level preset directly', () => {
+    expect(themed.text.caption()).toEqual({ fontSize: 12, fontWeight: '500' });
+  });
+
+  it('calls presets nested deeper than two levels', () => {
+    expect(themed.text.heading.display.lg({ fontWeight: '800' })).toEqual({
+      fontSize: 20,
+      fontWeight: '800',
+    });
+    expect(themed.text.heading.page()).toEqual({ fontSize: 24 });
+  });
+});

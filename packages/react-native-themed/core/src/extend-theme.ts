@@ -1,12 +1,14 @@
-import type { ThemeConfig } from './types';
+import { isTextPreset } from './text-tree';
+import type { TextTokenTree, ThemeConfig } from './types';
 
 type Table = Record<string, unknown>;
 type NestedTable = Record<string, Table>;
 
 /**
  * Flat `tokens` categories: a one-level merge (`{ ...a, ...b }`, `b` wins per
- * key) is enough. `semanticTokens` categories are nested two levels deep and
- * merged one level deeper — see `NESTED_SEMANTIC_CATEGORY_KEYS`.
+ * key) is enough. `semanticTokens.colors` is two levels deep and merged one
+ * level deeper; `semanticTokens.text` is a tree of any depth — see
+ * `mergeTextTree`.
  *
  * Merging is runtime-only: the result is typed as the plain `ThemeConfig`,
  * and exact token names come from the generated `themed.gen.ts`.
@@ -23,21 +25,16 @@ const FLAT_CATEGORY_KEYS = [
   'shadows',
 ] as const;
 
-/**
- * Two-level `semanticTokens` categories (`colors.<group>.<token>`,
- * `text.<role>.<size>`): outer keys are merged, inner keys are replaced whole,
- * so overriding `text.display.lg` keeps `display.md`/`display.sm` and every
- * other role.
- */
-const NESTED_SEMANTIC_CATEGORY_KEYS = ['colors', 'text'] as const;
-
 function mergeFlat(a: Table | undefined, b: Table | undefined) {
   if (!a) return b;
   if (!b) return a;
   return { ...a, ...b };
 }
 
-/** Merges one level deeper, preserving untouched outer keys on both sides. */
+/**
+ * `colors.<group>.<token>`: groups are merged, tokens replaced whole, so
+ * overriding `bg.default` keeps `bg.subtle` and every other group.
+ */
 function mergeNested(a: NestedTable | undefined, b: NestedTable | undefined) {
   if (!a) return b;
   if (!b) return a;
@@ -45,6 +42,30 @@ function mergeNested(a: NestedTable | undefined, b: NestedTable | undefined) {
   const result: NestedTable = { ...a };
   for (const key of Object.keys(b)) {
     result[key] = key in result ? { ...result[key], ...b[key] } : b[key];
+  }
+  return result;
+}
+
+/**
+ * `semanticTokens.text`: groups merge recursively, presets (leaves) are
+ * replaced whole. So overriding `display.lg` keeps `display.md` and every
+ * other group, at any depth. When a key is a preset on one side and a group
+ * on the other, the later side replaces it.
+ */
+function mergeTextTree(
+  a: TextTokenTree | undefined,
+  b: TextTokenTree | undefined,
+): TextTokenTree | undefined {
+  if (!a) return b;
+  if (!b) return a;
+
+  const result: TextTokenTree = { ...a };
+  for (const [key, next] of Object.entries(b)) {
+    const prev = result[key];
+    result[key] =
+      prev && !isTextPreset(prev) && !isTextPreset(next)
+        ? (mergeTextTree(prev as TextTokenTree, next as TextTokenTree) ?? next)
+        : next;
   }
   return result;
 }
@@ -68,12 +89,12 @@ function mergeSemanticTokens(
   a: ThemeConfig['semanticTokens'],
   b: ThemeConfig['semanticTokens'],
 ): ThemeConfig['semanticTokens'] {
-  const merged: Table = {};
-  for (const key of NESTED_SEMANTIC_CATEGORY_KEYS) {
-    const value = mergeNested(a?.[key], b?.[key]);
-    if (value) merged[key] = value;
-  }
-  return merged as ThemeConfig['semanticTokens'];
+  const colors = mergeNested(a?.colors, b?.colors);
+  const text = mergeTextTree(a?.text, b?.text);
+  return {
+    ...(colors ? { colors } : {}),
+    ...(text ? { text } : {}),
+  } as ThemeConfig['semanticTokens'];
 }
 
 function mergeThemeConfig(a: ThemeConfig, b: ThemeConfig): ThemeConfig {

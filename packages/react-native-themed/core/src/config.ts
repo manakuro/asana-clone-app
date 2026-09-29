@@ -21,10 +21,16 @@ export {
   SHADOW_STYLE_PROPS,
   SPACING_KEYS,
 } from './style-props';
+export {
+  isTextPreset,
+  TEXT_TOKEN_FIELDS,
+  walkTextPresets,
+} from './text-tree';
 export type {
   LooseSchema,
   ShadowToken,
   TextToken,
+  TextTokenTree,
   ThemeConfig,
   ThemedSchema,
   ThemedStyles,

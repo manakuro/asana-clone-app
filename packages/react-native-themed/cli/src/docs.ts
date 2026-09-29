@@ -3,12 +3,14 @@ import { code, table } from './emit';
 import {
   buildModel,
   colorTable,
+  examplePreset,
   lineHeightNote,
   lineHeightRows,
+  presetGroups,
+  presetTable,
   scaleTable,
   shadowTable,
   type TokenModel,
-  textRoleTable,
 } from './model';
 
 export type GenerateDocsOptions = {
@@ -29,6 +31,13 @@ const firstOf = <T>(rows: [string, T][], fallback: string) =>
 /** A literal as it would be written in TS source (`4`, `'md'`). */
 const asArg = (key: string) => (/^\d+(\.\d+)?$/.test(key) ? key : `'${key}'`);
 
+/** `title.md` -> `themed.text.title.md`, bracketing non-identifier keys. */
+const presetCall = (path: string) =>
+  `themed.text${path
+    .split('.')
+    .map((k) => (/^[A-Za-z_$][\w$]*$/.test(k) ? `.${k}` : `['${k}']`))
+    .join('')}`;
+
 function usageSection(model: TokenModel, genFile: string): Section {
   // Real token names from this theme, so the examples always type-check.
   const bg = model.colors.find((c) => c.group === 'bg')?.token;
@@ -45,11 +54,8 @@ function usageSection(model: TokenModel, genFile: string): Section {
   );
   const shadow = asArg(firstOf(model.shadows, 'sm'));
   // Prefer a mid-sized heading (`title.md`) for the example when it exists.
-  const role = model.text.find((r) => r.role === 'title') ?? model.text[0];
-  const size =
-    role?.sizes.find((z) => z.size === 'md')?.size ?? role?.sizes[0]?.size;
-  const preset =
-    role && size ? `themed.text.${role.role}.${size}` : 'themed.text';
+  const presetPath = examplePreset(model.text);
+  const preset = presetPath ? presetCall(presetPath) : 'themed.text';
 
   return {
     title: 'Usage',
@@ -82,8 +88,8 @@ function usageSection(model: TokenModel, genFile: string): Section {
       "- **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages.",
       '- For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.',
       "- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.",
-      '- **Typography:** prefer the presets `themed.text.<role>.<size>(override?)`. `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.',
-      "- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.body.md({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.",
+      '- **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.',
+      "- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.",
       '- **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.',
       '- Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.',
       '- Do not edit the generated files. Change the theme file and re-run the codegen command instead.',
@@ -130,16 +136,16 @@ function shadowSection(model: TokenModel): Section | null {
 }
 
 function textSection(model: TokenModel): Section | null {
-  if (model.text.length === 0) return null;
+  const groups = presetGroups(model.text);
+  if (groups.length === 0) return null;
   return {
     title: 'Text presets',
     body: [
-      'Call as `themed.text.<role>.<size>(override?)`. The override is merged on top and accepts the same tokens as `themed.text()`. A cell like `` `lg` (18) `` means the preset references the `lg` token, which resolves to 18.',
-      ...model.text.flatMap((role) => [
+      `Call a preset by its path: \`themed.text.<path>(override?)\`, e.g. \`${presetCall(examplePreset(model.text) ?? '')}()\`. The override is merged on top and accepts the same tokens as \`themed.text()\`. A cell like \`\` \`lg\` (18) \`\` means the preset references the \`lg\` token, which resolves to 18.`,
+      ...groups.flatMap((g) => [
         '',
-        `### ${role.role}`,
-        '',
-        ...textRoleTable(role),
+        ...(g.path ? [`### ${g.path}`, ''] : []),
+        ...presetTable(g.presets),
       ]),
     ],
   };

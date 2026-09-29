@@ -31,7 +31,19 @@ describe('generateDocs', () => {
     const docs = fixture();
     expect(docs).toContain('### bg\n\n| token | light | dark |');
     expect(docs).toContain(
-      '| `md` | `md` (16) | 24 | 0.15 | `semibold` (600) |',
+      '| `title.md` | `md` (16) | 24 | 0.15 | `semibold` (600) |',
+    );
+  });
+
+  it('lists presets of any depth, one table per group', () => {
+    const docs = fixture();
+    // Top-level presets come first, without a group heading.
+    expect(docs).toMatch(
+      /## Text presets\n\n[^\n]+\n\n\| preset \|[^\n]+\n\|[^\n]+\n\| `caption` \|/,
+    );
+    expect(docs).toContain('### heading.display\n\n| preset |');
+    expect(docs).toContain(
+      '| `heading.display.lg` | 36 | 44 | – | `semibold` (600) |',
     );
   });
 

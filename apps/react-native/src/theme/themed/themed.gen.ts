@@ -2807,7 +2807,7 @@ export interface ThemedStyleProps {
 }
 
 // ---------------------------------------------------------------------------
-// Typography presets: themed.text.<role>.<size>(override?)
+// Typography presets: themed.text.<path>(override?)
 // ---------------------------------------------------------------------------
 
 type TextVariant = (
@@ -2818,11 +2818,11 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.display`
    *
-   * | size | fontSize | lineHeight | letterSpacing | fontWeight |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
    * |:--|--:|--:|--:|--:|
-   * | `lg` | 57 | 64 | -0.25 | 400 |
-   * | `md` | 45 | 52 | 0 | 400 |
-   * | `sm` | 36 | 44 | 0 | 400 |
+   * | `display.lg` | 57 | 64 | -0.25 | 400 |
+   * | `display.md` | 45 | 52 | 0 | 400 |
+   * | `display.sm` | 36 | 44 | 0 | 400 |
    */
   display: {
     /**
@@ -2853,11 +2853,11 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.headline`
    *
-   * | size | fontSize | lineHeight | letterSpacing | fontWeight |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
    * |:--|--:|--:|--:|--:|
-   * | `lg` | 32 | 40 | 0 | 400 |
-   * | `md` | 28 | 36 | 0 | 400 |
-   * | `sm` | 24 | 32 | 0 | 400 |
+   * | `headline.lg` | 32 | 40 | 0 | 400 |
+   * | `headline.md` | 28 | 36 | 0 | 400 |
+   * | `headline.sm` | 24 | 32 | 0 | 400 |
    */
   headline: {
     /**
@@ -2888,11 +2888,11 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.title`
    *
-   * | size | fontSize | lineHeight | letterSpacing | fontWeight |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
    * |:--|--:|--:|--:|--:|
-   * | `lg` | 22 | 28 | 0 | 400 |
-   * | `md` | 16 | 24 | 0.15 | 500 |
-   * | `sm` | 14 | 20 | 0.1 | 500 |
+   * | `title.lg` | 22 | 28 | 0 | 400 |
+   * | `title.md` | 16 | 24 | 0.15 | 500 |
+   * | `title.sm` | 14 | 20 | 0.1 | 500 |
    */
   title: {
     /**
@@ -2923,11 +2923,11 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.body`
    *
-   * | size | fontSize | lineHeight | letterSpacing | fontWeight |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
    * |:--|--:|--:|--:|--:|
-   * | `lg` | 16 | 24 | 0.5 | 400 |
-   * | `md` | 14 | 20 | 0.25 | 400 |
-   * | `sm` | 12 | 16 | 0.4 | 400 |
+   * | `body.lg` | 16 | 24 | 0.5 | 400 |
+   * | `body.md` | 14 | 20 | 0.25 | 400 |
+   * | `body.sm` | 12 | 16 | 0.4 | 400 |
    */
   body: {
     /**
@@ -2958,11 +2958,11 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.label`
    *
-   * | size | fontSize | lineHeight | letterSpacing | fontWeight |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
    * |:--|--:|--:|--:|--:|
-   * | `lg` | 14 | 20 | 0.1 | 500 |
-   * | `md` | 12 | 16 | 0.5 | 500 |
-   * | `sm` | 11 | 16 | 0.5 | 500 |
+   * | `label.lg` | 14 | 20 | 0.1 | 500 |
+   * | `label.md` | 12 | 16 | 0.5 | 500 |
+   * | `label.sm` | 11 | 16 | 0.5 | 500 |
    */
   label: {
     /**
@@ -2993,9 +2993,9 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.test-caption`
    *
-   * | size | fontSize | lineHeight | letterSpacing | fontWeight |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
    * |:--|--:|--:|--:|--:|
-   * | `sm` | 14 | – | – | 500 |
+   * | `test-caption.sm` | 14 | – | – | 500 |
    */
   'test-caption': {
     /**

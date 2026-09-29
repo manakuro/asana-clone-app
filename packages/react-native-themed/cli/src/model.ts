@@ -1,8 +1,10 @@
 import {
+  isTextPreset,
   RN_DEFAULT_FONT_SIZE,
   resolveBaseFontSize,
   type ShadowToken,
   type TextToken,
+  type TextTokenTree,
   type ThemeConfig,
 } from '@react-native-themed/core/config';
 import { code, orderedEntries, table } from './emit';
@@ -25,11 +27,16 @@ export type TokenModel = {
   zIndices: [string, number][];
   /** `tokens.colors` — scheme-independent primitives. */
   primitiveColors: [string, string][];
-  /** `semanticTokens.text`, each preset cell already rendered. */
-  text: { role: string; sizes: { size: string; cells: string[] }[] }[];
+  /** `semanticTokens.text` as a tree, each preset's cells already rendered. */
+  text: TextNode[];
   /** `defaults.fontSize` resolved, for line-height ratios without a fontSize. */
   baseFontSize: { value: number; label: string };
 };
+
+/** A node of `semanticTokens.text`: a preset (leaf) or a group. */
+export type TextNode =
+  | { kind: 'preset'; name: string; path: string; cells: string[] }
+  | { kind: 'group'; name: string; path: string; children: TextNode[] };
 
 export const PRESET_FIELDS = [
   'fontSize',
@@ -106,20 +113,59 @@ export function buildModel(config: ThemeConfig): TokenModel {
     shadows: Object.entries(tokens.shadows ?? {}),
     zIndices: orderedEntries(tokens.zIndices, byValue),
     primitiveColors: Object.entries(tokens.colors ?? {}),
-    text: Object.entries(config.semanticTokens?.text ?? {}).map(
-      ([role, sizes]) => ({
-        role,
-        sizes: Object.entries(sizes).map(([size, preset]) => ({
-          size,
-          cells: PRESET_FIELDS.map((f) => presetCell(preset, f)),
-        })),
-      }),
+    text: textNodes(config.semanticTokens?.text, (preset) =>
+      PRESET_FIELDS.map((f) => presetCell(preset, f)),
     ),
     baseFontSize: { value: baseFontSize, label: baseLabel },
   };
 }
 
 const round2 = (value: number) => Math.round(value * 100) / 100;
+
+function textNodes(
+  tree: TextTokenTree | undefined,
+  cells: (preset: TextToken) => string[],
+  prefix: string[] = [],
+): TextNode[] {
+  return Object.entries(tree ?? {})
+    .filter(([, node]) => typeof node === 'object' && node !== null)
+    .map(([name, node]): TextNode => {
+      const path = [...prefix, name];
+      return isTextPreset(node)
+        ? { kind: 'preset', name, path: path.join('.'), cells: cells(node) }
+        : {
+            kind: 'group',
+            name,
+            path: path.join('.'),
+            children: textNodes(node as TextTokenTree, cells, path),
+          };
+    });
+}
+
+/**
+ * Every group that directly holds presets, with those presets — one table
+ * each. The root comes first with path `''` when presets sit at the top.
+ */
+export function presetGroups(
+  nodes: TextNode[],
+  path = '',
+): { path: string; presets: Extract<TextNode, { kind: 'preset' }>[] }[] {
+  const presets = nodes.filter(
+    (n): n is Extract<TextNode, { kind: 'preset' }> => n.kind === 'preset',
+  );
+  return [
+    ...(presets.length > 0 ? [{ path, presets }] : []),
+    ...nodes.flatMap((n) =>
+      n.kind === 'group' ? presetGroups(n.children, n.path) : [],
+    ),
+  ];
+}
+
+/** First preset in definition order, preferring `title.md` for examples. */
+export function examplePreset(nodes: TextNode[]): string | undefined {
+  const all = presetGroups(nodes).flatMap((g) => g.presets.map((p) => p.path));
+  return all.find((p) => p === 'title.md') ?? all[0];
+}
 
 /** Line heights are ratios of `fontSize`; show them as `×1.375`. */
 export function lineHeightRows(model: TokenModel): [string, string][] {
@@ -166,11 +212,13 @@ export function shadowTable(rows: TokenModel['shadows']): string[] {
   );
 }
 
-/** One role: a row per size. */
-export function textRoleTable(role: TokenModel['text'][number]): string[] {
+/** Presets as rows, named by their full path (`title.md`). */
+export function presetTable(
+  presets: Extract<TextNode, { kind: 'preset' }>[],
+): string[] {
   return table(
-    ['size', ...PRESET_FIELDS],
+    ['preset', ...PRESET_FIELDS],
     ['left', 'right', 'right', 'right', 'right'],
-    role.sizes.map((s) => [code(s.size), ...s.cells]),
+    presets.map((p) => [code(p.path), ...p.cells]),
   );
 }

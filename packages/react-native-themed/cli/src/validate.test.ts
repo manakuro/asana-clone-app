@@ -58,4 +58,54 @@ describe('validateTheme', () => {
       }),
     ).toEqual([]);
   });
+
+  it('accepts presets at any depth', () => {
+    expect(
+      validateTheme({
+        tokens: { fontSizes: { xs: 12 } },
+        semanticTokens: {
+          text: {
+            caption: { fontSize: 'xs' },
+            heading: { display: { lg: { fontSize: 57 } } },
+          },
+        },
+      }),
+    ).toEqual([]);
+  });
+
+  it('rejects nodes mixing preset fields with groups', () => {
+    expect(
+      validateTheme({
+        semanticTokens: {
+          text: { title: { fontSize: 16, md: { fontSize: 14 } } },
+        },
+      }),
+    ).toEqual([
+      'semanticTokens.text.title: mixes preset fields (fontSize) with groups (md)',
+    ]);
+  });
+
+  it('rejects unknown preset fields and empty nodes', () => {
+    expect(
+      validateTheme({
+        semanticTokens: {
+          // @ts-expect-error -- typo on purpose
+          text: { body: { md: { fontsize: 14 } }, caption: {} },
+        },
+      }),
+    ).toEqual([
+      'semanticTokens.text.body.md.fontsize: unknown preset field (expected fontSize, lineHeight, letterSpacing, fontWeight)',
+      'semanticTokens.text.caption: is empty',
+    ]);
+  });
+
+  it('rejects top-level names that collide with function properties', () => {
+    expect(
+      validateTheme({
+        semanticTokens: { text: { name: { fontSize: 14 } } },
+      }),
+    ).toEqual([
+      "semanticTokens.text.name: 'name' is reserved (it collides with a function property of themed.text)",
+    ]);
+  });
 });

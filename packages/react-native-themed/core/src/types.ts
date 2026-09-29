@@ -45,6 +45,12 @@ export type TextToken = {
 };
 
 /**
+ * `semanticTokens.text`: groups of any depth whose leaves are presets.
+ * See `isTextPreset` for how leaves and groups are told apart.
+ */
+export type TextTokenTree = { [key: string]: TextToken | TextTokenTree };
+
+/**
  * The shape a theme package (or an app's local override) must satisfy.
  * `tokens` holds primitive values (the smallest design-system units);
  * `semanticTokens` holds role-named values built on top of them — the
@@ -156,19 +162,26 @@ export type ThemeConfig = {
      */
     colors?: Record<string, Record<string, { light: string; dark: string }>>;
     /**
-     * role -> size -> typography preset, used as
-     * `themed.text.<role>.<size>(override?)`. Fields reference `tokens`
-     * keys or take raw values (see `TextToken`).
+     * Typography presets, as a tree of any depth. A node whose values are
+     * all primitives is a **preset** (`TextToken`); a node of objects is a
+     * **group**. Each preset is called by its path:
+     * `themed.text.<path>(override?)`. Fields reference `tokens` keys or
+     * take raw values (see `TextToken`).
      *
      * @example
      * text: {
+     *   // role -> size (Material Design 3 style)
      *   title: {
      *     md: { fontSize: 'md', lineHeight: 'moderate', fontWeight: 'semibold' },
      *     sm: { fontSize: 14, lineHeight: 20, fontWeight: '500' },
      *   },
+     *   // flat: themed.text.caption()
+     *   caption: { fontSize: 'xs', lineHeight: 'short' },
+     *   // deeper: themed.text.heading.display.lg()
+     *   heading: { display: { lg: { fontSize: '4xl', fontWeight: 'bold' } } },
      * }
      */
-    text?: Record<string, Record<string, TextToken>>;
+    text?: TextTokenTree;
   };
   /** Theme-wide defaults. */
   defaults?: {
@@ -255,15 +268,17 @@ type LooseTokenKeys =
 
 type LooseStyle = { [K in LooseTokenKeys]?: string | number };
 
+/** Any path under `themed.text`, callable at the leaves. */
+type LooseTextVariants = {
+  [key: string]: ((
+    override?: TokenizeStyle<TextStyle, LooseStyle>,
+  ) => TextStyle) &
+    LooseTextVariants;
+};
+
 export type LooseSchema = {
   style: LooseStyle;
-  textVariants: Record<
-    string,
-    Record<
-      string,
-      (override?: TokenizeStyle<TextStyle, LooseStyle>) => TextStyle
-    >
-  >;
+  textVariants: LooseTextVariants;
   tokens: NonNullable<ThemeConfig['tokens']>;
   semanticTokens: {
     colors: Record<string, Record<string, string>>;

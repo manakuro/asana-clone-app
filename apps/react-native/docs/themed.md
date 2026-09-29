@@ -35,8 +35,8 @@ function Card() {
 - **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages.
 - For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.
 - **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.
-- **Typography:** prefer the presets `themed.text.<role>.<size>(override?)`. `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
-- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.body.md({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.
+- **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
+- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.
 - **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.
 - Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.
 - Do not edit the generated files. Change the theme file and re-run the codegen command instead.
@@ -360,53 +360,53 @@ Use with the virtual `shadow` prop: `themed.view({ shadow: 'xs' })`.
 
 ## Text presets
 
-Call as `themed.text.<role>.<size>(override?)`. The override is merged on top and accepts the same tokens as `themed.text()`. A cell like `` `lg` (18) `` means the preset references the `lg` token, which resolves to 18.
+Call a preset by its path: `themed.text.<path>(override?)`, e.g. `themed.text.title.md()`. The override is merged on top and accepts the same tokens as `themed.text()`. A cell like `` `lg` (18) `` means the preset references the `lg` token, which resolves to 18.
 
 ### display
 
-| size | fontSize | lineHeight | letterSpacing | fontWeight |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
-| `lg` | 57 | 64 | -0.25 | 400 |
-| `md` | 45 | 52 | 0 | 400 |
-| `sm` | 36 | 44 | 0 | 400 |
+| `display.lg` | 57 | 64 | -0.25 | 400 |
+| `display.md` | 45 | 52 | 0 | 400 |
+| `display.sm` | 36 | 44 | 0 | 400 |
 
 ### headline
 
-| size | fontSize | lineHeight | letterSpacing | fontWeight |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
-| `lg` | 32 | 40 | 0 | 400 |
-| `md` | 28 | 36 | 0 | 400 |
-| `sm` | 24 | 32 | 0 | 400 |
+| `headline.lg` | 32 | 40 | 0 | 400 |
+| `headline.md` | 28 | 36 | 0 | 400 |
+| `headline.sm` | 24 | 32 | 0 | 400 |
 
 ### title
 
-| size | fontSize | lineHeight | letterSpacing | fontWeight |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
-| `lg` | 22 | 28 | 0 | 400 |
-| `md` | 16 | 24 | 0.15 | 500 |
-| `sm` | 14 | 20 | 0.1 | 500 |
+| `title.lg` | 22 | 28 | 0 | 400 |
+| `title.md` | 16 | 24 | 0.15 | 500 |
+| `title.sm` | 14 | 20 | 0.1 | 500 |
 
 ### body
 
-| size | fontSize | lineHeight | letterSpacing | fontWeight |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
-| `lg` | 16 | 24 | 0.5 | 400 |
-| `md` | 14 | 20 | 0.25 | 400 |
-| `sm` | 12 | 16 | 0.4 | 400 |
+| `body.lg` | 16 | 24 | 0.5 | 400 |
+| `body.md` | 14 | 20 | 0.25 | 400 |
+| `body.sm` | 12 | 16 | 0.4 | 400 |
 
 ### label
 
-| size | fontSize | lineHeight | letterSpacing | fontWeight |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
-| `lg` | 14 | 20 | 0.1 | 500 |
-| `md` | 12 | 16 | 0.5 | 500 |
-| `sm` | 11 | 16 | 0.5 | 500 |
+| `label.lg` | 14 | 20 | 0.1 | 500 |
+| `label.md` | 12 | 16 | 0.5 | 500 |
+| `label.sm` | 11 | 16 | 0.5 | 500 |
 
 ### test-caption
 
-| size | fontSize | lineHeight | letterSpacing | fontWeight |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
-| `sm` | 14 | – | – | 500 |
+| `test-caption.sm` | 14 | – | – | 500 |
 
 ## Primitive colors
 

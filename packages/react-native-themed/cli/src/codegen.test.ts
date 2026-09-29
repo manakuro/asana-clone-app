@@ -41,7 +41,7 @@ describe('codegen', () => {
         lineHeights: 2,
         letterSpacings: 2,
         shadows: 1,
-        textPresets: 3,
+        textPresets: 6,
       },
     });
     expect(readFileSync(outFile, 'utf8')).toContain(

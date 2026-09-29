@@ -35,8 +35,8 @@ function Card() {
 - **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages.
 - For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.
 - **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.
-- **Typography:** prefer the presets `themed.text.<role>.<size>(override?)`. `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
-- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.body.md({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.
+- **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
+- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.
 - **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.
 - Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.
 - Do not edit the generated files. Change the theme file and re-run the codegen command instead.
@@ -129,20 +129,36 @@ Use with the virtual `shadow` prop: `themed.view({ shadow: 'sm' })`.
 
 ## Text presets
 
-Call as `themed.text.<role>.<size>(override?)`. The override is merged on top and accepts the same tokens as `themed.text()`. A cell like `` `lg` (18) `` means the preset references the `lg` token, which resolves to 18.
+Call a preset by its path: `themed.text.<path>(override?)`, e.g. `themed.text.title.md()`. The override is merged on top and accepts the same tokens as `themed.text()`. A cell like `` `lg` (18) `` means the preset references the `lg` token, which resolves to 18.
+
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
+|:--|--:|--:|--:|--:|
+| `caption` | `sm` (14) | – | `wide` (0.4) | – |
 
 ### title
 
-| size | fontSize | lineHeight | letterSpacing | fontWeight |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
-| `md` | `md` (16) | 24 | 0.15 | `semibold` (600) |
-| `sm` | 14 | 20 | – | 500 |
+| `title.md` | `md` (16) | 24 | 0.15 | `semibold` (600) |
+| `title.sm` | 14 | 20 | – | 500 |
 
 ### body
 
-| size | fontSize | lineHeight | letterSpacing | fontWeight |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
-| `md` | `sm` (14) | `moderate` (×1.5 → 21) | – | – |
+| `body.md` | `sm` (14) | `moderate` (×1.5 → 21) | – | – |
+
+### heading
+
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
+|:--|--:|--:|--:|--:|
+| `heading.page` | `lg` (18) | `short` (×1.375 → 24.75) | – | – |
+
+### heading.display
+
+| preset | fontSize | lineHeight | letterSpacing | fontWeight |
+|:--|--:|--:|--:|--:|
+| `heading.display.lg` | 36 | 44 | – | `semibold` (600) |
 
 ## Primitive colors
 

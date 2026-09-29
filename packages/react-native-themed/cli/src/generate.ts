@@ -15,9 +15,11 @@ import {
   lineHeightNote,
   lineHeightRows,
   PRESET_FIELDS,
+  presetGroups,
+  presetTable,
   scaleTable,
   shadowTable,
-  textRoleTable,
+  type TextNode,
 } from './model';
 
 export type GenerateOptions = {
@@ -99,30 +101,30 @@ export function generate({
       .join('\n');
 
   // --- typography presets ---------------------------------------------------
-  const variants = model.text
-    .map((role) => {
-      const roleDoc = [
-        code(`semanticTokens.text.${role.role}`),
-        '',
-        ...textRoleTable(role),
-      ];
-      const sizeMembers = role.sizes
-        .map(({ size, cells }) => {
-          const doc = [
-            code(`semanticTokens.text.${role.role}.${size}`),
-            '',
-            ...table(
-              [...PRESET_FIELDS],
-              ['right', 'right', 'right', 'right'],
-              [cells],
-            ),
-          ];
-          return `${jsdoc(doc, INDENT.repeat(2))}\n${INDENT.repeat(2)}${member(size)}: TextVariant;`;
-        })
-        .join('\n');
-      return `${jsdoc(roleDoc, INDENT)}\n${INDENT}${member(role.role)}: {\n${sizeMembers}\n${INDENT}};`;
-    })
-    .join('\n');
+  const presetDoc = (path: string, cells: string[]) => [
+    code(`semanticTokens.text.${path}`),
+    '',
+    ...table([...PRESET_FIELDS], ['right', 'right', 'right', 'right'], [cells]),
+  ];
+  /** One member per node; groups nest, and list their own presets. */
+  const emitTextNodes = (nodes: TextNode[], depth: number): string =>
+    nodes
+      .map((node) => {
+        const pad = INDENT.repeat(depth);
+        if (node.kind === 'preset') {
+          return `${jsdoc(presetDoc(node.path, node.cells), pad)}\n${pad}${member(node.name)}: TextVariant;`;
+        }
+        const [own] = presetGroups(node.children, node.path).filter(
+          (g) => g.path === node.path,
+        );
+        const doc = [
+          code(`semanticTokens.text.${node.path}`),
+          ...(own ? ['', ...presetTable(own.presets)] : []),
+        ];
+        return `${jsdoc(doc, pad)}\n${pad}${member(node.name)}: {\n${emitTextNodes(node.children, depth + 1)}\n${pad}};`;
+      })
+      .join('\n');
+  const variants = emitTextNodes(model.text, 1);
 
   // --- useThemed().semanticTokens -------------------------------------------
   const semanticColorType = Object.entries(semanticColors)
@@ -191,7 +193,7 @@ ${props(['shadow'], 'ShadowToken', shadowDoc)}
 }
 
 // ---------------------------------------------------------------------------
-// Typography presets: themed.text.<role>.<size>(override?)
+// Typography presets: themed.text.<path>(override?)
 // ---------------------------------------------------------------------------
 
 type TextVariant = (

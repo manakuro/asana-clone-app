@@ -48,6 +48,15 @@ const typography = defineTheme({
       body: {
         md: { fontSize: 'sm', lineHeight: 'moderate' },
       },
+      // flat: themed.text.caption()
+      caption: { fontSize: 'sm', letterSpacing: 'wide' },
+      // deeper: themed.text.heading.display.lg()
+      heading: {
+        display: {
+          lg: { fontSize: 36, lineHeight: 44, fontWeight: 'semibold' },
+        },
+        page: { fontSize: 'lg', lineHeight: 'short' },
+      },
     },
   },
 });

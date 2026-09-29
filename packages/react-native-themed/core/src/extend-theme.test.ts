@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { createThemedStyles } from './create-themed-styles';
 import { defineTheme } from './define-theme';
 import { extendTheme } from './extend-theme';
+import type { ThemeConfig } from './types';
 
 const baseTheme = defineTheme({
   tokens: {
@@ -21,18 +22,30 @@ const baseTheme = defineTheme({
   },
 });
 
+/** Reads a node of the (loosely typed) text tree by path. */
+const at = (config: ThemeConfig, ...path: string[]): unknown =>
+  path.reduce<unknown>(
+    (node, key) => (node as Record<string, unknown> | undefined)?.[key],
+    config.semanticTokens?.text,
+  );
+
 describe('extendTheme / semanticTokens.text', () => {
   it('overrides a single size while keeping sibling sizes and other roles', () => {
     const config = extendTheme(baseTheme, {
       semanticTokens: { text: { display: { lg: { fontSize: 60 } } } },
     });
-    const text = config.semanticTokens?.text;
 
-    // The size-level entry is replaced whole, not merged field by field.
-    expect(text?.display.lg).toEqual({ fontSize: 60 });
-    expect(text?.display.md).toEqual({ fontSize: 45, lineHeight: 52 });
-    expect(text?.display.sm).toEqual({ fontSize: 36, lineHeight: 44 });
-    expect(text?.body.md).toEqual({ fontSize: 14, lineHeight: 20 });
+    // The preset is replaced whole, not merged field by field.
+    expect(at(config, 'display', 'lg')).toEqual({ fontSize: 60 });
+    expect(at(config, 'display', 'md')).toEqual({
+      fontSize: 45,
+      lineHeight: 52,
+    });
+    expect(at(config, 'display', 'sm')).toEqual({
+      fontSize: 36,
+      lineHeight: 44,
+    });
+    expect(at(config, 'body', 'md')).toEqual({ fontSize: 14, lineHeight: 20 });
   });
 
   it('lets later themes win', () => {
@@ -41,10 +54,52 @@ describe('extendTheme / semanticTokens.text', () => {
       { semanticTokens: { text: { display: { lg: { fontSize: 60 } } } } },
       { semanticTokens: { text: { display: { lg: { fontSize: 72 } } } } },
     );
-    const text = config.semanticTokens?.text;
 
-    expect(text?.display.lg).toEqual({ fontSize: 72 });
-    expect(text?.display.md.fontSize).toBe(45);
+    expect(at(config, 'display', 'lg')).toEqual({ fontSize: 72 });
+    expect(at(config, 'display', 'md', 'fontSize')).toBe(45);
+  });
+
+  it('merges groups at any depth and replaces presets whole', () => {
+    const config = extendTheme(
+      {
+        semanticTokens: {
+          text: {
+            heading: {
+              display: { lg: { fontSize: 57 }, md: { fontSize: 45 } },
+              page: { fontSize: 24 },
+            },
+          },
+        },
+      },
+      {
+        semanticTokens: {
+          text: {
+            heading: { display: { lg: { fontSize: 60, lineHeight: 64 } } },
+          },
+        },
+      },
+    );
+
+    expect(at(config, 'heading', 'display', 'lg')).toEqual({
+      fontSize: 60,
+      lineHeight: 64,
+    });
+    expect(at(config, 'heading', 'display', 'md')).toEqual({ fontSize: 45 });
+    expect(at(config, 'heading', 'page')).toEqual({ fontSize: 24 });
+  });
+
+  it('lets a later preset replace a group and vice versa', () => {
+    const toPreset = extendTheme(
+      { semanticTokens: { text: { caption: { sm: { fontSize: 12 } } } } },
+      { semanticTokens: { text: { caption: { fontSize: 11 } } } },
+    );
+    expect(at(toPreset, 'caption')).toEqual({ fontSize: 11 });
+
+    const toGroup = extendTheme(
+      { semanticTokens: { text: { caption: { fontSize: 11 } } } },
+      { semanticTokens: { text: { caption: { sm: { fontSize: 12 } } } } },
+    );
+    expect(at(toGroup, 'caption')).toEqual({ sm: { fontSize: 12 } });
   });
 
   it('merges flat token categories one level deep', () => {
