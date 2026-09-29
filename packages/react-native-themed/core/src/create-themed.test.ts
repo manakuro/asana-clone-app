@@ -62,6 +62,39 @@ describe('createThemedStyles / themed.view', () => {
     });
   });
 
+  it('resolves logical spacing and the extra color props', () => {
+    const themed = createThemedStyles(config, 'light');
+    expect(
+      themed.view({
+        paddingBlock: 1,
+        marginInlineStart: 0.5,
+        borderBlockColor: 'fg.default',
+      }),
+    ).toEqual({
+      paddingBlock: 4,
+      marginInlineStart: 2,
+      borderBlockColor: '#111',
+    });
+    expect(
+      themed.text({
+        textShadowColor: 'fg.default',
+        textDecorationColor: 'fg.default',
+      }),
+    ).toEqual({ textShadowColor: '#111', textDecorationColor: '#111' });
+    expect(themed.image({ overlayColor: 'fg.default' })).toEqual({
+      overlayColor: '#111',
+    });
+  });
+
+  it('resolves a zIndex token and keeps a raw zIndex', () => {
+    const themed = createThemedStyles(
+      defineTheme({ tokens: { zIndices: { base: 0, modal: 1400 } } }),
+      'light',
+    );
+    expect(themed.view({ zIndex: 'modal' })).toEqual({ zIndex: 1400 });
+    expect(themed.view({ zIndex: 5 })).toEqual({ zIndex: 5 });
+  });
+
   it('passes through an input without tokens unchanged (no copy)', () => {
     const themed = createThemedStyles(config, 'light');
     const input = { flex: 1 };

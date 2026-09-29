@@ -90,6 +90,7 @@ function usageSection(model: TokenModel, genFile: string): Section {
       "- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.",
       '- **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.',
       "- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.",
+      '- `zIndex` accepts a z-index token or a raw number.',
       '- **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.',
       '- Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.',
       '- Do not edit the generated files. Change the theme file and re-run the codegen command instead.',
@@ -103,7 +104,7 @@ function colorSection(model: TokenModel): Section | null {
   return {
     title: 'Semantic colors',
     body: [
-      "Use as `'<group>.<token>'` on `color`, `backgroundColor`, `border*Color`, `tintColor`, `shadowColor` and `outlineColor`.",
+      "Use as `'<group>.<token>'` on `color`, `backgroundColor`, `border*Color`, `tintColor`, `overlayColor`, `shadowColor`, `textShadowColor`, `textDecorationColor` and `outlineColor`.",
       ...groups.flatMap((group) => [
         '',
         `### ${group}`,
@@ -190,7 +191,7 @@ export function generateDocs({
     ),
     scaleSection(
       'Spacing',
-      'For `padding*`, `margin*`, `gap`, `rowGap` and `columnGap`.',
+      'For `padding*`, `margin*` (including the logical `*Block*` / `*Inline*` variants), `gap`, `rowGap` and `columnGap`. Positional props (`top`, `left`, `inset`, …) take raw values.',
       model.spacing,
     ),
     scaleSection('Font sizes', 'For `fontSize`.', model.fontSizes),
@@ -210,7 +211,7 @@ export function generateDocs({
     primitiveColorSection(model),
     scaleSection(
       'z-indices',
-      'Not a `themed` prop. Read via `useThemed().tokens.zIndices[...]`.',
+      'For `zIndex`, which also accepts a raw number.',
       model.zIndices,
     ),
   ].filter((s): s is Section => s !== null);

@@ -20,6 +20,9 @@ export function usage() {
     flex: 1,
   });
   themed.view({ padding: 'auto', margin: '10%' });
+  themed.view({ zIndex: 'modal' });
+  themed.view({ zIndex: 3, paddingBlock: 1, borderBlockColor: 'fg.muted' });
+  themed.text({ textShadowColor: 'fg.muted' });
   const text: TextStyle = themed.text({
     color: 'fg.muted',
     fontSize: 'lg',
@@ -52,6 +55,8 @@ export function usage() {
   themed.view({ borderRadius: 'xl' });
   // @ts-expect-error `color` is not a View style
   themed.view({ color: 'fg.default' });
+  // @ts-expect-error unknown zIndex token
+  themed.view({ zIndex: 'toast' });
   // @ts-expect-error unknown shadow preset
   themed.view({ shadow: 'xl' });
   // @ts-expect-error typo in a style prop

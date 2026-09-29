@@ -7,6 +7,7 @@ import type {
   LineHeightKeys,
   RadiusKeys,
   SpacingKeys,
+  ZIndexKeys,
 } from './style-props';
 
 /** One shadow preset — expands into these real RN style props. */
@@ -120,10 +121,11 @@ export type ThemeConfig = {
      */
     letterSpacings?: Record<string, number>;
     /**
-     * Not a style prop; read via `useThemed().tokens.zIndices`.
+     * For `zIndex`, which also accepts a raw number.
      *
      * @example
      * zIndices: { base: 0, dropdown: 1000, modal: 1400, toast: 1700 }
+     * // themed.view({ zIndex: 'modal' }) → { zIndex: 1400 }
      */
     zIndices?: Record<string, number>;
     /**
@@ -264,6 +266,7 @@ type LooseTokenKeys =
   | FontWeightKeys
   | LineHeightKeys
   | LetterSpacingKeys
+  | ZIndexKeys
   | 'shadow';
 
 type LooseStyle = { [K in LooseTokenKeys]?: string | number };

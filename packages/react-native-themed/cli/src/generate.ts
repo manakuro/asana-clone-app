@@ -7,6 +7,7 @@ import {
   RADIUS_KEYS,
   SPACING_KEYS,
   type ThemeConfig,
+  Z_INDEX_KEYS,
 } from '@react-native-themed/core/config';
 import { code, jsdoc, member, table, typeLiteral, union } from './emit';
 import {
@@ -175,6 +176,7 @@ ${typeAlias('FontWeightToken', keys(model.fontWeights))}
 ${typeAlias('LineHeightToken', keys(model.lineHeights))}
 ${typeAlias('LetterSpacingToken', keys(model.letterSpacings))}
 ${typeAlias('ShadowToken', keys(model.shadows))}
+${typeAlias('ZIndexToken', keys(model.zIndices))}
 
 // ---------------------------------------------------------------------------
 // Token-aware style props. Each primitive picks the ones its RN style type
@@ -189,6 +191,7 @@ ${props(FONT_SIZE_KEYS, 'FontSizeToken | number', scaleDoc('fontSizes', model.fo
 ${props(FONT_WEIGHT_KEYS, "FontWeightToken | TextStyle['fontWeight']", scaleDoc('fontWeights', model.fontWeights))}
 ${props(LINE_HEIGHT_KEYS, 'LineHeightToken | number', lineHeightDoc)}
 ${props(LETTER_SPACING_KEYS, 'LetterSpacingToken | number', scaleDoc('letterSpacings', model.letterSpacings))}
+${props(Z_INDEX_KEYS, 'ZIndexToken | number', scaleDoc('zIndices', model.zIndices))}
 ${props(['shadow'], 'ShadowToken', shadowDoc)}
 }
 

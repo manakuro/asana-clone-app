@@ -14,9 +14,15 @@ export const COLOR_KEYS = [
   'borderRightColor',
   'borderStartColor',
   'borderEndColor',
+  'borderBlockColor',
+  'borderBlockStartColor',
+  'borderBlockEndColor',
   'tintColor',
+  'overlayColor',
   'shadowColor',
   'outlineColor',
+  'textShadowColor',
+  'textDecorationColor',
 ] as const;
 export type ColorKeys = (typeof COLOR_KEYS)[number];
 
@@ -47,6 +53,12 @@ export const SPACING_KEYS = [
   'paddingVertical',
   'paddingStart',
   'paddingEnd',
+  'paddingBlock',
+  'paddingBlockStart',
+  'paddingBlockEnd',
+  'paddingInline',
+  'paddingInlineStart',
+  'paddingInlineEnd',
   'margin',
   'marginTop',
   'marginBottom',
@@ -56,6 +68,12 @@ export const SPACING_KEYS = [
   'marginVertical',
   'marginStart',
   'marginEnd',
+  'marginBlock',
+  'marginBlockStart',
+  'marginBlockEnd',
+  'marginInline',
+  'marginInlineStart',
+  'marginInlineEnd',
   'gap',
   'rowGap',
   'columnGap',
@@ -73,6 +91,10 @@ export type LineHeightKeys = (typeof LINE_HEIGHT_KEYS)[number];
 
 export const LETTER_SPACING_KEYS = ['letterSpacing'] as const;
 export type LetterSpacingKeys = (typeof LETTER_SPACING_KEYS)[number];
+
+/** Token or raw number, like the typography props. */
+export const Z_INDEX_KEYS = ['zIndex'] as const;
+export type ZIndexKeys = (typeof Z_INDEX_KEYS)[number];
 
 /**
  * The real RN style properties the virtual `shadow` prop expands into.

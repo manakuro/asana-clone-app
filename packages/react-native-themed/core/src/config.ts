@@ -20,6 +20,7 @@ export {
   RADIUS_KEYS,
   SHADOW_STYLE_PROPS,
   SPACING_KEYS,
+  Z_INDEX_KEYS,
 } from './style-props';
 export {
   isTextPreset,

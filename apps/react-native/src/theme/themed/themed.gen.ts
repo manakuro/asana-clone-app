@@ -211,6 +211,20 @@ export type ShadowToken =
   | 'lg'
   | 'xl'
   | '2xl';
+export type ZIndexToken =
+  | 'hide'
+  | 'base'
+  | 'docked'
+  | 'dropdown'
+  | 'sticky'
+  | 'banner'
+  | 'overlay'
+  | 'modal'
+  | 'popover'
+  | 'skipNav'
+  | 'toast'
+  | 'tooltip'
+  | 'max';
 
 // ---------------------------------------------------------------------------
 // Token-aware style props. Each primitive picks the ones its RN style type
@@ -1377,7 +1391,471 @@ export interface ThemedStyleProps {
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
    */
+  borderBlockColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `primary.bg` | #111111 | #ffffff |
+   * | `primary.fg` | #ffffff | #111111 |
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #111111 |
+   * | `bg.muted` | #f4f4f5 | #18181b |
+   * | `bg.emphasized` | #e4e4e7 | #3f3f46 |
+   * | `bg.inverted` | #000000 | #ffffff |
+   * | `bg.panel` | #ffffff | #111111 |
+   * | `bg.error` | #fef2f2 | #1f0808 |
+   * | `bg.warning` | #fefce8 | #281304 |
+   * | `bg.success` | #f0fdf4 | #03190c |
+   * | `bg.info` | #eff6ff | #0c142e |
+   * | `border.default` | #e4e4e7 | #27272a |
+   * | `border.muted` | #f4f4f5 | #18181b |
+   * | `border.subtle` | #fafafa | #111111 |
+   * | `border.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `border.inverted` | #27272a | #e4e4e7 |
+   * | `border.error` | #ef4444 | #f87171 |
+   * | `border.warning` | #f97316 | #fb923c |
+   * | `border.success` | #22c55e | #4ade80 |
+   * | `border.info` | #3b82f6 | #60a5fa |
+   * | `fg.default` | #000000 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   * | `fg.subtle` | #a1a1aa | #71717a |
+   * | `fg.inverted` | #fafafa | #000000 |
+   * | `fg.error` | #ef4444 | #f87171 |
+   * | `fg.warning` | #ea580c | #fdba74 |
+   * | `fg.success` | #16a34a | #86efac |
+   * | `fg.info` | #2563eb | #a3cfff |
+   * | `gray.contrast` | #ffffff | #000000 |
+   * | `gray.fg` | #27272a | #e4e4e7 |
+   * | `gray.subtle` | #f4f4f5 | #18181b |
+   * | `gray.muted` | #e4e4e7 | #27272a |
+   * | `gray.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `gray.solid` | #18181b | #ffffff |
+   * | `gray.focusRing` | #a1a1aa | #a1a1aa |
+   * | `gray.border` | #e4e4e7 | #27272a |
+   * | `red.contrast` | #ffffff | #ffffff |
+   * | `red.fg` | #991919 | #fca5a5 |
+   * | `red.subtle` | #fee2e2 | #300c0c |
+   * | `red.muted` | #fecaca | #511111 |
+   * | `red.emphasized` | #fca5a5 | #991919 |
+   * | `red.solid` | #dc2626 | #dc2626 |
+   * | `red.focusRing` | #ef4444 | #ef4444 |
+   * | `red.border` | #ef4444 | #f87171 |
+   * | `pink.contrast` | #ffffff | #ffffff |
+   * | `pink.fg` | #a41752 | #f9a8d4 |
+   * | `pink.subtle` | #fce7f3 | #45061f |
+   * | `pink.muted` | #fbcfe8 | #6d0e34 |
+   * | `pink.emphasized` | #f9a8d4 | #a41752 |
+   * | `pink.solid` | #db2777 | #db2777 |
+   * | `pink.focusRing` | #ec4899 | #ec4899 |
+   * | `pink.border` | #ec4899 | #f472b6 |
+   * | `purple.contrast` | #ffffff | #ffffff |
+   * | `purple.fg` | #641ba3 | #d8b4fe |
+   * | `purple.subtle` | #f3e8ff | #2f0553 |
+   * | `purple.muted` | #e9d5ff | #4a1772 |
+   * | `purple.emphasized` | #d8b4fe | #641ba3 |
+   * | `purple.solid` | #9333ea | #9333ea |
+   * | `purple.focusRing` | #a855f7 | #a855f7 |
+   * | `purple.border` | #a855f7 | #c084fc |
+   * | `cyan.contrast` | #ffffff | #ffffff |
+   * | `cyan.fg` | #0c5c72 | #67e8f9 |
+   * | `cyan.subtle` | #cffafe | #072a38 |
+   * | `cyan.muted` | #a5f3fc | #134152 |
+   * | `cyan.emphasized` | #67e8f9 | #0c5c72 |
+   * | `cyan.solid` | #0891b2 | #0891b2 |
+   * | `cyan.focusRing` | #06b6d4 | #06b6d4 |
+   * | `cyan.border` | #06b6d4 | #22d3ee |
+   * | `blue.contrast` | #ffffff | #ffffff |
+   * | `blue.fg` | #173da6 | #a3cfff |
+   * | `blue.subtle` | #dbeafe | #14204a |
+   * | `blue.muted` | #bfdbfe | #1a3478 |
+   * | `blue.emphasized` | #a3cfff | #173da6 |
+   * | `blue.solid` | #2563eb | #2563eb |
+   * | `blue.focusRing` | #3b82f6 | #3b82f6 |
+   * | `blue.border` | #3b82f6 | #60a5fa |
+   * | `teal.contrast` | #ffffff | #ffffff |
+   * | `teal.fg` | #0c5d56 | #5eead4 |
+   * | `teal.subtle` | #ccfbf1 | #032726 |
+   * | `teal.muted` | #99f6e4 | #114240 |
+   * | `teal.emphasized` | #5eead4 | #0c5d56 |
+   * | `teal.solid` | #0d9488 | #0d9488 |
+   * | `teal.focusRing` | #14b8a6 | #14b8a6 |
+   * | `teal.border` | #14b8a6 | #2dd4bf |
+   * | `green.contrast` | #ffffff | #ffffff |
+   * | `green.fg` | #116932 | #86efac |
+   * | `green.subtle` | #dcfce7 | #042713 |
+   * | `green.muted` | #bbf7d0 | #124a28 |
+   * | `green.emphasized` | #86efac | #116932 |
+   * | `green.solid` | #16a34a | #16a34a |
+   * | `green.focusRing` | #22c55e | #22c55e |
+   * | `green.border` | #22c55e | #4ade80 |
+   * | `yellow.contrast` | #000000 | #000000 |
+   * | `yellow.fg` | #713f12 | #fde047 |
+   * | `yellow.subtle` | #fef9c3 | #422006 |
+   * | `yellow.muted` | #fef08a | #713f12 |
+   * | `yellow.emphasized` | #fde047 | #845209 |
+   * | `yellow.solid` | #fde047 | #fde047 |
+   * | `yellow.focusRing` | #eab308 | #eab308 |
+   * | `yellow.border` | #eab308 | #eab308 |
+   * | `orange.contrast` | #ffffff | #000000 |
+   * | `orange.fg` | #92310a | #fdba74 |
+   * | `orange.subtle` | #ffedd5 | #3b1106 |
+   * | `orange.muted` | #fed7aa | #6c2710 |
+   * | `orange.emphasized` | #fdba74 | #92310a |
+   * | `orange.solid` | #ea580c | #ea580c |
+   * | `orange.focusRing` | #f97316 | #f97316 |
+   * | `orange.border` | #f97316 | #fb923c |
+   */
+  borderBlockStartColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `primary.bg` | #111111 | #ffffff |
+   * | `primary.fg` | #ffffff | #111111 |
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #111111 |
+   * | `bg.muted` | #f4f4f5 | #18181b |
+   * | `bg.emphasized` | #e4e4e7 | #3f3f46 |
+   * | `bg.inverted` | #000000 | #ffffff |
+   * | `bg.panel` | #ffffff | #111111 |
+   * | `bg.error` | #fef2f2 | #1f0808 |
+   * | `bg.warning` | #fefce8 | #281304 |
+   * | `bg.success` | #f0fdf4 | #03190c |
+   * | `bg.info` | #eff6ff | #0c142e |
+   * | `border.default` | #e4e4e7 | #27272a |
+   * | `border.muted` | #f4f4f5 | #18181b |
+   * | `border.subtle` | #fafafa | #111111 |
+   * | `border.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `border.inverted` | #27272a | #e4e4e7 |
+   * | `border.error` | #ef4444 | #f87171 |
+   * | `border.warning` | #f97316 | #fb923c |
+   * | `border.success` | #22c55e | #4ade80 |
+   * | `border.info` | #3b82f6 | #60a5fa |
+   * | `fg.default` | #000000 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   * | `fg.subtle` | #a1a1aa | #71717a |
+   * | `fg.inverted` | #fafafa | #000000 |
+   * | `fg.error` | #ef4444 | #f87171 |
+   * | `fg.warning` | #ea580c | #fdba74 |
+   * | `fg.success` | #16a34a | #86efac |
+   * | `fg.info` | #2563eb | #a3cfff |
+   * | `gray.contrast` | #ffffff | #000000 |
+   * | `gray.fg` | #27272a | #e4e4e7 |
+   * | `gray.subtle` | #f4f4f5 | #18181b |
+   * | `gray.muted` | #e4e4e7 | #27272a |
+   * | `gray.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `gray.solid` | #18181b | #ffffff |
+   * | `gray.focusRing` | #a1a1aa | #a1a1aa |
+   * | `gray.border` | #e4e4e7 | #27272a |
+   * | `red.contrast` | #ffffff | #ffffff |
+   * | `red.fg` | #991919 | #fca5a5 |
+   * | `red.subtle` | #fee2e2 | #300c0c |
+   * | `red.muted` | #fecaca | #511111 |
+   * | `red.emphasized` | #fca5a5 | #991919 |
+   * | `red.solid` | #dc2626 | #dc2626 |
+   * | `red.focusRing` | #ef4444 | #ef4444 |
+   * | `red.border` | #ef4444 | #f87171 |
+   * | `pink.contrast` | #ffffff | #ffffff |
+   * | `pink.fg` | #a41752 | #f9a8d4 |
+   * | `pink.subtle` | #fce7f3 | #45061f |
+   * | `pink.muted` | #fbcfe8 | #6d0e34 |
+   * | `pink.emphasized` | #f9a8d4 | #a41752 |
+   * | `pink.solid` | #db2777 | #db2777 |
+   * | `pink.focusRing` | #ec4899 | #ec4899 |
+   * | `pink.border` | #ec4899 | #f472b6 |
+   * | `purple.contrast` | #ffffff | #ffffff |
+   * | `purple.fg` | #641ba3 | #d8b4fe |
+   * | `purple.subtle` | #f3e8ff | #2f0553 |
+   * | `purple.muted` | #e9d5ff | #4a1772 |
+   * | `purple.emphasized` | #d8b4fe | #641ba3 |
+   * | `purple.solid` | #9333ea | #9333ea |
+   * | `purple.focusRing` | #a855f7 | #a855f7 |
+   * | `purple.border` | #a855f7 | #c084fc |
+   * | `cyan.contrast` | #ffffff | #ffffff |
+   * | `cyan.fg` | #0c5c72 | #67e8f9 |
+   * | `cyan.subtle` | #cffafe | #072a38 |
+   * | `cyan.muted` | #a5f3fc | #134152 |
+   * | `cyan.emphasized` | #67e8f9 | #0c5c72 |
+   * | `cyan.solid` | #0891b2 | #0891b2 |
+   * | `cyan.focusRing` | #06b6d4 | #06b6d4 |
+   * | `cyan.border` | #06b6d4 | #22d3ee |
+   * | `blue.contrast` | #ffffff | #ffffff |
+   * | `blue.fg` | #173da6 | #a3cfff |
+   * | `blue.subtle` | #dbeafe | #14204a |
+   * | `blue.muted` | #bfdbfe | #1a3478 |
+   * | `blue.emphasized` | #a3cfff | #173da6 |
+   * | `blue.solid` | #2563eb | #2563eb |
+   * | `blue.focusRing` | #3b82f6 | #3b82f6 |
+   * | `blue.border` | #3b82f6 | #60a5fa |
+   * | `teal.contrast` | #ffffff | #ffffff |
+   * | `teal.fg` | #0c5d56 | #5eead4 |
+   * | `teal.subtle` | #ccfbf1 | #032726 |
+   * | `teal.muted` | #99f6e4 | #114240 |
+   * | `teal.emphasized` | #5eead4 | #0c5d56 |
+   * | `teal.solid` | #0d9488 | #0d9488 |
+   * | `teal.focusRing` | #14b8a6 | #14b8a6 |
+   * | `teal.border` | #14b8a6 | #2dd4bf |
+   * | `green.contrast` | #ffffff | #ffffff |
+   * | `green.fg` | #116932 | #86efac |
+   * | `green.subtle` | #dcfce7 | #042713 |
+   * | `green.muted` | #bbf7d0 | #124a28 |
+   * | `green.emphasized` | #86efac | #116932 |
+   * | `green.solid` | #16a34a | #16a34a |
+   * | `green.focusRing` | #22c55e | #22c55e |
+   * | `green.border` | #22c55e | #4ade80 |
+   * | `yellow.contrast` | #000000 | #000000 |
+   * | `yellow.fg` | #713f12 | #fde047 |
+   * | `yellow.subtle` | #fef9c3 | #422006 |
+   * | `yellow.muted` | #fef08a | #713f12 |
+   * | `yellow.emphasized` | #fde047 | #845209 |
+   * | `yellow.solid` | #fde047 | #fde047 |
+   * | `yellow.focusRing` | #eab308 | #eab308 |
+   * | `yellow.border` | #eab308 | #eab308 |
+   * | `orange.contrast` | #ffffff | #000000 |
+   * | `orange.fg` | #92310a | #fdba74 |
+   * | `orange.subtle` | #ffedd5 | #3b1106 |
+   * | `orange.muted` | #fed7aa | #6c2710 |
+   * | `orange.emphasized` | #fdba74 | #92310a |
+   * | `orange.solid` | #ea580c | #ea580c |
+   * | `orange.focusRing` | #f97316 | #f97316 |
+   * | `orange.border` | #f97316 | #fb923c |
+   */
+  borderBlockEndColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `primary.bg` | #111111 | #ffffff |
+   * | `primary.fg` | #ffffff | #111111 |
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #111111 |
+   * | `bg.muted` | #f4f4f5 | #18181b |
+   * | `bg.emphasized` | #e4e4e7 | #3f3f46 |
+   * | `bg.inverted` | #000000 | #ffffff |
+   * | `bg.panel` | #ffffff | #111111 |
+   * | `bg.error` | #fef2f2 | #1f0808 |
+   * | `bg.warning` | #fefce8 | #281304 |
+   * | `bg.success` | #f0fdf4 | #03190c |
+   * | `bg.info` | #eff6ff | #0c142e |
+   * | `border.default` | #e4e4e7 | #27272a |
+   * | `border.muted` | #f4f4f5 | #18181b |
+   * | `border.subtle` | #fafafa | #111111 |
+   * | `border.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `border.inverted` | #27272a | #e4e4e7 |
+   * | `border.error` | #ef4444 | #f87171 |
+   * | `border.warning` | #f97316 | #fb923c |
+   * | `border.success` | #22c55e | #4ade80 |
+   * | `border.info` | #3b82f6 | #60a5fa |
+   * | `fg.default` | #000000 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   * | `fg.subtle` | #a1a1aa | #71717a |
+   * | `fg.inverted` | #fafafa | #000000 |
+   * | `fg.error` | #ef4444 | #f87171 |
+   * | `fg.warning` | #ea580c | #fdba74 |
+   * | `fg.success` | #16a34a | #86efac |
+   * | `fg.info` | #2563eb | #a3cfff |
+   * | `gray.contrast` | #ffffff | #000000 |
+   * | `gray.fg` | #27272a | #e4e4e7 |
+   * | `gray.subtle` | #f4f4f5 | #18181b |
+   * | `gray.muted` | #e4e4e7 | #27272a |
+   * | `gray.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `gray.solid` | #18181b | #ffffff |
+   * | `gray.focusRing` | #a1a1aa | #a1a1aa |
+   * | `gray.border` | #e4e4e7 | #27272a |
+   * | `red.contrast` | #ffffff | #ffffff |
+   * | `red.fg` | #991919 | #fca5a5 |
+   * | `red.subtle` | #fee2e2 | #300c0c |
+   * | `red.muted` | #fecaca | #511111 |
+   * | `red.emphasized` | #fca5a5 | #991919 |
+   * | `red.solid` | #dc2626 | #dc2626 |
+   * | `red.focusRing` | #ef4444 | #ef4444 |
+   * | `red.border` | #ef4444 | #f87171 |
+   * | `pink.contrast` | #ffffff | #ffffff |
+   * | `pink.fg` | #a41752 | #f9a8d4 |
+   * | `pink.subtle` | #fce7f3 | #45061f |
+   * | `pink.muted` | #fbcfe8 | #6d0e34 |
+   * | `pink.emphasized` | #f9a8d4 | #a41752 |
+   * | `pink.solid` | #db2777 | #db2777 |
+   * | `pink.focusRing` | #ec4899 | #ec4899 |
+   * | `pink.border` | #ec4899 | #f472b6 |
+   * | `purple.contrast` | #ffffff | #ffffff |
+   * | `purple.fg` | #641ba3 | #d8b4fe |
+   * | `purple.subtle` | #f3e8ff | #2f0553 |
+   * | `purple.muted` | #e9d5ff | #4a1772 |
+   * | `purple.emphasized` | #d8b4fe | #641ba3 |
+   * | `purple.solid` | #9333ea | #9333ea |
+   * | `purple.focusRing` | #a855f7 | #a855f7 |
+   * | `purple.border` | #a855f7 | #c084fc |
+   * | `cyan.contrast` | #ffffff | #ffffff |
+   * | `cyan.fg` | #0c5c72 | #67e8f9 |
+   * | `cyan.subtle` | #cffafe | #072a38 |
+   * | `cyan.muted` | #a5f3fc | #134152 |
+   * | `cyan.emphasized` | #67e8f9 | #0c5c72 |
+   * | `cyan.solid` | #0891b2 | #0891b2 |
+   * | `cyan.focusRing` | #06b6d4 | #06b6d4 |
+   * | `cyan.border` | #06b6d4 | #22d3ee |
+   * | `blue.contrast` | #ffffff | #ffffff |
+   * | `blue.fg` | #173da6 | #a3cfff |
+   * | `blue.subtle` | #dbeafe | #14204a |
+   * | `blue.muted` | #bfdbfe | #1a3478 |
+   * | `blue.emphasized` | #a3cfff | #173da6 |
+   * | `blue.solid` | #2563eb | #2563eb |
+   * | `blue.focusRing` | #3b82f6 | #3b82f6 |
+   * | `blue.border` | #3b82f6 | #60a5fa |
+   * | `teal.contrast` | #ffffff | #ffffff |
+   * | `teal.fg` | #0c5d56 | #5eead4 |
+   * | `teal.subtle` | #ccfbf1 | #032726 |
+   * | `teal.muted` | #99f6e4 | #114240 |
+   * | `teal.emphasized` | #5eead4 | #0c5d56 |
+   * | `teal.solid` | #0d9488 | #0d9488 |
+   * | `teal.focusRing` | #14b8a6 | #14b8a6 |
+   * | `teal.border` | #14b8a6 | #2dd4bf |
+   * | `green.contrast` | #ffffff | #ffffff |
+   * | `green.fg` | #116932 | #86efac |
+   * | `green.subtle` | #dcfce7 | #042713 |
+   * | `green.muted` | #bbf7d0 | #124a28 |
+   * | `green.emphasized` | #86efac | #116932 |
+   * | `green.solid` | #16a34a | #16a34a |
+   * | `green.focusRing` | #22c55e | #22c55e |
+   * | `green.border` | #22c55e | #4ade80 |
+   * | `yellow.contrast` | #000000 | #000000 |
+   * | `yellow.fg` | #713f12 | #fde047 |
+   * | `yellow.subtle` | #fef9c3 | #422006 |
+   * | `yellow.muted` | #fef08a | #713f12 |
+   * | `yellow.emphasized` | #fde047 | #845209 |
+   * | `yellow.solid` | #fde047 | #fde047 |
+   * | `yellow.focusRing` | #eab308 | #eab308 |
+   * | `yellow.border` | #eab308 | #eab308 |
+   * | `orange.contrast` | #ffffff | #000000 |
+   * | `orange.fg` | #92310a | #fdba74 |
+   * | `orange.subtle` | #ffedd5 | #3b1106 |
+   * | `orange.muted` | #fed7aa | #6c2710 |
+   * | `orange.emphasized` | #fdba74 | #92310a |
+   * | `orange.solid` | #ea580c | #ea580c |
+   * | `orange.focusRing` | #f97316 | #f97316 |
+   * | `orange.border` | #f97316 | #fb923c |
+   */
   tintColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `primary.bg` | #111111 | #ffffff |
+   * | `primary.fg` | #ffffff | #111111 |
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #111111 |
+   * | `bg.muted` | #f4f4f5 | #18181b |
+   * | `bg.emphasized` | #e4e4e7 | #3f3f46 |
+   * | `bg.inverted` | #000000 | #ffffff |
+   * | `bg.panel` | #ffffff | #111111 |
+   * | `bg.error` | #fef2f2 | #1f0808 |
+   * | `bg.warning` | #fefce8 | #281304 |
+   * | `bg.success` | #f0fdf4 | #03190c |
+   * | `bg.info` | #eff6ff | #0c142e |
+   * | `border.default` | #e4e4e7 | #27272a |
+   * | `border.muted` | #f4f4f5 | #18181b |
+   * | `border.subtle` | #fafafa | #111111 |
+   * | `border.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `border.inverted` | #27272a | #e4e4e7 |
+   * | `border.error` | #ef4444 | #f87171 |
+   * | `border.warning` | #f97316 | #fb923c |
+   * | `border.success` | #22c55e | #4ade80 |
+   * | `border.info` | #3b82f6 | #60a5fa |
+   * | `fg.default` | #000000 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   * | `fg.subtle` | #a1a1aa | #71717a |
+   * | `fg.inverted` | #fafafa | #000000 |
+   * | `fg.error` | #ef4444 | #f87171 |
+   * | `fg.warning` | #ea580c | #fdba74 |
+   * | `fg.success` | #16a34a | #86efac |
+   * | `fg.info` | #2563eb | #a3cfff |
+   * | `gray.contrast` | #ffffff | #000000 |
+   * | `gray.fg` | #27272a | #e4e4e7 |
+   * | `gray.subtle` | #f4f4f5 | #18181b |
+   * | `gray.muted` | #e4e4e7 | #27272a |
+   * | `gray.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `gray.solid` | #18181b | #ffffff |
+   * | `gray.focusRing` | #a1a1aa | #a1a1aa |
+   * | `gray.border` | #e4e4e7 | #27272a |
+   * | `red.contrast` | #ffffff | #ffffff |
+   * | `red.fg` | #991919 | #fca5a5 |
+   * | `red.subtle` | #fee2e2 | #300c0c |
+   * | `red.muted` | #fecaca | #511111 |
+   * | `red.emphasized` | #fca5a5 | #991919 |
+   * | `red.solid` | #dc2626 | #dc2626 |
+   * | `red.focusRing` | #ef4444 | #ef4444 |
+   * | `red.border` | #ef4444 | #f87171 |
+   * | `pink.contrast` | #ffffff | #ffffff |
+   * | `pink.fg` | #a41752 | #f9a8d4 |
+   * | `pink.subtle` | #fce7f3 | #45061f |
+   * | `pink.muted` | #fbcfe8 | #6d0e34 |
+   * | `pink.emphasized` | #f9a8d4 | #a41752 |
+   * | `pink.solid` | #db2777 | #db2777 |
+   * | `pink.focusRing` | #ec4899 | #ec4899 |
+   * | `pink.border` | #ec4899 | #f472b6 |
+   * | `purple.contrast` | #ffffff | #ffffff |
+   * | `purple.fg` | #641ba3 | #d8b4fe |
+   * | `purple.subtle` | #f3e8ff | #2f0553 |
+   * | `purple.muted` | #e9d5ff | #4a1772 |
+   * | `purple.emphasized` | #d8b4fe | #641ba3 |
+   * | `purple.solid` | #9333ea | #9333ea |
+   * | `purple.focusRing` | #a855f7 | #a855f7 |
+   * | `purple.border` | #a855f7 | #c084fc |
+   * | `cyan.contrast` | #ffffff | #ffffff |
+   * | `cyan.fg` | #0c5c72 | #67e8f9 |
+   * | `cyan.subtle` | #cffafe | #072a38 |
+   * | `cyan.muted` | #a5f3fc | #134152 |
+   * | `cyan.emphasized` | #67e8f9 | #0c5c72 |
+   * | `cyan.solid` | #0891b2 | #0891b2 |
+   * | `cyan.focusRing` | #06b6d4 | #06b6d4 |
+   * | `cyan.border` | #06b6d4 | #22d3ee |
+   * | `blue.contrast` | #ffffff | #ffffff |
+   * | `blue.fg` | #173da6 | #a3cfff |
+   * | `blue.subtle` | #dbeafe | #14204a |
+   * | `blue.muted` | #bfdbfe | #1a3478 |
+   * | `blue.emphasized` | #a3cfff | #173da6 |
+   * | `blue.solid` | #2563eb | #2563eb |
+   * | `blue.focusRing` | #3b82f6 | #3b82f6 |
+   * | `blue.border` | #3b82f6 | #60a5fa |
+   * | `teal.contrast` | #ffffff | #ffffff |
+   * | `teal.fg` | #0c5d56 | #5eead4 |
+   * | `teal.subtle` | #ccfbf1 | #032726 |
+   * | `teal.muted` | #99f6e4 | #114240 |
+   * | `teal.emphasized` | #5eead4 | #0c5d56 |
+   * | `teal.solid` | #0d9488 | #0d9488 |
+   * | `teal.focusRing` | #14b8a6 | #14b8a6 |
+   * | `teal.border` | #14b8a6 | #2dd4bf |
+   * | `green.contrast` | #ffffff | #ffffff |
+   * | `green.fg` | #116932 | #86efac |
+   * | `green.subtle` | #dcfce7 | #042713 |
+   * | `green.muted` | #bbf7d0 | #124a28 |
+   * | `green.emphasized` | #86efac | #116932 |
+   * | `green.solid` | #16a34a | #16a34a |
+   * | `green.focusRing` | #22c55e | #22c55e |
+   * | `green.border` | #22c55e | #4ade80 |
+   * | `yellow.contrast` | #000000 | #000000 |
+   * | `yellow.fg` | #713f12 | #fde047 |
+   * | `yellow.subtle` | #fef9c3 | #422006 |
+   * | `yellow.muted` | #fef08a | #713f12 |
+   * | `yellow.emphasized` | #fde047 | #845209 |
+   * | `yellow.solid` | #fde047 | #fde047 |
+   * | `yellow.focusRing` | #eab308 | #eab308 |
+   * | `yellow.border` | #eab308 | #eab308 |
+   * | `orange.contrast` | #ffffff | #000000 |
+   * | `orange.fg` | #92310a | #fdba74 |
+   * | `orange.subtle` | #ffedd5 | #3b1106 |
+   * | `orange.muted` | #fed7aa | #6c2710 |
+   * | `orange.emphasized` | #fdba74 | #92310a |
+   * | `orange.solid` | #ea580c | #ea580c |
+   * | `orange.focusRing` | #f97316 | #f97316 |
+   * | `orange.border` | #f97316 | #fb923c |
+   */
+  overlayColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
@@ -1610,6 +2088,238 @@ export interface ThemedStyleProps {
    * | `orange.border` | #f97316 | #fb923c |
    */
   outlineColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `primary.bg` | #111111 | #ffffff |
+   * | `primary.fg` | #ffffff | #111111 |
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #111111 |
+   * | `bg.muted` | #f4f4f5 | #18181b |
+   * | `bg.emphasized` | #e4e4e7 | #3f3f46 |
+   * | `bg.inverted` | #000000 | #ffffff |
+   * | `bg.panel` | #ffffff | #111111 |
+   * | `bg.error` | #fef2f2 | #1f0808 |
+   * | `bg.warning` | #fefce8 | #281304 |
+   * | `bg.success` | #f0fdf4 | #03190c |
+   * | `bg.info` | #eff6ff | #0c142e |
+   * | `border.default` | #e4e4e7 | #27272a |
+   * | `border.muted` | #f4f4f5 | #18181b |
+   * | `border.subtle` | #fafafa | #111111 |
+   * | `border.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `border.inverted` | #27272a | #e4e4e7 |
+   * | `border.error` | #ef4444 | #f87171 |
+   * | `border.warning` | #f97316 | #fb923c |
+   * | `border.success` | #22c55e | #4ade80 |
+   * | `border.info` | #3b82f6 | #60a5fa |
+   * | `fg.default` | #000000 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   * | `fg.subtle` | #a1a1aa | #71717a |
+   * | `fg.inverted` | #fafafa | #000000 |
+   * | `fg.error` | #ef4444 | #f87171 |
+   * | `fg.warning` | #ea580c | #fdba74 |
+   * | `fg.success` | #16a34a | #86efac |
+   * | `fg.info` | #2563eb | #a3cfff |
+   * | `gray.contrast` | #ffffff | #000000 |
+   * | `gray.fg` | #27272a | #e4e4e7 |
+   * | `gray.subtle` | #f4f4f5 | #18181b |
+   * | `gray.muted` | #e4e4e7 | #27272a |
+   * | `gray.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `gray.solid` | #18181b | #ffffff |
+   * | `gray.focusRing` | #a1a1aa | #a1a1aa |
+   * | `gray.border` | #e4e4e7 | #27272a |
+   * | `red.contrast` | #ffffff | #ffffff |
+   * | `red.fg` | #991919 | #fca5a5 |
+   * | `red.subtle` | #fee2e2 | #300c0c |
+   * | `red.muted` | #fecaca | #511111 |
+   * | `red.emphasized` | #fca5a5 | #991919 |
+   * | `red.solid` | #dc2626 | #dc2626 |
+   * | `red.focusRing` | #ef4444 | #ef4444 |
+   * | `red.border` | #ef4444 | #f87171 |
+   * | `pink.contrast` | #ffffff | #ffffff |
+   * | `pink.fg` | #a41752 | #f9a8d4 |
+   * | `pink.subtle` | #fce7f3 | #45061f |
+   * | `pink.muted` | #fbcfe8 | #6d0e34 |
+   * | `pink.emphasized` | #f9a8d4 | #a41752 |
+   * | `pink.solid` | #db2777 | #db2777 |
+   * | `pink.focusRing` | #ec4899 | #ec4899 |
+   * | `pink.border` | #ec4899 | #f472b6 |
+   * | `purple.contrast` | #ffffff | #ffffff |
+   * | `purple.fg` | #641ba3 | #d8b4fe |
+   * | `purple.subtle` | #f3e8ff | #2f0553 |
+   * | `purple.muted` | #e9d5ff | #4a1772 |
+   * | `purple.emphasized` | #d8b4fe | #641ba3 |
+   * | `purple.solid` | #9333ea | #9333ea |
+   * | `purple.focusRing` | #a855f7 | #a855f7 |
+   * | `purple.border` | #a855f7 | #c084fc |
+   * | `cyan.contrast` | #ffffff | #ffffff |
+   * | `cyan.fg` | #0c5c72 | #67e8f9 |
+   * | `cyan.subtle` | #cffafe | #072a38 |
+   * | `cyan.muted` | #a5f3fc | #134152 |
+   * | `cyan.emphasized` | #67e8f9 | #0c5c72 |
+   * | `cyan.solid` | #0891b2 | #0891b2 |
+   * | `cyan.focusRing` | #06b6d4 | #06b6d4 |
+   * | `cyan.border` | #06b6d4 | #22d3ee |
+   * | `blue.contrast` | #ffffff | #ffffff |
+   * | `blue.fg` | #173da6 | #a3cfff |
+   * | `blue.subtle` | #dbeafe | #14204a |
+   * | `blue.muted` | #bfdbfe | #1a3478 |
+   * | `blue.emphasized` | #a3cfff | #173da6 |
+   * | `blue.solid` | #2563eb | #2563eb |
+   * | `blue.focusRing` | #3b82f6 | #3b82f6 |
+   * | `blue.border` | #3b82f6 | #60a5fa |
+   * | `teal.contrast` | #ffffff | #ffffff |
+   * | `teal.fg` | #0c5d56 | #5eead4 |
+   * | `teal.subtle` | #ccfbf1 | #032726 |
+   * | `teal.muted` | #99f6e4 | #114240 |
+   * | `teal.emphasized` | #5eead4 | #0c5d56 |
+   * | `teal.solid` | #0d9488 | #0d9488 |
+   * | `teal.focusRing` | #14b8a6 | #14b8a6 |
+   * | `teal.border` | #14b8a6 | #2dd4bf |
+   * | `green.contrast` | #ffffff | #ffffff |
+   * | `green.fg` | #116932 | #86efac |
+   * | `green.subtle` | #dcfce7 | #042713 |
+   * | `green.muted` | #bbf7d0 | #124a28 |
+   * | `green.emphasized` | #86efac | #116932 |
+   * | `green.solid` | #16a34a | #16a34a |
+   * | `green.focusRing` | #22c55e | #22c55e |
+   * | `green.border` | #22c55e | #4ade80 |
+   * | `yellow.contrast` | #000000 | #000000 |
+   * | `yellow.fg` | #713f12 | #fde047 |
+   * | `yellow.subtle` | #fef9c3 | #422006 |
+   * | `yellow.muted` | #fef08a | #713f12 |
+   * | `yellow.emphasized` | #fde047 | #845209 |
+   * | `yellow.solid` | #fde047 | #fde047 |
+   * | `yellow.focusRing` | #eab308 | #eab308 |
+   * | `yellow.border` | #eab308 | #eab308 |
+   * | `orange.contrast` | #ffffff | #000000 |
+   * | `orange.fg` | #92310a | #fdba74 |
+   * | `orange.subtle` | #ffedd5 | #3b1106 |
+   * | `orange.muted` | #fed7aa | #6c2710 |
+   * | `orange.emphasized` | #fdba74 | #92310a |
+   * | `orange.solid` | #ea580c | #ea580c |
+   * | `orange.focusRing` | #f97316 | #f97316 |
+   * | `orange.border` | #f97316 | #fb923c |
+   */
+  textShadowColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `primary.bg` | #111111 | #ffffff |
+   * | `primary.fg` | #ffffff | #111111 |
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #111111 |
+   * | `bg.muted` | #f4f4f5 | #18181b |
+   * | `bg.emphasized` | #e4e4e7 | #3f3f46 |
+   * | `bg.inverted` | #000000 | #ffffff |
+   * | `bg.panel` | #ffffff | #111111 |
+   * | `bg.error` | #fef2f2 | #1f0808 |
+   * | `bg.warning` | #fefce8 | #281304 |
+   * | `bg.success` | #f0fdf4 | #03190c |
+   * | `bg.info` | #eff6ff | #0c142e |
+   * | `border.default` | #e4e4e7 | #27272a |
+   * | `border.muted` | #f4f4f5 | #18181b |
+   * | `border.subtle` | #fafafa | #111111 |
+   * | `border.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `border.inverted` | #27272a | #e4e4e7 |
+   * | `border.error` | #ef4444 | #f87171 |
+   * | `border.warning` | #f97316 | #fb923c |
+   * | `border.success` | #22c55e | #4ade80 |
+   * | `border.info` | #3b82f6 | #60a5fa |
+   * | `fg.default` | #000000 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   * | `fg.subtle` | #a1a1aa | #71717a |
+   * | `fg.inverted` | #fafafa | #000000 |
+   * | `fg.error` | #ef4444 | #f87171 |
+   * | `fg.warning` | #ea580c | #fdba74 |
+   * | `fg.success` | #16a34a | #86efac |
+   * | `fg.info` | #2563eb | #a3cfff |
+   * | `gray.contrast` | #ffffff | #000000 |
+   * | `gray.fg` | #27272a | #e4e4e7 |
+   * | `gray.subtle` | #f4f4f5 | #18181b |
+   * | `gray.muted` | #e4e4e7 | #27272a |
+   * | `gray.emphasized` | #d4d4d8 | #3f3f46 |
+   * | `gray.solid` | #18181b | #ffffff |
+   * | `gray.focusRing` | #a1a1aa | #a1a1aa |
+   * | `gray.border` | #e4e4e7 | #27272a |
+   * | `red.contrast` | #ffffff | #ffffff |
+   * | `red.fg` | #991919 | #fca5a5 |
+   * | `red.subtle` | #fee2e2 | #300c0c |
+   * | `red.muted` | #fecaca | #511111 |
+   * | `red.emphasized` | #fca5a5 | #991919 |
+   * | `red.solid` | #dc2626 | #dc2626 |
+   * | `red.focusRing` | #ef4444 | #ef4444 |
+   * | `red.border` | #ef4444 | #f87171 |
+   * | `pink.contrast` | #ffffff | #ffffff |
+   * | `pink.fg` | #a41752 | #f9a8d4 |
+   * | `pink.subtle` | #fce7f3 | #45061f |
+   * | `pink.muted` | #fbcfe8 | #6d0e34 |
+   * | `pink.emphasized` | #f9a8d4 | #a41752 |
+   * | `pink.solid` | #db2777 | #db2777 |
+   * | `pink.focusRing` | #ec4899 | #ec4899 |
+   * | `pink.border` | #ec4899 | #f472b6 |
+   * | `purple.contrast` | #ffffff | #ffffff |
+   * | `purple.fg` | #641ba3 | #d8b4fe |
+   * | `purple.subtle` | #f3e8ff | #2f0553 |
+   * | `purple.muted` | #e9d5ff | #4a1772 |
+   * | `purple.emphasized` | #d8b4fe | #641ba3 |
+   * | `purple.solid` | #9333ea | #9333ea |
+   * | `purple.focusRing` | #a855f7 | #a855f7 |
+   * | `purple.border` | #a855f7 | #c084fc |
+   * | `cyan.contrast` | #ffffff | #ffffff |
+   * | `cyan.fg` | #0c5c72 | #67e8f9 |
+   * | `cyan.subtle` | #cffafe | #072a38 |
+   * | `cyan.muted` | #a5f3fc | #134152 |
+   * | `cyan.emphasized` | #67e8f9 | #0c5c72 |
+   * | `cyan.solid` | #0891b2 | #0891b2 |
+   * | `cyan.focusRing` | #06b6d4 | #06b6d4 |
+   * | `cyan.border` | #06b6d4 | #22d3ee |
+   * | `blue.contrast` | #ffffff | #ffffff |
+   * | `blue.fg` | #173da6 | #a3cfff |
+   * | `blue.subtle` | #dbeafe | #14204a |
+   * | `blue.muted` | #bfdbfe | #1a3478 |
+   * | `blue.emphasized` | #a3cfff | #173da6 |
+   * | `blue.solid` | #2563eb | #2563eb |
+   * | `blue.focusRing` | #3b82f6 | #3b82f6 |
+   * | `blue.border` | #3b82f6 | #60a5fa |
+   * | `teal.contrast` | #ffffff | #ffffff |
+   * | `teal.fg` | #0c5d56 | #5eead4 |
+   * | `teal.subtle` | #ccfbf1 | #032726 |
+   * | `teal.muted` | #99f6e4 | #114240 |
+   * | `teal.emphasized` | #5eead4 | #0c5d56 |
+   * | `teal.solid` | #0d9488 | #0d9488 |
+   * | `teal.focusRing` | #14b8a6 | #14b8a6 |
+   * | `teal.border` | #14b8a6 | #2dd4bf |
+   * | `green.contrast` | #ffffff | #ffffff |
+   * | `green.fg` | #116932 | #86efac |
+   * | `green.subtle` | #dcfce7 | #042713 |
+   * | `green.muted` | #bbf7d0 | #124a28 |
+   * | `green.emphasized` | #86efac | #116932 |
+   * | `green.solid` | #16a34a | #16a34a |
+   * | `green.focusRing` | #22c55e | #22c55e |
+   * | `green.border` | #22c55e | #4ade80 |
+   * | `yellow.contrast` | #000000 | #000000 |
+   * | `yellow.fg` | #713f12 | #fde047 |
+   * | `yellow.subtle` | #fef9c3 | #422006 |
+   * | `yellow.muted` | #fef08a | #713f12 |
+   * | `yellow.emphasized` | #fde047 | #845209 |
+   * | `yellow.solid` | #fde047 | #fde047 |
+   * | `yellow.focusRing` | #eab308 | #eab308 |
+   * | `yellow.border` | #eab308 | #eab308 |
+   * | `orange.contrast` | #ffffff | #000000 |
+   * | `orange.fg` | #92310a | #fdba74 |
+   * | `orange.subtle` | #ffedd5 | #3b1106 |
+   * | `orange.muted` | #fed7aa | #6c2710 |
+   * | `orange.emphasized` | #fdba74 | #92310a |
+   * | `orange.solid` | #ea580c | #ea580c |
+   * | `orange.focusRing` | #f97316 | #f97316 |
+   * | `orange.border` | #f97316 | #fb923c |
+   */
+  textDecorationColor?: ColorToken;
   /**
    * `tokens.radii`
    *
@@ -2263,6 +2973,258 @@ export interface ThemedStyleProps {
    * | `80` | 320 |
    * | `96` | 384 |
    */
+  paddingBlock?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  paddingBlockStart?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  paddingBlockEnd?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  paddingInline?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  paddingInlineStart?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  paddingInlineEnd?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
   margin?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
@@ -2641,6 +3603,258 @@ export interface ThemedStyleProps {
    * | `80` | 320 |
    * | `96` | 384 |
    */
+  marginBlock?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  marginBlockStart?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  marginBlockEnd?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  marginInline?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  marginInlineStart?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
+  marginInlineEnd?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `1.5` | 6 |
+   * | `2` | 8 |
+   * | `2.5` | 10 |
+   * | `3` | 12 |
+   * | `3.5` | 14 |
+   * | `4` | 16 |
+   * | `5` | 20 |
+   * | `6` | 24 |
+   * | `7` | 28 |
+   * | `8` | 32 |
+   * | `9` | 36 |
+   * | `10` | 40 |
+   * | `11` | 44 |
+   * | `12` | 48 |
+   * | `14` | 56 |
+   * | `16` | 64 |
+   * | `20` | 80 |
+   * | `24` | 96 |
+   * | `28` | 112 |
+   * | `32` | 128 |
+   * | `36` | 144 |
+   * | `40` | 160 |
+   * | `44` | 176 |
+   * | `48` | 192 |
+   * | `52` | 208 |
+   * | `56` | 224 |
+   * | `60` | 240 |
+   * | `64` | 256 |
+   * | `72` | 288 |
+   * | `80` | 320 |
+   * | `96` | 384 |
+   */
   gap?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
@@ -2789,6 +4003,26 @@ export interface ThemedStyleProps {
    * | `widest` | 1.6 |
    */
   letterSpacing?: LetterSpacingToken | number;
+  /**
+   * `tokens.zIndices`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `hide` | -1 |
+   * | `base` | 0 |
+   * | `docked` | 10 |
+   * | `dropdown` | 1000 |
+   * | `sticky` | 1100 |
+   * | `banner` | 1200 |
+   * | `overlay` | 1300 |
+   * | `modal` | 1400 |
+   * | `popover` | 1500 |
+   * | `skipNav` | 1600 |
+   * | `toast` | 1700 |
+   * | `tooltip` | 1800 |
+   * | `max` | 2147483647 |
+   */
+  zIndex?: ZIndexToken | number;
   /**
    * Virtual prop: expands to `shadowColor` / `shadowOffset` / `shadowOpacity` / `shadowRadius` / `elevation`.
    *

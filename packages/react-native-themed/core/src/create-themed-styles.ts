@@ -15,6 +15,7 @@ import {
   LETTER_SPACING_KEYS,
   RADIUS_KEYS,
   SPACING_KEYS,
+  Z_INDEX_KEYS,
 } from './style-props';
 import { createTextVariants } from './text-variants';
 import type {
@@ -57,6 +58,7 @@ export function createThemedStyles<S extends ThemedSchema = LooseSchema>(
     LETTER_SPACING_KEYS,
     tokens.letterSpacings,
   );
+  const resolveZIndex = createScaleResolver(Z_INDEX_KEYS, tokens.zIndices);
   const resolveShadow = createShadowResolver(tokens.shadows);
 
   // Chains every resolver; if none apply, the original input passes through
@@ -70,6 +72,7 @@ export function createThemedStyles<S extends ThemedSchema = LooseSchema>(
     result = resolveLineHeight(result);
     result = resolveLetterSpacing(result);
     result = resolveFontWeight(result);
+    result = resolveZIndex(result);
     result = resolveShadow(result);
     return result;
   }

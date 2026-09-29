@@ -23,6 +23,7 @@ export type FontWeightToken = 'normal' | 'semibold';
 export type LineHeightToken = 'short' | 'moderate';
 export type LetterSpacingToken = 'tight' | 'wide';
 export type ShadowToken = 'sm';
+export type ZIndexToken = 'base' | 'modal';
 
 // ---------------------------------------------------------------------------
 // Token-aware style props. Each primitive picks the ones its RN style type
@@ -139,7 +140,51 @@ export interface ThemedStyleProps {
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
    */
+  borderBlockColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #18181b |
+   * | `fg.default` | #111111 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   */
+  borderBlockStartColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #18181b |
+   * | `fg.default` | #111111 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   */
+  borderBlockEndColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #18181b |
+   * | `fg.default` | #111111 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   */
   tintColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #18181b |
+   * | `fg.default` | #111111 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   */
+  overlayColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
@@ -162,6 +207,28 @@ export interface ThemedStyleProps {
    * | `fg.muted` | #52525b | #a1a1aa |
    */
   outlineColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #18181b |
+   * | `fg.default` | #111111 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   */
+  textShadowColor?: ColorToken;
+  /**
+   * `semanticTokens.colors`
+   *
+   * | token | light | dark |
+   * |:--|:--|:--|
+   * | `bg.default` | #ffffff | #111111 |
+   * | `bg.subtle` | #fafafa | #18181b |
+   * | `fg.default` | #111111 | #fafafa |
+   * | `fg.muted` | #52525b | #a1a1aa |
+   */
+  textDecorationColor?: ColorToken;
   /**
    * `tokens.radii`
    *
@@ -421,6 +488,84 @@ export interface ThemedStyleProps {
    * | `2` | 8 |
    * | `4` | 16 |
    */
+  paddingBlock?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  paddingBlockStart?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  paddingBlockEnd?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  paddingInline?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  paddingInlineStart?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  paddingInlineEnd?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
   margin?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
@@ -538,6 +683,84 @@ export interface ThemedStyleProps {
    * | `2` | 8 |
    * | `4` | 16 |
    */
+  marginBlock?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  marginBlockStart?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  marginBlockEnd?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  marginInline?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  marginInlineStart?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
+  marginInlineEnd?: SpacingToken | 'auto' | `${number}%`;
+  /**
+   * `tokens.spacing`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `px` | 1 |
+   * | `0.5` | 2 |
+   * | `1` | 4 |
+   * | `2` | 8 |
+   * | `4` | 16 |
+   */
   gap?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
@@ -604,6 +827,15 @@ export interface ThemedStyleProps {
    * | `wide` | 0.4 |
    */
   letterSpacing?: LetterSpacingToken | number;
+  /**
+   * `tokens.zIndices`
+   *
+   * | token | value |
+   * |:--|--:|
+   * | `base` | 0 |
+   * | `modal` | 1400 |
+   */
+  zIndex?: ZIndexToken | number;
   /**
    * Virtual prop: expands to `shadowColor` / `shadowOffset` / `shadowOpacity` / `shadowRadius` / `elevation`.
    *
@@ -750,6 +982,10 @@ export interface ThemedTokens {
   letterSpacings: {
     tight: -0.4;
     wide: 0.4;
+  };
+  zIndices: {
+    base: 0;
+    modal: 1400;
   };
   shadows: {
     sm: {

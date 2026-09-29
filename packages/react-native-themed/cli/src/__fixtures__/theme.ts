@@ -9,6 +9,7 @@ const scales = defineTheme({
     fontWeights: { normal: '400', semibold: '600' },
     lineHeights: { short: 1.375, moderate: 1.5 },
     letterSpacings: { tight: -0.4, wide: 0.4 },
+    zIndices: { base: 0, modal: 1400 },
     shadows: {
       sm: {
         shadowColor: '#000000',
