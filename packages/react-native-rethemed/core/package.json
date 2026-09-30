@@ -1,0 +1,32 @@
+{
+  "name": "@react-native-rethemed/core",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./config": "./src/config.ts"
+  },
+  "scripts": {
+    "lint": "biome check src",
+    "lint:fix": "biome check --write --unsafe src",
+    "tsc": "tsc --noEmit",
+    "test": "vitest",
+    "test:ci": "vitest run"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "react": "catalog:",
+    "react-native": "catalog:",
+    "@types/react": "19.2.17",
+    "@biomejs/biome": "2.5.4",
+    "biome-config": "workspace:*",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
+  }
+}

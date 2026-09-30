@@ -1,0 +1,32 @@
+{
+  "name": "@react-native-rethemed/cli",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "react-native-rethemed": "./bin/react-native-rethemed.mjs"
+  },
+  "scripts": {
+    "lint": "biome check src bin",
+    "lint:fix": "biome check --write --unsafe src bin",
+    "tsc": "tsc --noEmit",
+    "test": "vitest",
+    "test:ci": "vitest run"
+  },
+  "dependencies": {
+    "@clack/prompts": "1.8.1",
+    "@react-native-rethemed/core": "workspace:*",
+    "jiti": "2.7.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.4",
+    "@types/node": "24.10.4",
+    "@types/react": "19.2.17",
+    "biome-config": "workspace:*",
+    "react": "catalog:",
+    "react-native": "catalog:",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
+  }
+}

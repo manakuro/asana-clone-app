@@ -1,4 +1,4 @@
-import { spacing } from '@react-native-themed/chakra-ui-tokens';
+import { spacing } from '@react-native-rethemed/chakra-ui-tokens';
 import * as Device from 'expo-device';
 import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';

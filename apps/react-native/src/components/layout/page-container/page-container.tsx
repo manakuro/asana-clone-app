@@ -1,4 +1,4 @@
-import { spacing } from '@react-native-themed/chakra-ui-tokens';
+import { spacing } from '@react-native-rethemed/chakra-ui-tokens';
 import type { PropsWithChildren } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View } from '@/components/ui/view';

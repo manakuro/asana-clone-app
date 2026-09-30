@@ -1,0 +1,21 @@
+{
+  "name": "@react-native-rethemed/chakra-ui-tokens",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "lint": "biome check src",
+    "lint:fix": "biome check --write --unsafe src",
+    "tsc": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-native-rethemed/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.4",
+    "biome-config": "workspace:*",
+    "typescript": "6.0.3"
+  }
+}

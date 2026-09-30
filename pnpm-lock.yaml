@@ -353,15 +353,15 @@ importers:
       '@react-native-firebase/auth':
         specifier: 26.4.0
         version: 26.4.0(@react-native-firebase/app@26.4.0(expo@57.0.16)(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3))(expo@57.0.16)
-      '@react-native-themed/chakra-ui-tokens':
+      '@react-native-rethemed/chakra-ui-tokens':
         specifier: workspace:*
-        version: link:../../packages/react-native-themed/chakra-ui
-      '@react-native-themed/core':
+        version: link:../../packages/react-native-rethemed/chakra-ui
+      '@react-native-rethemed/core':
         specifier: workspace:*
-        version: link:../../packages/react-native-themed/core
-      '@react-native-themed/material-design-tokens':
+        version: link:../../packages/react-native-rethemed/core
+      '@react-native-rethemed/material-design-tokens':
         specifier: workspace:*
-        version: link:../../packages/react-native-themed/material-design
+        version: link:../../packages/react-native-rethemed/material-design
       expo:
         specifier: 57.0.16
         version: 57.0.16(@babel/core@7.29.7(supports-color@8.1.1))(@expo/dom-webview@57.0.1)(@expo/metro-runtime@57.0.13)(expo-router@57.0.16)(react-dom@19.2.3(react@19.2.3))(react-native-web@0.21.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-native-worklets@0.10.1(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)(supports-color@8.1.1))(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)(supports-color@8.1.1)(typescript@6.0.3)
@@ -483,9 +483,9 @@ importers:
       '@parcel/watcher':
         specifier: 2.6.0
         version: 2.6.0
-      '@react-native-themed/cli':
+      '@react-native-rethemed/cli':
         specifier: workspace:*
-        version: link:../../packages/react-native-themed/cli
+        version: link:../../packages/react-native-rethemed/cli
       '@types/node':
         specifier: 24.10.4
         version: 24.10.4
@@ -514,9 +514,9 @@ importers:
         specifier: 2.5.4
         version: 2.5.4
 
-  packages/react-native-themed/chakra-ui:
+  packages/react-native-rethemed/chakra-ui:
     dependencies:
-      '@react-native-themed/core':
+      '@react-native-rethemed/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -530,12 +530,12 @@ importers:
         specifier: 6.0.3
         version: 6.0.3
 
-  packages/react-native-themed/cli:
+  packages/react-native-rethemed/cli:
     dependencies:
       '@clack/prompts':
         specifier: 1.8.1
         version: 1.8.1
-      '@react-native-themed/core':
+      '@react-native-rethemed/core':
         specifier: workspace:*
         version: link:../core
       jiti:
@@ -567,7 +567,7 @@ importers:
         specifier: 4.1.10
         version: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@24.10.4)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(happy-dom@20.11.0)(jsdom@29.1.1)(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))
 
-  packages/react-native-themed/core:
+  packages/react-native-rethemed/core:
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.4
@@ -591,9 +591,9 @@ importers:
         specifier: 4.1.10
         version: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@24.10.4)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(happy-dom@20.11.0)(jsdom@29.1.1)(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))
 
-  packages/react-native-themed/material-design:
+  packages/react-native-rethemed/material-design:
     dependencies:
-      '@react-native-themed/core':
+      '@react-native-rethemed/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:

@@ -1,9 +1,9 @@
 import {
   chakraUiTheme,
   colorTokens,
-} from '@react-native-themed/chakra-ui-tokens';
-import { extendTheme } from '@react-native-themed/core/config';
-import { materialDesignTheme } from '@react-native-themed/material-design-tokens';
+} from '@react-native-rethemed/chakra-ui-tokens';
+import { extendTheme } from '@react-native-rethemed/core/config';
+import { materialDesignTheme } from '@react-native-rethemed/material-design-tokens';
 
 /**
  * `chakraUiTheme` supplies colors/radii/spacing/fontSizes/etc; `materialDesignTheme`
@@ -12,7 +12,7 @@ import { materialDesignTheme } from '@react-native-themed/material-design-tokens
  *
  * `themed.gen.ts` is generated from this file by `pnpm themed:codegen` (also
  * run on install via `prepare`) — re-run it after editing. Import only from
- * `@react-native-themed/core/config` here: the CLI evaluates this file in
+ * `@react-native-rethemed/core/config` here: the CLI evaluates this file in
  * plain Node, without `react-native`.
  */
 export const themeConfig = extendTheme(chakraUiTheme, materialDesignTheme, {
