@@ -100,7 +100,9 @@ function usageSection(model: TokenModel, genFile: string): Section {
           '      })}',
           '    >',
         ]
-      : ['    <View style={themed.view()}>'];
+      : // No View-related tokens: `themed.view()` needs an argument, and a
+        // style with nothing in it adds nothing to the example.
+        ['    <View>'];
 
   // Prefer a mid-sized heading (`title.md`) for the example when it exists.
   const presetPath = examplePreset(model.text);

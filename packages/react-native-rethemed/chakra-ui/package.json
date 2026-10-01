@@ -6,16 +6,25 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {
-    "lint": "biome check src",
-    "lint:fix": "biome check --write --unsafe src",
-    "tsc": "tsc --noEmit"
+    "example:codegen": "react-native-rethemed codegen example/theme.ts --docs example/themed.md",
+    "lint": "biome check src example",
+    "lint:fix": "biome check --write --unsafe src example",
+    "tsc": "tsc --noEmit",
+    "test": "vitest",
+    "test:ci": "vitest run"
   },
   "dependencies": {
     "@react-native-rethemed/core": "workspace:*"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.4",
+    "@react-native-rethemed/cli": "workspace:*",
+    "@types/node": "24.10.4",
+    "@types/react": "19.2.17",
     "biome-config": "workspace:*",
-    "typescript": "6.0.3"
+    "react": "catalog:",
+    "react-native": "catalog:",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
   }
 }

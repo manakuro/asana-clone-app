@@ -139,7 +139,7 @@ describe('generateDocs', () => {
       themeFile: 'theme.ts',
       genFile: 'themed.gen.ts',
     });
-    expect(docs).toContain('    <View style={themed.view()}>');
+    expect(docs).toContain('    <View>\n      <Text');
     expect(docs).toContain('      <Text style={themed.text()}>Title</Text>');
     const example = docs.slice(
       docs.indexOf('```tsx'),

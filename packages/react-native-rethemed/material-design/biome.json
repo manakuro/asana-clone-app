@@ -3,6 +3,6 @@
   "extends": ["./node_modules/biome-config/biome.json"],
   "files": {
     "ignoreUnknown": false,
-    "includes": ["!**/node_modules/", "!**/dist/"]
+    "includes": ["!**/node_modules/", "!**/dist/", "!**/*.gen.ts"]
   }
 }

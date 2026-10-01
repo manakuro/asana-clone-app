@@ -16,6 +16,11 @@ import { materialDesignTheme } from '@react-native-rethemed/material-design-toke
  * plain Node, without `react-native`.
  */
 export const themeConfig = extendTheme(chakraUiTheme, materialDesignTheme, {
+  tokens: {
+    colors: {
+      testColor: '#000000',
+    },
+  },
   semanticTokens: {
     colors: {
       primary: {
