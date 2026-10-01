@@ -64,4 +64,59 @@ describe('generateDocs', () => {
     expect(docs).not.toContain('## Shadows');
     expect(docs).not.toContain('shadow:');
   });
+
+  it('builds the example from primitives when there are no semantic tokens', () => {
+    const docs = generateDocs({
+      config: {
+        tokens: {
+          colors: {
+            transparent: '#00000000',
+            white: '#ffffff',
+            black: '#000000',
+          },
+          radii: { md: 6 },
+          spacing: { 4: 16 },
+          fontSizes: { md: 16 },
+          lineHeights: { tight: 1.25 },
+        },
+      },
+      themeFile: 'theme.ts',
+      genFile: 'themed.gen.ts',
+    });
+    expect(docs).not.toContain('group.token');
+    expect(docs).toContain('const { themed, tokens } = useThemed();');
+    expect(docs).toContain(
+      [
+        '    <View',
+        '      style={[',
+        '        themed.view({',
+        "          borderRadius: 'md',",
+        '          padding: 4,',
+        '        }),',
+        '        { backgroundColor: tokens.colors.white },',
+        '      ]}',
+        '    >',
+        "      <Text style={[themed.text({ fontSize: 'md' }), { color: tokens.colors.black }]}>Title</Text>",
+      ].join('\n'),
+    );
+    expect(docs).toContain('This theme defines no semantic colors');
+    expect(docs).toContain('This theme defines no text presets');
+    expect(docs).not.toContain('Prefer semantic colors');
+    expect(docs).not.toContain('(see Text presets)');
+    expect(docs).toContain('pass them in a second plain style object');
+  });
+
+  it('leaves categories the theme does not define out of the example', () => {
+    const docs = generateDocs({
+      config: {},
+      themeFile: 'theme.ts',
+      genFile: 'themed.gen.ts',
+    });
+    expect(docs).toContain('    <View style={themed.view()}>');
+    expect(docs).toContain('      <Text style={themed.text()}>Title</Text>');
+    expect(docs).not.toMatch(/borderRadius:|padding:|shadow:|tokens\.colors/);
+    expect(docs).toContain('`zIndex` takes a raw number');
+    expect(docs).not.toContain('**Shadows:**');
+    expect(docs).not.toContain('**Line heights:**');
+  });
 });

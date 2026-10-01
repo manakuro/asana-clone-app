@@ -7,23 +7,25 @@ The design tokens of this app's theme (`example/theme.ts`) and how to use them w
 
 ## Usage
 
-Get `themed`, `tokens` and `semanticTokens` from `useThemed()` (exported by `example/themed.gen.ts`). Values follow the current light/dark scheme, so call it inside the component.
+Get `themed`, `tokens` from `useThemed()` (exported by `example/themed.gen.ts`). Values follow the current light/dark scheme, so call it inside the component.
 
 ```tsx
 import { Text, View } from 'react-native';
 
 function Card() {
-  const { themed } = useThemed();
+  const { themed, tokens } = useThemed();
   return (
     <View
-      style={themed.view({
-        backgroundColor: 'group.token',
-        borderRadius: 'md',
-        padding: 4,
-        shadow: '2xs',
-      })}
+      style={[
+        themed.view({
+          borderRadius: 'md',
+          padding: 4,
+          shadow: '2xs',
+        }),
+        { backgroundColor: tokens.colors.white },
+      ]}
     >
-      <Text style={themed.text({ color: 'group.token' })}>Title</Text>
+      <Text style={[themed.text({ fontSize: 'md' }), { color: tokens.colors.black }]}>Title</Text>
     </View>
   );
 }
@@ -32,14 +34,13 @@ function Card() {
 ### Rules
 
 - Pass every style through `themed.view()` / `themed.text()` / `themed.image()`. Props without tokens (`flex`, `width`, …) pass through unchanged.
-- **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages.
-- For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.
-- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.
-- **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
-- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.
-- `zIndex` accepts a z-index token or a raw number.
+- **Radii and spacing are token-only.** Use the names in the tables below; raw values like `12` do not type-check. Spacing also accepts `'auto'` and percentages.
+- **This theme defines no semantic colors**, so `themed.*()` accepts no color values. Put colors in a second plain style object, reading primitives from `useThemed().tokens.colors` (see Primitive colors): `style={[themed.text(), { color: tokens.colors.black }]}`. Add `semanticTokens.colors` to the theme to get light/dark-aware color tokens.
+- **Typography:** `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value. This theme defines no text presets (`semanticTokens.text`).
+- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. Set `fontSize` in the same `themed.text()` call (`themed.text({ fontSize: 'md', lineHeight: 'none' })`) so the line height is computed from it, not in a separate style object.
+- `zIndex` takes a raw number (this theme defines no z-index tokens).
 - **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.
-- Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.
+- Outside `style` (e.g. an icon `color` prop), read values from `useThemed().tokens`.
 - **Performance:** calling `themed.*()` inline on every render is fine. Built-in components compare `style` by value, and a call costs well under a microsecond. Memoize with `useMemo(() => themed.view({ ... }), [themed])` only when the style must keep the same reference: when it is passed to a `React.memo` component, passed as a list prop such as `contentContainerStyle` / `ListHeaderComponentStyle`, or used as a hook dependency. `themed` itself only changes when the color scheme does.
 - Do not edit the generated files. Change the theme file and re-run the codegen command instead.
 
@@ -181,7 +182,7 @@ Use with the virtual `shadow` prop: `themed.view({ shadow: '2xs' })`.
 
 ## Primitive colors
 
-Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`; prefer semantic colors.
+Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`: pass them in a second plain style object.
 
 | token | value |
 |:--|:--|

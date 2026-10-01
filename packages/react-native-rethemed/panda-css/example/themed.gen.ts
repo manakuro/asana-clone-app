@@ -115,127 +115,109 @@ export interface ThemedStyleProps {
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   color?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   backgroundColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderTopColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderBottomColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderLeftColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderRightColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderStartColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderEndColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderBlockColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderBlockStartColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   borderBlockEndColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   tintColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   overlayColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   shadowColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   outlineColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   textShadowColor?: ColorToken;
   /**
    * `semanticTokens.colors`
    *
-   * | token | light | dark |
-   * |:--|:--|:--|
+   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
    */
   textDecorationColor?: ColorToken;
   /**
@@ -1933,8 +1915,7 @@ export interface ThemedStyleProps {
   /**
    * `tokens.zIndices`
    *
-   * | token | value |
-   * |:--|--:|
+   * Not defined in this theme.
    */
   zIndex?: ZIndexToken | number;
   /**
@@ -2431,9 +2412,7 @@ export interface ThemedTokens {
 
 export interface ThemedSemanticTokens {
   /** Resolved for the current color scheme. */
-  colors: {
-
-  };
+  colors: {};
   text: {};
 }
 

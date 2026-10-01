@@ -71,29 +71,39 @@ export function generate({
     entries.map(([k]) => k);
 
   // --- JSDoc token tables ---------------------------------------------------
+  // A category the theme does not define gets a note instead of an empty
+  // table, so hovering a prop explains why no token is suggested.
+  const notDefined = 'Not defined in this theme.';
   const colorDoc = [
     code('semanticTokens.colors'),
     '',
-    ...colorTable(model.colors),
+    ...(model.colors.length > 0
+      ? colorTable(model.colors)
+      : [
+          `${notDefined} No color token is accepted here; pass colors in a second plain style object.`,
+        ]),
   ];
   const scaleDoc = (source: string, rows: [string, unknown][]) => [
     code(`tokens.${source}`),
     '',
-    ...scaleTable(rows),
+    ...(rows.length > 0 ? scaleTable(rows) : [notDefined]),
   ];
-  const lineHeightDoc = [
-    lineHeightNote(model),
-    '',
-    code('tokens.lineHeights'),
-    '',
-    ...scaleTable(lineHeightRows(model)),
-  ];
+  const lineHeightDoc =
+    model.lineHeights.length > 0
+      ? [
+          lineHeightNote(model),
+          '',
+          code('tokens.lineHeights'),
+          '',
+          ...scaleTable(lineHeightRows(model)),
+        ]
+      : [code('tokens.lineHeights'), '', notDefined];
   const shadowDoc = [
     'Virtual prop: expands to `shadowColor` / `shadowOffset` / `shadowOpacity` / `shadowRadius` / `elevation`.',
     '',
     code('tokens.shadows'),
     '',
-    ...shadowTable(model.shadows),
+    ...(model.shadows.length > 0 ? shadowTable(model.shadows) : [notDefined]),
   ];
 
   const props = (names: readonly string[], type: string, doc: string[]) =>
@@ -215,9 +225,7 @@ export interface ThemedTokens ${typeLiteral(tokens, '')}
 
 export interface ThemedSemanticTokens {
   /** Resolved for the current color scheme. */
-  colors: {
-${semanticColorType}
-  };
+  colors: ${semanticColorType ? `{\n${semanticColorType}\n  }` : '{}'};
   text: ${typeLiteral(semanticText, INDENT)};
 }
 

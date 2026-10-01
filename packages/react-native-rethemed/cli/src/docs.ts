@@ -25,9 +25,6 @@ export type GenerateDocsOptions = {
 
 type Section = { title: string; body: string[] };
 
-const firstOf = <T>(rows: [string, T][], fallback: string) =>
-  rows[0]?.[0] ?? fallback;
-
 /** A literal as it would be written in TS source (`4`, `'md'`). */
 const asArg = (key: string) => (/^\d+(\.\d+)?$/.test(key) ? key : `'${key}'`);
 
@@ -38,45 +35,142 @@ const presetCall = (path: string) =>
     .map((k) => (/^[A-Za-z_$][\w$]*$/.test(k) ? `.${k}` : `['${k}']`))
     .join('')}`;
 
+/** `tokens.colors.white`, or `tokens.colors['gray.900']` for dotted keys. */
+const colorAccess = (key: string) =>
+  `tokens.colors${/^[A-Za-z_$][\w$]*$/.test(key) ? `.${key}` : `['${key}']`}`;
+
+/** Picks a readable primitive for the example (not `transparent`). */
+function primitiveFor(
+  model: TokenModel,
+  preferred: string,
+): string | undefined {
+  const keys = model.primitiveColors.map(([k]) => k);
+  return (
+    keys.find((k) => k === preferred) ??
+    keys.find((k) => k !== 'transparent') ??
+    keys[0]
+  );
+}
+
+const objectArg = (entries: string[]) =>
+  entries.length > 0 ? `{ ${entries.join(', ')} }` : '';
+
 function usageSection(model: TokenModel, genFile: string): Section {
-  // Real token names from this theme, so the examples always type-check.
-  const bg = model.colors.find((c) => c.group === 'bg')?.token;
-  const fg = model.colors.find((c) => c.group === 'fg')?.token;
-  const color = bg ?? model.colors[0]?.token ?? 'group.token';
-  const textColor = fg ?? model.colors[0]?.token ?? 'group.token';
-  const radius = asArg(
+  const hasSemanticColors = model.colors.length > 0;
+  const hasPresets = model.text.length > 0;
+  const hasSemanticTokens = hasSemanticColors || hasPresets;
+
+  // Only real token names from this theme, so the example always
+  // type-checks. Categories the theme does not define are left out.
+  const semanticBg = (
+    model.colors.find((c) => c.group === 'bg') ?? model.colors[0]
+  )?.token;
+  const semanticFg = (
+    model.colors.find((c) => c.group === 'fg') ?? model.colors[0]
+  )?.token;
+  // Without semantic colors, `themed.*()` accepts no color, so the example
+  // passes a primitive in a second plain style object instead.
+  const primitiveBg = hasSemanticColors
+    ? undefined
+    : primitiveFor(model, 'white');
+  const primitiveFg = hasSemanticColors
+    ? undefined
+    : primitiveFor(model, 'black');
+  const radius =
     model.radii.find(([k]) => k === 'md')?.[0] ??
-      model.radii[Math.floor(model.radii.length / 2)]?.[0] ??
-      'md',
-  );
-  const spacing = asArg(
-    model.spacing.find(([, v]) => v >= 16)?.[0] ?? firstOf(model.spacing, '4'),
-  );
-  const shadow = asArg(firstOf(model.shadows, 'sm'));
+    model.radii[Math.floor(model.radii.length / 2)]?.[0];
+  const spacing =
+    model.spacing.find(([, v]) => v >= 16)?.[0] ?? model.spacing[0]?.[0];
+  const shadow = model.shadows[0]?.[0];
+  const fontSize =
+    model.fontSizes.find(([k]) => k === 'md')?.[0] ?? model.fontSizes[0]?.[0];
+
+  const viewArgs = [
+    ...(semanticBg ? [`backgroundColor: '${semanticBg}',`] : []),
+    ...(radius !== undefined ? [`borderRadius: ${asArg(radius)},`] : []),
+    ...(spacing !== undefined ? [`padding: ${asArg(spacing)},`] : []),
+    ...(shadow !== undefined ? [`shadow: ${asArg(shadow)},`] : []),
+  ];
+  const viewCall =
+    viewArgs.length > 0
+      ? ['themed.view({', ...viewArgs.map((l) => `  ${l}`), '})']
+      : ['themed.view()'];
+  const viewStyle = primitiveBg
+    ? [
+        '[',
+        ...viewCall.map(
+          (l, i) => `  ${l}${i === viewCall.length - 1 ? ',' : ''}`,
+        ),
+        `  { backgroundColor: ${colorAccess(primitiveBg)} },`,
+        ']',
+      ]
+    : viewCall;
+
   // Prefer a mid-sized heading (`title.md`) for the example when it exists.
   const presetPath = examplePreset(model.text);
-  const preset = presetPath ? presetCall(presetPath) : 'themed.text';
+  const textArgs = objectArg([
+    ...(!presetPath && fontSize !== undefined
+      ? [`fontSize: ${asArg(fontSize)}`]
+      : []),
+    ...(semanticFg ? [`color: '${semanticFg}'`] : []),
+  ]);
+  const textCall = `${presetPath ? presetCall(presetPath) : 'themed.text'}(${textArgs})`;
+  const textStyle = primitiveFg
+    ? `[${textCall}, { color: ${colorAccess(primitiveFg)} }]`
+    : textCall;
+
+  const destructured = primitiveBg || primitiveFg ? 'themed, tokens' : 'themed';
+  const pad = (n: number) => (line: string) => `${' '.repeat(n)}${line}`;
+
+  const colorRules = hasSemanticColors
+    ? [
+        "- **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages.",
+        '- For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.',
+        "- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.",
+      ]
+    : [
+        "- **Radii and spacing are token-only.** Use the names in the tables below; raw values like `12` do not type-check. Spacing also accepts `'auto'` and percentages.",
+        `- **This theme defines no semantic colors**, so \`themed.*()\` accepts no color values. Put colors in a second plain style object${model.primitiveColors.length > 0 ? ', reading primitives from `useThemed().tokens.colors` (see Primitive colors)' : ''}: \`style={[themed.text(), { color: ${primitiveFg ? colorAccess(primitiveFg) : 'textColor'} }]}\`. Add \`semanticTokens.colors\` to the theme to get light/dark-aware color tokens.`,
+      ];
+
+  const typographyRule = hasPresets
+    ? '- **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.'
+    : '- **Typography:** `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value. This theme defines no text presets (`semanticTokens.text`).';
+
+  const lineHeightRule =
+    model.lineHeights.length === 0
+      ? []
+      : [
+          hasPresets
+            ? "- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object."
+            : `- **Line heights:** a \`lineHeight\` token is a ratio of \`fontSize\`; a raw number is absolute. Set \`fontSize\` in the same \`themed.text()\` call (\`themed.text({ ${fontSize !== undefined ? `fontSize: ${asArg(fontSize)}, ` : ''}lineHeight: ${asArg(model.lineHeights[0][0])} })\`) so the line height is computed from it, not in a separate style object.`,
+        ];
+
+  const outsideStyleRule = hasSemanticColors
+    ? '- Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.'
+    : '- Outside `style` (e.g. an icon `color` prop), read values from `useThemed().tokens`.';
 
   return {
     title: 'Usage',
     body: [
-      `Get \`themed\`, \`tokens\` and \`semanticTokens\` from \`useThemed()\` (exported by \`${genFile}\`). Values follow the current light/dark scheme, so call it inside the component.`,
+      `Get \`themed\`, \`tokens\`${hasSemanticTokens ? ' and `semanticTokens`' : ''} from \`useThemed()\` (exported by \`${genFile}\`). Values follow the current light/dark scheme, so call it inside the component.`,
       '',
       '```tsx',
       "import { Text, View } from 'react-native';",
       '',
       'function Card() {',
-      '  const { themed } = useThemed();',
+      `  const { ${destructured} } = useThemed();`,
       '  return (',
-      '    <View',
-      '      style={themed.view({',
-      `        backgroundColor: '${color}',`,
-      `        borderRadius: ${radius},`,
-      `        padding: ${spacing},`,
-      ...(model.shadows.length > 0 ? [`        shadow: ${shadow},`] : []),
-      '      })}',
-      '    >',
-      `      <Text style={${preset}({ color: '${textColor}' })}>Title</Text>`,
+      ...(viewStyle.length === 1
+        ? [`    <View style={${viewStyle[0]}}>`]
+        : [
+            '    <View',
+            `      style={${viewStyle[0]}`,
+            ...viewStyle.slice(1, -1).map(pad(6)),
+            `      ${viewStyle[viewStyle.length - 1]}}`,
+            '    >',
+          ]),
+      `      <Text style={${textStyle}}>Title</Text>`,
       '    </View>',
       '  );',
       '}',
@@ -85,14 +179,18 @@ function usageSection(model: TokenModel, genFile: string): Section {
       '### Rules',
       '',
       '- Pass every style through `themed.view()` / `themed.text()` / `themed.image()`. Props without tokens (`flex`, `width`, …) pass through unchanged.',
-      "- **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages.",
-      '- For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.',
-      "- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.",
-      '- **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.',
-      "- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.",
-      '- `zIndex` accepts a z-index token or a raw number.',
-      '- **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.',
-      '- Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.',
+      ...colorRules,
+      typographyRule,
+      ...lineHeightRule,
+      model.zIndices.length > 0
+        ? '- `zIndex` accepts a z-index token or a raw number.'
+        : '- `zIndex` takes a raw number (this theme defines no z-index tokens).',
+      ...(model.shadows.length > 0
+        ? [
+            '- **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.',
+          ]
+        : []),
+      outsideStyleRule,
       '- **Performance:** calling `themed.*()` inline on every render is fine. Built-in components compare `style` by value, and a call costs well under a microsecond. Memoize with `useMemo(() => themed.view({ ... }), [themed])` only when the style must keep the same reference: when it is passed to a `React.memo` component, passed as a list prop such as `contentContainerStyle` / `ListHeaderComponentStyle`, or used as a hook dependency. `themed` itself only changes when the color scheme does.',
       '- Do not edit the generated files. Change the theme file and re-run the codegen command instead.',
     ],
@@ -158,7 +256,9 @@ function primitiveColorSection(model: TokenModel): Section | null {
   return {
     title: 'Primitive colors',
     body: [
-      'Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`; prefer semantic colors.',
+      model.colors.length > 0
+        ? 'Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`; prefer semantic colors.'
+        : 'Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`: pass them in a second plain style object.',
       '',
       ...table(
         ['token', 'value'],

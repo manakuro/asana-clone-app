@@ -54,6 +54,21 @@ describe('generate', () => {
     expect(source).toContain('export type ColorToken = never;');
     expect(source).toContain('export interface ThemedTokens {}');
   });
+
+  it('explains undefined categories instead of emitting empty tables', () => {
+    const source = generate({
+      config: { tokens: { radii: { md: 6 } } },
+      themeImport: { specifier: './theme', exportName: 'default' },
+    });
+    expect(source).toMatch(
+      /`semanticTokens\.colors`\n {3}\*\n {3}\* Not defined in this theme\. No color token is accepted here[^\n]*\n {3}\*\/\n {2}color\?: ColorToken;/,
+    );
+    expect(source).toMatch(
+      /`tokens\.spacing`\n {3}\*\n {3}\* Not defined in this theme\.\n {3}\*\/\n {2}padding\?:/,
+    );
+    expect(source).not.toContain('| token | light | dark |');
+    expect(source).toContain('colors: {};');
+  });
 });
 
 describe('loadTheme', () => {
