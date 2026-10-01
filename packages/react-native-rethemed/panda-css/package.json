@@ -10,8 +10,9 @@
   },
   "scripts": {
     "generate": "jiti scripts/generate.ts",
-    "lint": "biome check src scripts",
-    "lint:fix": "biome check --write --unsafe src scripts",
+    "example:codegen": "react-native-rethemed codegen example/theme.ts --docs example/themed.md",
+    "lint": "biome check src scripts example",
+    "lint:fix": "biome check --write --unsafe src scripts example",
     "tsc": "tsc --noEmit",
     "test": "vitest",
     "test:ci": "vitest run"
@@ -25,9 +26,12 @@
     "@react-native-rethemed/cli": "workspace:*",
     "@types/culori": "4.0.1",
     "@types/node": "24.10.4",
+    "@types/react": "19.2.17",
     "biome-config": "workspace:*",
     "culori": "4.0.2",
     "jiti": "2.7.0",
+    "react": "catalog:",
+    "react-native": "catalog:",
     "typescript": "6.0.3",
     "vitest": "4.1.10"
   }

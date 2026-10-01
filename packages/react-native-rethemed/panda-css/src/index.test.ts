@@ -108,6 +108,17 @@ describe('pandaCssTheme', () => {
     expect(readFileSync(outFile, 'utf8')).toContain("'4xl'");
     expect(readFileSync(docsFile, 'utf8')).toContain('red.500');
   });
+
+  it('has an up-to-date example (run `pnpm example:codegen` if not)', async () => {
+    const example = path.join(import.meta.dirname, '../example');
+    const result = await codegen({
+      themeFile: path.join(example, 'theme.ts'),
+      exportName: 'themeConfig',
+      docsFile: path.join(example, 'themed.md'),
+    });
+    expect(result.changed).toBe(false);
+    expect(result.docs?.changed).toBe(false);
+  });
 });
 
 describe('colors', () => {
