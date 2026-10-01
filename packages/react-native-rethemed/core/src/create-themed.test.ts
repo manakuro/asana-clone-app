@@ -161,6 +161,58 @@ describe('createThemedStyles / primitive colors', () => {
   });
 });
 
+describe('createThemedStyles / text preset colors', () => {
+  const withColors = defineTheme({
+    tokens: { fontSizes: { sm: 14 } },
+    semanticTokens: {
+      colors: { fg: { muted: { light: '#666', dark: '#999' } } },
+      text: {
+        caption: {
+          fontSize: 'sm',
+          color: { light: '#111', dark: '#fff' },
+        },
+        onDark: { fontSize: 'sm', color: { dark: '#eee' } },
+        fixed: { fontSize: 'sm', color: '#777' },
+      },
+    },
+  });
+
+  it('picks the preset color for the current scheme', () => {
+    expect(createThemedStyles(withColors, 'light').text.caption()).toEqual({
+      fontSize: 14,
+      color: '#111',
+    });
+    expect(createThemedStyles(withColors, 'dark').text.caption()).toEqual({
+      fontSize: 14,
+      color: '#fff',
+    });
+  });
+
+  it('sets no color in a scheme the preset leaves out', () => {
+    expect(createThemedStyles(withColors, 'light').text.onDark()).toEqual({
+      fontSize: 14,
+    });
+    expect(createThemedStyles(withColors, 'dark').text.onDark()).toEqual({
+      fontSize: 14,
+      color: '#eee',
+    });
+  });
+
+  it('uses a string color in both schemes', () => {
+    expect(createThemedStyles(withColors, 'dark').text.fixed().color).toBe(
+      '#777',
+    );
+  });
+
+  it('lets the override color (a token) win over the preset color', () => {
+    expect(
+      createThemedStyles(withColors, 'dark').text.caption({
+        color: 'fg.muted',
+      }),
+    ).toEqual({ fontSize: 14, color: '#999' });
+  });
+});
+
 describe('createThemedStyles / themed.text.<role>.<size>', () => {
   const themed = createThemedStyles(config, 'light');
 

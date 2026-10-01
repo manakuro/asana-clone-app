@@ -70,6 +70,19 @@ describe('generate', () => {
     );
   });
 
+  it('documents preset colors and types them as resolved per scheme', () => {
+    const source = fixture();
+    expect(source).toContain(
+      '| `sm` (14) | – | `wide` (0.4) | – | light: #71717a, dark: #a1a1aa |',
+    );
+    expect(source).toContain("color: '#71717a' | '#a1a1aa';");
+    expect(source).toContain("color: '#fafafa' | undefined;");
+    // Presets without a color get no color column.
+    expect(source).toMatch(
+      /`semanticTokens\.text\.body\.md`\n\s+\*\n\s+\* \| fontSize \| lineHeight \| letterSpacing \| fontWeight \|\n/,
+    );
+  });
+
   it('shows a palette as a hue × shade grid', () => {
     const source = generate({
       config: {

@@ -1,6 +1,7 @@
 import type { TextStyle } from 'react-native';
 import type { ColorScheme } from './resolvers/color-resolver';
 import { createStyleResolver } from './resolvers/style-resolver';
+import { resolveTextTree } from './text-tree';
 import { createTextVariants } from './text-variants';
 import type {
   LooseSchema,
@@ -27,8 +28,9 @@ export function createThemedStyles<S extends ThemedSchema = LooseSchema>(
   const resolveStyle = createStyleResolver(config, scheme);
 
   const text = (input: object = {}) => resolveStyle(input) as TextStyle;
+  // Preset colors (`{ light, dark }`) are picked for this scheme up front.
   const variants = createTextVariants(
-    config,
+    resolveTextTree(config.semanticTokens?.text, scheme),
     (input) => resolveStyle(input) as TextStyle,
   );
   // `Object.assign` would throw for roles that collide with non-writable

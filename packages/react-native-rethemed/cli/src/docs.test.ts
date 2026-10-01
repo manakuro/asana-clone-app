@@ -47,6 +47,19 @@ describe('generateDocs', () => {
     );
   });
 
+  it('adds a color column only to tables with a colored preset', () => {
+    const docs = fixture();
+    expect(docs).toContain(
+      '| `caption` | `sm` (14) | – | `wide` (0.4) | – | light: #71717a, dark: #a1a1aa |',
+    );
+    expect(docs).toContain(
+      '| `heading.page` | `lg` (18) | `short` (×1.375 → 24.75) | – | – | dark: #fafafa |',
+    );
+    expect(docs).toMatch(
+      /### title\n\n\| preset \| fontSize \| lineHeight \| letterSpacing \| fontWeight \|\n/,
+    );
+  });
+
   it('tells when to memoize a themed style', () => {
     expect(fixture()).toContain(
       'useMemo(() => themed.view({ ... }), [themed])',

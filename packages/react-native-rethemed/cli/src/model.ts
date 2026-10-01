@@ -3,6 +3,7 @@ import {
   RN_DEFAULT_FONT_SIZE,
   resolveBaseFontSize,
   type ShadowToken,
+  type TextColor,
   type TextToken,
   type TextTokenTree,
   type ThemeConfig,
@@ -35,7 +36,14 @@ export type TokenModel = {
 
 /** A node of `semanticTokens.text`: a preset (leaf) or a group. */
 export type TextNode =
-  | { kind: 'preset'; name: string; path: string; cells: string[] }
+  | {
+      kind: 'preset';
+      name: string;
+      path: string;
+      cells: string[];
+      /** The preset's `color`, rendered; `undefined` when it has none. */
+      color?: string;
+    }
   | { kind: 'group'; name: string; path: string; children: TextNode[] };
 
 export const PRESET_FIELDS = [
@@ -122,6 +130,19 @@ export function buildModel(config: ThemeConfig): TokenModel {
 
 const round2 = (value: number) => Math.round(value * 100) / 100;
 
+/**
+ * A preset `color` as a table cell: `#777777` (both schemes), or
+ * `light: #111111, dark: #ffffff` — a scheme left out is simply not listed.
+ */
+export function colorCell(color: TextColor | undefined): string | undefined {
+  if (color === undefined) return undefined;
+  if (typeof color === 'string') return color;
+  return (['light', 'dark'] as const)
+    .filter((scheme) => color[scheme] !== undefined)
+    .map((scheme) => `${scheme}: ${color[scheme]}`)
+    .join(', ');
+}
+
 function textNodes(
   tree: TextTokenTree | undefined,
   cells: (preset: TextToken) => string[],
@@ -132,7 +153,13 @@ function textNodes(
     .map(([name, node]): TextNode => {
       const path = [...prefix, name];
       return isTextPreset(node)
-        ? { kind: 'preset', name, path: path.join('.'), cells: cells(node) }
+        ? {
+            kind: 'preset',
+            name,
+            path: path.join('.'),
+            cells: cells(node),
+            color: colorCell(node.color),
+          }
         : {
             kind: 'group',
             name,
@@ -286,9 +313,22 @@ export function shadowTable(rows: TokenModel['shadows']): string[] {
 export function presetTable(
   presets: Extract<TextNode, { kind: 'preset' }>[],
 ): string[] {
+  // The `color` column only appears when a preset in this table has one.
+  const withColor = presets.some((p) => p.color !== undefined);
   return table(
-    ['preset', ...PRESET_FIELDS],
-    ['left', 'right', 'right', 'right', 'right'],
-    presets.map((p) => [code(p.path), ...p.cells]),
+    ['preset', ...PRESET_FIELDS, ...(withColor ? ['color'] : [])],
+    [
+      'left',
+      'right',
+      'right',
+      'right',
+      'right',
+      ...(withColor ? (['left'] as const) : []),
+    ],
+    presets.map((p) => [
+      code(p.path),
+      ...p.cells,
+      ...(withColor ? [p.color ?? '–'] : []),
+    ]),
   );
 }

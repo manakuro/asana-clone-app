@@ -34,6 +34,10 @@ export const themeConfig = extendTheme(chakraUiTheme, materialDesignTheme, {
         sm: {
           fontSize: 14,
           fontWeight: 500,
+          color: {
+            light: colorTokens['gray.950'],
+            dark: colorTokens.white,
+          },
         },
       },
     },

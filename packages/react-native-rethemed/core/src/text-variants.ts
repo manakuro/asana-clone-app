@@ -1,6 +1,6 @@
 import type { TextStyle } from 'react-native';
 import { isTextPreset } from './text-tree';
-import type { TextTokenTree, ThemeConfig } from './types';
+import type { TextTokenTree } from './types';
 
 type TextVariant = (override?: object) => TextStyle;
 type TextVariantTree = { [key: string]: TextVariant | TextVariantTree };
@@ -13,11 +13,14 @@ type TextVariantTree = { [key: string]: TextVariant | TextVariantTree };
  * `themed.text()` itself, so presets referencing scale keys (e.g.
  * `fontSize: 'lg'`) resolve exactly like caller-passed tokens.
  *
+ * `tree` must already have its preset colors resolved for the scheme (see
+ * `resolveTextTree`), so a call only merges and resolves tokens.
+ *
  * Typed loosely on purpose; the exact tree shape comes from the generated
  * `themed.gen.ts`.
  */
 export function createTextVariants(
-  config: ThemeConfig,
+  tree: TextTokenTree,
   resolve: (input: object) => TextStyle,
 ): TextVariantTree {
   const build = (tree: TextTokenTree): TextVariantTree =>
@@ -32,5 +35,5 @@ export function createTextVariants(
         ]),
     );
 
-  return build(config.semanticTokens?.text ?? {});
+  return build(tree);
 }

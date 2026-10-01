@@ -429,9 +429,9 @@ Call a preset by its path: `themed.text.<path>(override?)`, e.g. `themed.text.ti
 
 ### test-caption
 
-| preset | fontSize | lineHeight | letterSpacing | fontWeight |
-|:--|--:|--:|--:|--:|
-| `test-caption.sm` | 14 | – | – | 500 |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight | color |
+|:--|--:|--:|--:|--:|:--|
+| `test-caption.sm` | 14 | – | – | 500 | light: #111111, dark: #ffffff |
 
 ## z-indices
 

@@ -28,8 +28,8 @@ export type ShadowToken = Pick<
  * since a partial theme may reference keys supplied by another theme it is
  * later merged with.
  *
- * No `color`: typography and color are independent axes, combined by the
- * component-variant layer rather than baked into the type scale.
+ * `color` is optional: type-scale packages (Material Design) leave it out,
+ * while an app's own presets (`caption`, `link`, …) may set it.
  */
 export type TextToken = {
   /** A `tokens.fontSizes` key (`'lg'`) or a raw size (`18`). */
@@ -43,7 +43,20 @@ export type TextToken = {
   letterSpacing?: string | number;
   /** A `tokens.fontWeights` key (`'semibold'`) or a raw RN weight (`'600'`). */
   fontWeight?: string | TextStyle['fontWeight'];
+  /**
+   * A raw color, the same in light and dark (`colorTokens['gray.500']`), or
+   * one per scheme. A scheme left out gets no color from the preset, so the
+   * surrounding style (or React Native's default) applies there.
+   *
+   * @example
+   * color: { light: colorTokens['gray.950'], dark: colorTokens.white }
+   * color: { dark: colorTokens.white } // light: no color from the preset
+   */
+  color?: TextColor;
 };
+
+/** `TextToken['color']`: one raw color, or one per scheme. */
+export type TextColor = string | { light?: string; dark?: string };
 
 /**
  * `semanticTokens.text`: groups of any depth whose leaves are presets.

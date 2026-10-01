@@ -49,14 +49,23 @@ const typography = defineTheme({
       body: {
         md: { fontSize: 'sm', lineHeight: 'moderate' },
       },
-      // flat: themed.text.caption()
-      caption: { fontSize: 'sm', letterSpacing: 'wide' },
+      // flat: themed.text.caption(); color per scheme
+      caption: {
+        fontSize: 'sm',
+        letterSpacing: 'wide',
+        color: { light: '#71717a', dark: '#a1a1aa' },
+      },
       // deeper: themed.text.heading.display.lg()
       heading: {
         display: {
           lg: { fontSize: 36, lineHeight: 44, fontWeight: 'semibold' },
         },
-        page: { fontSize: 'lg', lineHeight: 'short' },
+        // color for one scheme only: none from the preset in light
+        page: {
+          fontSize: 'lg',
+          lineHeight: 'short',
+          color: { dark: '#fafafa' },
+        },
       },
     },
   },

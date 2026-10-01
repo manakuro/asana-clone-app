@@ -136,3 +136,17 @@ describe('extendTheme / defaults', () => {
     expect(extendTheme(baseTheme, {})).not.toHaveProperty('defaults');
   });
 });
+
+describe('extendTheme / text presets with color', () => {
+  it('replaces a preset whole, including its color object', () => {
+    const merged = extendTheme(
+      {
+        semanticTokens: {
+          text: { caption: { fontSize: 12, color: { light: '#111' } } },
+        },
+      },
+      { semanticTokens: { text: { caption: { fontSize: 13 } } } },
+    );
+    expect(merged.semanticTokens?.text).toEqual({ caption: { fontSize: 13 } });
+  });
+});

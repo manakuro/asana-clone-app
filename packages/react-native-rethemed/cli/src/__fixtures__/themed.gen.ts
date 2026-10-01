@@ -1086,17 +1086,17 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.caption`
    *
-   * | fontSize | lineHeight | letterSpacing | fontWeight |
-   * |--:|--:|--:|--:|
-   * | `sm` (14) | – | `wide` (0.4) | – |
+   * | fontSize | lineHeight | letterSpacing | fontWeight | color |
+   * |--:|--:|--:|--:|:--|
+   * | `sm` (14) | – | `wide` (0.4) | – | light: #71717a, dark: #a1a1aa |
    */
   caption: TextVariant;
   /**
    * `semanticTokens.text.heading`
    *
-   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
-   * |:--|--:|--:|--:|--:|
-   * | `heading.page` | `lg` (18) | `short` (×1.375 → 24.75) | – | – |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight | color |
+   * |:--|--:|--:|--:|--:|:--|
+   * | `heading.page` | `lg` (18) | `short` (×1.375 → 24.75) | – | – | dark: #fafafa |
    */
   heading: {
     /**
@@ -1119,9 +1119,9 @@ export interface ThemedTextVariants {
     /**
      * `semanticTokens.text.heading.page`
      *
-     * | fontSize | lineHeight | letterSpacing | fontWeight |
-     * |--:|--:|--:|--:|
-     * | `lg` (18) | `short` (×1.375 → 24.75) | – | – |
+     * | fontSize | lineHeight | letterSpacing | fontWeight | color |
+     * |--:|--:|--:|--:|:--|
+     * | `lg` (18) | `short` (×1.375 → 24.75) | – | – | dark: #fafafa |
      */
     page: TextVariant;
   };
@@ -1239,6 +1239,7 @@ export interface ThemedSemanticTokens {
     caption: {
       fontSize: 'sm';
       letterSpacing: 'wide';
+      color: '#71717a' | '#a1a1aa';
     };
     heading: {
       display: {
@@ -1251,6 +1252,7 @@ export interface ThemedSemanticTokens {
       page: {
         fontSize: 'lg';
         lineHeight: 'short';
+        color: '#fafafa' | undefined;
       };
     };
   };

@@ -145,9 +145,9 @@ Use with the virtual `shadow` prop: `themed.view({ shadow: 'sm' })`.
 
 Call a preset by its path: `themed.text.<path>(override?)`, e.g. `themed.text.title.md()`. The override is merged on top and accepts the same tokens as `themed.text()`. A cell like `` `lg` (18) `` means the preset references the `lg` token, which resolves to 18.
 
-| preset | fontSize | lineHeight | letterSpacing | fontWeight |
-|:--|--:|--:|--:|--:|
-| `caption` | `sm` (14) | – | `wide` (0.4) | – |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight | color |
+|:--|--:|--:|--:|--:|:--|
+| `caption` | `sm` (14) | – | `wide` (0.4) | – | light: #71717a, dark: #a1a1aa |
 
 ### title
 
@@ -164,9 +164,9 @@ Call a preset by its path: `themed.text.<path>(override?)`, e.g. `themed.text.ti
 
 ### heading
 
-| preset | fontSize | lineHeight | letterSpacing | fontWeight |
-|:--|--:|--:|--:|--:|
-| `heading.page` | `lg` (18) | `short` (×1.375 → 24.75) | – | – |
+| preset | fontSize | lineHeight | letterSpacing | fontWeight | color |
+|:--|--:|--:|--:|--:|:--|
+| `heading.page` | `lg` (18) | `short` (×1.375 → 24.75) | – | – | dark: #fafafa |
 
 ### heading.display
 

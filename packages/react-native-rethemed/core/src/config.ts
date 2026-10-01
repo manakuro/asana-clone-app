@@ -24,12 +24,14 @@ export {
 } from './style-props';
 export {
   isTextPreset,
+  resolveTextColor,
   TEXT_TOKEN_FIELDS,
   walkTextPresets,
 } from './text-tree';
 export type {
   LooseSchema,
   ShadowToken,
+  TextColor,
   TextToken,
   TextTokenTree,
   ThemeConfig,

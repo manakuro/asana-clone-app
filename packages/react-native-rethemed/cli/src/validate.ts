@@ -1,4 +1,5 @@
 import {
+  isTextPreset,
   TEXT_TOKEN_FIELDS,
   type TextTokenTree,
   type ThemeConfig,
@@ -57,10 +58,38 @@ const RESERVED_TEXT_NAMES = new Set([
 const isPrimitive = (value: unknown) =>
   typeof value === 'string' || typeof value === 'number';
 
+const isField = (key: string) =>
+  (TEXT_TOKEN_FIELDS as readonly string[]).includes(key);
+
+/**
+ * A preset `color`: a color string (both schemes), or `{ light?, dark? }`
+ * with at least one string.
+ */
+function checkTextColor(value: unknown, at: string, problems: string[]) {
+  if (typeof value === 'string' && value.length > 0) return;
+  const shape = `must be a color string or { light?, dark? } (preset field names such as 'color' can't name a group or preset)`;
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+    problems.push(`${at}: ${shape}`);
+    return;
+  }
+  const entries = Object.entries(value);
+  const valid =
+    entries.length > 0 &&
+    entries.every(
+      ([k, v]) =>
+        (k === 'light' || k === 'dark') &&
+        typeof v === 'string' &&
+        v.length > 0,
+    );
+  if (!valid) problems.push(`${at}: ${shape}`);
+}
+
 /**
  * Structural checks for the `semanticTokens.text` tree: every node is an
- * object that is either a preset (all primitive values, known fields only)
- * or a group (all objects) — never both, never empty.
+ * object that is either a preset (known fields only; primitives, plus
+ * `color` which may be `{ light?, dark? }`) or a group (all objects) —
+ * never both, never empty. See `isTextPreset` for how the two are told
+ * apart.
  */
 function checkTextTree(
   tree: TextTokenTree,
@@ -87,22 +116,43 @@ function checkTextTree(
       continue;
     }
 
-    const fields = entries.filter(([, v]) => isPrimitive(v)).map(([k]) => k);
-    if (fields.length === entries.length) {
-      for (const field of fields) {
-        if (!(TEXT_TOKEN_FIELDS as readonly string[]).includes(field)) {
+    if (isTextPreset(node)) {
+      // Objects under a non-field key are groups/presets nested in a preset.
+      const nested = entries
+        .filter(([k, v]) => !isField(k) && !isPrimitive(v))
+        .map(([k]) => k);
+      if (nested.length > 0) {
+        const fields = entries
+          .filter(([k, v]) => isField(k) || isPrimitive(v))
+          .map(([k]) => k);
+        problems.push(
+          `${at}: mixes preset fields (${fields.join(', ')}) with groups (${nested.join(', ')})`,
+        );
+        continue;
+      }
+      for (const [field, value] of entries) {
+        if (!isField(field)) {
           problems.push(
             `${at}.${field}: unknown preset field (expected ${TEXT_TOKEN_FIELDS.join(', ')})`,
           );
+        } else if (field === 'color') {
+          checkTextColor(value, `${at}.color`, problems);
+        } else if (!isPrimitive(value)) {
+          problems.push(`${at}.${field}: must be a string or a number`);
         }
       }
-    } else if (fields.length === 0) {
-      checkTextTree(node as TextTokenTree, [...path, key], problems);
     } else {
-      const groups = entries.filter(([, v]) => !isPrimitive(v)).map(([k]) => k);
-      problems.push(
-        `${at}: mixes preset fields (${fields.join(', ')}) with groups (${groups.join(', ')})`,
-      );
+      const fields = entries.filter(([, v]) => isPrimitive(v)).map(([k]) => k);
+      if (fields.length > 0) {
+        const groups = entries
+          .filter(([, v]) => !isPrimitive(v))
+          .map(([k]) => k);
+        problems.push(
+          `${at}: mixes preset fields (${fields.join(', ')}) with groups (${groups.join(', ')})`,
+        );
+        continue;
+      }
+      checkTextTree(node as TextTokenTree, [...path, key], problems);
     }
   }
 }

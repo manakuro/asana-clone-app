@@ -94,7 +94,7 @@ describe('validateTheme', () => {
         },
       }),
     ).toEqual([
-      'semanticTokens.text.body.md.fontsize: unknown preset field (expected fontSize, lineHeight, letterSpacing, fontWeight)',
+      'semanticTokens.text.body.md.fontsize: unknown preset field (expected fontSize, lineHeight, letterSpacing, fontWeight, color)',
       'semanticTokens.text.caption: is empty',
     ]);
   });
@@ -106,6 +106,53 @@ describe('validateTheme', () => {
       }),
     ).toEqual([
       "semanticTokens.text.name: 'name' is reserved (it collides with a function property of themed.text)",
+    ]);
+  });
+
+  it('accepts preset colors as a string or per scheme', () => {
+    expect(
+      validateTheme({
+        semanticTokens: {
+          text: {
+            caption: { fontSize: 12, color: { light: '#111', dark: '#fff' } },
+            onDark: { color: { dark: '#fff' } },
+            fixed: { fontSize: 12, color: '#777' },
+          },
+        },
+      }),
+    ).toEqual([]);
+  });
+
+  it('rejects malformed preset colors', () => {
+    const shape =
+      "must be a color string or { light?, dark? } (preset field names such as 'color' can't name a group or preset)";
+    expect(
+      validateTheme({
+        semanticTokens: {
+          text: {
+            a: { fontSize: 12, color: {} },
+            // @ts-expect-error -- `dim` is not a scheme
+            b: { fontSize: 12, color: { light: '#111', dim: '#222' } },
+            // @ts-expect-error -- not a color
+            c: { fontSize: 12, color: 3 },
+          },
+        },
+      }),
+    ).toEqual([
+      `semanticTokens.text.a.color: ${shape}`,
+      `semanticTokens.text.b.color: ${shape}`,
+      `semanticTokens.text.c.color: ${shape}`,
+    ]);
+  });
+
+  it('rejects a group or preset named like a preset field', () => {
+    const problems = validateTheme({
+      semanticTokens: {
+        text: { brand: { color: { fontSize: 12 }, md: { fontSize: 14 } } },
+      },
+    });
+    expect(problems).toEqual([
+      'semanticTokens.text.brand: mixes preset fields (color) with groups (md)',
     ]);
   });
 });

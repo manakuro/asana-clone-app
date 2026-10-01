@@ -19,6 +19,7 @@ import {
   type ColorScheme,
   resolveSemanticColors,
 } from './resolvers/color-resolver';
+import { resolveTextTree } from './text-tree';
 import type {
   LooseSchema,
   ThemeConfig,
@@ -48,7 +49,10 @@ export type UseThemedResult<S extends ThemedSchema = LooseSchema> = {
   themed: ThemedStyles<S>;
   /** Primitive, scheme-independent tokens exactly as in the config. */
   tokens: S['tokens'];
-  /** Semantic tokens with colors resolved for the current scheme. */
+  /**
+   * Semantic tokens with colors (including text preset colors) resolved for
+   * the current scheme.
+   */
   semanticTokens: S['semanticTokens'];
   colorScheme: ColorScheme;
 };
@@ -97,7 +101,7 @@ export function createThemed<S extends ThemedSchema = LooseSchema>(
       tokens: config.tokens ?? {},
       semanticTokens: {
         colors: resolveSemanticColors(config, colorScheme),
-        text: config.semanticTokens?.text ?? {},
+        text: resolveTextTree(config.semanticTokens?.text, colorScheme),
       },
       colorScheme,
     }) as UseThemedResult<S>;

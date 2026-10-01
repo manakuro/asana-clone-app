@@ -45,6 +45,10 @@ export function usage() {
   const md: 16 = tokens.fontSizes.md;
   const fg: string = semanticTokens.colors.fg.default;
   const preset: 'md' = semanticTokens.text.title.md.fontSize;
+  // preset colors are resolved for the current scheme
+  const captionColor: '#71717a' | '#a1a1aa' = semanticTokens.text.caption.color;
+  const pageColor: '#fafafa' | undefined =
+    semanticTokens.text.heading.page.color;
 
   // --- rejected ---
   // @ts-expect-error unknown color token
@@ -76,5 +80,5 @@ export function usage() {
   // @ts-expect-error unknown semantic color group
   semanticTokens.colors.border;
 
-  return { view, text, white, md, fg, preset };
+  return { view, text, white, md, fg, preset, captionColor, pageColor };
 }

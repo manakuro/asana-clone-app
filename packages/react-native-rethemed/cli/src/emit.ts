@@ -65,11 +65,17 @@ export function code(value: string | number): string {
   return `\`${value}\``;
 }
 
+/** A type expression emitted verbatim by `typeLiteral` (e.g. a union). */
+export class TypeExpr {
+  constructor(readonly text: string) {}
+}
+
 /**
  * The exact type of a plain JSON-like value, e.g. `{ md: 16; lg: 18 }`,
  * so `useThemed().tokens` keeps literal types without inference.
  */
 export function typeLiteral(value: unknown, indent: string): string {
+  if (value instanceof TypeExpr) return value.text;
   if (typeof value === 'string') return quote(value);
   if (typeof value === 'number' || typeof value === 'boolean') {
     return String(value);

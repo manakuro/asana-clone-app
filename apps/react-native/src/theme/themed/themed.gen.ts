@@ -4731,17 +4731,17 @@ export interface ThemedTextVariants {
   /**
    * `semanticTokens.text.test-caption`
    *
-   * | preset | fontSize | lineHeight | letterSpacing | fontWeight |
-   * |:--|--:|--:|--:|--:|
-   * | `test-caption.sm` | 14 | – | – | 500 |
+   * | preset | fontSize | lineHeight | letterSpacing | fontWeight | color |
+   * |:--|--:|--:|--:|--:|:--|
+   * | `test-caption.sm` | 14 | – | – | 500 | light: #111111, dark: #ffffff |
    */
   'test-caption': {
     /**
      * `semanticTokens.text.test-caption.sm`
      *
-     * | fontSize | lineHeight | letterSpacing | fontWeight |
-     * |--:|--:|--:|--:|
-     * | 14 | – | – | 500 |
+     * | fontSize | lineHeight | letterSpacing | fontWeight | color |
+     * |--:|--:|--:|--:|:--|
+     * | 14 | – | – | 500 | light: #111111, dark: #ffffff |
      */
     sm: TextVariant;
   };
@@ -5838,6 +5838,7 @@ export interface ThemedSemanticTokens {
       sm: {
         fontSize: 14;
         fontWeight: 500;
+        color: '#111111' | '#ffffff';
       };
     };
   };

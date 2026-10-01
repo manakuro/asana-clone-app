@@ -2,14 +2,26 @@ import {
   COLOR_KEYS,
   FONT_SIZE_KEYS,
   FONT_WEIGHT_KEYS,
+  isTextPreset,
   LETTER_SPACING_KEYS,
   LINE_HEIGHT_KEYS,
   RADIUS_KEYS,
   SPACING_KEYS,
+  type TextColor,
+  type TextTokenTree,
   type ThemeConfig,
   Z_INDEX_KEYS,
 } from '@react-native-rethemed/core/config';
-import { code, jsdoc, member, table, typeLiteral, union } from './emit';
+import {
+  code,
+  jsdoc,
+  member,
+  quote,
+  TypeExpr,
+  table,
+  typeLiteral,
+  union,
+} from './emit';
 import {
   buildModel,
   colorTable,
@@ -54,6 +66,39 @@ const SPACING_TYPE = "SpacingToken | 'auto' | `${number}%`";
  * Pure: config in, source text out. Output is deterministic so regenerating
  * an unchanged theme is a no-op.
  */
+/**
+ * The type of a preset `color` as `useThemed()` returns it: resolved for the
+ * current scheme, so a `{ light, dark }` pair becomes the union of its values,
+ * plus `undefined` when a scheme is left out.
+ */
+function resolvedColorType(color: TextColor): TypeExpr | TextColor {
+  if (typeof color !== 'object') return color;
+  const values = [...new Set([color.light, color.dark])].filter(
+    (v): v is string => v !== undefined,
+  );
+  const missing = color.light === undefined || color.dark === undefined;
+  return new TypeExpr(
+    [...values.map(quote), ...(missing ? ['undefined'] : [])].join(' | '),
+  );
+}
+
+/** `semanticTokens.text` with preset colors typed as resolved per scheme. */
+function resolvedTextShape(tree: TextTokenTree): unknown {
+  return Object.fromEntries(
+    Object.entries(tree).map(([key, node]) => {
+      if (!isTextPreset(node)) {
+        return [key, resolvedTextShape(node as TextTokenTree)];
+      }
+      return [
+        key,
+        node.color === undefined
+          ? node
+          : { ...node, color: resolvedColorType(node.color) },
+      ];
+    }),
+  );
+}
+
 export function generate({
   config,
   themeImport,
@@ -138,10 +183,20 @@ export function generate({
       .join('\n');
 
   // --- typography presets ---------------------------------------------------
-  const presetDoc = (path: string, cells: string[]) => [
+  const presetDoc = (path: string, cells: string[], color?: string) => [
     code(`semanticTokens.text.${path}`),
     '',
-    ...table([...PRESET_FIELDS], ['right', 'right', 'right', 'right'], [cells]),
+    ...table(
+      [...PRESET_FIELDS, ...(color !== undefined ? ['color'] : [])],
+      [
+        'right',
+        'right',
+        'right',
+        'right',
+        ...(color !== undefined ? (['left'] as const) : []),
+      ],
+      [[...cells, ...(color !== undefined ? [color] : [])]],
+    ),
   ];
   /** One member per node; groups nest, and list their own presets. */
   const emitTextNodes = (nodes: TextNode[], depth: number): string =>
@@ -149,7 +204,7 @@ export function generate({
       .map((node) => {
         const pad = INDENT.repeat(depth);
         if (node.kind === 'preset') {
-          return `${jsdoc(presetDoc(node.path, node.cells), pad)}\n${pad}${member(node.name)}: TextVariant;`;
+          return `${jsdoc(presetDoc(node.path, node.cells, node.color), pad)}\n${pad}${member(node.name)}: TextVariant;`;
         }
         const [own] = presetGroups(node.children, node.path).filter(
           (g) => g.path === node.path,
@@ -255,7 +310,7 @@ export interface ThemedTokens ${typeLiteral(tokens, '')}
 export interface ThemedSemanticTokens {
   /** Resolved for the current color scheme. */
   colors: ${semanticColorType ? `{\n${semanticColorType}\n  }` : '{}'};
-  text: ${typeLiteral(semanticText, INDENT)};
+  text: ${typeLiteral(resolvedTextShape(semanticText), INDENT)};
 }
 
 // ---------------------------------------------------------------------------
