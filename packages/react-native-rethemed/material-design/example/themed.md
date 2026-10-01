@@ -29,6 +29,7 @@ function Card() {
 - For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.
 - **This theme defines no colors**, so `themed.*()` accepts no color values. Put colors in a second plain style object.
 - **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
+- **Line heights:** a `lineHeight` number is absolute. The presets use absolute line heights, so to change a preset's size pass both in the override: `themed.text.title.md({ fontSize: 18, lineHeight: 26 })` needs `lineHeight` too, because its line height is absolute and `fontSize` alone keeps it. Do not override `fontSize` in a separate style object.
 - `zIndex` takes a raw number (this theme defines no z-index tokens).
 - Outside `style` (e.g. an icon `color` prop), read values from `useThemed().tokens`.
 - **Performance:** calling `themed.*()` inline on every render is fine. Built-in components compare `style` by value, and a call costs well under a microsecond. Memoize with `useMemo(() => themed.view({ ... }), [themed])` only when the style must keep the same reference: when it is passed to a `React.memo` component, passed as a list prop such as `contentContainerStyle` / `ListHeaderComponentStyle`, or used as a hook dependency. `themed` itself only changes when the color scheme does.

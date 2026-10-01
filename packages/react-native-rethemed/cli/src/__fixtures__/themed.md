@@ -36,7 +36,7 @@ function Card() {
 - For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.
 - **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors (`'gray.950'`) are accepted too, but they are fixed: use them only for values that must not change with the scheme.
 - **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
-- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.
+- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change a preset's size, pass it in the override. A preset whose line height is a token follows it (`themed.text.body.md({ fontSize: 'lg' })` recomputes the line height); a preset with an absolute line height does not (`themed.text.title.md({ fontSize: 18, lineHeight: 26 })` needs `lineHeight` too, because its line height is absolute and `fontSize` alone keeps it). Do not override `fontSize` in a separate style object.
 - `zIndex` accepts a z-index token or a raw number.
 - **Shadows:** use the virtual `shadow` prop (View and Image). It expands to the platform shadow props and `elevation`.
 - Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.

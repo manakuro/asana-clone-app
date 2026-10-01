@@ -60,6 +60,50 @@ describe('generateDocs', () => {
     );
   });
 
+  it('explains overriding a preset size for token and absolute line heights', () => {
+    // The fixture has both: `title.md` (lineHeight: 24) and `body.md` ('moderate').
+    const docs = fixture();
+    expect(docs).toContain(
+      "A preset whose line height is a token follows it (`themed.text.body.md({ fontSize: 'lg' })` recomputes the line height); a preset with an absolute line height does not (`themed.text.title.md({ fontSize: 18, lineHeight: 26 })` needs `lineHeight` too",
+    );
+  });
+
+  it('tells to pass lineHeight with fontSize when presets use absolute line heights', () => {
+    const docs = generateDocs({
+      config: {
+        semanticTokens: {
+          text: { body: { md: { fontSize: 14, lineHeight: 20 } } },
+        },
+      },
+      themeFile: 'theme.ts',
+      genFile: 'themed.gen.ts',
+    });
+    expect(docs).toContain(
+      "- **Line heights:** a `lineHeight` number is absolute. The presets use absolute line heights, so to change a preset's size pass both in the override: `themed.text.body.md({ fontSize: 18, lineHeight: 26 })` needs `lineHeight` too",
+    );
+    expect(docs).not.toContain('recomputes');
+  });
+
+  it('says a token line height follows the overridden size', () => {
+    const docs = generateDocs({
+      config: {
+        tokens: {
+          fontSizes: { md: 16, lg: 18 },
+          lineHeights: { short: 1.375 },
+        },
+        semanticTokens: {
+          text: { body: { md: { fontSize: 'md', lineHeight: 'short' } } },
+        },
+      },
+      themeFile: 'theme.ts',
+      genFile: 'themed.gen.ts',
+    });
+    expect(docs).toContain(
+      "To change a preset's size, pass it in the override: `themed.text.body.md({ fontSize: 'lg' })` recomputes the line height.",
+    );
+    expect(docs).not.toContain('needs `lineHeight` too');
+  });
+
   it('tells when to memoize a themed style', () => {
     expect(fixture()).toContain(
       'useMemo(() => themed.view({ ... }), [themed])',

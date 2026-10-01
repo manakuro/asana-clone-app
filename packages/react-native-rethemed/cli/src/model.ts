@@ -7,6 +7,7 @@ import {
   type TextToken,
   type TextTokenTree,
   type ThemeConfig,
+  walkTextPresets,
 } from '@react-native-rethemed/core/config';
 import { code, orderedEntries, table } from './emit';
 
@@ -30,6 +31,12 @@ export type TokenModel = {
   primitiveColors: [string, string][];
   /** `semanticTokens.text` as a tree, each preset's cells already rendered. */
   text: TextNode[];
+  /**
+   * The first preset (by path) whose `lineHeight` is a token (a ratio, so it
+   * follows `fontSize`) and the first whose `lineHeight` is an absolute
+   * number. Overriding a preset's size works differently for each.
+   */
+  presetLineHeights: { ratio?: string; absolute?: string };
   /** `defaults.fontSize` resolved, for line-height ratios without a fontSize. */
   baseFontSize: { value: number; label: string };
 };
@@ -124,11 +131,31 @@ export function buildModel(config: ThemeConfig): TokenModel {
     text: textNodes(config.semanticTokens?.text, (preset) =>
       PRESET_FIELDS.map((f) => presetCell(preset, f)),
     ),
+    presetLineHeights: presetLineHeightKinds(config),
     baseFontSize: { value: baseFontSize, label: baseLabel },
   };
 }
 
 const round2 = (value: number) => Math.round(value * 100) / 100;
+
+function presetLineHeightKinds(
+  config: ThemeConfig,
+): TokenModel['presetLineHeights'] {
+  const paths: Record<'ratio' | 'absolute', string[]> = {
+    ratio: [],
+    absolute: [],
+  };
+  walkTextPresets(config.semanticTokens?.text, (path, preset) => {
+    if (typeof preset.lineHeight === 'string') paths.ratio.push(path.join('.'));
+    if (typeof preset.lineHeight === 'number') {
+      paths.absolute.push(path.join('.'));
+    }
+  });
+  // Same preference as `examplePreset`: a mid-sized `title.md` reads best.
+  const pick = (list: string[]) =>
+    list.find((p) => p === 'title.md') ?? list[0];
+  return { ratio: pick(paths.ratio), absolute: pick(paths.absolute) };
+}
 
 /**
  * A preset `color` as a table cell: `#777777` (both schemes), or

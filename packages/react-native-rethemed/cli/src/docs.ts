@@ -131,14 +131,48 @@ function usageSection(model: TokenModel, genFile: string): Section {
     ? '- **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.'
     : '- **Typography:** `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value. This theme defines no text presets (`semanticTokens.text`).';
 
-  const lineHeightRule =
-    model.lineHeights.length === 0
-      ? []
-      : [
-          hasPresets
-            ? "- **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object."
-            : `- **Line heights:** a \`lineHeight\` token is a ratio of \`fontSize\`; a raw number is absolute. Set \`fontSize\` in the same \`themed.text()\` call (\`themed.text({ ${fontSize !== undefined ? `fontSize: ${asArg(fontSize)}, ` : ''}lineHeight: ${asArg(model.lineHeights[0][0])} })\`) so the line height is computed from it, not in a separate style object.`,
-        ];
+  const lineHeightRule = (() => {
+    const hasScale = model.lineHeights.length > 0;
+    const basics = hasScale
+      ? 'a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute.'
+      : 'a `lineHeight` number is absolute.';
+    const noSplit = 'Do not override `fontSize` in a separate style object.';
+    const { ratio, absolute } = model.presetLineHeights;
+    // A real size for the examples: a font-size token, else a number.
+    const largerSize = asArg(
+      model.fontSizes.find(([k]) => k === 'lg')?.[0] ??
+        model.fontSizes.at(-1)?.[0] ??
+        '18',
+    );
+    const ratioHow = ratio
+      ? `\`${presetCall(ratio)}({ fontSize: ${largerSize} })\` recomputes the line height`
+      : '';
+    const absoluteHow = absolute
+      ? `\`${presetCall(absolute)}({ fontSize: 18, lineHeight: 26 })\` needs \`lineHeight\` too, because its line height is absolute and \`fontSize\` alone keeps it`
+      : '';
+
+    if (ratio && absolute) {
+      return [
+        `- **Line heights:** ${basics} To change a preset's size, pass it in the override. A preset whose line height is a token follows it (${ratioHow}); a preset with an absolute line height does not (${absoluteHow}). ${noSplit}`,
+      ];
+    }
+    if (ratio) {
+      return [
+        `- **Line heights:** ${basics} To change a preset's size, pass it in the override: ${ratioHow}. ${noSplit}`,
+      ];
+    }
+    if (absolute) {
+      return [
+        `- **Line heights:** ${basics} The presets use absolute line heights, so to change a preset's size pass both in the override: ${absoluteHow}. ${noSplit}`,
+      ];
+    }
+    if (hasScale) {
+      return [
+        `- **Line heights:** ${basics} Set \`fontSize\` in the same \`themed.text()\` call (\`themed.text({ ${fontSize !== undefined ? `fontSize: ${asArg(fontSize)}, ` : ''}lineHeight: ${asArg(model.lineHeights[0][0])} })\`) so the line height is computed from it, not in a separate style object.`,
+      ];
+    }
+    return [];
+  })();
 
   const outsideStyleRule = hasSemanticColors
     ? '- Outside `style` (e.g. an icon `color` prop), read resolved values from `useThemed().semanticTokens.colors.<group>.<token>` or `useThemed().tokens`.'
