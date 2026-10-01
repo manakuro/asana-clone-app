@@ -159,3 +159,27 @@ export function validateTheme(config: ThemeConfig): string[] {
 
   return problems;
 }
+
+/**
+ * Problems that don't stop codegen. A semantic color named like a primitive
+ * (`semanticTokens.colors.red['500']` vs `tokens.colors['red.500']`) is
+ * legal — color props resolve the name to the semantic color — but usually
+ * an accident, e.g. after `extendTheme` combined two packages.
+ */
+export function themeWarnings(config: ThemeConfig): string[] {
+  const primitives = config.tokens?.colors ?? {};
+  const warnings: string[] = [];
+  for (const [group, names] of Object.entries(
+    config.semanticTokens?.colors ?? {},
+  )) {
+    for (const name of Object.keys(names)) {
+      const token = `${group}.${name}`;
+      if (Object.hasOwn(primitives, token)) {
+        warnings.push(
+          `'${token}' is both a semantic color and a primitive color (tokens.colors); color props resolve it to the semantic color`,
+        );
+      }
+    }
+  }
+  return warnings;
+}

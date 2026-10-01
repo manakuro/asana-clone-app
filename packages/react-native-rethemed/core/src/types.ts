@@ -65,8 +65,11 @@ export type ThemeConfig = {
    */
   tokens?: {
     /**
-     * Fixed colors, read via `useThemed().tokens.colors`. Not accepted by
-     * `themed.*()` — styles use `semanticTokens.colors`.
+     * Fixed colors, the same in light and dark. Color style props accept
+     * them by name (`themed.view({ backgroundColor: 'red.500' })`) alongside
+     * `semanticTokens.colors`; when both define a name, the semantic color
+     * wins. Prefer semantic colors for anything that should follow the color
+     * scheme. Also readable via `useThemed().tokens.colors`.
      *
      * @example
      * colors: { white: '#ffffff', 'gray.50': '#fafafa', 'gray.950': '#111111' }
@@ -149,7 +152,8 @@ export type ThemeConfig = {
     /**
      * group -> token -> scheme. Used in styles as `'group.token'`
      * (`themed.view({ backgroundColor: 'bg.subtle' })`) and switched with
-     * the current light/dark scheme.
+     * the current light/dark scheme. Takes precedence over a
+     * `tokens.colors` entry with the same name.
      *
      * @example
      * colors: {

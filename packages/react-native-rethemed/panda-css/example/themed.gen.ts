@@ -9,7 +9,299 @@ import { themeConfig } from './theme';
 // Token names
 // ---------------------------------------------------------------------------
 
-export type ColorToken = never;
+export type SemanticColorToken = never;
+export type PrimitiveColorToken =
+  | 'transparent'
+  | 'black'
+  | 'white'
+  | 'slate.50'
+  | 'slate.100'
+  | 'slate.200'
+  | 'slate.300'
+  | 'slate.400'
+  | 'slate.500'
+  | 'slate.600'
+  | 'slate.700'
+  | 'slate.800'
+  | 'slate.900'
+  | 'slate.950'
+  | 'gray.50'
+  | 'gray.100'
+  | 'gray.200'
+  | 'gray.300'
+  | 'gray.400'
+  | 'gray.500'
+  | 'gray.600'
+  | 'gray.700'
+  | 'gray.800'
+  | 'gray.900'
+  | 'gray.950'
+  | 'zinc.50'
+  | 'zinc.100'
+  | 'zinc.200'
+  | 'zinc.300'
+  | 'zinc.400'
+  | 'zinc.500'
+  | 'zinc.600'
+  | 'zinc.700'
+  | 'zinc.800'
+  | 'zinc.900'
+  | 'zinc.950'
+  | 'neutral.50'
+  | 'neutral.100'
+  | 'neutral.200'
+  | 'neutral.300'
+  | 'neutral.400'
+  | 'neutral.500'
+  | 'neutral.600'
+  | 'neutral.700'
+  | 'neutral.800'
+  | 'neutral.900'
+  | 'neutral.950'
+  | 'stone.50'
+  | 'stone.100'
+  | 'stone.200'
+  | 'stone.300'
+  | 'stone.400'
+  | 'stone.500'
+  | 'stone.600'
+  | 'stone.700'
+  | 'stone.800'
+  | 'stone.900'
+  | 'stone.950'
+  | 'mauve.50'
+  | 'mauve.100'
+  | 'mauve.200'
+  | 'mauve.300'
+  | 'mauve.400'
+  | 'mauve.500'
+  | 'mauve.600'
+  | 'mauve.700'
+  | 'mauve.800'
+  | 'mauve.900'
+  | 'mauve.950'
+  | 'olive.50'
+  | 'olive.100'
+  | 'olive.200'
+  | 'olive.300'
+  | 'olive.400'
+  | 'olive.500'
+  | 'olive.600'
+  | 'olive.700'
+  | 'olive.800'
+  | 'olive.900'
+  | 'olive.950'
+  | 'mist.50'
+  | 'mist.100'
+  | 'mist.200'
+  | 'mist.300'
+  | 'mist.400'
+  | 'mist.500'
+  | 'mist.600'
+  | 'mist.700'
+  | 'mist.800'
+  | 'mist.900'
+  | 'mist.950'
+  | 'taupe.50'
+  | 'taupe.100'
+  | 'taupe.200'
+  | 'taupe.300'
+  | 'taupe.400'
+  | 'taupe.500'
+  | 'taupe.600'
+  | 'taupe.700'
+  | 'taupe.800'
+  | 'taupe.900'
+  | 'taupe.950'
+  | 'red.50'
+  | 'red.100'
+  | 'red.200'
+  | 'red.300'
+  | 'red.400'
+  | 'red.500'
+  | 'red.600'
+  | 'red.700'
+  | 'red.800'
+  | 'red.900'
+  | 'red.950'
+  | 'orange.50'
+  | 'orange.100'
+  | 'orange.200'
+  | 'orange.300'
+  | 'orange.400'
+  | 'orange.500'
+  | 'orange.600'
+  | 'orange.700'
+  | 'orange.800'
+  | 'orange.900'
+  | 'orange.950'
+  | 'amber.50'
+  | 'amber.100'
+  | 'amber.200'
+  | 'amber.300'
+  | 'amber.400'
+  | 'amber.500'
+  | 'amber.600'
+  | 'amber.700'
+  | 'amber.800'
+  | 'amber.900'
+  | 'amber.950'
+  | 'yellow.50'
+  | 'yellow.100'
+  | 'yellow.200'
+  | 'yellow.300'
+  | 'yellow.400'
+  | 'yellow.500'
+  | 'yellow.600'
+  | 'yellow.700'
+  | 'yellow.800'
+  | 'yellow.900'
+  | 'yellow.950'
+  | 'lime.50'
+  | 'lime.100'
+  | 'lime.200'
+  | 'lime.300'
+  | 'lime.400'
+  | 'lime.500'
+  | 'lime.600'
+  | 'lime.700'
+  | 'lime.800'
+  | 'lime.900'
+  | 'lime.950'
+  | 'green.50'
+  | 'green.100'
+  | 'green.200'
+  | 'green.300'
+  | 'green.400'
+  | 'green.500'
+  | 'green.600'
+  | 'green.700'
+  | 'green.800'
+  | 'green.900'
+  | 'green.950'
+  | 'emerald.50'
+  | 'emerald.100'
+  | 'emerald.200'
+  | 'emerald.300'
+  | 'emerald.400'
+  | 'emerald.500'
+  | 'emerald.600'
+  | 'emerald.700'
+  | 'emerald.800'
+  | 'emerald.900'
+  | 'emerald.950'
+  | 'teal.50'
+  | 'teal.100'
+  | 'teal.200'
+  | 'teal.300'
+  | 'teal.400'
+  | 'teal.500'
+  | 'teal.600'
+  | 'teal.700'
+  | 'teal.800'
+  | 'teal.900'
+  | 'teal.950'
+  | 'cyan.50'
+  | 'cyan.100'
+  | 'cyan.200'
+  | 'cyan.300'
+  | 'cyan.400'
+  | 'cyan.500'
+  | 'cyan.600'
+  | 'cyan.700'
+  | 'cyan.800'
+  | 'cyan.900'
+  | 'cyan.950'
+  | 'sky.50'
+  | 'sky.100'
+  | 'sky.200'
+  | 'sky.300'
+  | 'sky.400'
+  | 'sky.500'
+  | 'sky.600'
+  | 'sky.700'
+  | 'sky.800'
+  | 'sky.900'
+  | 'sky.950'
+  | 'blue.50'
+  | 'blue.100'
+  | 'blue.200'
+  | 'blue.300'
+  | 'blue.400'
+  | 'blue.500'
+  | 'blue.600'
+  | 'blue.700'
+  | 'blue.800'
+  | 'blue.900'
+  | 'blue.950'
+  | 'indigo.50'
+  | 'indigo.100'
+  | 'indigo.200'
+  | 'indigo.300'
+  | 'indigo.400'
+  | 'indigo.500'
+  | 'indigo.600'
+  | 'indigo.700'
+  | 'indigo.800'
+  | 'indigo.900'
+  | 'indigo.950'
+  | 'violet.50'
+  | 'violet.100'
+  | 'violet.200'
+  | 'violet.300'
+  | 'violet.400'
+  | 'violet.500'
+  | 'violet.600'
+  | 'violet.700'
+  | 'violet.800'
+  | 'violet.900'
+  | 'violet.950'
+  | 'purple.50'
+  | 'purple.100'
+  | 'purple.200'
+  | 'purple.300'
+  | 'purple.400'
+  | 'purple.500'
+  | 'purple.600'
+  | 'purple.700'
+  | 'purple.800'
+  | 'purple.900'
+  | 'purple.950'
+  | 'fuchsia.50'
+  | 'fuchsia.100'
+  | 'fuchsia.200'
+  | 'fuchsia.300'
+  | 'fuchsia.400'
+  | 'fuchsia.500'
+  | 'fuchsia.600'
+  | 'fuchsia.700'
+  | 'fuchsia.800'
+  | 'fuchsia.900'
+  | 'fuchsia.950'
+  | 'pink.50'
+  | 'pink.100'
+  | 'pink.200'
+  | 'pink.300'
+  | 'pink.400'
+  | 'pink.500'
+  | 'pink.600'
+  | 'pink.700'
+  | 'pink.800'
+  | 'pink.900'
+  | 'pink.950'
+  | 'rose.50'
+  | 'rose.100'
+  | 'rose.200'
+  | 'rose.300'
+  | 'rose.400'
+  | 'rose.500'
+  | 'rose.600'
+  | 'rose.700'
+  | 'rose.800'
+  | 'rose.900'
+  | 'rose.950';
+/** Color props take both: semantic colors switch with light/dark, primitives are fixed. */
+export type ColorToken = SemanticColorToken | PrimitiveColorToken;
 export type RadiusToken =
   | 'xs'
   | 'sm'
@@ -113,111 +405,705 @@ export type ZIndexToken = never;
 
 export interface ThemedStyleProps {
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   color?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   backgroundColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderTopColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderBottomColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderLeftColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderRightColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderStartColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderEndColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderBlockColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderBlockStartColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   borderBlockEndColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   tintColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   overlayColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   shadowColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   outlineColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   textShadowColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'slate.500'`.
    *
-   * Not defined in this theme. No color token is accepted here; pass colors in a second plain style object.
+   * | token | value |
+   * |:--|:--|
+   * | `transparent` | #00000000 |
+   * | `black` | #000000 |
+   * | `white` | #ffffff |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `slate` | #f8fafc | #f1f5f9 | #e2e8f0 | #cad5e2 | #90a1b9 | #62748e | #45556c | #314158 | #1d293d | #0f172b | #020618 |
+   * | `gray` | #f9fafb | #f3f4f6 | #e5e7eb | #d1d5dc | #99a1af | #6a7282 | #4a5565 | #364153 | #1e2939 | #101828 | #030712 |
+   * | `zinc` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #9f9fa9 | #71717b | #52525c | #3f3f46 | #27272a | #18181b | #09090b |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a1a1a1 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `stone` | #fafaf9 | #f5f5f4 | #e7e5e4 | #d6d3d1 | #a6a09b | #79716b | #57534d | #44403b | #292524 | #1c1917 | #0c0a09 |
+   * | `mauve` | #fafafa | #f3f1f3 | #e7e4e7 | #d7d0d7 | #a89ea9 | #79697b | #594c5b | #463947 | #2a212c | #1d161e | #0c090c |
+   * | `olive` | #fbfbf9 | #f4f4f0 | #e8e8e3 | #d8d8d0 | #abab9c | #7c7c67 | #5b5b4b | #474739 | #2b2b22 | #1d1d16 | #0c0c09 |
+   * | `mist` | #f9fbfb | #f1f3f3 | #e3e7e8 | #d0d6d8 | #9ca8ab | #67787c | #4b585b | #394447 | #22292b | #161b1d | #090b0c |
+   * | `taupe` | #fbfaf9 | #f3f1f1 | #e8e4e3 | #d8d2d0 | #aba09c | #7c6d67 | #5b4f4b | #473c39 | #2b2422 | #1d1816 | #0c0a09 |
+   * | `red` | #fef2f2 | #ffe2e2 | #ffc9c9 | #ffa2a2 | #ff6467 | #fb2c36 | #e7000b | #c10007 | #9f0712 | #82181a | #460809 |
+   * | `orange` | #fff7ed | #ffedd4 | #ffd6a8 | #ffb86a | #ff8904 | #ff6900 | #f54a00 | #ca3500 | #9f2d00 | #7e2a0c | #441306 |
+   * | `amber` | #fffbeb | #fef3c6 | #fee685 | #ffd230 | #ffba00 | #fd9a00 | #e17100 | #bb4d00 | #973c00 | #7b3306 | #461901 |
+   * | `yellow` | #fefce8 | #fef9c2 | #fff085 | #ffdf20 | #fcc800 | #efb100 | #d08700 | #a65f00 | #894b00 | #733e0a | #432004 |
+   * | `lime` | #f7fee7 | #ecfcca | #d8f999 | #bbf451 | #9ae600 | #7ccf00 | #5ea500 | #497d00 | #3d6300 | #35530e | #192e03 |
+   * | `green` | #f0fdf4 | #dcfce7 | #b9f8cf | #7bf1a8 | #05df72 | #00c951 | #00a63e | #008236 | #016630 | #0d542b | #032e15 |
+   * | `emerald` | #ecfdf5 | #d0fae5 | #a4f4cf | #5ee9b5 | #00d492 | #00bc7d | #009966 | #007a55 | #006045 | #004f3b | #002c22 |
+   * | `teal` | #f0fdfa | #cbfbf1 | #96f7e4 | #46ecd5 | #00d5be | #00bba7 | #009689 | #00786f | #005f5a | #0b4f4a | #022f2e |
+   * | `cyan` | #ecfeff | #cefafe | #a2f4fd | #53eafd | #00d3f2 | #00b8db | #0092b8 | #007595 | #005f78 | #104e64 | #053345 |
+   * | `sky` | #f0f9ff | #dff2fe | #b8e6fe | #74d4ff | #00bcff | #00a6f4 | #0084d1 | #0069a8 | #00598a | #024a70 | #052f4a |
+   * | `blue` | #eff6ff | #dbeafe | #bedbff | #8ec5ff | #51a2ff | #2b7fff | #155dfc | #1447e6 | #193cb8 | #1c398e | #162456 |
+   * | `indigo` | #eef2ff | #e0e7ff | #c6d2ff | #a3b3ff | #7c86ff | #615fff | #4f39f6 | #432dd7 | #372aac | #312c85 | #1e1a4d |
+   * | `violet` | #f5f3ff | #ede9fe | #ddd6ff | #c4b4ff | #a684ff | #8e51ff | #7f22fe | #7008e7 | #5d0ec0 | #4d179a | #2f0d68 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d4ff | #dab2ff | #c27aff | #ad46ff | #9810fa | #8200db | #6e11b0 | #59168b | #3c0366 |
+   * | `fuchsia` | #fdf4ff | #fae8ff | #f6cfff | #f4a8ff | #ed6bff | #e12afb | #c800de | #a800b7 | #8a0194 | #721378 | #4b004f |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fccee8 | #fda5d5 | #fb64b6 | #f6339a | #e60076 | #c6005c | #a3004c | #861043 | #510424 |
+   * | `rose` | #fff1f2 | #ffe4e6 | #ffccd3 | #ffa1ad | #ff637e | #ff2056 | #ec003f | #c70036 | #a50036 | #8b0836 | #4d0218 |
    */
   textDecorationColor?: ColorToken;
   /**

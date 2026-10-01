@@ -34,7 +34,7 @@ function Card() {
 - Pass every style through `themed.view()` / `themed.text()` / `themed.image()`. Props without tokens (`flex`, `width`, …) pass through unchanged.
 - **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages.
 - For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.
-- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.
+- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors (`'gray.500'`) are accepted too, but they are fixed: use them only for values that must not change with the scheme.
 - **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
 - **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.
 - `zIndex` accepts a z-index token or a raw number.
@@ -226,6 +226,29 @@ Use as `'<group>.<token>'` on `color`, `backgroundColor`, `border*Color`, `tintC
 | `orange.focusRing` | #f97316 | #f97316 |
 | `orange.border` | #f97316 | #fb923c |
 
+## Primitive colors
+
+Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`. Use them on the same color props (`themed.view({ backgroundColor: 'gray.500' })`) or read them via `useThemed().tokens.colors[...]`. Prefer semantic colors for anything that should follow the scheme.
+
+| token | value |
+|:--|:--|
+| `white` | #ffffff |
+| `black` | #000000 |
+
+| hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+| `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+| `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+| `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+| `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+| `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+| `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+| `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+| `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+| `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+| `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+| `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
+
 ## Radii
 
 For `borderRadius` and every corner-radius variant.
@@ -409,136 +432,6 @@ Call a preset by its path: `themed.text.<path>(override?)`, e.g. `themed.text.ti
 | preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
 | `test-caption.sm` | 14 | – | – | 500 |
-
-## Primitive colors
-
-Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`; prefer semantic colors.
-
-| token | value |
-|:--|:--|
-| `white` | #ffffff |
-| `black` | #000000 |
-| `gray.50` | #fafafa |
-| `gray.100` | #f4f4f5 |
-| `gray.200` | #e4e4e7 |
-| `gray.300` | #d4d4d8 |
-| `gray.400` | #a1a1aa |
-| `gray.500` | #71717a |
-| `gray.600` | #52525b |
-| `gray.700` | #3f3f46 |
-| `gray.800` | #27272a |
-| `gray.900` | #18181b |
-| `gray.950` | #111111 |
-| `neutral.50` | #fafafa |
-| `neutral.100` | #f5f5f5 |
-| `neutral.200` | #e5e5e5 |
-| `neutral.300` | #d4d4d4 |
-| `neutral.400` | #a3a3a3 |
-| `neutral.500` | #737373 |
-| `neutral.600` | #525252 |
-| `neutral.700` | #404040 |
-| `neutral.800` | #262626 |
-| `neutral.900` | #171717 |
-| `neutral.950` | #0a0a0a |
-| `red.50` | #fef2f2 |
-| `red.100` | #fee2e2 |
-| `red.200` | #fecaca |
-| `red.300` | #fca5a5 |
-| `red.400` | #f87171 |
-| `red.500` | #ef4444 |
-| `red.600` | #dc2626 |
-| `red.700` | #991919 |
-| `red.800` | #511111 |
-| `red.900` | #300c0c |
-| `red.950` | #1f0808 |
-| `orange.50` | #fff7ed |
-| `orange.100` | #ffedd5 |
-| `orange.200` | #fed7aa |
-| `orange.300` | #fdba74 |
-| `orange.400` | #fb923c |
-| `orange.500` | #f97316 |
-| `orange.600` | #ea580c |
-| `orange.700` | #92310a |
-| `orange.800` | #6c2710 |
-| `orange.900` | #3b1106 |
-| `orange.950` | #220a04 |
-| `yellow.50` | #fefce8 |
-| `yellow.100` | #fef9c3 |
-| `yellow.200` | #fef08a |
-| `yellow.300` | #fde047 |
-| `yellow.400` | #facc15 |
-| `yellow.500` | #eab308 |
-| `yellow.600` | #ca8a04 |
-| `yellow.700` | #845209 |
-| `yellow.800` | #713f12 |
-| `yellow.900` | #422006 |
-| `yellow.950` | #281304 |
-| `green.50` | #f0fdf4 |
-| `green.100` | #dcfce7 |
-| `green.200` | #bbf7d0 |
-| `green.300` | #86efac |
-| `green.400` | #4ade80 |
-| `green.500` | #22c55e |
-| `green.600` | #16a34a |
-| `green.700` | #116932 |
-| `green.800` | #124a28 |
-| `green.900` | #042713 |
-| `green.950` | #03190c |
-| `teal.50` | #f0fdfa |
-| `teal.100` | #ccfbf1 |
-| `teal.200` | #99f6e4 |
-| `teal.300` | #5eead4 |
-| `teal.400` | #2dd4bf |
-| `teal.500` | #14b8a6 |
-| `teal.600` | #0d9488 |
-| `teal.700` | #0c5d56 |
-| `teal.800` | #114240 |
-| `teal.900` | #032726 |
-| `teal.950` | #021716 |
-| `blue.50` | #eff6ff |
-| `blue.100` | #dbeafe |
-| `blue.200` | #bfdbfe |
-| `blue.300` | #a3cfff |
-| `blue.400` | #60a5fa |
-| `blue.500` | #3b82f6 |
-| `blue.600` | #2563eb |
-| `blue.700` | #173da6 |
-| `blue.800` | #1a3478 |
-| `blue.900` | #14204a |
-| `blue.950` | #0c142e |
-| `cyan.50` | #ecfeff |
-| `cyan.100` | #cffafe |
-| `cyan.200` | #a5f3fc |
-| `cyan.300` | #67e8f9 |
-| `cyan.400` | #22d3ee |
-| `cyan.500` | #06b6d4 |
-| `cyan.600` | #0891b2 |
-| `cyan.700` | #0c5c72 |
-| `cyan.800` | #134152 |
-| `cyan.900` | #072a38 |
-| `cyan.950` | #051b24 |
-| `purple.50` | #faf5ff |
-| `purple.100` | #f3e8ff |
-| `purple.200` | #e9d5ff |
-| `purple.300` | #d8b4fe |
-| `purple.400` | #c084fc |
-| `purple.500` | #a855f7 |
-| `purple.600` | #9333ea |
-| `purple.700` | #641ba3 |
-| `purple.800` | #4a1772 |
-| `purple.900` | #2f0553 |
-| `purple.950` | #1a032e |
-| `pink.50` | #fdf2f8 |
-| `pink.100` | #fce7f3 |
-| `pink.200` | #fbcfe8 |
-| `pink.300` | #f9a8d4 |
-| `pink.400` | #f472b6 |
-| `pink.500` | #ec4899 |
-| `pink.600` | #db2777 |
-| `pink.700` | #a41752 |
-| `pink.800` | #6d0e34 |
-| `pink.900` | #45061f |
-| `pink.950` | #2c0514 |
 
 ## z-indices
 

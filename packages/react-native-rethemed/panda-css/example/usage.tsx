@@ -6,42 +6,42 @@ import { Text, View } from 'react-native';
 import { useThemed } from './themed.gen';
 
 export function Card() {
-  const { themed, tokens } = useThemed();
+  const { themed } = useThemed();
 
+  // Panda ships primitive colors only. Color props take them by name; they
+  // are the same in light and dark (add `semanticTokens.colors` for colors
+  // that follow the scheme).
   return (
     <View
-      style={[
-        themed.view({
-          padding: 4.5,
-          gap: 2,
-          borderRadius: 'xl',
-          shadow: 'md',
-        }),
-        // Panda has no semantic colors: raw palette values go in a second
-        // style object (or add `semanticTokens.colors` to the theme).
-        { backgroundColor: tokens.colors.white },
-      ]}
+      style={themed.view({
+        backgroundColor: 'white',
+        borderColor: 'zinc.200',
+        borderWidth: 1,
+        padding: 4.5,
+        gap: 2,
+        borderRadius: 'xl',
+        shadow: 'md',
+      })}
     >
       <Text
-        style={[
-          themed.text({
-            fontSize: 'xl',
-            fontWeight: 'semibold',
-            lineHeight: 'snug',
-            letterSpacing: 'tight',
-          }),
-          { color: tokens.colors['zinc.900'] },
-        ]}
+        style={themed.text({
+          color: 'zinc.900',
+          fontSize: 'xl',
+          fontWeight: 'semibold',
+          lineHeight: 'snug',
+          letterSpacing: 'tight',
+        })}
       >
         Panda CSS tokens
       </Text>
       <Text
-        style={[
-          themed.text({ fontSize: 'sm', lineHeight: 'relaxed' }),
-          { color: tokens.colors['zinc.500'] },
-        ]}
+        style={themed.text({
+          color: 'zinc.500',
+          fontSize: 'sm',
+          lineHeight: 'relaxed',
+        })}
       >
-        Spacing, radii, shadows and typography come from the theme.
+        Spacing, radii, shadows, colors and typography come from the theme.
       </Text>
     </View>
   );
@@ -49,6 +49,10 @@ export function Card() {
 
 export function rejected() {
   const { themed } = useThemed();
+  // @ts-expect-error colors are token-only
+  themed.view({ backgroundColor: '#ffffff' });
+  // @ts-expect-error `current` (currentcolor) is not converted
+  themed.text({ color: 'current' });
   // @ts-expect-error Panda's spacing has no `px` key (Chakra's does)
   themed.view({ padding: 'px' });
   // @ts-expect-error inset shadows are not converted

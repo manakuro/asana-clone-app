@@ -25,8 +25,9 @@ const hasToken = (table: Table, value: unknown) =>
  * color scheme.
  *
  * Everything that doesn't depend on the input is done once here: a single
- * **prop → token table** lookup (`backgroundColor` → the flattened
- * `'group.token'` colors for this scheme, `padding` → `tokens.spacing`, …).
+ * **prop → token table** lookup (`backgroundColor` → the primitive
+ * `tokens.colors` plus the flattened `'group.token'` semantic colors for this
+ * scheme, `padding` → `tokens.spacing`, …).
  * Each call then makes **one pass over the input's own keys** (usually a
  * handful), rather than scanning every token-aware prop name, and copies the
  * input at most once — or not at all when nothing is a token.
@@ -46,7 +47,10 @@ export function createStyleResolver(config: ThemeConfig, scheme: ColorScheme) {
     for (const prop of props) byProp[prop] = table;
   };
 
-  const colors: Record<string, string> = {};
+  // Color props take both kinds of color token. Primitives (`'red.500'`)
+  // go in first, so a semantic color with the same name wins (the CLI warns
+  // about such collisions).
+  const colors: Record<string, string> = { ...tokens.colors };
   for (const [group, names] of Object.entries(
     resolveSemanticColors(config, scheme),
   )) {
@@ -54,7 +58,9 @@ export function createStyleResolver(config: ThemeConfig, scheme: ColorScheme) {
       colors[`${group}.${name}`] = value;
     }
   }
-  if (config.semanticTokens?.colors) register(COLOR_KEYS, colors);
+  if (tokens.colors || config.semanticTokens?.colors) {
+    register(COLOR_KEYS, colors);
+  }
   register(RADIUS_KEYS, tokens.radii);
   register(SPACING_KEYS, tokens.spacing);
   register(FONT_SIZE_KEYS, tokens.fontSizes);

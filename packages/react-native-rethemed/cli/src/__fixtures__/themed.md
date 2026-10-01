@@ -34,7 +34,7 @@ function Card() {
 - Pass every style through `themed.view()` / `themed.text()` / `themed.image()`. Props without tokens (`flex`, `width`, …) pass through unchanged.
 - **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages.
 - For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.
-- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.
+- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors (`'gray.950'`) are accepted too, but they are fixed: use them only for values that must not change with the scheme.
 - **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.
 - **Line heights:** a `lineHeight` token is a ratio of `fontSize`; a raw number is absolute. To change the size of a preset, pass it in the override (`themed.text.<path>({ fontSize: 'lg' })`) so the line height is recomputed. Do not override `fontSize` in a separate style object.
 - `zIndex` accepts a z-index token or a raw number.
@@ -60,6 +60,18 @@ Use as `'<group>.<token>'` on `color`, `backgroundColor`, `border*Color`, `tintC
 |:--|:--|:--|
 | `fg.default` | #111111 | #fafafa |
 | `fg.muted` | #52525b | #a1a1aa |
+
+## Primitive colors
+
+Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`. Use them on the same color props (`themed.view({ backgroundColor: 'gray.950' })`) or read them via `useThemed().tokens.colors[...]`. Prefer semantic colors for anything that should follow the scheme.
+
+| token | value |
+|:--|:--|
+| `white` | #ffffff |
+
+| hue | 950 |
+|:--|:--|
+| `gray` | #111111 |
 
 ## Radii
 
@@ -161,15 +173,6 @@ Call a preset by its path: `themed.text.<path>(override?)`, e.g. `themed.text.ti
 | preset | fontSize | lineHeight | letterSpacing | fontWeight |
 |:--|--:|--:|--:|--:|
 | `heading.display.lg` | 36 | 44 | – | `semibold` (600) |
-
-## Primitive colors
-
-Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`; prefer semantic colors.
-
-| token | value |
-|:--|:--|
-| `white` | #ffffff |
-| `gray.950` | #111111 |
 
 ## z-indices
 

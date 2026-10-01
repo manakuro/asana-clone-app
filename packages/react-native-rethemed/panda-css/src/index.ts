@@ -16,7 +16,8 @@ import {
  * `src/tokens.gen.ts`.
  *
  * - Lengths: rem → points at 16px; em letter spacings → points at 16px.
- * - `colors`: Panda's (Tailwind's) oklch palette as hex.
+ * - `colors`: Panda's (Tailwind's) oklch palette as hex. Color props take
+ *   them by name (`themed.view({ backgroundColor: 'red.500' })`).
  * - `shadows`: first layer only; inset shadows are omitted.
  * - No `semanticTokens`: Panda ships none. Define `semanticTokens.colors`
  *   and `semanticTokens.text` in the app (they can reference these values).

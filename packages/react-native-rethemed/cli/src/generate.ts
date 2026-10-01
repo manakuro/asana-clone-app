@@ -18,6 +18,8 @@ import {
   PRESET_FIELDS,
   presetGroups,
   presetTable,
+  primitiveColorNote,
+  primitiveColorTables,
   scaleTable,
   shadowTable,
   type TextNode,
@@ -74,15 +76,39 @@ export function generate({
   // A category the theme does not define gets a note instead of an empty
   // table, so hovering a prop explains why no token is suggested.
   const notDefined = 'Not defined in this theme.';
-  const colorDoc = [
-    code('semanticTokens.colors'),
-    '',
-    ...(model.colors.length > 0
-      ? colorTable(model.colors)
+  // Color props take semantic colors (switch with the scheme) and primitive
+  // colors (fixed); each kind gets its own table.
+  const primitiveTables = primitiveColorTables(model.primitiveColors);
+  const semanticColorDoc =
+    model.colors.length > 0
+      ? [
+          `${code('semanticTokens.colors')}: switch with light/dark. Prefer these.`,
+          '',
+          ...colorTable(model.colors),
+        ]
+      : [];
+  const primitiveColorDoc =
+    model.primitiveColors.length > 0
+      ? [
+          `${code('tokens.colors')}: ${primitiveColorNote(primitiveTables.example)}`,
+          '',
+          ...primitiveTables.lines,
+        ]
+      : [];
+  const colorDoc =
+    semanticColorDoc.length + primitiveColorDoc.length > 0
+      ? [
+          ...semanticColorDoc,
+          ...(semanticColorDoc.length > 0 && primitiveColorDoc.length > 0
+            ? ['']
+            : []),
+          ...primitiveColorDoc,
+        ]
       : [
+          `${code('semanticTokens.colors')} / ${code('tokens.colors')}`,
+          '',
           `${notDefined} No color token is accepted here; pass colors in a second plain style object.`,
-        ]),
-  ];
+        ];
   const scaleDoc = (source: string, rows: [string, unknown][]) => [
     code(`tokens.${source}`),
     '',
@@ -176,9 +202,12 @@ ${themeImportLine}
 // ---------------------------------------------------------------------------
 
 ${typeAlias(
-  'ColorToken',
+  'SemanticColorToken',
   model.colors.map((c) => c.token),
 )}
+${typeAlias('PrimitiveColorToken', keys(model.primitiveColors))}
+/** Color props take both: semantic colors switch with light/dark, primitives are fixed. */
+export type ColorToken = SemanticColorToken | PrimitiveColorToken;
 ${typeAlias('RadiusToken', keys(model.radii))}
 ${typeAlias('SpacingToken', keys(model.spacing))}
 ${typeAlias('FontSizeToken', keys(model.fontSizes))}

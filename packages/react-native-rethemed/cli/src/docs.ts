@@ -1,5 +1,5 @@
 import type { ThemeConfig } from '@react-native-rethemed/core/config';
-import { code, table } from './emit';
+import { code } from './emit';
 import {
   buildModel,
   colorTable,
@@ -8,6 +8,8 @@ import {
   lineHeightRows,
   presetGroups,
   presetTable,
+  primitiveColorNote,
+  primitiveColorTables,
   scaleTable,
   shadowTable,
   type TokenModel,
@@ -35,10 +37,6 @@ const presetCall = (path: string) =>
     .map((k) => (/^[A-Za-z_$][\w$]*$/.test(k) ? `.${k}` : `['${k}']`))
     .join('')}`;
 
-/** `tokens.colors.white`, or `tokens.colors['gray.900']` for dotted keys. */
-const colorAccess = (key: string) =>
-  `tokens.colors${/^[A-Za-z_$][\w$]*$/.test(key) ? `.${key}` : `['${key}']`}`;
-
 /** Picks a readable primitive for the example (not `transparent`). */
 function primitiveFor(
   model: TokenModel,
@@ -55,27 +53,29 @@ function primitiveFor(
 const objectArg = (entries: string[]) =>
   entries.length > 0 ? `{ ${entries.join(', ')} }` : '';
 
+/** A primitive color token to cite in prose (`'red.500'`). */
+function primitiveExample(model: TokenModel): string | undefined {
+  return (
+    primitiveColorTables(model.primitiveColors).example ??
+    primitiveFor(model, 'white')
+  );
+}
+
 function usageSection(model: TokenModel, genFile: string): Section {
   const hasSemanticColors = model.colors.length > 0;
+  const hasPrimitiveColors = model.primitiveColors.length > 0;
   const hasPresets = model.text.length > 0;
   const hasSemanticTokens = hasSemanticColors || hasPresets;
 
   // Only real token names from this theme, so the example always
   // type-checks. Categories the theme does not define are left out.
-  const semanticBg = (
-    model.colors.find((c) => c.group === 'bg') ?? model.colors[0]
-  )?.token;
-  const semanticFg = (
-    model.colors.find((c) => c.group === 'fg') ?? model.colors[0]
-  )?.token;
-  // Without semantic colors, `themed.*()` accepts no color, so the example
-  // passes a primitive in a second plain style object instead.
-  const primitiveBg = hasSemanticColors
-    ? undefined
-    : primitiveFor(model, 'white');
-  const primitiveFg = hasSemanticColors
-    ? undefined
-    : primitiveFor(model, 'black');
+  // Semantic colors are preferred; a primitive stands in when there are none.
+  const bg =
+    (model.colors.find((c) => c.group === 'bg') ?? model.colors[0])?.token ??
+    primitiveFor(model, 'white');
+  const fg =
+    (model.colors.find((c) => c.group === 'fg') ?? model.colors[0])?.token ??
+    primitiveFor(model, 'black');
   const radius =
     model.radii.find(([k]) => k === 'md')?.[0] ??
     model.radii[Math.floor(model.radii.length / 2)]?.[0];
@@ -86,25 +86,21 @@ function usageSection(model: TokenModel, genFile: string): Section {
     model.fontSizes.find(([k]) => k === 'md')?.[0] ?? model.fontSizes[0]?.[0];
 
   const viewArgs = [
-    ...(semanticBg ? [`backgroundColor: '${semanticBg}',`] : []),
+    ...(bg !== undefined ? [`backgroundColor: ${asArg(bg)},`] : []),
     ...(radius !== undefined ? [`borderRadius: ${asArg(radius)},`] : []),
     ...(spacing !== undefined ? [`padding: ${asArg(spacing)},`] : []),
     ...(shadow !== undefined ? [`shadow: ${asArg(shadow)},`] : []),
   ];
-  const viewCall =
+  const view =
     viewArgs.length > 0
-      ? ['themed.view({', ...viewArgs.map((l) => `  ${l}`), '})']
-      : ['themed.view()'];
-  const viewStyle = primitiveBg
-    ? [
-        '[',
-        ...viewCall.map(
-          (l, i) => `  ${l}${i === viewCall.length - 1 ? ',' : ''}`,
-        ),
-        `  { backgroundColor: ${colorAccess(primitiveBg)} },`,
-        ']',
-      ]
-    : viewCall;
+      ? [
+          '    <View',
+          '      style={themed.view({',
+          ...viewArgs.map((l) => `        ${l}`),
+          '      })}',
+          '    >',
+        ]
+      : ['    <View style={themed.view()}>'];
 
   // Prefer a mid-sized heading (`title.md`) for the example when it exists.
   const presetPath = examplePreset(model.text);
@@ -112,26 +108,22 @@ function usageSection(model: TokenModel, genFile: string): Section {
     ...(!presetPath && fontSize !== undefined
       ? [`fontSize: ${asArg(fontSize)}`]
       : []),
-    ...(semanticFg ? [`color: '${semanticFg}'`] : []),
+    ...(fg !== undefined ? [`color: ${asArg(fg)}`] : []),
   ]);
   const textCall = `${presetPath ? presetCall(presetPath) : 'themed.text'}(${textArgs})`;
-  const textStyle = primitiveFg
-    ? `[${textCall}, { color: ${colorAccess(primitiveFg)} }]`
-    : textCall;
 
-  const destructured = primitiveBg || primitiveFg ? 'themed, tokens' : 'themed';
-  const pad = (n: number) => (line: string) => `${' '.repeat(n)}${line}`;
-
-  const colorRules = hasSemanticColors
-    ? [
-        "- **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages.",
-        '- For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.',
-        "- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors are fixed and are only for values that must not change with the scheme.",
-      ]
-    : [
-        "- **Radii and spacing are token-only.** Use the names in the tables below; raw values like `12` do not type-check. Spacing also accepts `'auto'` and percentages.",
-        `- **This theme defines no semantic colors**, so \`themed.*()\` accepts no color values. Put colors in a second plain style object${model.primitiveColors.length > 0 ? ', reading primitives from `useThemed().tokens.colors` (see Primitive colors)' : ''}: \`style={[themed.text(), { color: ${primitiveFg ? colorAccess(primitiveFg) : 'textColor'} }]}\`. Add \`semanticTokens.colors\` to the theme to get light/dark-aware color tokens.`,
-      ];
+  const primitive = primitiveExample(model);
+  const colorRules = [
+    hasSemanticColors || hasPrimitiveColors
+      ? "- **Colors, radii and spacing are token-only.** Use the names in the tables below; raw values like `'#fff'` or `12` do not type-check. Spacing also accepts `'auto'` and percentages."
+      : "- **Radii and spacing are token-only.** Use the names in the tables below; raw values like `12` do not type-check. Spacing also accepts `'auto'` and percentages.",
+    '- For a genuine one-off raw value, put it in a second plain style object: `style={[themed.view({ padding: 4 }), { backgroundColor: overlayColor }]}`. Do not add a token for it.',
+    hasSemanticColors
+      ? `- **Prefer semantic colors** (\`'group.token'\`). They switch with light/dark.${hasPrimitiveColors ? ` Primitive colors (\`'${primitive}'\`) are accepted too, but they are fixed: use them only for values that must not change with the scheme.` : ''}`
+      : hasPrimitiveColors
+        ? `- **This theme defines no semantic colors:** color props take primitive colors (\`'${primitive}'\`), which are the same in light and dark. Add \`semanticTokens.colors\` to the theme for colors that follow the scheme.`
+        : '- **This theme defines no colors**, so `themed.*()` accepts no color values. Put colors in a second plain style object.',
+  ];
 
   const typographyRule = hasPresets
     ? '- **Typography:** prefer the presets `themed.text.<path>(override?)` (see Text presets). `fontSize` / `fontWeight` / `lineHeight` / `letterSpacing` accept a token or a raw value.'
@@ -153,24 +145,16 @@ function usageSection(model: TokenModel, genFile: string): Section {
   return {
     title: 'Usage',
     body: [
-      `Get \`themed\`, \`tokens\`${hasSemanticTokens ? ' and `semanticTokens`' : ''} from \`useThemed()\` (exported by \`${genFile}\`). Values follow the current light/dark scheme, so call it inside the component.`,
+      `Get \`themed\`${hasSemanticTokens ? ', `tokens` and `semanticTokens`' : ' and `tokens`'} from \`useThemed()\` (exported by \`${genFile}\`). Values follow the current light/dark scheme, so call it inside the component.`,
       '',
       '```tsx',
       "import { Text, View } from 'react-native';",
       '',
       'function Card() {',
-      `  const { ${destructured} } = useThemed();`,
+      '  const { themed } = useThemed();',
       '  return (',
-      ...(viewStyle.length === 1
-        ? [`    <View style={${viewStyle[0]}}>`]
-        : [
-            '    <View',
-            `      style={${viewStyle[0]}`,
-            ...viewStyle.slice(1, -1).map(pad(6)),
-            `      ${viewStyle[viewStyle.length - 1]}}`,
-            '    >',
-          ]),
-      `      <Text style={${textStyle}}>Title</Text>`,
+      ...view,
+      `      <Text style={${textCall}}>Title</Text>`,
       '    </View>',
       '  );',
       '}',
@@ -253,18 +237,14 @@ function textSection(model: TokenModel): Section | null {
 
 function primitiveColorSection(model: TokenModel): Section | null {
   if (model.primitiveColors.length === 0) return null;
+  const { lines, example } = primitiveColorTables(model.primitiveColors);
+  const token = example ?? primitiveExample(model);
   return {
     title: 'Primitive colors',
     body: [
-      model.colors.length > 0
-        ? 'Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`; prefer semantic colors.'
-        : 'Fixed, scheme-independent values, read via `useThemed().tokens.colors[...]`. They are not accepted by `themed.*()`: pass them in a second plain style object.',
+      `${primitiveColorNote(example)} Use them on the same color props (\`themed.view({ backgroundColor: '${token}' })\`) or read them via \`useThemed().tokens.colors[...]\`.${model.colors.length > 0 ? ' Prefer semantic colors for anything that should follow the scheme.' : ''}`,
       '',
-      ...table(
-        ['token', 'value'],
-        ['left', 'left'],
-        model.primitiveColors.map(([k, v]) => [code(k), v]),
-      ),
+      ...lines,
     ],
   };
 }
@@ -285,6 +265,7 @@ export function generateDocs({
   const sections = [
     usageSection(model, genFile),
     colorSection(model),
+    primitiveColorSection(model),
     scaleSection(
       'Radii',
       'For `borderRadius` and every corner-radius variant.',
@@ -309,7 +290,6 @@ export function generateDocs({
     ),
     shadowSection(model),
     textSection(model),
-    primitiveColorSection(model),
     scaleSection(
       'z-indices',
       'For `zIndex`, which also accepts a raw number.',

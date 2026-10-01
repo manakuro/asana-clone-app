@@ -9,7 +9,7 @@ import { themeConfig } from './theme';
 // Token names
 // ---------------------------------------------------------------------------
 
-export type ColorToken =
+export type SemanticColorToken =
   | 'primary.bg'
   | 'primary.fg'
   | 'bg.default'
@@ -119,6 +119,132 @@ export type ColorToken =
   | 'orange.solid'
   | 'orange.focusRing'
   | 'orange.border';
+export type PrimitiveColorToken =
+  | 'white'
+  | 'black'
+  | 'gray.50'
+  | 'gray.100'
+  | 'gray.200'
+  | 'gray.300'
+  | 'gray.400'
+  | 'gray.500'
+  | 'gray.600'
+  | 'gray.700'
+  | 'gray.800'
+  | 'gray.900'
+  | 'gray.950'
+  | 'neutral.50'
+  | 'neutral.100'
+  | 'neutral.200'
+  | 'neutral.300'
+  | 'neutral.400'
+  | 'neutral.500'
+  | 'neutral.600'
+  | 'neutral.700'
+  | 'neutral.800'
+  | 'neutral.900'
+  | 'neutral.950'
+  | 'red.50'
+  | 'red.100'
+  | 'red.200'
+  | 'red.300'
+  | 'red.400'
+  | 'red.500'
+  | 'red.600'
+  | 'red.700'
+  | 'red.800'
+  | 'red.900'
+  | 'red.950'
+  | 'orange.50'
+  | 'orange.100'
+  | 'orange.200'
+  | 'orange.300'
+  | 'orange.400'
+  | 'orange.500'
+  | 'orange.600'
+  | 'orange.700'
+  | 'orange.800'
+  | 'orange.900'
+  | 'orange.950'
+  | 'yellow.50'
+  | 'yellow.100'
+  | 'yellow.200'
+  | 'yellow.300'
+  | 'yellow.400'
+  | 'yellow.500'
+  | 'yellow.600'
+  | 'yellow.700'
+  | 'yellow.800'
+  | 'yellow.900'
+  | 'yellow.950'
+  | 'green.50'
+  | 'green.100'
+  | 'green.200'
+  | 'green.300'
+  | 'green.400'
+  | 'green.500'
+  | 'green.600'
+  | 'green.700'
+  | 'green.800'
+  | 'green.900'
+  | 'green.950'
+  | 'teal.50'
+  | 'teal.100'
+  | 'teal.200'
+  | 'teal.300'
+  | 'teal.400'
+  | 'teal.500'
+  | 'teal.600'
+  | 'teal.700'
+  | 'teal.800'
+  | 'teal.900'
+  | 'teal.950'
+  | 'blue.50'
+  | 'blue.100'
+  | 'blue.200'
+  | 'blue.300'
+  | 'blue.400'
+  | 'blue.500'
+  | 'blue.600'
+  | 'blue.700'
+  | 'blue.800'
+  | 'blue.900'
+  | 'blue.950'
+  | 'cyan.50'
+  | 'cyan.100'
+  | 'cyan.200'
+  | 'cyan.300'
+  | 'cyan.400'
+  | 'cyan.500'
+  | 'cyan.600'
+  | 'cyan.700'
+  | 'cyan.800'
+  | 'cyan.900'
+  | 'cyan.950'
+  | 'purple.50'
+  | 'purple.100'
+  | 'purple.200'
+  | 'purple.300'
+  | 'purple.400'
+  | 'purple.500'
+  | 'purple.600'
+  | 'purple.700'
+  | 'purple.800'
+  | 'purple.900'
+  | 'purple.950'
+  | 'pink.50'
+  | 'pink.100'
+  | 'pink.200'
+  | 'pink.300'
+  | 'pink.400'
+  | 'pink.500'
+  | 'pink.600'
+  | 'pink.700'
+  | 'pink.800'
+  | 'pink.900'
+  | 'pink.950';
+/** Color props take both: semantic colors switch with light/dark, primitives are fixed. */
+export type ColorToken = SemanticColorToken | PrimitiveColorToken;
 export type RadiusToken =
   | 'none'
   | '2xs'
@@ -233,7 +359,7 @@ export type ZIndexToken =
 
 export interface ThemedStyleProps {
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -346,10 +472,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   color?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -462,10 +609,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   backgroundColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -578,10 +746,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -694,10 +883,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderTopColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -810,10 +1020,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderBottomColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -926,10 +1157,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderLeftColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -1042,10 +1294,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderRightColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -1158,10 +1431,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderStartColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -1274,10 +1568,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderEndColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -1390,10 +1705,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderBlockColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -1506,10 +1842,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderBlockStartColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -1622,10 +1979,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   borderBlockEndColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -1738,10 +2116,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   tintColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -1854,10 +2253,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   overlayColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -1970,10 +2390,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   shadowColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -2086,10 +2527,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   outlineColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -2202,10 +2664,31 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   textShadowColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -2318,6 +2801,27 @@ export interface ThemedStyleProps {
    * | `orange.solid` | #ea580c | #ea580c |
    * | `orange.focusRing` | #f97316 | #f97316 |
    * | `orange.border` | #f97316 | #fb923c |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.500'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   * | `black` | #000000 |
+   *
+   * | hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+   * |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+   * | `gray` | #fafafa | #f4f4f5 | #e4e4e7 | #d4d4d8 | #a1a1aa | #71717a | #52525b | #3f3f46 | #27272a | #18181b | #111111 |
+   * | `neutral` | #fafafa | #f5f5f5 | #e5e5e5 | #d4d4d4 | #a3a3a3 | #737373 | #525252 | #404040 | #262626 | #171717 | #0a0a0a |
+   * | `red` | #fef2f2 | #fee2e2 | #fecaca | #fca5a5 | #f87171 | #ef4444 | #dc2626 | #991919 | #511111 | #300c0c | #1f0808 |
+   * | `orange` | #fff7ed | #ffedd5 | #fed7aa | #fdba74 | #fb923c | #f97316 | #ea580c | #92310a | #6c2710 | #3b1106 | #220a04 |
+   * | `yellow` | #fefce8 | #fef9c3 | #fef08a | #fde047 | #facc15 | #eab308 | #ca8a04 | #845209 | #713f12 | #422006 | #281304 |
+   * | `green` | #f0fdf4 | #dcfce7 | #bbf7d0 | #86efac | #4ade80 | #22c55e | #16a34a | #116932 | #124a28 | #042713 | #03190c |
+   * | `teal` | #f0fdfa | #ccfbf1 | #99f6e4 | #5eead4 | #2dd4bf | #14b8a6 | #0d9488 | #0c5d56 | #114240 | #032726 | #021716 |
+   * | `blue` | #eff6ff | #dbeafe | #bfdbfe | #a3cfff | #60a5fa | #3b82f6 | #2563eb | #173da6 | #1a3478 | #14204a | #0c142e |
+   * | `cyan` | #ecfeff | #cffafe | #a5f3fc | #67e8f9 | #22d3ee | #06b6d4 | #0891b2 | #0c5c72 | #134152 | #072a38 | #051b24 |
+   * | `purple` | #faf5ff | #f3e8ff | #e9d5ff | #d8b4fe | #c084fc | #a855f7 | #9333ea | #641ba3 | #4a1772 | #2f0553 | #1a032e |
+   * | `pink` | #fdf2f8 | #fce7f3 | #fbcfe8 | #f9a8d4 | #f472b6 | #ec4899 | #db2777 | #a41752 | #6d0e34 | #45061f | #2c0514 |
    */
   textDecorationColor?: ColorToken;
   /**

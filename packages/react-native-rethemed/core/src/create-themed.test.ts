@@ -127,6 +127,40 @@ describe('createThemedStyles / themed.view', () => {
   });
 });
 
+describe('createThemedStyles / primitive colors', () => {
+  const withPrimitives = defineTheme({
+    tokens: {
+      colors: { white: '#ffffff', 'red.500': '#ef4444', 'fg.default': '#f00' },
+    },
+    semanticTokens: {
+      colors: { fg: { default: { light: '#111', dark: '#fff' } } },
+    },
+  });
+
+  it('accepts tokens.colors in color props, the same in every scheme', () => {
+    for (const scheme of ['light', 'dark'] as const) {
+      const themed = createThemedStyles(withPrimitives, scheme);
+      expect(
+        themed.view({ backgroundColor: 'red.500', borderColor: 'white' }),
+      ).toEqual({ backgroundColor: '#ef4444', borderColor: '#ffffff' });
+    }
+  });
+
+  it('lets a semantic color win over a primitive with the same name', () => {
+    expect(
+      createThemedStyles(withPrimitives, 'dark').text({ color: 'fg.default' }),
+    ).toEqual({ color: '#fff' });
+  });
+
+  it('works for a theme with primitive colors only', () => {
+    const themed = createThemedStyles(
+      defineTheme({ tokens: { colors: { black: '#000000' } } }),
+      'light',
+    );
+    expect(themed.text({ color: 'black' })).toEqual({ color: '#000000' });
+  });
+});
+
 describe('createThemedStyles / themed.text.<role>.<size>', () => {
   const themed = createThemedStyles(config, 'light');
 

@@ -73,6 +73,7 @@ describe('generateDocs', () => {
             transparent: '#00000000',
             white: '#ffffff',
             black: '#000000',
+            'red.500': '#fb2c36',
           },
           radii: { md: 6 },
           spacing: { 4: 16 },
@@ -84,26 +85,39 @@ describe('generateDocs', () => {
       genFile: 'themed.gen.ts',
     });
     expect(docs).not.toContain('group.token');
-    expect(docs).toContain('const { themed, tokens } = useThemed();');
+    expect(docs).toContain('const { themed } = useThemed();');
     expect(docs).toContain(
       [
         '    <View',
-        '      style={[',
-        '        themed.view({',
-        "          borderRadius: 'md',",
-        '          padding: 4,',
-        '        }),',
-        '        { backgroundColor: tokens.colors.white },',
-        '      ]}',
+        '      style={themed.view({',
+        "        backgroundColor: 'white',",
+        "        borderRadius: 'md',",
+        '        padding: 4,',
+        '      })}',
         '    >',
-        "      <Text style={[themed.text({ fontSize: 'md' }), { color: tokens.colors.black }]}>Title</Text>",
+        "      <Text style={themed.text({ fontSize: 'md', color: 'black' })}>Title</Text>",
       ].join('\n'),
     );
-    expect(docs).toContain('This theme defines no semantic colors');
+    expect(docs).toContain(
+      "**This theme defines no semantic colors:** color props take primitive colors (`'red.500'`)",
+    );
     expect(docs).toContain('This theme defines no text presets');
     expect(docs).not.toContain('Prefer semantic colors');
     expect(docs).not.toContain('(see Text presets)');
-    expect(docs).toContain('pass them in a second plain style object');
+    // Primitive colors come right after the usage, as a grid.
+    expect(docs).toMatch(
+      /### Rules[\s\S]*?\n## Primitive colors\n\nFixed colors, the same in light and dark\. A grid cell is the token `'<hue>\.<shade>'`, e\.g\. `'red\.500'`\. Use them on the same color props \(`themed\.view\(\{ backgroundColor: 'red\.500' \}\)`\)[^\n]*\n\n\| token \| value \|[\s\S]*?\| hue \| 500 \|\n\|:--\|:--\|\n\| `red` \| #fb2c36 \|\n\n## Radii/,
+    );
+  });
+
+  it('mentions primitive colors next to semantic ones when both exist', () => {
+    const docs = fixture();
+    expect(docs).toContain(
+      "- **Prefer semantic colors** (`'group.token'`). They switch with light/dark. Primitive colors (`'gray.950'`) are accepted too, but they are fixed",
+    );
+    expect(docs).toMatch(
+      /## Semantic colors[\s\S]*?## Primitive colors[\s\S]*?## Radii/,
+    );
   });
 
   it('leaves categories the theme does not define out of the example', () => {
@@ -114,7 +128,14 @@ describe('generateDocs', () => {
     });
     expect(docs).toContain('    <View style={themed.view()}>');
     expect(docs).toContain('      <Text style={themed.text()}>Title</Text>');
-    expect(docs).not.toMatch(/borderRadius:|padding:|shadow:|tokens\.colors/);
+    const example = docs.slice(
+      docs.indexOf('```tsx'),
+      docs.indexOf('### Rules'),
+    );
+    expect(example).not.toMatch(
+      /backgroundColor:|borderRadius:|padding:|shadow:/,
+    );
+    expect(docs).toContain('**This theme defines no colors**');
     expect(docs).toContain('`zIndex` takes a raw number');
     expect(docs).not.toContain('**Shadows:**');
     expect(docs).not.toContain('**Line heights:**');

@@ -51,8 +51,54 @@ describe('generate', () => {
       config: {},
       themeImport: { specifier: './theme', exportName: 'default' },
     });
-    expect(source).toContain('export type ColorToken = never;');
+    expect(source).toContain('export type SemanticColorToken = never;');
+    expect(source).toContain('export type PrimitiveColorToken = never;');
     expect(source).toContain('export interface ThemedTokens {}');
+  });
+
+  it('accepts primitive and semantic colors in color props', () => {
+    const source = fixture();
+    expect(source).toContain(
+      "export type PrimitiveColorToken = 'white' | 'gray.950';",
+    );
+    expect(source).toContain(
+      'export type ColorToken = SemanticColorToken | PrimitiveColorToken;',
+    );
+    // Both tables, semantic first, in every color prop's JSDoc.
+    expect(source).toMatch(
+      /`semanticTokens\.colors`: switch with light\/dark\. Prefer these\.[\s\S]*?`tokens\.colors`: Fixed colors, the same in light and dark\.[\s\S]*?backgroundColor\?: ColorToken;/,
+    );
+  });
+
+  it('shows a palette as a hue × shade grid', () => {
+    const source = generate({
+      config: {
+        tokens: {
+          colors: {
+            white: '#ffffff',
+            'red.50': '#fef2f2',
+            'red.500': '#fb2c36',
+            'blue.500': '#2b7fff',
+          },
+        },
+      },
+      themeImport: { specifier: './theme', exportName: 'default' },
+    });
+    expect(source).toContain(
+      "A grid cell is the token `'<hue>.<shade>'`, e.g. `'red.500'`.",
+    );
+    expect(source).toContain(
+      [
+        '   * | token | value |',
+        '   * |:--|:--|',
+        '   * | `white` | #ffffff |',
+        '   *',
+        '   * | hue | 50 | 500 |',
+        '   * |:--|:--|:--|',
+        '   * | `red` | #fef2f2 | #fb2c36 |',
+        '   * | `blue` | – | #2b7fff |',
+      ].join('\n'),
+    );
   });
 
   it('explains undefined categories instead of emitting empty tables', () => {
@@ -61,7 +107,7 @@ describe('generate', () => {
       themeImport: { specifier: './theme', exportName: 'default' },
     });
     expect(source).toMatch(
-      /`semanticTokens\.colors`\n {3}\*\n {3}\* Not defined in this theme\. No color token is accepted here[^\n]*\n {3}\*\/\n {2}color\?: ColorToken;/,
+      /`semanticTokens\.colors` \/ `tokens\.colors`\n {3}\*\n {3}\* Not defined in this theme\. No color token is accepted here[^\n]*\n {3}\*\/\n {2}color\?: ColorToken;/,
     );
     expect(source).toMatch(
       /`tokens\.spacing`\n {3}\*\n {3}\* Not defined in this theme\.\n {3}\*\/\n {2}padding\?:/,

@@ -113,6 +113,7 @@ describe('formatCounts', () => {
     expect(
       formatCounts({
         colors: 54,
+        primitiveColors: 123,
         radii: 11,
         spacing: 35,
         fontSizes: 14,
@@ -122,6 +123,45 @@ describe('formatCounts', () => {
         shadows: 0,
         textPresets: 15,
       }),
-    ).toBe('54 colors · 11 radii · 35 spacing · 15 text presets');
+    ).toBe(
+      '54 semantic colors · 123 primitive colors · 11 radii · 35 spacing · 15 text presets',
+    );
+  });
+});
+
+describe('codegen warnings', () => {
+  it('warns about a semantic color shadowing a primitive, but still writes', async () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'rn-themed-'));
+    const themeFile = path.join(dir, 'theme.ts');
+    writeFileSync(
+      themeFile,
+      `export default {
+        tokens: { colors: { 'red.500': '#ef4444' } },
+        semanticTokens: {
+          colors: { red: { 500: { light: '#f00', dark: '#f88' } } },
+        },
+      };`,
+    );
+    const warned: string[][] = [];
+    const result = await codegen(
+      { themeFile },
+      { warned: (w) => warned.push(w) },
+    );
+    const expected = [
+      "'red.500' is both a semantic color and a primitive color (tokens.colors); color props resolve it to the semantic color",
+    ];
+    expect(result.warnings).toEqual(expected);
+    expect(warned).toEqual([expected]);
+    expect(result.changed).toBe(true);
+  });
+
+  it('does not report when there is nothing to warn about', async () => {
+    const warned: string[][] = [];
+    const result = await codegen(
+      { themeFile: fixtureTheme, outFile: tmpOut() },
+      { warned: (w) => warned.push(w) },
+    );
+    expect(result.warnings).toEqual([]);
+    expect(warned).toEqual([]);
   });
 });

@@ -100,13 +100,19 @@ describe('pandaCssTheme', () => {
     });
     expect(result.counts).toMatchObject({
       colors: 0,
+      primitiveColors: 289,
       radii: 9,
       spacing: 36,
       shadows: 7,
       textPresets: 0,
     });
     expect(readFileSync(outFile, 'utf8')).toContain("'4xl'");
-    expect(readFileSync(docsFile, 'utf8')).toContain('red.500');
+    const docs = readFileSync(docsFile, 'utf8');
+    // The palette is rendered as a hue × shade grid.
+    expect(docs).toContain(
+      '| hue | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |',
+    );
+    expect(docs).toMatch(/\| `red` \| #fef2f2 \|[^\n]* \| #fb2c36 \|/);
   });
 
   it('has an up-to-date example (run `pnpm example:codegen` if not)', async () => {

@@ -25,7 +25,7 @@ export type TokenModel = {
   letterSpacings: [string, number][];
   shadows: [string, ShadowToken][];
   zIndices: [string, number][];
-  /** `tokens.colors` — scheme-independent primitives. */
+  /** `tokens.colors` — scheme-independent primitives, also color tokens. */
   primitiveColors: [string, string][];
   /** `semanticTokens.text` as a tree, each preset's cells already rendered. */
   text: TextNode[];
@@ -187,6 +187,76 @@ export function colorTable(rows: TokenModel['colors']): string[] {
     ['left', 'left', 'left'],
     rows.map((c) => [code(c.token), c.light, c.dark]),
   );
+}
+
+/** More distinct shade names than this and a grid gets too wide to read. */
+const MAX_PALETTE_SHADES = 12;
+
+/**
+ * `tokens.colors` for display. Keys shaped `<hue>.<shade>` become one grid
+ * row per hue (`| red | #fef2f2 | … |`), which keeps a few hundred palette
+ * colors readable in a hover; anything else (`white`) goes in a plain
+ * token/value table first. Falls back to a single plain table when the keys
+ * don't form a palette.
+ */
+export function primitiveColorTables(rows: [string, string][]): {
+  lines: string[];
+  /** A real `<hue>.<shade>` token to cite next to the grid. */
+  example?: string;
+} {
+  const plain = (r: [string, string][]) =>
+    table(
+      ['token', 'value'],
+      ['left', 'left'],
+      r.map(([k, v]) => [code(k), v]),
+    );
+
+  const singles: [string, string][] = [];
+  const hues = new Map<string, Map<string, string>>();
+  for (const [key, value] of rows) {
+    const parts = key.split('.');
+    if (parts.length !== 2 || !parts[0] || !parts[1]) {
+      singles.push([key, value]);
+      continue;
+    }
+    const [hue, shade] = parts;
+    const shades = hues.get(hue) ?? new Map<string, string>();
+    shades.set(shade, value);
+    hues.set(hue, shades);
+  }
+
+  const shades = [...new Set([...hues.values()].flatMap((m) => [...m.keys()]))];
+  if (shades.every((s) => /^\d+$/.test(s))) {
+    shades.sort((a, b) => Number(a) - Number(b));
+  }
+  if (hues.size === 0 || shades.length > MAX_PALETTE_SHADES) {
+    return { lines: plain(rows) };
+  }
+
+  const grid = table(
+    ['hue', ...shades],
+    ['left', ...shades.map(() => 'left' as const)],
+    [...hues].map(([hue, byShade]) => [
+      code(hue),
+      ...shades.map((s) => byShade.get(s) ?? '–'),
+    ]),
+  );
+  const [firstHue, firstShades] = [...hues][0];
+  const exampleShade = firstShades.has('500')
+    ? '500'
+    : [...firstShades.keys()][0];
+  return {
+    lines: singles.length > 0 ? [...plain(singles), '', ...grid] : grid,
+    example: `${firstHue}.${exampleShade}`,
+  };
+}
+
+/** How primitive colors behave, and how to name one from the grid. */
+export function primitiveColorNote(example: string | undefined): string {
+  const grid = example
+    ? ` A grid cell is the token \`'<hue>.<shade>'\`, e.g. \`'${example}'\`.`
+    : '';
+  return `Fixed colors, the same in light and dark.${grid}`;
 }
 
 export function scaleTable(rows: [string, unknown][]): string[] {

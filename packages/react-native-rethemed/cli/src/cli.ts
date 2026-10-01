@@ -24,14 +24,15 @@ const display = (file: string) =>
   path.relative(process.cwd(), file).split(path.sep).join('/');
 
 const COUNT_LABELS: [keyof TokenCounts, string][] = [
-  ['colors', 'colors'],
+  ['colors', 'semantic colors'],
+  ['primitiveColors', 'primitive colors'],
   ['radii', 'radii'],
   ['spacing', 'spacing'],
   ['shadows', 'shadows'],
   ['textPresets', 'text presets'],
 ];
 
-/** `54 colors · 11 radii · 35 spacing`, skipping empty categories. */
+/** `54 semantic colors · 11 radii · 35 spacing`, skipping empty categories. */
 export function formatCounts(counts: TokenCounts): string {
   const parts = COUNT_LABELS.filter(([key]) => counts[key] > 0).map(
     ([key, label]) => `${counts[key]} ${label}`,
@@ -96,6 +97,13 @@ async function runCodegen(args: string[]): Promise<void> {
           ),
         validated: (counts) =>
           p.log.step(`✅ Validated tokens  ${dim(formatCounts(counts))}`),
+        warned: (warnings) =>
+          p.log.warn(
+            [
+              `⚠️  ${warnings.length === 1 ? '1 warning' : `${warnings.length} warnings`}`,
+              ...warnings.map((w) => dim(`  - ${w}`)),
+            ].join('\n'),
+          ),
         written: ({ outFile, changed }) =>
           p.log.step(
             changed

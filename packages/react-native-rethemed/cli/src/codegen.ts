@@ -7,7 +7,7 @@ import {
 import { generateDocs } from './docs';
 import { generate } from './generate';
 import { loadTheme } from './load-theme';
-import { validateTheme } from './validate';
+import { themeWarnings, validateTheme } from './validate';
 
 export type CodegenOptions = {
   /** Theme file, absolute or relative to `cwd`. */
@@ -24,7 +24,10 @@ export type CodegenOptions = {
 };
 
 export type TokenCounts = {
+  /** Semantic colors (`semanticTokens.colors`). */
   colors: number;
+  /** Primitive colors (`tokens.colors`). */
+  primitiveColors: number;
   radii: number;
   spacing: number;
   fontSizes: number;
@@ -40,6 +43,8 @@ export type CodegenResult = {
   exportName: string;
   outFile: string;
   counts: TokenCounts;
+  /** Non-fatal theme problems (see `themeWarnings`). */
+  warnings: string[];
   /** `false` when the output was already up to date (nothing written). */
   changed: boolean;
   /** Present when `docsFile` was requested. */
@@ -67,6 +72,8 @@ export class CodegenError extends Error {
 export type CodegenReporter = {
   loaded?: (info: { themeFile: string; exportName: string }) => void;
   validated?: (counts: TokenCounts) => void;
+  /** Only fired when there is something to warn about. */
+  warned?: (warnings: string[]) => void;
   written?: (info: { outFile: string; changed: boolean }) => void;
   docsWritten?: (info: { docsFile: string; changed: boolean }) => void;
 };
@@ -88,6 +95,7 @@ export function countTokens(config: ThemeConfig): TokenCounts {
 
   return {
     colors: nested(config.semanticTokens?.colors),
+    primitiveColors: size(tokens.colors),
     radii: size(tokens.radii),
     spacing: size(tokens.spacing),
     fontSizes: size(tokens.fontSizes),
@@ -164,6 +172,8 @@ export async function codegen(
   }
   const counts = countTokens(config);
   reporter.validated?.(counts);
+  const warnings = themeWarnings(config);
+  if (warnings.length > 0) reporter.warned?.(warnings);
 
   // --- generate & write -----------------------------------------------------
   const toPosix = (file: string) =>
@@ -199,5 +209,5 @@ export async function codegen(
     reporter.docsWritten?.({ docsFile, changed: docs.changed });
   }
 
-  return { themeFile, exportName, outFile, counts, changed, docs };
+  return { themeFile, exportName, outFile, counts, warnings, changed, docs };
 }

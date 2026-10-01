@@ -38,6 +38,8 @@ export function usage() {
   themed.text.heading.display.lg({ color: 'fg.muted' });
   themed.text.heading.page();
   themed.image({ tintColor: 'fg.default', borderRadius: 'full' });
+  // primitive colors are color tokens too (fixed in every scheme)
+  themed.view({ backgroundColor: 'gray.950', borderColor: 'white' });
 
   const white: '#ffffff' = tokens.colors.white;
   const md: 16 = tokens.fontSizes.md;

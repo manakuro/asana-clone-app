@@ -56,7 +56,7 @@ import type { TokenizeStyle } from '../types';
 // A schema shaped like what `@react-native-rethemed/cli codegen` emits
 // ---------------------------------------------------------------------------
 
-type ColorToken = 'bg.default' | 'fg.default' | 'border.default';
+type ColorToken = 'bg.default' | 'fg.default' | 'border.default' | 'white';
 type StyleProps = { [K in ColorKeys]?: ColorToken } & {
   [K in RadiusKeys]?: 'sm' | 'md';
 } & { [K in SpacingKeys]?: 0 | 1 | 2 | 'px' | 'auto' | `${number}%` } & {
@@ -246,6 +246,8 @@ themed.text({
   textDecorationColor: 'fg.default',
 });
 themed.image({ overlayColor: 'bg.default' });
+// Primitive colors are color tokens too.
+themed.view({ backgroundColor: 'white' });
 
 // @ts-expect-error -- colors are token-only
 themed.view({ backgroundColor: '#fff' });

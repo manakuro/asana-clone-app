@@ -9,7 +9,10 @@ import { themeConfig } from './theme';
 // Token names
 // ---------------------------------------------------------------------------
 
-export type ColorToken = 'bg.default' | 'bg.subtle' | 'fg.default' | 'fg.muted';
+export type SemanticColorToken = 'bg.default' | 'bg.subtle' | 'fg.default' | 'fg.muted';
+export type PrimitiveColorToken = 'white' | 'gray.950';
+/** Color props take both: semantic colors switch with light/dark, primitives are fixed. */
+export type ColorToken = SemanticColorToken | PrimitiveColorToken;
 export type RadiusToken = 'none' | 'md' | 'full';
 export type SpacingToken =
   | 0
@@ -32,7 +35,7 @@ export type ZIndexToken = 'base' | 'modal';
 
 export interface ThemedStyleProps {
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -40,10 +43,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   color?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -51,10 +64,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   backgroundColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -62,10 +85,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -73,10 +106,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderTopColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -84,10 +127,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderBottomColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -95,10 +148,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderLeftColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -106,10 +169,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderRightColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -117,10 +190,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderStartColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -128,10 +211,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderEndColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -139,10 +232,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderBlockColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -150,10 +253,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderBlockStartColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -161,10 +274,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   borderBlockEndColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -172,10 +295,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   tintColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -183,10 +316,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   overlayColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -194,10 +337,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   shadowColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -205,10 +358,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   outlineColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -216,10 +379,20 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   textShadowColor?: ColorToken;
   /**
-   * `semanticTokens.colors`
+   * `semanticTokens.colors`: switch with light/dark. Prefer these.
    *
    * | token | light | dark |
    * |:--|:--|:--|
@@ -227,6 +400,16 @@ export interface ThemedStyleProps {
    * | `bg.subtle` | #fafafa | #18181b |
    * | `fg.default` | #111111 | #fafafa |
    * | `fg.muted` | #52525b | #a1a1aa |
+   *
+   * `tokens.colors`: Fixed colors, the same in light and dark. A grid cell is the token `'<hue>.<shade>'`, e.g. `'gray.950'`.
+   *
+   * | token | value |
+   * |:--|:--|
+   * | `white` | #ffffff |
+   *
+   * | hue | 950 |
+   * |:--|:--|
+   * | `gray` | #111111 |
    */
   textDecorationColor?: ColorToken;
   /**
