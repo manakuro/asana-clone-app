@@ -12,7 +12,14 @@ export function Article() {
   const { themed, semanticTokens } = useThemed();
 
   return (
-    <View>
+    <View
+      style={themed.view({
+        // md.sys.measurement.space200 / space100 / space50, keyed by dp
+        padding: 16,
+        gap: 8,
+        marginBottom: 4,
+      })}
+    >
       {/* Presets are called by path: themed.text.<role>.<size>(). */}
       <Text style={themed.text.headline.sm()}>Material Design type scale</Text>
       <Text style={themed.text.title.md()}>Title medium</Text>
@@ -32,8 +39,10 @@ export function rejected() {
   const { themed } = useThemed();
   // @ts-expect-error no color tokens in the Material Design theme
   themed.text({ color: 'fg.default' });
-  // @ts-expect-error no spacing tokens in the Material Design theme
-  themed.view({ padding: 4 });
+  // @ts-expect-error not an M3 spacing value (no 12dp token)
+  themed.view({ padding: 12 });
+  // @ts-expect-error keys are dp values, not M3 token numbers
+  themed.view({ padding: 100 });
   // @ts-expect-error unknown size
   themed.text.title.xl();
   // @ts-expect-error unknown role

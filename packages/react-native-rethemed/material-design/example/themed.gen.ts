@@ -14,7 +14,21 @@ export type PrimitiveColorToken = never;
 /** Color props take both: semantic colors switch with light/dark, primitives are fixed. */
 export type ColorToken = SemanticColorToken | PrimitiveColorToken;
 export type RadiusToken = never;
-export type SpacingToken = never;
+export type SpacingToken =
+  | 0
+  | 2
+  | 4
+  | 6
+  | 8
+  | 10
+  | 16
+  | 24
+  | 32
+  | 40
+  | 48
+  | 56
+  | 64
+  | 72;
 export type FontSizeToken = never;
 export type FontWeightToken = never;
 export type LineHeightToken = never;
@@ -217,199 +231,694 @@ export interface ThemedStyleProps {
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   padding?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingTop?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingBottom?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingLeft?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingRight?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingHorizontal?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingVertical?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingStart?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingEnd?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingBlock?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingBlockStart?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingBlockEnd?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingInline?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingInlineStart?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   paddingInlineEnd?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   margin?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginTop?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginBottom?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginLeft?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginRight?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginHorizontal?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginVertical?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginStart?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginEnd?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginBlock?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginBlockStart?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginBlockEnd?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginInline?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginInlineStart?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   marginInlineEnd?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   gap?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   rowGap?: SpacingToken | 'auto' | `${number}%`;
   /**
    * `tokens.spacing`
    *
-   * Not defined in this theme.
+   * | token | value |
+   * |:--|--:|
+   * | `0` | 0 |
+   * | `2` | 2 |
+   * | `4` | 4 |
+   * | `6` | 6 |
+   * | `8` | 8 |
+   * | `10` | 10 |
+   * | `16` | 16 |
+   * | `24` | 24 |
+   * | `32` | 32 |
+   * | `40` | 40 |
+   * | `48` | 48 |
+   * | `56` | 56 |
+   * | `64` | 64 |
+   * | `72` | 72 |
    */
   columnGap?: SpacingToken | 'auto' | `${number}%`;
   /**
@@ -642,7 +1151,24 @@ export interface ThemedTextVariants {
 // useThemed().tokens / useThemed().semanticTokens
 // ---------------------------------------------------------------------------
 
-export interface ThemedTokens {}
+export interface ThemedTokens {
+  spacing: {
+    0: 0;
+    2: 2;
+    4: 4;
+    6: 6;
+    8: 8;
+    10: 10;
+    16: 16;
+    24: 24;
+    32: 32;
+    40: 40;
+    48: 48;
+    56: 56;
+    64: 64;
+    72: 72;
+  };
+}
 
 export interface ThemedSemanticTokens {
   /** Resolved for the current color scheme. */

@@ -115,7 +115,42 @@ export const typescale = {
   },
 } as const satisfies Record<string, Record<string, TextToken>>;
 
+/**
+ * Material Design 3's system spacing tokens (`md.sys.measurement.space*`),
+ * keyed by their dp value: `space100` (8dp) → `8`, so
+ * `themed.view({ padding: 8 })` is 8. React Native style numbers are already
+ * density-independent (1dp = 1), so values are used as-is.
+ *
+ * | M3 token | key / value (dp) |
+ * |:--|--:|
+ * | `space0` | 0 |
+ * | `space25` / `space50` / `space75` | 2 / 4 / 6 |
+ * | `space100` / `space125` | 8 / 10 |
+ * | `space200` … `space900` | 16 … 72 (8dp steps) |
+ *
+ * https://m3.material.io/styles/spacing/tokens (checked 2026-10-02; M3 notes
+ * these tokens are so far only used by Jetpack Compose).
+ */
+export const spacing = {
+  0: 0,
+  2: 2,
+  4: 4,
+  6: 6,
+  8: 8,
+  10: 10,
+  16: 16,
+  24: 24,
+  32: 32,
+  40: 40,
+  48: 48,
+  56: 56,
+  64: 64,
+  72: 72,
+} as const satisfies Record<number, number>;
+
 export const materialDesignTheme = defineTheme({
+  // Spacing is a scale, not a role, so it is a primitive `tokens` entry.
+  tokens: { spacing },
   // Type-scale styles are role-named (MD3 also places them under
   // `md.sys.typescale.*`, not the reference layer), so they live in
   // `semanticTokens`. Values stay raw: MD3 has its own scale and does not

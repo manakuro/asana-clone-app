@@ -15,7 +15,11 @@ import { Text, View } from 'react-native';
 function Card() {
   const { themed } = useThemed();
   return (
-    <View>
+    <View
+      style={themed.view({
+        padding: 16,
+      })}
+    >
       <Text style={themed.text.title.md()}>Title</Text>
     </View>
   );
@@ -34,6 +38,27 @@ function Card() {
 - Outside `style` (e.g. an icon `color` prop), read values from `useThemed().tokens`.
 - **Performance:** calling `themed.*()` inline on every render is fine. Built-in components compare `style` by value, and a call costs well under a microsecond. Memoize with `useMemo(() => themed.view({ ... }), [themed])` only when the style must keep the same reference: when it is passed to a `React.memo` component, passed as a list prop such as `contentContainerStyle` / `ListHeaderComponentStyle`, or used as a hook dependency. `themed` itself only changes when the color scheme does.
 - Do not edit the generated files. Change the theme file and re-run the codegen command instead.
+
+## Spacing
+
+For `padding*`, `margin*` (including the logical `*Block*` / `*Inline*` variants), `gap`, `rowGap` and `columnGap`. Positional props (`top`, `left`, `inset`, …) take raw values.
+
+| token | value |
+|:--|--:|
+| `0` | 0 |
+| `2` | 2 |
+| `4` | 4 |
+| `6` | 6 |
+| `8` | 8 |
+| `10` | 10 |
+| `16` | 16 |
+| `24` | 24 |
+| `32` | 32 |
+| `40` | 40 |
+| `48` | 48 |
+| `56` | 56 |
+| `64` | 64 |
+| `72` | 72 |
 
 ## Text presets
 
