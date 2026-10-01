@@ -15,7 +15,7 @@ import { materialDesignTheme } from '@react-native-rethemed/material-design-toke
  * `@react-native-rethemed/core/config` here: the CLI evaluates this file in
  * plain Node, without `react-native`.
  */
-export const themeConfig = extendTheme(chakraUiTheme, materialDesignTheme, {
+export const themeConfig = extendTheme(chakraUiTheme, {
   tokens: {
     colors: {
       testColor: '#000000',
@@ -32,6 +32,7 @@ export const themeConfig = extendTheme(chakraUiTheme, materialDesignTheme, {
       },
     },
     text: {
+      ...materialDesignTheme?.semanticTokens?.text,
       /**
        * `test-caption` is a custom type-scale for captions. It is used only for CLI testing.
        */
