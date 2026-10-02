@@ -1,11 +1,6 @@
 name: Setup Monorepo
 description: Prepare and install everything for the monorepo
 
-inputs:
-  expo-token:
-    description: Expo token to authenticate with
-    required: true
-
 runs:
   using: composite
   steps:
