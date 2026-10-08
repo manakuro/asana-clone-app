@@ -71,7 +71,7 @@
     "@graphql-codegen/typescript": "6.1.0",
     "@graphql-codegen/typescript-operations": "6.1.1",
     "@parcel/watcher": "2.6.0",
-    "@react-native-rethemed/cli": "workspace:*",
+    "@react-native-rethemed/cli": "0.1.1",
     "@types/node": "24.10.4",
     "@types/react": "19.2.17",
     "biome-config": "workspace:*",
