@@ -1,8 +1,5 @@
-import {
-  chakraUiTheme,
-  colorTokens,
-} from '@react-native-rethemed/chakra-ui-tokens';
-import { extendTheme } from '@react-native-rethemed/core/config';
+import { chakraUiTheme, colors } from '@react-native-rethemed/chakra-ui-tokens';
+import { extendTheme } from '@react-native-rethemed/core';
 import { materialDesignTheme } from '@react-native-rethemed/material-design-tokens';
 
 /**
@@ -24,11 +21,11 @@ export const themeConfig = extendTheme(chakraUiTheme, {
   semanticTokens: {
     colors: {
       primary: {
-        bg: { light: colorTokens['gray.950'], dark: colorTokens.white },
-        fg: { light: colorTokens.white, dark: colorTokens['gray.950'] },
+        bg: { light: colors['gray.950'], dark: colors.white },
+        fg: { light: colors.white, dark: colors['gray.950'] },
       },
       bg: {
-        default: { light: colorTokens.white, dark: colorTokens['gray.950'] },
+        default: { light: colors.white, dark: colors['gray.950'] },
       },
     },
     text: {
@@ -41,8 +38,8 @@ export const themeConfig = extendTheme(chakraUiTheme, {
           fontSize: 14,
           fontWeight: 500,
           color: {
-            light: colorTokens['gray.950'],
-            dark: colorTokens.white,
+            light: colors['gray.950'],
+            dark: colors.white,
           },
         },
       },
