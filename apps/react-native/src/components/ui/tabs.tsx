@@ -230,7 +230,7 @@ function CarouselTabContent({
     <CarouselContainer
       activeTab={activeTab}
       tabValues={tabValues}
-      onSwipe={navigateToAdjacentTab!}
+      onSwipe={navigateToAdjacentTab}
       contentMap={contentMap}
       style={style}
     />
@@ -246,7 +246,7 @@ function CarouselContainer({
 }: {
   activeTab: string;
   tabValues: string[];
-  onSwipe: (direction: 'next' | 'prev') => void;
+  onSwipe?: (direction: 'next' | 'prev') => void;
   contentMap: React.RefObject<Record<string, React.ReactNode>>;
   style?: ViewStyle;
 }) {
@@ -283,10 +283,14 @@ function CarouselContainer({
       if (shouldChangeTab) {
         if (translation > 0 && currentIndex > 0) {
           // Swiped right - go to previous tab
-          scheduleOnRN(onSwipe, 'prev');
+          if (onSwipe) {
+            scheduleOnRN(onSwipe, 'prev');
+          }
         } else if (translation < 0 && currentIndex < tabValues.length - 1) {
           // Swiped left - go to next tab
-          scheduleOnRN(onSwipe, 'next');
+          if (onSwipe) {
+            scheduleOnRN(onSwipe, 'next');
+          }
         }
       }
 
@@ -503,13 +507,8 @@ export function TabsTrigger({
 }
 
 export function TabsContent({ children, value, style }: TabsContentProps) {
-  const {
-    activeTab,
-    enableSwipe,
-    orientation,
-    navigateToAdjacentTab,
-    tabValues,
-  } = useTabsContext();
+  const { activeTab, enableSwipe, orientation, navigateToAdjacentTab } =
+    useTabsContext();
   const isActive = activeTab === value;
 
   // For carousel mode, we need to render all content but only show active one

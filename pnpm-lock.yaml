@@ -353,15 +353,15 @@ importers:
       '@react-native-firebase/auth':
         specifier: 26.4.0
         version: 26.4.0(@react-native-firebase/app@26.4.0(expo@57.0.16)(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3))(expo@57.0.16)
-      '@react-native-themed/chakra-ui-tokens':
-        specifier: workspace:*
-        version: link:../../packages/react-native-themed/chakra-ui
-      '@react-native-themed/core':
-        specifier: workspace:*
-        version: link:../../packages/react-native-themed/core
-      '@react-native-themed/material-design-tokens':
-        specifier: workspace:*
-        version: link:../../packages/react-native-themed/material-design
+      '@react-native-rethemed/chakra-ui-tokens':
+        specifier: 0.1.1
+        version: 0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
+      '@react-native-rethemed/core':
+        specifier: 0.1.1
+        version: 0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
+      '@react-native-rethemed/material-design-tokens':
+        specifier: 0.1.1
+        version: 0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
       expo:
         specifier: 57.0.16
         version: 57.0.16(@babel/core@7.29.7(supports-color@8.1.1))(@expo/dom-webview@57.0.1)(@expo/metro-runtime@57.0.13)(expo-router@57.0.16)(react-dom@19.2.3(react@19.2.3))(react-native-web@0.21.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-native-worklets@0.10.1(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)(supports-color@8.1.1))(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)(supports-color@8.1.1)(typescript@6.0.3)
@@ -483,6 +483,9 @@ importers:
       '@parcel/watcher':
         specifier: 2.6.0
         version: 2.6.0
+      '@react-native-rethemed/cli':
+        specifier: 0.1.1
+        version: 0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
       '@types/node':
         specifier: 24.10.4
         version: 24.10.4
@@ -510,62 +513,6 @@ importers:
       '@biomejs/biome':
         specifier: 2.5.4
         version: 2.5.4
-
-  packages/react-native-themed/chakra-ui:
-    dependencies:
-      '@react-native-themed/core':
-        specifier: workspace:*
-        version: link:../core
-    devDependencies:
-      '@biomejs/biome':
-        specifier: 2.5.4
-        version: 2.5.4
-      biome-config:
-        specifier: workspace:*
-        version: link:../../biome-config
-      typescript:
-        specifier: 6.0.3
-        version: 6.0.3
-
-  packages/react-native-themed/core:
-    devDependencies:
-      '@biomejs/biome':
-        specifier: 2.5.4
-        version: 2.5.4
-      '@types/react':
-        specifier: 19.2.17
-        version: 19.2.17
-      biome-config:
-        specifier: workspace:*
-        version: link:../../biome-config
-      react:
-        specifier: 'catalog:'
-        version: 19.2.3
-      react-native:
-        specifier: 'catalog:'
-        version: 0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1)
-      typescript:
-        specifier: 6.0.3
-        version: 6.0.3
-      vitest:
-        specifier: 4.1.10
-        version: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@24.10.4)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(happy-dom@20.11.0)(jsdom@29.1.1)(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))
-
-  packages/react-native-themed/material-design:
-    dependencies:
-      '@react-native-themed/core':
-        specifier: workspace:*
-        version: link:../core
-    devDependencies:
-      '@biomejs/biome':
-        specifier: 2.5.4
-        version: 2.5.4
-      biome-config:
-        specifier: workspace:*
-        version: link:../../biome-config
-      typescript:
-        specifier: 6.0.3
-        version: 6.0.3
 
 packages:
 
@@ -1120,6 +1067,14 @@ packages:
       '@emotion/react': '>=11'
       react: '>=18'
       react-dom: '>=18'
+
+  '@clack/core@1.5.1':
+    resolution: {integrity: sha512-iHTrHA8MtVuLl2TfZySmcKv1qO2PoyC9Z7pfSDozEuV5vtY3/wcOPKJXlqJ5Oq2Cx5DDGQGAMVx6HZfRRoVEbQ==}
+    engines: {node: '>= 20.12.0'}
+
+  '@clack/prompts@1.8.1':
+    resolution: {integrity: sha512-dlT1m5e/0yUL0kRNcQn7yGLVThkgbB0Ga/1AmfDDC/8ik6AIiSf2QLQO2zPYvefsHP0aFgxO93cVLCCfDp7kzQ==}
+    engines: {node: '>= 20.12.0'}
 
   '@commander-js/extra-typings@13.1.0':
     resolution: {integrity: sha512-q5P52BYb1hwVWE6dtID7VvuJWrlfbCv4klj7BjUUOqMz4jbSZD4C9fJ9lRjL2jnBGTg+gDDlaXN51rkWcLk4fg==}
@@ -3372,6 +3327,22 @@ packages:
     peerDependencies:
       react: '>=16'
       react-native: '>=0.57'
+
+  '@react-native-rethemed/chakra-ui-tokens@0.1.1':
+    resolution: {integrity: sha512-jTDkPoixUmrTe0sriEDHeG/aAhtgUyV0mqwlagI8p9z6em7bKyB8GFJp942Ce+aA/IpaK3II7aNGHSufvOfPDQ==}
+
+  '@react-native-rethemed/cli@0.1.1':
+    resolution: {integrity: sha512-6ZL25uTG311L34l95lgYc8dL7dS7+EzM+Z2Dhw0CGS5LHfuhUdaYAjNkDtb6ZUEOmyM6jKOy3lWMdZi0NRmPaQ==}
+    hasBin: true
+
+  '@react-native-rethemed/core@0.1.1':
+    resolution: {integrity: sha512-A8rH4jRJcFJiChyIZTL6Sh8W3lQka/RAy3wk7CcNmyclyeqeSfjS08q+Le7ciTRFHIog/unurUcwjNQIqWyK7A==}
+    peerDependencies:
+      react: '*'
+      react-native: '*'
+
+  '@react-native-rethemed/material-design-tokens@0.1.1':
+    resolution: {integrity: sha512-OZEMwe/75iziLxLLl+8n0EgX6iNRP5NPySEnbP09bIsYQd/4LMWxSMBHpJhqMe1o3rHkGKBD4J12xdyS9yUwIA==}
 
   '@react-native/assets-registry@0.86.2':
     resolution: {integrity: sha512-vcX/mBjWAVnWofu7KecotquI2unZ/tITwA7OGdq/mdY/zmGXIEvYhfEYyOQij/LRqi9WAL+iizInTBWnxDhK/Q==}
@@ -9665,6 +9636,18 @@ snapshots:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
+  '@clack/core@1.5.1':
+    dependencies:
+      fast-wrap-ansi: 0.2.2
+      sisteransi: 1.0.5
+
+  '@clack/prompts@1.8.1':
+    dependencies:
+      '@clack/core': 1.5.1
+      fast-string-width: 3.0.2
+      fast-wrap-ansi: 0.2.2
+      sisteransi: 1.0.5
+
   '@commander-js/extra-typings@13.1.0(commander@13.1.0)':
     dependencies:
       commander: 13.1.0
@@ -12142,6 +12125,34 @@ snapshots:
       react: 19.2.3
       react-native: 0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1)
 
+  '@react-native-rethemed/chakra-ui-tokens@0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)':
+    dependencies:
+      '@react-native-rethemed/core': 0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
+    transitivePeerDependencies:
+      - react
+      - react-native
+
+  '@react-native-rethemed/cli@0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)':
+    dependencies:
+      '@clack/prompts': 1.8.1
+      '@react-native-rethemed/core': 0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
+      jiti: 2.7.0
+    transitivePeerDependencies:
+      - react
+      - react-native
+
+  '@react-native-rethemed/core@0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)':
+    dependencies:
+      react: 19.2.3
+      react-native: 0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1)
+
+  '@react-native-rethemed/material-design-tokens@0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)':
+    dependencies:
+      '@react-native-rethemed/core': 0.1.1(react-native@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.2.17)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)
+    transitivePeerDependencies:
+      - react
+      - react-native
+
   '@react-native/assets-registry@0.86.2': {}
 
   '@react-native/babel-plugin-codegen@0.86.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)':
@@ -12882,20 +12893,6 @@ snapshots:
       - utf-8-validate
       - vite
 
-  '@vitest/browser-playwright@4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(playwright@1.61.1)(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))(vitest@4.1.10)':
-    dependencies:
-      '@vitest/browser': 4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))(vitest@4.1.10)
-      '@vitest/mocker': 4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))
-      playwright: 1.61.1
-      tinyrainbow: 3.1.0
-      vitest: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@24.10.4)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(happy-dom@20.11.0)(jsdom@29.1.1)(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))
-    transitivePeerDependencies:
-      - bufferutil
-      - msw
-      - utf-8-validate
-      - vite
-    optional: true
-
   '@vitest/browser@4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.1)(yaml@2.9.0))(vitest@4.1.10)':
     dependencies:
       '@blazediff/core': 1.9.1
@@ -12912,24 +12909,6 @@ snapshots:
       - msw
       - utf-8-validate
       - vite
-
-  '@vitest/browser@4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))(vitest@4.1.10)':
-    dependencies:
-      '@blazediff/core': 1.9.1
-      '@vitest/mocker': 4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))
-      '@vitest/utils': 4.1.10
-      magic-string: 0.30.21
-      pngjs: 7.0.0
-      sirv: 3.0.2
-      tinyrainbow: 3.1.0
-      vitest: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@24.10.4)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(happy-dom@20.11.0)(jsdom@29.1.1)(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))
-      ws: 8.21.1
-    transitivePeerDependencies:
-      - bufferutil
-      - msw
-      - utf-8-validate
-      - vite
-    optional: true
 
   '@vitest/coverage-v8@4.1.10(@vitest/browser@4.1.10)(vitest@4.1.10)':
     dependencies:
@@ -12972,15 +12951,6 @@ snapshots:
     optionalDependencies:
       msw: 2.15.0(@types/node@24.10.4)(typescript@6.0.3)
       vite: 8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.1)(yaml@2.9.0)
-
-  '@vitest/mocker@4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))':
-    dependencies:
-      '@vitest/spy': 4.1.10
-      estree-walker: 3.0.3
-      magic-string: 0.30.21
-    optionalDependencies:
-      msw: 2.15.0(@types/node@24.10.4)(typescript@6.0.3)
-      vite: 8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0)
 
   '@vitest/pretty-format@3.2.4':
     dependencies:
@@ -18331,22 +18301,6 @@ snapshots:
       tsx: 4.23.1
       yaml: 2.9.0
 
-  vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0):
-    dependencies:
-      lightningcss: 1.33.0
-      picomatch: 4.0.5
-      postcss: 8.5.20
-      rolldown: 1.1.5
-      tinyglobby: 0.2.17
-    optionalDependencies:
-      '@types/node': 24.10.4
-      esbuild: 0.28.1
-      fsevents: 2.3.3
-      jiti: 2.7.0
-      terser: 5.47.1
-      tsx: 4.23.13
-      yaml: 2.9.0
-
   vitest@4.1.10(@opentelemetry/api@1.9.1)(@types/node@24.10.4)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(happy-dom@20.11.0)(jsdom@29.1.1)(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.1)(yaml@2.9.0)):
     dependencies:
       '@vitest/expect': 4.1.10
@@ -18373,38 +18327,6 @@ snapshots:
       '@opentelemetry/api': 1.9.1
       '@types/node': 24.10.4
       '@vitest/browser-playwright': 4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(playwright@1.61.1)(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.1)(yaml@2.9.0))(vitest@4.1.10)
-      '@vitest/coverage-v8': 4.1.10(@vitest/browser@4.1.10)(vitest@4.1.10)
-      happy-dom: 20.11.0
-      jsdom: 29.1.1
-    transitivePeerDependencies:
-      - msw
-
-  vitest@4.1.10(@opentelemetry/api@1.9.1)(@types/node@24.10.4)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(happy-dom@20.11.0)(jsdom@29.1.1)(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0)):
-    dependencies:
-      '@vitest/expect': 4.1.10
-      '@vitest/mocker': 4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))
-      '@vitest/pretty-format': 4.1.10
-      '@vitest/runner': 4.1.10
-      '@vitest/snapshot': 4.1.10
-      '@vitest/spy': 4.1.10
-      '@vitest/utils': 4.1.10
-      es-module-lexer: 2.3.1
-      expect-type: 1.4.0
-      magic-string: 0.30.21
-      obug: 2.1.4
-      pathe: 2.0.3
-      picomatch: 4.0.5
-      std-env: 4.2.0
-      tinybench: 2.9.0
-      tinyexec: 1.2.4
-      tinyglobby: 0.2.17
-      tinyrainbow: 3.1.0
-      vite: 8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0)
-      why-is-node-running: 2.3.0
-    optionalDependencies:
-      '@opentelemetry/api': 1.9.1
-      '@types/node': 24.10.4
-      '@vitest/browser-playwright': 4.1.10(msw@2.15.0(@types/node@24.10.4)(typescript@6.0.3))(playwright@1.61.1)(vite@8.1.5(@types/node@24.10.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.47.1)(tsx@4.23.13)(yaml@2.9.0))(vitest@4.1.10)
       '@vitest/coverage-v8': 4.1.10(@vitest/browser@4.1.10)(vitest@4.1.10)
       happy-dom: 20.11.0
       jsdom: 29.1.1

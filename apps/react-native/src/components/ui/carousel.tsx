@@ -376,7 +376,6 @@ export const Carousel = forwardRef<CarouselRef, CarouselProps>(
             >
               {children.map((child, index) => (
                 <View
-                  // biome-ignore lint/suspicious/noArrayIndexKey: using index because the list is static and never reorders
                   key={index}
                   style={{
                     width: slideWidth,
@@ -490,7 +489,6 @@ export function CarouselIndicators({
     >
       {Array.from({ length: total }, (_, index) => (
         <TouchableOpacity
-          // biome-ignore lint/suspicious/noArrayIndexKey: using index because the list is static and never reorders
           key={index}
           onPress={() => onPress?.(index)}
           style={{

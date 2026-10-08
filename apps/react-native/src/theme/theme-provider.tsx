@@ -1,4 +1,4 @@
-import type { ColorMode, ColorModeStorage } from '@react-native-themed/core';
+import type { ColorMode, ColorModeStorage } from '@react-native-rethemed/core';
 import {
   DarkTheme,
   DefaultTheme,

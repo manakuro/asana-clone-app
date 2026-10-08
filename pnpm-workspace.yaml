@@ -21,3 +21,9 @@ onlyBuiltDependencies:
   - lefthook
   - sharp
   - unrs-resolver
+
+minimumReleaseAgeExclude:
+  - '@react-native-rethemed/chakra-ui-tokens@0.1.1'
+  - '@react-native-rethemed/cli@0.1.1'
+  - '@react-native-rethemed/core@0.1.1'
+  - '@react-native-rethemed/material-design-tokens@0.1.1'

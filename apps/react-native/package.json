@@ -16,7 +16,9 @@
     "codegen:download": "env-cmd -f ./.env.local tsx scripts/codegen/download.ts",
     "codegen:ci": "graphql-codegen --config codegen.ts",
     "env:pull": "eas env:pull --environment development",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "themed:codegen": "npx @react-native-rethemed/cli codegen src/theme/themed/theme.ts --docs docs/themed.md",
+    "prepare": "pnpm themed:codegen"
   },
   "dependencies": {
     "@apollo/client": "4.2.12",
@@ -24,9 +26,9 @@
     "@graphql-typed-document-node/core": "3.2.0",
     "@react-native-firebase/app": "26.4.0",
     "@react-native-firebase/auth": "26.4.0",
-    "@react-native-themed/chakra-ui-tokens": "workspace:*",
-    "@react-native-themed/core": "workspace:*",
-    "@react-native-themed/material-design-tokens": "workspace:*",
+    "@react-native-rethemed/chakra-ui-tokens": "0.1.1",
+    "@react-native-rethemed/core": "0.1.1",
+    "@react-native-rethemed/material-design-tokens": "0.1.1",
     "expo": "57.0.16",
     "expo-build-properties": "57.0.16",
     "expo-constants": "57.0.14",
@@ -69,6 +71,7 @@
     "@graphql-codegen/typescript": "6.1.0",
     "@graphql-codegen/typescript-operations": "6.1.1",
     "@parcel/watcher": "2.6.0",
+    "@react-native-rethemed/cli": "0.1.1",
     "@types/node": "24.10.4",
     "@types/react": "19.2.17",
     "biome-config": "workspace:*",
