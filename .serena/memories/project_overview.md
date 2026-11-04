@@ -29,7 +29,7 @@ An Asana clone application built as a monorepo featuring:
 ### Development Tools
 - **Package Manager**: pnpm 11.27.0
 - **Monorepo**: Turborepo 2.4.4
-- **Node Version**: 24.18.0
+- **Node Version**: 24.22.1
 - **Git Hooks**: Lefthook 1.10.10
 - **Commits**: Conventional commits with commitizen
 

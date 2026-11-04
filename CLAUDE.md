@@ -71,7 +71,7 @@ Use Taskfile commands:
 - **Testing**: Vitest (frontend), Go testing (backend), Storybook for components
 
 ### Development Setup Requirements
-- Node.js 24.18.0
+- Node.js 24.22.1
 - pnpm 10.13.1
 - Go 1.22.1
 - MySQL database
