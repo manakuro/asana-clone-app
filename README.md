@@ -10,8 +10,8 @@ An Asana clone application as a portfolio project, built with real-time communic
 - [GraphQL Playground](https://project-management-demo.ebad78r3fqm9m.ap-northeast-1.cs.amazonlightsail.com/playground)
 
 ## Development Environment
-- Node.js 24.18.0
-- pnpm 11.27.0
+- Node.js 24.22.1
+- pnpm 12.16.1
 
 ## Set up safe-chain
 
@@ -21,8 +21,7 @@ curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/inst
 
 ## Installation
 ```
-npm install -g corepack@latest
-corepack enable pnpm
+curl -fsSL https://get.pnpm.io | env PNPM_VERSION=latest sh -
 pnpm install
 pnpm lefthook install
 ```
@@ -33,35 +32,6 @@ Follow the setup documentation for both frontend and backend to configure this p
 
 - [Frontend Setup](./apps/nextjs/README.md)
 - [Backend Setup](./apps/api/README.md)
-
-## Claude Code
-To provide instructions for Claude Code, document them in `AI_INSTRUCTIONS.md` and run the `/ai_instructions` command.
-
-### Example
-
-Create the `AI_INSTRUCTIONS.md` file in the root folder and document the instructions like so:
-
-```markdown
-## Overview
-Migrate code from Recoil to Jotai.
-
-## Implementation Details
-Use commit c491a94f as a reference for this work.
-
-### Target Directory
-- apps/nextjs/src/store/entities/task
-
-### Target Files
- - atom.ts
- - hooks folder
-
-### Implementation Notes
-- Skip if atom.ts doesn't exist.
-```
-
-In Claude Code, run the `/ai_instructions` command.
-
-![ai_instructions-1](./docs/ai-instructions-1.png)
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
