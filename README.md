@@ -11,7 +11,7 @@ An Asana clone application as a portfolio project, built with real-time communic
 
 ## Development Environment
 - Node.js 24.22.1
-- pnpm 11.27.0
+- pnpm 12.16.1
 
 ## Set up safe-chain
 
@@ -21,8 +21,7 @@ curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/inst
 
 ## Installation
 ```
-npm install -g corepack@latest
-corepack enable pnpm
+curl -fsSL https://get.pnpm.io | env PNPM_VERSION=latest sh -
 pnpm install
 pnpm lefthook install
 ```
