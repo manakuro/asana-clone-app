@@ -80,7 +80,7 @@ components/pages/{page}/  →  (needed elsewhere)  →  features/{domain}/
 
 ## Important Notes
 
-- GraphQL codegen requires the API server running for schema download
+- GraphQL codegen reads the schema directly from `apps/api/graph/schema` (no API server needed)
 - Development server runs on port 4001, production on 8080
 - Always run `pnpm codegen` after GraphQL schema changes
 - Use Biome for formatting and linting (`pnpm lint:fix`)

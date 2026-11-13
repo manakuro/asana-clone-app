@@ -1,9 +1,14 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
-  schema: 'schema.graphql',
+  schema: '../api/graph/schema/**/*.graphql',
   documents: ['./src/graphql/**/*.js', './src/graphql/**/*.gql'],
   generates: {
+    // Export the schema for IDE support (graphql.config.yml)
+    './schema.graphql': {
+      plugins: ['schema-ast'],
+    },
+
     './src/graphql/types/index.ts': {
       plugins: ['typescript-operations'],
     },

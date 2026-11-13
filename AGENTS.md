@@ -113,7 +113,7 @@ See `apps/nextjs/.claude/rules/folder-structure.md` for detailed folder conventi
 
 ## Important Notes
 
-- GraphQL codegen requires API server running
+- GraphQL codegen reads the schema from `apps/api/graph/schema` (no API server needed)
 - Frontend: port 4001 (dev) / 8080 (prod)
 - Hot reload enabled in both frontend and backend
 - Use pnpm (not npm or yarn)
