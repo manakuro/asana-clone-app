@@ -23,7 +23,9 @@ NEXT_PUBLIC_API_SUBSCRIPTION_URL=ws://localhost:8082/api/subscription
 
 ### 4. Generate GraphQL TypeScript Types
 
-Go to the frontend repository and run the command to generate TypeScript types for the GraphQL schema:
+Generated types are committed, so this step is only needed after changing the GraphQL schema
+(`apps/api/graph/schema`) or queries (`src/graphql`). The schema is read directly from
+`apps/api`, so the backend server does not need to be running.
 
 ```bash
 pnpm codegen
