@@ -23,7 +23,6 @@
     "test:integration": "vitest --project=integration",
     "test:storybook": "vitest --project=storybook",
     "tsc": "tsc",
-    "tsc:scripts": "tsc --p ./scripts/",
     "codegen": "graphql-codegen --config codegen.ts",
     "codegen:watch": "graphql-codegen --config codegen.ts --watch",
     "codegen:ci": "graphql-codegen --config codegen.ts",

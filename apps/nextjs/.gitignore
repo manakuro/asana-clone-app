@@ -48,10 +48,6 @@ yarn-error.log*
 # codegen
 __schema__.graphql
 
-# scripts
-scripts/graphql/*.js
-scripts/util/*.js
-
 ## storybook
 src/stories
 build-storybook.log
