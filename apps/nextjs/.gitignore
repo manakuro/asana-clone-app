@@ -46,7 +46,6 @@ yarn-error.log*
 *.tsbuildinfo
 
 # codegen
-scripts/codegen/token.json
 __schema__.graphql
 
 # scripts
