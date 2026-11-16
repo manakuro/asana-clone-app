@@ -5,6 +5,8 @@
 pre-commit:
   parallel: true
   commands:
+    secretlint:
+      run: pnpm exec secretlint --maskSecrets --no-glob {staged_files}
     nextjs/lint:
       tags: nextjs
       root: apps/nextjs/

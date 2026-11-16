@@ -117,6 +117,8 @@ See `apps/nextjs/.claude/rules/folder-structure.md` for detailed folder conventi
 - Frontend: port 4001 (dev) / 8080 (prod)
 - Hot reload enabled in both frontend and backend
 - Use pnpm (not npm or yarn)
+- Secretlint scans for secrets on pre-commit (lefthook, staged files) and in CI (`.github/workflows/secretlint.yml`, all tracked files). Run `pnpm secretlint` at the repo root to scan manually
+  - Never commit real secrets. For a false positive, wrap only that part with `secretlint-disable` / `secretlint-enable` comments; use `.secretlintignore` only for generated or binary files
 
 ---
 

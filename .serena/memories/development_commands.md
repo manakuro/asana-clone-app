@@ -52,7 +52,7 @@
 - `make e2e` - Run end-to-end tests
 
 ### System Requirements
-- Node.js 24.22.1
+- Node.js 24.22.3
 - Go 1.22.1
 - MySQL database
 - pnpm 12.16.1
