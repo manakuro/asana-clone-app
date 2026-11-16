@@ -11,7 +11,7 @@ An Asana clone application as a portfolio project, built with real-time communic
 - [GraphQL Playground](https://project-management-demo.ebad78r3fqm9m.ap-northeast-1.cs.amazonlightsail.com/playground)
 
 ## Development Environment
-- Node.js 24.22.1
+- Node.js 24.22.3
 - pnpm 12.16.1
 
 ## Set up safe-chain
