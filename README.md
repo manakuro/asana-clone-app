@@ -12,7 +12,7 @@ An Asana clone application as a portfolio project, built with real-time communic
 
 ## Development Environment
 - Node.js 24.22.3
-- pnpm 12.16.1
+- pnpm 12.21.0
 
 ## Set up safe-chain
 

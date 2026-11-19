@@ -55,4 +55,4 @@
 - Node.js 24.22.3
 - Go 1.22.1
 - MySQL database
-- pnpm 12.16.1
+- pnpm 12.21.0
